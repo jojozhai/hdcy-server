@@ -37,7 +37,6 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
-			enable: false,
 			price: 0,
 			images: [],
 			peopleLimit: 0,

@@ -30,7 +30,6 @@ angular.module('contraryAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
-			enable: false,
 			redCount: 0,
 			blueCount: 0
 		});

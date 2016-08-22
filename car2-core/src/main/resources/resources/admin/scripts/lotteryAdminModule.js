@@ -30,8 +30,7 @@ angular.module('lotteryAdminModule',[]).config(function($stateProvider) {
 	$scope.create = function() {
 		$scope.save({
 			prizes: [],
-			limit: 3,
-			enable: false
+			limit: 3
 		});
 	}
 	
