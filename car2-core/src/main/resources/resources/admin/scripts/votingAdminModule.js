@@ -30,7 +30,7 @@ angular.module('votingAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
-			enable: false,
+			enable: false,  
 			price: 0,
 			giftImages: [],
 			peopleLimit: 0,
