@@ -1,0 +1,139 @@
+<style type="text/css">
+	.xs-txtover{
+	    height: 200px;
+	}
+	.huodtpCnt{
+                
+    }
+    .huodChouCnt{
+        height: 32%;
+        padding-bottom: 40px;
+        position: relative;
+    }
+    .huodChouflx{
+        height: 100%;
+        overflow: hidden;
+    }
+    .hd-more{
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        width: 100%;
+        left: 0px;
+    }
+    .hd-more p span{
+        color: #fd7400;
+    }
+    .hd-more i{
+        height: 20px;
+        width: 20px;
+    }
+    .huodChouzhank{
+        height: auto;
+        display: block;
+        padding-bottom: 0px;
+    }
+    .huodChouzhank .hd-more{
+        position: static;
+    }
+</style>
+<div class="headBox">
+	<div class="head">
+		<a ui-sref="app.participation.list" class="back"></a>
+		<h2>{{lottery.name}}</h2>
+	</div>
+</div>
+
+<div id="huodongview" ng-style="{display: view == 'info'?'block':'none'}" style="z-index: 100">
+	<div class="hd-add huodtpCnt" style="padding-top: 0px;">
+		<div class="huodChouCnt" ng-class="{'huodChouzhank': expendDesc}">
+	      <div class="huodChouflx">
+			<h2 class="huod-title"><span>活动介绍</span></h2>
+			<div class="huodChoujbox" ng-bind-html="desc | toHtml"></div>
+	      </div>
+	      <div class="hd-more" ng-style="{display: showDescExtender?'block':'none'}" ng-click="extendDescFunc()">
+              <i ng-style="{'background': expendDesc?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}" ></i>
+          </div>
+		</div>
+		<div class="huodChouCnt" style="margin-top: 12px;" ng-class="{'huodChouzhank': expendRule}">
+		  <div class="huodChouflx">
+			<h2 class="huod-title"><span>活动规则</span></h2>
+			<div class="huodChoujbox" ng-bind-html="rule | toHtml"></div>
+		  </div>
+		  <div class="hd-more" ng-style="{display: showRuleExtender?'block':'none'}" ng-click="extendRuleFunc()">
+              <i ng-style="{'background': expendRule?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}" ></i>
+          </div>
+		</div>
+		<div class="huodChouCnt" style="margin-top: 12px;" ng-class="{'huodChouzhank': expendGift}">
+		  <div class="huodChouflx">
+			<h2 class="huod-title"><span>奖项设置</span></h2>
+			<div class="huodChoujbox" ng-bind-html="gifts | toHtml"></div>
+		  </div>
+		  <div class="hd-more" ng-style="{display: showGiftExtender?'block':'none'}" ng-click="extendGiftFunc()">
+              <i ng-style="{'background': expendGift?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}" ></i>
+          </div>
+		</div>
+	</div>
+	<div class="hd-addbtn" ng-hide="lottery.finish">
+		<a ng-click="join()">立即参加</a>
+	</div>
+	<div class="hd-addbtn" ng-show="lottery.finish">
+		<a href="javascript:;" class="hdjieshu">已结束</a>
+	</div>
+</div>
+
+<div class="hd-add" style="padding-bottom: 0px; z-index: 98" ng-style="{display: (view == 'lottery' || view == 'info')?'block':'none'}">
+	<div class="choujiang">
+		<div class="banner">
+			<div style="position: relative;">
+				<div class="turnplate" style="background-image: url(images/turnplate-bg.png); background-size: 100% 100%;">
+					<canvas hdcy-lottery class="item" id="wheelcanvas" width="422px" height="422px" ></canvas>
+				</div>
+				<div class="huojiang">
+					<p></p>
+					<a ng-click="award(true)"></a>
+				</div>
+				<div class="nohuojiang">
+					<p></p>
+					<a ng-click="award(false)" id="zaiwan"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-style="{display: view == 'success'?'block':'none'}">
+<div class="choujiang-img">
+    <img src="images/choujiang-img.png"  />
+</div>
+<p class="choujiang-txt">长按识别二维码，添加客服领奖吧！</p>
+<div class="choujiang-div">
+    <img src="images/img-17.png"  />
+    <img src="images/qrcode-hdcy.jpg"  />
+</div>
+</div>
+
+<div ng-style="{display: view == 'notPermission'?'block':'none'}">
+<div class="hd-add">
+	<div class="hdzgdiv">
+		<img src="images/img-21.png"  />
+		<p>很遗憾，您今天的抽奖次数已用完。</p>
+	</div>
+	<div class="huodChouCnt hdzgBox">
+		<h2 class="huod-title"><span>如何获得更多的抽奖资格？</span></h2>
+		<ul class="hdzg-ul">
+			<li ng-show="showInfo">
+				<img src="images/zige-01.png"  />
+				<div>完善个人信息，每天最多可获得额外抽奖机会。</div>
+			</li>
+			<li>
+				<img src="images/zige-03.png"  />
+				<div>明天再来试试手气吧，游戏开放期间，每天都会获得抽奖资格。</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="hd-addbtn" ng-show="showInfo">
+	<a ui-sref="app.user.info">立即加入，获取游戏资格</a>
+</div>
+</div>

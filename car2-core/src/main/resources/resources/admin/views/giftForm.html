@@ -1,0 +1,56 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">礼品信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="giftForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="giftForm.name.$invalid && giftForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">礼品名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="gift.name" type="text" class="form-control input-sm" placeholder="礼品名称" required>
+					<label class="control-label" ng-show="giftForm.name.$invalid && giftForm.name.$dirty">礼品名称不能为空</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">所需积分:</label>
+				<div class="col-lg-3" >
+					<input name="point" ng-model="gift.point" type="number" class="form-control input-sm" placeholder="所需积分" required>
+					<label class="control-label has-error" ng-show="giftForm.point.$invalid && giftForm.point.$dirty">所需积分不能为空</label>
+				</div>
+				<label class="control-label col-lg-3">库存数量:</label>
+				<div class="col-lg-3">
+					<input name="stock" ng-model="gift.stock" type="number" class="form-control input-sm" placeholder="库存数量" required>
+					<label class="control-label has-error" ng-show="giftForm.stock.$invalid && giftForm.stock.$dirty">库存数量不能为空</label>
+				</div>
+			</div>
+			<div class="form-group"  ng-class="giftForm.desc.$invalid && giftForm.desc.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">礼品介绍:</label>
+				<div class="col-lg-9">
+					<textarea name="desc" ui-tinymce="tinymceOptions" ng-model="gift.desc" rows="10" cols="70" required></textarea>
+					<label class="control-label" ng-show="giftForm.desc.$invalid && giftForm.desc.$dirty">礼品简介不能为空</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">礼品图片:</label>
+				<div class="col-lg-9">
+					<div style="border: 1px solid #abcdef; float:left; position: relative; width: 192px; height: 108px; margin-top: 10px; margin-right: 10px;" ng-repeat="image in gift.images">
+						<div style="position: absolute; ; right: 3px; bottom: 3px;"><button class="btn btn-danger btn-sm" ng-click="removeImg(image)"><i class="fa fa-times"></i></button></div>
+						<img ng-src="{{image}}" width="192px;"  height="106px;">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3"></label>
+				<div class="col-lg-9">
+					<div class="fileinput-button">
+						<button class="btn btn-info btn-sm"><i class="fa fa-plus m-right-xs"></i>上传图片</button>
+						<input type="file" id="file2" name="file2" pz-uploader action="doUpload2(files)">
+					</div>
+				</div>
+			</div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(gift)" class="btn btn-success btn-sm" ng-disabled="giftForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

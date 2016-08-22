@@ -1,0 +1,119 @@
+<style>
+<!--
+.hd-more i{
+    height: 20px;
+    width: 20px;
+}
+-->
+</style>
+<div class="headBox">
+	<div class="head">
+		<a ui-sref="app.participation.list" class="back"></a>
+		<h2>{{activity.name}}</h2>
+		<a ng-click="showKefuDiv = true" class="kefuIco" ></a>
+	</div>
+</div>
+<div class="hd-Cnt">
+	<div class="hd-box">
+		<div class="hd-txt" ng-bind-html="desc | toHtml"></div>
+		<ul class="hd-img">
+			<li ng-repeat="image in activity.images" ng-click="viewPhoto(image)"><img ng-src="{{image}}"/></li>
+		</ul>
+		<div class="hd-more" ng-style="{display: showExtender?'block':'none'}" ng-click="extendDesc()" ng-class="{'hd-more-zk': extended}">
+			<i ng-style="{'background': extended?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}"></i>
+		</div>
+	</div>
+	<div class="hd-box2">
+		<div class="hd-title">
+			<h2>活动信息</h2>
+			<p>报名人数<span>({{participators.totalElements}})</span></p>
+			<div class="clear"></div>
+		</div>
+		<ul class="hd-manBox">
+			<li>
+				<i class="hd-ico01"></i>
+				<p>活动时间&nbsp;:&nbsp;{{activity.startTime | date:"yyyy-MM-dd HH:mm"}}</p>
+			</li>
+			<li>
+                <i class="hd-ico04"></i>
+                <p>报名截止&nbsp;:&nbsp;{{activity.endTime | date:"yyyy-MM-dd HH:mm"}}</p>
+            </li>
+			<li>
+				<i class="hd-ico02"></i>
+				<p>报名人数&nbsp;:&nbsp;{{activity.peopleLimit}}人<span class="hd-mianfei" style="padding-top: 1px;">{{activityPrice}}</span></p>
+			</li>
+			<li>
+				<i class="hd-ico03"></i>
+				<p>活动地址&nbsp;:&nbsp;{{activity.address}}</p>
+			</li>
+		</ul>
+	</div>
+	<div class="hd-box3">
+		<div class="hd-title">
+			<h2>活动交流</h2>
+			<a ui-sref="app.comment({target: 'activity', targetId: activity.id})">查看全部 > </a>
+			<div class="clear"></div>
+		</div>
+		<ul class="hd-pinglun">
+			<li ng-repeat="comment in comments">
+				<div class="hd-pinglun-user">
+					<img ng-src="{{comment.createrHeadimgurl}}"/>
+					<label><span>{{comment.createrName}}: </span></label>
+				</div>
+				<div class="hd-pinglun-txt">{{comment.content}}</div>
+			</li>
+		</ul>
+		<div class="comment-cnt hd-comment">
+			<input type="text" class="comment-input" readonly="readonly" placeholder="说点啥呗" ng-click="clickCommentInput()">
+			<i></i>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div ng-show="activity.finish">
+    <div class="hd-addbtn">
+        <a href="javascript:;" class="hdjieshu">已结束</a>
+    </div>
+</div>
+<div ng-hide="activity.finish">
+	<div ng-hide="isParticipator">
+	    <a ng-click="clickSignButton()" class="hd-btn">立即报名</a>
+	</div>
+	<div ng-show="isParticipator" class="hd-addbtn">
+	    <a href="javascript:;" class="hdjieshu">已报名</a>
+	</div>
+</div>
+<!--评论弹窗-->
+<div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
+	<div class="commentfix" ng-click="showCommentDiv = false"></div>
+	<div class="commentLayer-cnt">
+		<div class="commentLayer-title">
+			<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
+			<h2>写评论</h2>
+			<a class="comment-fs" ng-click="saveComment(comment); showCommentDiv = false;" ng-class="{'comment-ok': comment.length>0}">发送</a>
+		</div>
+		<textarea class="commentArea" ng-model="comment" autofocus maxlength="300" mirage-comment="activity"></textarea>
+	</div>
+</div>
+<!--评论弹窗 end-->
+<div class="hd-layer" ng-style="{'display': (showKefuDiv || showSignDiv)?'block':'none'}"></div>
+<!--客服-->
+<div class="kefu" ng-style="{'display': showKefuDiv?'block':'none'}">
+	<p>是否立即拨打客服电话进行咨询？</p>
+	<div>
+		<a ng-click="showKefuDiv = false" href="tel:{{activity.contactPhone}}"><img src="images/ico-09.png" /></a>
+		<a ng-click="showKefuDiv = false" class="kefu-colse"><img src="images/ico-10.png" /></a>
+	</div>
+</div>
+<!--客服 end-->
+<!--报名-->
+<div class="hd-baoming" ng-style="{display: showSignDiv?'block':'none'}">
+	<div class="hd-baomingBox">
+		<textarea maxlength="70" placeholder="有什么想对主办方说的吗(可不填)？" ng-model="message"></textarea>
+		<span>{{70-message.length}}</span>
+	</div>
+	<div class="hd-baomingBtn">
+		<a ng-click="enroll(message)" class="hd-bmbtn">立即报名</a>
+		<a ng-click="showSignDiv = false" class="hd-bmClose">朕再想想</a>
+	</div>
+</div>

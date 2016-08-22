@@ -1,0 +1,39 @@
+<div class="cntBox">
+	<div class="headBox">
+		<div class="head commenthead">
+			<a class="back" back-button></a>
+			<h2>{{commentedObj.name}}</h2>
+		</div>
+	</div>
+	<ul class="comment-list commentpos" infinite-scroll="getNextPage()" mirage-scroll="comments" size="35">
+		<li ng-repeat="comment in comments">
+			<div class="comment-lisimg">
+				<a><img ng-src="{{comment.createrHeadimgurl}}"/></a>
+			</div>
+			<div class="comment-listxt">
+				<a class="comment-lisname">{{comment.createrName}}</a>
+				<span  class="comment-time">{{comment.createdTime | hdcyCommentDate}}</span>
+				<div class="comment-liscnt">{{comment.content}}</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<!--评论-->
+<div class="comment">
+	<div class="comment-cnt">
+		<input type="text" class="comment-input"  readonly="readonly" placeholder="说点啥呗" ng-click="showCommentDiv = true"/>
+		<i></i>
+	</div>
+</div>
+<!--评论弹窗-->
+<div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
+	<div class="commentfix" ng-click="showCommentDiv = false"></div>
+	<div class="commentLayer-cnt">
+		<div class="commentLayer-title">
+			<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
+			<h2>写评论</h2>
+			<a class="comment-fs "ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">发送</a>
+		</div>
+		<textarea class="commentArea" ng-model="comment" maxlength="300" autofocus></textarea>
+	</div>
+</div>

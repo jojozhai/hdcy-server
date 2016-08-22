@@ -1,0 +1,33 @@
+<div class="headBox">
+	<div class="head">
+		<a back-button="app.gift.list" class="back"></a>
+		<h2>积分兑换</h2>
+	</div>
+</div>
+<div class="hd-add ">
+	<div class="daka-img">
+		<div class="swiper-container" gift-swiper></div>
+	</div>
+	<div class="jifenvie">
+		<h2 class="huod-title"><span>{{gift.name}}</span></h2>
+		<ul>
+			<li class="jifenvie-li1">
+				<i></i>所需积分 :  {{gift.point}}分
+			</li>
+			<li class="jifenvie-li2">
+				<i></i>剩余数量 :  {{gift.stock}}个 (已兑换{{gift.used}}个)
+			</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="jifenvie-txt" ng-bind-html="gift.desc | toHtml"></div>
+</div>
+<div class="hd-addbtn">
+	<a ng-click="exchange()">立即兑换</a>
+</div>
+<script language="javascript"> 
+var mySwiper = new Swiper('.swiper-container',{
+pagination : '.swiper-pagination',
+//pagination : '#swiper-pagination1',
+})
+</script>

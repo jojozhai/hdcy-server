@@ -1,0 +1,19 @@
+<div class="headBox">
+	<div class="head">
+		<a back-button="app.my.list" class="back"></a>
+		<h2>我的活动</h2>
+	</div>
+</div>
+<ul class="activity-list" infinite-scroll="getNextPage()" mirage-scroll="participations" size="15">
+	<a ng-repeat="participation in participations" ng-click="toDetailsPage(participation.id, participation.type)">
+		<li>
+			<i class="activity-logo"></i>
+			<img ng-src="{{participation.image}}" class="activity-listimg"/>
+			<div class="activity-txt">
+				<h2>{{participation.name}}</h2>
+				<p>{{participation.startTime | date:"yyyy-MM-dd"}}   {{participation.address}}</p>
+				<span><i></i>{{participation.hot}}</span>
+			</div>
+		</li>
+	</a>
+</ul>

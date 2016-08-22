@@ -1,0 +1,31 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">车型信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="carForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="carForm.name.$invalid && carForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">车型名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="car.name" type="text" class="form-control input-sm" placeholder="车型名称" required>
+					<label class="control-label" ng-show="carForm.name.$invalid && carForm.name.$dirty">车型名称不能为空</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">首字母:</label>
+				<div class="col-lg-3" >
+					<input name="letter" ng-model="car.letter" type="text" class="form-control input-sm" placeholder="首字母" required>
+					<label class="control-label has-error" ng-show="carForm.letter.$invalid && carForm.letter.$dirty">首字母不能为空</label>
+				</div>
+				<label class="control-label col-lg-3">顺序号:</label>
+				<div class="col-lg-3">
+					<input name="index" ng-model="car.index" type="number" class="form-control input-sm" placeholder="顺序号" required>
+					<label class="control-label has-error" ng-show="carForm.index.$invalid && carForm.index.$dirty">顺序号不能为空</label>
+				</div>
+			</div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(car)" class="btn btn-success btn-sm" ng-disabled="carForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

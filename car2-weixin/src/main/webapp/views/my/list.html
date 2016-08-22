@@ -1,0 +1,40 @@
+<div class="messagehead dakamess">
+	<!-- <a href="javascript:void(0)" class="back"></a> -->
+	<h2>{{user.nickname}}</h2>
+	<div class="dakamessbox mymar">
+		<div class="dakamess-user">
+			<img ng-src="{{user.headimgurl}}"/>
+		</div>
+	</div>
+	<div class="mytxt">
+		<span>等级：Lv{{user.level}}</span>
+		<span>积分：{{user.point}}分</span>
+	</div>
+</div>
+<ul class="my-nav">
+	<li>
+		<a ui-sref="app.my.info">
+			<img src="images/my-01.png"  />
+			<p>个人资料</p>
+		</a>
+	</li>
+	<li>
+		<a ui-sref="app.my.participation">
+			<img src="images/my-02.png"  />
+			<p>我的活动</p>
+		</a>
+	</li>
+	<li>
+		<a ui-sref="app.gift.list">
+			<img src="images/my-03.png"  />
+			<p>积分兑换</p>
+		</a>
+	</li>
+	<li>
+		<a ui-sref="app.my.about">
+			<img src="images/my-04.png"  />
+			<p>关于我们</p>
+		</a>
+	</li>
+	<div class="clear"></div>
+</ul>

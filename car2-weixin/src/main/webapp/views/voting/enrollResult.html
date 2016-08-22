@@ -1,0 +1,38 @@
+<style>
+<!--
+body {
+	background: #f7f7f7;
+}
+-->
+</style>
+<div class="headBox">
+	<div class="head">
+		<h2 style="padding: 0px 20px;">{{participator.votingName}}</h2>
+	</div>
+</div>
+<div class="hd-add">
+	<div class="hdcanjia-box">
+		<img src="images/img-06.png"  />
+		<h2>您已成功参加活动，投票序号为<span>{{participator.number}}</span></h2>
+		<p>请点击右上角按钮分享活动到朋友圈，让大家为您投票吧~</p>
+	</div>
+	<div class="hdcanjia-box2">
+		<div class="hdcanjia-list">
+			<img ng-src="{{participator.image}}" class="hdcanjia-list-img"/>
+			<div class="hdcanjia-ltop">
+				<div class="hdcanjia-user">
+					<div><img ng-src="{{participator.headimgurl}}" /></div>
+					<label>{{participator.nickname}}</label>
+				</div>
+				<span class="hdcanjia-span">No. {{participator.number}}</span>
+			</div>
+			<div class="hdcanjia-lbottom">
+				{{participator.message}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hd-addbtn">
+	<a ui-sref="app.voting.details({id: participator.votingId})">完成</a>
+</div>

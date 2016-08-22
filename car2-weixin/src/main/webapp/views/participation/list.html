@@ -1,0 +1,35 @@
+<div class="headBox">
+	<div class="head">
+		<!-- <a href="javascript:void(0)" class="back"></a> -->
+		<h2>好多活动</h2>
+	</div>
+</div>
+<ul class="shaixuan">
+	<li>
+		<span class="sx-c" ng-click="showTypeChoice = !showTypeChoice">{{currentType.name}}<i class="shaixuan-ico"></i></span>
+		<div class="shuaixuanType" ng-style="{'display': showTypeChoice?'block':'none'}">
+			<dl>
+				<dd ng-repeat="type in types" ng-class="{'active': currentType.value == type.value}"><a ng-click="changeType(type)">{{type.name}}</a></dd>
+			</dl>
+		</div>
+	</li>
+	<li ><a ng-style="{'color': currentSort=='time'?'#fd7400':'#000000'}" ng-click="sort('time')">时间</a></li>
+	<li ><a ng-style="{'color': currentSort=='hot'?'#fd7400':'#000000'}" ng-click="sort('hot')">热度</a></li>
+	<div class="clear"></div>
+</ul>
+<ul class="activity-list" infinite-scroll="getNextPage()" mirage-scroll="participations" size="15">
+	<a ng-repeat="participation in participations" ng-click="toDetailsPage(participation.id, participation.type)">
+		<li>
+			<i class="activity-logo"></i>
+			<img ng-src="{{participation.image}}" class="activity-listimg"/>
+			<div class="activity-txt">
+				<h2>{{participation.name}}</h2>
+				<p>{{participation.startTime | date:"yyyy-MM-dd"}}   {{participation.address}}</p>
+				<span><i></i>{{participation.hot}}</span>
+			</div>
+			<div class="jieshu" ng-show="{{participation.finish}}">
+	            <img src="images/end.png"  />
+	        </div>
+		</li>
+	</a>
+</ul>

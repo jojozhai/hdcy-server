@@ -1,0 +1,38 @@
+<style type="text/css">
+body{
+	background: #f7f7f7;
+}
+</style>
+<div class="cntBox">
+	<div class="messagehead dakamess">
+		<a back-button="app.leader.list" class="back"></a>
+		<h2>{{leader.nickname}}<span>Lv{{leader.level}}</span></h2>
+		<div class="dakamessbox">
+			<div class="dakamess-user">
+				<img ng-src="{{leader.headimgurl}}"/>
+				<div class="dakamess-type">
+					<span ng-repeat="tag in leader.tags.split(',')">
+					   {{tag}}
+					</span>
+				</div>
+			</div>
+		</div>
+		<p class="dakamess-p">{{leader.intro}}</p>
+	</div>
+	<div class="huodChouCnt hdzgBox">
+		<h2 class="huod-title"><span>相关活动</span></h2>
+		<ul class="activity-list dakamess-hdlist" infinite-scroll="getNextPage()" mirage-scroll="participations" size="15">
+			<a ng-repeat="participation in participations" ng-click="toDetailsPage(participation.id, participation.type)">
+				<li>
+					<i class="activity-logo"></i>
+					<img ng-src="{{participation.image}}" class="activity-listimg"/>
+					<div class="activity-txt">
+						<h2>{{participation.name}}</h2>
+						<p>{{participation.startTime | date:"yyyy-MM-dd"}}   {{participation.address}}</p>
+						<span><i></i>{{participation.hot}}</span>
+					</div>
+				</li>
+			</a>
+		</ul>
+	</div>
+</div>

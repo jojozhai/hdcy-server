@@ -1,0 +1,36 @@
+<div class="headBox">
+	<div class="head">
+		<a back-button="app.my.list" class="back"></a>
+		<h2>积分兑换</h2>
+		<div class="head-right">
+			<a ng-click="showFilterDiv = !showFilterDiv" class="headSort"></a>
+		</div>
+	</div>
+</div>
+<ul class="jifen-list" infinite-scroll="getNextPage()" mirage-scroll="gifts" size="15" sort="used,desc">
+	<a ng-repeat="gift in gifts" ui-sref="app.gift.details({id: gift.id})">
+	<li>
+		<img ng-src="{{gift.images[0]}}" class="jifen-list-img"/>
+		<div class="jifen-listtxt">
+			<img src="images/jifen-02.png"  class="jifen-listtxt-img"/>
+			<h2>{{gift.name}}</h2>
+			<div class="jifen-lisBox">
+				<span>兑换积分</span>
+				<p>{{gift.point}}</p>
+			</div>
+			<div class="jifen-rlisBox">
+				<span>剩余数量</span>
+				<p>{{gift.stock}}</p>
+			</div>
+		</div>
+	</li>
+	</a>
+</ul>
+<div class="messageLayer" ng-style="{display: showFilterDiv?'block':'none'}">
+	<div class="messagefix" ng-click="showFilterDiv = !showFilterDiv"></div>
+	<ul class="messagelayerCnt">
+		<li ng-repeat="tag in tags">
+			<a ng-click="sort(tag)" ng-class="{'active': currentSort.value==tag.value}">{{tag.name}}</a>
+		</li>
+	</ul>
+</div>

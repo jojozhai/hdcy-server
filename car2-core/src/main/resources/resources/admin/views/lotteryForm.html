@@ -1,0 +1,161 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">抽奖信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="lotteryForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="lotteryForm.name.$invalid && lotteryForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="lottery.name" type="text" class="form-control input-sm" placeholder="名称" required>
+					<label class="control-label" ng-show="lotteryForm.name.$invalid && lotteryForm.name.$dirty">名称不能为空</label>
+				</div>
+			</div>
+			<div class="form-group">
+                <label class="control-label col-lg-3">发布:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection" ng-model="lottery.enable" ng-checked="lottery.enable" type="checkbox">
+                        <label for="selection" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+            </div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">主题图:</label>
+				<div class="col-lg-4">
+					<div class="fileinput-button" style="border: 1px solid #abcdef; width: 160px; height: 90px;" >
+						<img ng-src="{{lottery.image}}" width="160px;", height="90px;">
+						<input type="file" id="file1" name="file1" pz-uploader action="doUpload(files)">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">奖品设置:</label>
+				<div class="col-lg-7">
+					<div class="row" ng-repeat="prize in lottery.prizes">
+						<div class="col-lg-3">
+							<input ng-model="prize.rate" type="text" class="form-control input-sm" readonly="readonly" disabled="disabled">
+						</div>
+						<div class="col-lg-3">
+							<input ng-model="prize.count" type="text" class="form-control input-sm" readonly="readonly" disabled="disabled">
+						</div>
+						<div class="col-lg-1">
+							<span ng-bind="prize.win | yesOrNo"></span>
+						</div>
+						<div class="col-lg-5">
+							<p class="input-group" style="margin-bottom: 3px;">
+								<input ng-model="prize.name" type="text" class="form-control input-sm" readonly="readonly" disabled="disabled">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-danger input-sm" ng-click="removePrize(prize)">
+										<i class="fa fa-times"></i>
+									</button>
+								</span>
+							</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3">
+							<input ng-model="newPrize.rate" type="number" ng-keyup="addPrize2($event)" class="form-control input-sm" placeholder="中奖概率">
+						</div>
+						<div class="col-lg-3">
+							<input ng-model="newPrize.count" type="number" ng-keyup="addPrize2($event)" class="form-control input-sm" placeholder="奖品份数">
+						</div>
+						<div class="col-lg-1">
+							<div class="custom-checkbox todo-checkbox">
+								<input id="selection2" ng-model="newPrize.win" ng-checked="newPrize.win" type="checkbox">
+								<label for="selection2" style="margin-top: 4px;"></label>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<p class="input-group" style="margin-bottom: 0px;">
+								<input ng-model="newPrize.name" type="text" ng-keyup="addPrize2($event)" class="form-control input-sm" placeholder="奖品名称">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-info input-sm" ng-click="addPrize(newPrize)">
+										<i class="fa fa-plus"></i>
+									</button>
+								</span>
+							</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="form-group" ng-class="lotteryForm.startTime.$invalid && lotteryForm.startTime.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3" style="padding-top: 40px;">开始时间:</label>
+				<div class="col-md-3">
+					<p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+						<input type="text" uib-datepicker-popup name="startTime" ng-model="lottery.startTime" class="form-control input-sm" is-open="popup1.opened"
+							datepicker-options="dateOptions" placeholder="开始时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default input-sm" ng-click="open1()">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
+					</p>
+					<label class="control-label has-error" ng-show="lotteryForm.startTime.$error.date && lotteryForm.startTime.$dirty">
+						时间格式错误
+					</label>
+					<label class="control-label has-error" ng-show="lotteryForm.startTime.$error.required && lotteryForm.startTime.$dirty">
+						开始时间不能为空
+					</label>
+				</div>
+				<div class="col-md-3">
+					<uib-timepicker class="input-sm" ng-model="lottery.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+				</div>
+				
+			</div>
+			<div class="form-group" ng-class="lotteryForm.endTime.$invalid && lotteryForm.endTime.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3" style="padding-top: 40px;">结束时间:</label>
+				<div class="col-md-3">
+					<p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+						<input type="text" uib-datepicker-popup name="endTime" ng-model="lottery.endTime" class="form-control input-sm" is-open="popup2.opened"
+							datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default input-sm" ng-click="open2()">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</button>
+						</span>
+					</p>
+					<label class="control-label has-error" ng-show="lotteryForm.endTime.$error.date && lotteryForm.endTime.$dirty">
+						时间格式错误
+					</label>
+					<label class="control-label has-error" ng-show="lotteryForm.endTime.$error.required && lotteryForm.endTime.$dirty">
+						结束时间不能为空
+					</label>
+				</div>
+				<div class="col-md-3">
+					<uib-timepicker class="input-sm" ng-model="lottery.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">活动介绍:</label>
+				<div class="col-lg-9">
+					<textarea ui-tinymce="tinymceOptions" ng-model="lottery.desc" required="required"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">活动规则:</label>
+				<div class="col-lg-9">
+					<textarea ui-tinymce="tinymceOptions" ng-model="lottery.rule" required="required"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">奖品设置:</label>
+				<div class="col-lg-9">
+					<textarea ui-tinymce="tinymceOptions" ng-model="lottery.gifts" required="required"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3">抽奖次数:</label>
+				<div class="col-lg-3" >
+					<input name="limit" ng-model="lottery.limit" type="number" class="form-control input-sm" placeholder="抽奖次数" required>
+					<label class="control-label has-error" ng-show="lotteryForm.limit.$invalid && lotteryForm.limit.$dirty">抽奖次数不能为空</label>
+				</div>
+			</div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(lottery)" class="btn btn-success btn-sm" ng-disabled="lotteryForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

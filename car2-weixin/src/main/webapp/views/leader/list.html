@@ -1,0 +1,31 @@
+<style type="text/css">
+	body {
+		background: #f7f7f7;
+	}
+	
+	.xs-txtover {
+		height: 200px;
+	}
+</style>
+<div class="headBox">
+	<div class="head">
+		<!-- <a back-button class="back"></a> -->
+		<h2>好多大咖</h2>
+		<span class="headuser" ng-click="gotoApplyPage()"></span>
+	</div>
+</div>
+<div class="daka-img">
+	<div class="swiper-container" leader-swiper></div>
+</div>
+<ul class="daka-list" infinite-scroll="getNextPage()" mirage-scroll="leaders" size="40" sort="approveDate,asc">
+	<li ng-repeat="leader in leaders">
+		<a ui-sref="app.leader.details({id: leader.id, userId: leader.userId})">
+			<div class="daka-list-img">
+				<img ng-src="{{leader.headimgurl}}"/>
+				<i></i>
+			</div>
+			<p>{{leader.nickname}}</p>
+			<label>{{leader.participationCount}}次活动</label>
+		</a>
+	</li>
+</ul>

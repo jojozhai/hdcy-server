@@ -1,0 +1,17 @@
+<div ui-view ng-class="{'cnt-height': !globalConfig.enablePullToRefresh}"></div>
+
+<a href="javascript:void(0)" ng-click="showMenuBox = true" class="deil-menu"></a>
+<div class="menufix" ng-style="{display:showMenuBox?'block':'none'}" ng-click="showMenuBox = false; showQrcode = false;"></div>
+<div class="menuBox" ng-style="{display:showMenuBox?'block':'none'}">
+	<ul>
+		<li><a ui-sref="app.article.list" ng-click="showMenuBox = false; showQrcode = false;" class="menu-ico1"><i></i>资讯</a></li>
+		<li><a ui-sref="app.leader.list" ng-click="showMenuBox = false; showQrcode = false;" class="menu-ico5"><i></i>大咖</a></li>
+		<li><a ui-sref="app.participation.list" ng-click="showMenuBox = false; showQrcode = false;" class="menu-ico3"><i></i>活动</a></li>
+		<li><a ui-sref="app.my.list" ng-click="showMenuBox = false; showQrcode = false;" class="menu-ico2"><i></i>我的</a></li>
+		<li><a href="javacript:void(0)" ng-click="showQrcode = true" class="menu-ico4"><i></i>关注</a></li>
+	</ul>
+</div>
+<div class="guanzhubox" ng-style="{display:showQrcode?'block':'none'}">
+	<img src="images/erweima.png" />
+	<p>长按识别二维码</p>
+</div>

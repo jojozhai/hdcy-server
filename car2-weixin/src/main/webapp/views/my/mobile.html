@@ -1,0 +1,29 @@
+<div class="headBox">
+	<div class="head">
+		<a back-button class="back"></a>
+		<h2>修改手机号码</h2>
+	</div>
+</div>
+<form name="mainForm" novalidate>
+<div class="hdzb-box">
+	<div class="hdzbBox wsxx-cnt">
+		
+		<ul>
+			<li class="wsxx-li2">
+				<input name="oldMobile" type="text" ng-pattern="'1[0-9]{10}'" maxlength="11" auto-select ng-model="user.oldMobile" class="wsxx-input"  placeholder="请输入原手机号码"/>
+				<label class="control-label" ng-show="mainForm.oldMobile.$error.pattern && mainForm.oldMobile.$dirty"><font style="color: red">请输入合法的电话号码</font></label>
+			</li>
+			<li class="wsxx-li2">
+				<input name="newMobile" type="text" ng-pattern="'1[0-9]{10}'" maxlength="11" auto-select ng-model="user.newMobile" class="wsxx-input"  placeholder="请输入新手机号码"/>
+				<label class="control-label" ng-show="mainForm.newMobile.$error.pattern && mainForm.newMobile.$dirty"><font style="color: red">请输入合法的电话号码</font></label>
+			</li>
+			<li class="wsxx-li3">
+				<input type="text" maxlength="6" auto-select ng-model="user.code" class="wsxx-input"  placeholder="6位验证码，10分钟内有效"/>
+				<a ng-click="sendSmsCode(user)" class="getcode">获取验证码</a>
+			</li>
+		</ul>
+	</div>
+	<a ng-click="updateMobile(user)"class="hdzbBox-btn"> 确认</a>
+</div>
+</form> 
+</div>

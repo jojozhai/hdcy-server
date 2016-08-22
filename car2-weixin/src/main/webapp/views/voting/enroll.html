@@ -1,0 +1,32 @@
+<style>
+<!--
+body {
+	background: #f7f7f7;
+}
+-->
+</style>
+<div class="headBox">
+	<div class="head">
+		<a back-button class="back"></a>
+		<h2>{{voting.name}}</h2>
+	</div>
+</div>
+<div class="hd-add">
+	<div class="hdupimg-box">
+		<div class="hdupimg">
+			<img ng-src="{{enroll.image}}" ng-click="choiceImage('image')" />
+		</div>
+	</div>
+	<div class="hdupimg-box" style="margin-top: 20px;">
+		<div class="hdtext-box">
+			<div class="hd-baomingBox">
+				<textarea maxlength="70" ng-model="enroll.message" placeholder="说点什么吧..."></textarea>
+				<span>{{70-enroll.message.length}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hd-addbtn">
+	<a ng-click="doEnroll(enroll)">提交</a>
+</div>

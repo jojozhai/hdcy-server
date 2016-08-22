@@ -1,0 +1,81 @@
+<style>
+<!--
+body {
+	background: #f7f7f7;
+}
+-->
+</style>
+<div class="headBox">
+	<div class="head">
+		<a ui-sref="app.voting.details({id: participator.votingId})" class="back"></a>
+		<h2>{{participator.votingName}}</h2>
+	</div>
+</div>
+<div class="hd-add">
+	<div class="toupiaoimg">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img ng-src="{{participator.image}}"/>
+				</div>
+			</div>
+			<div ng-click="gotoNextParticipator(false)" class="swiper-button-prev" style="z-index: 9999"></div>
+			<div ng-click="gotoNextParticipator(true)" class="swiper-button-next"></div>
+		</div>
+		<div class="toupiaoimg-bottom">
+			<label>No. {{participator.number}}</label>
+			<span><i></i>{{participator.voteCount}}</span>
+		</div>
+	</div>
+	<div class="toupiao-list">
+		<div class="toupiao-us">
+			<img ng-src="{{participator.headimgurl}}"/>
+			<p>
+				<label>{{participator.nickname}}</label>
+				<span>Lv{{participator.level}}</span>
+			</p>
+		</div>
+		<div class="toupiao-type">
+			<span ng-repeat="tag in tags" style="margin-right: 3px;" ng-show="{{tag.length > 0}}">{{tag}}</span>
+		</div>
+		<div class="clear"></div>
+		<p class="toupiao-txt">{{participator.message}}</p>
+	</div>
+</div>
+
+<div class="hd-addbtn">
+	<a ng-click="vote(participator.id)">投一票</a>
+</div>
+<!--弹窗-->
+<div class="toupiaolayer" ng-style="{display: showMessage1Div?'block':'none'}">
+	<div class="toupiaoflex" ng-click="showMessage1Div = false" ng-style="{display: showMessage1Div?'block':'none'}"></div>
+	<div class="toupiaotan">
+		<img src="images/img-10.png" class="toupiaotan-img" />
+		<p class="toupiaotan-p1">您已经投过票啦!</p>
+		<p class="toupiaotan-p2">为了避免恶意投票，请完善一下个人信息吧^-^</p>
+		<p class="toupiaotan-p3">（完善所有信息后每日可获得最多<span>{{permission.voteMax}}次</span>投票权限）</p>
+		<div class="toupiaotan-btn">
+			<a ng-click="toUserInfoPage('main')" class="active">立即完善</a>
+			<a ng-click="showMessage1Div = false" class="toupiaotan-qx">朕再想想</a>
+		</div>
+	</div>
+</div>
+<div class="toupiaolayer" ng-style="{display: showMessage2Div?'block':'none'}">
+	<div class="toupiaoflex" ng-click="showMessage2Div = false" ng-style="{display: showMessage2Div?'block':'none'}"></div>
+	<div class="toupiaotan">
+		<img src="images/img-10.png" class="toupiaotan-img" />
+		<p class="toupiaotan-p1">您已经投过{{permission.voteLimit}}票啦!</p>
+		<p class="toupiaotan-p3">（完善所有信息可以获得额外的<span>{{permission.voteMax - permission.voteLimit}}次</span>投票权限哦^-^）</p>
+		<div class="toupiaotan-btn">
+			<a ng-click="toUserInfoPage('addtion')" class="active">立即完善</a>
+			<a ng-click="showMessage2Div = false" class="toupiaotan-qx">朕再想想</a>
+		</div>
+	</div>
+</div>
+<div class="toupiaolayer" ng-style="{display: showMessage3Div?'block':'none'}">
+	<div class="toupiaoflex" ng-click="showMessage3Div = false" ng-style="{display: showMessage3Div?'block':'none'}"></div>
+	<div class="toupiaotan">
+		<img src="images/img-10.png" class="toupiaotan-img" />
+		<p class="toupiaotan-p1">您已经投过{{permission.voteLimit}}票啦!投票权限已用完.</p>
+	</div>
+</div>

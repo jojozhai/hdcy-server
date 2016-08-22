@@ -1,0 +1,113 @@
+<div class="headBox">
+	<div class="head">
+		<a back-button="app.my.list" class="back"></a>
+		<h2>个人资料</h2>
+	</div>
+</div>
+<div class="gerembox">
+	<ul class="gerem-list">
+		<li class="gerem-jt">
+			<label class="gerem-tx">头像</label>
+			<div class="geremlisbox">
+				<img ng-src="{{user.headimgurl}}" ng-click="choiceImage('headimgurl')" class="geremlis-touximg"/>
+				<i></i>
+			</div>
+		</li>
+		<li class="gerem-jt">
+			<label >昵称</label>
+			<div class="geremlisbox">
+				<input type="text" ng-model="user.nickname" auto-select class="gerem-text"/>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="gerembox gerembox2">
+	<ul class="gerem-list">
+		<li class="gerem-jt">
+			<label>姓名</label>
+			<div class="geremlisbox">
+				<input type="text" class="gerem-text" auto-select ng-model="user.realname" ng-readonly="isRealnameReadonly()"/>
+			</div>
+		</li>
+		<li class="gerem-jt">
+			<label>性别</label>
+			<div class="geremlisbox" ng-hide="isSexReadonly()">
+				<select class="gerem-select" ng-model="user.sex" ng-options="sex.value as sex.name for sex in sexs"></select>
+			</div>
+			<div class="geremlisbox" ng-show="isSexReadonly()">
+                {{user.sex | sex}}
+            </div>
+		</li>
+		<li class="gerem-jt">
+			<label >手机</label>
+			<div class="geremlisbox">
+				<input type="text" class="gerem-text" ng-model="user.mobile" readonly="readonly" ng-click="changeMobile()"/>
+				<i></i>
+			</div>
+		</li>
+		<!-- <li class="gerem-jt">
+			<label >密码</label>
+			<div class="geremlisbox">
+				<input type="password" class="gerem-text" value="1313"/>
+				<i></i>
+			</div>
+		</li> -->
+	</ul>
+</div>
+<div class="gerembox gerembox2" style="margin-bottom: 40px;">
+	<ul class="gerem-list">
+		<li class="gerem-jt">
+			<label>出生年月</label>
+			<div class="geremlisbox">
+				<input type="text" class="gerem-text"  id='my-inputs' ng-model="user.birthday" mobiscroll-calendar="settings" mobiscroll-instance="demo" />
+			</div>
+		</li>
+		<li class="gerem-jt">
+			<label>所在地</label>
+			<div class="geremlisbox">
+				<input type="text" id='city-picker' class="gerem-text" city-picker ng-model="user.location"/>
+			</div>
+		</li>
+		<li class="gerem-jt">
+			<label>车型</label>
+			<div class="geremlisbox">
+				<select class="gerem-select" style="z-index: 0" ng-model="user.car" ng-options="car.name as car.name group by car.letter for car in cars"></select>
+			</div>
+		</li>
+		<li class="gerem-jt">
+			<label>兴趣</label>
+			<div class="geremlisbox">
+				<input type="text" class="gerem-text" ng-model="user.tags" ng-click="showTagDiv = true" readonly="readonly"/>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="commentLayer" ng-style="{display: showTagDiv?'block':'none'}">
+	<div class="commentfix" ng-click="showTagDiv = false"></div>
+	<div class="commentLayer-cnt">
+		<div class="xxtype">
+			<h2 class="huod-title"><span>请选择您的喜好(最多4个)</span></h2>
+			<div class="xxtypeBox">
+				<span ng-repeat="like in likes" ng-click="clickLike(like)" ng-class="{'active': isSelectedLike(like)}">{{like}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--弹窗-->
+<div class="commentLayer" ng-style="{display: showLikeDiv?'block':'none'}">
+	<div class="commentfix"></div>
+	<div class="commentLayer-cnt">
+		<div class="commentLayer-title">
+			<a ng-click="showLikeDiv = false" class="comment-qx">取消</a>
+			<h2>请输入</h2>
+			<a ng-click="addLike(newLike)" class="comment-fs " ng-style="{'color': newLike.length>0?'#000000':'#a8a8a8'}">确定</a>
+		</div>
+		<input type="text" ng-model="newLike" maxlength="5" class="xs-input"/>
+	</div>
+</div>
+<!--弹窗 end-->
+
+<div class="hd-addbtn">
+	<a ng-click="save(user)">保存</a>
+</div>
