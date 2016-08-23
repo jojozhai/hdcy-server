@@ -30,6 +30,8 @@ public class ParticipationSpec extends PzSimpleSpecification<Participation, Part
 		}
 		
 		addEqualsCondition(queryWraper, "enable");
+		addEqualsCondition(queryWraper, "top");
+		addEqualsCondition(queryWraper, "recommend");
 	}
 
 }

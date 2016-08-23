@@ -30,15 +30,19 @@ public class LotteryInfo extends ParticipationInfo {
 	 * 奖品
 	 */
 	private String gifts;
-	
 	/**
-	 * 完善必填信息的可抽奖数
+	 * 
 	 */
-	private int limit1;
-	/**
-	 * 完善所有信息的可抽奖数
-	 */
-	private int limit2;
+	private int limit;
+//	
+//	/**
+//	 * 完善必填信息的可抽奖数
+//	 */
+//	private int limit1;
+//	/**
+//	 * 完善所有信息的可抽奖数
+//	 */
+//	private int limit2;
 	
 	/**
 	 * @return the rule
@@ -88,29 +92,41 @@ public class LotteryInfo extends ParticipationInfo {
 	public void setPrizes(List<Prize> prizes) {
 		this.prizes = prizes;
 	}
-	/**
-	 * @return the limit1
-	 */
-	public int getLimit1() {
-		return limit1;
-	}
-	/**
-	 * @param limit1 the limit1 to set
-	 */
-	public void setLimit1(int limit1) {
-		this.limit1 = limit1;
-	}
-	/**
-	 * @return the limit2
-	 */
-	public int getLimit2() {
-		return limit2;
-	}
-	/**
-	 * @param limit2 the limit2 to set
-	 */
-	public void setLimit2(int limit2) {
-		this.limit2 = limit2;
-	}
+//	/**
+//	 * @return the limit1
+//	 */
+//	public int getLimit1() {
+//		return limit1;
+//	}
+//	/**
+//	 * @param limit1 the limit1 to set
+//	 */
+//	public void setLimit1(int limit1) {
+//		this.limit1 = limit1;
+//	}
+//	/**
+//	 * @return the limit2
+//	 */
+//	public int getLimit2() {
+//		return limit2;
+//	}
+//	/**
+//	 * @param limit2 the limit2 to set
+//	 */
+//	public void setLimit2(int limit2) {
+//		this.limit2 = limit2;
+//	}
+    /**
+     * @return the limit
+     */
+    public int getLimit() {
+        return limit;
+    }
+    /**
+     * @param limit the limit to set
+     */
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 	
 }

@@ -18,6 +18,25 @@
                         <label for="selection" style="margin-top: 4px;"></label>
                     </div>
                 </div>
+                <label class="control-label col-lg-1">置顶:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection3" ng-model="activity.top" ng-checked="activity.top" type="checkbox">
+                        <label for="selection3" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+                <label class="control-label col-lg-2">置顶顺序:</label>
+                <div class="col-lg-2">
+                    <input name="topIndex" ng-model="activity.topIndex" type="number" class="form-control input-sm" placeholder="置顶顺序" required>
+                    <label class="control-label" ng-show="activityForm.topIndex.$invalid && activityForm.topIndex.$dirty">置顶顺序能为空</label>
+                </div>
+                <label class="control-label col-lg-1">推荐:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection2" ng-model="activity.recommend" ng-checked="activity.recommend" type="checkbox">
+                        <label for="selection2" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
             </div>
 			<div class="form-group"  ng-class="activityForm.address.$invalid && activityForm.address.$dirty ? 'has-error': ''">
 				<label class="control-label col-lg-3">活动地址:</label>

@@ -84,6 +84,18 @@ public class ParticipationInfo {
 	 * 吸粉数
 	 */
 	private int fansval;
+	/**
+     * 置顶
+     */
+    private Boolean top;
+    /**
+     * 置顶顺序
+     */
+    private Integer topIndex;
+    /**
+     * 推荐
+     */
+    private Boolean recommend;
 
 	public String getSponsor() {
 		return sponsor;
@@ -349,6 +361,48 @@ public class ParticipationInfo {
      */
     public void setEnable(Boolean enable) {
         this.enable = enable;
+    }
+
+    /**
+     * @return the top
+     */
+    public Boolean getTop() {
+        return top;
+    }
+
+    /**
+     * @param top the top to set
+     */
+    public void setTop(Boolean top) {
+        this.top = top;
+    }
+
+    /**
+     * @return the topIndex
+     */
+    public Integer getTopIndex() {
+        return topIndex;
+    }
+
+    /**
+     * @param topIndex the topIndex to set
+     */
+    public void setTopIndex(Integer topIndex) {
+        this.topIndex = topIndex;
+    }
+
+    /**
+     * @return the recommend
+     */
+    public Boolean getRecommend() {
+        return recommend;
+    }
+
+    /**
+     * @param recommend the recommend to set
+     */
+    public void setRecommend(Boolean recommend) {
+        this.recommend = recommend;
     }
 
 }

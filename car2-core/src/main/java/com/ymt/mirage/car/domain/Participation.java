@@ -86,6 +86,19 @@ public class Participation extends DomainImpl implements Commentable {
 	 */
 	@ManyToOne
 	private Sponsor sponsor;
+	
+	/**
+	 * 置顶
+	 */
+	private boolean top;
+	/**
+     * 置顶
+     */
+    private int topIndex;
+    /**
+     * 推荐
+     */
+    private boolean recommend;
 
 	public Sponsor getSponsor() {
 		return sponsor;
@@ -303,6 +316,48 @@ public class Participation extends DomainImpl implements Commentable {
      */
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    /**
+     * @return the top
+     */
+    public boolean isTop() {
+        return top;
+    }
+
+    /**
+     * @param top the top to set
+     */
+    public void setTop(boolean top) {
+        this.top = top;
+    }
+
+    /**
+     * @return the topIndex
+     */
+    public int getTopIndex() {
+        return topIndex;
+    }
+
+    /**
+     * @param topIndex the topIndex to set
+     */
+    public void setTopIndex(int topIndex) {
+        this.topIndex = topIndex;
+    }
+
+    /**
+     * @return the recommend
+     */
+    public boolean isRecommend() {
+        return recommend;
+    }
+
+    /**
+     * @param recommend the recommend to set
+     */
+    public void setRecommend(boolean recommend) {
+        this.recommend = recommend;
     }
 
 }

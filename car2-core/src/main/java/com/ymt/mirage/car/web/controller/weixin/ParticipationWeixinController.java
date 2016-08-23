@@ -39,12 +39,12 @@ public class ParticipationWeixinController {
 		List<Order> orders = new ArrayList<Order>();
 		if(StringUtils.equals(sortType, "time")){
 		    orders.add(new Order(Direction.ASC, "finish"));
-			orders.add(new Order(Direction.DESC, "startTime"));
+			orders.add(new Order(Direction.DESC, "endTime"));
 			orders.add(new Order(Direction.DESC, "hot"));
 		}else{
 			orders.add(new Order(Direction.ASC, "finish"));
 			orders.add(new Order(Direction.DESC, "hot"));
-			orders.add(new Order(Direction.DESC, "startTime"));
+			orders.add(new Order(Direction.DESC, "endTime"));
 		}
 		pageable = new PageRequest(pageable.getPageNumber(), pageable.getPageSize(), new Sort(orders));
 		return participationService.query(participationInfo, pageable);

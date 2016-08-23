@@ -29,6 +29,9 @@ angular.module('lotteryAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
+			top: false,
+			topIndex: 0,
+			recommend: false,
 			prizes: [],
 			limit: 3,
 			enable: false
@@ -147,9 +150,14 @@ angular.module('lotteryAdminModule',[]).config(function($stateProvider) {
 
 	$scope.lottery = lottery;
 	
+	for (var int = 0; int < lottery.prizes.length; int++) {
+		probability += lottery.prizes[int].rate;
+	}
+	
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
 	
 	$scope.save = function(lottery) {
+		console.log(probability);
 		if(probability!=100){
 			alert("中奖概率和应为100")
 		}else{
