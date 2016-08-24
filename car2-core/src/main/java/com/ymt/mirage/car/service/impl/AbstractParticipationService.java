@@ -23,4 +23,10 @@ public class AbstractParticipationService {
 		}
 	}
 
+    protected void checkFinishOnUpdate(Participation participation) {
+        if(new DateTime(participation.getEndTime()).isAfterNow()) {
+            participation.setFinish(false);
+        }
+    }
+
 }

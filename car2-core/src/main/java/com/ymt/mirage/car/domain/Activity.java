@@ -4,11 +4,14 @@
 package com.ymt.mirage.car.domain;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author zhailiang
@@ -20,6 +23,17 @@ public class Activity extends Participation {
 	public Activity() {
 		setType(ParticipationType.ACTIVITY);
 	}
+	
+	/**
+     * 报名开始时间
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date signStartTime;
+    /**
+     * 报名结束时间
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date signEndTime;
 	
 	/**
 	 * 客服
@@ -132,7 +146,35 @@ public class Activity extends Participation {
 		this.images = images;
 	}
 
-	@Override
+	/**
+     * @return the signStartTime
+     */
+    public Date getSignStartTime() {
+        return signStartTime;
+    }
+
+    /**
+     * @param signStartTime the signStartTime to set
+     */
+    public void setSignStartTime(Date signStartTime) {
+        this.signStartTime = signStartTime;
+    }
+
+    /**
+     * @return the signEndTime
+     */
+    public Date getSignEndTime() {
+        return signEndTime;
+    }
+
+    /**
+     * @param signEndTime the signEndTime to set
+     */
+    public void setSignEndTime(Date signEndTime) {
+        this.signEndTime = signEndTime;
+    }
+
+    @Override
 	public String toString() {
 		return "Activity [customerService=" + customerService + ", images=" + images + ", contactPhone=" + contactPhone
 				+ ", contactWeixin=" + contactWeixin + ", peopleLimit=" + peopleLimit + ", price=" + price + "]";

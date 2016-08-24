@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Activity;
@@ -24,6 +23,7 @@ import com.ymt.mirage.car.repository.KeyWordRepository;
 import com.ymt.mirage.car.repository.SponsorRepository;
 import com.ymt.mirage.car.repository.spec.ActivitySpec;
 import com.ymt.mirage.car.service.ActivityService;
+import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
 import com.ymt.pz365.framework.core.exception.PzException;
 
@@ -33,7 +33,7 @@ import com.ymt.pz365.framework.core.exception.PzException;
  */
 @Service("activityService")
 @Transactional
-public class ActivityServiceImpl implements ActivityService {
+public class ActivityServiceImpl extends AbstractParticipationService implements ActivityService {
 
 	@Autowired
 	private ActivityRepository activityRepository;
@@ -95,6 +95,7 @@ public class ActivityServiceImpl implements ActivityService {
 		Activity activity = activityRepository.findOne(activityInfo.getId());
 		BeanUtils.copyProperties(activityInfo, activity);
 		activity.setType(ParticipationType.ACTIVITY);
+		checkFinishOnUpdate(activity);
 		activityRepository.save(activity);
 		return activityInfo;
 	}

@@ -24,7 +24,7 @@ import com.ymt.pz365.data.jpa.support.QueryResultConverter;
  */
 @Service("lotteryService")
 @Transactional
-public class LotteryServiceImpl implements LotteryService {
+public class LotteryServiceImpl extends AbstractParticipationService implements LotteryService {
 
 	@Autowired
 	private LotteryRepository lotteryRepository;
@@ -57,6 +57,7 @@ public class LotteryServiceImpl implements LotteryService {
 		Lottery lottery = lotteryRepository.findOne(lotteryInfo.getId());
 		BeanUtils.copyProperties(lotteryInfo, lottery);
 		lottery.setType(ParticipationType.LOTTERY);
+		checkFinishOnUpdate(lottery);
 		lotteryRepository.save(lottery);
 		return lotteryInfo;
 	}

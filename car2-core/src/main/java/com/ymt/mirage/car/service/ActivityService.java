@@ -3,9 +3,11 @@
  */
 package com.ymt.mirage.car.service;
 
+import org.joda.time.DateTime;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.ymt.mirage.car.domain.Participation;
 import com.ymt.mirage.car.dto.ActivityInfo;
 
 /**
@@ -23,5 +25,5 @@ public interface ActivityService {
 	ActivityInfo update(ActivityInfo activityInfo);
 
 	void delete(Long id);
-	
+
 }
