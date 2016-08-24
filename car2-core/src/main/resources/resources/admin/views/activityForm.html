@@ -54,11 +54,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group" ng-class="activityForm.startTime.$invalid && activityForm.startTime.$dirty ? 'has-error': ''">
-				<label class="control-label col-lg-3" style="padding-top: 40px;">开始时间:</label>
+			<div class="form-group" ng-class="activityForm.signStartTime.$invalid && activityForm.signStartTime.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3" style="padding-top: 40px;">报名开始时间:</label>
 				<div class="col-md-3">
 					<p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
-						<input type="text" uib-datepicker-popup name="startTime" ng-model="activity.startTime" class="form-control input-sm" is-open="popup1.opened"
+						<input type="text" uib-datepicker-popup name="signStartTime" ng-model="activity.signStartTime" class="form-control input-sm" is-open="popup1.opened"
 							datepicker-options="dateOptions" placeholder="开始时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default input-sm" ng-click="open1()">
@@ -66,40 +66,86 @@
 							</button>
 						</span>
 					</p>
-					<label class="control-label has-error" ng-show="activityForm.startTime.$error.date && activityForm.startTime.$dirty">
+					<label class="control-label has-error" ng-show="activityForm.signStartTime.$error.date && activityForm.signStartTime.$dirty">
 						时间格式错误
 					</label>
-					<label class="control-label has-error" ng-show="activityForm.startTime.$error.required && activityForm.startTime.$dirty">
-						开始时间不能为空
+					<label class="control-label has-error" ng-show="activityForm.signStartTime.$error.required && activityForm.signStartTime.$dirty">
+						报名开始时间不能为空
 					</label>
 				</div>
 				<div class="col-md-3">
-					<uib-timepicker class="input-sm" ng-model="activity.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+					<uib-timepicker class="input-sm" ng-model="activity.signStartTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
 				</div>
 			</div>
-			<div class="form-group" ng-class="activityForm.endTime.$invalid && activityForm.endTime.$dirty ? 'has-error': ''">
-				<label class="control-label col-lg-3" style="padding-top: 40px;">报名截止时间:</label>
-				<div class="col-md-3">
-					<p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
-						<input type="text" uib-datepicker-popup name="endTime" ng-model="activity.endTime" class="form-control input-sm" is-open="popup2.opened"
-							datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default input-sm" ng-click="open2()">
-								<i class="glyphicon glyphicon-calendar"></i>
-							</button>
-						</span>
-					</p>
-					<label class="control-label has-error" ng-show="activityForm.endTime.$error.date && activityForm.endTime.$dirty">
-						时间格式错误
-					</label>
-					<label class="control-label has-error" ng-show="activityForm.endTime.$error.required && activityForm.endTime.$dirty">
-						结束时间不能为空
-					</label>
-				</div>
-				<div class="col-md-3">
-					<uib-timepicker class="input-sm" ng-model="activity.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
-				</div>
-			</div>
+			<div class="form-group" ng-class="activityForm.signEndTime.$invalid && activityForm.signEndTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">报名结束时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="signEndTime" ng-model="activity.signEndTime" class="form-control input-sm" is-open="popup2.opened"
+                            datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="activityForm.signEndTime.$error.date && activityForm.signEndTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="activityForm.signEndTime.$error.required && activityForm.signEndTime.$dirty">
+                        报名结束时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="activity.signEndTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
+            <div class="form-group" ng-class="activityForm.startTime.$invalid && activityForm.startTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">活动开始时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="startTime" ng-model="activity.startTime" class="form-control input-sm" is-open="popup1.opened"
+                            datepicker-options="dateOptions" placeholder="开始时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open1()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="activityForm.startTime.$error.date && activityForm.startTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="activityForm.startTime.$error.required && activityForm.startTime.$dirty">
+                        活动开始时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="activity.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
+            <div class="form-group" ng-class="activityForm.endTime.$invalid && activityForm.endTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">活动结束时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="endTime" ng-model="activity.endTime" class="form-control input-sm" is-open="popup2.opened"
+                            datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="activityForm.endTime.$error.date && activityForm.endTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="activityForm.endTime.$error.required && activityForm.endTime.$dirty">
+                        活动结束时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="activity.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
 			
 			<div class="form-group">
 				<label class="control-label col-lg-3">活动主办方:</label>

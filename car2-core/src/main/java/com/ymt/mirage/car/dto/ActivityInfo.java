@@ -4,6 +4,7 @@
 package com.ymt.mirage.car.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 
@@ -38,6 +39,14 @@ public class ActivityInfo extends ParticipationInfo {
 	 * 客服
 	 */
 	private long customerServiceId;
+	/**
+     * 报名开始时间
+     */
+    private Date signStartTime;
+    /**
+     * 报名结束时间
+     */
+    private Date signEndTime;
 
 	public long getCustomerServiceId() {
 		return customerServiceId;
@@ -136,6 +145,34 @@ public class ActivityInfo extends ParticipationInfo {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
+    /**
+     * @return the signStartTime
+     */
+    public Date getSignStartTime() {
+        return signStartTime;
+    }
+
+    /**
+     * @param signStartTime the signStartTime to set
+     */
+    public void setSignStartTime(Date signStartTime) {
+        this.signStartTime = signStartTime;
+    }
+
+    /**
+     * @return the signEndTime
+     */
+    public Date getSignEndTime() {
+        return signEndTime;
+    }
+
+    /**
+     * @param signEndTime the signEndTime to set
+     */
+    public void setSignEndTime(Date signEndTime) {
+        this.signEndTime = signEndTime;
+    }
 
     @Override
 	public String toString() {

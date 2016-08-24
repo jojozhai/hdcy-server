@@ -24,7 +24,7 @@ import com.ymt.pz365.data.jpa.support.QueryResultConverter;
  */
 @Service("contraryService")
 @Transactional
-public class ContraryServiceImpl implements ContraryService {
+public class ContraryServiceImpl extends AbstractParticipationService implements ContraryService {
 	
 	@Autowired
 	private ContraryRepository contraryRepository;
@@ -57,6 +57,7 @@ public class ContraryServiceImpl implements ContraryService {
 		Contrary contrary = contraryRepository.findOne(contraryInfo.getId());
 		BeanUtils.copyProperties(contraryInfo, contrary);
 		contrary.setType(ParticipationType.CONTRARY);
+		checkFinishOnUpdate(contrary);
 		contraryRepository.save(contrary);
 		return contraryInfo;
 	}

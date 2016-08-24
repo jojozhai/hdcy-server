@@ -24,7 +24,7 @@ import com.ymt.pz365.data.jpa.support.QueryResultConverter;
  */
 @Service("votingService")
 @Transactional
-public class VotingServiceImpl implements VotingService {
+public class VotingServiceImpl extends AbstractParticipationService implements VotingService {
 	
 	@Autowired
 	private VotingRepository votingRepository;
@@ -57,6 +57,7 @@ public class VotingServiceImpl implements VotingService {
 		Voting voting = votingRepository.findOne(votingInfo.getId());
 		BeanUtils.copyProperties(votingInfo, voting);
 		voting.setType(ParticipationType.VOTING);
+		checkFinishOnUpdate(voting);
 		votingRepository.save(voting);
 		return votingInfo;
 	}
