@@ -141,12 +141,28 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 		opened : false
 	};
 	
+	$scope.popup3 = {
+		opened : false
+	};
+
+	$scope.popup4 = {
+		opened : false
+	};
+	
 	$scope.open1 = function() {
 		$scope.popup1.opened = true;
 	};
 
 	$scope.open2 = function() {
 		$scope.popup2.opened = true;
+	};
+	
+	$scope.open3 = function() {
+		$scope.popup3.opened = true;
+	};
+
+	$scope.open4 = function() {
+		$scope.popup4.opened = true;
 	};
 	
 	$scope.dateOptions = {
