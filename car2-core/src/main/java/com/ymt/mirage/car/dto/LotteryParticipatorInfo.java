@@ -3,6 +3,8 @@
  */
 package com.ymt.mirage.car.dto;
 
+import java.util.Date;
+
 /**
  * @author zhailiang
  * @since 2016年5月27日
@@ -10,6 +12,7 @@ package com.ymt.mirage.car.dto;
 public class LotteryParticipatorInfo {
 
 	private Long id;
+	private Date createdDate;
 	private Long lotteryId;
 	private Long userId;
 	private String prize;
@@ -155,5 +158,19 @@ public class LotteryParticipatorInfo {
 	public void setWin(boolean win) {
 		this.win = win;
 	}
+
+    /**
+     * @return the createdDate
+     */
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    /**
+     * @param createdDate the createdDate to set
+     */
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
 
 }

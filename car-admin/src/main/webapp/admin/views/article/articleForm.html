@@ -94,13 +94,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group"  ng-class="articleForm.content.$invalid && articleForm.content.$dirty ? 'has-error': ''">
-				<label class="control-label col-lg-3">文章内容:</label>
-				<div class="col-lg-9">
-					<textarea name="content" ui-tinymce="tinymceOptions" ng-model="article.content" rows="30" cols="70" required></textarea>
-					<label class="control-label" ng-show="articleForm.content.$invalid && articleForm.content.$dirty">文章内容不能为空</label>
-				</div>
-			</div>
 			<div class="text-right m-top-md">
 				<button ng-click="save(article)" class="btn btn-success btn-sm" ng-disabled="articleForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
 			</div>

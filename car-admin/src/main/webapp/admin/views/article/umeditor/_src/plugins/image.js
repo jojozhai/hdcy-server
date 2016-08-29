@@ -20,7 +20,8 @@ UM.commands['insertimage'] = {
         ci = opt[0];
         if (opt.length == 1) {
             str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
-                (ci.width ? 'width="' + ci.width + '" ' : '') +
+//                (ci.width ? 'width="' + ci.width + '" ' : '') +
+                'width="100%"' +
                 (ci.height ? ' height="' + ci.height + '" ' : '') +
                 (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
                 (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
