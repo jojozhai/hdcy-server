@@ -65,9 +65,9 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	@Override
 	public ActivityInfo create(ActivityInfo activityInfo) {
 		Activity activity = new Activity();
-		if (new DateTime(activityInfo.getStartTime()).isBefore(new DateTime(activityInfo.getEndTime()))) {
-			throw new PzException("开始时间不能早于报名截止时间");
-		}
+//		if (new DateTime(activityInfo.getStartTime()).isBefore(new DateTime(activityInfo.getEndTime()))) {
+//			throw new PzException("开始时间不能早于报名截止时间");
+//		}
 		BeanUtils.copyProperties(activityInfo, activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		activity.setCustomerService(customerServiceRepository.findOne(activityInfo.getCustomerServiceId()));
