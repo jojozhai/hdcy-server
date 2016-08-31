@@ -37,6 +37,7 @@
 					<thead>
 						<tr>
 							<th width="100">序号</th>
+							<th width="100">抽奖时间</th>
 							<th width="100">客户昵称</th>
 							<th width="100">客户姓名</th>
 							<th width="100">客户手机</th>
@@ -48,6 +49,7 @@
 					<tbody>
 						<tr ng-repeat = "lotteryUser in lotteryUsers">
 							<td>{{$index+1}}</td>
+							<th>{{lotteryUser.createdTime | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 							<td>{{lotteryUser.userNickname}}</td>
 							<td>{{lotteryUser.userRealname}}</td>
 							<td>{{lotteryUser.userMobile}}</td>

@@ -5,7 +5,6 @@ package com.ymt.mirage.car.service.impl;
 
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,7 +24,6 @@ import com.ymt.mirage.car.repository.spec.ActivitySpec;
 import com.ymt.mirage.car.service.ActivityService;
 import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
-import com.ymt.pz365.framework.core.exception.PzException;
 
 /**
  * @author zhailiang
@@ -65,9 +63,9 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	@Override
 	public ActivityInfo create(ActivityInfo activityInfo) {
 		Activity activity = new Activity();
-		if (new DateTime(activityInfo.getStartTime()).isBefore(new DateTime(activityInfo.getEndTime()))) {
-			throw new PzException("开始时间不能早于报名截止时间");
-		}
+//		if (new DateTime(activityInfo.getStartTime()).isBefore(new DateTime(activityInfo.getEndTime()))) {
+//			throw new PzException("开始时间不能早于报名截止时间");
+//		}
 		BeanUtils.copyProperties(activityInfo, activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		activity.setCustomerService(customerServiceRepository.findOne(activityInfo.getCustomerServiceId()));
@@ -87,6 +85,12 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		Activity activity = activityRepository.findOne(id);
 		ActivityInfo info = new ActivityInfo();
 		BeanUtils.copyProperties(activity, info);
+		if(activity.getCustomerService() != null) {
+		    info.setCustomerServiceId(activity.getCustomerService().getId());
+		    info.setWaiterName(activity.getCustomerService().getName());
+		    info.setWaiterPhone(activity.getCustomerService().getPhone());
+		    info.setWaiterImage(activity.getCustomerService().getImage());
+		}
 		return info;
 	}
 
