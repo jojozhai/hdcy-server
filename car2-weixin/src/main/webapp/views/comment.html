@@ -18,22 +18,25 @@
 		</li>
 	</ul>
 </div>
-<!--è¯„è®º-->
+<!--ÆÀÂÛ-->
 <div class="comment">
 	<div class="comment-cnt">
-		<input type="text" class="comment-input"  readonly="readonly" placeholder="è¯´ç‚¹å•¥å‘—" ng-click="showCommentDiv = true"/>
+		<input type="text" class="comment-input"  readonly="readonly" placeholder="ËµµãÉ¶ßÂ" ng-click="showCommentDiv = true"/>
 		<i></i>
 	</div>
 </div>
-<!--è¯„è®ºå¼¹çª—-->
+<!--ÆÀÂÛµ¯´°-->
 <div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
 	<div class="commentfix" ng-click="showCommentDiv = false"></div>
 	<div class="commentLayer-cnt">
 		<div class="commentLayer-title">
-			<a class="comment-qx" ng-click="showCommentDiv = false">å–æ¶ˆ</a>
-			<h2>å†™è¯„è®º</h2>
-			<a class="comment-fs "ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">å‘é€</a>
+			<a class="comment-qx" ng-click="showCommentDiv = false">È¡Ïû</a>
+			<h2>Ğ´ÆÀÂÛ</h2>
+			<a class="comment-fs "ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">·¢ËÍ</a>
 		</div>
 		<textarea class="commentArea" ng-model="comment" maxlength="300" autofocus></textarea>
 	</div>
 </div>
+<script type="text/javascript">		
+	$(".comment-liscnt").width($(document).width()*0.8);
+</script>

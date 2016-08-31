@@ -419,9 +419,10 @@ textarea {
 	display: block;
 }
 
-.comment-liscnt {
+.comment-liscnt {	
 	font-size: 16px;
 	padding-top: 5px;
+	word-wrap:break-word;
 }
 
 .cnt-height {
@@ -1767,7 +1768,7 @@ textarea {
 	height: 27px;
 	text-align: center;
 	font-size: 14px;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 	color: #b3afaf;
 	background-color: transparent;
 	outline: 0;
@@ -1837,7 +1838,7 @@ textarea {
 
 .huodChouCnt {
 	background: rgba(232, 227, 226, 0.85);
-	
+
 }
 
 .huodtpCnt .huodChouCnt h2 {
@@ -2275,7 +2276,7 @@ textarea {
 	position: relative;
 	z-index: 1;
 	font-size: 15px;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 	direction: rtl;
 	color: #868383;
 }
@@ -2614,7 +2615,7 @@ textarea {
 }
 
 
-/* 澶ц浆鐩樻牱寮� */
+/* 婢堆嗘祮閻╂ɑ鐗卞锟� */
 
 .banner {
 	display: block;
@@ -2734,7 +2735,7 @@ textarea {
 	-webkit-overflow-scrolling: touch;
 }
 .cntxiala{
-	
+
 }
 .deil-menu{
 	display: inline-block;
