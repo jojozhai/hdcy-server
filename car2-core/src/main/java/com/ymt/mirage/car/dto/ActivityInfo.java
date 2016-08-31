@@ -40,6 +40,18 @@ public class ActivityInfo extends ParticipationInfo {
 	 */
 	private long customerServiceId;
 	/**
+	 * 客服名称
+	 */
+	private String waiterName;
+	/**
+	 * 客服电话
+	 */
+	private String waiterPhone;
+	/**
+	 * 客服头像
+	 */
+	private String waiterImage;
+	/**
      * 报名开始时间
      */
     private Date signStartTime;
@@ -172,6 +184,48 @@ public class ActivityInfo extends ParticipationInfo {
      */
     public void setSignEndTime(Date signEndTime) {
         this.signEndTime = signEndTime;
+    }
+
+    /**
+     * @return the waiterName
+     */
+    public String getWaiterName() {
+        return waiterName;
+    }
+
+    /**
+     * @param waiterName the waiterName to set
+     */
+    public void setWaiterName(String waiterName) {
+        this.waiterName = waiterName;
+    }
+
+    /**
+     * @return the waiterPhone
+     */
+    public String getWaiterPhone() {
+        return waiterPhone;
+    }
+
+    /**
+     * @param waiterPhone the waiterPhone to set
+     */
+    public void setWaiterPhone(String waiterPhone) {
+        this.waiterPhone = waiterPhone;
+    }
+
+    /**
+     * @return the waiterImage
+     */
+    public String getWaiterImage() {
+        return waiterImage;
+    }
+
+    /**
+     * @param waiterImage the waiterImage to set
+     */
+    public void setWaiterImage(String waiterImage) {
+        this.waiterImage = waiterImage;
     }
 
     @Override

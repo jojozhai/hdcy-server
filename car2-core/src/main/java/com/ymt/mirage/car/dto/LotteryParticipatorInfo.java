@@ -12,7 +12,7 @@ import java.util.Date;
 public class LotteryParticipatorInfo {
 
 	private Long id;
-	private Date createdDate;
+	private Date createdTime;
 	private Long lotteryId;
 	private Long userId;
 	private String prize;
@@ -162,15 +162,15 @@ public class LotteryParticipatorInfo {
     /**
      * @return the createdDate
      */
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
     /**
      * @param createdDate the createdDate to set
      */
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedTime(Date createdDate) {
+        this.createdTime = createdDate;
     }
 
 }

@@ -9,26 +9,44 @@ public class CustomerService extends DomainImpl {
 	/**
 	 * 客服名称
 	 */
-	private String customerServiceName;
+	private String name;
 	/**
 	 * 客服联系电话
 	 */
-	private String phonenumber;
+	private String phone;
+	/**
+	 * 客服头像
+	 */
+	private String image;
 
-	public String getCustomerServiceName() {
-		return customerServiceName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCustomerServiceName(String customerServiceName) {
-		this.customerServiceName = customerServiceName;
+	public void setName(String customerServiceName) {
+		this.name = customerServiceName;
 	}
 
-	public String getPhonenumber() {
-		return phonenumber;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhone(String phonenumber) {
+		this.phone = phonenumber;
 	}
+
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
 
 }
