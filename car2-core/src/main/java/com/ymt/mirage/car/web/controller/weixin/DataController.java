@@ -11,12 +11,9 @@
  */
 package com.ymt.mirage.car.web.controller.weixin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.ymt.mirage.car.service.DataService;
 
 /**
  *
@@ -28,8 +25,8 @@ import com.ymt.mirage.car.service.DataService;
 @Profile({"xxx"})
 public class DataController {
     
-    @Autowired
-    private DataService dataService;
+//    @Autowired
+//    private DataService dataService;
     
     @RequestMapping("/data/user")
     public void userDate() throws Exception {
