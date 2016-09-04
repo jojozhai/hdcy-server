@@ -11,8 +11,6 @@
  */
 package com.ymt.mirage.car.web.controller.weixin;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,20 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  */
 @RestController
-@Profile({"xxx"})
 public class DataController {
     
 //    @Autowired
 //    private DataService dataService;
     
-    @RequestMapping("/data/user")
-    public void userDate() throws Exception {
+//    @RequestMapping("/data/user")
+//    public void userDate(TestDate test) throws Exception {
+//        System.out.println(test.getDate());
 //        dataService.userData();
 //        dataService.userData2();
 //        dataService.articleData();
 //        dataService.clean();
 //        dataService.image();
 //        dataService.count();
-    }
+//    }
+    
+    
 
 }
