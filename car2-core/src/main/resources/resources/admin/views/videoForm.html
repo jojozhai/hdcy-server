@@ -1,0 +1,26 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">视频信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="videoForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="videoForm.name.$invalid && videoForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">视频名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="video.name" type="text" class="form-control input-sm" placeholder="视频名称" required>
+					<label class="control-label" ng-show="videoForm.name.$invalid && videoForm.name.$dirty">视频名称不能为空</label>
+				</div>
+			</div>
+			<div class="form-group"  ng-class="videoForm.url.$invalid && videoForm.url.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3">视频链接:</label>
+                <div class="col-lg-6">
+                    <input name="url" ng-model="video.url" type="text" class="form-control input-sm" placeholder="视频链接" required>
+                    <label class="control-label" ng-show="videoForm.url.$invalid && videoForm.url.$dirty">视频链接不能为空</label>
+                </div>
+            </div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(video)" class="btn btn-success btn-sm" ng-disabled="videoForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

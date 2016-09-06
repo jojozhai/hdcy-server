@@ -75,7 +75,7 @@ public class ActivityParticipatorServiceImpl extends AbstractParticipationServic
 	@Override
 	public UserInfo create(ActivityParticipatorInfo participatorInfo) {
 		Activity activity = activityRepository.getOne(participatorInfo.getActivityId());
-		if (new DateTime(activity.getEndTime()).isBeforeNow()) {
+		if (new DateTime(activity.getEndTime()).isBeforeNow() || activity.isFinish()) {
 			throw new PzException("活动已经结束");
 		}
 		ActivityParticipator participator = activityParticipatorRepository
