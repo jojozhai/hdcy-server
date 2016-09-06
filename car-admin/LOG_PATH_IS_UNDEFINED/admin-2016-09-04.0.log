@@ -1,0 +1,515 @@
+2016-09-04 16:55:43.798 [main] INFO  com.ymt.CarAdminApplication:48 - Starting CarAdminApplication on WIN8-1609011601 with PID 4100 (D:\work\hdcy-server\car-admin\target\classes started by Administrator in D:\work\hdcy-server\car-admin)
+2016-09-04 16:55:43.811 [main] INFO  com.ymt.CarAdminApplication:670 - The following profiles are active: dev,admin
+2016-09-04 16:55:43.970 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext:578 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@49b0b76: startup date [Sun Sep 04 16:55:43 CST 2016]; root of context hierarchy
+2016-09-04 16:55:44.095 [background-preinit] INFO  org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2016-09-04 16:55:48.822 [main] INFO  o.s.b.factory.support.DefaultListableBeanFactory:839 - Overriding bean definition for bean 'passwordEncoder' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=jpaConfig; factoryMethodName=passwordEncoder; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ymt/pz365/data/jpa/config/JpaConfig.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=securityConfig; factoryMethodName=passwordEncoder; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ymt/pz365/admin/web/security/SecurityConfig.class]]
+2016-09-04 16:55:51.592 [main] INFO  o.s.b.factory.support.DefaultListableBeanFactory:839 - Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2016-09-04 16:55:53.746 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ebdc5879] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:53.913 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [class org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$533a22d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:53.992 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [class org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$8d6222fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:54.462 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'spring.cache.CONFIGURATION_PROPERTIES' of type [class org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:54.493 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers' of type [class org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:54.495 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration' of type [class org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration$$EnhancerBySpringCGLIB$$1d1ccdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:54.517 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'cacheManager' of type [class org.springframework.cache.concurrent.ConcurrentMapCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:54.521 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'cacheAutoConfigurationValidator' of type [class org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-09-04 16:55:57.002 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer:81 - Tomcat initialized with port(s): 8161 (http)
+2016-09-04 16:55:57.068 [main] INFO  org.apache.catalina.core.StandardService:180 - Starting service Tomcat
+2016-09-04 16:55:57.071 [main] INFO  org.apache.catalina.core.StandardEngine:180 - Starting Servlet Engine: Apache Tomcat/8.0.32
+2016-09-04 16:55:57.583 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/admin2]:180 - Initializing Spring embedded WebApplicationContext
+2016-09-04 16:55:57.584 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader:272 - Root WebApplicationContext: initialization completed in 13614 ms
+2016-09-04 16:55:58.823 [localhost-startStop-1] INFO  o.s.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-09-04 16:55:58.843 [localhost-startStop-1] INFO  o.s.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-09-04 16:55:58.844 [localhost-startStop-1] INFO  o.s.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-09-04 16:55:58.845 [localhost-startStop-1] INFO  o.s.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2016-09-04 16:55:58.847 [localhost-startStop-1] INFO  o.s.b.c.e.DelegatingFilterProxyRegistrationBean:258 - Mapping filter: 'springSecurityFilterChain' to: [/*]
+2016-09-04 16:55:58.848 [localhost-startStop-1] INFO  o.s.boot.context.embedded.FilterRegistrationBean:227 - Filter httpPutFormContentFilter was not registered (possibly already registered?)
+2016-09-04 16:55:58.849 [localhost-startStop-1] INFO  o.s.boot.context.embedded.ServletRegistrationBean:189 - Mapping servlet: 'dispatcherServlet' to [/]
+2016-09-04 16:56:20.490 [localhost-startStop-1] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:339 - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-09-04 16:56:20.657 [localhost-startStop-1] INFO  org.hibernate.jpa.internal.util.LogHelper:46 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-09-04 16:56:21.052 [localhost-startStop-1] INFO  org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2016-09-04 16:56:21.058 [localhost-startStop-1] INFO  org.hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2016-09-04 16:56:21.063 [localhost-startStop-1] INFO  org.hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-09-04 16:56:22.267 [localhost-startStop-1] INFO  org.hibernate.annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-09-04 16:56:22.717 [localhost-startStop-1] INFO  org.hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-09-04 16:56:23.535 [localhost-startStop-1] INFO  o.h.hql.internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-09-04 16:56:25.648 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate:207 - HHH000228: Running hbm2ddl schema update
+2016-09-04 16:56:25.649 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate:218 - HHH000102: Fetching database metadata
+2016-09-04 16:56:25.666 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate:230 - HHH000396: Updating schema
+2016-09-04 16:56:25.805 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_activity
+2016-09-04 16:56:25.807 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_contact_phone, pz_pz_id, pz_sign_start_time, pz_price, pz_contact_weixin, pz_sign_end_time, pz_customer_service_id, pz_people_limit]
+2016-09-04 16:56:25.811 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_gdywt4opdajuq226l174t5o32, fk_6g6ijis87hrqv9o1qgajk4btu]
+2016-09-04 16:56:25.812 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary, fk_6g6ijis87hrqv9o1qgajk4btu]
+2016-09-04 16:56:25.857 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_activity_images
+2016-09-04 16:56:25.858 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_images, pz_activity_id]
+2016-09-04 16:56:25.859 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_a0phyo9r6gwyjicdtririicic]
+2016-09-04 16:56:25.860 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_a0phyo9r6gwyjicdtririicic]
+2016-09-04 16:56:25.923 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_activity_participator
+2016-09-04 16:56:25.924 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_message, pz_activity_id]
+2016-09-04 16:56:25.925 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_maq6d0k9vtctrd5j4ksvfng8r, fk_5kwk9fhgurphdwhdklg17rrqd]
+2016-09-04 16:56:25.925 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_maq6d0k9vtctrd5j4ksvfng8r, primary]
+2016-09-04 16:56:25.961 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_admin
+2016-09-04 16:56:25.962 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_role_id, pz_id, pz_modify_time, pz_name, pz_username, pz_created_time, pz_password]
+2016-09-04 16:56:25.963 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_s9k8xnwrspqe5oaokqmmx5hbe]
+2016-09-04 16:56:25.964 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_s9k8xnwrspqe5oaokqmmx5hbe, primary]
+2016-09-04 16:56:26.033 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_article
+2016-09-04 16:56:26.041 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_content, pz_enable_date, pz_top, pz_modify_time, pz_image2, pz_read_count, pz_created_time, pz_principal, pz_business, pz_title, pz_enabled, pz_id, pz_image, pz_comment, pz_enable]
+2016-09-04 16:56:26.049 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.050 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.103 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_article_tag
+2016-09-04 16:56:26.105 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_article_id, pz_created_time, pz_tag_id, pz_target_id]
+2016-09-04 16:56:26.106 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_5blqjjpadm6vjy5arf79m5sjq, fk_9yf5je431dws7obpcycr8ax5n, fk_mqmsmj48q7autdnbqelb6l4he]
+2016-09-04 16:56:26.107 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_5blqjjpadm6vjy5arf79m5sjq, fk_9yf5je431dws7obpcycr8ax5n, fk_mqmsmj48q7autdnbqelb6l4he, primary]
+2016-09-04 16:56:26.142 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_button
+2016-09-04 16:56:26.143 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_full_id, pz_type, pz_modify_time, pz_level, pz_parent_id, pz_name, pz_url, pz_created_time, pz_index]
+2016-09-04 16:56:26.144 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_tfyeycdch00bxjdk8qcvrvoc7]
+2016-09-04 16:56:26.145 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_tfyeycdch00bxjdk8qcvrvoc7, primary]
+2016-09-04 16:56:26.178 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_car
+2016-09-04 16:56:26.179 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_name, pz_letter, pz_created_time, pz_index]
+2016-09-04 16:56:26.180 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.181 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.221 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_comment
+2016-09-04 16:56:26.222 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_content, pz_comment_id, pz_praise_count, pz_modify_time, pz_target, pz_created_time, pz_target_id, pz_creater_headimgurl, pz_id, pz_praise, pz_reply_to_user_id, pz_creater_id, pz_reply_to_id, pz_reply_to_name, pz_creater_name]
+2016-09-04 16:56:26.223 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_5myok8xp8oudqwuvkqmx8dhie]
+2016-09-04 16:56:26.224 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_5myok8xp8oudqwuvkqmx8dhie, primary]
+2016-09-04 16:56:26.277 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_contrary
+2016-09-04 16:56:26.278 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_red_button, pz_blue_weight, pz_red_count, pz_blue_count, pz_red_declaration, pz_blue, pz_red, pz_blue_declaration, pz_blue_button, pz_red_weight]
+2016-09-04 16:56:26.279 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_57sykxf67u3lpxk81ihyyq44p]
+2016-09-04 16:56:26.279 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.337 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_contrary_participator
+2016-09-04 16:56:26.339 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_content, pz_contrary_id, pz_red, pz_state]
+2016-09-04 16:56:26.340 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_2oaji2wsfwf3b7suw8hntjo0v, fk_piriejy59lbvg17h5mp4nx15n]
+2016-09-04 16:56:26.341 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_2oaji2wsfwf3b7suw8hntjo0v, primary]
+2016-09-04 16:56:26.387 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_customer_service
+2016-09-04 16:56:26.398 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_image, pz_modify_time, pz_phonenumber, pz_name, pz_phone, pz_created_time, pz_wxnum, pz_customer_service_name]
+2016-09-04 16:56:26.406 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.415 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.487 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_gift
+2016-09-04 16:56:26.488 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_stock, pz_id, pz_desc, pz_modify_time, pz_name, pz_used, pz_created_time, pz_point]
+2016-09-04 16:56:26.489 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.489 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.533 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_gift_images
+2016-09-04 16:56:26.534 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_gift_id, pz_images]
+2016-09-04 16:56:26.534 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_8jhaeo4r0gwsxqyjdpmnlwy5o]
+2016-09-04 16:56:26.535 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_8jhaeo4r0gwsxqyjdpmnlwy5o]
+2016-09-04 16:56:26.591 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_key_word
+2016-09-04 16:56:26.592 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_created_time, pz_key_word]
+2016-09-04 16:56:26.593 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.594 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.644 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_leader
+2016-09-04 16:56:26.645 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_top_image, pz_top, pz_user_id, pz_id, pz_intro, pz_modify_time, pz_approve_date, pz_status, pz_created_time, pz_top_index]
+2016-09-04 16:56:26.646 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_jfxtw83fgdg4icsbynt4jaggv]
+2016-09-04 16:56:26.649 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_jfxtw83fgdg4icsbynt4jaggv, primary]
+2016-09-04 16:56:26.712 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_level
+2016-09-04 16:56:26.713 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_name, pz_created_time, pz_point]
+2016-09-04 16:56:26.714 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:26.714 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:26.769 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_lottery
+2016-09-04 16:56:26.770 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_rule, pz_gifts, pz_limit, pz_customer_service_id]
+2016-09-04 16:56:26.773 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_j3mxx24b5cb89ut8q3iqv9xs6, fk_l2qgoojwyfgj0ig70s397vk83]
+2016-09-04 16:56:26.774 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_j3mxx24b5cb89ut8q3iqv9xs6, primary]
+2016-09-04 16:56:26.847 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_lottery_history
+2016-09-04 16:56:26.848 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_user_id, pz_id, pz_lottery_id, pz_win, pz_modify_time, pz_prize, pz_participator_id, pz_created_time]
+2016-09-04 16:56:26.849 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_ekkfa1iehfpwcx8lvra808clj, fk_hek4g79dk2ws54itopjjxqk1e, fk_ixpyhb2qdx9twdor94rp0tvu1]
+2016-09-04 16:56:26.851 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_ekkfa1iehfpwcx8lvra808clj, fk_hek4g79dk2ws54itopjjxqk1e, fk_ixpyhb2qdx9twdor94rp0tvu1, primary]
+2016-09-04 16:56:26.907 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_lottery_participator
+2016-09-04 16:56:26.918 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_lottery_id, pz_win, pz_is_change, pz_prize]
+2016-09-04 16:56:26.925 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_kx1fmdkfoda3h3gddte17fms0, fk_rur5fv6p9xw96b435rlp56dj5]
+2016-09-04 16:56:26.927 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_rur5fv6p9xw96b435rlp56dj5, primary]
+2016-09-04 16:56:26.979 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_lottery_prizes
+2016-09-04 16:56:26.980 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_lottery_id, pz_image, pz_count, pz_win, pz_name, pz_rate]
+2016-09-04 16:56:26.981 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_4jipnnkgxvin07u9743osjmsk]
+2016-09-04 16:56:26.982 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_4jipnnkgxvin07u9743osjmsk]
+2016-09-04 16:56:27.015 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_menu
+2016-09-04 16:56:27.016 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_full_id, pz_modify_time, pz_level, pz_parent_id, pz_name, pz_link, pz_icon, pz_created_time, pz_index]
+2016-09-04 16:56:27.017 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_nuummbw5tixmo0498qswc9gg5]
+2016-09-04 16:56:27.018 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_nuummbw5tixmo0498qswc9gg5, primary]
+2016-09-04 16:56:27.080 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_param
+2016-09-04 16:56:27.091 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_code, pz_id, pz_modify_time, pz_name, pz_system, pz_value, pz_created_time, pz_index]
+2016-09-04 16:56:27.100 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.110 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.155 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_participation
+2016-09-04 16:56:27.168 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_top, pz_modify_time, pz_start_time, pz_end_time, pz_weighting, pz_recommend, pz_created_time, pz_finish, pz_sponsor_id, pz_id, pz_desc, pz_image, pz_type, pz_browseval, pz_name, pz_comment, pz_address, pz_hot, pz_enable, pz_fansval, pz_top_index]
+2016-09-04 16:56:27.175 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_sgwx00u1e3s6dnjclprq4x7sj]
+2016-09-04 16:56:27.183 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_sgwx00u1e3s6dnjclprq4x7sj, primary]
+2016-09-04 16:56:27.233 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_participation_kwlist
+2016-09-04 16:56:27.241 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_participation_id, pz_kwlist_id]
+2016-09-04 16:56:27.249 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_re2toaavjiornu812pxmx39tl, fk_kvwsum0ye9lp4gy7vyn98621h]
+2016-09-04 16:56:27.256 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [uk_re2toaavjiornu812pxmx39tl, fk_kvwsum0ye9lp4gy7vyn98621h]
+2016-09-04 16:56:27.302 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_participator
+2016-09-04 16:56:27.303 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_user_id, pz_id, pz_modify_time, pz_created_time, pz_participation_id]
+2016-09-04 16:56:27.304 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_qtwp2okch8mrsgau1j4a4d6px, fk_fpv8unrr5e0w8h49b4dob8ds6]
+2016-09-04 16:56:27.305 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_qtwp2okch8mrsgau1j4a4d6px, fk_fpv8unrr5e0w8h49b4dob8ds6, primary]
+2016-09-04 16:56:27.347 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_post
+2016-09-04 16:56:27.348 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_content, pz_creater_type, pz_praise_count, pz_modify_time, pz_images, pz_created_time, pz_container_type, pz_creater_headimgurl, pz_id, pz_praise, pz_comment, pz_container_id, pz_creater_id, pz_creater_name]
+2016-09-04 16:56:27.349 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.350 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.383 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_poster
+2016-09-04 16:56:27.384 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_qrcode_scale, pz_active_tip, pz_modify_time, pz_active_point, pz_key, pz_created_time, pz_head_scale, pz_id, pz_incircle_head, pz_only_new_user_add_point, pz_image, pz_generated_tip, pz_name, pz_active_url, pz_head_left, pz_head_top, pz_qrcode_top, pz_qrcode_left]
+2016-09-04 16:56:27.385 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.386 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.440 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_praise
+2016-09-04 16:56:27.448 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_created_time, pz_creater_id, pz_target_id, pz_creater_name]
+2016-09-04 16:56:27.455 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.458 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.509 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_role
+2016-09-04 16:56:27.510 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_code, pz_id, pz_modify_time, pz_name, pz_menus, pz_created_time]
+2016-09-04 16:56:27.511 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.512 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.544 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_spider
+2016-09-04 16:56:27.545 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_sex, pz_modify_time, pz_name, pz_age, pz_cardid, pz_created_time]
+2016-09-04 16:56:27.547 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.548 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.581 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_sponsor
+2016-09-04 16:56:27.581 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_created_time, pz_sponsor, pz_sponsorurl]
+2016-09-04 16:56:27.582 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.583 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.628 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_tag
+2016-09-04 16:56:27.629 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_full_id, pz_image, pz_modify_time, pz_level, pz_parent_id, pz_name, pz_created_time, pz_index]
+2016-09-04 16:56:27.630 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_67ffinbq4dxayma05j85gggth]
+2016-09-04 16:56:27.630 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_67ffinbq4dxayma05j85gggth, primary]
+2016-09-04 16:56:27.663 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_taged
+2016-09-04 16:56:27.664 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_id, pz_modify_time, pz_target, pz_created_time, pz_tag_id, pz_target_id]
+2016-09-04 16:56:27.665 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_q4bvct0uyd4sddknlppbnb8nr]
+2016-09-04 16:56:27.665 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_q4bvct0uyd4sddknlppbnb8nr, primary]
+2016-09-04 16:56:27.694 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_upload
+2016-09-04 16:56:27.695 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_content_type, pz_path, pz_id, pz_modify_time, pz_name, pz_created_time]
+2016-09-04 16:56:27.696 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.697 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.741 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_user
+2016-09-04 16:56:27.742 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_weixin_open_id, pz_country, pz_realname, pz_mobile, pz_password, pz_participation_count, pz_headimgurl, pz_city, pz_province, pz_id, pz_headimg_oss_url_for_incircle, pz_address, pz_car, pz_birthday, pz_modify_time, pz_vip_expired, pz_nickname, pz_vip, pz_created_time, pz_point, pz_weixin_union_id, pz_sex, pz_subscribe, pz_tags, pz_level, pz_weixin, pz_username, pz_headimg_oss_url]
+2016-09-04 16:56:27.743 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:27.743 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:27.778 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_user_gift
+2016-09-04 16:56:27.779 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_user_id, pz_id, pz_gift_id, pz_modify_time, pz_created_time]
+2016-09-04 16:56:27.780 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_8k95hw4na76p4wx9087v6n3tr, fk_b6kj3klsqft3b1y63pq93m6or]
+2016-09-04 16:56:27.781 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_8k95hw4na76p4wx9087v6n3tr, fk_b6kj3klsqft3b1y63pq93m6or, primary]
+2016-09-04 16:56:27.867 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_user_poster
+2016-09-04 16:56:27.877 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_expired_time, pz_user_id, pz_id, pz_active, pz_weixin_media_id, pz_poster_id, pz_modify_time, pz_oss_url, pz_created_time, pz_qrcode_oss_url, pz_point_count]
+2016-09-04 16:56:27.884 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_acclx0tq27orpm5mvno0t7hpn, fk_rmq5a48f6plt4vhossqcd4v63]
+2016-09-04 16:56:27.890 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_acclx0tq27orpm5mvno0t7hpn, fk_rmq5a48f6plt4vhossqcd4v63, primary]
+2016-09-04 16:56:27.928 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_user_poster_scan
+2016-09-04 16:56:27.929 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_user_poster_id, pz_id, pz_scaner_id, pz_modify_time, pz_created_time]
+2016-09-04 16:56:27.929 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_r955itwwt9cmwi861ltxhqeiy, fk_7aqpd4acqbq6nx8v2dg1bx8fs]
+2016-09-04 16:56:27.930 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_r955itwwt9cmwi861ltxhqeiy, fk_7aqpd4acqbq6nx8v2dg1bx8fs, primary]
+2016-09-04 16:56:27.966 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_voter
+2016-09-04 16:56:27.967 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_user_id, pz_id, pz_modify_time, pz_participator_id, pz_created_time]
+2016-09-04 16:56:27.968 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_ijrv4byt9vmkdexo6wsudojx6]
+2016-09-04 16:56:27.968 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_epodyiq2sxcvj0rd5itbdlutr, fk_ijrv4byt9vmkdexo6wsudojx6, primary]
+2016-09-04 16:56:28.003 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_voting
+2016-09-04 16:56:28.004 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_vote_limit2, pz_voteusernum, pz_vote_limit1, pz_gift_desc, pz_votenum, pz_result]
+2016-09-04 16:56:28.005 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_kmiawmgbowja0ujdc7cc4lq1l]
+2016-09-04 16:56:28.006 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:28.044 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_voting_gift_images
+2016-09-04 16:56:28.045 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_gift_images, pz_voting_id]
+2016-09-04 16:56:28.045 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_1f2gpqj2g58pqr3dpdnftcfa4]
+2016-09-04 16:56:28.046 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_1f2gpqj2g58pqr3dpdnftcfa4]
+2016-09-04 16:56:28.079 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_voting_participator
+2016-09-04 16:56:28.080 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_pz_id, pz_vote_id, pz_image, pz_number, pz_second_weight, pz_message, pz_numberi, pz_voting_id, pz_vote_count, pz_state]
+2016-09-04 16:56:28.081 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: [fk_shym6b9utfty3tu3yihmbaoj2, fk_5xuvsk2gs9daypjbpt2jwiaii, fk_6qjex4phcsqqyg039632td7qb]
+2016-09-04 16:56:28.081 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [fk_shym6b9utfty3tu3yihmbaoj2, fk_5xuvsk2gs9daypjbpt2jwiaii, primary]
+2016-09-04 16:56:28.115 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_weixin_reply
+2016-09-04 16:56:28.116 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [pz_content, pz_id, pz_modify_time, pz_key, pz_created_time]
+2016-09-04 16:56:28.117 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:28.118 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: [primary]
+2016-09-04 16:56:28.155 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:65 - HHH000261: Table found: haoduocheyou-dev.pz_id_sequence
+2016-09-04 16:56:28.156 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:66 - HHH000037: Columns: [next_val]
+2016-09-04 16:56:28.156 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:68 - HHH000108: Foreign keys: []
+2016-09-04 16:56:28.157 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.TableMetadata:69 - HHH000126: Indexes: []
+2016-09-04 16:56:28.159 [localhost-startStop-1] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate:267 - HHH000232: Schema update complete
+2016-09-04 16:56:42.260 [localhost-startStop-1] INFO  o.s.security.web.DefaultSecurityFilterChain:28 - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fc40dcc, org.springframework.security.web.context.SecurityContextPersistenceFilter@a05fabe, org.springframework.security.web.header.HeaderWriterFilter@537f1206, org.springframework.security.web.authentication.logout.LogoutFilter@6c8d67e0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@bd4b9ef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34a74ac8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e6ee800, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@acc7541, org.springframework.security.web.session.SessionManagementFilter@515d4173, org.springframework.security.web.access.ExceptionTranslationFilter@5ab0cb9a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62583618]
+2016-09-04 16:57:06.195 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor:165 - Initializing ExecutorService 
+2016-09-04 16:57:06.204 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor:165 - Initializing ExecutorService  'posterTaskExecutor'
+2016-09-04 16:57:22.003 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@49b0b76: startup date [Sun Sep 04 16:55:43 CST 2016]; root of context hierarchy
+2016-09-04 16:57:22.237 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/image/upload/um],methods=[POST]}" onto public com.ymt.pz365.framework.web.support.UmUploadResponse com.ymt.pz365.framework.web.controller.UploadController.uploadUm(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2016-09-04 16:57:22.239 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/image/upload],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.framework.web.controller.UploadController.upload(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2016-09-04 16:57:22.244 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/password],methods=[PUT]}" onto public void com.ymt.pz365.admin.web.controller.AdminController.update(com.ymt.pz365.admin.dto.PasswordInfo)
+2016-09-04 16:57:22.245 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/{id}],methods=[PUT]}" onto public com.ymt.pz365.admin.dto.AdminInfo com.ymt.pz365.admin.web.controller.AdminController.update(com.ymt.pz365.admin.dto.AdminInfo)
+2016-09-04 16:57:22.246 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.admin.web.controller.AdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.246 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin],methods=[POST]}" onto public com.ymt.pz365.admin.dto.AdminInfo com.ymt.pz365.admin.web.controller.AdminController.create(com.ymt.pz365.admin.dto.AdminInfo)
+2016-09-04 16:57:22.246 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.pz365.admin.dto.AdminInfo> com.ymt.pz365.admin.web.controller.AdminController.query(com.ymt.pz365.admin.dto.AdminInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.247 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/{id}/password],methods=[PUT]}" onto public void com.ymt.pz365.admin.web.controller.AdminController.resetPassword(java.lang.Long)
+2016-09-04 16:57:22.247 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/{id}],methods=[GET]}" onto public com.ymt.pz365.admin.dto.AdminInfo com.ymt.pz365.admin.web.controller.AdminController.getAdminInfo(java.lang.Long)
+2016-09-04 16:57:22.248 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/admin/current],methods=[GET]}" onto public com.ymt.pz365.admin.dto.AdminInfo com.ymt.pz365.admin.web.controller.AdminController.getCurrentAdminInfo()
+2016-09-04 16:57:22.254 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}],methods=[PUT]}" onto public com.ymt.pz365.admin.dto.MenuInfo com.ymt.pz365.admin.web.controller.MenuController.update(com.ymt.pz365.admin.dto.MenuInfo)
+2016-09-04 16:57:22.255 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.admin.web.controller.MenuController.delete(java.lang.Long)
+2016-09-04 16:57:22.257 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu],methods=[POST]}" onto public com.ymt.pz365.admin.dto.MenuInfo com.ymt.pz365.admin.web.controller.MenuController.create(com.ymt.pz365.admin.dto.MenuInfo)
+2016-09-04 16:57:22.258 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}/move],methods=[GET]}" onto public void com.ymt.pz365.admin.web.controller.MenuController.move(java.lang.Long,java.lang.Long)
+2016-09-04 16:57:22.258 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu],methods=[GET]}" onto public com.ymt.pz365.admin.dto.MenuInfo com.ymt.pz365.admin.web.controller.MenuController.getMenuTree()
+2016-09-04 16:57:22.259 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}/move/up],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.admin.web.controller.MenuController.moveUp(java.lang.Long)
+2016-09-04 16:57:22.260 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}],methods=[GET]}" onto public com.ymt.pz365.admin.dto.MenuInfo com.ymt.pz365.admin.web.controller.MenuController.getMenuInfo(java.lang.Long)
+2016-09-04 16:57:22.261 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/menu/{id}/move/down],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.admin.web.controller.MenuController.moveDown(java.lang.Long)
+2016-09-04 16:57:22.266 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role/{id}],methods=[PUT]}" onto public com.ymt.pz365.admin.dto.RoleInfo com.ymt.pz365.admin.web.controller.RoleController.update(com.ymt.pz365.admin.dto.RoleInfo)
+2016-09-04 16:57:22.267 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.admin.web.controller.RoleController.delete(java.lang.Long)
+2016-09-04 16:57:22.268 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role],methods=[POST]}" onto public com.ymt.pz365.admin.dto.RoleInfo com.ymt.pz365.admin.web.controller.RoleController.create(com.ymt.pz365.admin.dto.RoleInfo)
+2016-09-04 16:57:22.270 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role/{id}],methods=[GET]}" onto public com.ymt.pz365.admin.dto.RoleInfo com.ymt.pz365.admin.web.controller.RoleController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.271 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role],methods=[GET]}" onto public java.util.List<com.ymt.pz365.admin.dto.RoleInfo> com.ymt.pz365.admin.web.controller.RoleController.getAllRole()
+2016-09-04 16:57:22.272 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role/{id}/menu],methods=[GET]}" onto public java.lang.String[] com.ymt.pz365.admin.web.controller.RoleController.getRoleMenu(java.lang.Long)
+2016-09-04 16:57:22.274 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/role/{id}/menu],methods=[POST]}" onto public void com.ymt.pz365.admin.web.controller.RoleController.createRoleMenu(java.lang.Long,java.lang.String)
+2016-09-04 16:57:22.290 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activity/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.ActivityInfo com.ymt.mirage.car.web.controller.admin.ActivityAdminController.update(com.ymt.mirage.car.dto.ActivityInfo)
+2016-09-04 16:57:22.291 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activity/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.ActivityAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.291 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activity],methods=[POST]}" onto public com.ymt.mirage.car.dto.ActivityInfo com.ymt.mirage.car.web.controller.admin.ActivityAdminController.create(com.ymt.mirage.car.dto.ActivityInfo)
+2016-09-04 16:57:22.292 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activity],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.ActivityInfo> com.ymt.mirage.car.web.controller.admin.ActivityAdminController.query(com.ymt.mirage.car.dto.ActivityInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.294 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activity/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.ActivityInfo com.ymt.mirage.car.web.controller.admin.ActivityAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.295 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/activityParticipator],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.ActivityParticipatorInfo> com.ymt.mirage.car.web.controller.admin.ActivityParticipatorAdminController.query(com.ymt.mirage.car.dto.ActivityParticipatorInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.313 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/car/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.CarInfo com.ymt.mirage.car.web.controller.admin.CarAdminController.update(com.ymt.mirage.car.dto.CarInfo)
+2016-09-04 16:57:22.314 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/car/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.CarAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.317 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/car],methods=[POST]}" onto public com.ymt.mirage.car.dto.CarInfo com.ymt.mirage.car.web.controller.admin.CarAdminController.create(com.ymt.mirage.car.dto.CarInfo)
+2016-09-04 16:57:22.348 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/car],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.CarInfo> com.ymt.mirage.car.web.controller.admin.CarAdminController.query(com.ymt.mirage.car.dto.CarInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/car/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.CarInfo com.ymt.mirage.car.web.controller.admin.CarAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.368 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contrary/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.ContraryInfo com.ymt.mirage.car.web.controller.admin.ContraryAdminController.update(com.ymt.mirage.car.dto.ContraryInfo)
+2016-09-04 16:57:22.370 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contrary/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.ContraryAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.371 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contrary],methods=[POST]}" onto public com.ymt.mirage.car.dto.ContraryInfo com.ymt.mirage.car.web.controller.admin.ContraryAdminController.create(com.ymt.mirage.car.dto.ContraryInfo)
+2016-09-04 16:57:22.372 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contrary],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.ContraryInfo> com.ymt.mirage.car.web.controller.admin.ContraryAdminController.query(com.ymt.mirage.car.dto.ContraryInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.372 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contrary/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.ContraryInfo com.ymt.mirage.car.web.controller.admin.ContraryAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.374 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contraryParticipator/{id}/update],methods=[PUT]}" onto public com.ymt.mirage.car.dto.ContraryParticipatorInfo com.ymt.mirage.car.web.controller.admin.ContraryParticipatorAdminController.update(com.ymt.mirage.car.dto.ContraryParticipatorInfo)
+2016-09-04 16:57:22.375 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/contraryParticipator],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.ContraryParticipatorInfo> com.ymt.mirage.car.web.controller.admin.ContraryParticipatorAdminController.query(com.ymt.mirage.car.dto.ContraryParticipatorInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.379 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/customerService],methods=[GET]}" onto public java.util.List<com.ymt.mirage.car.dto.CustomerServiceInfo> com.ymt.mirage.car.web.controller.admin.CustomerServiceAdminController.query()
+2016-09-04 16:57:22.385 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/gift/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.GiftInfo com.ymt.mirage.car.web.controller.admin.GiftAdminController.update(com.ymt.mirage.car.dto.GiftInfo)
+2016-09-04 16:57:22.386 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/gift/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.GiftAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.387 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/gift],methods=[POST]}" onto public com.ymt.mirage.car.dto.GiftInfo com.ymt.mirage.car.web.controller.admin.GiftAdminController.create(com.ymt.mirage.car.dto.GiftInfo)
+2016-09-04 16:57:22.388 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/gift],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.GiftInfo> com.ymt.mirage.car.web.controller.admin.GiftAdminController.query(com.ymt.mirage.car.dto.GiftInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.388 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/gift/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.GiftInfo com.ymt.mirage.car.web.controller.admin.GiftAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.390 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/leader/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.LeaderInfo com.ymt.mirage.car.web.controller.admin.LeaderAdminController.update(com.ymt.mirage.car.dto.LeaderInfo)
+2016-09-04 16:57:22.391 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/leader/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.LeaderAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.391 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/leader],methods=[POST]}" onto public com.ymt.mirage.car.dto.LeaderInfo com.ymt.mirage.car.web.controller.admin.LeaderAdminController.create(com.ymt.mirage.car.dto.LeaderInfo)
+2016-09-04 16:57:22.392 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/leader],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.LeaderInfo> com.ymt.mirage.car.web.controller.admin.LeaderAdminController.query(com.ymt.mirage.car.dto.LeaderInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.397 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/leader/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.LeaderInfo com.ymt.mirage.car.web.controller.admin.LeaderAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.399 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lottery/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.LotteryInfo com.ymt.mirage.car.web.controller.admin.LotteryAdminController.update(com.ymt.mirage.car.dto.LotteryInfo)
+2016-09-04 16:57:22.400 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lottery/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.LotteryAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.401 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lottery],methods=[POST]}" onto public com.ymt.mirage.car.dto.LotteryInfo com.ymt.mirage.car.web.controller.admin.LotteryAdminController.create(com.ymt.mirage.car.dto.LotteryInfo)
+2016-09-04 16:57:22.402 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lottery],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.LotteryInfo> com.ymt.mirage.car.web.controller.admin.LotteryAdminController.query(com.ymt.mirage.car.dto.LotteryInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.402 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lottery/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.LotteryInfo com.ymt.mirage.car.web.controller.admin.LotteryAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.404 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.LotteryParticipatorInfo com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.update(com.ymt.mirage.car.dto.LotteryParticipatorInfo)
+2016-09-04 16:57:22.408 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.411 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator],methods=[POST]}" onto public com.ymt.mirage.car.dto.LotteryParticipatorInfo com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.create(com.ymt.mirage.car.dto.LotteryParticipatorInfo)
+2016-09-04 16:57:22.412 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.LotteryParticipatorInfo> com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.query(com.ymt.mirage.car.dto.LotteryParticipatorInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.413 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.LotteryParticipatorInfo com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.418 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/lotteryParticipator/{id}/update],methods=[PUT]}" onto public void com.ymt.mirage.car.web.controller.admin.LotteryParticipatorAdminController.updateCount(com.ymt.mirage.car.dto.LotteryParticipatorInfo)
+2016-09-04 16:57:22.420 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/addspider],methods=[POST]}" onto public void com.ymt.mirage.car.web.controller.admin.SpiderController.create(com.ymt.mirage.car.dto.SpiderInfo)
+2016-09-04 16:57:22.421 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/sponsor],methods=[GET]}" onto public java.util.List<com.ymt.mirage.car.dto.SponsorInfo> com.ymt.mirage.car.web.controller.admin.SponsorAdminController.query()
+2016-09-04 16:57:22.423 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/voting/{id}],methods=[PUT]}" onto public com.ymt.mirage.car.dto.VotingInfo com.ymt.mirage.car.web.controller.admin.VotingAdminController.update(com.ymt.mirage.car.dto.VotingInfo)
+2016-09-04 16:57:22.425 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/voting/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.car.web.controller.admin.VotingAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.426 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/voting],methods=[POST]}" onto public com.ymt.mirage.car.dto.VotingInfo com.ymt.mirage.car.web.controller.admin.VotingAdminController.create(com.ymt.mirage.car.dto.VotingInfo)
+2016-09-04 16:57:22.428 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/voting],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.VotingInfo> com.ymt.mirage.car.web.controller.admin.VotingAdminController.query(com.ymt.mirage.car.dto.VotingInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.429 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/voting/{id}],methods=[GET]}" onto public com.ymt.mirage.car.dto.VotingInfo com.ymt.mirage.car.web.controller.admin.VotingAdminController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.430 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/votingParticipator/{id}/update],methods=[PUT]}" onto public com.ymt.mirage.car.dto.VotingParticipatorInfo com.ymt.mirage.car.web.controller.admin.VotingParticipatorAdminController.update(com.ymt.mirage.car.dto.VotingParticipatorInfo)
+2016-09-04 16:57:22.432 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/votingParticipator],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.car.dto.VotingParticipatorInfo> com.ymt.mirage.car.web.controller.admin.VotingParticipatorAdminController.query(com.ymt.mirage.car.dto.VotingParticipatorInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.436 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}],methods=[PUT]}" onto public com.ymt.pz365.framework.weixin.dto.ButtonInfo com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.update(com.ymt.pz365.framework.weixin.dto.ButtonInfo)
+2016-09-04 16:57:22.437 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.438 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button],methods=[POST]}" onto public com.ymt.pz365.framework.weixin.dto.ButtonInfo com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.create(com.ymt.pz365.framework.weixin.dto.ButtonInfo)
+2016-09-04 16:57:22.438 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/sync],methods=[POST]}" onto public void com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.sync() throws java.lang.Exception
+2016-09-04 16:57:22.439 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}/move],methods=[GET]}" onto public void com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.move(java.lang.Long,java.lang.Long)
+2016-09-04 16:57:22.440 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button],methods=[GET]}" onto public com.ymt.pz365.framework.weixin.dto.ButtonInfo com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.getButtonTree()
+2016-09-04 16:57:22.440 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}],methods=[GET]}" onto public com.ymt.pz365.framework.weixin.dto.ButtonInfo com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.getButtonInfo(java.lang.Long)
+2016-09-04 16:57:22.441 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}/move/up],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.moveUp(java.lang.Long)
+2016-09-04 16:57:22.441 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/button/{id}/move/down],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.framework.weixin.web.controller.ButtonAdminController.moveDown(java.lang.Long)
+2016-09-04 16:57:22.444 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin/jsapiTicket],methods=[GET]}" onto public com.ymt.pz365.framework.weixin.support.JsapiTicket com.ymt.pz365.framework.weixin.web.controller.WeixinController.getJsapiTicket(java.lang.String)
+2016-09-04 16:57:22.445 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin/oauth]}" onto public void com.ymt.pz365.framework.weixin.web.controller.WeixinController.oauth(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2016-09-04 16:57:22.446 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin/pay/callback]}" onto public java.lang.String com.ymt.pz365.framework.weixin.web.controller.WeixinController.payCallback(java.lang.String) throws java.lang.Exception
+2016-09-04 16:57:22.447 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/message/send],methods=[POST]}" onto public void com.ymt.pz365.framework.weixin.web.controller.WeixinController.sendMessage(com.ymt.pz365.framework.weixin.support.message.DefaultTemplateMessage) throws java.lang.Exception
+2016-09-04 16:57:22.447 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin/user/tags],methods=[GET]}" onto public com.ymt.pz365.framework.weixin.dto.UserTags com.ymt.pz365.framework.weixin.web.controller.WeixinController.getUserTags() throws java.lang.Exception
+2016-09-04 16:57:22.448 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin]}" onto public java.lang.String com.ymt.pz365.framework.weixin.web.controller.WeixinController.weixin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.Exception
+2016-09-04 16:57:22.449 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixin/upload],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.pz365.framework.weixin.web.controller.WeixinController.upload(java.lang.String) throws java.lang.IllegalStateException,java.io.IOException
+2016-09-04 16:57:22.450 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixinReply/{id}],methods=[PUT]}" onto public com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo com.ymt.pz365.framework.weixin.web.controller.WeixinReplyController.update(com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo)
+2016-09-04 16:57:22.451 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixinReply/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.framework.weixin.web.controller.WeixinReplyController.delete(java.lang.Long)
+2016-09-04 16:57:22.451 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixinReply],methods=[POST]}" onto public com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo com.ymt.pz365.framework.weixin.web.controller.WeixinReplyController.create(com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo)
+2016-09-04 16:57:22.451 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixinReply],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo> com.ymt.pz365.framework.weixin.web.controller.WeixinReplyController.query(com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.452 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/weixinReply/{id}],methods=[GET]}" onto public com.ymt.pz365.framework.weixin.dto.WeixinReplyInfo com.ymt.pz365.framework.weixin.web.controller.WeixinReplyController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.454 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param/value/{code}],methods=[GET]}" onto public com.ymt.pz365.framework.param.dto.ParamInfo com.ymt.pz365.framework.param.web.controller.ParamAdminController.get(java.lang.String)
+2016-09-04 16:57:22.455 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param/{id}],methods=[PUT]}" onto public com.ymt.pz365.framework.param.dto.ParamInfo com.ymt.pz365.framework.param.web.controller.ParamAdminController.update(com.ymt.pz365.framework.param.dto.ParamInfo)
+2016-09-04 16:57:22.485 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param/{id}],methods=[DELETE]}" onto public void com.ymt.pz365.framework.param.web.controller.ParamAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.492 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param],methods=[POST]}" onto public com.ymt.pz365.framework.param.dto.ParamInfo com.ymt.pz365.framework.param.web.controller.ParamAdminController.create(com.ymt.pz365.framework.param.dto.ParamInfo)
+2016-09-04 16:57:22.496 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.pz365.framework.param.dto.ParamInfo> com.ymt.pz365.framework.param.web.controller.ParamAdminController.query(com.ymt.pz365.framework.param.dto.ParamInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.498 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/param/{id}],methods=[GET]}" onto public com.ymt.pz365.framework.param.dto.ParamInfo com.ymt.pz365.framework.param.web.controller.ParamAdminController.getInfo(java.lang.Long) throws java.lang.Exception
+2016-09-04 16:57:22.502 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article/{id}],methods=[PUT]}" onto public com.ymt.mirage.article.dto.ArticleInfo com.ymt.mirage.article.web.controller.admin.ArticleAdminController.update(com.ymt.mirage.article.dto.ArticleInfo) throws java.lang.Exception
+2016-09-04 16:57:22.503 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.article.web.controller.admin.ArticleAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.506 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article],methods=[POST]}" onto public com.ymt.mirage.article.dto.ArticleInfo com.ymt.mirage.article.web.controller.admin.ArticleAdminController.create(com.ymt.mirage.article.dto.ArticleInfo) throws java.lang.Exception
+2016-09-04 16:57:22.507 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.article.dto.ArticleInfo> com.ymt.mirage.article.web.controller.admin.ArticleAdminController.query(com.ymt.mirage.article.dto.ArticleInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.507 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article/{id}],methods=[GET]}" onto public com.ymt.mirage.article.dto.ArticleInfo com.ymt.mirage.article.web.controller.admin.ArticleAdminController.getInfo(java.lang.Long) throws java.lang.Exception
+2016-09-04 16:57:22.508 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/article/{id}/content],methods=[PUT]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.mirage.article.web.controller.admin.ArticleAdminController.updateContent(java.lang.Long,java.lang.String) throws java.lang.Exception
+2016-09-04 16:57:22.510 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment/{id}],methods=[PUT]}" onto public com.ymt.mirage.social.dto.CommentInfo com.ymt.mirage.social.web.controller.CommentAdminController.update(com.ymt.mirage.social.dto.CommentInfo)
+2016-09-04 16:57:22.513 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.social.web.controller.CommentAdminController.delete(java.lang.Long) throws java.lang.Exception
+2016-09-04 16:57:22.515 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment/batch],methods=[POST]}" onto public void com.ymt.mirage.social.web.controller.CommentAdminController.delete(com.ymt.mirage.social.dto.DeleteAll) throws java.lang.Exception
+2016-09-04 16:57:22.515 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment],methods=[POST]}" onto public com.ymt.mirage.social.dto.CommentInfo com.ymt.mirage.social.web.controller.CommentAdminController.create(com.ymt.mirage.social.dto.CommentInfo)
+2016-09-04 16:57:22.516 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.social.dto.CommentInfo> com.ymt.mirage.social.web.controller.CommentAdminController.query(com.ymt.mirage.social.dto.CommentInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.518 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment/{id}],methods=[GET]}" onto public com.ymt.mirage.social.dto.CommentInfo com.ymt.mirage.social.web.controller.CommentAdminController.getInfo(java.lang.Long) throws java.lang.Exception
+2016-09-04 16:57:22.519 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/post/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.social.web.controller.PostController.delete(java.lang.Long)
+2016-09-04 16:57:22.520 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/post],methods=[POST]}" onto public com.ymt.mirage.social.dto.PostInfo com.ymt.mirage.social.web.controller.PostController.create(com.ymt.mirage.social.dto.PostInfo)
+2016-09-04 16:57:22.530 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/post],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.social.dto.PostInfo> com.ymt.mirage.social.web.controller.PostController.query(com.ymt.mirage.social.dto.PostInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.532 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/comment/delete],methods=[POST]}" onto public void com.ymt.mirage.social.web.controller.SocialAdminController.deleteComment(com.ymt.mirage.social.dto.CommentInfo) throws java.lang.Exception
+2016-09-04 16:57:22.535 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/level/{id}],methods=[PUT]}" onto public com.ymt.mirage.user.dto.LevelInfo com.ymt.mirage.user.web.controller.weixin.LevelController.update(com.ymt.mirage.user.dto.LevelInfo)
+2016-09-04 16:57:22.535 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/level/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.user.web.controller.weixin.LevelController.delete(java.lang.Long)
+2016-09-04 16:57:22.536 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/level],methods=[POST]}" onto public com.ymt.mirage.user.dto.LevelInfo com.ymt.mirage.user.web.controller.weixin.LevelController.create(com.ymt.mirage.user.dto.LevelInfo)
+2016-09-04 16:57:22.537 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/level],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.user.dto.LevelInfo> com.ymt.mirage.user.web.controller.weixin.LevelController.query(com.ymt.mirage.user.dto.LevelInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.538 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/level/{id}],methods=[GET]}" onto public com.ymt.mirage.user.dto.LevelInfo com.ymt.mirage.user.web.controller.weixin.LevelController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.542 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/user/mobile],methods=[PUT]}" onto public void com.ymt.mirage.user.web.controller.weixin.UserWeixinController.update(com.ymt.mirage.user.dto.MobileUpdateInfo) throws java.lang.Exception
+2016-09-04 16:57:22.542 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/user/property],methods=[PUT]}" onto public void com.ymt.mirage.user.web.controller.weixin.UserWeixinController.update(com.ymt.pz365.framework.core.context.Property) throws java.lang.Exception
+2016-09-04 16:57:22.548 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/user/propertys],methods=[PUT]}" onto public void com.ymt.mirage.user.web.controller.weixin.UserWeixinController.update(java.util.List<com.ymt.pz365.framework.core.context.Property>) throws java.lang.Exception
+2016-09-04 16:57:22.549 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/user],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.user.dto.UserInfo> com.ymt.mirage.user.web.controller.weixin.UserWeixinController.query(com.ymt.mirage.user.dto.UserInfo,org.springframework.data.domain.Pageable,com.ymt.mirage.user.domain.User)
+2016-09-04 16:57:22.550 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/user/current],methods=[GET]}" onto public com.ymt.mirage.user.dto.UserInfo com.ymt.mirage.user.web.controller.weixin.UserWeixinController.getCurrentUser()
+2016-09-04 16:57:22.563 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}],methods=[PUT]}" onto public com.ymt.mirage.tag.dto.TagInfo com.ymt.mirage.tag.web.controller.TagAdminController.update(com.ymt.mirage.tag.dto.TagInfo)
+2016-09-04 16:57:22.563 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.tag.web.controller.TagAdminController.delete(java.lang.Long)
+2016-09-04 16:57:22.565 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag],methods=[POST]}" onto public com.ymt.mirage.tag.dto.TagInfo com.ymt.mirage.tag.web.controller.TagAdminController.create(com.ymt.mirage.tag.dto.TagInfo)
+2016-09-04 16:57:22.565 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tags],methods=[GET]}" onto public java.util.List<com.ymt.mirage.tag.dto.TagInfo> com.ymt.mirage.tag.web.controller.TagAdminController.getTags(com.ymt.mirage.tag.dto.TagedInfo)
+2016-09-04 16:57:22.566 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}/move],methods=[GET]}" onto public void com.ymt.mirage.tag.web.controller.TagAdminController.move(java.lang.Long,java.lang.Long)
+2016-09-04 16:57:22.566 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tags/info],methods=[GET]}" onto public java.util.List<com.ymt.mirage.tag.dto.TagInfo> com.ymt.mirage.tag.web.controller.TagAdminController.getTagInfos(com.ymt.mirage.tag.dto.TagedInfo)
+2016-09-04 16:57:22.567 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/options],methods=[GET]}" onto public java.util.List<com.ymt.mirage.tag.dto.TagInfo> com.ymt.mirage.tag.web.controller.TagAdminController.getTagOptions()
+2016-09-04 16:57:22.567 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag],methods=[GET]}" onto public com.ymt.mirage.tag.dto.TagInfo com.ymt.mirage.tag.web.controller.TagAdminController.getTagTree()
+2016-09-04 16:57:22.567 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}],methods=[GET]}" onto public com.ymt.mirage.tag.dto.TagInfo com.ymt.mirage.tag.web.controller.TagAdminController.getTagInfo(java.lang.Long)
+2016-09-04 16:57:22.568 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/child],methods=[GET]}" onto public java.util.List<com.ymt.mirage.tag.dto.TagInfo> com.ymt.mirage.tag.web.controller.TagAdminController.getChildTag(java.lang.Long)
+2016-09-04 16:57:22.569 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}/move/up],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.mirage.tag.web.controller.TagAdminController.moveUp(java.lang.Long)
+2016-09-04 16:57:22.569 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/tag/{id}/move/down],methods=[POST]}" onto public com.ymt.pz365.framework.core.web.support.SuccessResponse com.ymt.mirage.tag.web.controller.TagAdminController.moveDown(java.lang.Long)
+2016-09-04 16:57:22.571 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster/{id}],methods=[PUT]}" onto public com.ymt.mirage.poster.dto.PosterInfo com.ymt.mirage.poster.web.controller.PosterController.update(com.ymt.mirage.poster.dto.PosterInfo)
+2016-09-04 16:57:22.572 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.poster.web.controller.PosterController.delete(java.lang.Long)
+2016-09-04 16:57:22.572 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster],methods=[POST]}" onto public com.ymt.mirage.poster.dto.PosterInfo com.ymt.mirage.poster.web.controller.PosterController.create(com.ymt.mirage.poster.dto.PosterInfo)
+2016-09-04 16:57:22.572 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.poster.dto.PosterInfo> com.ymt.mirage.poster.web.controller.PosterController.query(com.ymt.mirage.poster.dto.PosterInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.573 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster/{id}],methods=[GET]}" onto public com.ymt.mirage.poster.dto.PosterInfo com.ymt.mirage.poster.web.controller.PosterController.getInfo(java.lang.Long)
+2016-09-04 16:57:22.573 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster/desc],methods=[POST]}" onto public void com.ymt.mirage.poster.web.controller.PosterController.saveActivityDesc(com.ymt.pz365.framework.param.dto.ParamInfo)
+2016-09-04 16:57:22.573 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/poster/desc],methods=[GET]}" onto public com.ymt.pz365.framework.param.dto.ParamInfo com.ymt.mirage.poster.web.controller.PosterController.getActivityDesc()
+2016-09-04 16:57:22.574 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/userPoster/{id}],methods=[DELETE]}" onto public void com.ymt.mirage.poster.web.controller.UserPosterController.delete(java.lang.Long)
+2016-09-04 16:57:22.575 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/userPoster],methods=[GET]}" onto public org.springframework.data.domain.Page<com.ymt.mirage.poster.dto.UserPosterInfo> com.ymt.mirage.poster.web.controller.UserPosterController.query(com.ymt.mirage.poster.dto.UserPosterInfo,org.springframework.data.domain.Pageable)
+2016-09-04 16:57:22.580 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-09-04 16:57:22.581 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping:534 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-09-04 16:57:22.595 [main] INFO  o.s.w.s.config.annotation.WebMvcConfigurerAdapter:289 - Adding welcome page: ServletContext resource [/index.html]
+2016-09-04 16:57:22.630 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping:328 - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-09-04 16:57:22.670 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-09-04 16:57:22.670 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-09-04 16:57:22.868 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:267 - Detected @ExceptionHandler methods in exceptionHandlerController
+2016-09-04 16:57:22.924 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-09-04 16:57:23.427 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter:431 - Registering beans for JMX exposure on startup
+2016-09-04 16:57:34.511 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:180 - Initializing ProtocolHandler ["http-nio-8161"]
+2016-09-04 16:57:36.078 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:180 - Starting ProtocolHandler ["http-nio-8161"]
+2016-09-04 16:57:48.774 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool:180 - Using a shared selector for servlet write/read
+2016-09-04 16:57:50.497 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer:162 - Tomcat started on port(s): 8161 (http)
+2016-09-04 16:57:50.513 [main] INFO  com.ymt.CarAdminApplication:57 - Started CarAdminApplication in 128.929 seconds (JVM running for 131.589)
+2016-09-04 16:59:31.835 [http-nio-8161-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/admin2]:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-09-04 16:59:31.835 [http-nio-8161-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet:488 - FrameworkServlet 'dispatcherServlet': initialization started
+2016-09-04 16:59:31.897 [http-nio-8161-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet:507 - FrameworkServlet 'dispatcherServlet': initialization completed in 62 ms
+2016-09-04 17:00:23.454 [http-nio-8161-exec-1] INFO  c.y.p.f.web.controller.ExceptionHandlerController:33 - 系统异常:
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:393)
+	at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:426)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:342)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:317)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:110)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1022)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:891)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:265)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:100)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:222)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:183)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:80)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:126)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:859)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:720)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:468)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:391)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:318)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:445)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:304)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:181)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(Unknown Source)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.write(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.write(Unknown Source)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:124)
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101)
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:172)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.writeToSocket(InternalNioOutputBuffer.java:139)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.addToBB(InternalNioOutputBuffer.java:197)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.access$000(InternalNioOutputBuffer.java:41)
+	at org.apache.coyote.http11.InternalNioOutputBuffer$SocketOutputBuffer.doWrite(InternalNioOutputBuffer.java:320)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:121)
+	at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:256)
+	at org.apache.coyote.Response.doWrite(Response.java:501)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:388)
+	... 42 common frames omitted
+2016-09-04 17:00:24.314 [http-nio-8161-exec-1] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost]:182 - Exception Processing ErrorPage[errorCode=0, location=/error]
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:393)
+	at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:426)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:342)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:317)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:110)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1022)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:891)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:265)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:100)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:222)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:183)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:80)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:126)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:859)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:720)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:468)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:391)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:318)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:445)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:304)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:181)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(Unknown Source)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.write(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.write(Unknown Source)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:124)
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101)
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:172)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.writeToSocket(InternalNioOutputBuffer.java:139)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.addToBB(InternalNioOutputBuffer.java:197)
+	at org.apache.coyote.http11.InternalNioOutputBuffer.access$000(InternalNioOutputBuffer.java:41)
+	at org.apache.coyote.http11.InternalNioOutputBuffer$SocketOutputBuffer.doWrite(InternalNioOutputBuffer.java:320)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:121)
+	at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:256)
+	at org.apache.coyote.Response.doWrite(Response.java:501)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:388)
+	... 42 common frames omitted

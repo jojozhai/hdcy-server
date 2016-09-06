@@ -1546,7 +1546,6 @@ angular.module('hdcyApp', ['weixin',
 
 				turnplate.restaraunts = result.prizes;
 				turnplate.colors = result.colors;
-
 				turnplate.imgurl = ["images/cj-04.png", "images/cj-05.png", "images/cj-06.png", "images/cj-01.png","images/cj-02.png", "images/cj-03.png"];
 
 				var rotateTimeOut = function (){
@@ -1619,9 +1618,38 @@ angular.module('hdcyApp', ['weixin',
 				// 		}
 				// 	});
 				});
-
+				turnplate.imgurl = ["images/cj-01.png","images/cj-02.png","images/cj-03.png","images/cj-04.png","images/cj-05.png","images/cj-06.png","images/cj-02.png"];
+				var loaded = 0;
+				for (var i = 0; i < turnplate.imgurl.length; i++) {
+					var img = new Image();
+					img.src=turnplate.imgurl[i];
+					img.onload = (function(a) {
+						return function(){
+							loaded++;							
+							img=this;
+//							if(loaded==turnplate.imgurl.length){
+//								drawRouletteWheel();
+//							}	
+							drawRouletteWheel();
+							
+						}						
+					})(i)				
+				}				
+				/*var loaded = 0;
+				for (var i = 0; i < turnplate.imgurl.length; i++) {
+					var img = new Image();
+					img.onload = function() {
+						loaded++;
+						if(loaded==turnplate.imgurl.length){
+							drawRouletteWheel();
+						}
+					}
+					img.src = turnplate.imgurl[i];
+				}*/
+				
+			function drawRouletteWheel() {	
+				console.log(img)
 				var canvas = document.getElementById("wheelcanvas");
-
 				if (canvas.getContext) {
 					  //根据奖品个数计算圆周角度
 					  var arc = Math.PI / (turnplate.restaraunts.length/2);
@@ -1654,8 +1682,8 @@ angular.module('hdcyApp', ['weixin',
 						  //rotate方法旋转当前的绘图
 						  ctx.rotate(angle + arc / 2 + Math.PI / 2);
 
-						  var img=new Image();
-						  img.src=turnplate.imgurl[i];
+						 /* var img=new Image();
+						  img.src=turnplate.imgurl[i];*/
 						  ctx.drawImage(img,-28,10);
 						  ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
 
@@ -1664,6 +1692,7 @@ angular.module('hdcyApp', ['weixin',
 						  //----绘制奖品结束----
 					  }
 				  }
+				}
 			});
 		}
 	}

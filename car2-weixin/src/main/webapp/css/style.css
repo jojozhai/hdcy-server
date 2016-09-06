@@ -216,8 +216,8 @@ textarea {
 	color: #FFFFFF;
 	line-height: 24px;
 	padding-bottom: 10px;
-	white-space: nowrap;
-	overflow: hidden;
+	/* white-space: nowrap;
+	overflow: hidden; */
 	text-overflow: ellipsis;
 }
 
@@ -233,7 +233,7 @@ textarea {
 .messagedel-cnt {
 	padding-bottom: 10px;
 	font-size: 14px;
-	top: 100px;
+	top: 120px;
 	position: absolute;
 	bottom: 43px;
 	overflow: auto;
@@ -242,7 +242,6 @@ textarea {
 .messagedel-cnt img {
 	width: 100%;
 }
-
 
 /*.messagedel-cnt p{
 	text-indent: 2em;
