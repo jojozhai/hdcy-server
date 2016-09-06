@@ -16,7 +16,7 @@ angular.module(
 				'tagAdminModule', 'activityAdminModule', 'votingAdminModule',
 				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule',
 				'carAdminModule', 'posterAdminModule', 'articleAdminModule',
-				'commentAdminModule', 'yr' ])
+				'commentAdminModule', 'videoAdminModule','yr' ])
 .service("sponsorRestService",function($resource) {
 	return $resource("sponsor");
 }).service("customerServiceService", function($resource) {
