@@ -31,6 +31,7 @@ public class VideoSpec extends PzSimpleSpecification<Video, VideoInfo> {
     @Override
     protected void addCondition(QueryWraper<Video> queryWraper) {
         addLikeCondition(queryWraper, "name");
+        addEqualsCondition(queryWraper, "enable");
     }
 
 }

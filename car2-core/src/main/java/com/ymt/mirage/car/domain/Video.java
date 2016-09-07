@@ -11,6 +11,8 @@
  */
 package com.ymt.mirage.car.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
 import com.ymt.pz365.data.jpa.domain.DomainImpl;
@@ -32,6 +34,38 @@ public class Video extends DomainImpl {
      * 视频链接 
      */
     private String url;
+    /**
+     * 置顶
+     */
+    private boolean top;
+    /**
+     * 发布
+     */
+    private boolean enable;
+    /**
+     * 图片
+     */
+    private String image;
+    /**
+     * 观看次数加成
+     */
+    private int viewCountPlus;
+    /**
+     * 观看次数
+     */
+    private int viewCount;
+    /**
+     * 是否是直播
+     */
+    private boolean live;
+    /**
+     * 开始时间
+     */
+    private Date startTime;
+    /**
+     * 视频时长
+     */
+    private String length;
     
     /**
      * @return the name
@@ -56,6 +90,102 @@ public class Video extends DomainImpl {
      */
     public void setUrl(String url) {
         this.url = url;
+    }
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
+    /**
+     * @return the viewCountPlus
+     */
+    public int getViewCountPlus() {
+        return viewCountPlus;
+    }
+    /**
+     * @param viewCountPlus the viewCountPlus to set
+     */
+    public void setViewCountPlus(int viewCountPlus) {
+        this.viewCountPlus = viewCountPlus;
+    }
+    /**
+     * @return the viewCount
+     */
+    public int getViewCount() {
+        return viewCount;
+    }
+    /**
+     * @param viewCount the viewCount to set
+     */
+    public void setViewCount(int viewCount) {
+        this.viewCount = viewCount;
+    }
+    /**
+     * @return the top
+     */
+    public boolean isTop() {
+        return top;
+    }
+    /**
+     * @param top the top to set
+     */
+    public void setTop(boolean top) {
+        this.top = top;
+    }
+    /**
+     * @return the live
+     */
+    public boolean isLive() {
+        return live;
+    }
+    /**
+     * @param live the live to set
+     */
+    public void setLive(boolean live) {
+        this.live = live;
+    }
+    /**
+     * @return the startTime
+     */
+    public Date getStartTime() {
+        return startTime;
+    }
+    /**
+     * @param startTime the startTime to set
+     */
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+    /**
+     * @return the length
+     */
+    public String getLength() {
+        return length;
+    }
+    /**
+     * @param length the length to set
+     */
+    public void setLength(String length) {
+        this.length = length;
+    }
+    /**
+     * @return the enable
+     */
+    public boolean isEnable() {
+        return enable;
+    }
+    /**
+     * @param enable the enable to set
+     */
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
     
 }
