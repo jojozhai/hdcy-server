@@ -1349,3 +1349,7 @@ Caused by: java.lang.IllegalStateException: Tomcat connector in failed state
 2016-09-07 11:05:00.403 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:42 - 检查活动状态
 2016-09-07 11:06:00.032 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:55 - 检查资讯状态
 2016-09-07 11:06:00.157 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:42 - 检查活动状态
+2016-09-07 11:07:00.044 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:55 - 检查资讯状态
+2016-09-07 11:07:00.191 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:42 - 检查活动状态
+2016-09-07 11:08:00.123 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:42 - 检查活动状态
+2016-09-07 11:08:00.933 [pool-2-thread-1] INFO  c.ymt.mirage.hdcy.service.impl.ScheduleServiceImpl:55 - 检查资讯状态
