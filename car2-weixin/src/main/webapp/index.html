@@ -5,6 +5,7 @@
     <title>好多车友</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- <meta name="viewport" content="target-densitydpi=device-dpi,width=750, user-scalable=0" id="viewport">     -->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -12,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="css/lib/weui.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/lib/jquery-weui.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	
+    <link rel="stylesheet" href="css/swiperc.css" media="screen" title="no title">
 	<link rel="stylesheet" href="styles/mobiscroll.custom-2.17.2.min.css" />
-	
+
 	<style type="text/css">
 		body{
 			background: #f7f7f7;
@@ -23,7 +24,7 @@
 			height: 200px;
 		}
 	</style>
-    
+
     <script type="text/javascript">
     	//用来在用户未登陆时组装引导用户登陆用的地址。参见weixin.js
     	//正式环境
@@ -39,21 +40,21 @@
 		var weixinOauthType = "snsapi_userinfo";
 		var defaultIndexPage = "/article/list";
 	</script>
-    
+
 	<script src="scripts/framework/jquery.min.js"></script>
-	<script src="scripts/framework/jquery-weui.min.js"></script>	
+	<script src="scripts/framework/jquery-weui.min.js"></script>
 	<script src="scripts/awardRotate.js"></script>
-	
+
 	<script>
 		var _hmt = _hmt || [];
 		(function() {
 		  var hm = document.createElement("script");
 		  hm.src = "//hm.baidu.com/hm.js?87a7a6f6ac0f31ebec23989a0ce55683";
-		  var s = document.getElementsByTagName("script")[0]; 
+		  var s = document.getElementsByTagName("script")[0];
 		  s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
-	
+
     <!-- endbuild -->
   </head>
   <body ng-controller="appMainCtrl" ng-class="{'weui-pull-to-refresh': globalConfig.enablePullToRefresh}">
@@ -62,10 +63,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    
+
 
 	<div ui-view ng-class="{'cnt-height': !globalConfig.enablePullToRefresh}"></div>
-	
+
 	<!-- build:js(.) scripts/vendor.js -->
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="scripts/framework/jquery.slimscroll.min.js"></script>
@@ -83,18 +84,19 @@
     <script src="scripts/framework/ui-bootstrap-tpls.min.js"></script>
    	<script src="scripts/framework/ng-infinite-scroll.min.js"></script>
    	<script src="scripts/framework/mobiscroll.custom-2.17.2.min.js"></script>
-   	
+
    	<script src="scripts/hdcyApp.js"></script>
-   	<script src="scripts/swiper.min.js"></script>   
+   	<script src="scripts/swiper.min.js"></script>
+    <script src="scripts/swiperj.js" charset="utf-8"></script>
    	<script src="scripts/commons/common.js"></script>
    	<script src="scripts/commons/weixin.js"></script>
-   	
+
    	<script src="weixin/scripts/param/paramWeixinModule.js"></script>
    	<script src="weixin/scripts/tag/tagWeixinModule.js"></script>
    	<script src="weixin/scripts/smsWeixinModule.js"></script>
    	<script src="weixin/scripts/user/userWeixinModule.js"></script>
-   	<script src="weixin/scripts/social/socialWeixinModule.js"></script>   	
+   	<script src="weixin/scripts/social/socialWeixinModule.js"></script>
     <!-- endbuild -->
-    
+
 </body>
 </html>

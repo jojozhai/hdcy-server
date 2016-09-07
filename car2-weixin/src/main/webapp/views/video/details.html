@@ -1,0 +1,40 @@
+<div class="cntBox">
+	<div class="messagehead">
+		<a href="javascript:void(0)" class="back" ng-click="goBack()"></a>
+		<h2>{{article.title}}</h2>
+		<div class="messagehead-txt">
+			<div class="left">
+				<span style="padding: 0px; margin: 0px;" ng-repeat="tag in article.tagInfos">【{{tag.name}}】</span>
+				<span ng-bind="article.createdTime | hdcyArticleDate"></span>
+			</div>
+			<div class="right">{{article.principal}}</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="messagedel-cnt">
+		<img ng-src="{{article.image2}}"/>
+		<div ng-bind-html="article.content | toHtml" style="padding: 5px;"></div>
+	</div>
+</div>
+<div class="comment">
+	<div class="comment-cnt">
+		<input type="text" class="comment-input" ng-model="comment" readonly="readonly" placeholder="说点啥呗" ng-click="clickCommentInput()"/>
+		<i></i>
+	</div>
+	<div class="comment-num">
+		<a ui-sref="app.comment({target: 'article', targetId: article.id})"><i></i>{{article.commentCount}}</a>
+	</div>
+</div>
+<!--评论弹窗-->
+<div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
+	<div class="commentfix" ng-click="showCommentDiv = false"></div>
+	<div class="commentLayer-cnt">
+		<div class="commentLayer-title">
+			<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
+			<h2>写评论</h2>
+			<a class="comment-fs" ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">发送</a>
+		</div>
+		<textarea class="commentArea" ng-model="comment" autofocus maxlength="300"></textarea>
+	</div>
+</div>
+<!--评论弹窗 end-->

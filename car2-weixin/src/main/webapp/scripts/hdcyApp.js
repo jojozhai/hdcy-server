@@ -71,6 +71,18 @@ angular.module('hdcyApp', ['weixin',
 		url: "/details",
 		controller: "activityDetailsCtrl",
 		templateUrl: "views/activity/details.html"
+	}).state('app.video', {
+		abstract: true,
+		url: "/video",
+		templateUrl: "views/main.html"
+	}).state('app.video.list', {
+		url: "/list?tag",
+		controller: "articleListCtrl",
+		templateUrl: "views/video/list.html"
+	}).state('app.video.details', {
+		url: "/details?id&tag",
+		controller: "articleDetailsCtrl",
+		templateUrl: "views/video/details.html"
 	}).state('app.voting', {
 		abstract: true,
 		url: "/voting?id",
@@ -482,7 +494,85 @@ angular.module('hdcyApp', ['weixin',
 	$scope.goBack = function(){
 		$state.go("app.article.list", {tag: $stateParams.tag});
 	}
+//TODO
+}).controller('videoListCtrl', function($scope, $stateParams, articleRestService, commonService, tagRestService, weixinService) {
 
+	weixinService.initWx(function(){
+		var link = commonService.getDomainUrl("/video/list");
+		var image = commonService.getDomain("images/getheadimg.jpeg");
+		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+	});
+
+	$scope.condition = {
+		enable: true
+	};
+
+	$scope.test = function(){
+		$scope.pageInfo.page = 0;
+		$scope.videos = [];
+		$scope.query(function(){
+			$(".cntxiala").pullToRefreshDone();
+		});
+	}
+
+	$scope.dataService = articleRestService;
+    // console.log(articleRestService);
+	$scope.tags = tagRestService.getChildTags();
+
+	$scope.currentTag = {id:''};
+
+	$scope.changeTag = function(tag){
+		if(tag){
+			$scope.condition.tagId = tag.id;
+			$scope.currentTag = tag;
+		}else{
+			$scope.condition.tagId = null;
+			$scope.currentTag = {id:''};
+		}
+		$scope.pageInfo.page = 0;
+		$scope.articles = [];
+		$scope.query(function(){
+			$scope.showCategoryChoice = false;
+		});
+	}
+
+	if(!isEmpty($stateParams.tag)){
+		$scope.condition.tagId = $stateParams.tag;
+		$scope.currentTag = {id: $stateParams.tag};;
+	}
+
+
+	weixinService.initWx();
+
+}).controller('videoDetailsCtrl', function($scope, $state, $stateParams, articleRestService, commentRestService, userRestService, weixinService, commonService) {
+
+	articleRestService.get({id: $stateParams.id}).$promise.then(function(result){
+		$scope.article = result;
+		weixinService.initWx(function(){
+//			var link = commonService.getShareLink("/article/details?id="+result.id);
+			var link = artilceLink + "/video/details?id="+result.id;
+			weixinService.shareConfig(result.title, "", link, result.image);
+		});
+	});
+
+	$scope.saveComment = function(comment) {
+		commentRestService.saveComment({target: "article", targetId: $stateParams.id, content: comment}, function(result){
+			$scope.comment = "";
+			$scope.showCommentDiv = false;
+			$scope.article.commentCount = $scope.article.commentCount + 1;
+		});
+	}
+
+	$scope.clickCommentInput = function(){
+		$scope.checkUserInfo(function(){
+			$scope.showCommentDiv = true;
+		});
+	}
+
+	$scope.goBack = function(){
+		$state.go("app.video.list", {tag: $stateParams.tag});
+	}
+//TODO
 }).controller('participationListCtrl', function($scope, $state, participationRestService,weixinService, commonService) {
 
 	$scope.condition = {enable: true};
@@ -1625,16 +1715,16 @@ angular.module('hdcyApp', ['weixin',
 					img.src=turnplate.imgurl[i];
 					img.onload = (function(a) {
 						return function(){
-							loaded++;							
+							loaded++;
 							img=this;
 //							if(loaded==turnplate.imgurl.length){
 //								drawRouletteWheel();
-//							}	
+//							}
 							drawRouletteWheel();
-							
-						}						
-					})(i)				
-				}				
+
+						}
+					})(i)
+				}
 				/*var loaded = 0;
 				for (var i = 0; i < turnplate.imgurl.length; i++) {
 					var img = new Image();
@@ -1646,8 +1736,8 @@ angular.module('hdcyApp', ['weixin',
 					}
 					img.src = turnplate.imgurl[i];
 				}*/
-				
-			function drawRouletteWheel() {	
+
+			function drawRouletteWheel() {
 				console.log(img)
 				var canvas = document.getElementById("wheelcanvas");
 				if (canvas.getContext) {
