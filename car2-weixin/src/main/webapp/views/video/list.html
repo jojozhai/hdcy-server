@@ -3,9 +3,6 @@
 	<div class="head">
 		<!-- <a href="javascript:void(0)" class="back" ng-click="closeWindow()"></a> -->
 		<h2>好多视频</h2>
-		<div class="head-right">
-			<a href="javascript:void(0)" ng-click="showCategoryChoice = !showCategoryChoice" class="headsearch"></a>
-		</div>
 	</div>
 </div>
 
@@ -32,34 +29,25 @@
 	   </div>
  </div>
 	<div class="cntxiala">
-		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="articles" size="15">
-			<a ng-repeat="article in articles" ui-sref="app.article.details({id: article.id, tag:currentTag.id})">
+		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
+			<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id, tag:currentTag.id})">
 				<li>
 					<div class="video-listimg">
-						<img ng-src="{{article.image}}" />
+						<img ng-src="{{video.image}}" />
 					</div>
 					<div class="video-txt">
-						<h2>{{article.title}}</h2>
+						<h2>{{video.title}}</h2>
 						<div class="video-type">
-							<span class="video-sort" ng-repeat="tag in article.tagInfos">{{tag.name}}&nbsp;&nbsp;</span>
-							<span class="video-sort">{{article.createdTime | hdcyArticleDate}}</span>
-							<!-- <span class="message-num"><i></i>{{article.readCount}}</span> -->
-							<span class="message-num">{{article.readCount}}</span>
+							<span class="video-sort" ng-repeat="tag in video.tagInfos">{{tag.name}}&nbsp;&nbsp;</span>
+							<span class="video-sort">{{video.createdTime | hdcyArticleDate}}</span>
+							<!-- <span class="message-num"><i></i>{{video.readCount}}</span> -->
+							<span class="message-num">{{video.readCount}}</span>
 							<img src="images/content-icon-browse-default.png" alt="" />
 						</div>
 					</div>
 			     </li>
             </a>
 		</ul>
-		<div class="messageLayer" ng-style="{display: showCategoryChoice?'block':'none'}">
-			<div class="messagefix" ng-click="showCategoryChoice = !showCategoryChoice"></div>
-			<ul class="messagelayerCnt">
-				<li><a ng-click="changeTag()" ng-class="{'active': currentTag.id == ''}">全部</a></li>
-				<li ng-repeat="tag in tags">
-				    <a ng-click="changeTag(tag)" ng-class="{'active': currentTag.id==tag.id}">{{tag.name}}</a>
-				</li>
-			</ul>
-		</div>
 	</div>
 </div>
 </div>

@@ -77,11 +77,11 @@ angular.module('hdcyApp', ['weixin',
 		templateUrl: "views/main.html"
 	}).state('app.video.list', {
 		url: "/list?tag",
-		controller: "articleListCtrl",
+		controller: "videoListCtrl",
 		templateUrl: "views/video/list.html"
 	}).state('app.video.details', {
 		url: "/details?id&tag",
-		controller: "articleDetailsCtrl",
+		controller: "videoDetailsCtrl",
 		templateUrl: "views/video/details.html"
 	}).state('app.voting', {
 		abstract: true,
@@ -495,17 +495,18 @@ angular.module('hdcyApp', ['weixin',
 		$state.go("app.article.list", {tag: $stateParams.tag});
 	}
 //TODO
-}).controller('videoListCtrl', function($scope, $stateParams, articleRestService, commonService, tagRestService, weixinService) {
-
+}).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
+	
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
 
-	$scope.condition = {
-		enable: true
-	};
+	$scope.condition = {};
+	
+	//获得置顶的视频列表
+	$scope.tops = videoRestService.query({top: true});
 
 	$scope.test = function(){
 		$scope.pageInfo.page = 0;
@@ -515,38 +516,11 @@ angular.module('hdcyApp', ['weixin',
 		});
 	}
 
-	$scope.dataService = articleRestService;
-    // console.log(articleRestService);
-	$scope.tags = tagRestService.getChildTags();
+	$scope.dataService = videoRestService;
 
-	$scope.currentTag = {id:''};
+}).controller('videoDetailsCtrl', function($scope, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
 
-	$scope.changeTag = function(tag){
-		if(tag){
-			$scope.condition.tagId = tag.id;
-			$scope.currentTag = tag;
-		}else{
-			$scope.condition.tagId = null;
-			$scope.currentTag = {id:''};
-		}
-		$scope.pageInfo.page = 0;
-		$scope.articles = [];
-		$scope.query(function(){
-			$scope.showCategoryChoice = false;
-		});
-	}
-
-	if(!isEmpty($stateParams.tag)){
-		$scope.condition.tagId = $stateParams.tag;
-		$scope.currentTag = {id: $stateParams.tag};;
-	}
-
-
-	weixinService.initWx();
-
-}).controller('videoDetailsCtrl', function($scope, $state, $stateParams, articleRestService, commentRestService, userRestService, weixinService, commonService) {
-
-	articleRestService.get({id: $stateParams.id}).$promise.then(function(result){
+	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.article = result;
 		weixinService.initWx(function(){
 //			var link = commonService.getShareLink("/article/details?id="+result.id);
@@ -1357,6 +1331,9 @@ angular.module('hdcyApp', ['weixin',
 }).service("articleRestService", function($resource, commonService){
 	var config = commonService.getDefaultRestSetting();
 	return $resource("article/:id", {id:"@id"}, config);
+}).service("videoRestService", function($resource, commonService){
+	var config = commonService.getDefaultRestSetting();
+	return $resource("video/:id", {id:"@id"}, config);
 }).service("participationRestService", function($resource, commonService){
 	var config = commonService.getDefaultRestSetting();
 	return $resource("participation/:id", {id:"@id"}, config);
