@@ -11,6 +11,7 @@
  */
 package com.ymt.mirage.car.service.impl;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,6 +58,7 @@ public class VideoServiceImpl implements VideoService {
         Video video = videoRepository.findOne(id);
         VideoInfo info = new VideoInfo();
         BeanUtils.copyProperties(video, info);
+        info.setStart(new DateTime(video.getStartTime()).isBeforeNow());
         return info;
     }
 
