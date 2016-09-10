@@ -19,7 +19,6 @@ angular.module('hdcyApp', ['weixin',
     'paramWeixinModule',
     'tagWeixinModule'])
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-
 	$stateProvider.state('app', {
 		abstract: true,
 		templateUrl: "views/main.html"
@@ -193,7 +192,6 @@ angular.module('hdcyApp', ['weixin',
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
 	});
-
 	$scope.checkLogin = function(from){
 		userRestService.current().$promise.then(function(result){
 			if(typeof from == 'function'){
@@ -398,7 +396,6 @@ angular.module('hdcyApp', ['weixin',
 	if($stateParams.target == 'article'){
 		articleRestService.get({id: $stateParams.targetId}).$promise.then(function(result){
 			$scope.commentedObj = {name: result.title};
-
 			weixinService.initWx(function(){
 				var link = commonService.getShareLink("/article/details?id="+result.id);
 				weixinService.shareConfig(result.title, "", link, result.image);
@@ -496,18 +493,14 @@ angular.module('hdcyApp', ['weixin',
 	}
 //TODO
 }).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
-	
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
-
 	$scope.condition = {};
-	
 	//获得置顶的视频列表
 	$scope.tops = videoRestService.query({top: true});
-
 	$scope.test = function(){
 		$scope.pageInfo.page = 0;
 		$scope.videos = [];
@@ -521,7 +514,7 @@ angular.module('hdcyApp', ['weixin',
 }).controller('videoDetailsCtrl', function($scope, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
 
 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
-		$scope.article = result;
+		$scope.video = result;
 		weixinService.initWx(function(){
 //			var link = commonService.getShareLink("/article/details?id="+result.id);
 			var link = artilceLink + "/video/details?id="+result.id;
@@ -530,7 +523,7 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$scope.saveComment = function(comment) {
-		commentRestService.saveComment({target: "article", targetId: $stateParams.id, content: comment}, function(result){
+		commentRestService.saveComment({target: "video", targetId: $stateParams.id, content: comment}, function(result){
 			$scope.comment = "";
 			$scope.showCommentDiv = false;
 			$scope.article.commentCount = $scope.article.commentCount + 1;

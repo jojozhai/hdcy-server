@@ -1,28 +1,25 @@
 <div class="cntBox">
-	<div class="messagehead">
-		<a href="javascript:void(0)" class="back" ng-click="goBack()"></a>
-		<h2>{{article.title}}</h2>
-		<div class="messagehead-txt">
-			<div class="left">
-				<span style="padding: 0px; margin: 0px;" ng-repeat="tag in article.tagInfos">【{{tag.name}}】</span>
-				<span ng-bind="article.createdTime | hdcyArticleDate"></span>
-			</div>
-			<div class="right">{{article.principal}}</div>
-			<div class="clear"></div>
+	<div class="cntVideoBox">
+		<a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
+		<div class="videodel-cnt">
+			<video src="{{video.url}}"  x-webkit-airplay="true" webkit-playsinline="true" preload="auto" controls="controls" >
+	             <source src="http://s1.pkey.cn/badguy/cg.mp4" type="video/mp4">
+	             <source src="{{video.url}}" type="video/mp4">
+	             <source src="{{video.url}}" type="video/webm">
+	         </video>
 		</div>
+		
+
 	</div>
-	<div class="messagedel-cnt">
-		<img ng-src="{{article.image2}}"/>
-		<div ng-bind-html="article.content | toHtml" style="padding: 5px;"></div>
-	</div>
+
 </div>
 <div class="comment">
 	<div class="comment-cnt">
 		<input type="text" class="comment-input" ng-model="comment" readonly="readonly" placeholder="说点啥呗" ng-click="clickCommentInput()"/>
 		<i></i>
 	</div>
-	<div class="comment-num">
-		<a ui-sref="app.comment({target: 'article', targetId: article.id})"><i></i>{{article.commentCount}}</a>
+	<div class="commentvideo-num">
+		<a ui-sref="app.comment({target: 'video', targetId: video.id})"><i></i>{{video.commentCount}}</a>
 	</div>
 </div>
 <!--评论弹窗-->
