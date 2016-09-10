@@ -1767,7 +1767,7 @@ textarea {
 	height: 27px;
 	text-align: center;
 	font-size: 14px;
-	font-family: "寰蒋闆呴粦";
+	font-family: "微软雅黑";
 	color: #b3afaf;
 	background-color: transparent;
 	outline: 0;
@@ -2275,7 +2275,7 @@ textarea {
 	position: relative;
 	z-index: 1;
 	font-size: 15px;
-	font-family: "寰蒋闆呴粦";
+	font-family: "微软雅黑";
 	direction: rtl;
 	color: #868383;
 }
@@ -2799,6 +2799,10 @@ textarea {
 	background: url(../images/menu-04.png) no-repeat 0px center;
 	background-size: 17px 14px;
 }
+.menu-ico6 {
+	background: url(../images/menu-06.png) no-repeat 0px center;
+	background-size: 17px 11px;
+}
 .guanzhubox{
 	position: fixed;
 	bottom: 100px;
@@ -2868,7 +2872,7 @@ textarea {
 /*//videostart*/
 .device {
 	width: 100%;
-	margin-top:16px;
+	margin:16px 0;
 }
 .device img {
     width: 100%;
@@ -2906,20 +2910,33 @@ textarea {
   transform: scale(1);
 }
 .device .swiper-wrapper div {
-    width: 100px;
-    height: 350px;
+    height: 270px;
 }
 .video-list li {
-	margin-top: 16px;
+	/* margin-top: 16px; */
 	position: relative;
 
 }
 .video-listimg {
 	width: 100%;
 }
+a.ng-scope {
+	font-size:0px;
+}
 .video-listimg img {
 	width:100%;
-	/*height: 86px;*/
+}
+.zbBorder {
+	width: 20%;
+	font-size: 16px;
+	border: 1px solid white;
+	border-radius: 25px;
+	position: absolute;
+	top:20px;
+	right:20px;
+	color: white;
+	text-align: center;
+
 }
 .video-txt {
 	position: absolute;
@@ -2927,12 +2944,85 @@ textarea {
 	left:50%;
 	transform:translate(-50%,-50%);
 	color: white;
+	width: 100%;
+	text-align: center;
 }
 .video-txt h2 {
-	margin-bottom: 30px;
+	font-size:36px;
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+.zhiboTime span {
+	font-size: 20px;
+}
+.videoicon  {
+	text-align: center;
 }
 .video-txt .message-num {
 	color: white;
 }
+.zhibozhong {
+	width: 80%;
+    height: 130px;
+	position: absolute;
+	top:0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	margin:  auto;
+	border: 1px solid white;
+}
+.zhiboImg{
+	background: url("../images/videoStart.png") no-repeat;
+	background-size: 100% 100%;
+	width: 12px;
+	height: 13px;
+	display: inline-block;
+}
+.zhibozT {
+	width: 100px;
+    height: 40px;
+    background: #FD7400;
+    display: inline-block;
+    font-size: 20px;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    left: 0;
+	line-height: 40px;
+    margin: auto;
+}
+
+.videodel-cnt video {
+	width:100%;
+}
+.videoback {
+	width: 26px;
+    height: 17px;
+    display: inline-block;
+    background: url(../images/back.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 19px;
+    top: 12px;
+	z-index: 99;
+}
+.commentvideo-num {
+	float: right;
+    width: 50px;
+    text-align: right;
+    padding-right: 5px;
+}
+.commentvideo-num i {
+	background: url(../images/icon04.png) no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    width: 23px;
+    height:23px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+
 
 /*video end*/
