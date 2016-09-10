@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    	.httpBasic()
 	    		.and()
 	        .authorizeRequests()
+	        .antMatchers(HttpMethod.PUT, "/praise").authenticated()
 	        .antMatchers(HttpMethod.POST, 
 	        		"/comment", //发表评论
 	        		"/votingParticipator", //参与照片投票
@@ -45,9 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        		"/activityParticipator", //参与线下活动
 	        		"/contraryParticipator", //参与观点投票活动
 	        		"/leader",//申请大咖
-	        		"/lottery"//参与抽奖
+	        		"/lottery",//参与抽奖
+	        		"/parise"
 	        		).authenticated()
 	        .antMatchers(HttpMethod.GET, 
+	                "/praise", //获取用户赞过的东西
 	                "/user/current", 
 	                "/votingParticipator/*/vote", 
 	                "/lottery/*/permission",
