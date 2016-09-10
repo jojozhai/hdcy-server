@@ -12,26 +12,29 @@
 		<div class="clear"></div>
 	</div>
 	<ul class="hd-pinglun" infinite-scroll="getNextPage()"
-		mirage-scroll="comments" size="10">
-		<li ng-repeat="comment in comments">
+		mirage-scroll="comments" size="10">		
+		<ol ng-repeat="comment in comments">		
 			<div class="hd-pinglun-user">
-				<img ng-src="{{comment.createrHeadimgurl}}" /> <label><span>{{comment.createrName}}:
-				</span></label>
-			</div>
+				<img ng-src="{{comment.createrHeadimgurl}}" /> 
+				<label><span>{{comment.createrName}}: </span></label>
+			</div><br/>
 			<div class="hd-pinglun-txt">{{comment.content}}</div>
-		</li>
+		</ol>
 	</ul>
 </div>
 
 <!--评论-->
-<div class="comment">
+<div class="videoComment">
+	<div class="comment">
 	<div class="comment-cnt">
 		<input type="text" class="comment-input" readonly="readonly"
 			placeholder="说点啥呗" ng-click="showCommentDiv = true" /> <i></i>
 	</div>
 </div>
+</div>
 <!--评论弹窗-->
-<div class="commentLayer"
+<div class="videoAlert">
+	<div class="commentLayer"
 	ng-style="{display: showCommentDiv?'block':'none'}">
 	<div class="commentfix" ng-click="showCommentDiv = false"></div>
 	<div class="commentLayer-cnt">
@@ -45,4 +48,7 @@
 			autofocus></textarea>
 	</div>
 </div>
+</div>
+
+
 

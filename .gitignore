@@ -9,3 +9,4 @@ car2-weixin/.settings/
 *.classpath
 car-admin/.settings/
 car/.settings/
+car2-weixin/LOG_PATH_IS_UNDEFINED/weixin.log

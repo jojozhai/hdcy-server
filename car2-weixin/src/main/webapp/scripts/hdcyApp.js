@@ -498,7 +498,7 @@ angular.module('hdcyApp', ['weixin',
 		var image = commonService.getDomain("images/getheadimg.jpeg");
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
-	$scope.condition = {};
+	$scope.condition = {live:false};
 	//获得置顶的视频列表
 	$scope.tops = videoRestService.query({top: true});
 	$scope.test = function(){
@@ -1484,6 +1484,33 @@ angular.module('hdcyApp', ['weixin',
         	var mySwiper = new Swiper('.swiper-container', {
         		prevButton: '.swiper-button-prev',
         		nextButton: '.swiper-button-next',
+        	});
+        }
+      }
+}).directive('mirageSwiper', function(videoRestService){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {        	
+        	videoRestService.query({top: true, live: true, enable: true}).$promise.then(function(result){        		
+        		var swipers = result.content;        		
+                var wrapper = $('<div class="swiper-wrapper"></div>');
+                for (var i = 0; i < swipers.length; i++) {
+					var swiper = $('<div class="swiper-slide"><a href="/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
+					wrapper.append(swiper);
+				}                
+        		var pager = $('<div class="swiper-pagination"></div>');
+        		element.append(wrapper);
+            	element.append(pager);
+            	
+            	var swiper = new Swiper('.swiper-container', {
+            	    pagination: '.swiper-pagination',
+            	    paginationClickable: true,
+            	    loop:true,
+            	    autoplay : 3000,
+            	    centeredSlides: true,/*居中*/
+            	    slidesPerView: 1.5,
+            	    watchActiveIndex: true,
+            	});
         	});
         }
       }

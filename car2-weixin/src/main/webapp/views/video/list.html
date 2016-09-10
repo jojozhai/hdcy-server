@@ -5,44 +5,16 @@
 		<h2>好多视频</h2>
 	</div>
 </div>
-
-<div class="cnt">
-	<!-- <span>{{tops.content}}</span> -->
+<div class="videocnt">	
 	<div class="device">
-	   <div class="swiper-container">
-    	<div class="swiper-wrapper">    	
-       		 <div ng-repeat="top in tops.content" class="swiper-slide">
-       		 	
-       		 	<li>
-					<div class="video-listimg1">
-						<img ng-src="{{top.image}}" />
-					</div>
-					<div class="video-txt1" >
-						<h2>{{top.name}}</h2>								
-					</div>					
-			     </li>
-       		 	<!-- <a ui-sref="app.video.details({id: top.id})">
-					<li>
-						<div class="video-listimg1">
-							<img ng-src="{{top.image}}" />
-						</div>
-						<div class="video-txt" >
-							<h2>{{top.name}}</h2>								
-						</div>					
-			     	</li>
-           		 </a> -->
-       		 </div>
-    	</div>
-   		 <div class="swiper-pagination"></div>
-    	<!-- 如果需要滚动条 -->
-    	<div class="swiper-scrollbar"></div>
+		<div class="swiper-container" mirage-swiper></div>	   
 	</div>
 	
  </div>
 	<div class="cntxiala">
 		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
 			<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id})">
-				<li >
+				<li>
 					<div class="video-listimg">
 						<img ng-src="{{video.image}}" />
 					</div>
@@ -50,11 +22,9 @@
 						<h2>{{video.name}}</h2>						
 						<div class="videoicon" >
 							<img src="images/video.png" alt="video.live" />
-						</div>
-						
-					</div>
-					
-			     </li>
+						</div>						
+					</div>					
+			    </li>
             </a>
 		</ul>
 	</div>
@@ -62,8 +32,7 @@
 </div>
 <script type="text/javascript">
 	$(".cnt").width($("body").width());
-	 var mySwiper = new Swiper(' .device .swiper-container',{
-	    
+	 var mySwiper = new Swiper(' .device .swiper-container',{	    
 		loop:true,
 		centeredSlides: true,
 	    slidesPerView: 1.5,
@@ -72,8 +41,6 @@
 	    watchActiveIndex: true,   
 	    pagination: '.swiper-pagination',
 	    
-	})
-	
-	 
+	})	 
 
 </script>
