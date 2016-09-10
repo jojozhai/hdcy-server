@@ -511,22 +511,30 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.dataService = videoRestService;
 
-}).controller('videoDetailsCtrl', function($scope, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
-
+}).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
+	
 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.video = result;
+		$scope.video.securityUrl = $sce.trustAsResourceUrl(result.url);
+		
 		weixinService.initWx(function(){
-//			var link = commonService.getShareLink("/article/details?id="+result.id);
 			var link = artilceLink + "/video/details?id="+result.id;
 			weixinService.shareConfig(result.title, "", link, result.image);
 		});
 	});
-
+	
+	$scope.condition = {target: "video", targetId: $stateParams.id};
+	$scope.dataService = commentRestService;
+//	commentRestService.query({target: "video", targetId: $stateParams.id, page: 0, size: 20, sort: "createdTime,desc"}).$promise.then(function(result){
+//		 $scope.comments = result.content;
+//	});
+	
 	$scope.saveComment = function(comment) {
 		commentRestService.saveComment({target: "video", targetId: $stateParams.id, content: comment}, function(result){
 			$scope.comment = "";
 			$scope.showCommentDiv = false;
-			$scope.article.commentCount = $scope.article.commentCount + 1;
+			$scope.comments.unshift(result);
+			//$scope.video.commentCount = $scope.video.commentCount + 1;
 		});
 	}
 
@@ -536,9 +544,11 @@ angular.module('hdcyApp', ['weixin',
 		});
 	}
 
+
 	$scope.goBack = function(){
-		$state.go("app.video.list", {tag: $stateParams.tag});
+		$state.go("app.video.list");
 	}
+	
 //TODO
 }).controller('participationListCtrl', function($scope, $state, participationRestService,weixinService, commonService) {
 

@@ -24,6 +24,7 @@ import com.ymt.mirage.car.dto.VideoInfo;
 import com.ymt.mirage.car.repository.VideoRepository;
 import com.ymt.mirage.car.repository.spec.VideoSpec;
 import com.ymt.mirage.car.service.VideoService;
+import com.ymt.mirage.social.repository.CommentRepository;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
 
 /**
@@ -38,6 +39,9 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoRepository videoRepository;
+    
+    @Autowired
+    private CommentRepository commentRepository;
     
     @Override
     public Page<VideoInfo> query(VideoInfo videoInfo, Pageable pageable) {
@@ -59,6 +63,7 @@ public class VideoServiceImpl implements VideoService {
         VideoInfo info = new VideoInfo();
         BeanUtils.copyProperties(video, info);
         info.setStart(new DateTime(video.getStartTime()).isBeforeNow());
+        info.setCommentCount(commentRepository.findByTargetAndTargetId("video", id).size());
         return info;
     }
 

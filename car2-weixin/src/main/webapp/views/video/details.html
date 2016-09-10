@@ -1,37 +1,48 @@
-<div class="cntBox">
-	<div class="cntVideoBox">
-		<a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
-		<div class="videodel-cnt">
-			<video src="{{video.url}}"  x-webkit-airplay="true" webkit-playsinline="true" preload="auto" controls="controls" >
-	             <source src="http://s1.pkey.cn/badguy/cg.mp4" type="video/mp4">
-	             <source src="{{video.url}}" type="video/mp4">
-	             <source src="{{video.url}}" type="video/webm">
-	         </video>
-		</div>
-		
 
+<div class="cntVideoBox">
+	<a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
+	<div class="videodel-cnt">
+		<video ng-src="{{video.securityUrl}}" x-webkit-airplay="true" webkit-playsinline="true" preload="auto" controls="controls"></video>
 	</div>
-
 </div>
+
+<div class="hd-box3">
+	<div class="hd-title">
+		<h2>评论({{video.commentCount}})</h2>
+		<div class="clear"></div>
+	</div>
+	<ul class="hd-pinglun" infinite-scroll="getNextPage()"
+		mirage-scroll="comments" size="10">
+		<li ng-repeat="comment in comments">
+			<div class="hd-pinglun-user">
+				<img ng-src="{{comment.createrHeadimgurl}}" /> <label><span>{{comment.createrName}}:
+				</span></label>
+			</div>
+			<div class="hd-pinglun-txt">{{comment.content}}</div>
+		</li>
+	</ul>
+</div>
+
+<!--评论-->
 <div class="comment">
 	<div class="comment-cnt">
-		<input type="text" class="comment-input" ng-model="comment" readonly="readonly" placeholder="说点啥呗" ng-click="clickCommentInput()"/>
-		<i></i>
-	</div>
-	<div class="commentvideo-num">
-		<a ui-sref="app.comment({target: 'video', targetId: video.id})"><i></i>{{video.commentCount}}</a>
+		<input type="text" class="comment-input" readonly="readonly"
+			placeholder="说点啥呗" ng-click="showCommentDiv = true" /> <i></i>
 	</div>
 </div>
 <!--评论弹窗-->
-<div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
+<div class="commentLayer"
+	ng-style="{display: showCommentDiv?'block':'none'}">
 	<div class="commentfix" ng-click="showCommentDiv = false"></div>
 	<div class="commentLayer-cnt">
 		<div class="commentLayer-title">
 			<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
 			<h2>写评论</h2>
-			<a class="comment-fs" ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">发送</a>
+			<a class="comment-fs " ng-click="saveComment(comment)"
+				ng-class="{'comment-ok': comment.length>0}">发送</a>
 		</div>
-		<textarea class="commentArea" ng-model="comment" autofocus maxlength="300"></textarea>
+		<textarea class="commentArea" ng-model="comment" maxlength="300"
+			autofocus></textarea>
 	</div>
 </div>
-<!--评论弹窗 end-->
+

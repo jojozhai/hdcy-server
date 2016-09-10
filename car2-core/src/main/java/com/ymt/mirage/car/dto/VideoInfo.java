@@ -66,6 +66,10 @@ public class VideoInfo {
      * 视频时长
      */
     private String length;
+    /**
+     * 
+     */
+    private int commentCount;
     
     /**
      * @return the id
@@ -210,6 +214,18 @@ public class VideoInfo {
      */
     public void setLength(String length) {
         this.length = length;
+    }
+    /**
+     * @return the commentCount
+     */
+    public int getCommentCount() {
+        return commentCount;
+    }
+    /**
+     * @param commentCount the commentCount to set
+     */
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
     
 }
