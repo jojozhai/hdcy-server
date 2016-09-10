@@ -7,23 +7,37 @@
 </div>
 
 <div class="cnt">
+	<!-- <span>{{tops.content}}</span> -->
 	<div class="device">
 	   <div class="swiper-container">
-    	<div class="swiper-wrapper">
+    	<div class="swiper-wrapper">    	
        		 <div ng-repeat="top in tops.content" class="swiper-slide">
-       		 	<img src="{{top.image}}" alt="" />
+       		 	
+       		 	<li>
+					<div class="video-listimg1">
+						<img ng-src="{{top.image}}" />
+					</div>
+					<div class="video-txt1" >
+						<h2>{{top.name}}</h2>								
+					</div>					
+			     </li>
+       		 	<!-- <a ui-sref="app.video.details({id: top.id})">
+					<li>
+						<div class="video-listimg1">
+							<img ng-src="{{top.image}}" />
+						</div>
+						<div class="video-txt" >
+							<h2>{{top.name}}</h2>								
+						</div>					
+			     	</li>
+           		 </a> -->
        		 </div>
     	</div>
    		 <div class="swiper-pagination"></div>
-
     	<!-- 如果需要滚动条 -->
     	<div class="swiper-scrollbar"></div>
 	</div>
-	<!-- <div class="container">
-		<div class="slider">
-
-		</div>
-	</div> -->
+	
  </div>
 	<div class="cntxiala">
 		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
@@ -33,23 +47,13 @@
 						<img ng-src="{{video.image}}" />
 					</div>
 					<div class="video-txt" >
-						<h2>{{video.name}}</h2>
-						<div class="zhibozhong" >
-
-							<span class="zhibozT">
-								<span class="zhiboImg"></span>
-								直播中
-							</span>
-						</div>
-						<div class="videoicon" ng-if="!video.live">
+						<h2>{{video.name}}</h2>						
+						<div class="videoicon" >
 							<img src="images/video.png" alt="video.live" />
 						</div>
-						<div class="zhiboTime" ng-if='video.live'>
-							<span >开始时间：</span>
-							<span>{{video.startTime | date:"yyyy-MM-dd/hh:mm"}}</span>
-						</div>
+						
 					</div>
-					<span ng-if='video.live' class="zbBorder">直播</span>
+					
 			     </li>
             </a>
 		</ul>
@@ -59,13 +63,17 @@
 <script type="text/javascript">
 	$(".cnt").width($("body").width());
 	 var mySwiper = new Swiper(' .device .swiper-container',{
-	    centeredSlides: true,//居中
+	    
+		loop:true,
+		centeredSlides: true,
 	    slidesPerView: 1.5,
-	    watchActiveIndex: true,
-	    // 如果需要分页器
+	    watchSlidesProgress : true,
+	    watchSlidesVisibility : true, 
+	    watchActiveIndex: true,   
 	    pagination: '.swiper-pagination',
-	    // 如果需要滚动条
-	    scrollbar: '.swiper-scrollbar',
+	    
 	})
+	
+	 
 
 </script>
