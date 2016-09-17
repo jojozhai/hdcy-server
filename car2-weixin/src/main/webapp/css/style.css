@@ -2873,7 +2873,7 @@ textarea {
 /*//videostart*/
 .device {
 	width: 100%;
-	margin:16px 0;
+	
 }
 .device swiper-container {
     width: 90%;	
@@ -2887,7 +2887,7 @@ textarea {
     left: 50%;
     transform:translate(-50%,-50%);
 	color: white;
-	font-size:36px;
+	font-size:18px;
 }
 /* .device .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
 	width:10px;
@@ -2921,7 +2921,7 @@ a.ng-scope {
 	text-align: center;
 }
 .video-txt h2 {
-	font-size:36px;
+	font-size:18px;
 	margin-bottom: 20px;
 	font-weight: normal;
 }

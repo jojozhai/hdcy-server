@@ -181,12 +181,16 @@ angular.module('hdcyApp', ['weixin',
 		templateUrl: "views/gift/details.html"
 	});
 
-}).controller('appMainCtrl', function($scope, $rootScope, $state, $location, userRestService) {
+}).controller('appMainCtrl', function($scope, $rootScope, $state, $location, userRestService, paramRestService) {
 
 	$scope.globalConfig = {
 		enablePullToRefresh: false
 	}
-
+	
+	paramRestService.getParam({code: "showVideo"}).$promise.then(function(result){
+		$scope.showVideo = (result.value == "true");
+	});
+	
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
 		var enablePullToRefreshStates = ["app.article.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
@@ -470,6 +474,7 @@ angular.module('hdcyApp', ['weixin',
 		weixinService.initWx(function(){
 //			var link = commonService.getShareLink("/article/details?id="+result.id);
 			var link = artilceLink + "/article/details?id="+result.id;
+//			console.log(link);
 			weixinService.shareConfig(result.title, "", link, result.image);
 		});
 	});
@@ -498,17 +503,7 @@ angular.module('hdcyApp', ['weixin',
 		var image = commonService.getDomain("images/getheadimg.jpeg");
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
-	$scope.condition = {live:false};
-	//获得置顶的视频列表
-	$scope.tops = videoRestService.query({top: true});
-	$scope.test = function(){
-		$scope.pageInfo.page = 0;
-		$scope.videos = [];
-		$scope.query(function(){
-			$(".cntxiala").pullToRefreshDone();
-		});
-	}
-
+	$scope.condition = {live:false, enable: true, top:false};
 	$scope.dataService = videoRestService;
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
@@ -1490,28 +1485,29 @@ angular.module('hdcyApp', ['weixin',
 }).directive('mirageSwiper', function(videoRestService){
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {        	
-        	videoRestService.query({top: true, live: true, enable: true}).$promise.then(function(result){        		
-        		var swipers = result.content;        		
-                var wrapper = $('<div class="swiper-wrapper"></div>');
-                for (var i = 0; i < swipers.length; i++) {
-					var swiper = $('<div class="swiper-slide"><a href="/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
+        link: function(scope, element, attrs) {     
+        	
+        	videoRestService.query({top: true, live: false, enable: true}).$promise.then(function(result){    
+
+        		var swipers = result.content;
+        		var wrapper = $('<div class="swiper-wrapper"></div>');
+        		for (var i = 0; i < swipers.length; i++) {
+        			var swiper = $('<div class="swiper-slide"><a href="#/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
 					wrapper.append(swiper);
-				}                
+				}
+
         		var pager = $('<div class="swiper-pagination"></div>');
         		element.append(wrapper);
             	element.append(pager);
-            	
-            	var swiper = new Swiper('.swiper-container', {
+
+
+            	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
-            	    loop:true,
-            	    autoplay : 3000,
-            	    centeredSlides: true,/*居中*/
-            	    slidesPerView: 1.5,
-            	    watchActiveIndex: true,
+            	    autoplay : 5000,
             	});
         	});
+        	
         }
       }
 }).directive('giftSwiper', function($stateParams, giftRestService){

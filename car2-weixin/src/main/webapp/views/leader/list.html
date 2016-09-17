@@ -14,9 +14,11 @@
 		<span class="headuser" ng-click="gotoApplyPage()"></span>
 	</div>
 </div>
-<div class="daka-img">
+
+<div class="daka-img" style="margin-bottom: 10px; padding-bottom: 10px;">
 	<div class="swiper-container" leader-swiper></div>
 </div>
+
 <ul class="daka-list" infinite-scroll="getNextPage()" mirage-scroll="leaders" size="40" sort="approveDate,asc">
 	<li ng-repeat="leader in leaders">
 		<a ui-sref="app.leader.details({id: leader.id, userId: leader.userId})">
