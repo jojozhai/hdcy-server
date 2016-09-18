@@ -23,7 +23,7 @@ html,body {
 .giftTit {
     padding: 10px;
     border-bottom: 1px solid #e3e3e3;
-    font-size: 13px;
+    font-size: 25px;
     background: #FFFFFF;
 }
 .giftTit span {
@@ -37,6 +37,7 @@ html,body {
     background: white;
     overflow: hidden;
     padding: 15px;
+    font-size:20px;
 }
 .jifenLeft,.jifenRight {
     display: inline-block;
@@ -45,8 +46,8 @@ html,body {
 }
 .jifenLeft i{
     display: inline-block;
-    width: 26px;
-    height: 26px;
+    width: 40px;
+    height: 40px;
     background: url(../img/jifen-04.png) no-repeat;
     background-size: 100%;
     position: relative;
@@ -55,8 +56,8 @@ html,body {
 }
 .jifenRight i{
     display: inline-block;
-    width: 26px;
-    height: 26px;
+    width: 40px;
+    height: 40px;
     background: url(../img/jifen-05.png) no-repeat;
     background-size: 100%;
     position: relative;
@@ -69,33 +70,35 @@ html,body {
 }
 .giftCon {
     padding:10px;
+    font-size:25px;
 }
 .giftCon p {
     word-wrap: break-word;
 }
 
 .hd-addbtn {
-    height: 44px;
+    height: 80px;
     position: absolute;
     bottom: 0px;
     width: 100%;
     left: 0px;
-    font-size: 18px;
+    font-size: 30px;
+    
 }
 .hd-addbtn a{
     display: block;
-    height: 44px;
+    height: 80px;
     background: #fd7400;
-    line-height: 44px;
+    line-height: 80px;
     color: #ffffff;
     text-align: center;
 }
 .jifenBuzu {
     position: absolute;
-    height: 40px;
+    height: 80px;
     top: 0px;
     color: white;
-    line-height: 40px;
+    line-height: 80px;
     width: 50%;
     left: 50%;
     margin-top: 2px;
@@ -103,15 +106,17 @@ html,body {
     text-align: center;
     background:#fd7400 ;
     display: none;
+   font-size:30px;
 
 }
 .jifenBuzu i {
     display: inline-block;
     background: url("../img/alert.png") no-repeat;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-size: 100% 100%;
     margin: 7px;
+    margin-top:21px;
     margin-left: -30px;
 }
 .jifenBuzu span {
