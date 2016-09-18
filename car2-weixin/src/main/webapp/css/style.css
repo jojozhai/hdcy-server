@@ -2873,13 +2873,13 @@ textarea {
 /*//videostart*/
 .device {
 	width: 100%;
-	
+
 }
 .device swiper-container {
-    width: 90%;	
+    width: 90%;
 }
 .device .swiper-slide {
-	width:100%;	
+	width:100%;
 }
 .videoName {
 	position: absolute;
@@ -2898,7 +2898,7 @@ textarea {
 .device .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
 	background: rgba(73, 73, 73, 0.5) !important;
 } */
-.video-list li {	
+.video-list li {
 	position: relative;
 }
 .video-listimg {
@@ -2971,6 +2971,7 @@ a.ng-scope {
 	padding: 10px 0;
 	width:100%;
 	word-wrap: break-word;
+	margin-left: 26px;
 }
 
 .videoComment .comment,.videoAlert .commentLayer-cnt {

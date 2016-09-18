@@ -13,9 +13,9 @@
 	</div>
 	<ul class="hd-pinglun" infinite-scroll="getNextPage()"
 		mirage-scroll="comments" size="10">		
-		<ol ng-repeat="comment in comments">		
+		<ol ng-repeat="comment in comments">
 			<div class="hd-pinglun-user">
-				<img ng-src="{{comment.createrHeadimgurl}}" /> 
+				<img ng-src="{{comment.createrHeadimgurl}}" />
 				<label><span>{{comment.createrName}}: </span></label>
 			</div><br/>
 			<div class="hd-pinglun-txt">{{comment.content}}</div>
@@ -49,6 +49,3 @@
 	</div>
 </div>
 </div>
-
-
-
