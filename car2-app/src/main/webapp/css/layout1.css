@@ -1,0 +1,192 @@
+html,body  {
+                width: 100%;
+                height: 100%;
+                /*overflow: hidden;*/
+            }
+            /*活动详情*/
+            .activityContainer {
+                width: 750px;
+                margin: 0 auto;
+            }
+            .activityTit {
+                margin: 24px 0 10px;
+                text-align: center;
+            }
+            .activityCon {
+                padding: 0 24px;
+                height: 108px;
+                overflow: hidden;
+            }
+
+            .activityImg {
+                width: 100%;
+                margin-top: 20px;
+                overflow-x: auto;
+            }
+            .activityImgs {
+                width: 99999px;
+            }
+            .activityImgs li {
+                width: 200px ;
+                height: 200px;
+                float: left;
+                margin-left: 24px;
+            }
+            .activityImgs li img {
+                width: 100%;
+                height: 100%;
+            }
+            .bigactImg {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;
+                left: 0;
+                z-index: -99;
+            }
+            .whitebg {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                z-index:-66;
+            }
+            .bigactImg .swiper-container {
+                width: 100%;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+            .bigactImg .swiper-slide img {
+                width: 100%;
+
+            }
+            .toggle {
+                margin-top: 24px;
+                text-align: center;
+            }
+            .toggle img{
+                width: 30px;
+            }
+            .activityMessage {
+                margin: 10px 0;
+                padding: 10px 0;
+                background: rgba(155, 155, 155,0.2);
+
+            }
+            .activitymesMain {
+                background: white;
+                padding: 0 24px;
+                line-height: 70px;
+            }
+            .left {
+                position: relative;
+            }
+            .actxt {
+                font-size: 25px;
+                font-weight: bolder;
+                position: absolute;
+                width: 200px;
+                top: 2px;
+                left: 45px;
+            }
+            .right {
+                font-family: "HiraginoSanaGB W3";
+                font-size: 24px;
+                color:rgb(155, 155, 155);
+            }
+            .message-list {
+                font-family: "HiraginoSanaGB W3";
+                margin-left: 10px;
+            }
+            .message-list li {
+                height: 70px;
+            }
+            .message-list .item {
+                font-size: 24px;
+                color:rgb(155, 155, 155);
+            }
+            .messageTit {
+                line-height: 70px;
+                border-bottom: 1px solid rgb(155, 155, 155);
+            }
+            .commentMessage {
+                padding: 0 24px;
+                margin-bottom: 40px;
+            }
+            .commentList li {
+                margin: 10px 0;
+                font-family: "HiraginoSansGB"
+            }
+
+            .commentIcon1 {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+            .commentIcon1 img {
+                width: 100%;
+                height: 100%;
+            }
+            .commentIcon2 {
+                display: inline-block;
+                margin: -30px 0 0 10px ;
+            }
+            .createrName {
+                display: inline-block;
+                font-size: 20px;
+                color: rgb(101, 147, 197);
+                margin-bottom: 3px;
+            }
+            .commentIcon2 span:nth-of-type(2){
+                font-size: 16px;
+                color: rgb(155, 155,155);
+            }
+            .commentCon {
+                margin: 10px 0 26px 50px;
+                font-size: 17px;
+            }
+            .signs {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                color: white;
+                padding: 10px;
+                background: rgb(155, 155,155);
+            }
+            .sign {
+                width: 70%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .replys {
+                position: relative;
+                margin-top: 20px;
+                background: rgba(155,155,155,0.2);
+            }
+            .reply span:nth-of-type(1){
+                color: rgb(101, 147, 197);
+            }
+            .sanjiao {
+                top: -10px;
+                left: 10px;
+                position: absolute;
+            	width: 0;
+            	height: 0;
+            }
+            .QRcode {
+                position: absolute;
+                top:-200px;
+                left:50%;
+                margin-left: -100px;
+                display: none;
+            }
+            .QRcode img {
+                width: 200px;
+
+            }

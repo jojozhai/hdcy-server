@@ -1,0 +1,67 @@
+.dakaSlider .swiper-slide img {
+    width: 100%;
+}
+.dakaSlider .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.8);
+}
+.dakaSlider .swiper-pagination-bullet-active {
+    background: white;
+}
+.daka a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    width: 20%;
+    margin:20px 2.5% 0;
+}
+.daka .item {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.daka a img{
+    width: 100%;
+}
+
+.headers {
+    width: 100%;
+    height: 200px;
+    background: rgb(0, 0, 0);;
+}
+.header {
+    padding: 75px 0 0 30px;
+    overflow: hidden;
+    color: white;
+}
+.headerImg ,.headerTxt {
+    float: left;
+}
+.headerImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.headerImg img {
+    width: 100%;
+    height: 100%;
+}
+.headerTxt {
+    padding: 15px 0 0 10px;
+}
+.dakaCon {
+    padding: 20px 25px;
+}
+.dakaTit {
+    height: 20px;
+    line-height: 20px;
+    border-left: 3px solid #fd7400;
+    padding-left: 7px;
+    color:  #fd7400;
+    font-size: 20px;
+}
+.dakaText {
+    line-height: 25px;
+}
