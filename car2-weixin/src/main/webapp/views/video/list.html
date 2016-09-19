@@ -5,11 +5,9 @@
 		<h2>好多视频</h2>
 	</div>
 </div>
-<div class="videocnt">	
-	<div class="device">
+	<div class="daka-img">
 		<div class="swiper-container" mirage-swiper></div>	   
 	</div>
- </div>
 	<div class="cntxiala">
 		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
 			<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id})">

@@ -1487,12 +1487,17 @@ angular.module('hdcyApp', ['weixin',
         restrict: 'A',
         link: function(scope, element, attrs) {     
         	
-        	videoRestService.query({top: true, live: false, enable: true}).$promise.then(function(result){    
+        	videoRestService.query({top: true, enable: true}).$promise.then(function(result){    
 
         		var swipers = result.content;
         		var wrapper = $('<div class="swiper-wrapper"></div>');
         		for (var i = 0; i < swipers.length; i++) {
-        			var swiper = $('<div class="swiper-slide"><a href="#/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
+        			if(swipers[i].live){
+        				var swiper = $('<div class="swiper-slide"><a href="'+swipers[i].url+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
+        			}else{
+        				var swiper = $('<div class="swiper-slide"><a href="#/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
+        			}
+        			
 					wrapper.append(swiper);
 				}
 
@@ -1777,7 +1782,7 @@ angular.module('hdcyApp', ['weixin',
 
 						 /* var img=new Image();
 						  img.src=turnplate.imgurl[i];*/
-						  ctx.drawImage(img,-28,10);
+						  //ctx.drawImage(img,-28,10);
 						  ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
 
 						  //把当前画布返回（调整）到上一个save()状态之前
