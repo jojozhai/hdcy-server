@@ -186,11 +186,11 @@ angular.module('hdcyApp', ['weixin',
 	$scope.globalConfig = {
 		enablePullToRefresh: false
 	}
-	
+
 	paramRestService.getParam({code: "showVideo"}).$promise.then(function(result){
 		$scope.showVideo = (result.value == "true");
 	});
-	
+
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
 		var enablePullToRefreshStates = ["app.article.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
@@ -507,29 +507,27 @@ angular.module('hdcyApp', ['weixin',
 	$scope.dataService = videoRestService;
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
-	
 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.video = result;
 		$scope.video.securityUrl = $sce.trustAsResourceUrl(result.url);
-		
+
 		weixinService.initWx(function(){
 			var link = artilceLink + "/video/details?id="+result.id;
 			weixinService.shareConfig(result.title, "", link, result.image);
 		});
 	});
-	
+
 	$scope.condition = {target: "video", targetId: $stateParams.id};
 	$scope.dataService = commentRestService;
 //	commentRestService.query({target: "video", targetId: $stateParams.id, page: 0, size: 20, sort: "createdTime,desc"}).$promise.then(function(result){
 //		 $scope.comments = result.content;
 //	});
-	
 	$scope.saveComment = function(comment) {
 		commentRestService.saveComment({target: "video", targetId: $stateParams.id, content: comment}, function(result){
 			$scope.comment = "";
 			$scope.showCommentDiv = false;
 			$scope.comments.unshift(result);
-			//$scope.video.commentCount = $scope.video.commentCount + 1;
+			$scope.video.commentCount = $scope.video.commentCount + 1;
 		});
 	}
 
@@ -543,7 +541,7 @@ angular.module('hdcyApp', ['weixin',
 	$scope.goBack = function(){
 		$state.go("app.video.list");
 	}
-	
+
 //TODO
 }).controller('participationListCtrl', function($scope, $state, participationRestService,weixinService, commonService) {
 
@@ -1510,9 +1508,14 @@ angular.module('hdcyApp', ['weixin',
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
             	    autoplay : 5000,
+            		centeredSlides: true,
+            	    slidesPerView: 1.5,
+            	    watchSlidesProgress : true,
+            	    watchSlidesVisibility : true,
+            	    watchActiveIndex: true,
             	});
         	});
-        	
+
         }
       }
 }).directive('giftSwiper', function($stateParams, giftRestService){

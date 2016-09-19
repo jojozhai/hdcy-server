@@ -1,6 +1,7 @@
-
+<div class="videoBack">
+  <a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
+</div>
 <div class="cntVideoBox">
-	<a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
 	<div class="videodel-cnt">
 	   <iframe frameborder="0" width="100%" ng-src="{{video.securityUrl}}" allowfullscreen></iframe>
 	</div>
@@ -12,7 +13,7 @@
 		<div class="clear"></div>
 	</div>
 	<ul class="hd-pinglun" infinite-scroll="getNextPage()"
-		mirage-scroll="comments" size="10">		
+		mirage-scroll="comments" size="10">
 		<ol ng-repeat="comment in comments">
 			<div class="hd-pinglun-user">
 				<img ng-src="{{comment.createrHeadimgurl}}" />
