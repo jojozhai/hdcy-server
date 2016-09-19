@@ -5,9 +5,9 @@
 		<h2>好多视频</h2>
 	</div>
 </div>
-<div class="videocnt">	
+<div class="videocnt">
 	<div class="device">
-		<div class="swiper-container" mirage-swiper></div>	   
+		<div class="swiper-container" mirage-swiper></div>
 	</div>
  </div>
 	<div class="cntxiala">
@@ -18,11 +18,11 @@
 						<img ng-src="{{video.image}}" />
 					</div>
 					<div class="video-txt" >
-						<h2>{{video.name}}</h2>						
+						<h2>{{video.name}}</h2>
 						<div class="videoicon" >
 							<img src="images/video.png" alt="video.live" />
-						</div>						
-					</div>					
+						</div>
+					</div>
 			    </li>
             </a>
 		</ul>
@@ -31,14 +31,14 @@
 </div>
 <script type="text/javascript">
 	$(".cnt").width($("body").width());
-	 var mySwiper = new Swiper(' .device .swiper-container',{	    
+	 var mySwiper = new Swiper(' .device .swiper-container',{
 		loop:true,
 		centeredSlides: true,
 	    slidesPerView: 1.5,
 	    watchSlidesProgress : true,
-	    watchSlidesVisibility : true, 
-	    watchActiveIndex: true,   
+	    watchSlidesVisibility : true,
+	    watchActiveIndex: true,
 	    pagination: '.swiper-pagination',
-	})	 
+	})
 
 </script>

@@ -2768,6 +2768,7 @@ textarea {
 	border-radius: 5px;
 	padding-left: 30px;
 	display: none;
+
 }
 .menuBox li{
 	height: 45px;
@@ -2783,6 +2784,38 @@ textarea {
 	display: block;
 	padding-left: 30px;
 }
+/*.menuBox1{
+	position: fixed;
+	background: #FFFFFF;
+	z-index: 200;
+	bottom: 0px;
+	width: 100%;
+
+}
+.menuBox1 .bottomBtn {
+	overflow: hidden;
+}
+.menuBox1 .bottomBtn i {
+	display: inline-block;
+	width: 17px;
+	height:17px;
+
+}
+.menuBox1 li{
+	height: 49px;
+	float: left;
+	width: 25%;
+}
+.menuBox1 li:last-child{
+	border-bottom: none;
+}
+.menuBox1 li a{
+	font-size: 14px;
+	color: #000000;
+	display: block;
+	text-align: center;
+	border: 1px solid red;
+}*/
 .menu-ico1 {
 	background: url(../images/menu-01.png) no-repeat 0px center;
 	background-size: 13px 17px;
@@ -2881,6 +2914,9 @@ textarea {
 .device .swiper-slide {
 	width:100%;
 }
+.device .swiper-slide img {
+	width: 98%;
+}
 .videoName {
 	position: absolute;
     top: 50%;
@@ -2889,15 +2925,7 @@ textarea {
 	color: white;
 	font-size:18px;
 }
-/* .device .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-	width:10px;
-	height:10px;
-	border-radius: 50%;
-	background: rgba(73, 73, 73, 1) !important;
-}
-.device .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
-	background: rgba(73, 73, 73, 0.5) !important;
-} */
+
 .video-list li {
 	position: relative;
 }
@@ -2945,9 +2973,9 @@ a.ng-scope {
     display: inline-block;
     background: url(../images/back.png) no-repeat;
     background-size: 100%;
-    position: absolute;
+    /*position: absolute;
     left: 19px;
-    top: 12px;
+    top: 12px;*/
 	z-index: 99;
 }
 .commentvideo-num {
@@ -2980,6 +3008,7 @@ a.ng-scope {
 .hd-box3 .hd-title h2 {
 	color: #fd7400;
 }
-
-
+.videoBack {
+	background: #fd7400;
+}
 /*video end*/

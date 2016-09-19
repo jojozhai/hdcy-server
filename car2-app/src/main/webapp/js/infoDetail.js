@@ -100,7 +100,7 @@
                /*转发功能*/
                if (show=="YES") {
             	   $(".comment").show();
-            	   $(".comment input").on("focus",function(){
+            	   $(".pinglun").on("click",function(){
             		   $(".erweima").show();
             	   })
 
@@ -108,8 +108,5 @@
               $(".erweima").on("click",function(){
             	  $(".erweima").hide();
               })
-
-
-
 
     	})

@@ -59,20 +59,16 @@ html,body  {
             	background: #B2B2B2;
             	display:none;
             }
-            .comment input {
-            	width:80%;
+            .pinglun {
+                text-align: center;
             	margin:10px 0;
-            	margin-left:10%;
             	height:49px;
+                line-height: 49px;
             	font-size:25px;
-            	border-radius: 25px;
-            	outline: none;
-            	background:transparent;
-            	border:1px solid #f8f8f8;
             	text-indent: 15px;
-
+                color: white;
             }
-            .erweima {   
+            .erweima {
             	position: absolute;
     			top: -200px;
     			left: 50%;
@@ -83,4 +79,3 @@ html,body  {
             	width:200px;
             	height:200px;
             }
-            
