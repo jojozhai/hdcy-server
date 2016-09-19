@@ -1483,9 +1483,9 @@ angular.module('hdcyApp', ['weixin',
 }).directive('mirageSwiper', function(videoRestService){
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {     
-        	
-        	videoRestService.query({top: true, enable: true}).$promise.then(function(result){    
+        link: function(scope, element, attrs) {
+
+        	videoRestService.query({top: true, enable: true}).$promise.then(function(result){
 
         		var swipers = result.content;
         		var wrapper = $('<div class="swiper-wrapper"></div>');
@@ -1495,7 +1495,7 @@ angular.module('hdcyApp', ['weixin',
         			}else{
         				var swiper = $('<div class="swiper-slide"><a href="#/video/details?id='+swipers[i].id+'"><img src="'+swipers[i].image+'" /><span class="videoName">'+swipers[i].name+'</span></a></div>');
         			}
-        			
+
 					wrapper.append(swiper);
 				}
 
@@ -1509,7 +1509,7 @@ angular.module('hdcyApp', ['weixin',
             	    paginationClickable: true,
             	    autoplay : 5000,
             		centeredSlides: true,
-            	    slidesPerView: 1.5,
+            	    slidesPerView: 1.1,
             	    watchSlidesProgress : true,
             	    watchSlidesVisibility : true,
             	    watchActiveIndex: true,
