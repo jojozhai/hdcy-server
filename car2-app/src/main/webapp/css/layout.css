@@ -3,12 +3,13 @@ html,body  {
                 height: 100%;
                 overflow: hidden;
             }
-            .container {
+            .articleBox {
                 width:750px;
+                margin: 0 auto;
+            }
+            .container {
                 height: 100%;
                 overflow: hidden;
-                margin: 0 auto;
-
             }
             .container {
             	overflow-y:auto;
@@ -43,21 +44,20 @@ html,body  {
             .img {
                 width: 702px;
                 height: 380px;
-
             }
             #conDetail {
                 color: #494949;
                 line-height: 46px;
                 font-size: 30px;
+                margin-bottom: 69px;
                 overflow: hidden;
-
             }
             .comment {
             	position: fixed;
             	bottom:0px;
-            	width:100%;
             	background: #B2B2B2;
             	display:none;
+                width: 750px;
             }
             .pinglun {
                 text-align: center;
@@ -70,12 +70,11 @@ html,body  {
             }
             .erweima {
             	position: absolute;
-    			top: -200px;
+    			bottom: 69px;
     			left: 50%;
-    			margin-left: -100px;
+    			transform: translateX(-50%);
     			display:none;
             }
             .erweima img{
-            	width:200px;
-            	height:200px;
+            	width:275px;
             }
