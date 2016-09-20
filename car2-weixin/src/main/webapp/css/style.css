@@ -2977,11 +2977,9 @@ a.ng-scope {
     height: 17px;
     display: inline-block;
     background: url(../images/back.png) no-repeat;
-    background-size: 100%;
-    /*position: absolute;
-    left: 19px;
-    top: 12px;*/
+    background-size: 100%;    
 	z-index: 99;
+	margin: 12px 0 12px 19px;
 }
 .commentvideo-num {
 	float: right;

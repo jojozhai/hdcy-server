@@ -523,7 +523,7 @@ angular.module('hdcyApp', ['weixin',
 
 		weixinService.initWx(function(){
 			var link = artilceLink + "/video/details?id="+result.id;
-			weixinService.shareConfig(result.title, "", link, result.image);
+			weixinService.shareConfig(result.name, "", link, result.image);
 		});
 	});
 
@@ -1512,7 +1512,7 @@ angular.module('hdcyApp', ['weixin',
         		element.append(wrapper);
             	element.append(pager);
                 var lunboW=$(".daka-img .swiper-slide img").width()
-                $(".daka-img .swiper-slide img").height(lunboW*0.6667);                
+                $(".daka-img .swiper-slide img").height(lunboW*0.6667);
             	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
