@@ -1,3 +1,7 @@
+.dakaList {
+    width: 750px;
+    margin: 0 auto;
+}
 .dakaSlider .swiper-slide img {
     width: 100%;
 }
@@ -7,10 +11,14 @@
 .dakaSlider .swiper-pagination-bullet-active {
     background: white;
 }
+.daka {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
 .daka a {
     text-decoration: none;
     color: black;
-    font-size: 16px;
+    font-size: 22px;
     text-align: center;
     display: inline-block;
     float: left;
@@ -24,23 +32,30 @@
 .daka a img{
     width: 100%;
 }
-
+.details {
+    width: 750px;
+    margin: 0 auto;
+}
 .headers {
     width: 100%;
-    height: 200px;
-    background: rgb(0, 0, 0);;
+    height: 300px;
+    background: rgb(0, 0, 0);
+    position: relative;
 }
 .header {
-    padding: 75px 0 0 30px;
+    /*padding: 75px 0 0 30px;*/
     overflow: hidden;
     color: white;
+    position: absolute;
+    top:50%;
+    transform: translate(20px,-50%);
 }
 .headerImg ,.headerTxt {
     float: left;
 }
 .headerImg {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -50,19 +65,34 @@
 }
 .headerTxt {
     padding: 15px 0 0 10px;
+    font-size: 35px;
 }
 .dakaCon {
     padding: 20px 25px;
 }
 .dakaTit {
-    height: 20px;
-    line-height: 20px;
+    height: 35px;
+    margin-bottom: 35px;
+    line-height: 35px;
     border-left: 3px solid #fd7400;
     padding-left: 7px;
     color:  #fd7400;
-    font-size: 20px;
+    font-size: 35px;
 }
 .dakaText {
-    font-size: 25px;
-    line-height: 35px;
+    font-size: 33px;
+    line-height: 48px;
+    padding-bottom: 30px;
+}
+.backs {
+    background: black;
+    padding: 16px;
+    margin-bottom: -2px;
+}
+.back {
+    display: inline-block;
+    width:30px;
+    height:54px;
+    background: url("../img/back.png") no-repeat;
+    background-size: 100% 100%;
 }

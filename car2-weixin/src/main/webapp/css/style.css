@@ -145,9 +145,7 @@ textarea {
 .messageLayer {
 	display: none;
 }
-.message-list {
-	margin-bottom: 49px;
-}
+
 .message-list li {
 	padding: 10px;
 	display: flex;
@@ -2762,7 +2760,7 @@ textarea {
 	z-index: 100;
 	display: none;
 }
-.menuBox{
+/*.menuBox{
 	position: fixed;
 	bottom: 100px;
 	background: #FFFFFF;
@@ -2787,7 +2785,7 @@ textarea {
 	color: #000000;
 	display: block;
 	padding-left: 30px;
-}
+}*/
 .menuBox1{
 	position: fixed;
 	background: #FFFFFF;
@@ -2806,7 +2804,8 @@ textarea {
 
 }
 .menuBox1 li{
-	height: 49px;
+	padding-top: 5px;
+	height: 54px;
 	float: left;
 	width: 25%;
 }
@@ -2818,7 +2817,7 @@ textarea {
 	color: #000000;
 	display: block;
 	text-align: center;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 .menu-ico1 {
 	background: url(../images/menu-01.png) no-repeat 0px center;
@@ -2927,7 +2926,7 @@ textarea {
     left: 50%;
     transform:translate(-50%,-50%);
 	color: white;
-	font-size:36px;
+	font-size:30px;
 	width: 100%;
 	text-align: center;
 }
@@ -2955,8 +2954,8 @@ a.ng-scope {
 	text-align: center;
 }
 .video-txt h2 {
-	font-size:36px;
-	margin-bottom: 36px;
+	font-size:31px;
+	margin-bottom: 15px;
 	font-weight: normal;
 }
 .zhiboTime span {
@@ -2978,11 +2977,9 @@ a.ng-scope {
     height: 17px;
     display: inline-block;
     background: url(../images/back.png) no-repeat;
-    background-size: 100%;
-    /*position: absolute;
-    left: 19px;
-    top: 12px;*/
+    background-size: 100%;    
 	z-index: 99;
+	margin: 12px 0 12px 19px;
 }
 .commentvideo-num {
 	float: right;
@@ -3019,6 +3016,7 @@ a.ng-scope {
 }
 /*video end*/
 /*main.html update*/
-/*#wrapperDiv {
-	margin-bottom: 49px;
-}*/
+.message-list,.activity-list,.cnt-height,#wrapperDiv {
+	margin-bottom: 54px;
+
+}

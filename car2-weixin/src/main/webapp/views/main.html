@@ -1,6 +1,6 @@
-<div ui-view ng-class="{'cnt-height': !globalConfig.enablePullToRefresh}"></div>
+<div  ui-view ng-class="{'cnt-height': !globalConfig.enablePullToRefresh}"></div>
 
-<a href="javascript:void(0)" ng-click="showMenuBox = true" class="deil-menu"></a>
+<!-- <a href="javascript:void(0)" ng-click="showMenuBox = true" class="deil-menu"></a>
 <div class="menufix" ng-style="{display:showMenuBox?'block':'none'}" ng-click="showMenuBox = false; showQrcode = false;"></div>
 <div class="menuBox" ng-style="{display:showMenuBox?'block':'none'}">
 	<ul>
@@ -11,32 +11,33 @@
 		<li><a ui-sref="app.my.list" ng-click="showMenuBox = false; showQrcode = false;" class="menu-ico2"><i></i>我的</a></li>
 		<li><a href="javacript:void(0)" ng-click="showQrcode = true" class="menu-ico4"><i></i>关注</a></li>
 	</ul>
-</div>
-<!-- <div class="menuBox1" ng-style="{display:showMenuBox?}">
+</div> -->
+<div ng-show="showFooter" class="menuBox1">
 	<ul class="bottomBtn">
-		<li>
-			<a ui-sref="app.article.list" ng-click="showMenuBox = false; showQrcode = false;" >
-				<i class="menu-ico1"></i>
-				<div class="">
-					资讯
-				</div>
-			</a>
-		</li>
-		<li><a ui-sref="app.participation.list" ng-click="showMenuBox = false; showQrcode = false;" >
-			<i class="menu-ico3"></i>
-			<div class="">
-				活动
-			</div>
-		</a>
-		</li>
-		<li ng-show="showVideo"><a ui-sref="app.video.list" ng-click="showMenuBox = false; showQrcode = false;" >
+		<li ng-show="showVideo"><a ui-sref="app.video.list" >
 			<i class="menu-ico6"></i>
 			<div class="">
 				视频
 			</div>
 		</a>
 		</li>
-		<li><a ui-sref="app.my.list" ng-click="showMenuBox = false; showQrcode = false;" >
+		<li >
+			<a  ui-sref="app.article.list">
+				<i class="menu-ico1"></i>
+				<div class="">
+					资讯
+				</div>
+			</a>
+		</li>
+		<li><a ui-sref="app.participation.list">
+			<i class="menu-ico3"></i>
+			<div class="">
+				活动
+			</div>
+		</a>
+		</li>
+
+		<li><a ui-sref="app.my.list" >
 			<i class="menu-ico2"></i>
 			<div class="">
 				我的
@@ -45,7 +46,7 @@
 	</li>
 
 	</ul>
-</div> -->
+</div>
 <div class="guanzhubox" ng-style="{display:showQrcode?'block':'none'}">
 	<img src="images/erweima.png" />
 	<p>长按识别二维码</p>

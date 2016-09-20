@@ -7,11 +7,11 @@
 </div>
 
 	<div class="daka-img">
-		<div class="swiper-container" mirage-swiper></div>	   
+		<div class="swiper-container" mirage-swiper></div>
 	</div>
 	<div class="cntxiala">
 		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
-			<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id})">
+			<a ng-repeat="video in videos" ng-click="gotoDetails(video.id)">
 				<li>
 					<div class="video-listimg">
 						<img ng-src="{{video.image}}" />
@@ -33,11 +33,14 @@
 	 var mySwiper = new Swiper(' .device .swiper-container',{
 		loop:true,
 		centeredSlides: true,
-	    slidesPerView: 1.5,
+	    slidesPerView: 1.2,
 	    watchSlidesProgress : true,
 	    watchSlidesVisibility : true,
 	    watchActiveIndex: true,
 	    pagination: '.swiper-pagination',
 	})
-
+	var videoImgW=$(".video-listimg img").width();
+	$(".video-listimg img").height(videoImgW*0.6);
+	var lunboW=$(".daka-img .swiper-slide img").width();
+	var sh=$(".daka-img .swiper-slide img").height(lunboW*0.666);
 </script>

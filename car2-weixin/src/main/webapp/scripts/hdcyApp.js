@@ -79,7 +79,7 @@ angular.module('hdcyApp', ['weixin',
 		controller: "videoListCtrl",
 		templateUrl: "views/video/list.html"
 	}).state('app.video.details', {
-		url: "/details?id&tag",
+		url: "/details?id&tag&page",
 		controller: "videoDetailsCtrl",
 		templateUrl: "views/video/details.html"
 	}).state('app.voting', {
@@ -182,18 +182,18 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 }).controller('appMainCtrl', function($scope, $rootScope, $state, $location, userRestService, paramRestService) {
-
 	$scope.globalConfig = {
 		enablePullToRefresh: false
 	}
-
 	paramRestService.getParam({code: "showVideo"}).$promise.then(function(result){
 		$scope.showVideo = (result.value == "true");
 	});
-
-	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		var enablePullToRefreshStates = ["app.article.list"];
-		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+    var showFooterStates = ["app.article.list","app.participation.list","app.video.list","app.gift.list","app.leader.list","app.my.list"];
+    $scope.showFooter = $.inArray(toState.name, showFooterStates) != -1;
+	// $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+	// 	var enablePullToRefreshStates = ["app.article.list"];
+	// 	$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
 	});
 	$scope.checkLogin = function(from){
@@ -223,6 +223,7 @@ angular.module('hdcyApp', ['weixin',
 	$scope.closeWindow = function(){
 		WeixinJSBridge.call('closeWindow');
 	}
+
 
 }).controller('userDetailsCtrl', function($scope) {
 
@@ -497,7 +498,13 @@ angular.module('hdcyApp', ['weixin',
 		$state.go("app.article.list", {tag: $stateParams.tag});
 	}
 //TODO
-}).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
+}).controller('videoListCtrl', function($scope, $state, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
+
+    $scope.gotoDetails = function(id) {
+        console.log($scope.pageInfo);
+        $state.go('app.video.details', {id: id, page: $scope.pageInfo.page - 1});
+    }
+
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
@@ -507,13 +514,16 @@ angular.module('hdcyApp', ['weixin',
 	$scope.dataService = videoRestService;
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
+
+    console.log($stateParams.page);
+
 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.video = result;
 		$scope.video.securityUrl = $sce.trustAsResourceUrl(result.url);
 
 		weixinService.initWx(function(){
 			var link = artilceLink + "/video/details?id="+result.id;
-			weixinService.shareConfig(result.title, "", link, result.image);
+			weixinService.shareConfig(result.name, "", link, result.image);
 		});
 	});
 
@@ -1486,7 +1496,6 @@ angular.module('hdcyApp', ['weixin',
         link: function(scope, element, attrs) {
 
         	videoRestService.query({top: true, enable: true}).$promise.then(function(result){
-
         		var swipers = result.content;
         		var wrapper = $('<div class="swiper-wrapper"></div>');
         		for (var i = 0; i < swipers.length; i++) {
@@ -1497,23 +1506,24 @@ angular.module('hdcyApp', ['weixin',
         			}
 
 					wrapper.append(swiper);
-				}
 
+				}
         		var pager = $('<div class="swiper-pagination"></div>');
         		element.append(wrapper);
             	element.append(pager);
-
-
+                var lunboW=$(".daka-img .swiper-slide img").width()
+                $(".daka-img .swiper-slide img").height(lunboW*0.6667);
             	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
             	    autoplay : 5000,
             		centeredSlides: true,
-            	    slidesPerView: 1.1,
+            	    slidesPerView: 1.2,
             	    watchSlidesProgress : true,
             	    watchSlidesVisibility : true,
             	    watchActiveIndex: true,
             	});
+
         	});
 
         }
