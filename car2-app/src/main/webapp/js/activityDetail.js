@@ -109,7 +109,7 @@ $(function(){
                 })
                 $(".swiper-slide img").on("click",function(){
                     $("html,body").css({
-                        overflow:"auto",
+                    	"overflow-y": "auto",
                     })
                     $(".whitebg").show();
                     $(".bigactImg").hide();
