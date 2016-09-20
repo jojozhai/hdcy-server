@@ -1,12 +1,12 @@
 html,body  {
                 width: 100%;
                 height: 100%;
-                /*overflow: hidden;*/
+                overflow-y: auto;
             }
-            /*活动详情*/
             .activityContainer {
                 width: 750px;
                 margin: 0 auto;
+                background: white;
             }
             .activityTit {
                 margin: 24px 0 10px;
@@ -17,7 +17,6 @@ html,body  {
                 height: 108px;
                 overflow: hidden;
             }
-
             .activityImg {
                 width: 100%;
                 margin-top: 20px;
@@ -42,17 +41,9 @@ html,body  {
                 position: absolute;
                 top:0;
                 left: 0;
-                z-index: -999;                
+                z-index: -999;
             }
-            .whitebg {
-                position: absolute;
-                top:0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: white;
-                z-index:-6;
-            }
+            
             .bigactImg .swiper-container {
                 width: 100%;
                 position: absolute;
@@ -62,7 +53,6 @@ html,body  {
             }
             .bigactImg .swiper-slide img {
                 width: 100%;
-
             }
             .toggle {
                 margin-top: 24px;
@@ -75,7 +65,6 @@ html,body  {
                 margin: 10px 0;
                 padding: 10px 0;
                 background: rgba(155, 155, 155,0.2);
-
             }
             .activitymesMain {
                 background: white;
@@ -141,7 +130,7 @@ html,body  {
             }
             .commentIcon2 {
                 display: inline-block;
-                margin: -30px 0 0 10px ;
+                margin: 0px 0 0 10px ;
             }
             .createrName {
                 display: inline-block;

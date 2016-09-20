@@ -1,4 +1,4 @@
-$(function(){    
+$(function(){
        Date.prototype.Format = function(format) {
             format ? format : format = "yyyy-MM-dd ";
             var o = {
@@ -80,19 +80,19 @@ $(function(){
                 $(".activityImgs").width(obj.images.length*224)
                 for (var i = 0; i < obj.images.length; i++) {
                     var newImg=$("<li dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></li>");
-                    var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
                     $(".activityImgs").append(newImg);
-                    $(".bigactImg .swiper-wrapper").append(newImg1);
                 }
-                var mySwiper = new Swiper ('.swiper-container', {
-                   loop: true,
-                   pagination: '.swiper-pagination',
-                 })
+
                 $(".activityImgs li").on("click",function(){
-                    $("html,body").css({
-                        overflow:"hidden",
-                    })
-                    $(".whitebg").hide();
+                    $(".bigactImg .swiper-wrapper").empty();
+                    for (var i = 0; i < obj.images.length; i++) {
+                        var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
+                        $(".bigactImg .swiper-wrapper").append(newImg1);
+                    }
+                    var mySwiper = new Swiper ('.swiper-container', {
+                       loop: true,
+                       pagination: '.swiper-pagination',
+                     })
                     var index=$(this).index();
                     $(".bigactImg").show();
                     $(".bigactImg").css({
@@ -106,18 +106,15 @@ $(function(){
                     $(".swiper-slide").eq(index).addClass("swiper-slide-active");
                     $(".swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
                     $(".swiper-pagination-bullet").eq(index).addClass("swiper-pagination-bullet-active");
-                })
-                $(".swiper-slide img").on("click",function(){
-                    $("html,body").css({
-                    	"overflow-y": "auto",
-                    })
-                    $(".whitebg").show();
-                    $(".bigactImg").hide();
-                    $(".bigactImg").css({
-                        "background": "none",
-                        "z-index": "-99",
+                    $(".swiper-slide img").on("click",function(){
+                        $(".bigactImg").hide();
+                        $(".bigactImg").css({
+                            "background": "none",
+                            "z-index": "-99",
+                        })
                     })
                 })
+
             }
 
         });

@@ -2926,7 +2926,7 @@ textarea {
     left: 50%;
     transform:translate(-50%,-50%);
 	color: white;
-	font-size:30px;
+	font-size:16px;
 	width: 100%;
 	text-align: center;
 }
@@ -2954,9 +2954,13 @@ a.ng-scope {
 	text-align: center;
 }
 .video-txt h2 {
-	font-size:31px;
+	font-size:16px;
 	margin-bottom: 15px;
 	font-weight: normal;
+}
+.videoicon img {
+	width: 30px;
+	height: 30px;
 }
 .zhiboTime span {
 	font-size: 20px;
@@ -2977,7 +2981,7 @@ a.ng-scope {
     height: 17px;
     display: inline-block;
     background: url(../images/back.png) no-repeat;
-    background-size: 100%;    
+    background-size: 100%;
 	z-index: 99;
 	margin: 12px 0 12px 19px;
 }
