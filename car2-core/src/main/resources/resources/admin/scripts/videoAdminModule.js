@@ -13,9 +13,9 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	return $resource("video/:id", {id:"@id"}, config);
 //控制器
 }).controller('videoManageCtrl', function($scope, $uibModal, videoRestService, commonService){
-	
+
 	$scope.pageInfo = commonService.getDefaultPageSetting();
-	
+
 	$scope.query = function() {
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
 		videoRestService.query(condition).$promise.then(function(data){
@@ -23,15 +23,15 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 			$scope.videos = data.content;
 		});
 	}
-	
+
 	$scope.create = function() {
 		$scope.save({viewCount: 0, live: false, enable: true, top: false});
 	}
-	
+
 	$scope.update = function(video) {
 		$scope.save(video);
 	}
-	
+
 	$scope.save = function(video){
 		$uibModal.open({
 			size: "lg",
@@ -42,10 +42,10 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 		        videos : function() {return $scope.videos;}
 			}
 		}).result.then(function(form){
-			
+
 		});
 	}
-	
+
 	$scope.remove = function(video) {
 		commonService.showConfirm("您确认要删除此视频?").result.then(function() {
 			videoRestService.remove({id:video.id}).$promise.then(function(result){
@@ -57,15 +57,15 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 				}
 			})
 		});
-	} 
-	
+	}
+
 	$scope.cleanCondition = function() {
 		$scope.condition = {};
 		$scope.query();
 	}
-	
+
 	$scope.query();
-	
+
 }).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService) {
 
 	$scope.popup1 = {
@@ -75,26 +75,26 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	$scope.open1 = function() {
 		$scope.popup1.opened = true;
 	};
-	
+
 	$scope.dateOptions = {
 		minDate : new Date(),
 		startingDay : 1
 	};
-	
+
 	$scope.doUpload = function(files){
 		commonService.uploadImage(files, $scope, function(result){
 			$scope.video.image = result;
 		});
 	}
-	
+
 	$scope.video = video;
-	
+
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
-	
+
 	$scope.save = function(video) {
 		if(video.id){
 			console.log("update video");
-			
+
 			new videoRestService(video).$save().then(function(){
 				commonService.showMessage("修改视频信息成功");
 				$uibModalInstance.close(video);
@@ -114,13 +114,13 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 				$uibModalInstance.close(result);
 			});
 		}
-		
+
 	};
-	
+
 	$scope.doUpload = function(files){
 		commonService.uploadImage(files, $scope, function(result){
 			$scope.video.image = result;
 		});
 	}
-	
+
 });
