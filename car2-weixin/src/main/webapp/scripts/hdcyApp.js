@@ -5,12 +5,10 @@
  * @name testApp
  * @description
  * # testApp
- *
  * Main module of the application.
  */
 //内容大于这个长度时显示扩展箭头
 var contentLimit = 150;
-
 //应用主模块
 angular.module('hdcyApp', ['weixin',
     'socialWeixinModule',
@@ -228,15 +226,11 @@ angular.module('hdcyApp', ['weixin',
 }).controller('userDetailsCtrl', function($scope) {
 
 }).controller('userInfoCtrl', function($scope, $stateParams, $location, smsRestService, userRestService, commonService, weixinService, paramRestService, carRestService) {
-
 	weixinService.initWx();
-
 	userRestService.current().$promise.then(function(result){
-
 		$scope.user = result;
 		$scope.user.birthday = new Date(result.birthday);
 		$scope.choiceLikes = $scope.user.tags.split(",");
-
 		if($scope.choiceLikes.length == 1 && isEmpty($scope.choiceLikes[0])){
 			$scope.choiceLikes = [];
 		}
@@ -499,12 +493,10 @@ angular.module('hdcyApp', ['weixin',
 	}
 //TODO
 }).controller('videoListCtrl', function($scope, $state, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
-
     $scope.gotoDetails = function(id) {
         console.log($scope.pageInfo);
         $state.go('app.video.details', {id: id, page: $scope.pageInfo.page - 1});
     }
-
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
@@ -514,13 +506,10 @@ angular.module('hdcyApp', ['weixin',
 	$scope.dataService = videoRestService;
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
-
-    console.log($stateParams.page);
-
+    // console.log($stateParams.page);
 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.video = result;
 		$scope.video.securityUrl = $sce.trustAsResourceUrl(result.url);
-
 		weixinService.initWx(function(){
 			var link = artilceLink + "/video/details?id="+result.id;
 			weixinService.shareConfig(result.name, "", link, result.image);
@@ -540,7 +529,6 @@ angular.module('hdcyApp', ['weixin',
 			$scope.video.commentCount = $scope.video.commentCount + 1;
 		});
 	}
-
 	$scope.clickCommentInput = function(){
 		$scope.checkLogin(function(){
 			$scope.showCommentDiv = true;
@@ -550,7 +538,6 @@ angular.module('hdcyApp', ['weixin',
 	$scope.goBack = function(){
 		$state.go("app.video.list");
 	}
-
 //TODO
 }).controller('participationListCtrl', function($scope, $state, participationRestService,weixinService, commonService) {
 
