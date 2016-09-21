@@ -11,10 +11,17 @@
 				</div>
 			</div>
 			<div class="form-group"  ng-class="videoForm.url.$invalid && videoForm.url.$dirty ? 'has-error': ''">
-                <label class="control-label col-lg-3">视频链接:</label>
+                <label class="control-label col-lg-3">视频链接(腾讯):</label>
                 <div class="col-lg-6">
-                    <input name="url" ng-model="video.url" type="text" class="form-control input-sm" placeholder="视频链接" required>
-                    <label class="control-label" ng-show="videoForm.url.$invalid && videoForm.url.$dirty">视频链接不能为空</label>
+                    <input name="url" ng-model="video.url" type="text" class="form-control input-sm" placeholder="视频链接(腾讯)" required>
+                    <label class="control-label" ng-show="videoForm.url.$invalid && videoForm.url.$dirty">视频链接(腾讯)不能为空</label>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="videoForm.url2.$invalid && videoForm.url2.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3">视频链接(阿里):</label>
+                <div class="col-lg-6">
+                    <input name="url2" ng-model="video.url2" type="text" class="form-control input-sm" placeholder="视频链接(阿里)" required>
+                    <label class="control-label" ng-show="videoForm.url2.$invalid && videoForm.url2.$dirty">视频链接(阿里)不能为空</label>
                 </div>
             </div>
             <div class="form-group">

@@ -35,6 +35,10 @@ public class Video extends DomainImpl {
      */
     private String url;
     /**
+     * 视频连接2
+     */
+    private String url2;
+    /**
      * 置顶
      */
     private boolean top;
@@ -190,6 +194,30 @@ public class Video extends DomainImpl {
      */
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+    /**
+     * @return the desc
+     */
+    public String getDesc() {
+        return desc;
+    }
+    /**
+     * @param desc the desc to set
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+    /**
+     * @return the url2
+     */
+    public String getUrl2() {
+        return url2;
+    }
+    /**
+     * @param url2 the url2 to set
+     */
+    public void setUrl2(String url2) {
+        this.url2 = url2;
     }
     
 }

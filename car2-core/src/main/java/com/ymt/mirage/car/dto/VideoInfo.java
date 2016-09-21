@@ -31,6 +31,10 @@ public class VideoInfo {
      */
     private String url;
     /**
+     * 视频连接2
+     */
+    private String url2;
+    /**
      * 置顶
      */
     private Boolean top;
@@ -241,6 +245,18 @@ public class VideoInfo {
      */
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    /**
+     * @return the url2
+     */
+    public String getUrl2() {
+        return url2;
+    }
+    /**
+     * @param url2 the url2 to set
+     */
+    public void setUrl2(String url2) {
+        this.url2 = url2;
     }
     
 }
