@@ -66,6 +66,10 @@ public class Video extends DomainImpl {
      * 视频时长
      */
     private String length;
+    /**
+     * 视频描述 
+     */
+    private String desc;
     
     /**
      * @return the name

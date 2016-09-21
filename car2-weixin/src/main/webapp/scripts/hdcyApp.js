@@ -542,11 +542,10 @@ angular.module('hdcyApp', ['weixin',
 	}
 
 	$scope.clickCommentInput = function(){
-		$scope.checkUserInfo(function(){
+		$scope.checkLogin(function(){
 			$scope.showCommentDiv = true;
 		});
 	}
-
 
 	$scope.goBack = function(){
 		$state.go("app.video.list");

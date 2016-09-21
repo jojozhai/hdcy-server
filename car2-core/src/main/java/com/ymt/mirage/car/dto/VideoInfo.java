@@ -70,7 +70,10 @@ public class VideoInfo {
      * 
      */
     private int commentCount;
-    
+    /**
+     * 
+     */
+    private String desc;
     /**
      * @return the id
      */
@@ -226,6 +229,18 @@ public class VideoInfo {
      */
     public void setCommentCount(int commentCount) {
         this.commentCount = commentCount;
+    }
+    /**
+     * @return the desc
+     */
+    public String getDesc() {
+        return desc;
+    }
+    /**
+     * @param desc the desc to set
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
     
 }
