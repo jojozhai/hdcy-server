@@ -55,24 +55,18 @@ html,body  {
             .comment {
             	position: fixed;
             	bottom:0px;
-            	background: #B2B2B2;
             	display:none;
                 width: 750px;
             }
             .pinglun {
                 text-align: center;
-            	margin:10px 0;
-            	height:49px;
-                line-height: 49px;
-            	font-size:25px;
-            	text-indent: 15px;
+            	padding:20px 0;
+            	font-size:30px;
                 color: white;
+                background: #B2B2B2;
             }
             .erweima {
-            	position: absolute;
-    			bottom: 69px;
-    			left: 50%;
-    			transform: translateX(-50%);
+            	text-align: center;
     			display:none;
             }
             .erweima img{
