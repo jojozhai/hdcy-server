@@ -10,8 +10,13 @@
 		<div class="swiper-container" mirage-swiper></div>
 	</div>
 	<div class="cntxiala">
+
 		<ul class="video-list" infinite-scroll="getNextPage()"  mirage-scroll="videos" size="15" >
 			<a ng-repeat="video in videos" ng-click="gotoDetails(video.id)">
+
+		<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
+			<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id})">
+
 				<li>
 					<div class="video-listimg">
 						<img ng-src="{{video.image}}" />
@@ -39,6 +44,9 @@
 	    watchActiveIndex: true,
 	    pagination: '.swiper-pagination',
 	})
+
 	var videoImgW=$(".video-listimg img").width();
 	$(".video-listimg img").height(videoImgW*0.6);
+
+
 </script>
