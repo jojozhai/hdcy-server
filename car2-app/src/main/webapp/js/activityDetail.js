@@ -81,18 +81,16 @@ $(function(){
                 for (var i = 0; i < obj.images.length; i++) {
                     var newImg=$("<li dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></li>");
                     $(".activityImgs").append(newImg);
+                    var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
+                    $(".bigactImg .swiper-wrapper").append(newImg1);
                 }
 
                 $(".activityImgs li").on("click",function(){
-                    $(".bigactImg .swiper-wrapper").empty();
-                    for (var i = 0; i < obj.images.length; i++) {
-                        var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
-                        $(".bigactImg .swiper-wrapper").append(newImg1);
-                    }
-                    var mySwiper = new Swiper ('.swiper-container', {
+                    $(".bigactImg").show();
+                    var mySwiper = new Swiper ('.bigactImg .swiper-container', {
                        loop: true,
                        pagination: '.swiper-pagination',
-                     })
+                    })
                     var index=$(this).index();
                     $(".bigactImg").show();
                     $(".bigactImg").css({
@@ -106,12 +104,9 @@ $(function(){
                     $(".swiper-slide").eq(index).addClass("swiper-slide-active");
                     $(".swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
                     $(".swiper-pagination-bullet").eq(index).addClass("swiper-pagination-bullet-active");
+
                     $(".swiper-slide img").on("click",function(){
                         $(".bigactImg").hide();
-                        $(".bigactImg").css({
-                            "background": "none",
-                            "z-index": "-99",
-                        })
                     })
                 })
 
@@ -132,7 +127,6 @@ $(function(){
             dataType: "json",
             success: function (obj) {
                 for (var i = 0; i < obj.content.length; i++) {
-
                     var dates = new Date(obj.content[i].createdTime);
                     var commentTime=dates.Format();
                     //获取但是时间
@@ -143,7 +137,7 @@ $(function(){
                     }else {
                         commentTime=dates.Format("yyyy-MM-dd")
                     }
-                    var newCom=$("<li><div class='commentIcon'>"+
+                    var newCom=$("<li><div class='commentIcon clear'>"+
                     "<span class='commentIcon1'><img src='"+obj.content[i].createrHeadimgurl+"' alt=/></span>"+
                     "<span class='commentIcon2'>"+
                         "<span class='createrName'>"+obj.content[i].createrName+"</span><br/>"+
@@ -155,7 +149,6 @@ $(function(){
                     <div class='replys"+i+"'></div></div>\
                     </div></li>");
                     $(".commentList").append(newCom);
-
                     if (obj.content[i].replys.length>0) {
                         $(".replys").css({"padding":"10px 0 10px 10px"});
                         $(".sanjiao").css({

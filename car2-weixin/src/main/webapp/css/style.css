@@ -44,7 +44,8 @@ textarea {
 
 .head {
 	height: 44px;
-	background: #fd7400;
+	/*background: #fd7400;*/
+	background: #2c2c2c;
 	position: fixed;
 	width: 100%;
 	z-index: 100;
@@ -206,7 +207,8 @@ textarea {
 }
 
 .messagehead {
-	background: #fd7400;
+	/*background: #fd7400;*/
+	background: #2c2c2c;
 	position: relative;
 	padding: 39px 19px 10px;
 }
@@ -747,6 +749,7 @@ textarea {
 	line-height: 23px;
 	font-size: 13px;
 	color: #6b6a6a;
+	word-break: break-all;
 }
 
 .hd-ico01 {
@@ -788,7 +791,8 @@ textarea {
 
 .hd-title a {
 	font-size: 16px;
-	color: #fd7400;
+	/*color: #fd7400;*/
+	color: #6593c5;
 	float: right;
 }
 
@@ -828,7 +832,8 @@ textarea {
 	margin-left: 5px;
 }
 .hd-pinglun .hd-pinglun-user label span{
-	color: #fd7400;
+	/*color: #fd7400;*/
+	color: #6593c5;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1232,7 +1237,7 @@ textarea {
 
 .hd-addbtn {
 	height: 44px;
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	width: 100%;
 	left: 0px;
@@ -2985,6 +2990,9 @@ a.ng-scope {
 	z-index: 99;
 	margin: 12px 0 12px 19px;
 }
+.cntVideoBox {
+	margin-top: 46px;
+}
 .commentvideo-num {
 	float: right;
     width: 50px;
@@ -3004,23 +3012,28 @@ a.ng-scope {
 }
 .hd-pinglun-txt {
 	padding: 10px 0;
-	width:100%;
+	width:70%;
 	word-wrap: break-word;
-	margin-left: 26px;
+	margin-left: 5px;
 }
 
 .videoComment .comment,.videoAlert .commentLayer-cnt {
 	position:fixed;
 }
 .hd-box3 .hd-title h2 {
-	color: #fd7400;
+	/*color: #fd7400;*/
+	color: black;
 }
 .videoBack {
-	background: #fd7400;
+	/*background: #fd7400;*/
+	background:#2c2c2c;
+	position: fixed;
+    width: 100%;
+    top: 0;
 }
 /*video end*/
 /*main.html update*/
-.message-list,.activity-list,.cnt-height,#wrapperDiv {
+.message-list,.activity-list,.my-nav,#wrapperDiv {
 	margin-bottom: 54px;
 
 }
