@@ -221,7 +221,9 @@ angular.module('hdcyApp', ['weixin',
 	$scope.closeWindow = function(){
 		WeixinJSBridge.call('closeWindow');
 	}
-
+    $scope.navBtn = function(order) {
+		$scope.colors = order;
+	}
 
 }).controller('userDetailsCtrl', function($scope) {
 
@@ -463,13 +465,11 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx();
 
 }).controller('articleDetailsCtrl', function($scope, $state, $stateParams, articleRestService, commentRestService, userRestService, weixinService, commonService) {
-
 	articleRestService.get({id: $stateParams.id}).$promise.then(function(result){
 		$scope.article = result;
 		weixinService.initWx(function(){
 //			var link = commonService.getShareLink("/article/details?id="+result.id);
 			var link = artilceLink + "/article/details?id="+result.id;
-//			console.log(link);
 			weixinService.shareConfig(result.title, "", link, result.image);
 		});
 	});
@@ -504,6 +504,14 @@ angular.module('hdcyApp', ['weixin',
 	});
 	$scope.condition = {live:false, enable: true, top:false};
 	$scope.dataService = videoRestService;
+    $scope.test = function(){
+		$scope.pageInfo.page = 0;
+		$scope.videos = [];
+		$scope.query(function(){
+			$(".video-list").pullToRefreshDone();
+		});
+	}
+
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
     // console.log($stateParams.page);

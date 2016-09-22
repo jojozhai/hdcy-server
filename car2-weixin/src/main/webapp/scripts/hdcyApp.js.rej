@@ -1,0 +1,11 @@
+diff a/car2-weixin/src/main/webapp/scripts/hdcyApp.js b/car2-weixin/src/main/webapp/scripts/hdcyApp.js	(rejected hunks)
+@@ -514,6 +514,9 @@
+ 	$scope.dataService = videoRestService;
+ 
+ }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
++
++    console.log($stateParams.page);
++
+ 	videoRestService.get({id: $stateParams.id}).$promise.then(function(result){
+ 		$scope.video = result;
+ 		$scope.video.securityUrl = $sce.trustAsResourceUrl(result.url);

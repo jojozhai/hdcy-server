@@ -2822,27 +2822,44 @@ textarea {
 	color: #000000;
 	display: block;
 	text-align: center;
-	/*border: 1px solid red;*/
+}
+.menuBox1 li .btnOn {
+	 color: #fd7400;
 }
 .menu-ico1 {
 	background: url(../images/menu-01.png) no-repeat 0px center;
+	background-size: 13px 17px;
+}
+.btnOn .menu-ico1 {
+	background: url(../images/menu-01-hover.png) no-repeat 0px center;
 	background-size: 13px 17px;
 }
 .menu-ico2 {
 	background: url(../images/menu-02.png) no-repeat 0px center;
 	background-size: 17px 17px;
 }
+.btnOn .menu-ico2 {
+	background: url(../images/menu-02-hover.png) no-repeat 0px center;
+	background-size: 17px 17px;
+}
 .menu-ico3 {
 	background: url(../images/menu-03.png) no-repeat 0px center;
 	background-size: 17px 17px;
 }
-
+.btnOn .menu-ico3 {
+	background: url(../images/menu-03-hover.png) no-repeat 0px center;
+	background-size: 17px 17px;
+}
 .menu-ico4 {
 	background: url(../images/menu-04.png) no-repeat 0px center;
 	background-size: 17px 14px;
 }
 .menu-ico6 {
 	background: url(../images/menu-06.png) no-repeat 0px center;
+	background-size: 17px 11px;
+}
+.btnOn .menu-ico6 {
+	background: url(../images/menu-06-hover.png) no-repeat 0px center;
 	background-size: 17px 11px;
 }
 .guanzhubox{
@@ -3012,9 +3029,9 @@ a.ng-scope {
 }
 .hd-pinglun-txt {
 	padding: 10px 0;
-	width:70%;
+	width:93%;
 	word-wrap: break-word;
-	margin-left: 5px;
+	margin-left: 6%;
 }
 
 .videoComment .comment,.videoAlert .commentLayer-cnt {
