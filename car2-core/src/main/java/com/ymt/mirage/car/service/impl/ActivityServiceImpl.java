@@ -5,6 +5,7 @@ package com.ymt.mirage.car.service.impl;
 
 import java.util.List;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.KeyWord;
+import com.ymt.mirage.car.domain.Participation;
 import com.ymt.mirage.car.domain.ParticipationType;
 import com.ymt.mirage.car.dto.ActivityInfo;
 import com.ymt.mirage.car.repository.ActivityRepository;
@@ -55,7 +57,8 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 				new AbstractDomain2InfoConverter<Activity, ActivityInfo>() {
 					@Override
 					protected void doConvert(Activity domain, ActivityInfo info) throws Exception {
-						info.setSponsor(domain.getSponsor().getSponsor());
+						info.setSponsorName(domain.getSponsor().getSponsor());
+						info.setSponsorImage(domain.getSponsor().getSponsorURL());
 					}
 				});
 	}
@@ -67,6 +70,8 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 //			throw new PzException("开始时间不能早于报名截止时间");
 //		}
 		BeanUtils.copyProperties(activityInfo, activity);
+		
+		checkFinishOnUpdate(activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		activity.setCustomerService(customerServiceRepository.findOne(activityInfo.getCustomerServiceId()));
 		activity.setSponsor(sponsorRepository.findOne(activityInfo.getSponsorId()));
@@ -75,7 +80,8 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		for (KeyWord keyWord : kwlist) {
 			keyWordRepository.save(keyWord);
 		}
-		activityInfo.setSponsor(activity.getSponsor().getSponsor());
+		activityInfo.setSponsorName(activity.getSponsor().getSponsor());
+		activityInfo.setSponsorImage(activity.getSponsor().getSponsorURL());
 		activityInfo.setId(activityRepository.save(activity).getId());
 		return activityInfo;
 	}

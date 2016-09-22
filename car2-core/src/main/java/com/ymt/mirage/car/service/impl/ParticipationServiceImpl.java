@@ -14,6 +14,7 @@ import com.ymt.mirage.car.dto.ParticipationInfo;
 import com.ymt.mirage.car.repository.ParticipationRepository;
 import com.ymt.mirage.car.repository.spec.ParticipationSpec;
 import com.ymt.mirage.car.service.ParticipationService;
+import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
 
 /**
@@ -30,7 +31,13 @@ public class ParticipationServiceImpl extends AbstractParticipationService imple
 	@Override
 	public Page<ParticipationInfo> query(ParticipationInfo participationInfo, Pageable pageable) {
 		Page<Participation> pageData = participationRepository.findAll(new ParticipationSpec(participationInfo), pageable);
-		return QueryResultConverter.convert(pageData, ParticipationInfo.class, pageable);
+		return QueryResultConverter.convert(pageData, pageable, new AbstractDomain2InfoConverter<Participation, ParticipationInfo>() {
+            @Override
+            protected void doConvert(Participation domain, ParticipationInfo info) throws Exception {
+                info.setSponsorName(domain.getSponsor().getSponsor());
+                info.setSponsorImage(domain.getSponsor().getSponsorURL());
+            }
+        });
 	}
 
 }

@@ -75,7 +75,11 @@ public class ParticipationInfo {
 	/**
 	 * 主办方名称
 	 */
-	private String sponsor;
+	private String sponsorName;
+	/**
+	 * 主办方图片
+	 */
+	private String sponsorImage;
 	/**
 	 * 浏览量
 	 */
@@ -97,15 +101,35 @@ public class ParticipationInfo {
      */
     private Boolean recommend;
 
-	public String getSponsor() {
-		return sponsor;
-	}
-
-	public void setSponsor(String sponsor) {
-		this.sponsor = sponsor;
-	}
-
 	/**
+     * @return the sponsorName
+     */
+    public String getSponsorName() {
+        return sponsorName;
+    }
+
+    /**
+     * @param sponsorName the sponsorName to set
+     */
+    public void setSponsorName(String sponsorName) {
+        this.sponsorName = sponsorName;
+    }
+
+    /**
+     * @return the sponsorImage
+     */
+    public String getSponsorImage() {
+        return sponsorImage;
+    }
+
+    /**
+     * @param sponsorImage the sponsorImage to set
+     */
+    public void setSponsorImage(String sponsorImage) {
+        this.sponsorImage = sponsorImage;
+    }
+
+    /**
 	 * 关键字
 	 */
 	private List<KeyWord> kwlist;
