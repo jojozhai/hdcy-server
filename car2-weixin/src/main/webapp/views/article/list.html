@@ -1,7 +1,6 @@
 <div id="wrapperDiv">
 <div class="headBox">
 	<div class="head">
-		<!-- <a href="javascript:void(0)" class="back" ng-click="closeWindow()"></a> -->
 		<h2>好多资讯</h2>
 		<div class="head-right">
 			<a href="javascript:void(0)" ng-click="showCategoryChoice = !showCategoryChoice" class="headsearch"></a>
@@ -10,7 +9,6 @@
 </div>
 <div class="cnt">
 	<div class="cntxiala">
-		
 		<ul class="message-list" infinite-scroll="getNextPage()" mirage-scroll="articles" size="15">
 			<a ng-repeat="article in articles" ui-sref="app.article.details({id: article.id, tag:currentTag.id})">
 				<li>
@@ -21,7 +19,7 @@
 						<h2>{{article.title}}</h2>
 						<div class="message-type">
 							<span class="message-sort" ng-repeat="tag in article.tagInfos">{{tag.name}}&nbsp;&nbsp;</span>
-							<span class="message-sort">{{article.createdTime | hdcyArticleDate}}</span> 
+							<span class="message-sort">{{article.createdTime | hdcyArticleDate}}</span>
 							<span class="message-num"><i></i>{{article.readCount}}</span>
 						</div>
 					</div>

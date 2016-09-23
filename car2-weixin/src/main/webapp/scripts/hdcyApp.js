@@ -190,7 +190,7 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		var enablePullToRefreshStates = ["app.article.list"];
+		var enablePullToRefreshStates = ["app.article.list","app.video.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
 	});
@@ -496,12 +496,6 @@ angular.module('hdcyApp', ['weixin',
 	}
 //TODO
 
-}).controller('videoListCtrl', function($scope, $state, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
-    $scope.gotoDetails = function(id) {
-        console.log($scope.pageInfo);
-        $state.go('app.video.details', {id: id, page: $scope.pageInfo.page - 1});
-    }
-
 }).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
@@ -509,15 +503,14 @@ angular.module('hdcyApp', ['weixin',
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
 	$scope.condition = {live:false, enable: true, top:false};
-	$scope.dataService = videoRestService;
     $scope.test = function(){
 		$scope.pageInfo.page = 0;
-		$scope.videos = [];
+		$scope.articles = [];
 		$scope.query(function(){
-			$(".video-list").pullToRefreshDone();
+			$(".cntxiala").pullToRefreshDone();
 		});
 	}
-
+	$scope.dataService = videoRestService;
 
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
@@ -919,6 +912,7 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.getNextPage = function() {
 		if(scrollable && !toBottom){
+            console.log("ss");
 			scrollable = false;
 			if($scope.redParticipators.length != 0 || $scope.blueParticipators.length != 0){
 				scope.pageInfo.page = scope.pageInfo.page + 1;
@@ -1518,11 +1512,7 @@ angular.module('hdcyApp', ['weixin',
             	element.append(pager);
 
                 var lunboW=$(".daka-img .swiper-slide img").width()
-                $(".daka-img .swiper-slide img").height(lunboW*0.6667);
-
-
-
-
+                $(".daka-img .swiper-slide img").height(lunboW*0.6667);                
             	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
