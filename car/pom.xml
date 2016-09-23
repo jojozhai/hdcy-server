@@ -94,5 +94,6 @@
 		<module>../car2-core</module>
 		<module>../car2-weixin</module>
 		<module>../car2-app</module>
+		<module>../car2-weixin-a2</module>
 	</modules>
 </project>
