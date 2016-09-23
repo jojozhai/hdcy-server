@@ -1,32 +1,33 @@
 <div id="wrapperDiv">
 <div class="headBox">
 	<div class="head">
-		<!-- <a href="javascript:void(0)" class="back" ng-click="closeWindow()"></a> -->
 		<h2>好多视频</h2>
 	</div>
 </div>
 
-	<div class="daka-img">
-		<div class="swiper-container" mirage-swiper></div>
-	</div>
-	<div class="cntxiala">
-		<ul class="video-list" infinite-scroll="getNextPage()"  mirage-scroll="videos" size="15" >
-			<a ng-repeat="video in videos" ng-click="gotoDetails(video.id)">
-				<li>
-					<div class="video-listimg">
-						<img ng-src="{{video.image}}" />
-					</div>
-					<div class="video-txt" >
-						<h2>{{video.name}}</h2>
-						<div class="videoicon" >
-							<img src="images/video.png" alt="video.live" />
+
+	<div class="cnt">
+		<div class="daka-img">
+			<div class="swiper-container" mirage-swiper></div>
+		</div>
+		<div class="cntxiala">
+			<ul class="video-list" infinite-scroll="getNextPage()" mirage-scroll="videos" size="15">
+				<a ng-repeat="video in videos" ui-sref="app.video.details({id: video.id})">
+					<li>
+						<div class="video-listimg">
+							<img ng-src="{{video.image}}" />
 						</div>
-					</div>
-			    </li>
-            </a>
-		</ul>
+						<div class="video-txt" >
+							<h2>{{video.name}}</h2>
+							<div class="videoicon" >
+								<img src="images/video.png" alt="video.live" />
+							</div>
+						</div>
+				    </li>
+	            </a>
+			</ul>
+		</div>
 	</div>
-</div>
 </div>
 <script type="text/javascript">
 	$(".cnt").width($("body").width());
@@ -39,6 +40,9 @@
 	    watchActiveIndex: true,
 	    pagination: '.swiper-pagination',
 	})
+
 	var videoImgW=$(".video-listimg img").width();
 	$(".video-listimg img").height(videoImgW*0.6);
+
+
 </script>
