@@ -13,6 +13,9 @@ var core_1 = require("@angular/core");
 var article_routing_1 = require("./article.routing");
 var article_list_component_1 = require("./article-list.component");
 var article_service_1 = require("./article.service");
+var article_detail_component_1 = require("./article-detail.component");
+var article_component_1 = require("./article.component");
+var comment_module_1 = require("../comment/comment.module");
 /**
  * Created by zhailiang on 16/9/23.
  */
@@ -21,8 +24,8 @@ var ArticleModule = (function () {
     }
     ArticleModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, article_routing_1.articleRouting],
-            declarations: [article_list_component_1.ArticleListComponent],
+            imports: [common_1.CommonModule, comment_module_1.default, article_routing_1.articleRouting],
+            declarations: [article_component_1.ArticleComponent, article_list_component_1.ArticleListComponent, article_detail_component_1.ArticleDetailComponent],
             providers: [article_service_1.ArticleService]
         }), 
         __metadata('design:paramtypes', [])

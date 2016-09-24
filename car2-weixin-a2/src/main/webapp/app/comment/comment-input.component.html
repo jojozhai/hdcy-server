@@ -1,0 +1,25 @@
+<!--评论输入框-->
+<div class="comment">
+    <div class="comment-cnt">
+        <input type="text" [value]="comment" readonly="readonly" (click)="displayInput(true)"/>
+        <i></i>
+    </div>
+    <div class="comment-num">
+        <a [routerLink]="['/comment']"><i></i>{{commentCount}}</a>
+    </div>
+</div>
+<!--评论输入框 end-->
+<!--评论弹窗-->
+<div class="commentLayer" [style.display]="inputDivDisplay">
+    <div class="commentfix" (click)="displayInput(false)"></div>
+    <div class="commentLayer-cnt">
+        <div class="commentLayer-title">
+            <a class="comment-qx" (click)="displayInput(false)">取消</a>
+            <h2>写评论</h2>
+            <a class="comment-fs" (click)="saveComment()" [ngClass]="{commentOk: comment.length > 10}">发送</a>
+        </div>
+        <textarea id="commentTextInput" class="commentArea" autofocus (focus)="checkComment(true)" (blur)="checkComment(false)" [(ngModel)]="comment"  maxlength="300"></textarea>
+    </div>
+
+</div>
+<!--评论弹窗 end-->

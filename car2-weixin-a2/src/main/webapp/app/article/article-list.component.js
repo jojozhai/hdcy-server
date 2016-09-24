@@ -14,22 +14,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 require("rxjs/add/operator/map");
 var article_service_1 = require("./article.service");
+var nav_bar_service_1 = require("../service/nav-bar.service");
 var ArticleListComponent = (function () {
-    function ArticleListComponent(articleService) {
+    function ArticleListComponent(articleService, navService) {
         this.articleService = articleService;
-        this.articles = articleService.query({ size: 100 });
+        this.navService = navService;
     }
     ArticleListComponent.prototype.ngOnInit = function () {
-    };
-    ArticleListComponent.prototype.onScroll = function (event) {
-        console.log(event);
+        this.articles = this.articleService.query({ size: 5 });
+        this.navService.showNavEvent.emit("article");
     };
     ArticleListComponent = __decorate([
         core_1.Component({
             selector: 'article-list',
             templateUrl: 'app/article/article-list.component.html'
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, nav_bar_service_1.NavService])
     ], ArticleListComponent);
     return ArticleListComponent;
 }());

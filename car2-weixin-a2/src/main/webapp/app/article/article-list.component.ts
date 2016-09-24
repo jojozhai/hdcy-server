@@ -5,6 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
 import "rxjs/add/operator/map";
 import {ArticleService} from "./article.service";
+import {NavService} from "../service/nav-bar.service";
 
 @Component({
     selector: 'article-list',
@@ -12,18 +13,15 @@ import {ArticleService} from "./article.service";
 })
 export class ArticleListComponent implements OnInit {
 
-    articles:Observable;
+    articles:Observable<Array<any>>;
 
-    constructor(private articleService: ArticleService) {
-        this.articles = articleService.query({size: 100});
+    constructor(private articleService: ArticleService, private navService: NavService) {
+
     }
 
     ngOnInit() {
-
-    }
-
-    onScroll(event) {
-        console.log(event);
+        this.articles = this.articleService.query({size: 5});
+        this.navService.showNavEvent.emit("article");
     }
 
 }

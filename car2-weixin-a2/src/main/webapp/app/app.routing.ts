@@ -10,7 +10,8 @@ const appRoutes: Routes = [
     {path: 'video', loadChildren: 'app/video/video.module'},
     {path: 'article', loadChildren: 'app/article/article.module'},
     {path: 'participation', loadChildren: 'app/participation/participation.module'},
-    {path: 'my', loadChildren: 'app/my/my.module'}
+    {path: 'my', loadChildren: 'app/my/my.module'},
+    {path: 'comment', loadChildren: 'app/comment/comment.module'}
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);

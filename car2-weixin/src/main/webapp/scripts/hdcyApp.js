@@ -190,9 +190,15 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+		
+		var showFooterStates = ["app.index","app.article.list","app.video.list","app.participation.list","app.my.list"];
+		$scope.showFooter = $.inArray(toState.name, showFooterStates) != -1;
+		
 		var enablePullToRefreshStates = ["app.article.list","app.video.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
+		
+		
 	});
 	$scope.checkLogin = function(from){
 		userRestService.current().$promise.then(function(result){
@@ -1683,19 +1689,19 @@ angular.module('hdcyApp', ['weixin',
 						animateTo:angles+1800,
 						duration:8000,
 						callback:function (){
-							// lotteryRestService.save({id: id, prize: txt}).$promise.then(function(){
-							// 	if(win){
+							 lotteryRestService.save({id: id, prize: txt}).$promise.then(function(){
+							 	if(win){
 									$(".huojiang p").text(txt);
 									$(".huojiang").show();
 
-								// 	var link = commonService.getShareLink("/lottery/details?id="+scope.lottery.id);
-								// 	weixinService.shareConfig("我抽中了让我奋不顾身的["+txt+"]，比我高的请走开！", "", link, scope.lottery.image);
-                                //
-								// }else{
-								// 	$(".nohuojiang").show();
-								// }
+								 	var link = commonService.getShareLink("/lottery/details?id="+scope.lottery.id);
+								 	weixinService.shareConfig("我抽中了让我奋不顾身的["+txt+"]，比我高的请走开！", "", link, scope.lottery.image);
+                                
+								 }else{
+								 	$(".nohuojiang").show();
+								 }
 								turnplate.bRotate = !turnplate.bRotate;
-							// })
+							 })
 						}
 					});
 				};
@@ -1705,28 +1711,28 @@ angular.module('hdcyApp', ['weixin',
 				$('.pointer').click(function (){
 					if(turnplate.bRotate)return;
 
-					// lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
-                    //
-					// 	if(result.win){
-					// 		commonService.showInfo("您已经抽中过奖品了，请联系客服领奖")
-					// 		$location.search("view", "success");
-					// 		scope.view = "success";
-					// 	}else{
-					// 		if(result.count <= 0){
-					// 			$location.search("view", "notPermission");
-					// 			scope.view = "notPermission";
-					// 		}else{
-					// 			lotteryRestService.create({lotteryId: $stateParams.id}).$promise.then(function(info){
+					 lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
+                    
+					 	if(result.win){
+					 		commonService.showInfo("您已经抽中过奖品了，请联系客服领奖")
+					 		$location.search("view", "success");
+					 		scope.view = "success";
+					 	}else{
+					 		if(result.count <= 0){
+					 			$location.search("view", "notPermission");
+					 			scope.view = "notPermission";
+					 		}else{
+					 			lotteryRestService.create({lotteryId: $stateParams.id}).$promise.then(function(info){
 									turnplate.bRotate = !turnplate.bRotate;
 									//获取随机数(奖品个数范围内)
-									// lotteryRestService.lottery({id: $stateParams.id}).$promise.then(function(result){
-										var item = 0;
-										rotateFn(item+1, turnplate.restaraunts[item].name, 0, turnplate.restaraunts[item].win);
-				// 					});
-				// 				});
-				// 			}
-				// 		}
-				// 	});
+									lotteryRestService.lottery({id: $stateParams.id}).$promise.then(function(result){
+										var item = result.content;
+										rotateFn(item+1, turnplate.restaraunts[item].name, info.id, turnplate.restaraunts[item].win);
+				 					});
+				 				});
+				 			}
+				 		}
+				 	});
 				});
 				turnplate.imgurl = ["images/cj-01.png","images/cj-02.png","images/cj-03.png","images/cj-04.png","images/cj-05.png","images/cj-06.png","images/cj-02.png"];
 				var loaded = 0;

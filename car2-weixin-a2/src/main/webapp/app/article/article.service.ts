@@ -3,12 +3,12 @@
  */
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
-import {HttpRestService} from "../framework/http.rest.service";
+import {HttpRestService} from "../service/http-rest.service";
 
 @Injectable()
 export class ArticleService extends HttpRestService{
 
-    constructor(private http:Http) {
+    constructor(http:Http) {
         super(http, "article");
     }
 

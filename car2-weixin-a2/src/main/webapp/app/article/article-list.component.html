@@ -1,6 +1,4 @@
 <div>资讯列表</div>
-<div style="height: 400px">
-<div *ngFor="let article of articles | async" (scroll)="onScroll($event)" style="height: 200px">
+<div *ngFor="let article of articles | async" [routerLink]="['/article', article.id]">
     {{article.title}}
-</div>
 </div>
