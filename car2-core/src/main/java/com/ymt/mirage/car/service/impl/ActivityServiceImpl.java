@@ -96,6 +96,7 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		    info.setWaiterName(activity.getCustomerService().getName());
 		    info.setWaiterPhone(activity.getCustomerService().getPhone());
 		    info.setWaiterImage(activity.getCustomerService().getImage());
+		    info.setSponsorName(activity.getSponsor().getSponsor());
 		}
 		return info;
 	}

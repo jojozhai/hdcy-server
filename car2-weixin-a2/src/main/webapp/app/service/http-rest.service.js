@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by zhailiang on 16/9/23.
  */
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var app_module_1 = require("../app.module");
 var HttpRestService = (function () {
@@ -26,25 +26,31 @@ var HttpRestService = (function () {
     HttpRestService.prototype.get = function (id) {
         return this.http.get(app_module_1.HTTP_PROFIX + this.domain + "/" + id).map(function (res) { return res.json(); });
     };
-    HttpRestService.prototype.create = function (info, callback, errorHandler) {
+    HttpRestService.prototype.create = function (info, callbackFn, errorHandler) {
         var _this = this;
         this.http.post(app_module_1.HTTP_PROFIX + this.domain, info).subscribe(function (res) {
-            if (callback && typeof callback == 'function') {
-                callback(res.json());
-            }
+            _this.callbackOnSuccess(res, callbackFn);
         }, function (err) {
-            if (errorHandler && typeof errorHandler == 'function') {
-                errorHandler(err.json());
-            }
-            else {
-                if (err.status == 403) {
-                    _this.login();
-                }
-                else if (err.status == 500) {
-                    alert(err.json()['errorMsg']);
-                }
-            }
+            _this.handleException(err, errorHandler);
         });
+    };
+    HttpRestService.prototype.callbackOnSuccess = function (res, callbackFn) {
+        if (callbackFn && typeof callbackFn == 'function') {
+            callbackFn(res.json());
+        }
+    };
+    HttpRestService.prototype.handleException = function (err, errorHandler) {
+        if (errorHandler && typeof errorHandler == 'function') {
+            errorHandler(err.json());
+        }
+        else {
+            if (err.status == 403) {
+                this.login();
+            }
+            else if (err.status == 500) {
+                alert(err.json()['errorMsg']);
+            }
+        }
     };
     HttpRestService.prototype.login = function () {
         window.location.href = "http://127.0.0.1:8171/weixin2/weixin/oauth?state=test";
