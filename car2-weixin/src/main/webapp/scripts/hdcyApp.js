@@ -190,7 +190,7 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		var enablePullToRefreshStates = ["app.article.list","app.video.list"];
+		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
 	});
@@ -1512,7 +1512,7 @@ angular.module('hdcyApp', ['weixin',
             	element.append(pager);
 
                 var lunboW=$(".daka-img .swiper-slide img").width()
-                $(".daka-img .swiper-slide img").height(lunboW*0.6667);                
+                $(".daka-img .swiper-slide img").height(lunboW*0.6667);
             	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
