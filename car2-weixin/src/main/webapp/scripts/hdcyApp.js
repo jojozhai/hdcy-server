@@ -190,15 +190,13 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		
+		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list"];
 		var showFooterStates = ["app.index","app.article.list","app.video.list","app.participation.list","app.my.list"];
 		$scope.showFooter = $.inArray(toState.name, showFooterStates) != -1;
-		
-		var enablePullToRefreshStates = ["app.article.list","app.video.list"];
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
-		
-		
+
+
 	});
 	$scope.checkLogin = function(from){
 		userRestService.current().$promise.then(function(result){
@@ -1518,7 +1516,7 @@ angular.module('hdcyApp', ['weixin',
             	element.append(pager);
 
                 var lunboW=$(".daka-img .swiper-slide img").width()
-                $(".daka-img .swiper-slide img").height(lunboW*0.6667);                
+                $(".daka-img .swiper-slide img").height(lunboW*0.6667);
             	Swiper('.swiper-container', {
             	    pagination: '.swiper-pagination',
             	    paginationClickable: true,
@@ -1696,7 +1694,7 @@ angular.module('hdcyApp', ['weixin',
 
 								 	var link = commonService.getShareLink("/lottery/details?id="+scope.lottery.id);
 								 	weixinService.shareConfig("我抽中了让我奋不顾身的["+txt+"]，比我高的请走开！", "", link, scope.lottery.image);
-                                
+
 								 }else{
 								 	$(".nohuojiang").show();
 								 }
@@ -1712,7 +1710,7 @@ angular.module('hdcyApp', ['weixin',
 					if(turnplate.bRotate)return;
 
 					 lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
-                    
+
 					 	if(result.win){
 					 		commonService.showInfo("您已经抽中过奖品了，请联系客服领奖")
 					 		$location.search("view", "success");

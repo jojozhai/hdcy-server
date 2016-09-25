@@ -165,9 +165,11 @@ $(function(){
                     }
 
                 }
-
+                var heights=document.documentElement.clientHeight;
+                $(".activityContainer").height(heights-75);
             }
         });
+
         $(".toggle img").on("click",function(){
             if ($(".toggle img").attr("src")=="img/content-up.png") {
                 $(".activityCon").height(108);
