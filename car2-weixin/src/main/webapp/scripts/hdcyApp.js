@@ -225,7 +225,15 @@ angular.module('hdcyApp', ['weixin',
 	$scope.closeWindow = function(){
 		WeixinJSBridge.call('closeWindow');
 	}
-//	$scope.colors='video';
+
+    var index=location.hash.substring(1,location.hash.length);
+    if (index=="/video/list") {
+        $scope.colors='video';
+    }else if (index=="/article/list") {
+        $scope.colors='zixun';
+    }else if (index=="/participation/list") {
+        $scope.colors='activity';
+    }
     $scope.navBtn = function(order) {
 		$scope.colors = order;
 	}
