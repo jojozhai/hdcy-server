@@ -54,7 +54,6 @@
          var timess=date.Format();
          var timeArr=timess.split("-");
          var today=Math.round(new Date().getTime());
-         console.log(today);
          var todayArr=new Date(today).Format().split("-");
          for (var i = 0; i < timeArr.length; i++) {
              if (timeArr[0]==todayArr[0]) {

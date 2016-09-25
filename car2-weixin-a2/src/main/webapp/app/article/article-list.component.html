@@ -1,0 +1,4 @@
+<div>资讯列表</div>
+<div *ngFor="let article of articles | async" [routerLink]="['/article', article.id]">
+    {{article.title}}
+</div>

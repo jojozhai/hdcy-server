@@ -1,8 +1,7 @@
 html,body  {
                 width: 100%;
                 height: 100%;
-                overflow-x: hidden;
-                overflow-y: auto;
+                overflow: hidden;
             }
             .activityBox {
                 width: 750px;
@@ -11,6 +10,7 @@ html,body  {
             .activityContainer {
                 width: 750px;
                 margin: 0 auto;
+                overflow-y: auto;
                 background: white;
             }
             .activityTit {

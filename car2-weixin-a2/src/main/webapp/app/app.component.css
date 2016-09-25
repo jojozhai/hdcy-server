@@ -1,0 +1,68 @@
+.menuBox1{
+    position: fixed;
+    background: #FFFFFF;
+    z-index: 200;
+    bottom: 0px;
+    width: 100%;
+
+}
+.menuBox1 .bottomBtn {
+    overflow: hidden;
+}
+.menuBox1 .bottomBtn i {
+    display: inline-block;
+    width: 17px;
+    height:17px;
+
+}
+.menuBox1 li{
+    height: 49px;
+    float: left;
+    width: 25%;
+}
+.menuBox1 li:last-child{
+    border-bottom: none;
+}
+.menuBox1 li a{
+    padding: 5px 0;
+    font-size: 14px;
+    color: #000000;
+    display: block;
+    text-align: center;
+
+}
+.menuBox1 li .btnOn {
+    color: #fd7400;
+}
+.menu-ico1 {
+    background: url(../images/menu-01.png) no-repeat 0px center;
+    background-size: 13px 17px;
+}
+.btnOn .menu-ico1 {
+    background: url(../images/menu-01-hover.png) no-repeat 0px center;
+    background-size: 13px 17px;
+}
+.menu-ico2 {
+    background: url(../images/menu-02.png) no-repeat 0px center;
+    background-size: 17px 17px;
+}
+.btnOn .menu-ico2 {
+    background: url(../images/menu-02-hover.png) no-repeat 0px center;
+    background-size: 17px 17px;
+}
+.menu-ico3 {
+    background: url(../images/menu-03.png) no-repeat 0px center;
+    background-size: 17px 17px;
+}
+.btnOn .menu-ico3 {
+    background: url(../images/menu-03-hover.png) no-repeat 0px center;
+    background-size: 17px 17px;
+}
+.menu-ico4 {
+    background: url(../images/menu-04.png) no-repeat 0px center;
+    background-size: 17px 11px;
+}
+.btnOn .menu-ico4 {
+    background: url(../images/menu-04-hover.png) no-repeat 0px center;
+    background-size: 17px 11px;
+}
