@@ -1,7 +1,7 @@
 /**
  * Created by zhailiang on 16/9/23.
  */
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Http, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs";
 import {HTTP_PROFIX} from "../app.module";
@@ -20,25 +20,33 @@ export class HttpRestService {
         return this.http.get(HTTP_PROFIX + this.domain + "/" + id).map(res => res.json());
     }
 
-    create(info: any, callback?, errorHandler?):void {
+    create(info: any, callbackFn?, errorHandler?):void {
         this.http.post(HTTP_PROFIX + this.domain, info).subscribe(
             res => {
-                if(callback &&  typeof callback == 'function') {
-                    callback(res.json());
-                }
+                this.callbackOnSuccess(res, callbackFn);
             },
             err => {
-                if(errorHandler &&  typeof errorHandler == 'function') {
-                    errorHandler(err.json());
-                } else {
-                    if(err.status == 403) {
-                        this.login();
-                    }else if(err.status == 500) {
-                        alert(err.json()['errorMsg']);
-                    }
-                }
+                this.handleException(err, errorHandler);
             }
         );
+    }
+
+    private callbackOnSuccess(res, callbackFn?) {
+        if(callbackFn &&  typeof callbackFn == 'function') {
+            callbackFn(res.json());
+        }
+    }
+
+    private handleException(err, errorHandler?) {
+        if(errorHandler &&  typeof errorHandler == 'function') {
+            errorHandler(err.json());
+        } else {
+            if(err.status == 403) {
+                this.login();
+            }else if(err.status == 500) {
+                alert(err.json()['errorMsg']);
+            }
+        }
     }
 
     private login() {

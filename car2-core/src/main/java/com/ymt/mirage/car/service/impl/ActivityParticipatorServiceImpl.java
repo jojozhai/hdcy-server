@@ -78,6 +78,12 @@ public class ActivityParticipatorServiceImpl extends AbstractParticipationServic
 		if (new DateTime(activity.getEndTime()).isBeforeNow() || activity.isFinish()) {
 			throw new PzException("活动已经结束");
 		}
+		if(new DateTime(activity.getSignStartTime()).isAfterNow()) {
+		    throw new PzException("报名未开始");
+		}
+		if(new DateTime(activity.getSignEndTime()).isBeforeNow()) {
+		    throw new PzException("报名已结束");
+		}
 		ActivityParticipator participator = activityParticipatorRepository
 				.findByActivityIdAndUserId(participatorInfo.getActivityId(), participatorInfo.getUserId());
 		if (participator == null) {
