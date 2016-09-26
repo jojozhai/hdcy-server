@@ -12,6 +12,7 @@ var common_1 = require("@angular/common");
 var video_list_component_1 = require("./video-list.component");
 var core_1 = require("@angular/core");
 var video_routing_1 = require("./video.routing");
+var mirage_module_1 = require("../mirage/mirage.module");
 /**
  * Created by zhailiang on 16/9/23.
  */
@@ -20,7 +21,7 @@ var VideoModule = (function () {
     }
     VideoModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, video_routing_1.videoRouting],
+            imports: [common_1.CommonModule, mirage_module_1.default, video_routing_1.videoRouting],
             declarations: [video_list_component_1.VideoListComponent]
         }), 
         __metadata('design:paramtypes', [])

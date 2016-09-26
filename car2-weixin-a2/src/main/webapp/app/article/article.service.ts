@@ -3,7 +3,7 @@
  */
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
-import {HttpRestService} from "../service/http-rest.service";
+import {HttpRestService} from "../mirage/service/http-rest.service";
 
 @Injectable()
 export class ArticleService extends HttpRestService{

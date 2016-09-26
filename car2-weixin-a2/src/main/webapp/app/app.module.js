@@ -14,7 +14,7 @@ var app_component_1 = require("./app.component");
 var forms_1 = require("@angular/forms");
 var app_routing_1 = require("./app.routing");
 var http_1 = require("@angular/http");
-var nav_bar_service_1 = require("./service/nav-bar.service");
+var nav_bar_service_1 = require("./mirage/service/nav-bar.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,5 +34,4 @@ var AppModule = (function () {
     return AppModule;
 }());
 exports.AppModule = AppModule;
-exports.HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
 //# sourceMappingURL=app.module.js.map

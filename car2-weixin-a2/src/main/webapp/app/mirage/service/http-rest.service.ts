@@ -4,24 +4,33 @@
 import {Injectable} from "@angular/core";
 import {Http, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs";
-import {HTTP_PROFIX} from "../app.module";
+
+export interface PageInfo {
+
+    page: number;
+    size: number;
+    sort: string;
+
+}
+
 
 @Injectable()
 export class HttpRestService {
 
+    private HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
+
     constructor(private http:Http, private domain:string) { }
 
-    query(condition?):Observable<Array<any>> {
-        return this.http.get(HTTP_PROFIX + this.domain, {search: this.encodeParams(condition)})
-            .map(res => res.json().content);
+    query(condition?):Observable<any> {
+        return this.http.get(this.HTTP_PROFIX + this.domain, {search: this.encodeParams(condition)});
     }
 
     get(id: number) {
-        return this.http.get(HTTP_PROFIX + this.domain + "/" + id).map(res => res.json());
+        return this.http.get(this.HTTP_PROFIX + this.domain + "/" + id).map(res => res.json());
     }
 
     create(info: any, callbackFn?, errorHandler?):void {
-        this.http.post(HTTP_PROFIX + this.domain, info).subscribe(
+        this.http.post(this.HTTP_PROFIX + this.domain, info).subscribe(
             res => {
                 this.callbackOnSuccess(res, callbackFn);
             },

@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var nav_bar_service_1 = require("./service/nav-bar.service");
+var nav_bar_service_1 = require("./mirage/service/nav-bar.service");
 var AppComponent = (function () {
     function AppComponent(router, navService) {
         this.router = router;

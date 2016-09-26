@@ -1,4 +1,6 @@
 <div>资讯列表</div>
-<div *ngFor="let article of articles | async" [routerLink]="['/article', article.id]">
-    {{article.title}}
+<div id="scroll_div" [infinite-scroll]="articles" [httpRestService]="articleService" [pageInfo]="pageInfo" style="overflow-y:auto; overflow-x:hidden;margin:5px;padding: 5px;height:500px;border:1px solid red">
+    <div *ngFor="let article of articles" [routerLink]="['/article', article.id]" style="height: 200px">
+        {{article.title}}
+    </div>
 </div>

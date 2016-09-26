@@ -18,7 +18,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var http_rest_service_1 = require("../service/http-rest.service");
+var http_rest_service_1 = require("../mirage/service/http-rest.service");
 var ArticleService = (function (_super) {
     __extends(ArticleService, _super);
     function ArticleService(http) {

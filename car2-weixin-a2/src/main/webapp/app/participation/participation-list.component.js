@@ -12,7 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zhailiang on 16/9/23.
  */
 var core_1 = require("@angular/core");
-var nav_bar_service_1 = require("../service/nav-bar.service");
+var nav_bar_service_1 = require("../mirage/service/nav-bar.service");
 var ParticipationListComponent = (function () {
     function ParticipationListComponent(navService) {
         this.navService = navService;

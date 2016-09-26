@@ -4,7 +4,7 @@ import {AppComponent} from "./app.component";
 import {FormsModule} from "@angular/forms";
 import {appRouting} from "./app.routing";
 import {HttpModule} from "@angular/http";
-import {NavService} from "./service/nav-bar.service";
+import {NavService} from "./mirage/service/nav-bar.service";
 @NgModule({
     imports: [
         //angular2 框架模块
@@ -18,4 +18,3 @@ import {NavService} from "./service/nav-bar.service";
 export class AppModule {
 }
 
-export const HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";

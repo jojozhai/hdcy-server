@@ -8,26 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/**
- * Created by zhailiang on 16/9/23.
- */
+var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
-var nav_bar_service_1 = require("../mirage/service/nav-bar.service");
-var MyListComponent = (function () {
-    function MyListComponent(navService) {
-        this.navService = navService;
+var infinite_scroll_directive_1 = require("./directive/infinite-scroll.directive");
+/**
+ * Created by zhailiang on 16/9/26.
+ */
+var MirageModule = (function () {
+    function MirageModule() {
     }
-    MyListComponent.prototype.ngOnInit = function () {
-        this.navService.showNavEvent.emit("my");
-    };
-    MyListComponent = __decorate([
-        core_1.Component({
-            selector: 'my-list',
-            templateUrl: 'app/my/my-list.component.html'
+    MirageModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [infinite_scroll_directive_1.InfiniteScrollDirective],
+            exports: [infinite_scroll_directive_1.InfiniteScrollDirective]
         }), 
-        __metadata('design:paramtypes', [nav_bar_service_1.NavService])
-    ], MyListComponent);
-    return MyListComponent;
+        __metadata('design:paramtypes', [])
+    ], MirageModule);
+    return MirageModule;
 }());
-exports.MyListComponent = MyListComponent;
-//# sourceMappingURL=my-list.component.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = MirageModule;
+//# sourceMappingURL=mirage.module.js.map

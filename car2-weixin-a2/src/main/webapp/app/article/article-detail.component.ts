@@ -4,7 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "./article.service";
 import {ActivatedRoute} from "@angular/router";
-import {NavService} from "../service/nav-bar.service";
+import {NavService} from "../mirage/service/nav-bar.service";
 
 @Component({
     selector: 'article-detail',

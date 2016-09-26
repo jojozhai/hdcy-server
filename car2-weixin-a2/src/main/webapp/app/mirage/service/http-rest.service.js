@@ -13,22 +13,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var app_module_1 = require("../app.module");
 var HttpRestService = (function () {
     function HttpRestService(http, domain) {
         this.http = http;
         this.domain = domain;
+        this.HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
     }
     HttpRestService.prototype.query = function (condition) {
-        return this.http.get(app_module_1.HTTP_PROFIX + this.domain, { search: this.encodeParams(condition) })
-            .map(function (res) { return res.json().content; });
+        return this.http.get(this.HTTP_PROFIX + this.domain, { search: this.encodeParams(condition) });
     };
     HttpRestService.prototype.get = function (id) {
-        return this.http.get(app_module_1.HTTP_PROFIX + this.domain + "/" + id).map(function (res) { return res.json(); });
+        return this.http.get(this.HTTP_PROFIX + this.domain + "/" + id).map(function (res) { return res.json(); });
     };
     HttpRestService.prototype.create = function (info, callbackFn, errorHandler) {
         var _this = this;
-        this.http.post(app_module_1.HTTP_PROFIX + this.domain, info).subscribe(function (res) {
+        this.http.post(this.HTTP_PROFIX + this.domain, info).subscribe(function (res) {
             _this.callbackOnSuccess(res, callbackFn);
         }, function (err) {
             _this.handleException(err, errorHandler);

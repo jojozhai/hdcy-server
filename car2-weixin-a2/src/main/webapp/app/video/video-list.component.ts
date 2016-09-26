@@ -2,7 +2,7 @@
  * Created by zhailiang on 16/9/23.
  */
 import {Component, OnInit} from "@angular/core";
-import {NavService} from "../service/nav-bar.service";
+import {NavService} from "../mirage/service/nav-bar.service";
 
 @Component({
     selector: 'video-list',
