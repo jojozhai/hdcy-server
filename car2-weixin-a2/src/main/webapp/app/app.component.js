@@ -21,13 +21,9 @@ var AppComponent = (function () {
             .filter(function (event) { return event instanceof router_1.NavigationEnd; })
             .subscribe(function (event) {
             _this.showFooter = _this.showNavPaths.indexOf(event.url) != -1;
-            _this.currentTab = event.url.substring(1, event.url.length);
         });
     }
     AppComponent.prototype.ngOnInit = function () {
-    };
-    AppComponent.prototype.navigate = function (targetTab) {
-        this.router.navigateByUrl('/' + targetTab);
     };
     AppComponent = __decorate([
         core_1.Component({

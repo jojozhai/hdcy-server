@@ -9,8 +9,6 @@ import "rxjs/add/operator/filter";
 })
 export class AppComponent implements OnInit {
 
-    private currentTab: string;
-
     private showFooter: boolean = false;
 
     private showNavPaths: Array<string> = ['/video','/participation','/article','/my'];
@@ -20,16 +18,11 @@ export class AppComponent implements OnInit {
             .filter(event => event instanceof NavigationEnd)
             .subscribe(event => {
                 this.showFooter = this.showNavPaths.indexOf(event.url) != -1
-                this.currentTab = event.url.substring(1, event.url.length);
             });
     }
 
     ngOnInit() {
 
-    }
-
-    navigate(targetTab:string) {
-        this.router.navigateByUrl('/'+targetTab);
     }
 
 }
