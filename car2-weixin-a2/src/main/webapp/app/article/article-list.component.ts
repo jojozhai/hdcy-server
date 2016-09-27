@@ -8,8 +8,10 @@ import {ListComponent} from "../mirage/component/list.component";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
+    moduleId: module.id,
     selector: 'article-list',
-    templateUrl: 'app/article/article-list.component.html'
+    templateUrl: 'article-list.component.html',
+    styleUrls: ['article-list.component.css']
 })
 export class ArticleListComponent extends ListComponent implements OnInit {
 

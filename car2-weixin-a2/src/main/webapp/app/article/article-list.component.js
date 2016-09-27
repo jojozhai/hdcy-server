@@ -34,8 +34,10 @@ var ArticleListComponent = (function (_super) {
     };
     ArticleListComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'article-list',
-            templateUrl: 'app/article/article-list.component.html'
+            templateUrl: 'article-list.component.html',
+            styleUrls: ['article-list.component.css']
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
     ], ArticleListComponent);
