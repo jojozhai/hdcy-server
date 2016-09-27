@@ -56,3 +56,8 @@ textarea {
 	outline: none;
 	font-family: "microsoft yahei";
 }
+
+.box {
+    width: 375px;
+    margin: 0 auto;
+}
