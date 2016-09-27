@@ -3,7 +3,11 @@
     <base href="/">
     <title>好多车友</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
     <link rel="stylesheet" href="styles.css">
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
@@ -16,6 +20,7 @@
     <script>
         System.import('app').catch(function(err){ console.error(err); });
     </script>
+    <style media="screen"></style>
 </head>
 <!-- 3. Display the application -->
 <body>

@@ -12,6 +12,8 @@ var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var infinite_scroll_directive_1 = require("./directive/infinite-scroll.directive");
 var forms_1 = require("@angular/forms");
+var tag_service_1 = require("./service/tag.service");
+var http_rest_service_1 = require("./service/http-rest.service");
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -22,7 +24,8 @@ var MirageModule = (function () {
         core_1.NgModule({
             imports: [common_1.CommonModule],
             declarations: [infinite_scroll_directive_1.InfiniteScrollDirective],
-            exports: [common_1.CommonModule, forms_1.FormsModule, infinite_scroll_directive_1.InfiniteScrollDirective]
+            exports: [common_1.CommonModule, forms_1.FormsModule, infinite_scroll_directive_1.InfiniteScrollDirective],
+            providers: [http_rest_service_1.HttpRestService, tag_service_1.TagService]
         }), 
         __metadata('design:paramtypes', [])
     ], MirageModule);

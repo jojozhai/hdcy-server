@@ -31,6 +31,15 @@ var ListComponent = (function () {
             sort: sort
         };
     }
+    ListComponent.prototype.buildCondition = function (condition) {
+        if (!condition) {
+            condition = {};
+        }
+        condition.page = this.pageInfo.page;
+        condition.size = this.pageInfo.size;
+        condition.sort = this.pageInfo.sort;
+        return condition;
+    };
     return ListComponent;
 }());
 exports.ListComponent = ListComponent;

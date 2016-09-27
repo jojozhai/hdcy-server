@@ -13,24 +13,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+exports.HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
 var HttpRestService = (function () {
     function HttpRestService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
     }
     HttpRestService.prototype.query = function (condition) {
-        return this.http.get(this.HTTP_PROFIX + this.domain, {
+        return this.http.get(exports.HTTP_PROFIX + this.domain, {
             search: this.encodeParams(condition),
             headers: new http_1.Headers({ 'Authorization': this.user })
         });
     };
     HttpRestService.prototype.get = function (id) {
-        return this.http.get(this.HTTP_PROFIX + this.domain + "/" + id, this.getBasicHeader()).map(function (res) { return res.json(); });
+        return this.http.get(exports.HTTP_PROFIX + this.domain + "/" + id, this.getBasicHeader()).map(function (res) { return res.json(); });
     };
     HttpRestService.prototype.create = function (info, callbackFn, errorHandler) {
         var _this = this;
-        this.http.post(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
+        this.http.post(exports.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
             _this.callbackOnSuccess(res, callbackFn);
         }, function (err) {
             _this.handleException(err, errorHandler);
@@ -38,7 +38,7 @@ var HttpRestService = (function () {
     };
     HttpRestService.prototype.update = function (info, callbackFn, errorHandler) {
         var _this = this;
-        this.http.put(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
+        this.http.put(exports.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
             _this.callbackOnSuccess(res, callbackFn);
         }, function (err) {
             _this.handleException(err, errorHandler);
@@ -69,7 +69,7 @@ var HttpRestService = (function () {
     };
     HttpRestService.prototype.login = function () {
         var _this = this;
-        this.http.get(this.HTTP_PROFIX + "weixin/oauth/app?state=test")
+        this.http.get(exports.HTTP_PROFIX + "weixin/oauth/app?state=test")
             .subscribe(function (res) { return _this.user = res.json().content; });
     };
     HttpRestService.prototype.encodeParams = function (params) {

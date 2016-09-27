@@ -21,16 +21,23 @@ require("rxjs/add/operator/map");
 var article_service_1 = require("./article.service");
 var list_component_1 = require("../mirage/component/list.component");
 var router_1 = require("@angular/router");
+var tag_service_1 = require("../mirage/service/tag.service");
 var ArticleListComponent = (function (_super) {
     __extends(ArticleListComponent, _super);
-    function ArticleListComponent(articleService, route) {
+    function ArticleListComponent(articleService, tagService, route) {
         _super.call(this, route);
         this.articleService = articleService;
+        this.tagService = tagService;
         this.route = route;
     }
     ArticleListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.articleService.query(this.pageInfo).subscribe(function (res) { return _this.articles = res.json().content; });
+        this.tagService.getChild().subscribe(function (res) { return _this.tags = res; });
+    };
+    ArticleListComponent.prototype.changeTag = function (tagId) {
+        var _this = this;
+        this.articleService.query(_super.prototype.buildCondition.call(this, { tagId: tagId })).subscribe(function (res) { return _this.articles = res.json().content; });
     };
     ArticleListComponent = __decorate([
         core_1.Component({
@@ -39,7 +46,7 @@ var ArticleListComponent = (function (_super) {
             templateUrl: 'article-list.component.html',
             styleUrls: ['article.component.css']
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, tag_service_1.TagService, router_1.ActivatedRoute])
     ], ArticleListComponent);
     return ArticleListComponent;
 }(list_component_1.ListComponent));

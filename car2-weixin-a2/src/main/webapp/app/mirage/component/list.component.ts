@@ -41,5 +41,15 @@ export class ListComponent {
         }
     }
 
+    buildCondition(condition?:any) {
+        if(!condition) {
+            condition = {};
+        }
+        condition.page = this.pageInfo.page;
+        condition.size = this.pageInfo.size;
+        condition.sort = this.pageInfo.sort;
+        return condition;
+    }
+
 
 }
