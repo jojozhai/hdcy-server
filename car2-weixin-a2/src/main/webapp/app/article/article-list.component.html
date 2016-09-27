@@ -15,32 +15,17 @@
             <span>关于我们</span>
         </div>
     </div>
-    <ul class="content">
-        <li>
+    <ul class="content" [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo">
+        <li *ngFor="let article of articles">
             <div class="contentList">
-                <img src="../../img/icon1.png" alt="" />
+                <img [src]="article.image" alt="" />
             </div>
             <div class="contentTxt">
-                <h2>从贫困小子到首富 究竟是哪些人改变了马云的人生？</h2>
-                <div class="txt-tag clear">
-                    <div class="tagLeft">
-                        <span>置顶</span>
-                        <span>广告</span>
-
-                    </div>
-                </div>
-
-            </div>
-        </li>
-        <li>
-            <div class="contentList">
-                <img src="../../img/icon2.png" alt="" />
-            </div>
-            <div class="contentTxt">
-                <h2>此后，戴维与马云成了笔友。杜马选举备受关注，一个重要原因是</h2>
+                <h2>{{article.title}}</h2>
                 <div class="txt-tag clear">
                     <div class="fl tagLeft">
                         <span>置顶</span>
+                        <span>广告</span>
                         <span class="ball-activity">全球活动</span>
                         <span>09-30</span>
                     </div>
@@ -48,51 +33,8 @@
                         <span class="eyes"><span class="eye"></span></span>
                         <span>56</span>
                     </div>
-
-                </div>
-
-            </div>
-        </li>
-        <li>
-            <div class="contentList">
-                <img src="../../img/icon3.png" alt="" />
-            </div>
-            <div class="contentTxt">
-                <h2>此后，戴维与马云成了笔友。杜马选举备受关注，一个重要原因是</h2>
-                <div class="txt-tag clear">
-                    <div class="tagLeft">
-                        <span>广告</span>
-                    </div>
-                </div>
-
-            </div>
-        </li>
-        <li>
-            <div class="ads">
-                <img src="../../img/icon4.png" alt="" />
-                <h2 class="adsTit">"膨胀"的苏州金龙</h2>
-                <span class="ad-tag">广告</span>
-            </div>
-
-        </li>
-        <li>
-            <div class="contentList">
-                <img src="../../img/icon5.png" alt="" />
-            </div>
-            <div class="contentTxt">
-                <h2>外界普遍认为今年63岁的普京将参加2018年3月的总统选举寻求再次连任。</h2>
-                <div class="txt-tag clear">
-                    <div class="fl tagLeft">
-                        <span class="ball-activity">车界百闻</span>
-                        <span>09-30</span>
-                    </div>
-                    <div class="fr tagRight">
-                        <span class="eye"></span>
-                        <span>56</span>
-                    </div>
                 </div>
             </div>
         </li>
-
     </ul>
 </div>

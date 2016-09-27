@@ -3,9 +3,10 @@ import {Router, NavigationEnd} from "@angular/router";
 import "rxjs/add/operator/filter";
 
 @Component({
+    moduleId: module.id,
     selector: 'app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: ['app/app.component.css']
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
 

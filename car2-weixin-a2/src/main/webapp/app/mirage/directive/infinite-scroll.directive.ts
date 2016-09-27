@@ -27,6 +27,7 @@ export class InfiniteScrollDirective {
         let height = this.el.nativeElement.offsetHeight;
         let scrollHeight = this.el.nativeElement.scrollHeight;
         let scrollTop = this.el.nativeElement.scrollTop;
+
         if(height + scrollTop >= scrollHeight - 100 && height + scrollTop > this.max) {
             this.max = scrollHeight + 100;
             this.loading = true;

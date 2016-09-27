@@ -1,3 +1,7 @@
+html,body {
+    width: 100%;
+    background: #18212d;
+}
 
 /*清除外边距*/
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, figure, /*结构元素*/
@@ -55,4 +59,9 @@ input,
 textarea {
 	outline: none;
 	font-family: "microsoft yahei";
+}
+
+.box {
+    width: 375px;
+    margin: 0 auto;
 }

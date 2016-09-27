@@ -37,7 +37,7 @@ var ArticleListComponent = (function (_super) {
             moduleId: module.id,
             selector: 'article-list',
             templateUrl: 'article-list.component.html',
-            styleUrls: ['article-list.component.css']
+            styleUrls: ['article.component.css']
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
     ], ArticleListComponent);

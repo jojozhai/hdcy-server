@@ -6,8 +6,10 @@ import {ArticleService} from "./article.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
+    moduleId: module.id,
     selector: 'article-detail',
-    templateUrl: 'app/article/article-detail.component.html'
+    templateUrl: 'article-detail.component.html',
+    styleUrls: ['article.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
 

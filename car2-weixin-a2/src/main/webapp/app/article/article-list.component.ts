@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
     moduleId: module.id,
     selector: 'article-list',
     templateUrl: 'article-list.component.html',
-    styleUrls: ['article-list.component.css']
+    styleUrls: ['article.component.css']
 })
 export class ArticleListComponent extends ListComponent implements OnInit {
 

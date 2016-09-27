@@ -27,8 +27,10 @@ var ArticleDetailComponent = (function () {
     };
     ArticleDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'article-detail',
-            templateUrl: 'app/article/article-detail.component.html'
+            templateUrl: 'article-detail.component.html',
+            styleUrls: ['article.component.css']
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
     ], ArticleDetailComponent);

@@ -1,68 +1,43 @@
-.menuBox1{
-    position: fixed;
-    background: #FFFFFF;
-    z-index: 200;
-    bottom: 0px;
-    width: 100%;
+header {
+    width:100%;
+    height:50px;
+    background: black;
+    line-height: 50px;
+}
+nav a {
+    font-size: 20px;
+    color: rgb(221, 221, 221);
+    font-family:" HiraginoSansGB W3[Bold]";
 
 }
-.menuBox1 .bottomBtn {
-    overflow: hidden;
-}
-.menuBox1 .bottomBtn i {
-    display: inline-block;
-    width: 17px;
-    height:17px;
-
-}
-.menuBox1 li{
-    height: 49px;
+nav .fl a,nav .fr a {
     float: left;
-    width: 25%;
 }
-.menuBox1 li:last-child{
-    border-bottom: none;
+nav .fl a {
+    margin: 0 10px;
 }
-.menuBox1 li a{
-    padding: 5px 0;
-    font-size: 14px;
-    color: #000000;
-    display: block;
-    text-align: center;
-    text-decoration: none;
+nav .fr a  {
+    margin-right: 5px;
 }
-.menuBox1 li .btnOn {
-    color: #fd7400;
+
+nav a.on {
+    color: rgb(0, 254, 252);
 }
-.menu-ico1 {
-    background: url(../images/menu-01.png) no-repeat 0px center;
-    background-size: 13px 17px;
+nav .fr {
+    margin-top: 5px;
 }
-.btnOn .menu-ico1 {
-    background: url(../images/menu-01-hover.png) no-repeat 0px center;
-    background-size: 13px 17px;
+.nav-xin {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../app/images/nav-xin.png") no-repeat;
+    background-size: 100% 100%;
+
 }
-.menu-ico2 {
-    background: url(../images/menu-02.png) no-repeat 0px center;
-    background-size: 17px 17px;
-}
-.btnOn .menu-ico2 {
-    background: url(../images/menu-02-hover.png) no-repeat 0px center;
-    background-size: 17px 17px;
-}
-.menu-ico3 {
-    background: url(../images/menu-03.png) no-repeat 0px center;
-    background-size: 17px 17px;
-}
-.btnOn .menu-ico3 {
-    background: url(../images/menu-03-hover.png) no-repeat 0px center;
-    background-size: 17px 17px;
-}
-.menu-ico4 {
-    background: url(../images/menu-04.png) no-repeat 0px center;
-    background-size: 17px 11px;
-}
-.btnOn .menu-ico4 {
-    background: url(../images/menu-04-hover.png) no-repeat 0px center;
-    background-size: 17px 11px;
+.nav-me {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../app/images/nav-me.png") no-repeat;
+    background-size: 100% 100%;
 }
