@@ -16,9 +16,9 @@
         <div class="box">
             <header>
                 <nav class="clear">
-                    <div class="fl navs">
+                    <div class="fl">
                         <a href="#"><span>视频</span></a>
-                        <a href="#" class="on"><span>资讯</span></a>
+                        <a href="#"><span>资讯</span></a>
                         <a href="#"><span>活动</span></a>
                         <a href="#"><span>大咖</span></a>
                     </div>
@@ -32,7 +32,7 @@
             <div class="cnts">
                 <div class="article-navs">
                     <div class="article-nav clear">
-                        <a href="#">全部</a>
+                        <a href="#" >全部</a>                        
                         <a href="#" class="artnav-on">车界百闻</a>
                         <a href="#">全球活动</a>
                         <a href="#">更多兴趣</a>
@@ -69,7 +69,7 @@
                                     <span>09-30</span>
                                 </div>
                                 <div class="fr tagRight">
-                                    <i class="eyes"><span class="eye"></span></i>
+                                    <span class="eyes"><span class="eye"></span></span>
                                     <span>56</span>
                                 </div>
 
@@ -125,14 +125,10 @@
     </body>
     <script src="../../js/jquery-2.2.3.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-        $(".navs a ").on("click",function () {
-            $(".navs a").removeClass("on");
-            $(".navs a").eq($(this).index()).addClass("on");
-        })
-        $(".article-nav").width($(".article-nav a").length*93.75);
-        $(".article-nav a").on("click",function(){
-            $(".article-nav a").removeClass("artnav-on");
-            $(".article-nav a").eq($(this).index()).addClass("artnav-on");
+        $(".article-nav").width($(".article-nav span").length*93.75);
+        $(".article-nav span").on("click",function(){
+            $(".article-nav span").removeClass("artnav-on");
+            $(".article-nav span").eq($(this).index()).addClass("artnav-on");
 
         })
 

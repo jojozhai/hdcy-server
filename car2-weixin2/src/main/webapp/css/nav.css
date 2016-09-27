@@ -5,7 +5,7 @@ header {
     line-height: 50px;
 }
 nav a {
-    font-size: 20px;
+    font-size: 17px;
     color: rgb(221, 221, 221);
     font-family:" HiraginoSansGB W3[Bold]";
 
@@ -17,11 +17,16 @@ nav .fl a {
     margin: 0 10px;
 }
 nav .fr a  {
-    margin-right: 5px;
+    width: 35px;
+    height:35px;
+    margin:0 5px;
 }
 
 nav a.on {
     color: rgb(0, 254, 252);
+    background: url("../img/nav-on.png") no-repeat bottom center;
+    background-size: 12px 6px;
+
 }
 nav .fr {
     margin-top: 5px;
