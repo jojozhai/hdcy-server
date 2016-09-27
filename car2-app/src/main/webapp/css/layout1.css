@@ -4,11 +4,11 @@ html,body  {
                 overflow: hidden;
             }
             .activityBox {
-                width: 750px;
+                width: 375px;
                 margin: 0 auto;
             }
             .activityContainer {
-                width: 750px;
+                width: 375px;
                 margin: 0 auto;
                 overflow-y: auto;
                 background: white;
@@ -31,10 +31,10 @@ html,body  {
                 width: 99999px;
             }
             .activityImgs li {
-                width: 200px ;
-                height: 200px;
+                width: 130px ;
+                height: 130px;
                 float: left;
-                margin-left: 24px;
+                margin-left: 10px;
             }
             .activityImgs li img {
                 width: 100%;
@@ -112,12 +112,10 @@ html,body  {
                 border-bottom: 1px solid rgb(155, 155, 155);
             }
             .commentMessage {
-                padding: 0 24px;
-                margin-bottom: 40px;
+                padding: 0 24px;                
             }
             .commentList {
-                margin-top: 20px;
-                margin-bottom: 73px;
+                margin-top: 20px;               
             }
             .commentList li {
                 margin: 10px 0;
@@ -168,9 +166,9 @@ html,body  {
             }
             .sign {
                 color: white;
-                padding: 20px;
+                padding: 10px;
                 background: rgb(155, 155,155);
-                font-size: 30px;
+                font-size: 25px;
                 text-align: center;
             }
             .replys {

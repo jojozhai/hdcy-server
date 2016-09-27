@@ -77,7 +77,7 @@ $(function(){
                     <span>"+obj.address+"</span>\
                 </li>");
                 $(".message-list").append(messageList);
-                $(".activityImgs").width(obj.images.length*224)
+                $(".activityImgs").width(obj.images.length*140)
                 for (var i = 0; i < obj.images.length; i++) {
                     var newImg=$("<li dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></li>");
                     $(".activityImgs").append(newImg);
@@ -95,10 +95,10 @@ $(function(){
                     $(".bigactImg").show();
                     $(".bigactImg").css({
                         "background": "rgba(0, 0, 0, 0.9)",
-                        "z-index": "99",
+                        "z-index": "9999",
                     })
                     $(".swiper-wrapper").css({
-                         transform:" translate3d("+(-750)*(index+1)+"px, 0px, 0px)",
+                         transform:" translate3d("+(-375)*(index+1)+"px, 0px, 0px)",
                      })
                     $(".swiper-slide").removeClass("swiper-slide-active");
                     $(".swiper-slide").eq(index).addClass("swiper-slide-active");
@@ -166,7 +166,7 @@ $(function(){
 
                 }
                 var heights=document.documentElement.clientHeight;
-                $(".activityContainer").height(heights-75);
+                $(".activityContainer").height(heights-55);
             }
         });
 
