@@ -4,26 +4,26 @@ html,body  {
                 overflow: hidden;
             }
             .articleBox {
-                width:750px;
+                width:375px;
                 margin: 0 auto;
             }        
             .container {
             	overflow-y:auto;
-                padding: 0 24px;
+                padding: 0 12px;
             }
             .header {
-                padding: 40px 0;
+                padding: 30px 0;
                 box-sizing: padding-box;
 
             }
             h1 {
                 color: #494949;
-                font-size: 36px;
+                font-size: 25px;
             }
             .times {
-                padding: 40px 0 24px;
+                padding: 20px 0 24px;
                 color: #9b9b9b;
-                font-size:28px;
+                font-size:18px;
             }
             .author {
                 padding: 0 24px;
@@ -34,12 +34,12 @@ html,body  {
                 border-radius: 20px;
                 padding: 3px 16px;
                 margin-right: 20px;
-                font-size:24px;
+                font-size:18px;
             }
 
             .img {
-                width: 702px;
-                height: 380px;
+                width: 351px;
+                height: 190px;
             }
             #conDetail {
                 color: #494949;
@@ -52,12 +52,12 @@ html,body  {
             	position: fixed;
             	bottom:0px;
             	display:none;
-                width: 750px;
+                width: 375px;
             }
             .pinglun {
                 text-align: center;
-            	padding:20px 0;
-            	font-size:30px;
+            	padding:15px 0;
+            	font-size:25px;
                 color: white;
                 background: #B2B2B2;
             }
