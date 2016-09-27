@@ -12,20 +12,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zhailiang on 16/9/23.
  */
 var core_1 = require("@angular/core");
-var nav_bar_service_1 = require("../service/nav-bar.service");
 var VideoListComponent = (function () {
-    function VideoListComponent(navService) {
-        this.navService = navService;
+    function VideoListComponent() {
     }
     VideoListComponent.prototype.ngOnInit = function () {
-        this.navService.showNavEvent.emit("video");
     };
     VideoListComponent = __decorate([
         core_1.Component({
             selector: 'video-list',
             templateUrl: 'app/video/video-list.component.html'
         }), 
-        __metadata('design:paramtypes', [nav_bar_service_1.NavService])
+        __metadata('design:paramtypes', [])
     ], VideoListComponent);
     return VideoListComponent;
 }());

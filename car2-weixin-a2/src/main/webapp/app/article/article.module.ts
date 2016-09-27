@@ -6,11 +6,12 @@ import {ArticleService} from "./article.service";
 import {ArticleDetailComponent} from "./article-detail.component";
 import {ArticleComponent} from "./article.component";
 import CommentModule from "../comment/comment.module";
+import MirageModule from "../mirage/mirage.module";
 /**
  * Created by zhailiang on 16/9/23.
  */
 @NgModule({
-    imports: [CommonModule, CommentModule, articleRouting],
+    imports: [CommentModule, MirageModule, articleRouting],
     declarations: [ArticleComponent, ArticleListComponent, ArticleDetailComponent],
     providers: [ArticleService]
 })

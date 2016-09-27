@@ -14,11 +14,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var article_service_1 = require("./article.service");
 var router_1 = require("@angular/router");
-var nav_bar_service_1 = require("../service/nav-bar.service");
 var ArticleDetailComponent = (function () {
-    function ArticleDetailComponent(articleService, navService, route) {
+    function ArticleDetailComponent(articleService, route) {
         this.articleService = articleService;
-        this.navService = navService;
         this.route = route;
     }
     ArticleDetailComponent.prototype.ngOnInit = function () {
@@ -26,14 +24,13 @@ var ArticleDetailComponent = (function () {
         this.route.params.subscribe(function (params) {
             _this.article = _this.articleService.get(params['id']).subscribe(function (value) { return _this.article = value; });
         });
-        this.navService.hideNavEvent.emit();
     };
     ArticleDetailComponent = __decorate([
         core_1.Component({
             selector: 'article-detail',
             templateUrl: 'app/article/article-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, nav_bar_service_1.NavService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
     ], ArticleDetailComponent);
     return ArticleDetailComponent;
 }());

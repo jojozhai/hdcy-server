@@ -13,26 +13,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var app_module_1 = require("../app.module");
 var HttpRestService = (function () {
     function HttpRestService(http, domain) {
         this.http = http;
         this.domain = domain;
+        this.HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
     }
     HttpRestService.prototype.query = function (condition) {
-        return this.http.get(app_module_1.HTTP_PROFIX + this.domain, { search: this.encodeParams(condition) })
-            .map(function (res) { return res.json().content; });
+        return this.http.get(this.HTTP_PROFIX + this.domain, {
+            search: this.encodeParams(condition),
+            headers: new http_1.Headers({ 'Authorization': this.user })
+        });
     };
     HttpRestService.prototype.get = function (id) {
-        return this.http.get(app_module_1.HTTP_PROFIX + this.domain + "/" + id).map(function (res) { return res.json(); });
+        return this.http.get(this.HTTP_PROFIX + this.domain + "/" + id, this.getBasicHeader()).map(function (res) { return res.json(); });
     };
     HttpRestService.prototype.create = function (info, callbackFn, errorHandler) {
         var _this = this;
-        this.http.post(app_module_1.HTTP_PROFIX + this.domain, info).subscribe(function (res) {
+        this.http.post(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
             _this.callbackOnSuccess(res, callbackFn);
         }, function (err) {
             _this.handleException(err, errorHandler);
         });
+    };
+    HttpRestService.prototype.update = function (info, callbackFn, errorHandler) {
+        var _this = this;
+        this.http.put(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(function (res) {
+            _this.callbackOnSuccess(res, callbackFn);
+        }, function (err) {
+            _this.handleException(err, errorHandler);
+        });
+    };
+    HttpRestService.prototype.getBasicHeader = function () {
+        return {
+            headers: new http_1.Headers({ 'Authorization': this.user })
+        };
     };
     HttpRestService.prototype.callbackOnSuccess = function (res, callbackFn) {
         if (callbackFn && typeof callbackFn == 'function') {
@@ -44,7 +59,7 @@ var HttpRestService = (function () {
             errorHandler(err.json());
         }
         else {
-            if (err.status == 403) {
+            if (err.status == 401 || err.status == 403) {
                 this.login();
             }
             else if (err.status == 500) {
@@ -53,7 +68,9 @@ var HttpRestService = (function () {
         }
     };
     HttpRestService.prototype.login = function () {
-        window.location.href = "http://127.0.0.1:8171/weixin2/weixin/oauth?state=test";
+        var _this = this;
+        this.http.get(this.HTTP_PROFIX + "weixin/oauth/app?state=test")
+            .subscribe(function (res) { return _this.user = res.json().content; });
     };
     HttpRestService.prototype.encodeParams = function (params) {
         return Object.keys(params)

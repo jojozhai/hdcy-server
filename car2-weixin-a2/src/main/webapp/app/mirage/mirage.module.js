@@ -8,20 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var common_1 = require("@angular/common");
+var core_1 = require("@angular/core");
+var infinite_scroll_directive_1 = require("./directive/infinite-scroll.directive");
+var forms_1 = require("@angular/forms");
 /**
- * Created by zhailiang on 16/9/24.
+ * Created by zhailiang on 16/9/26.
  */
-var core_1 = require('@angular/core');
-var NavService = (function () {
-    function NavService() {
-        this.showNavEvent = new core_1.EventEmitter();
-        this.hideNavEvent = new core_1.EventEmitter();
+var MirageModule = (function () {
+    function MirageModule() {
     }
-    NavService = __decorate([
-        core_1.Injectable(), 
+    MirageModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [infinite_scroll_directive_1.InfiniteScrollDirective],
+            exports: [common_1.CommonModule, forms_1.FormsModule, infinite_scroll_directive_1.InfiniteScrollDirective]
+        }), 
         __metadata('design:paramtypes', [])
-    ], NavService);
-    return NavService;
+    ], MirageModule);
+    return MirageModule;
 }());
-exports.NavService = NavService;
-//# sourceMappingURL=nav-bar.service.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = MirageModule;
+//# sourceMappingURL=mirage.module.js.map

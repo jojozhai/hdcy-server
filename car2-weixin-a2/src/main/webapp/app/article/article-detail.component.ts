@@ -4,7 +4,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "./article.service";
 import {ActivatedRoute} from "@angular/router";
-import {NavService} from "../service/nav-bar.service";
 
 @Component({
     selector: 'article-detail',
@@ -14,13 +13,12 @@ export class ArticleDetailComponent implements OnInit {
 
     article;
 
-    constructor(private articleService: ArticleService, private navService: NavService, private route: ActivatedRoute) { }
+    constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.article = this.articleService.get(params['id']).subscribe(value => this.article = value);
         });
-        this.navService.hideNavEvent.emit();
     }
 
 }

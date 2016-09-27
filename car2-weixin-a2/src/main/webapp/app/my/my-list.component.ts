@@ -2,7 +2,6 @@
  * Created by zhailiang on 16/9/23.
  */
 import {Component, OnInit} from "@angular/core";
-import {NavService} from "../service/nav-bar.service";
 
 @Component({
     selector: 'my-list',
@@ -10,10 +9,9 @@ import {NavService} from "../service/nav-bar.service";
 })
 export class MyListComponent implements OnInit {
 
-    constructor(private navService:NavService) { }
+    constructor() { }
 
     ngOnInit() {
-        this.navService.showNavEvent.emit("my");
     }
 
 }

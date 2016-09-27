@@ -46,7 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        		"/contraryParticipator", //参与观点投票活动
 	        		"/leader",//申请大咖
 	        		"/lottery"//参与抽奖
-	        		
 	        		).authenticated()
 	        .antMatchers(HttpMethod.GET, 
 	                "/user/current", 

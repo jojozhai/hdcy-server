@@ -12,20 +12,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zhailiang on 16/9/23.
  */
 var core_1 = require("@angular/core");
-var nav_bar_service_1 = require("../service/nav-bar.service");
 var MyListComponent = (function () {
-    function MyListComponent(navService) {
-        this.navService = navService;
+    function MyListComponent() {
     }
     MyListComponent.prototype.ngOnInit = function () {
-        this.navService.showNavEvent.emit("my");
     };
     MyListComponent = __decorate([
         core_1.Component({
             selector: 'my-list',
             templateUrl: 'app/my/my-list.component.html'
         }), 
-        __metadata('design:paramtypes', [nav_bar_service_1.NavService])
+        __metadata('design:paramtypes', [])
     ], MyListComponent);
     return MyListComponent;
 }());

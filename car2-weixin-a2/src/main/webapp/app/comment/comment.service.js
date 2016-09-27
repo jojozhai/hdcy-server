@@ -17,7 +17,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zhailiang on 16/9/24.
  */
 var core_1 = require('@angular/core');
-var http_rest_service_1 = require("../service/http-rest.service");
+var http_rest_service_1 = require("../mirage/service/http-rest.service");
 var http_1 = require("@angular/http");
 var CommentService = (function (_super) {
     __extends(CommentService, _super);

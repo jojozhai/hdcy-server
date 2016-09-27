@@ -10,20 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var nav_bar_service_1 = require("./service/nav-bar.service");
+require("rxjs/add/operator/filter");
 var AppComponent = (function () {
-    function AppComponent(router, navService) {
+    function AppComponent(router) {
+        var _this = this;
         this.router = router;
-        this.navService = navService;
         this.showFooter = false;
+        this.showNavPaths = ['/video', '/participation', '/article', '/my'];
+        this.router.events
+            .filter(function (event) { return event instanceof router_1.NavigationEnd; })
+            .subscribe(function (event) {
+            _this.showFooter = _this.showNavPaths.indexOf(event.url) != -1;
+            _this.currentTab = event.url.substring(1, event.url.length);
+        });
     }
     AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.navService.showNavEvent.subscribe(function (currentTab) {
-            _this.currentTab = currentTab;
-            _this.showFooter = true;
-        });
-        this.navService.hideNavEvent.subscribe(function () { return _this.showFooter = false; });
     };
     AppComponent.prototype.navigate = function (targetTab) {
         this.router.navigateByUrl('/' + targetTab);
@@ -34,7 +35,7 @@ var AppComponent = (function () {
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, nav_bar_service_1.NavService])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

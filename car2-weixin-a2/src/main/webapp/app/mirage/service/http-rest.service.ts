@@ -2,26 +2,40 @@
  * Created by zhailiang on 16/9/23.
  */
 import {Injectable} from "@angular/core";
-import {Http, URLSearchParams} from "@angular/http";
+import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Observable} from "rxjs";
-import {HTTP_PROFIX} from "../app.module";
+
+export interface PageInfo {
+
+    page: number;
+    size: number;
+    sort: string;
+
+}
+
 
 @Injectable()
 export class HttpRestService {
 
+    private HTTP_PROFIX = "http://127.0.0.1:8171/weixin2/";
+
+    private user: string;
+
     constructor(private http:Http, private domain:string) { }
 
-    query(condition?):Observable<Array<any>> {
-        return this.http.get(HTTP_PROFIX + this.domain, {search: this.encodeParams(condition)})
-            .map(res => res.json().content);
+    query(condition?):Observable<any> {
+        return this.http.get(this.HTTP_PROFIX + this.domain, {
+            search: this.encodeParams(condition),
+            headers: new Headers({'Authorization': this.user})
+        });
     }
 
     get(id: number) {
-        return this.http.get(HTTP_PROFIX + this.domain + "/" + id).map(res => res.json());
+        return this.http.get(this.HTTP_PROFIX + this.domain + "/" + id, this.getBasicHeader()).map(res => res.json());
     }
 
     create(info: any, callbackFn?, errorHandler?):void {
-        this.http.post(HTTP_PROFIX + this.domain, info).subscribe(
+        this.http.post(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(
             res => {
                 this.callbackOnSuccess(res, callbackFn);
             },
@@ -29,6 +43,23 @@ export class HttpRestService {
                 this.handleException(err, errorHandler);
             }
         );
+    }
+
+    update(info: any, callbackFn?, errorHandler?):void {
+        this.http.put(this.HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(
+            res => {
+                this.callbackOnSuccess(res, callbackFn);
+            },
+            err => {
+                this.handleException(err, errorHandler);
+            }
+        );
+    }
+
+    getBasicHeader() {
+        return {
+            headers: new Headers({'Authorization': this.user})
+        }
     }
 
     private callbackOnSuccess(res, callbackFn?) {
@@ -41,7 +72,7 @@ export class HttpRestService {
         if(errorHandler &&  typeof errorHandler == 'function') {
             errorHandler(err.json());
         } else {
-            if(err.status == 403) {
+            if(err.status == 401 || err.status == 403) {
                 this.login();
             }else if(err.status == 500) {
                 alert(err.json()['errorMsg']);
@@ -50,7 +81,8 @@ export class HttpRestService {
     }
 
     private login() {
-        window.location.href = "http://127.0.0.1:8171/weixin2/weixin/oauth?state=test";
+        this.http.get(this.HTTP_PROFIX + "weixin/oauth/app?state=test")
+            .subscribe(res => this.user = res.json().content);
     }
 
     private encodeParams(params): URLSearchParams{

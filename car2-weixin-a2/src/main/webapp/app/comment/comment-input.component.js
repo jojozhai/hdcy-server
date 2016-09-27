@@ -18,6 +18,7 @@ var CommentInputComponent = (function () {
         this.commentService = commentService;
         this.comment = '说点啥呗';
         this.commentCount = 0;
+        this.showCount = "block";
         this.inputDivDisplay = 'none';
     }
     CommentInputComponent.prototype.ngOnInit = function () {
@@ -57,6 +58,10 @@ var CommentInputComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Number)
     ], CommentInputComponent.prototype, "targetId", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], CommentInputComponent.prototype, "showCount", void 0);
     CommentInputComponent = __decorate([
         core_1.Component({
             selector: 'comment-input',

@@ -12,16 +12,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zhailiang on 16/9/24.
  */
 var core_1 = require('@angular/core');
+var router_1 = require("@angular/router");
 var CommentListComponent = (function () {
-    function CommentListComponent() {
+    function CommentListComponent(route) {
+        this.target = route.snapshot.queryParams['target'];
+        this.targetId = route.snapshot.queryParams['targetId'];
     }
     CommentListComponent.prototype.ngOnInit = function () { };
     CommentListComponent = __decorate([
         core_1.Component({
             selector: 'comment-list',
-            template: '<div>评论列表</div>'
+            template: "<div>\u8BC4\u8BBA\u5217\u8868</div>\n<comment-input [target]=\"target\" [targetId]=\"targetId\" showCount=\"none\"></comment-input>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], CommentListComponent);
     return CommentListComponent;
 }());
