@@ -2,62 +2,6 @@ html,body {
     width: 100%;
     background: #18212d;
 }
-.box {
-    width: 375px;
-    margin: 0 auto;
-}
-header {
-    width:100%;
-    height:50px;
-    background: black;
-    line-height: 50px;
-}
-nav a {
-    font-size: 20px;
-    color: rgb(221, 221, 221);
-    font-family:" HiraginoSansGB W3[Bold]";
-
-}
-nav .fl a,nav .fr a {
-    float: left;
-}
-nav .fl a {
-    margin: 0 10px;
-}
-nav .fr a  {
-    margin-right: 5px;
-}
-
-nav a.on {
-    color: rgb(0, 254, 252);
-}
-nav .fr {
-    margin-top: 5px;
-}
-.nav-xin {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../img/nav-xin.png") no-repeat;
-    background-size: 100% 100%;
-
-}
-.nav-me {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../img/nav-me.png") no-repeat;
-    background-size: 100% 100%;
-}
-.video-up .swiper-wrapper img {
-    width: 98%;
-}
-.video-down la {
-    font-size: 0px;
-}
-.video-down li img {
-    width: 100%;
-}
 
 /*资讯*/
 .article-navs {
