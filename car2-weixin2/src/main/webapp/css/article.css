@@ -8,9 +8,10 @@ html,body {
     width: 100%;
     height: 40px;
     overflow-x: auto;
+    font-size: 16px;
 }
 
-.article-nav span {
+.article-nav a {
     display: inline-block;
     width: 93.75px;
     height: 40px;
@@ -21,8 +22,9 @@ html,body {
     background-size: 100% 100%;
     color: #8FAFCA;
 }
-.article-nav span.artnav-on{
+.article-nav a.artnav-on{
     background: url("../img/artnav-on.png");
+    background-size: 100% 100%;
     color: white;
 }
 .content li {
@@ -33,7 +35,7 @@ html,body {
 }
 .contentList {
     width: 375px;
-    height:160px;
+    height:190px;
 }
 .contentList img {
     width: 100%;
@@ -49,10 +51,12 @@ html,body {
     font-size: 16px;
     font-weight: normal;
     margin-bottom: 25px;
+    word-wrap: break-word;
+    line-height: 22px;
 }
 .txt-tag {
+	font-size:12px;
     color: rgb(187, 187, 187);
-
 }
 .txt-tag span {
     margin-right: 10px;
@@ -69,11 +73,15 @@ html,body {
 }
 .tagRight {
     line-height: 34px;
+    position: relative;
 }
 .eyes {
     display: inline-block;
     background-color: #ee209e;
-    padding: 0 3px;
+    width: 37px;
+    height: 34px;
+    position: absolute;
+    left: -40px;
 }
 .txt-tag .eye {
     display: inline-block;
@@ -82,7 +90,14 @@ html,body {
     background: url("../img/eye.png");
     background-size: 100% 100%;
     margin-right: 0;
+    position: absolute;
+    top:50%;
+    left:-40px;
+    transform: translateY(-50%);
 
+}
+.txt-tag .eyes .eye {
+    left:2px;
 }
 .ads {
     position: relative;
