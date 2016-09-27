@@ -19,6 +19,8 @@ export class CommentInputComponent implements OnInit {
 
     @Input() targetId: number;
 
+    @Input() showCount: string = "block";
+
     inputDivDisplay: string = 'none';
 
     constructor(private commentService: CommentService) { }
@@ -40,7 +42,6 @@ export class CommentInputComponent implements OnInit {
             this.comment = '说点啥呗';
             this.commentCount = this.commentCount + 1;
             this.displayInput(false);
-
         });
     }
 

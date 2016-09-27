@@ -64,6 +64,10 @@ public class Participation extends DomainImpl implements Commentable {
 	 */
 	private int hot;
 	/**
+	 * 热度加权
+	 */
+	private int hotplus;
+	/**
 	 * 活动地址
 	 */
 	private String address;
@@ -358,6 +362,20 @@ public class Participation extends DomainImpl implements Commentable {
      */
     public void setRecommend(boolean recommend) {
         this.recommend = recommend;
+    }
+
+    /**
+     * @return the hotplus
+     */
+    public int getHotplus() {
+        return hotplus;
+    }
+
+    /**
+     * @param hotplus the hotplus to set
+     */
+    public void setHotplus(int hotplus) {
+        this.hotplus = hotplus;
     }
 
 }

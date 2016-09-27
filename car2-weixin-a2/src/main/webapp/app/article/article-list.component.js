@@ -19,28 +19,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 require("rxjs/add/operator/map");
 var article_service_1 = require("./article.service");
-var nav_bar_service_1 = require("../mirage/service/nav-bar.service");
 var list_component_1 = require("../mirage/component/list.component");
 var router_1 = require("@angular/router");
 var ArticleListComponent = (function (_super) {
     __extends(ArticleListComponent, _super);
-    function ArticleListComponent(articleService, route, navService) {
+    function ArticleListComponent(articleService, route) {
         _super.call(this, route);
         this.articleService = articleService;
         this.route = route;
-        this.navService = navService;
     }
     ArticleListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.articleService.query(this.pageInfo).subscribe(function (res) { return _this.articles = res.json().content; });
-        this.navService.showNavEvent.emit("article");
     };
     ArticleListComponent = __decorate([
         core_1.Component({
             selector: 'article-list',
             templateUrl: 'app/article/article-list.component.html'
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute, nav_bar_service_1.NavService])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.ActivatedRoute])
     ], ArticleListComponent);
     return ArticleListComponent;
 }(list_component_1.ListComponent));

@@ -9,7 +9,7 @@ export class InfiniteScrollDirective {
 
     constructor(private el: ElementRef) {}
 
-    @Input() httpRestService: HttpRestService;
+    @Input() dataService: HttpRestService;
 
     @Input('infinite-scroll') dataList: Array<any> = [];
 
@@ -31,7 +31,7 @@ export class InfiniteScrollDirective {
             this.max = scrollHeight + 100;
             this.loading = true;
             this.pageInfo.page = this.pageInfo.page + 1;
-            this.httpRestService.query(this.pageInfo).subscribe(res => {
+            this.dataService.query(this.pageInfo).subscribe(res => {
                 for(let item of res.json().content){
                     this.dataList.push(item);
                 }

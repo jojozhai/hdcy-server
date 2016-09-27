@@ -11,7 +11,7 @@ import MirageModule from "../mirage/mirage.module";
  * Created by zhailiang on 16/9/23.
  */
 @NgModule({
-    imports: [CommonModule, CommentModule, MirageModule, articleRouting],
+    imports: [CommentModule, MirageModule, articleRouting],
     declarations: [ArticleComponent, ArticleListComponent, ArticleDetailComponent],
     providers: [ArticleService]
 })

@@ -35,8 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	protected void configure(HttpSecurity http) throws Exception {
 	    http.csrf().disable() 
-//	    	.httpBasic()
-//	    		.and()
+	    	.httpBasic()
+	    		.and()
 	        .authorizeRequests()
 	        .antMatchers(HttpMethod.POST, 
 	        		"/comment", //发表评论

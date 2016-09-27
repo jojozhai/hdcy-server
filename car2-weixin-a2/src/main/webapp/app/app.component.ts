@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {Router, ActivatedRoute, Params} from "@angular/router";
-import {NavService} from "./mirage/service/nav-bar.service";
+import {Router, NavigationEnd} from "@angular/router";
+import "rxjs/add/operator/filter";
 
 @Component({
     selector: 'app',
@@ -9,19 +9,23 @@ import {NavService} from "./mirage/service/nav-bar.service";
 })
 export class AppComponent implements OnInit {
 
-    private currentTab:string;
+    private currentTab: string;
 
     private showFooter: boolean = false;
 
-    constructor(private router: Router, private navService: NavService) { }
+    private showNavPaths: Array<string> = ['/video','/participation','/article','/my'];
+
+    constructor(private router: Router) {
+        this.router.events
+            .filter(event => event instanceof NavigationEnd)
+            .subscribe(event => {
+                this.showFooter = this.showNavPaths.indexOf(event.url) != -1
+                this.currentTab = event.url.substring(1, event.url.length);
+            });
+    }
 
     ngOnInit() {
-        this.navService.showNavEvent.subscribe(currentTab => {
-            this.currentTab = currentTab
-            this.showFooter = true;
-        });
 
-        this.navService.hideNavEvent.subscribe(() => this.showFooter = false);
     }
 
     navigate(targetTab:string) {

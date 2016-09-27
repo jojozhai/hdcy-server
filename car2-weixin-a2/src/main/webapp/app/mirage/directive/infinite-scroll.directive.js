@@ -32,7 +32,7 @@ var InfiniteScrollDirective = (function () {
             this.max = scrollHeight + 100;
             this.loading = true;
             this.pageInfo.page = this.pageInfo.page + 1;
-            this.httpRestService.query(this.pageInfo).subscribe(function (res) {
+            this.dataService.query(this.pageInfo).subscribe(function (res) {
                 for (var _i = 0, _a = res.json().content; _i < _a.length; _i++) {
                     var item = _a[_i];
                     _this.dataList.push(item);
@@ -44,7 +44,7 @@ var InfiniteScrollDirective = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', http_rest_service_1.HttpRestService)
-    ], InfiniteScrollDirective.prototype, "httpRestService", void 0);
+    ], InfiniteScrollDirective.prototype, "dataService", void 0);
     __decorate([
         core_1.Input('infinite-scroll'), 
         __metadata('design:type', Array)
