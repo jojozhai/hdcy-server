@@ -190,7 +190,7 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list"];
+		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list","app.contrary.details"];
 		var showFooterStates = ["app.index","app.article.list","app.video.list","app.participation.list","app.my.list"];
 		$scope.showFooter = $.inArray(toState.name, showFooterStates) != -1;
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
@@ -515,13 +515,7 @@ angular.module('hdcyApp', ['weixin',
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
 	$scope.condition = {live:false, enable: true, top:false};
-    $scope.test = function(){
-		$scope.pageInfo.page = 0;
-		$scope.articles = [];
-		$scope.query(function(){
-			$(".cntxiala").pullToRefreshDone();
-		});
-	}
+
 	$scope.dataService = videoRestService;
 
 
@@ -919,16 +913,13 @@ angular.module('hdcyApp', ['weixin',
 
 		});
 	}
-
 	$scope.query();
-
 	$scope.getNextPage = function() {
 		if(scrollable && !toBottom){
-            console.log("ss");
-			scrollable = false;
+            scrollable = false;
 			if($scope.redParticipators.length != 0 || $scope.blueParticipators.length != 0){
-				scope.pageInfo.page = scope.pageInfo.page + 1;
-				scope.query();
+				$scope.pageInfo.page = $scope.pageInfo.page + 1;
+                $scope.query();
 			}
 		}
 	}

@@ -16,6 +16,7 @@ html,body  {
             .activityTit {
                 margin: 24px 0 10px;
                 text-align: center;
+                word-break: break-word;
             }
             .activityCon {
                 padding: 0 24px;
@@ -158,7 +159,7 @@ html,body  {
             .signs {
                 position: fixed;
                 bottom: 0;
-                width: 750px;
+                width: 375px;
                 margin: 0 auto;
                 left: 50%;
                 transform: translateX(-50%);
