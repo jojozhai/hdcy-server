@@ -6,7 +6,7 @@
         </div>
     </div>
     <ul class="content" [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo">
-        <li *ngFor="let article of articles">
+        <li *ngFor="let article of articles" (click)="navToDetail(article)">
 
             <div class="contentList" *ngIf="article.displayType == 'MIX'">
                 <img [src]="article.image" alt="" />
@@ -19,9 +19,9 @@
                         <span *ngIf="article.top">置顶</span>
                         <span *ngIf="article.business">广告</span>
                         <span class="ball-activity">{{article.tagInfos[0].name}}</span>
-                        <span>{{article.createdTime | date:'MM-dd'}}</span>
+                        <span *ngIf="!article.top && !article.business">{{article.createdTime | date:'MM-dd'}}</span>
                     </div>
-                    <div class="fr tagRight">
+                    <div class="fr tagRight" *ngIf="!article.business">
                         <span class="eye"></span>
                         <span>{{article.readCount + article.readCountPlus}}</span>
                     </div>

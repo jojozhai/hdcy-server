@@ -49,6 +49,7 @@ public class VotingServiceImpl extends AbstractParticipationService implements V
 		Voting voting = votingRepository.findOne(id);
 		VotingInfo info = new VotingInfo();
 		BeanUtils.copyProperties(voting, info);
+		voting.setHot(voting.getHot() + 1);
 		return info;
 	}
 

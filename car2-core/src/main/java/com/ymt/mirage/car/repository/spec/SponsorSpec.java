@@ -9,13 +9,11 @@ public class SponsorSpec extends PzSimpleSpecification<Sponsor, SponsorInfo>{
 	
 	public SponsorSpec(SponsorInfo condition) {
 		super(condition);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void addCondition(QueryWraper<Sponsor> queryWraper) {
-		// TODO Auto-generated method stub
-		
+	    addLikeCondition(queryWraper, "name");
 	}
 
 }

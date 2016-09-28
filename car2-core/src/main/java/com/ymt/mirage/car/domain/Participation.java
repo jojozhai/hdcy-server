@@ -68,6 +68,10 @@ public class Participation extends DomainImpl implements Commentable {
 	 */
 	private int hotplus;
 	/**
+	 * 排序
+	 */
+	private int sorthot;
+	/**
 	 * 活动地址
 	 */
 	private String address;
@@ -90,6 +94,11 @@ public class Participation extends DomainImpl implements Commentable {
 	 */
 	@ManyToOne
 	private Sponsor sponsor;
+	/**
+	 * 客服
+	 */
+	@ManyToOne
+	private Waiter waiter;
 	
 	/**
 	 * 置顶
@@ -215,6 +224,7 @@ public class Participation extends DomainImpl implements Commentable {
 	 */
 	public void setHot(int hot) {
 		this.hot = hot;
+		this.sorthot = this.hot + this.hotplus;
 	}
 
 	/**
@@ -376,6 +386,35 @@ public class Participation extends DomainImpl implements Commentable {
      */
     public void setHotplus(int hotplus) {
         this.hotplus = hotplus;
+        this.sorthot = this.hot + this.hotplus;
+    }
+
+    /**
+     * @return the waiter
+     */
+    public Waiter getWaiter() {
+        return waiter;
+    }
+
+    /**
+     * @param waiter the waiter to set
+     */
+    public void setWaiter(Waiter waiter) {
+        this.waiter = waiter;
+    }
+
+    /**
+     * @return the sorthot
+     */
+    public int getSorthot() {
+        return sorthot;
+    }
+
+    /**
+     * @param sorthot the sorthot to set
+     */
+    public void setSorthot(int sorthot) {
+        this.sorthot = sorthot;
     }
 
 }

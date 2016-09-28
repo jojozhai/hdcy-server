@@ -36,20 +36,6 @@ public class Activity extends Participation {
     private Date signEndTime;
 	
 	/**
-	 * 客服
-	 */
-	@ManyToOne
-	private CustomerService customerService;
-
-	public CustomerService getCustomerService() {
-		return customerService;
-	}
-
-	public void setCustomerService(CustomerService customerService) {
-		this.customerService = customerService;
-	}
-
-	/**
 	 * 活动简介图片
 	 */
 	@ElementCollection
@@ -173,12 +159,6 @@ public class Activity extends Participation {
     public void setSignEndTime(Date signEndTime) {
         this.signEndTime = signEndTime;
     }
-
-    @Override
-	public String toString() {
-		return "Activity [customerService=" + customerService + ", images=" + images + ", contactPhone=" + contactPhone
-				+ ", contactWeixin=" + contactWeixin + ", peopleLimit=" + peopleLimit + ", price=" + price + "]";
-	}
 	
 	
 }

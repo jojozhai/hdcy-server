@@ -155,9 +155,9 @@ public class LotteryParticipatorServiceImpl extends AbstractParticipationService
             }
 	    }
 	    
-	    if(!prizes.get(result).isWin() && isLastChance(lottery, userId)) {
-	        result = lottery.getMostCountWinPrizeIndex();
-	    }
+//	    if(!prizes.get(result).isWin() && isLastChance(lottery, userId)) {
+//	        result = lottery.getMostCountWinPrizeIndex();
+//	    }
 	    
 		return result;
 	}

@@ -1,0 +1,28 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">主办方信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="sponsorForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="sponsorForm.name.$invalid && sponsorForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3"><span class="text_red">*</span>&nbsp;名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="sponsor.name" type="text" class="form-control input-sm" placeholder="名称" required>
+					<label class="control-label" ng-show="sponsorForm.name.$invalid && sponsorForm.name.$dirty">名称不能为空</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-3"><span class="text_red">*</span>图片:</label>
+				<div class="col-lg-4">
+					<div class="fileinput-button" style="border: 1px solid #abcdef; height: 140px; width: 110px;" >
+						<img ng-src="{{sponsor.image}}" width="110px;", height="140px;">
+						<input type="file" id="file1" name="file1" pz-uploader action="doUpload(files)">
+					</div>
+				</div>
+			</div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(sponsor)" class="btn btn-success btn-sm" ng-disabled="sponsorForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

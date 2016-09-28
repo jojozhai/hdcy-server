@@ -24,10 +24,11 @@ var router_1 = require("@angular/router");
 var tag_service_1 = require("../mirage/service/tag.service");
 var ArticleListComponent = (function (_super) {
     __extends(ArticleListComponent, _super);
-    function ArticleListComponent(articleService, tagService, route) {
+    function ArticleListComponent(articleService, tagService, router, route) {
         _super.call(this, route);
         this.articleService = articleService;
         this.tagService = tagService;
+        this.router = router;
         this.route = route;
     }
     ArticleListComponent.prototype.ngOnInit = function () {
@@ -39,6 +40,14 @@ var ArticleListComponent = (function (_super) {
         var _this = this;
         this.articleService.query(_super.prototype.buildCondition.call(this, { tagId: tagId })).subscribe(function (res) { return _this.articles = res.json().content; });
     };
+    ArticleListComponent.prototype.navToDetail = function (article) {
+        if (article.linkOut && article.business) {
+            window.location.href = article.outLink;
+        }
+        else {
+            this.router.navigate(['/article', article.id]);
+        }
+    };
     ArticleListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -46,7 +55,7 @@ var ArticleListComponent = (function (_super) {
             templateUrl: 'article-list.component.html',
             styleUrls: ['article.component.css']
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, tag_service_1.TagService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, tag_service_1.TagService, router_1.Router, router_1.ActivatedRoute])
     ], ArticleListComponent);
     return ArticleListComponent;
 }(list_component_1.ListComponent));
