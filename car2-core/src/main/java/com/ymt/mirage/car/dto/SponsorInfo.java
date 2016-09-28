@@ -1,32 +1,32 @@
 package com.ymt.mirage.car.dto;
 
 public class SponsorInfo {
-	private long id;
-	private String sponsor;
-	private String sponsorURL;
+	private Long id;
+	private String name;
+	private String image;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getSponsor() {
-		return sponsor;
+	public String getName() {
+		return name;
 	}
 
-	public void setSponsor(String sponsor) {
-		this.sponsor = sponsor;
+	public void setName(String sponsor) {
+		this.name = sponsor;
 	}
 
-	public String getSponsorURL() {
-		return sponsorURL;
+	public String getImage() {
+		return image;
 	}
 
-	public void setSponsorURL(String sponsorURL) {
-		this.sponsorURL = sponsorURL;
+	public void setImage(String sponsorURL) {
+		this.image = sponsorURL;
 	}
 
 }

@@ -15,13 +15,9 @@ angular.module(
 		'lotteryAdminModule', 'userAdminModule', 'buttonAdminModule','weixinReplyAdminModule',
 				'tagAdminModule', 'activityAdminModule', 'votingAdminModule',
 				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule',
-				'carAdminModule', 'posterAdminModule', 'articleAdminModule',
-				'commentAdminModule', 'videoAdminModule','yr' ])
-.service("sponsorRestService",function($resource) {
-	return $resource("sponsor");
-}).service("customerServiceService", function($resource) {
-	return $resource("customerService");
-}).filter("enable", function() {
+				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule',
+				'commentAdminModule', 'videoAdminModule','sponsorAdminModule','yr' ])
+.filter("enable", function() {
 	return function(text) {
 		if (text) {
 			return "下线";
@@ -29,4 +25,3 @@ angular.module(
 		return "上线";
 	}
 });
-;

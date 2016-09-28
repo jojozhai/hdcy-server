@@ -9,33 +9,33 @@ public class Sponsor extends DomainImpl{
 	/**
 	 * 主办方名称
 	 */
-	private String sponsor;
+	private String name;
 	/**
 	 * 主办方LOGO
 	 */
-	private String sponsorURL;
+	private String image;
 	/**
 	 * @return the sponsor
 	 */
-	public String getSponsor() {
-		return sponsor;
+	public String getName() {
+		return name;
 	}
 	/**
 	 * @param sponsor the sponsor to set
 	 */
-	public void setSponsor(String sponsor) {
-		this.sponsor = sponsor;
+	public void setName(String sponsor) {
+		this.name = sponsor;
 	}
 	/**
 	 * @return the sponsorURL
 	 */
-	public String getSponsorURL() {
-		return sponsorURL;
+	public String getImage() {
+		return image;
 	}
 	/**
 	 * @param sponsorURL the sponsorURL to set
 	 */
-	public void setSponsorURL(String sponsorURL) {
-		this.sponsorURL = sponsorURL;
+	public void setImage(String sponsorURL) {
+		this.image = sponsorURL;
 	}
 }

@@ -5,7 +5,6 @@ package com.ymt.mirage.car.service.impl;
 
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,13 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.KeyWord;
-import com.ymt.mirage.car.domain.Participation;
 import com.ymt.mirage.car.domain.ParticipationType;
 import com.ymt.mirage.car.dto.ActivityInfo;
 import com.ymt.mirage.car.repository.ActivityRepository;
-import com.ymt.mirage.car.repository.CustomerServiceRepository;
 import com.ymt.mirage.car.repository.KeyWordRepository;
 import com.ymt.mirage.car.repository.SponsorRepository;
+import com.ymt.mirage.car.repository.WaiterRepository;
 import com.ymt.mirage.car.repository.spec.ActivitySpec;
 import com.ymt.mirage.car.service.ActivityService;
 import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
@@ -39,7 +37,7 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	private ActivityRepository activityRepository;
 
 	@Autowired
-	private CustomerServiceRepository customerServiceRepository;
+	private WaiterRepository waiterRepository;
 
 	@Autowired
 	private SponsorRepository sponsorRepository;
@@ -57,8 +55,11 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 				new AbstractDomain2InfoConverter<Activity, ActivityInfo>() {
 					@Override
 					protected void doConvert(Activity domain, ActivityInfo info) throws Exception {
-						info.setSponsorName(domain.getSponsor().getSponsor());
-						info.setSponsorImage(domain.getSponsor().getSponsorURL());
+					    if(domain.getSponsor() != null) {
+					        info.setSponsorName(domain.getSponsor().getName());
+	                        info.setSponsorImage(domain.getSponsor().getImage());
+	                        info.setSponsorId(domain.getSponsor().getId());
+					    }
 					}
 				});
 	}
@@ -73,15 +74,14 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		
 		checkFinishOnUpdate(activity);
 		activity.setType(ParticipationType.ACTIVITY);
-		activity.setCustomerService(customerServiceRepository.findOne(activityInfo.getCustomerServiceId()));
 		activity.setSponsor(sponsorRepository.findOne(activityInfo.getSponsorId()));
 
 		List<KeyWord> kwlist = activityInfo.getKwlist();
 		for (KeyWord keyWord : kwlist) {
 			keyWordRepository.save(keyWord);
 		}
-		activityInfo.setSponsorName(activity.getSponsor().getSponsor());
-		activityInfo.setSponsorImage(activity.getSponsor().getSponsorURL());
+		activityInfo.setSponsorName(activity.getSponsor().getName());
+		activityInfo.setSponsorImage(activity.getSponsor().getImage());
 		activityInfo.setId(activityRepository.save(activity).getId());
 		return activityInfo;
 	}
@@ -91,13 +91,7 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		Activity activity = activityRepository.findOne(id);
 		ActivityInfo info = new ActivityInfo();
 		BeanUtils.copyProperties(activity, info);
-		if(activity.getCustomerService() != null) {
-		    info.setCustomerServiceId(activity.getCustomerService().getId());
-		    info.setWaiterName(activity.getCustomerService().getName());
-		    info.setWaiterPhone(activity.getCustomerService().getPhone());
-		    info.setWaiterImage(activity.getCustomerService().getImage());
-		    info.setSponsorName(activity.getSponsor().getSponsor());
-		}
+		activity.setHot(activity.getHot() + 1);
 		return info;
 	}
 

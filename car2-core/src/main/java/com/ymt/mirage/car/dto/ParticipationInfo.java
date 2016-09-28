@@ -48,6 +48,7 @@ public class ParticipationInfo {
 	 * 热度
 	 */
 	private int hot;
+	private int hotplus;
 	/**
 	 * 活动地址
 	 */
@@ -71,7 +72,7 @@ public class ParticipationInfo {
 	/**
 	 * 主办方
 	 */
-	private long sponsorId;
+	private Long sponsorId;
 	/**
 	 * 主办方名称
 	 */
@@ -80,6 +81,14 @@ public class ParticipationInfo {
 	 * 主办方图片
 	 */
 	private String sponsorImage;
+	/**
+     * 客服Id
+     */
+    private Long waiterId;
+    /**
+     * 客服信息 
+     */
+    private WaiterInfo waiterInfo;
 	/**
 	 * 浏览量
 	 */
@@ -154,11 +163,11 @@ public class ParticipationInfo {
 		this.kwlist = kwlist;
 	}
 
-	public long getSponsorId() {
+	public Long getSponsorId() {
 		return sponsorId;
 	}
 
-	public void setSponsorId(long sponsorId) {
+	public void setSponsorId(Long sponsorId) {
 		this.sponsorId = sponsorId;
 	}
 
@@ -428,5 +437,48 @@ public class ParticipationInfo {
     public void setRecommend(Boolean recommend) {
         this.recommend = recommend;
     }
+
+    /**
+     * @return the waiterId
+     */
+    public Long getWaiterId() {
+        return waiterId;
+    }
+
+    /**
+     * @param waiterId the waiterId to set
+     */
+    public void setWaiterId(Long waiterId) {
+        this.waiterId = waiterId;
+    }
+
+    /**
+     * @return the waiterInfo
+     */
+    public WaiterInfo getWaiterInfo() {
+        return waiterInfo;
+    }
+
+    /**
+     * @param waiterInfo the waiterInfo to set
+     */
+    public void setWaiterInfo(WaiterInfo waiterInfo) {
+        this.waiterInfo = waiterInfo;
+    }
+
+    /**
+     * @return the hotplus
+     */
+    public int getHotplus() {
+        return hotplus;
+    }
+
+    /**
+     * @param hotplus the hotplus to set
+     */
+    public void setHotplus(int hotplus) {
+        this.hotplus = hotplus;
+    }
+
 
 }

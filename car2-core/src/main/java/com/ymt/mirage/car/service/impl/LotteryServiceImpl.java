@@ -16,6 +16,8 @@ import com.ymt.mirage.car.dto.LotteryInfo;
 import com.ymt.mirage.car.repository.LotteryRepository;
 import com.ymt.mirage.car.repository.spec.LotterySpec;
 import com.ymt.mirage.car.service.LotteryService;
+import com.ymt.mirage.car.service.WaiterService;
+import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
 
 /**
@@ -29,10 +31,18 @@ public class LotteryServiceImpl extends AbstractParticipationService implements 
 	@Autowired
 	private LotteryRepository lotteryRepository;
 	
+	@Autowired
+	private WaiterService waiterService;
+	
 	@Override
 	public Page<LotteryInfo> query(LotteryInfo lotteryInfo, Pageable pageable) {
 		Page<Lottery> pageData = lotteryRepository.findAll(new LotterySpec(lotteryInfo), pageable);
-		return QueryResultConverter.convert(pageData, LotteryInfo.class, pageable);
+		return QueryResultConverter.convert(pageData, pageable, new AbstractDomain2InfoConverter<Lottery, LotteryInfo>() {
+            @Override
+            protected void doConvert(Lottery domain, LotteryInfo info) throws Exception {
+                info.setWaiterId(domain.getWaiter().getId());
+            }
+        });
 	}
 
 	@Override
@@ -40,6 +50,7 @@ public class LotteryServiceImpl extends AbstractParticipationService implements 
 		Lottery lottery = new Lottery();
 		BeanUtils.copyProperties(lotteryInfo, lottery);
 		lottery.setType(ParticipationType.LOTTERY);
+		lottery.setWaiter(waiterRepository.getOne(lotteryInfo.getWaiterId()));
 		lotteryInfo.setId(lotteryRepository.save(lottery).getId());
 		return lotteryInfo;
 	}
@@ -49,8 +60,12 @@ public class LotteryServiceImpl extends AbstractParticipationService implements 
 		Lottery lottery = lotteryRepository.findOne(id);
 		LotteryInfo info = new LotteryInfo();
 		BeanUtils.copyProperties(lottery, info);
+		info.setWaiterInfo(waiterService.getInfo(lottery.getWaiter().getId()));
+		info.setWaiterId(lottery.getWaiter().getId());
+		lottery.setHot(lottery.getHot() + 1);
 		return info;
 	}
+	
 
 	@Override
 	public LotteryInfo update(LotteryInfo lotteryInfo) {
@@ -58,6 +73,7 @@ public class LotteryServiceImpl extends AbstractParticipationService implements 
 		BeanUtils.copyProperties(lotteryInfo, lottery);
 		lottery.setType(ParticipationType.LOTTERY);
 		checkFinishOnUpdate(lottery);
+		lottery.setWaiter(waiterRepository.getOne(lotteryInfo.getWaiterId()));
 		lotteryRepository.save(lottery);
 		return lotteryInfo;
 	}

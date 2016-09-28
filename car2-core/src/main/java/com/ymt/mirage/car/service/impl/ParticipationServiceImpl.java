@@ -34,8 +34,11 @@ public class ParticipationServiceImpl extends AbstractParticipationService imple
 		return QueryResultConverter.convert(pageData, pageable, new AbstractDomain2InfoConverter<Participation, ParticipationInfo>() {
             @Override
             protected void doConvert(Participation domain, ParticipationInfo info) throws Exception {
-                info.setSponsorName(domain.getSponsor().getSponsor());
-                info.setSponsorImage(domain.getSponsor().getSponsorURL());
+                if(domain.getSponsor() != null) {
+                    info.setSponsorName(domain.getSponsor().getName());
+                    info.setSponsorImage(domain.getSponsor().getImage());
+                    info.setSponsorId(domain.getSponsor().getId());
+                }
             }
         });
 	}

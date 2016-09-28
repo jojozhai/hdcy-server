@@ -49,6 +49,7 @@ public class ContraryServiceImpl extends AbstractParticipationService implements
 		Contrary contrary = contraryRepository.findOne(id);
 		ContraryInfo info = new ContraryInfo();
 		BeanUtils.copyProperties(contrary, info);
+		contrary.setHot(contrary.getHot() + 1);
 		return info;
 	}
 

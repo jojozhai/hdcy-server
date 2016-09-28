@@ -5,7 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ArticleService} from "./article.service";
 import {ListComponent} from "../mirage/component/list.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TagService} from "../mirage/service/tag.service";
 
 @Component({
@@ -23,6 +23,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     constructor(
         private articleService: ArticleService,
         private tagService: TagService,
+        private router: Router,
         private route: ActivatedRoute) {
         super(route);
     }
@@ -34,6 +35,14 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     changeTag(tagId?: number) {
         this.articleService.query(super.buildCondition({tagId: tagId})).subscribe(res => this.articles = res.json().content);
+    }
+
+    navToDetail(article) {
+        if(article.linkOut && article.business){
+            window.location.href = article.outLink;
+        }else{
+            this.router.navigate(['/article', article.id]);
+        }
     }
 
 }

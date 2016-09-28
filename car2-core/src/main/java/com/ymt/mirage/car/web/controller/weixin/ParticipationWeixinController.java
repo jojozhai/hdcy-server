@@ -40,10 +40,10 @@ public class ParticipationWeixinController {
 		if(StringUtils.equals(sortType, "time")){
 		    orders.add(new Order(Direction.ASC, "finish"));
 			orders.add(new Order(Direction.ASC, "endTime"));
-			orders.add(new Order(Direction.DESC, "hot"));
+			orders.add(new Order(Direction.DESC, "sorthot"));
 		}else{
 			orders.add(new Order(Direction.ASC, "finish"));
-			orders.add(new Order(Direction.DESC, "hot"));
+			orders.add(new Order(Direction.DESC, "sorthot"));
 			orders.add(new Order(Direction.ASC, "endTime"));
 		}
 		pageable = new PageRequest(pageable.getPageNumber(), pageable.getPageSize(), new Sort(orders));

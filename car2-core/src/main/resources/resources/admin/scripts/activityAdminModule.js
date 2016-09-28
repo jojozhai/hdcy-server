@@ -37,6 +37,8 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
+			hot: 0,
+			hotplus: 1000,
 			enable: false,
 			top: false,
 			topIndex: 0,
@@ -131,8 +133,12 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 
 	$scope.query();
 	
-}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, commonService, customerServiceService) {
+}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, commonService, waiterRestService) {
 
+	if(activity.id) {
+		$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2622b448b854003a&redirect_uri=http%3A%2F%2Fapp.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth&response_type=code&scope=snsapi_userinfo&state=%2Factivity%2Fdetails%3Fid%3D"+activity.id+"#wechat_redirect"
+	}
+	
 	$scope.popup1 = {
 		opened : false
 	};
@@ -171,13 +177,20 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.activity = activity;
 	
-	sponsorRestService.query().$promise.then(function(data){
-		$scope.sponsors=data;
+	$scope.changeSponsor = function(){
+		angular.forEach($scope.sponsors, function(data){
+			if($scope.activity.sponsorId == data.id){
+				$scope.currentSponsor = data;
+			}
+		});
+	}
+	
+	sponsorRestService.findAll().$promise.then(function(data){
+		$scope.sponsors = data;
+		$scope.changeSponsor();
 	});
 	
-	customerServiceService.query().$promise.then(function(data){
-		$scope.customerServices=data;
-	});
+	$scope.waiters = waiterRestService.findAll();
 	
 	$scope.removeKeyword = function(keyword){
 		$scope.activity.kwlist.splice($scope.activity.kwlist.indexOf(keyword), 1);
@@ -197,14 +210,6 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 		}else{
 			commonService.showWarning("关键字已存在");
 		}
-	}
-	
-	$scope.change = function(id){
-		angular.forEach($scope.sponsors, function(data){
-			if(id == data.id){
-				$scope.sponsorURL = data.sponsorURL;
-			}
-		});
 	}
 	
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
