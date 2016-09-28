@@ -26,7 +26,7 @@
 				<div class="activity-txt">
 					<h2>{{participation.name}}</h2>
 					<p>{{participation.startTime | date:"yyyy-MM-dd"}}   {{participation.address}}</p>
-					<span><i></i>{{participation.hot}}</span>
+					<span><i></i>{{participation.hot + participation.hotplus}}</span>
 				</div>
 				<div class="jieshu" ng-show="{{participation.finish}}">
 		            <img src="images/end.png"  />

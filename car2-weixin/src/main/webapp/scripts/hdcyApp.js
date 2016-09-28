@@ -1014,40 +1014,40 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.join = function(){
 
-//		$scope.checkUserInfo(function(){
-			// lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
-			// 	$scope.permission = result;
-			// 	if(result.win){
-			//
-			// 		var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
-			// 		weixinService.shareConfig("我抽中了让我奋不顾身的["+result.prize+"]，比我高的请走开！", "", link, $scope.lottery.image);
-			//
-			// 		userRestService.current().$promise.then(function(result){
-			// 			if(isEmpty(result.realname) || isEmpty(result.mobile)){
-			// 				$state.go("app.user.info", {from: "/lottery/details?id="+$scope.lottery.id+"&view=success"});
-			// 			}else{
-			// 				commonService.showInfo("您已经抽中过奖品了，请联系客服领奖")
-			// 				$location.search("view", "success");
-			// 				$scope.view = "success";
-			// 			}
-			// 		});
-			//
-			// 	}else{
-			// 		if(result.count <= 0){
-			//
-			// 			var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
-			// 			weixinService.shareConfig("我在玩["+$scope.lottery.name+"]，你也来试试手气吧！", "", link, $scope.lottery.image);
-			//
-			// 			$location.search("view", "notPermission");
-			// 			$scope.view = "notPermission";
-			//
-			// 		}else{
+		$scope.checkUserInfo(function(){
+			 lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
+			 	$scope.permission = result;
+			 	if(result.win){
+			
+			 		var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
+			 		weixinService.shareConfig("我抽中了让我奋不顾身的["+result.prize+"]，比我高的请走开！", "", link, $scope.lottery.image);
+			
+			 		userRestService.current().$promise.then(function(result){
+			 			if(isEmpty(result.realname) || isEmpty(result.mobile)){
+			 				$state.go("app.user.info", {from: "/lottery/details?id="+$scope.lottery.id+"&view=success"});
+			 			}else{
+			 				commonService.showInfo("您已经抽中过奖品了，请联系客服领奖")
+			 				$location.search("view", "success");
+			 				$scope.view = "success";
+			 			}
+			 		});
+			
+			 	}else{
+			 		if(result.count <= 0){
+			
+			 			var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
+			 			weixinService.shareConfig("我在玩["+$scope.lottery.name+"]，你也来试试手气吧！", "", link, $scope.lottery.image);
+			
+			 			$location.search("view", "notPermission");
+			 			$scope.view = "notPermission";
+			
+			 		}else{
 						$location.search("view", "lottery");
 						$scope.view = "lottery";
-			// 		}
-			// 	}
-			// });
-//		});
+			 		}
+			 	}
+			 });
+		});
 	}
 
 	$scope.award = function(success) {
