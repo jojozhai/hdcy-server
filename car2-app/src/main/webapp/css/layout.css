@@ -19,6 +19,7 @@ html,body  {
             h1 {
                 color: #494949;
                 font-size: 25px;
+               	word-break: break-word;
             }
             .times {
                 padding: 20px 0 24px;
