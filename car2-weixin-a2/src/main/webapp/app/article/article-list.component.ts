@@ -20,21 +20,27 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     tags: Array<any>;
 
+    activeTag = true;
+
     constructor(
         private articleService: ArticleService,
         private tagService: TagService,
         private router: Router,
         private route: ActivatedRoute) {
         super(route);
+
     }
 
     ngOnInit() {
         this.articleService.query(this.pageInfo).subscribe(res => this.articles = res.json().content);
         this.tagService.getChild().subscribe(res => this.tags = res);
+        this.activeTag = true;
     }
 
     changeTag(tagId?: number) {
-        this.articleService.query(super.buildCondition({tagId: tagId})).subscribe(res => this.articles = res.json().content);
+        if(tagId != 0){
+            this.articleService.query(super.buildCondition({tagId: tagId})).subscribe(res => this.articles = res.json().content);
+        }
     }
 
     navToDetail(article) {

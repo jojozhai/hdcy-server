@@ -1,4 +1,118 @@
-<div>资讯详情</div>
-<div>{{article.id}}</div>
-<div>{{article.title}}</div>
-<comment-input target="article" [targetId]="article.id"></comment-input>
+<header>
+    <h3>
+        <a href="#" class="back"></a>
+        <span>资讯详情</span>
+        <a href="#" class="message"></a>
+        <a href="#" class="share"></a>
+    </h3>
+</header>
+<div class="cnts">
+    <div class="Detail-up">
+        <h1 class="article-title">{{article.title}}</h1>
+        <div class="detail-tag">
+            <span class="detail-tag1">{{article.tagName}}</span>
+            <span>{{article.createdTime | date:'yyyy-MM-dd'}}</span>
+            <span>{{article.principal}}</span>
+        </div>
+
+    </div>
+    <div class="detail-Img">
+        <img [src]="article.image" alt="" />
+    </div>
+    <div class="Detail-down">
+        <div class="artiDetail-con" [innerHTML]="article.content">
+        </div>
+        <div class="commments">
+            <div class="comment-count">
+                <h4>评论(1234)</h4>
+            </div>
+            <ul class="commment-con">
+                <li class="clear">
+                    <div class="commmentList-le fl">
+                        <img src="../../img/touxiang.png" alt="" />
+                    </div>
+                    <div class="commmentList-ri fl">
+                        <div class="commmentList-up clear ">
+                            <div class="fl">
+                                <span class="nickname">娘家牛排</span><br/>
+                                <time class="time">刚刚</time>
+                            </div>
+                            <div class="thumbs-count fl">
+                                <span class="thumbs"></span>
+                                <span>2042</span>
+                            </div>
+                        </div>
+                        <div class="commmentList-con">
+                            当全世界都在为特斯拉汽车的安全性操碎了心，特斯拉Model S又给特斯拉惹事了，
+                        </div>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="commmentList-le fl">
+                        <img src="../../img/touxiang.png" alt="" />
+                    </div>
+                    <div class="commmentList-ri fl">
+                        <div class="commmentList-up clear ">
+                            <div class="fl">
+                                <span class="nickname">娘家牛排</span><br/>
+                                <time class="time">08-21</time>
+                            </div>
+                            <div class="thumbs-count fl">
+                                <span class="thumbs"></span>
+                                <span>2042</span>
+                            </div>
+                        </div>
+                        <div class="commmentList-con">
+                            当全世界都在为特斯拉汽车的安全性操碎了心，特斯拉Model S又给特斯拉惹事了，
+                        </div>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="commmentList-le fl">
+                        <img src="../../img/touxiang.png" alt="" />
+                    </div>
+                    <div class="commmentList-ri fl">
+                        <div class="commmentList-up clear ">
+                            <div class="fl">
+                                <span class="nickname">娘家牛排</span><br/>
+                                <time class="time">07-21</time>
+                            </div>
+                            <div class="thumbs-count fl">
+                                <span class="thumbs"></span>
+                                <span>2042</span>
+                            </div>
+                        </div>
+                        <div class="commmentList-con">
+                            当全世界都在为特斯拉汽车的安全性操碎了心，特斯拉Model S又给特斯拉惹事了，
+                        </div>
+                    </div>
+                </li>
+                <li class="clear">
+                    <div class="commmentList-le fl">
+                        <img src="../../img/touxiang.png" alt="" />
+                    </div>
+                    <div class="commmentList-ri fl">
+                        <div class="commmentList-up clear ">
+                            <div class="fl">
+                                <span class="nickname">娘家牛排</span><br/>
+                                <time class="time">06-23</time>
+                            </div>
+                            <div class="thumbs-count fl">
+                                <span class="thumbs"></span>
+                                <span>2042</span>
+                            </div>
+                        </div>
+                        <div class="commmentList-con">
+                            当全世界都在为特斯拉汽车的安全性操碎了心，特斯拉Model S又给特斯拉惹事了，
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+            <div class="mores">
+                <a href="#" class="more">查看更多</a>
+            </div>
+        </div>
+    </div>
+
+</div>

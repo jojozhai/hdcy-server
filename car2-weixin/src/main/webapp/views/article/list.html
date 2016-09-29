@@ -20,7 +20,7 @@
 						<div class="message-type">
 							<span class="message-sort" ng-repeat="tag in article.tagInfos">{{tag.name}}&nbsp;&nbsp;</span>
 							<span class="message-sort">{{article.createdTime | hdcyArticleDate}}</span>
-							<span class="message-num"><i></i>{{article.readCount}}</span>
+							<span class="message-num"><i></i>{{article.readCount + article.readCountPlus}}</span>
 						</div>
 					</div>
 			     </li>

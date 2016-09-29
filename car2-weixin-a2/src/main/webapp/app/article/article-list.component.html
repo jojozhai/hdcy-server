@@ -1,8 +1,8 @@
 <div class="cnts">
     <div class="article-navs">
         <div class="article-nav clear">
-            <span class="artnav-on" (click)="changeTag()">全部</span>
-            <span *ngFor="let tag of tags" (click)="changeTag(tag.id)">{{tag.name}}</span>
+            <a (click)="changeTag(0)">全部</a>
+            <a *ngFor="let tag of tags" (click)="changeTag(tag.id)">{{tag.name}}</a>
         </div>
     </div>
     <ul class="content" [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo">
