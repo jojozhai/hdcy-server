@@ -12,7 +12,7 @@ angular.module(
 		'adminApp',
 		[ 'admin',
 		// 'voteAdminModule',
-		'lotteryAdminModule', 'userAdminModule', 'buttonAdminModule','weixinReplyAdminModule',
+		'lotteryAdminModule', 'userAdminModule', 'buttonAdminModule','weixinReplyAdminModule','paramAdminModule',
 				'tagAdminModule', 'activityAdminModule', 'votingAdminModule',
 				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule',
 				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule',

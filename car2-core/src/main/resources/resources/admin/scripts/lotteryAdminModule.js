@@ -127,12 +127,18 @@ angular.module('lotteryAdminModule',[]).config(function($stateProvider) {
 			lotteryUser.change = !lotteryUser.change;
 		});	
 	}
-}).controller('lotteryFormCtrl',function ($scope, $uibModalInstance, lottery, commonService, waiterRestService) {
+}).controller('lotteryFormCtrl',function ($scope, $uibModalInstance, lottery, commonService, waiterRestService, paramRestService) {
 	
 	$scope.waiters = waiterRestService.findAll();
 	
 	if(lottery.id) {
-		$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2622b448b854003a&redirect_uri=http%3A%2F%2Fapp.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth&response_type=code&scope=snsapi_userinfo&state=%2Flottery%2Fdetails%3Fid%3D"+lottery.id+"#wechat_redirect"
+		paramRestService.getParam({code:"weixinAppId"}).$promise.then(function(resultA){
+			var weixinAppId = resultA.value;
+			paramRestService.getParam({code:"oauthCallbackUrl"}).$promise.then(function(resultB){
+				var oauthCallbackUrl = resultB.value
+				$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+weixinAppId+"&redirect_uri="+oauthCallbackUrl+"&response_type=code&scope=snsapi_userinfo&state=%2Flottery%2Fdetails%3Fid%3D"+lottery.id+"#wechat_redirect"
+			})
+		});
 	}
 	
 	var probability = 0;
