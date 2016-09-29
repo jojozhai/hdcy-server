@@ -5,10 +5,9 @@ header {
     line-height: 50px;
 }
 nav a {
-    font-size: 17px;
+    font-size: 15px;
     color: rgb(221, 221, 221);
-    font-family:" HiraginoSansGB W3[Bold]";
-
+    font-family:" HiraginoSansGB W3";
 }
 nav .fl a,nav .fr a {
     float: left;

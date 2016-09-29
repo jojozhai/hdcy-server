@@ -88,7 +88,7 @@
 						$(".sorts").append(spans);
 					}
                      var heights=document.documentElement.clientHeight;//获取设备的高度
-                     $(".container").height(heights-49);
+                     $(".container").height(heights);
 
                   }
               };

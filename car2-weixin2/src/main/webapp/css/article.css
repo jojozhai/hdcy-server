@@ -10,7 +10,7 @@ html,body {
     width: 100%;
     height: 40px;
     overflow-x: auto;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .article-nav a {
@@ -49,13 +49,14 @@ html,body {
 .contentTxt {
     background: url("../img/txt-btn.png");
     background-size: 100% 100%;
-    padding: 20px 12px;
+    padding: 20px 12px 10px;
     color: #ffffff;
+    word-wrap: break-word;
 }
 .contentTxt h2 {
     font-size: 14px;
     font-weight: normal;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     word-wrap: break-word;
     line-height: 22px;
 }
@@ -69,7 +70,7 @@ html,body {
 .ball-activity {
     display: inline-block;
     background-color: rgb(187, 187, 187);
-    padding: 8px 15px;
+    padding: 6px 15px;
     color: #303030;
     border-radius: 20px;
 }
@@ -83,8 +84,8 @@ html,body {
 
 .txt-tag .eye {
     display: inline-block;
-    width: 30px;
-    height: 16.5px;
+    width: 25px;
+    height: 13.75px;
     background: url("../img/eye.png");
     background-size: 100% 100%;
     margin-right: 0;
@@ -92,7 +93,7 @@ html,body {
     top:50%;
     left:-40px;
     transform: translateY(-50%);
-
+    -webkit-transform: translateY(-50%);
 }
 
 .ads {
@@ -152,24 +153,26 @@ header h3 {
     position: absolute;
     top:50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 .Detail-up {
     padding: 0 12px;
-    height:80px;
+    height:70px;
     font-family: "PingFang Bold";
 }
 .article-title {
     font-size: 17px;
     margin:18px 0 15px;
     word-wrap: break-word;
+    font-weight: normal;
 }
 .detail-tag {
     font-size: 12px;
     color: #959595;
 }
 .detail-tag span {
-    margin-left: 12px;
+    margin-right: 12px;
 }
 .detail-tag1 {
     display: inline-block;
@@ -197,18 +200,18 @@ header h3 {
     background-color: white;
 }
 .commments {
-    margin-top:10px;
-    padding: 0px 12px 10px ;
+    margin-top:8px;
+    padding: 0px 12px;
     background-color: white;
 }
 .comment-count {
     border-bottom: 1px solid #e0e0e0;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 .comment-count h4 {
     padding-left: 5px;
     font-size: 15px;
-    border-left: 3px solid #303030;
+    border-left: 2px solid #303030;
 }
 .commment-con li {
     padding: 10px 0 13px;
@@ -245,6 +248,7 @@ header h3 {
     position: absolute;
     top:50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     right: 0px;
     font-size: 11px;
 }
@@ -252,6 +256,7 @@ header h3 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -259,9 +264,14 @@ header h3 {
     background-size: 100% 100%;
     right:30px;
 }
+.thumbs-on {
+    background: url("../img/thumbs-on.png") no-repeat;
+    background-size: 100% 100%;
+}
 .commmentList-con {
     font-size: 17px;
-    line-height: 20px;
+    line-height: 24px;
+    color: #494949;
 }
 .mores {
     text-align: center;
@@ -279,4 +289,16 @@ header h3 {
 }
 .artiDetail-con p{
     line-height: 20px;
+}
+.comment-edit {
+    font-size: 0;
+    display: inline-block;
+    position: fixed;
+    left:4px;
+    bottom: 80px;
+    width: 70px;
+    height:70px;
+    background: url("../img/iconfont-button.png") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 50%;
 }
