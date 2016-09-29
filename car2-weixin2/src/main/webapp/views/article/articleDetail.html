@@ -84,7 +84,7 @@
                                             <time class="time">08-21</time>
                                         </div>
                                         <div class="thumbs-count fl">
-                                            <span class="thumbs"></span>
+                                            <span class="thumbs thumbs-on"></span>
                                             <span>2042</span>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                 </div>
 
             </div>
-
+            <a href="#" class="comment-edit"></a>
         </div>
 
     </body>
@@ -153,6 +153,10 @@
             $(".article-nav span").removeClass("artnav-on");
             $(".article-nav span").eq($(this).index()).addClass("artnav-on");
 
+        })
+        $(".commment-con .thumbs").on("click",function(){
+            $(".thumbs").removeClass("thumbs-on");
+            $(".thumbs").eq($(this).index(".commment-con .thumbs")).addClass("thumbs-on");
         })
 
     </script>
