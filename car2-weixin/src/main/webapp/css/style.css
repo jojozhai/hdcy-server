@@ -233,11 +233,11 @@ textarea {
 .messagehead-txt .left span {
 	margin-left: 10px;
 }
-
+/*TODO*/
 .messagedel-cnt {
 	padding-bottom: 10px;
 	font-size: 14px;
-	top: 120px;
+	top: 126px;
 	position: absolute;
 	bottom: 43px;
 	overflow: auto;
@@ -688,7 +688,7 @@ textarea {
 	width: 100%;
 	left: 0px;
 	top: 0px;
-	padding-top: 44px;
+	padding-top: 45px;
 	background: #f7f7f7;
 	padding-bottom: 46px;
 	overflow: auto;
@@ -3006,7 +3006,7 @@ a.ng-scope {
 	margin: 12px 0 12px 19px;
 }
 .cntVideoBox {
-	margin-top: 46px;
+	margin-top: 48px;
 }
 .commentvideo-num {
 	float: right;
@@ -3058,3 +3058,67 @@ a.ng-scope {
 /*#wrapperDiv {
 	margin-bottom: 49px;
 }*/
+/*加关注*/
+
+.guanzhus {
+	height:60px;
+	background: #2c2c2c;
+	position: relative;
+}
+.guanzhus .guanzhu {
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	padding: 0 19px;
+	width: 100%;
+}
+.guanzhus .guanzhu-img {
+	position: absolute;
+	float: left;
+	top:50%;
+	transform: translateY(-50%);
+}
+.guanzhus .guanzhu-txt {
+	color: white;
+	font-size: 15px;
+	background: #fd7400;
+	padding: 5px 11px 7px;
+	float: right;
+	display: inline-block;
+	border-radius: 10px;
+}
+.guanzhus .logo {
+	width:100px;
+	height: 26px;
+	margin-left: 10px;
+}
+.chat2 {
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.9;
+	z-index: 999;
+}
+
+.chat2 img {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	width: 200px;
+	height: 222px;
+	transform: translate(-50%,-50%);
+}
+.guanzhus .closes {
+	display: inline-block;
+	width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+.guanzhus .close1 {
+	width: 22px;
+	height:22px;
+	border-radius: 50%;
+}

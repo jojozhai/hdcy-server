@@ -13,7 +13,20 @@
 		<a ng-click="showKefuDiv = true" class="kefuIco" ></a>
 	</div>
 </div>
+<div class="chat2" ng-show="obs" ng-click="hides(false)">
+    <img src="images/guanzhu.png" alt="" />
+</div>
 <div class="hd-Cnt">
+	<div class="guanzhus" ng-show="closes">
+        <div class="guanzhu" >
+            <div class="guanzhu-img">
+                <span class="closes" ng-click="close(false)"></span>
+                <img class="close1" src="images/close.png" alt="" />
+                <img class="logo" src="images/LOGO.png" alt="" />
+            </div>
+            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
+        </div>
+    </div>
 	<div class="hd-box">
 		<div class="hd-txt" ng-bind-html="desc | toHtml"></div>
 		<ul class="hd-img">
