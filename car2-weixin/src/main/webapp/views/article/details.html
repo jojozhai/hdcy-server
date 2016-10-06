@@ -11,9 +11,25 @@
 			<div class="clear"></div>
 		</div>
 	</div>
+
+	<div class="chat2" ng-show="obs" ng-click="hides(false)">
+		<img src="images/guanzhu.png" alt="" />
+	</div>
 	<div class="messagedel-cnt">
-		<img ng-src="{{article.image2}}"/>
-		<div ng-bind-html="article.content | toHtml" style="padding: 5px;"></div>
+		<div class="guanzhus" ng-show="closes">
+			<div class="guanzhu" >
+				<div class="guanzhu-img">
+					<span class="closes" ng-click="close(false)"></span>
+					<img class="close1" src="images/close.png" alt="" />
+					<img class="logo" src="images/LOGO.png" alt="" />
+				</div>
+				<span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
+			</div>
+		</div>
+		<div class="">
+			<img ng-src="{{article.image2}}"/>
+			<div ng-bind-html="article.content | toHtml" style="padding: 5px;"></div>
+		</div>
 	</div>
 </div>
 <div class="comment">

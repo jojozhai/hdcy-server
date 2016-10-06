@@ -522,8 +522,18 @@ angular.module('hdcyApp', ['weixin',
 	$scope.goBack = function(){
 		$state.go("app.article.list", {tag: $stateParams.tag});
 	}
+    $scope.obs=false;
+    $scope.shows=function (obs) {
+        $scope.obs=true;
+    }
+    $scope.closes=true;
+    $scope.close=function (closes) {
+        $scope.closes=false;
+    }
+    $scope.hides=function (obs) {
+        $scope.obs=false;
+    }
 //TODO
-
 }).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
@@ -531,8 +541,7 @@ angular.module('hdcyApp', ['weixin',
 		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
 	});
 	$scope.condition = {live:false, enable: true, top:false};
-
-	$scope.dataService = videoRestService;
+    $scope.dataService = videoRestService;
 
 
 }).controller('videoDetailsCtrl', function($scope, $sce, $state, $stateParams, videoRestService, commentRestService, userRestService, weixinService, commonService) {
@@ -571,6 +580,17 @@ angular.module('hdcyApp', ['weixin',
 	$scope.goBack = function(){
 		$state.go("app.video.list");
 	}
+    $scope.obs=false;
+    $scope.shows=function (obs) {
+        $scope.obs=true;
+    }
+    $scope.closes=true;
+    $scope.close=function (closes) {
+        $scope.closes=false;
+    }
+    $scope.hides=function (obs) {
+        $scope.obs=false;
+    }
 //TODO
 }).controller('participationListCtrl', function($scope, $state, participationRestService,weixinService, commonService) {
 
@@ -610,6 +630,17 @@ angular.module('hdcyApp', ['weixin',
 	$scope.toDetailsPage = function(id, type){
 		$state.go("app."+type.toLowerCase()+".details", {id: id});
 	}
+    $scope.obs=false;
+    $scope.shows=function (obs) {
+        $scope.obs=true;
+    }
+    $scope.closes=true;
+    $scope.close=function (closes) {
+        $scope.closes=false;
+    }
+    $scope.hides=function (obs) {
+        $scope.obs=false;
+    }
 
 }).controller('activityDetailsCtrl', function($scope, $stateParams, activityRestService, activityParticipatorRestService, participatorRestService, commentRestService, userRestService, commonService, weixinService) {
 
@@ -700,8 +731,17 @@ angular.module('hdcyApp', ['weixin',
 		});
 		pb1.open();
 	}
-
-
+    $scope.obs=false;
+    $scope.shows=function (obs) {
+        $scope.obs=true;
+    }
+    $scope.closes=true;
+    $scope.close=function (closes) {
+        $scope.closes=false;
+    }
+    $scope.hides=function (obs) {
+        $scope.obs=false;
+    }
 }).controller('votingDetailsCtrl', function($scope, $stateParams, votingRestService, votingParticipatorRestService, weixinService, commonService, participatorRestService) {
 
 	votingRestService.get({id: $stateParams.id}).$promise.then(function(result){
@@ -1034,10 +1074,10 @@ angular.module('hdcyApp', ['weixin',
 			 lotteryParticipatorRestService.getLotteryPermission({id: $stateParams.id}).$promise.then(function(result){
 			 	$scope.permission = result;
 			 	if(result.win){
-			
+
 			 		var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
 			 		weixinService.shareConfig("我抽中了让我奋不顾身的["+result.prize+"]，比我高的请走开！", "", link, $scope.lottery.image);
-			
+
 			 		userRestService.current().$promise.then(function(result){
 			 			if(isEmpty(result.realname) || isEmpty(result.mobile)){
 			 				$state.go("app.user.info", {from: "/lottery/details?id="+$scope.lottery.id+"&view=success"});
@@ -1047,16 +1087,16 @@ angular.module('hdcyApp', ['weixin',
 			 				$scope.view = "success";
 			 			}
 			 		});
-			
+
 			 	}else{
 			 		if(result.count <= 0){
-			
+
 			 			var link = commonService.getShareLink("/lottery/details?id="+$scope.lottery.id);
 			 			weixinService.shareConfig("我在玩["+$scope.lottery.name+"]，你也来试试手气吧！", "", link, $scope.lottery.image);
-			
+
 			 			$location.search("view", "notPermission");
 			 			$scope.view = "notPermission";
-			
+
 			 		}else{
 						$location.search("view", "lottery");
 						$scope.view = "lottery";
