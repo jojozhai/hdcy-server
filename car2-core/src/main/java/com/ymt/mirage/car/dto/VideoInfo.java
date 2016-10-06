@@ -47,6 +47,10 @@ public class VideoInfo {
      */
     private String image;
     /**
+     * 直播流id
+     */
+    private String streamId;
+    /**
      * 观看次数加成
      */
     private Integer viewCountPlus;
@@ -59,13 +63,17 @@ public class VideoInfo {
      */
     private Boolean live;
     /**
-     * 直播是否已开始
+     * 直播状态
      */
-    private Boolean start;
+    private String liveState;
     /**
      * 开始时间
      */
     private Date startTime;
+    /**
+     * 结束时间
+     */
+    private Date endTime;
     /**
      * 视频时长
      */
@@ -187,18 +195,6 @@ public class VideoInfo {
         this.live = live;
     }
     /**
-     * @return the start
-     */
-    public Boolean getStart() {
-        return start;
-    }
-    /**
-     * @param start the start to set
-     */
-    public void setStart(Boolean start) {
-        this.start = start;
-    }
-    /**
      * @return the startTime
      */
     public Date getStartTime() {
@@ -257,6 +253,42 @@ public class VideoInfo {
      */
     public void setUrl2(String url2) {
         this.url2 = url2;
+    }
+    /**
+     * @return the streamId
+     */
+    public String getStreamId() {
+        return streamId;
+    }
+    /**
+     * @param streamId the streamId to set
+     */
+    public void setStreamId(String streamId) {
+        this.streamId = streamId;
+    }
+    /**
+     * @return the liveState
+     */
+    public String getLiveState() {
+        return liveState;
+    }
+    /**
+     * @param liveState the liveState to set
+     */
+    public void setLiveState(String liveState) {
+        this.liveState = liveState;
+    }
+    /**
+     * @return the endTime
+     */
+    public Date getEndTime() {
+        return endTime;
+    }
+    /**
+     * @param endTime the endTime to set
+     */
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
     
 }

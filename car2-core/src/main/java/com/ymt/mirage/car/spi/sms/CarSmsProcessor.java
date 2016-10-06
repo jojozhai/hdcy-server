@@ -21,4 +21,10 @@ public class CarSmsProcessor extends AbstractSmsProcessor {
         }
     }
 
+    @Override
+    public void send(String phone, String cid, String[] params) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

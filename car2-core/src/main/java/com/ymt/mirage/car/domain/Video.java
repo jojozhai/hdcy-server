@@ -14,6 +14,10 @@ package com.ymt.mirage.car.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.Transient;
+
+import org.joda.time.DateTime;
 
 import com.ymt.pz365.data.jpa.domain.DomainImpl;
 
@@ -59,13 +63,26 @@ public class Video extends DomainImpl {
      */
     private int viewCount;
     /**
+     * 直播流id
+     */
+    private String streamId;
+    /**
      * 是否是直播
      */
     private boolean live;
     /**
+     * 直播状态
+     */
+    @Transient
+    private String liveState;
+    /**
      * 开始时间
      */
     private Date startTime;
+    /**
+     * 结束时间
+     */
+    private Date endTime;
     /**
      * 视频时长
      */
@@ -73,6 +90,7 @@ public class Video extends DomainImpl {
     /**
      * 视频描述 
      */
+    @Lob
     private String desc;
     
     /**
@@ -218,6 +236,50 @@ public class Video extends DomainImpl {
      */
     public void setUrl2(String url2) {
         this.url2 = url2;
+    }
+    /**
+     * @return the stramId
+     */
+    public String getStreamId() {
+        return streamId;
+    }
+    /**
+     * @param stramId the stramId to set
+     */
+    public void setStreamId(String streamId) {
+        this.streamId = streamId;
+    }
+    /**
+     * @return the endTime
+     */
+    public Date getEndTime() {
+        return endTime;
+    }
+    /**
+     * @param endTime the endTime to set
+     */
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+    /**
+     * @return the liveState
+     */
+    public String getLiveState() {
+        DateTime _startTime = new DateTime(getStartTime());
+        DateTime _endTime = new DateTime(getEndTime());
+        if(_startTime.isAfterNow()) {
+            return "未开始";
+        }else if(_endTime.isBeforeNow()){
+            return "已结束";
+        }else{
+            return "直播中";
+        }
+    }
+    /**
+     * @param liveState the liveState to set
+     */
+    public void setLiveState(String liveState) {
+        this.liveState = liveState;
     }
     
 }

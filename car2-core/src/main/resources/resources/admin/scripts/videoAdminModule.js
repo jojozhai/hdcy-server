@@ -75,6 +75,14 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	$scope.open1 = function() {
 		$scope.popup1.opened = true;
 	};
+	
+	$scope.popup2 = {
+		opened : false
+	};
+
+	$scope.open2 = function() {
+		$scope.popup2.opened = true;
+	};
 
 	$scope.dateOptions = {
 		minDate : new Date(),

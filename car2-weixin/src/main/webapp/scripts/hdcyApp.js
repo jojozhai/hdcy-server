@@ -243,6 +243,9 @@ angular.module('hdcyApp', ['weixin',
 }).controller('userDetailsCtrl', function($scope) {
 
 }).controller('userInfoCtrl', function($scope, $stateParams, $location, smsRestService, userRestService, commonService, weixinService, paramRestService, carRestService) {
+	
+	$scope.fromLottery = ($stateParams.from.indexOf("lottery") != -1);
+	
 	weixinService.initWx();
 	userRestService.current().$promise.then(function(result){
 		$scope.user = result;
@@ -347,18 +350,31 @@ angular.module('hdcyApp', ['weixin',
 			commonService.showWarning("请填写手机号码");
 			return;
 		}
-		if(isEmpty(user.code)){
-			commonService.showWarning("请填写验证码");
-			return;
+		if(!$scope.fromLottery){
+			if(isEmpty(user.code)){
+				commonService.showWarning("请填写验证码");
+				return;
+			}
 		}
-		smsRestService.checkSmsCode({phone:user.mobile, code:user.code}).$promise.then(function(result){
+		
+		if(!$scope.fromLottery){
+			smsRestService.checkSmsCode({phone:user.mobile, code:user.code}).$promise.then(function(result){
+				userRestService.updateProperty({name: "realname", value: user.realname}).$promise.then(function(){
+					userRestService.updateProperty({name: "mobile", value: user.mobile}).$promise.then(function(){
+						$scope.currentView = "addtion";
+						$location.search('view','addtion')
+					});
+				});
+			});
+		}else{
 			userRestService.updateProperty({name: "realname", value: user.realname}).$promise.then(function(){
 				userRestService.updateProperty({name: "mobile", value: user.mobile}).$promise.then(function(){
 					$scope.currentView = "addtion";
 					$location.search('view','addtion')
 				});
 			});
-		});
+		}
+		
 	}
 
 	$scope.settings = {

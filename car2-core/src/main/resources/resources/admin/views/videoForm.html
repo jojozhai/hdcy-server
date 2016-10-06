@@ -69,6 +69,10 @@
                         <label for="selection2" style="margin-top: 4px;"></label>
                     </div>
                 </div>
+                <label class="control-label col-lg-2">直播流ID:</label>
+                <div class="col-lg-2">
+                    <input name="steamId" ng-model="video.streamId" type="text" class="form-control input-sm" placeholder="直播流ID">
+                </div>
             </div>
             <div class="form-group" ng-class="videoForm.startTime.$invalid && videoForm.startTime.$dirty ? 'has-error': ''">
                 <label class="control-label col-lg-3" style="padding-top: 40px;">直播开始时间:</label>
@@ -86,11 +90,34 @@
                         时间格式错误
                     </label>
                     <label class="control-label has-error" ng-show="videoForm.startTime.$error.required && videoForm.startTime.$dirty">
-                        报名开始时间不能为空
+                        直播开始时间不能为空
                     </label>
                 </div>
                 <div class="col-md-3">
                     <uib-timepicker class="input-sm" ng-model="video.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
+            <div class="form-group" ng-class="videoForm.endTime.$invalid && videoForm.endTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">直播结束时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="endTime" ng-model="video.endTime" class="form-control input-sm" is-open="popup2.opened"
+                            datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="videoForm.endTime.$error.date && videoForm.endTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="videoForm.endTime.$error.required && videoForm.endTime.$dirty">
+                        直播结束时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="video.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
                 </div>
             </div>
             <div class="form-group"  ng-class="videoForm.length.$invalid && videoForm.length.$dirty ? 'has-error': ''">
