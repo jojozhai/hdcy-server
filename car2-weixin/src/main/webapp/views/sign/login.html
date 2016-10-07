@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
+        <!-- <link rel="stylesheet" href="css/reset.css" media="screen" title="no title"> -->
+        <link rel="stylesheet" href="css/datepicker.css" media="screen" title="no title">
+        <title></title>
+        <style media="screen">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .login-box {
+                width: 375px;
+                margin: 0 auto;
+                border: 1px solid red;
+                box-sizing: border-box;
+                padding: 0 20px;
+            }
+            .login-box li {
+                width: 350px;
+                margin: 0 auto;
+                height:40px;
+                margin-bottom: 10px;
+                list-style-type: none;
+                line-height: 40px;
+            }
+            .signs {
+                display: inline-block;
+                border: 1px solid black;
+                height: 40px;
+                width: 100px;
+                border-radius: 20px;
+                line-height: 40px;
+                text-align: center;
+            }
+            .login-item {
+                height: 30px;
+                width: 200px;
+            }
+            .invite {
+                width: 185px;
+            }
+            .login-sign {
+                text-align: center;
+            }
+            .lives {
+                display: none;
+            }
+            .full {
+                display: none;
+                font-size: 11px;
+                color: red;
+            }
+            .datepicker {
+                display: none;
+                width: 215px;
+                height:224px;
+                background-color: white;
+                position: absolute;
+                border: 1px solid #3c3c3c;
+            }
+            #dpd1,#dpd2 {
+                height:30px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <ul class="login-box">
+            <li>
+                <label for="">姓名:</label>
+                <input class="login-item sign-name" type="text" name="name" value="">
+                <span class="full">姓名不能为空</span>
+            </li>
+            <li>
+                <label for="">单位:</label>
+                <input  class="login-item sign-danwei" type="text" name="name" value="">
+                <span class="full">单位不能为空</span>
+            </li>
+            <li>
+                <label for="">职位:</label>
+                <input  class="login-item sign-zhiwei" type="text" name="name" value="">
+            </li>
+            <li>
+                <label for="">电话:</label>
+                <input  class="login-item sign-tel" type="text" name="name" value="">
+                <span class="full">单位不能为空</span>
+            </li>
+            <li>
+                <label for="">是否安排住宿:</label>
+                <input class="plan" type="radio" name="name" value="" >是
+                <input class=plan1 type="radio" name="name" value="" checked="true">否
+            </li>
+            <div class="lives">
+                <li class="">
+                    <label for="">入住时间:</label>
+                    <input id=dpd1 type="text" name="name" value="">
+
+                </li>
+                <li>
+                    <label for="">离开时间:</label>
+                    <input id=dpd2 type="text" name="name" value="">
+                </li>
+            </div>
+
+            <li>
+                <label for="">邀请人:</label>
+                <input  class="login-item invite" type="text" name="name" value="">
+            </li>
+            <li>
+                <label for="">拟参加论坛:</label>
+                <input type="checkbox" name="luntan" value="A">A
+                <input type="checkbox" name="luntan" value="B">B
+                <input type="checkbox" name="luntan" value="C">C
+                <input type="checkbox" name="luntan" value="D">D
+            </li>
+            <li class="login-sign">
+                <span class="signs">报名</span>
+            </li>
+
+        </ul>
+
+    </body>
+    <script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap-datepicker.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(".plan").focus(function () {
+            $(".lives").show()
+        })
+        $(".plan1").focus(function () {
+            $(".lives").hide()
+        })
+        	var commonTime = new Date("12/11/2016")
+            // console.log(commonTime );
+        $(".sign-name").blur(function () {
+            if ($(".sign-name")[0].value=="") {
+                $(".full").eq(0).show();
+            }else {
+                $(".full").eq(0).hide();
+            }
+        })
+        $(".sign-danwei").blur(function () {
+            if ($(".sign-danwei")[0].value=="") {
+                $(".full").eq(1).show();
+            }else {
+                $(".full").eq(1).hide();
+            }
+        })
+        $(".signs").on("click",function () {
+            var signName=$(".sign-name")[0].value;
+            var signDanwei=$(".sign-danwei")[0].value;
+            var signZhiwei=$(".sign-zhiwei")[0].value;
+            var tele=$(".sign-tel")[0].value;
+            var zhusu=false;
+            if ($(".plan")[0].checked==true) {
+                zhusu=true;
+                var comTime=$("#dpd1")[0].value;
+                var comeOut=$("#dpd2")[0].value;
+            }
+            var inviter=$(".invite")[0].value;
+            var forums=[];
+            for (var i = 0; i < $("input[name='luntan']").length; i++) {
+                if ($("input[name='luntan']")[i].checked==true) {
+                    forums[i]=$("input[name='luntan']")[i].value;
+                }
+            }  
+            $.ajax({
+            type: "post",
+            url: "../../signtemp",
+            data: {
+                name:signName,
+                company:signDanwei,
+                title:signZhiwei,
+                mobile:tele,
+                stay:zhusu,
+                stayStartTime:comTime,
+                stayEndTime:comeOut,
+                inviter:inviter,
+                forums:forums
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (obj) {
+                alert("报名成功")
+            }
+        });
+        })
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var checkin = $('#dpd1').datepicker({
+          onRender: function(date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+          }
+        }).on('changeDate', function(ev) {
+          if (ev.date.valueOf() > checkout.date.valueOf()) {
+            var newDate = new Date(ev.date)
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.setValue(newDate);
+          }
+          checkin.hide();
+          $('#dpd2')[0].focus();
+        }).data('datepicker');
+        var checkout = $('#dpd2').datepicker({
+          onRender: function(date) {
+            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+          }
+        }).on('changeDate', function(ev) {
+          checkout.hide();
+        }).data('datepicker');
+
+    </script>
+<html>
