@@ -1,8 +1,5 @@
 <div class="commments">
-  <div class="comment-count">
-    <h4>评论({{count}})</h4>
-  </div>
-  <ul class="commment-con">
+  <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo">
     <li class="clear" *ngFor="let comment of comments">
       <div class="commmentList-le fl">
         <img [src]="comment.createrHeadimgurl" alt="" width="100px" height="100px"/>
@@ -24,8 +21,5 @@
       </div>
     </li>
   </ul>
-  <div class="mores">
-    <a routerLink="/comment" [queryParams]="{target: target, targetId: targetId}" class="more">查看更多</a>
-  </div>
 </div>
 <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId}" class="comment-edit">发表评论</a>

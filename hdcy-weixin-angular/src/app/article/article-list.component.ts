@@ -19,7 +19,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     tags: Array<any>;
 
-    activeTag = true;
+    currentTag:number = 0;
 
     constructor(
         private articleService: ArticleService,
@@ -33,7 +33,10 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     ngOnInit() {
         this.articleService.query(this.pageInfo).subscribe(res => this.articles = res.json().content);
         this.tagService.getChild().subscribe(res => this.tags = res);
-        this.activeTag = true;
+    }
+
+    isActive(id: number) {
+      return this.currentTag == id;
     }
 
     changeTag(tagId?: number) {
@@ -41,7 +44,10 @@ export class ArticleListComponent extends ListComponent implements OnInit {
         if(tagId != 0){
           condition.tagId = tagId;
         }
-        this.articleService.query(condition).subscribe(res => this.articles = res.json().content);
+        this.articleService.query(condition).subscribe(res => {
+          this.articles = res.json().content
+          this.currentTag = tagId;
+        });
     }
 
     navToDetail(article) {

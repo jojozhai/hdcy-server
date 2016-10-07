@@ -1,25 +1,41 @@
 /**
  * Created by zhailiang on 16/9/24.
  */
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
+import {Input} from "@angular/core/src/metadata/directives";
+import {ListComponent} from "../shared/component/list.component";
+import {CommentService} from "./comment.service";
 
 @Component({
-    selector: 'comment-list',
-    templateUrl: './comment-list.component.html',
-    styleUrls: ['./comment-list.component.css']
+  selector: 'comment-list',
+  templateUrl: './comment-list.component.html',
+  styleUrls: ['./comment-list.component.css']
 })
-export class CommentListComponent implements OnInit {
+export class CommentListComponent extends ListComponent implements OnChanges {
 
-    private target: string;
+  private comments:Array<any>;
 
-    private targetId: number;
+  private count:number;
 
-    constructor(route: ActivatedRoute) {
-        this.target = route.snapshot.queryParams['target'];
-        this.targetId = route.snapshot.queryParams['targetId'];
+  ngOnChanges(): void {
+    if (this.target && this.targetId) {
+      this.commentService.query(this.buildCondition({target: this.target, targetId: this.targetId})).subscribe(res => {
+        let result = res.json();
+        this.comments = result.content;
+        this.count = result.totalElements;
+      })
     }
+  }
 
-    ngOnInit() { }
+  @Input()
+  private target: string;
+
+  @Input()
+  private targetId: number;
+
+  constructor(route: ActivatedRoute, private commentService: CommentService) {
+    super(route);
+  }
 
 }

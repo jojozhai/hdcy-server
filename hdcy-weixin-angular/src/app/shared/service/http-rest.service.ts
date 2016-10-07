@@ -36,9 +36,11 @@ export class HttpRestService {
     create(info: any, callbackFn?, errorHandler?):void {
         this.http.post(HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(
             res => {
+              console.log(res);
                 this.callbackOnSuccess(res, callbackFn);
             },
             err => {
+              console.log(err);
                 this.handleException(err, errorHandler);
             }
         );

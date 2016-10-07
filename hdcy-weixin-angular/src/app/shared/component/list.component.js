@@ -23,7 +23,7 @@ var ListComponent = (function () {
             page = 0;
         }
         if (!sort) {
-            sort = 'created,desc';
+            sort = 'createdTime,desc';
         }
         this.pageInfo = {
             size: size,

@@ -11,7 +11,7 @@ export class AppComponent {
 
   showFooter: boolean = false;
 
-  private showNavPaths: Array<string> = ['/video','/participation','/article','/my'];
+  private showNavPaths: Array<string> = ['/video','/article','/participation','/leader','/my'];
 
   constructor(private router: Router) {
     this.router.events

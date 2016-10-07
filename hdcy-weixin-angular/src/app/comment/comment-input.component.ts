@@ -1,59 +1,48 @@
 /**
  * Created by zhailiang on 16/9/24.
  */
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {CommentService} from "./comment.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-    selector: 'comment-input',
-    templateUrl: './comment-input.component.html',
-    styleUrls: ['./comment-input.component.css']
+  selector: 'comment-input',
+  templateUrl: './comment-input.component.html',
+  styleUrls: ['./comment-input.component.css']
 })
 export class CommentInputComponent implements OnInit {
 
-    comment: string = '说点啥呗' ;
+  private defaultContent:string = '写点什么吧......';
 
-    commentCount: number = 0;
+  comment: string = this.defaultContent;
 
-    @Input() target: string;
+  target: string;
 
-    @Input() targetId: number;
+  targetId: number;
 
-    @Input() showCount: string = "block";
+  constructor(route: ActivatedRoute, private commentService: CommentService) {
+    this.target = route.snapshot.queryParams['target'];
+    this.targetId = route.snapshot.queryParams['targetId'];
+  }
 
-    inputDivDisplay: string = 'none';
+  ngOnInit() {
 
-    constructor(private commentService: CommentService) { }
+  }
 
-    ngOnInit() {
+  saveComment() {
+    this.commentService.create({
+      target: this.target,
+      targetId: this.targetId,
+      content: this.comment
+    }, () => {
+      this.comment = this.defaultContent;
+    });
+  }
 
+  cleanComment() {
+    if (this.comment == this.defaultContent) {
+      this.comment = '';
     }
+  }
 
-    displayInput(show:boolean) {
-        this.inputDivDisplay = show?'block':'none';
-    }
-
-    saveComment() {
-        this.commentService.create({
-            target: this.target,
-            targetId: this.targetId,
-            content: this.comment
-        }, () => {
-            this.comment = '说点啥呗';
-            this.commentCount = this.commentCount + 1;
-            this.displayInput(false);
-        });
-    }
-
-    checkComment(focus: boolean) {
-        if(focus) {
-            if(this.comment == '说点啥呗') {
-                this.comment = '';
-            }
-        }else{
-            if(this.comment == '') {
-                this.comment = '说点啥呗';
-            }
-        }
-    }
 }
