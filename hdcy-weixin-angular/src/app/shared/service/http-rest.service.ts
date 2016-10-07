@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Observable} from "rxjs";
 
-export interface PageInfo {
+export class PageInfo {
 
     page: number;
     size: number;
@@ -14,7 +14,6 @@ export interface PageInfo {
 }
 
 export let HTTP_PROFIX:string = "http://127.0.0.1:8181/app2/";
-
 
 @Injectable()
 export class HttpRestService {

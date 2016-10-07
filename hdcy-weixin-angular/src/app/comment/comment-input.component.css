@@ -1,0 +1,122 @@
+.comment {
+    height: 43px;
+    border-top: 1px solid #aeaeae;
+    background: #f6f6f6;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 8px 8px 0px;
+    display: flex;
+}
+
+.comment-num {
+    float: right;
+    width: 80px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.comment-num a {
+    color: #fd7400;
+    font-size: 12px;
+}
+
+.comment-num a i {
+    background: url(../../images/ico-03.png) no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    width: 23px;
+    height: 18px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+
+.comment-cnt {
+    position: relative;
+    flex: 1;
+}
+
+.comment-cnt input {
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    height: 28px;
+    border-radius: 5px;
+    padding: 0px 10px 0px 23px;
+    font-size: 12px;
+    background: transparent;
+}
+
+.comment-cnt i {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background: url(../../images/ico-02.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 5px;
+    top: 9px;
+}
+
+.commentLayer {
+    display: none;
+}
+
+.commentLayer-cnt {
+    background: #efefef;
+    padding: 14px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 201;
+    width: 100%;
+}
+
+.commentLayer-title {
+    position: relative;
+}
+
+.commentLayer-title h2 {
+    font-size: 15px;
+    color: #000;
+    font-weight: normal;
+    text-align: center;
+}
+
+.comment-qx {
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    font-size: 13px;
+    color: #000;
+}
+
+.comment-fs {
+    position: absolute;
+    right: 0px;
+    top: 2px;
+    color: #a8a8a8;
+    font-size: 13px;
+}
+
+.commentArea {
+    height: 100px;
+    background: #FFFFFF;
+    border: 1px solid #bebebe;
+    resize: none;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+}
+.commentOk {
+    color: #000;
+}
+.commentfix {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 199;
+    background: rgba(0, 0, 0, 0.3);
+}

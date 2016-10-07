@@ -1,0 +1,25 @@
+<header>
+    <h3>
+        <a routerLink="/article" class="back"></a>
+        <span>资讯详情</span>
+        <a href="#" class="message"></a>
+        <a href="#" class="share"></a>
+    </h3>
+</header>
+<div class="cnts">
+  <div class="Detail-up">
+    <h1 class="article-title">{{article.title}}</h1>
+    <div class="detail-tag">
+      <span class="detail-tag1">{{article.tagName}}</span>
+      <span>{{article.createdTime | date:'yyyy-MM-dd'}}</span>
+      <span>{{article.principal}}</span>
+    </div>
+  </div>
+  <div class="detail-Img">
+    <img [src]="article.image" alt="" />
+  </div>
+  <div class="Detail-down">
+    <div class="artiDetail-con" [innerHTML]="article.content"></div>
+  </div>
+</div>
+<comment-list></comment-list>

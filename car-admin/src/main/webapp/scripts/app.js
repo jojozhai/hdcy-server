@@ -13,7 +13,7 @@ angular.module(
 		[ 'admin',
 		// 'voteAdminModule',
 		'lotteryAdminModule', 'userAdminModule', 'buttonAdminModule','weixinReplyAdminModule','paramAdminModule',
-				'tagAdminModule', 'activityAdminModule', 'votingAdminModule',
+				'tagAdminModule', 'activityAdminModule', 'votingAdminModule', 'signtempAdminModule',
 				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule',
 				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule',
 				'commentAdminModule', 'videoAdminModule','sponsorAdminModule','yr' ])

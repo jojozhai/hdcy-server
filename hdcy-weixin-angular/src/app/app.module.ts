@@ -4,15 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {HdcyWeixinAngularRoutingModule} from "./app-routing.module";
+import VideoModule from "./video/video.module";
+import ArticleModule from "./article/article.module";
+import ParticipationModule from "./participation/participation.module";
+import LeaderModule from "./leader/leader.module";
+import MyModule from "./my/my.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    //框架模块
+    BrowserModule, FormsModule, HttpModule,
+    //路由模块
+    HdcyWeixinAngularRoutingModule,
+    //业务模块
+    VideoModule, ArticleModule, ParticipationModule, LeaderModule, MyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
