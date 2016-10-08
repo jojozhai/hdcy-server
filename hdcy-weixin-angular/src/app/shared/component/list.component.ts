@@ -45,9 +45,17 @@ export class ListComponent {
         if(!condition) {
             condition = {};
         }
-        condition.page = this.pageInfo.page;
-        condition.size = this.pageInfo.size;
-        condition.sort = this.pageInfo.sort;
+        if(!condition.page){
+          condition.page = this.pageInfo.page;
+        }
+
+        if(!condition.size){
+          condition.size = this.pageInfo.size;
+        }
+
+        if(!condition.sort){
+          condition.sort = this.pageInfo.sort;
+        }
         return condition;
     }
 

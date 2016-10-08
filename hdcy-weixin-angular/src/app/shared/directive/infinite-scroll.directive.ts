@@ -15,6 +15,8 @@ export class InfiniteScrollDirective {
 
     @Input() pageInfo: PageInfo;
 
+    @Input() condition: any = {};
+
     private loading: boolean = false;
 
     private max: number = 0;
@@ -32,7 +34,12 @@ export class InfiniteScrollDirective {
             this.max = scrollHeight + 100;
             this.loading = true;
             this.pageInfo.page = this.pageInfo.page + 1;
-            this.dataService.query(this.pageInfo).subscribe(res => {
+            this.condition.page = this.pageInfo.page;
+            this.condition.size = this.pageInfo.size;
+            if(!this.condition.sort){
+                this.condition.sort= this.pageInfo.sort;
+            }
+            this.dataService.query(this.condition).subscribe(res => {
                 for(let item of res.json().content){
                     this.dataList.push(item);
                 }

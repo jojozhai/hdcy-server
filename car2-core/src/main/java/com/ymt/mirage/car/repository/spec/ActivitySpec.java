@@ -21,6 +21,8 @@ public class ActivitySpec extends PzSimpleSpecification<Activity, ActivityInfo> 
 	@Override
 	protected void addCondition(QueryWraper<Activity> queryWraper) {
 		addLikeCondition(queryWraper, "name");
+		addEqualsCondition(queryWraper, "finish");
+		addEqualsCondition(queryWraper, "top");
 	}
 
 }

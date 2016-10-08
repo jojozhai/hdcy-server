@@ -10,6 +10,7 @@ import ArticleModule from "./article/article.module";
 import ParticipationModule from "./participation/participation.module";
 import LeaderModule from "./leader/leader.module";
 import MyModule from "./my/my.module";
+import ActivityModule from "./activity/activity.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import MyModule from "./my/my.module";
     //路由模块
     HdcyWeixinAngularRoutingModule,
     //业务模块
-    VideoModule, ArticleModule, ParticipationModule, LeaderModule, MyModule
+    VideoModule, ArticleModule, ActivityModule, LeaderModule, MyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

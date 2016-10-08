@@ -64,7 +64,7 @@ public class ParticipationInfo {
 	/**
 	 * 
 	 */
-	private boolean finish;
+	private Boolean finish;
 	/**
      * 
      */
@@ -322,21 +322,6 @@ public class ParticipationInfo {
 	}
 
 	/**
-	 * @return the finish
-	 */
-	public boolean isFinish() {
-		return finish;
-	}
-
-	/**
-	 * @param finish
-	 *            the finish to set
-	 */
-	public void setFinish(boolean finish) {
-		this.finish = finish;
-	}
-
-	/**
 	 * @return the sortType
 	 */
 	public String getSortType() {
@@ -478,6 +463,20 @@ public class ParticipationInfo {
      */
     public void setHotplus(int hotplus) {
         this.hotplus = hotplus;
+    }
+
+    /**
+     * @return the finish
+     */
+    public Boolean getFinish() {
+        return finish;
+    }
+
+    /**
+     * @param finish the finish to set
+     */
+    public void setFinish(Boolean finish) {
+        this.finish = finish;
     }
 
 
