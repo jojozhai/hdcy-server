@@ -172,7 +172,25 @@ body{background:#FFFFFF;font-size:14px;color:#333333;font-family:Arial,"微软�
 .menu-icon-cluster{background-position:left -640px;}/* 聚类分析 */
 
 
+.datepicker{
+	display: none;
+	/*width: 215px;
+	height:224px;*/
+	background-color: white;
+	position: absolute;
+	border: 1px solid #3c3c3c;
+	}
+.datepicker td, .datepicker th {
+	display:inline-block;
+	width:25px;
+}
 
+.table-condensed {
+	text-align:center;	
+}
+.lives {
+display:none;
+}
 /* 输入框 */
 .input-text{background:white;border:1px solid #AAAAAA;height:23px;line-height:23px;color:#666666;padding:0 5px;border-radius:1px;box-shadow:2px 2px 3px rgba(0, 0, 0, .1) inset;}
 .input-text1{background:white;border:1px solid #AAAAAA;height:25px;line-height:25px;color:#666666;padding:0 5px;width:330px;border-radius:1px;box-shadow:2px 2px 3px rgba(0, 0, 0, .1) inset;}
