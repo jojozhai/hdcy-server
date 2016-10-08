@@ -41,6 +41,11 @@
 			<artifactId>car2-core</artifactId>
 			<version>${mirage.car.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>com.ymt.mirage</groupId>
+            <artifactId>mirage-umeditor</artifactId>
+            <version>${mirage.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
