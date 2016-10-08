@@ -2,44 +2,16 @@
 
 <carousel [images]="topActivities"></carousel>
 
-<div>未结束</div>
-
 <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
-<div *ngFor="let activity of workingActivities">
-  <div>
-    <img [src]="activity.image">
+
+  <div>未结束</div>
+  <div *ngFor="let activity of workingActivities">
+    <activity-list-item [activity]="activity"></activity-list-item>
   </div>
-  <div>
-    名称:{{activity.name}}
-  </div>
-  <div>
-    地址:{{activity.address}}
-  </div>
-  <div>
-    活动开始时间:{{activity.startTime | date:'yyyy-MM-dd'}}
-  </div>
-  <div>
-    报名截止时间:{{activity.signEndTime | date:'yyyy-MM-dd'}}
-  </div>
-</div>
 
   <div>已结束</div>
 
   <div *ngFor="let activity of finishActivities">
-    <div>
-      <img [src]="activity.image">
-    </div>
-    <div>
-      名称:{{activity.name}}
-    </div>
-    <div>
-      地址:{{activity.address}}
-    </div>
-    <div>
-      活动开始时间:{{activity.startTime | date:'yyyy-MM-dd'}}
-    </div>
-    <div>
-      报名截止时间:{{activity.signEndTime | date:'yyyy-MM-dd'}}
-    </div>
+    <activity-list-item [activity]="activity"></activity-list-item>
   </div>
 </div>
