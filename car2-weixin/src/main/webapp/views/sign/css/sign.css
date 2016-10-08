@@ -1,0 +1,63 @@
+.login-box {
+    width: 375px;
+    margin: 0 auto;
+    padding: 5px 20px 0;
+}
+.login-box li {
+    width: 350px;
+    margin: 0 auto;
+    height:40px;
+    margin-bottom: 15px;
+    list-style-type: none;
+}
+.login-box input {
+    text-indent: 5px;
+}
+.signs {
+    display: inline-block;
+    border: 1px solid black;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+.login-item {
+    height: 30px;
+    width: 200px;
+}
+.invite {
+    width: 185px;
+}
+.login-sign {
+    text-align: center;
+}
+.lives {
+    display: none;
+}
+.stay {
+    line-height: 40px;
+}
+.full {
+    display: none;
+    font-size: 11px;
+    color: red;
+}
+.datepicker {
+    display: none;
+    width: 215px;
+    height:224px;
+    background-color: white;
+    position: absolute;
+    border: 1px solid #3c3c3c;
+}
+#dpd1,#dpd2 {
+    height:30px;
+    width: 168px;
+}
+.tel-true {
+    display: none;
+    margin-top: 5px;
+    font-size: 11px;
+    color: red;
+}
