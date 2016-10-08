@@ -1,78 +1,158 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
-        <link rel="stylesheet" href="css/datepicker.css" media="screen" title="no title">
-        <link rel="stylesheet" href="css/sign.css" media="screen" title="no title">
-        <title></title>
-        <style media="screen">
-            * {
-                margin: 0;
-                padding: 0;
-            }
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="resources/style/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="resources/style/datepicker.css" media="screen" title="no title">
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/jquery.i18n.properties-1.0.9.js" ></script>
+<script type="text/javascript" src="resources/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="resources/js/jquery.validate.js"></script>
+<script type="text/javascript" src="resources/js/md5.js"></script>
+<script type="text/javascript" src="resources/js/page_regist.js?lang=zh"></script>
+<style media="screen">
+	.datepicker{
+    display: none;
+    width: 215px;
+    height:224px;
+    background-color: white;
+    position: absolute;
+    border: 1px solid #3c3c3c;
+}
+.datepicker td, .datepicker th {
+	display:inline-block;
+	width:25px;
+}
 
-        </style>
-    </head>
-    <body>
-        <ul class="login-box">
-            <li>
-                <label for="">姓名:</label>
-                <input class="login-item sign-name" type="text" name="name" value="">
-                <span class="full">姓名不能为空</span>
-            </li>
-            <li>
-                <label for="">单位:</label>
-                <input  class="login-item sign-danwei" type="text" name="name" value="">
-                <span class="full">单位不能为空</span>
-            </li>
-            <li>
-                <label for="">职位:</label>
-                <input  class="login-item sign-zhiwei" type="text" name="name" value="">
-            </li>
-            <li>
-                <label for="">电话:</label>
-                <input  class="login-item sign-tel" type="tel" name="name" value="">
-                <div class="tel-true">请输入正确的手机号</div>
-            </li>
-            <li class="stay">
-                <label for="">是否安排住宿:</label>
-                <input class="plan" type="radio" name="name" value="" >是
-                <input class=plan1 type="radio" name="name" value="" checked="true">否
-            </li>
-            <div class="lives">
-                <li class="">
-                    <label for="">入住时间:</label>
-                    <input id=dpd1 type="text" name="name" value="">
+.table-condensed {
+	text-align:center;
+	width: 215px;
+}
+.lives {
+	display:none;
+}
+.full {
+	display:none;
+	position: absolute;
+    right: 8%;
+	color:red;
+    top: 13px;
+    height: 35px;
+	font-size:11px;
+    line-height: 35px;
+}
 
-                </li>
-                <li>
-                    <label for="">离开时间:</label>
-                    <input id=dpd2 type="text" name="name" value="">
-                </li>
-            </div>
+</style>
 
-            <li>
-                <label for="">邀请人:</label>
-                <input  class="login-item invite" type="text" name="name" value="">
-            </li>
-            <li>
-                <label for="">拟参加论坛:</label>
-                <input type="checkbox" name="luntan" value="A">A
-                <input type="checkbox" name="luntan" value="B">B
-                <input type="checkbox" name="luntan" value="C">C
-                <input type="checkbox" name="luntan" value="D">D
-            </li>
-            <li class="login-sign">
-                <span class="signs">报名</span>
-            </li>
+</head>
+<body class="loginbody">
+<div class="dataEye">
+	<div class="loginbox registbox">
 
-        </ul>
+		<div class="login-content reg-content">
+			<div class="loginbox-title">
+				<h3>报名</h3>
+			</div>
+			<form id="signupForm">
+			<div class="login-error"></div>
+			<div class="row">
+				<label class="field" for="names">姓名</label>
+				<input type="text" value="" class="input-text-user noPic input-click" name="names" id="names">
+				<label for="" class="full">姓名不能为空</label>
+			</div>
+			<div class="row">
+				<label class="field" for="company">单位</label>
+				<input type="text" value="" class="input-text-user noPic input-click" name="company" id="company">
+			</div>
+			<div class="row">
+				<label class="field" for="zhiwei">职位</label>
+				<input type="text" value="" class="input-text-user noPic input-click" name="zhiwei" id="zhiwei">
+			</div>
+			<div class="row">
+				<label class="field" for="tel">电话</label>
+				<input type="text" value="" class="input-text-user noPic input-click" name="tel" id="tel">
+			</div>
+			<div class="row ">
+				<div class="fields">
+					<label class="" for="stay">是否安排住宿:</label>
+					<input type="radio" value="是"  name="stay" id="YES">
+					<label for="YES">是</label>
+					<input type="radio" value="否"  name="stay" id="NO" checked="true">
+					<label for="NO" >否</label>
+				</div>
+			</div>
+			<div class="lives">
+				<div class="row">
+					<label class="field" for="">入住时间</label>
+					<input type="text" value="" class="input-text-user noPic input-click" name="" id="dpd1">
+				</div>
+				<div class="row">
+					<label class="field" for="">离开时间</label>
+					<input type="text" value="" class="input-text-user noPic input-click" name="" id="dpd2">
+				</div>
+			</div>
+			<div class="row">
+				<label class="field" for="contact">邀请人</label>
+				<input type="text" value="" class="input-text-user noPic input-click" name="contact" id="contact">
+			</div>
+			<div class="row">
+				<div class="fields">
+					<label  for="contact">拟参加论坛:</label>
+					<input type="checkBox" value="A"  name="luntan" id="luntan1">
+					<label for="luntan1">A</label>
+					<input type="checkBox" value="B"  name="luntan" id="luntan2">
+					<label for="luntan2">B</label>
+					<input type="checkBox" value="C"  name="luntan" id="luntan3">
+					<label for="luntan3">C</label>
+					<input type="checkBox" value="D"  name="luntan" id="luntan4">
+					<label for="luntan4">D</label>
+				</div>
+			</div>
 
-    </body>
-    <script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
-    <script src="js/bootstrap-datepicker.js" charset="utf-8"></script>
-    <script src="js/sign.js" charset="utf-8"></script>
+			<div class="row btnArea">
+				<a class="login-btn" id="submit">报名</a>
+			</div>
+			</form>
+		</div>
+	</div>
 
-<html>
+
+</div>
+<div class="loading">
+	<div class="mask">
+		<div class="loading-img">
+		<img src="resources/images/loading.gif" width="31" height="31">
+		</div>
+	</div>
+</div>
+</body>
+<script src="resources/js/bootstrap-datepicker.js" charset="utf-8"></script>
+<script type="text/javascript">
+	var nowTemp = new Date();
+	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+	var checkin = $('#dpd1').datepicker({
+	onRender: function(date) {
+	return date.valueOf() < now.valueOf() ? 'disabled' : '';
+	}
+	}).on('changeDate', function(ev) {
+	if (ev.date.valueOf() > checkout.date.valueOf()) {
+	var newDate = new Date(ev.date)
+	newDate.setDate(newDate.getDate() + 1);
+	checkout.setValue(newDate);
+	}
+	checkin.hide();
+	$('#dpd2')[0].focus();
+	}).data('datepicker');
+	var checkout = $('#dpd2').datepicker({
+	onRender: function(date) {
+	return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+	}
+	}).on('changeDate', function(ev) {
+	checkout.hide();
+	}).data('datepicker');
+
+</script>
+</html>
