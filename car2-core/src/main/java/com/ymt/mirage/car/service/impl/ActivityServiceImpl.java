@@ -92,6 +92,12 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		ActivityInfo info = new ActivityInfo();
 		BeanUtils.copyProperties(activity, info);
 		activity.setHot(activity.getHot() + 1);
+		
+		if(activity.getSponsor() != null) {
+		    info.setSponsorName(activity.getSponsor().getName());
+	        info.setSponsorImage(activity.getSponsor().getImage());
+		}
+		
 		return info;
 	}
 

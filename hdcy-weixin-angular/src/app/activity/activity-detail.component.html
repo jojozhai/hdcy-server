@@ -1,1 +1,8 @@
-<div>haha</div>
+<div>活动详情</div>
+<div>活动名称:{{activity.name}}</div>
+<div [innerHtml]="activity.desc"></div>
+<div *ngFor="let image of activity.images">
+  <img [src]="image">
+</div>
+<div>参与人数{{activity.hot}}</div>
+<div>主办方:{{activity.sponsorName}}</div>
