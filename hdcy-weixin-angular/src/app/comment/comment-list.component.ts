@@ -10,7 +10,7 @@ import {CommentService} from "./comment.service";
 @Component({
   selector: 'comment-list',
   templateUrl: './comment-list.component.html',
-  styleUrls: ['./comment-list.component.css']
+  styleUrls: ['./comment.css']
 })
 export class CommentListComponent extends ListComponent implements OnChanges {
 
@@ -18,21 +18,28 @@ export class CommentListComponent extends ListComponent implements OnChanges {
 
   private count:number;
 
+  @Input() private target: string;
+
+  @Input() private targetId: number;
+
+  @Input() private size: number = 5;
+
+  @Input() private withReply: string = 'false';
+
   ngOnChanges(): void {
     if (this.target && this.targetId) {
-      this.commentService.query(this.buildCondition({target: this.target, targetId: this.targetId})).subscribe(res => {
+      this.commentService.query(this.buildCondition({
+        target: this.target,
+        targetId: this.targetId,
+        size: this.size,
+        withReply: this.withReply
+      })).subscribe(res => {
         let result = res.json();
         this.comments = result.content;
         this.count = result.totalElements;
       })
     }
   }
-
-  @Input()
-  private target: string;
-
-  @Input()
-  private targetId: number;
 
   constructor(route: ActivatedRoute, private commentService: CommentService) {
     super(route);

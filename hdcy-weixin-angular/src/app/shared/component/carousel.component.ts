@@ -21,6 +21,8 @@ export class CarouselComponent implements OnInit, OnChanges {
 
   @Input() images: Array<any>;
 
+  @Input() target:string = "";
+
   constructor(private sanitizer: DomSanitizer) {
   }
 
@@ -43,7 +45,6 @@ export class CarouselComponent implements OnInit, OnChanges {
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>`
-
   }
 
   private getCarouselIndicators() {
@@ -61,11 +62,11 @@ export class CarouselComponent implements OnInit, OnChanges {
   private getCarouselInner() {
     let result: string = "";
     this.images.forEach((image, index) => {
+      let active = "";
       if (index == 0) {
-        result = result + `<div class="item active"><img class="slide-image" src="${image.image}" alt=""></div>`;
-      } else {
-        result = result + `<div class="item"><img class="slide-image" src="${image.image}" alt=""></div>`;
+        active = "active";
       }
+      result = result + `<div class="item ${active}"><a (click)="alert(1)"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
     })
     return result;
   }

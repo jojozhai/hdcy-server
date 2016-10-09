@@ -1,1 +1,13 @@
 <div>视频列表</div>
+<carousel [images]="topVideos" target="video"></carousel>
+
+<div>
+  <div *ngFor="let video of videos" [routerLink]="['/video', video.id]">
+    <div>
+      <img [src]="video.image">
+    </div>
+    <div>
+      {{video.name}}
+    </div>
+  </div>
+</div>

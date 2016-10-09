@@ -1,0 +1,37 @@
+<div class="commmentList-le fl">
+  <img [src]="comment.createrHeadimgurl" alt="" width="100px" height="100px"/>
+</div>
+<div class="commmentList-ri fl">
+  <div class="commmentList-up clear ">
+    <div class="fl">
+      <span class="nickname">{{comment.createrName}}</span><br/>
+      <time class="time">{{comment.createdTime | date:'MM-dd'}}</time>
+    </div>
+    <div class="thumbs-count fl">
+      <span class="thumbs"></span>
+      <span>{{comment.praiseCount}}</span>
+    </div>
+  </div>
+  <div class="commmentList-con">
+    {{comment.content}}
+  </div>
+</div>
+
+<div>
+  <div *ngFor="let reply of comment.replys">
+    <div class="commmentList-le fl">
+      <img [src]="reply.createrHeadimgurl" alt="" width="100px" height="100px"/>
+    </div>
+    <div class="commmentList-ri fl">
+      <div class="commmentList-up clear ">
+        <div class="fl">
+          <span class="nickname">{{reply.createrName}}</span><br/>
+          <time class="time">{{reply.createdTime | date:'MM-dd'}}</time>
+        </div>
+      </div>
+      <div class="commmentList-con">
+        {{reply.content}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,3 +9,10 @@
 <div>活动时间:{{activity.startTime | date:'yyyy-MM-dd'}}</div>
 <div>活动地点:{{activity.address}}</div>
 <div>活动费用:{{activity.price}}</div>
+
+<comment-list target="activity" [targetId]="activity.id" [withReply]="true"></comment-list>
+
+<div>客服</div>
+<div>
+  <a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
+</div>
