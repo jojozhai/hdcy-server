@@ -1,7 +1,9 @@
 /**
  * Created by zhailiang on 16/10/9.
  */
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {VideoService} from "./video.service";
 
 @Component({
   selector: 'video-detail',
@@ -9,10 +11,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class VideoDetailComponent implements OnInit {
 
-  constructor() {
+  video = {};
+
+  constructor(private videoService: VideoService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.videoService.get(this.route.snapshot.params['id']).subscribe(value => {
+      this.video = value;
+    });
   }
 
 }

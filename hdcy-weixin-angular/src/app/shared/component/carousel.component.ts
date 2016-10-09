@@ -66,7 +66,7 @@ export class CarouselComponent implements OnInit, OnChanges {
       if (index == 0) {
         active = "active";
       }
-      result = result + `<div class="item ${active}"><a (click)="alert(1)"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
+      result = result + `<div class="item ${active}"><a href="/${this.target}/${image.id}"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
     })
     return result;
   }

@@ -1,8 +1,9 @@
+
 .article-navs {
     width: 100%;
     height: 40px;
     overflow-x: auto;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .article-nav a {
@@ -41,18 +42,18 @@
 .contentTxt {
     background: url("./images/txt-btn.png");
     background-size: 100% 100%;
-    padding: 20px 12px;
+    padding: 20px 12px 10px;
     color: #ffffff;
+    word-wrap: break-word;
 }
 .contentTxt h2 {
     font-size: 14px;
     font-weight: normal;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     word-wrap: break-word;
     line-height: 22px;
 }
-.txt-tag {
-    font-size:12px;
+.txt-tag {    
     color: rgb(187, 187, 187);
 }
 .txt-tag span {
@@ -61,7 +62,7 @@
 .ball-activity {
     display: inline-block;
     background-color: rgb(187, 187, 187);
-    padding: 8px 15px;
+    padding: 6px 15px;
     color: #303030;
     border-radius: 20px;
 }
@@ -75,8 +76,8 @@
 
 .txt-tag .eye {
     display: inline-block;
-    width: 30px;
-    height: 16.5px;
+    width: 25px;
+    height: 13.75px;
     background: url("./images/eye.png");
     background-size: 100% 100%;
     margin-right: 0;
@@ -84,7 +85,7 @@
     top:50%;
     left:-40px;
     transform: translateY(-50%);
-
+	-webkit-transform: translateY(-50%);
 }
 
 .ads {
@@ -122,18 +123,19 @@ header h3 {
     text-align: center;
     font-size: 16px;
     position: relative;
+    line-height: 50px;
 }
 
 .back {
-    background: url("./images/back.png") no-repeat;
+    background: url("../images/back.png") no-repeat;
     left:12px;
 }
 .message {
-    background: url("./images/message.png") no-repeat;
+    background: url("../images/message.png") no-repeat;
     right:60px;
 }
 .share {
-    background: url("./images/share.png") no-repeat;
+    background: url("../images/share.png") no-repeat;
     right:12px;
 }
 .back,.message,.share {
@@ -144,24 +146,26 @@ header h3 {
     position: absolute;
     top:50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 .Detail-up {
     padding: 0 12px;
-    height:80px;
+    height:70px;
     font-family: "PingFang Bold";
 }
 .article-title {
-    font-size: 17px;
+    font-size: 17px;    
     margin:18px 0 15px;
     word-wrap: break-word;
+    font-weight: normal;
 }
 .detail-tag {
     font-size: 12px;
     color: #959595;
 }
 .detail-tag span {
-    margin-left: 12px;
+    margin-right: 12px;
 }
 .detail-tag1 {
     display: inline-block;
@@ -187,88 +191,4 @@ header h3 {
 .artiDetail-con {
     padding: 10px 12px;
     background-color: white;
-}
-.commments {
-    margin-top:10px;
-    padding: 0px 12px 10px ;
-    background-color: white;
-}
-.comment-count {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 5px 0;
-}
-.comment-count h4 {
-    padding-left: 5px;
-    font-size: 15px;
-    border-left: 3px solid #303030;
-}
-.commment-con li {
-    padding: 10px 0 13px;
-    border-bottom: 1px solid #e0e0e0;
-}
-.commmentList-le {
-    width: 35px;
-    height:35px;
-    border-radius: 50%;
-}
-.commmentList-le  img {
-    width: 100%;
-    height:100%;
-}
-.commmentList-ri {
-    width: 305px;
-    margin-left: 10px;
-}
-.commmentList-up {
-    position: relative;
-    margin-bottom: 10px;
-}
-.nickname {
-    color:#6593c5;
-    font-size: 15px;
-}
-.time {
-    display: inline-block;
-    color: #9B9B9B;
-    font-size: 11px;
-    margin-top: 8px;
-}
-.thumbs-count {
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    right: 0px;
-    font-size: 11px;
-}
-.thumbs {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    background: url("./images/thumbs.png") no-repeat;
-    background-size: 100% 100%;
-    right:30px;
-}
-.commmentList-con {
-    font-size: 17px;
-    line-height: 20px;
-}
-.mores {
-    text-align: center;
-}
-.more {
-    display: inline-block;
-    border: 1px solid #3f749b;
-    width: 90px;
-    height:30px;
-    text-align: center;
-    line-height: 30px;
-    font-size: 15px;
-    border-radius: 15px;
-    margin:10px 0;
-}
-.artiDetail-con p{
-    line-height: 20px;
 }

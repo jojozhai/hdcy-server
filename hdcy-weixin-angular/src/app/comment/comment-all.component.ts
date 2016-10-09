@@ -10,7 +10,6 @@ import {CommentService} from "./comment.service";
   selector: 'comment-all',
   templateUrl: './comment-all.component.html',
   styleUrls: ['./comment.css']
-
 })
 export class CommentAllComponent extends ListComponent implements OnInit {
 
