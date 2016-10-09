@@ -9,7 +9,7 @@ import {CommentService} from "./comment.service";
 @Component({
   selector: 'comment-all',
   templateUrl: './comment-all.component.html',
-  styleUrls: ['./comment-all.component.css']
+  styleUrls: ['./comment-list.component.css']
 
 })
 export class CommentAllComponent extends ListComponent implements OnInit {
