@@ -6,7 +6,8 @@ import {Input} from "@angular/core/src/metadata/directives";
 
 @Component({
   selector: 'activity-list-item',
-  templateUrl: './activity-list-item.component.html'
+  templateUrl: './activity-list-item.component.html',
+  styleUrls: ['./activity.module.css']
 })
 export class ActivityListItemComponent implements OnInit {
 

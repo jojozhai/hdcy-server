@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
     selector: 'article-detail',
     templateUrl: './article-detail.component.html',
-    styleUrls: ['./article.component.css']
+    styleUrls: ['./article.module.css']
 })
 export class ArticleDetailComponent implements OnInit {
 

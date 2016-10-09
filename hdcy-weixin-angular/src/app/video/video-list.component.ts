@@ -8,7 +8,8 @@ import {VideoService} from "./video.service";
 
 @Component({
   selector: 'video-list',
-  templateUrl: './video-list.component.html'
+  templateUrl: './video-list.component.html',
+  styleUrls: ['./video.module.css']
 })
 export class VideoListComponent extends ListComponent implements OnInit {
 

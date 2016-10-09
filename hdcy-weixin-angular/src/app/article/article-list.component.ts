@@ -11,7 +11,7 @@ import {TagService} from "../shared/service/tag.service";
 @Component({
     selector: 'article-list',
     templateUrl: './article-list.component.html',
-    styleUrls: ['./article.component.css']
+    styleUrls: ['./article.module.css']
 })
 export class ArticleListComponent extends ListComponent implements OnInit {
 

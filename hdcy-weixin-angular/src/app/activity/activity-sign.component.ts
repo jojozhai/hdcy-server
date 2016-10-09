@@ -7,7 +7,8 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'activity-sign',
-  templateUrl: 'activity-sign.component.html'
+  templateUrl: 'activity-sign.component.html',
+  styleUrls: ['./activity.module.css']
 })
 export class ActivitySignComponent implements OnInit {
 

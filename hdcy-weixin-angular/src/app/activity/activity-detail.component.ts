@@ -7,7 +7,8 @@ import {ActivityService} from "./activity.service";
 
 @Component({
   selector: 'activity-detail',
-  templateUrl: './activity-detail.component.html'
+  templateUrl: './activity-detail.component.html',
+  styleUrls: ['./activity.module.css']
 })
 export class ActivityDetailComponent implements OnInit {
 

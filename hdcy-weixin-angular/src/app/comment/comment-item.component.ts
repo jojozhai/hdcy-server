@@ -6,7 +6,7 @@ import {Component, OnInit, Input} from '@angular/core';
 @Component({
   selector: 'comment-item',
   templateUrl: './comment-item.component.html',
-  styleUrls: ['./comment.css']
+  styleUrls: ['./comment.module.css']
 })
 export class CommentItemComponent implements OnInit {
 

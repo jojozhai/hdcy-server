@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'comment-input',
   templateUrl: './comment-input.component.html',
-  styleUrls: ['./comment.css']
+  styleUrls: ['./comment.module.css']
 })
 export class CommentInputComponent implements OnInit {
 

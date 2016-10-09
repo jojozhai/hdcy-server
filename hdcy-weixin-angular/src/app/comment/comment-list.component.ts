@@ -10,7 +10,7 @@ import {CommentService} from "./comment.service";
 @Component({
   selector: 'comment-list',
   templateUrl: './comment-list.component.html',
-  styleUrls: ['./comment.css']
+  styleUrls: ['./comment.module.css']
 })
 export class CommentListComponent extends ListComponent implements OnChanges {
 
