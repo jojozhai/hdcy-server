@@ -23,7 +23,7 @@ export class ArticleDetailComponent implements OnInit {
     ngOnInit() {
       this.articleService.get(this.route.snapshot.params['id']).subscribe(value => {
         this.article = value;
-        //     this.tag = this.article.tagInfos[0]['name'];
+        this.tag = this.article.tagInfos[0]['name'];
       });
     }
 

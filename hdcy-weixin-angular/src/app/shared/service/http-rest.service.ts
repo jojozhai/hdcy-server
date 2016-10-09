@@ -13,8 +13,8 @@ export class PageInfo {
 
 }
 
-export let HTTP_PROFIX:string = "http://127.0.0.1:8181/app2/";
-//export let HTTP_PROFIX:string = "http://dev.haoduocheyou.com/app2/";
+//export let HTTP_PROFIX:string = "http://127.0.0.1:8181/app2/";
+export let HTTP_PROFIX:string = "http://dev.haoduocheyou.com/app2/";
 
 @Injectable()
 export class HttpRestService {
