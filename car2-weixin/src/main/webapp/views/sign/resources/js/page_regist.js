@@ -42,21 +42,31 @@ $(document).ready(function(){
 			},
 			tel: {
 				required: true,
-				digits:true
+				digits:true,
+				minlength: 11,
+				maxlength: 11,
 			},
+			contact:{
+				required: true
+			}
 
 		},
 		messages: {
 			names: {
-				required: $.i18n.prop("Form.PleaseInputName")
+				required: $.i18n.prop("请输入姓名")
 			},
 			company: {
-				required: $.i18n.prop("Form.PleaseInputCompany")
+				required: $.i18n.prop("请输入单位")
 			},
 			tel: {
-				required: $.i18n.prop("Form.PleaseInputTel"),
-				digits: $.i18n.prop("Form.IncorrectFormatTel")
+				required: $.i18n.prop("请输入电话"),
+				digits: $.i18n.prop("请输入数字"),
+				minlength: jQuery.format($.i18n.prop("电话少于11位")),
+				maxlength: jQuery.format($.i18n.prop("电话大于11位"))
 			},
+			contact:{
+				required: $.i18n.prop("请输入邀请人")
+			}
 		}
 	});
 
@@ -111,6 +121,7 @@ $(document).ready(function(){
 		if(!$("#tel").val()){
 			$(this).prev().fadeIn();
 		};
+
 	});
 	if($("#zhiwei").val()){
 		$("#zhiwei").prev().fadeOut();
@@ -146,71 +157,82 @@ $(document).ready(function(){
 		};
 	});
 	$("#YES").focus(function () {
-	    $(".lives").show()
+	    $(".lives").show();
 	})
 	$("#NO").focus(function () {
-	    $(".lives").hide()
+	    $(".lives").hide();
+		$("#dpd1").val("");
+		$("#dpd2").val("");
+		$(".comstay").show();
+		$(".comstay1").show();
+
 	})
 
 	$("#submit").on("click",function () {
 		sign(validate);
 	})
 	function sign(validate) {
-		console.log(validate.form());
-		var signName=$("#names")[0].value;
-	    var signDanwei=$("#company")[0].value;
-	    var signZhiwei=$("#zhiwei")[0].value;
-	    var tele=$("#tel")[0].value;
-	    var zhusu=false;
-	    if ($("#YES")[0].checked==true) {
-	        zhusu=true;
-	        var comTime=$("#dpd1")[0].value;
-	        var comeOut=$("#dpd2")[0].value;
-	        var timestamp1 = Date.parse(new Date(comTime))/1000;
-	        var timestamp2 = Date.parse(new Date(comeOut))/1000;
-	    }
-	    var inviter=$("#contact")[0].value;
-	    var forums=[];
-	    for (var i = 0; i < $("input[name='luntan']").length; i++) {
-	        if ($("input[name='luntan']")[i].checked==true) {
-	            forums[i]=$("input[name='luntan']")[i].value;
-	        }
+		if (validate.form()) {
+			var signName=$("#names")[0].value;
+		    var signDanwei=$("#company")[0].value;
+		    var signZhiwei=$("#zhiwei")[0].value;
+		    var tele=$("#tel")[0].value;
+		    var zhusu=false;
+		    if ($("#YES")[0].checked==true) {
+		        zhusu=true;
+		        var comTime=$("#dpd1")[0].value;
+		        var comeOut=$("#dpd2")[0].value;
+		        var timestamp1 = Date.parse(new Date(comTime))/1000;
+		        var timestamp2 = Date.parse(new Date(comeOut))/1000;
+		    }
 
-	    }
-	    var signMessage={
-	            name:signName,
-	            company:signDanwei,
-	            title:signZhiwei,
-	            mobile:tele,
-	            stay:zhusu,
-	            stayStartTime:timestamp1,
-	            stayEndTime:timestamp2,
-	            inviter:inviter,
-	            forums:forums
-	        }
+		    var inviter=$("#contact")[0].value;
+		    var forums=[];
+		    for (var i = 0; i < $("input[name='luntan']").length; i++) {
+		        if ($("input[name='luntan']")[i].checked==true) {
+		            forums[i]=$("input[name='luntan']")[i].value;
+		        }
+		    }
+		    var signMessage={
+		            name:signName,
+		            company:signDanwei,
+		            title:signZhiwei,
+		            mobile:tele,
+		            stay:zhusu,
+		            stayStartTime:timestamp1,
+		            stayEndTime:timestamp2,
+		            inviter:inviter,
+		            forums:forums
+		        }
 
-	    var signMessages=JSON.stringify(signMessage);
-	     if (signName==""||signDanwei==""||tele=="") {
-	         alert("报名失败")
-	     }else {
-	         $.ajax({
-	            type: "post",
-	            url: "../../signtemp",
-	            data: signMessages,
-	            dataType: "json",
-	            contentType: "application/json; charset=utf-8",
-				beforeSend: function(){
-					$('.loading').show();
-				},
-	            success: function (obj) {
-					$('.loading').hide();
-	                alert("报名成功")
-					for (var i = 0; i < $(".noPic").length; i++) {
-						$(".noPic").eq(i).empty();
-					}
-	            }
-	        });
-	     }
+		    var signMessages=JSON.stringify(signMessage);
+
+		     if (signName==" "||signDanwei==" "||tele==" "||forums.length==0) {
+				 alert("请完整信息")
+		     }else if ($("#YES")[0].checked==true) {
+				 if (comTime==""||comeOut=="") {
+					alert("请完整信息")
+				}else {
+					changes(signMessages);
+				}
+		     }else {
+				 changes(signMessages);
+		     }
+		}
+
+	}
+	function changes(signMessages) {
+		$.ajax({
+		   type: "post",
+		   url: "../../signtemp",
+		   data: signMessages,
+		   dataType: "json",
+		   contentType: "application/json; charset=utf-8",
+		   success: function (obj) {
+			   alert("报名成功")
+			   window.location.reload();
+		   }
+	   });
 	}
 
 	$("body").each(function(){

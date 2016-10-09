@@ -13,7 +13,7 @@
 <script type="text/javascript" src="resources/js/md5.js"></script>
 <script type="text/javascript" src="resources/js/page_regist.js?lang=zh"></script>
 <style media="screen">
-
+	
 </style>
 
 </head>
@@ -50,11 +50,11 @@
 			</div>
 			<div class="lives">
 				<div class="row">
-					<label class="field" for="">入住时间</label>
+					<label class="field comstay" for="">入住时间</label>
 					<input type="text" value="" class="input-text-user noPic input-click" name="" id="dpd1">
 				</div>
 				<div class="row">
-					<label class="field" for="">离开时间</label>
+					<label class="field comstay1" for="">离开时间</label>
 					<input type="text" value="" class="input-text-user noPic input-click" name="" id="dpd2">
 				</div>
 			</div>
@@ -62,35 +62,30 @@
 				<label class="field" for="contact">邀请人</label>
 				<input type="text" value="" class="input-text-user noPic input-click" name="contact" id="contact">
 			</div>
-			<div class="row">
+			<div class="row-luntan">
 				<div class="fields">
 					<label  for="contact">拟参加论坛:</label>
-					<input type="checkBox" value="A"  name="luntan" id="luntan1">
-					<label for="luntan1">A</label>
-					<input type="checkBox" value="B"  name="luntan" id="luntan2">
-					<label for="luntan2">B</label>
-					<input type="checkBox" value="C"  name="luntan" id="luntan3">
-					<label for="luntan3">C</label>
-					<input type="checkBox" value="D"  name="luntan" id="luntan4">
-					<label for="luntan4">D</label>
+					<input type="checkBox" value="新闻发布会"  name="luntan" id="luntan1">
+					<label for="luntan1" class="lunt">新闻发布会</label>
+					<input type="checkBox" value="北人壹创基金路演会"  name="luntan" id="luntan2">
+					<label for="luntan2" class="lunt">北人壹创基金路演会</label>
+					<input type="checkBox" value="亦创孵化器招商说明会"  name="luntan" id="luntan3">
+					<label for="luntan3" class="lunt">亦创孵化器招商说明会</label>
+					<input type="checkBox" value="拟投资项目互动活动"  name="luntan" id="luntan4">
+					<label for="luntan4" class="lunt">拟投资项目互动活动</label>
 				</div>
 			</div>
-
 			<div class="row btnArea">
 				<a class="login-btn" id="submit">报名</a>
 			</div>
+
+
 			</form>
+
 		</div>
 	</div>
+	<footer>北京好多车友网络科技有限公司技术支持</footer>
 
-
-</div>
-<div class="loading">
-	<div class="mask">
-		<div class="loading-img">
-		<img src="resources/images/loading.gif" width="31" height="31">
-		</div>
-	</div>
 </div>
 </body>
 <script src="resources/js/bootstrap-datepicker.js" charset="utf-8"></script>
@@ -109,6 +104,8 @@
 	checkout.setValue(newDate);
 	}
 	checkin.hide();
+	$(".comstay").hide();
+
 	$('#dpd2')[0].focus();
 	}).data('datepicker');
 	var checkout = $('#dpd2').datepicker({
@@ -117,6 +114,7 @@
 	}
 	}).on('changeDate', function(ev) {
 	checkout.hide();
+	$(".comstay1").hide();
 	}).data('datepicker');
 
 </script>
