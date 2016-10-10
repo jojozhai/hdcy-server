@@ -21,9 +21,9 @@ nav .fr a  {
   height:35px;
   margin:0 5px;
 }
-nav a.artnav-on{ 
+nav a.artnav-on{
   color: rgb(0, 254, 252);
-  background: url("../images/nav-on.png") no-repeat bottom center;
+  background: url("../assets/images/nav-on.png") no-repeat bottom center;
   background-size: 12px 6px;
 }
 nav .fr {
@@ -33,7 +33,7 @@ nav .fr {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: url("../images/nav-xin.png") no-repeat;
+  background: url("../assets/images/nav-xin.png") no-repeat;
   background-size: 100% 100%;
 
 }
@@ -41,6 +41,6 @@ nav .fr {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: url("../images/nav-me.png") no-repeat;
+  background: url("../assets/images/nav-me.png") no-repeat;
   background-size: 100% 100%;
 }

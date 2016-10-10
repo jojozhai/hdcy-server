@@ -13,12 +13,12 @@
     float: left;
     text-align: center;
     line-height: 40px;
-    background: url("./images/artnav.png");
+    background: url("./assets/images/artnav.png");
     background-size: 100% 100%;
     color: #8FAFCA;
 }
 .article-nav a.active{
-    background: url("./images/artnav-on.png");
+    background: url("./assets/images/artnav-on.png");
     background-size: 100% 100%;
     color: white;
 }
@@ -40,7 +40,7 @@
     height:100%;
 }
 .contentTxt {
-    background: url("./images/txt-btn.png");
+    background: url("./assets/images/txt-btn.png");
     background-size: 100% 100%;
     padding: 20px 12px 10px;
     color: #ffffff;
@@ -53,7 +53,7 @@
     word-wrap: break-word;
     line-height: 22px;
 }
-.txt-tag {    
+.txt-tag {
     color: rgb(187, 187, 187);
 }
 .txt-tag span {
@@ -78,7 +78,7 @@
     display: inline-block;
     width: 25px;
     height: 13.75px;
-    background: url("./images/eye.png");
+    background: url("./assets/images/eye.png");
     background-size: 100% 100%;
     margin-right: 0;
     position: absolute;
@@ -127,15 +127,15 @@ header h3 {
 }
 
 .back {
-    background: url("../images/back.png") no-repeat;
+    background: url("../assets/images/back.png") no-repeat;
     left:12px;
 }
 .message {
-    background: url("../images/message.png") no-repeat;
+    background: url("../assets/images/message.png") no-repeat;
     right:60px;
 }
 .share {
-    background: url("../images/share.png") no-repeat;
+    background: url("../assets/images/share.png") no-repeat;
     right:12px;
 }
 .back,.message,.share {
@@ -155,7 +155,7 @@ header h3 {
     font-family: "PingFang Bold";
 }
 .article-title {
-    font-size: 17px;    
+    font-size: 17px;
     margin:18px 0 15px;
     word-wrap: break-word;
     font-weight: normal;

@@ -4,6 +4,7 @@
 import {Injectable} from "@angular/core";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
 
 export class PageInfo {
 
@@ -16,10 +17,10 @@ export class PageInfo {
 export let HTTP_PROFIX: string = "http://127.0.0.1:8181/app2/";
 //export let HTTP_PROFIX:string = "http://dev.haoduocheyou.com/app2/";
 
+export let userToken:string;
+
 @Injectable()
 export class HttpRestService {
-
-  private user: string;
 
   constructor(protected http: Http, private domain: string) {
   }
@@ -27,7 +28,7 @@ export class HttpRestService {
   query(condition?): Observable<any> {
     return this.http.get(HTTP_PROFIX + this.domain, {
       search: this.encodeParams(condition),
-      headers: new Headers({'Authorization': this.user})
+      headers: new Headers({'Authorization': userToken})
     });
   }
 
@@ -63,7 +64,7 @@ export class HttpRestService {
 
   getBasicHeader() {
     return {
-      headers: new Headers({'Authorization': this.user})
+      headers: new Headers({'Authorization': userToken})
     }
   }
 
@@ -86,8 +87,7 @@ export class HttpRestService {
   }
 
   private login() {
-    this.http.get(HTTP_PROFIX + "weixin/oauth/app?state=test")
-      .subscribe(res => this.user = res.json().content);
+    window.location.href = environment.getLoginServicePath();
   }
 
   private encodeParams(params): URLSearchParams {

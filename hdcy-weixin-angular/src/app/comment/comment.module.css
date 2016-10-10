@@ -60,12 +60,12 @@
   display: inline-block;
   width: 15px;
   height: 15px;
-  background: url("../images/thumbs.png") no-repeat;
+  background: url("./assets/images/thumbs.png") no-repeat;
   background-size: 100% 100%;
   right:30px;
 }
 .thumbs-on {
-  background: url("../img/thumbs-on.png") no-repeat;
+  background: url("./assets/images/thumbs-on.png") no-repeat;
   background-size: 100% 100%;
 }
 .commmentList-con {

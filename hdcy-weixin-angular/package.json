@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --env=prod",
+    "start": "ng serve --env=dev",
     "buildprod": "ng build --env=prod",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
@@ -26,7 +26,8 @@
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.2"
+    "jquery": "^2.2.2",
+    "weixin-js-sdk": "1.0.7"
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.16",
