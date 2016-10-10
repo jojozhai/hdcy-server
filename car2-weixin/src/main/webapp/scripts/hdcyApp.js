@@ -529,15 +529,14 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
+        $(".messagedel-cnt").css({
+		top:"102px"
+	})
     }
     $scope.hides=function (obs) {
         $scope.obs=false;
     }
-//  var conTop=$(".messagehead h2").height()+140;	
-//	console.log($(".messagehead h2").height())
-//	$(".messagedel-cnt").css({
-//		top:conTop
-//	})
+   
 //TODO
 }).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
 	weixinService.initWx(function(){
@@ -592,6 +591,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
+        $(".cntVideoBox").css({"margin-top":"48px"})
     }
     $scope.hides=function (obs) {
         $scope.obs=false;
@@ -743,6 +743,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
+        $(".hd-Cnt").css({"margin-top":"44px"})
     }
     $scope.hides=function (obs) {
         $scope.obs=false;

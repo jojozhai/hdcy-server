@@ -54,6 +54,7 @@ textarea {
 
 .headBox {
 	height: 44px;
+	margin-bottom: 1px;
 }
 
 .head h2 {
@@ -687,11 +688,11 @@ textarea {
 	position: absolute;
 	width: 100%;
 	left: 0px;
-	top: 0px;
-	padding-top: 45px;
+	top: 0px;	
 	background: #f7f7f7;
 	padding-bottom: 46px;
 	overflow: auto;
+	margin-top: 104px;
 }
 
 .hd-box2 {
@@ -3006,7 +3007,7 @@ a.ng-scope {
 	margin: 12px 0 12px 19px;
 }
 .cntVideoBox {
-	margin-top: 48px;
+	margin-top: 107px;
 }
 .commentvideo-num {
 	float: right;
@@ -3039,12 +3040,19 @@ a.ng-scope {
 	/*color: #fd7400;*/
 	color: black;
 }
-.videoBack {
-	/*background: #fd7400;*/
-	background:#2c2c2c;
+.video-up {
+	background: white;
 	position: fixed;
     width: 100%;
     top: 0;
+    z-index:999;
+}
+.videoBack {
+	/*background: #fd7400;*/
+	background:#2c2c2c;
+	/*position: fixed;*/
+    width: 100%;
+    /*top: 0;*/
     z-index:999;
 }
 /*video end*/

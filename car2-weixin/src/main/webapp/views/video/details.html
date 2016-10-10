@@ -1,11 +1,8 @@
-<div class="videoBack">
+<div class="video-up">
+	<div class="videoBack">
   <a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
 </div>
-<div class="chat2" ng-show="obs" ng-click="hides(false)">
-    <img src="images/guanzhu.png" alt="" />
-</div>
-<div class="cntVideoBox">
-    <div class="guanzhus" ng-show="closes">
+<div class="guanzhus" ng-show="closes">
         <div class="guanzhu" >
             <div class="guanzhu-img">
                 <span class="closes" ng-click="close(false)"></span>
@@ -15,6 +12,22 @@
             <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
         </div>
     </div>
+	
+</div>
+<div class="chat2" ng-show="obs" ng-click="hides(false)">
+    <img src="images/guanzhu.png" alt="" />
+</div>
+<div class="cntVideoBox">
+    <!--<div class="guanzhus" ng-show="closes">
+        <div class="guanzhu" >
+            <div class="guanzhu-img">
+                <span class="closes" ng-click="close(false)"></span>
+                <img class="close1" src="images/close.png" alt="" />
+                <img class="logo" src="images/LOGO.png" alt="" />
+            </div>
+            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
+        </div>
+    </div>-->
 	<div class="videodel-cnt">
 	   <iframe frameborder="0" width="100%" ng-src="{{video.securityUrl}}" allowfullscreen></iframe>
 	</div>
