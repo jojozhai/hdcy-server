@@ -61,6 +61,7 @@ public class VideoServiceImpl implements VideoService {
         Video video = videoRepository.findOne(id);
         VideoInfo info = new VideoInfo();
         BeanUtils.copyProperties(video, info);
+        video.setViewCount(video.getViewCount() + 1);
         info.setCommentCount(commentRepository.findByTargetAndTargetIdAndDisable("video", id, false).size());
         return info;
     }
