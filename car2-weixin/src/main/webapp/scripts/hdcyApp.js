@@ -533,6 +533,11 @@ angular.module('hdcyApp', ['weixin',
     $scope.hides=function (obs) {
         $scope.obs=false;
     }
+//  var conTop=$(".messagehead h2").height()+140;	
+//	console.log($(".messagehead h2").height())
+//	$(".messagedel-cnt").css({
+//		top:conTop
+//	})
 //TODO
 }).controller('videoListCtrl', function($scope, $stateParams, videoRestService, commonService, tagRestService, weixinService) {
 	weixinService.initWx(function(){
