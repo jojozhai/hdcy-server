@@ -9,7 +9,7 @@
 }
 .comment-count h4 {
   padding-left: 5px;
-  font-size: 15px;
+  font-size: 14px;
   border-left: 2px solid #303030;
 }
 .commment-con li {
@@ -32,7 +32,7 @@
 }
 .commmentList-up {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .nickname {
   color:#6593c5;

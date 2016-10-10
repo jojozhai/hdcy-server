@@ -1,194 +1,241 @@
 
 .article-navs {
-    width: 100%;
-    height: 40px;
-    overflow-x: auto;
-    font-size: 15px;
+  width: 100%;
+  height: 40px;
+  overflow-x: auto;
+  font-size: 15px;
 }
 
 .article-nav a {
-    display: inline-block;
-    width: 93.75px;
-    height: 40px;
-    float: left;
-    text-align: center;
-    line-height: 40px;
-    background: url("./assets/images/artnav.png");
-    background-size: 100% 100%;
-    color: #8FAFCA;
+  display: inline-block;
+  width: 93.75px;
+  height: 40px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  background: url("./assets/images/artnav.png");
+  background-size: 100% 100%;
+  color: #8FAFCA;
 }
-.article-nav a.active{
-    background: url("./assets/images/artnav-on.png");
-    background-size: 100% 100%;
-    color: white;
+
+.article-nav a.active {
+  background: url("./assets/images/artnav-on.png");
+  background-size: 100% 100%;
+  color: white;
 }
+
 .content {
-    background: #18212d;
+  background: #18212d;
 }
+
 .content li {
-    margin-top: 8px;
+  margin-top: 8px;
 }
+
 .content li:nth-of-type(1) {
-    margin-top: 0px;
+  margin-top: 0px;
 }
+
 .contentList {
-    width: 375px;
-    height:190px;
+  width: 375px;
+  height: 190px;
 }
+
 .contentList img {
-    width: 100%;
-    height:100%;
+  width: 100%;
+  height: 100%;
 }
+
 .contentTxt {
-    background: url("./assets/images/txt-btn.png");
-    background-size: 100% 100%;
-    padding: 20px 12px 10px;
-    color: #ffffff;
-    word-wrap: break-word;
+  background: url("./assets/images/txt-btn.png");
+  background-size: 100% 100%;
+  padding: 20px 12px 10px;
+  color: #ffffff;
+  word-wrap: break-word;
 }
+
 .contentTxt h2 {
-    font-size: 14px;
-    font-weight: normal;
-    margin-bottom: 15px;
-    word-wrap: break-word;
-    line-height: 22px;
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  line-height: 22px;
 }
+
 .txt-tag {
-    color: rgb(187, 187, 187);
+  font-size: 12px;
+  color: rgb(187, 187, 187);
 }
+
 .txt-tag span {
-    margin-right: 10px;
+  margin-right: 10px;
 }
+
 .ball-activity {
-    display: inline-block;
-    background-color: rgb(187, 187, 187);
-    padding: 6px 15px;
-    color: #303030;
-    border-radius: 20px;
+  display: inline-block;
+  background-color: rgb(187, 187, 187);
+  padding: 2px 15px;
+  color: #303030;
+  border-radius: 20px;
 }
+
 .tagLeft {
-    float: left;
+  float: left;
 }
+
 .tagRight {
-    line-height: 34px;
-    position: relative;
+  line-height: 34px;
+  position: relative;
 }
 
 .txt-tag .eye {
-    display: inline-block;
-    width: 25px;
-    height: 13.75px;
-    background: url("./assets/images/eye.png");
-    background-size: 100% 100%;
-    margin-right: 0;
-    position: absolute;
-    top:50%;
-    left:-40px;
-    transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
+  display: inline-block;
+  width: 25px;
+  height: 13.75px;
+  background: url("./assets/images/eye.png");
+  background-size: 100% 100%;
+  margin-right: 0;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 
 .ads {
-    position: relative;
-    color: white;
+  position: relative;
+  color: white;
 }
+
 .adsTit {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    font-size: 20px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 20px;
 
 }
+
 .ad-tag {
-    position: absolute;
-    left:12px;
-    bottom: 34px;
+  position: absolute;
+  left: 12px;
+  bottom: 34px;
 }
+
 .ads img {
-    width: 375px;
-    height:305px;
+  width: 375px;
+  height: 305px;
 }
 
 /*资讯详情*/
 header {
-    width:100%;
-    height:50px;
-    background: black;
-    line-height: 50px;
+  width: 100%;
+  height: 48px;
+  background: black;
+  line-height: 48px;
 }
+
 header h3 {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    position: relative;
-    line-height: 50px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  line-height: 48px;
 }
 
 .back {
-    background: url("../assets/images/back.png") no-repeat;
-    left:12px;
+  background: url("../assets/images/back.png") no-repeat;
+  left: 12px;
 }
+
 .message {
-    background: url("../assets/images/message.png") no-repeat;
-    right:60px;
+  background: url("../assets/images/message.png") no-repeat;
+  right: 60px;
 }
+
 .share {
-    background: url("../assets/images/share.png") no-repeat;
-    right:12px;
+  background: url("../assets/images/share.png") no-repeat;
+  right: 12px;
 }
-.back,.message,.share {
-    display: inline-block;
-    width: 25px;
-    height:25px;
-    background-size: 100% 100%;
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+
+.back, .message, .share {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 
 .Detail-up {
-    padding: 0 12px;
-    height:70px;
-    font-family: "PingFang Bold";
+  padding: 0 12px 10px;
+  font-family: "PingFang Bold";
 }
+
 .article-title {
-    font-size: 17px;
-    margin:18px 0 15px;
-    word-wrap: break-word;
-    font-weight: normal;
+  font-size: 17px;
+  margin: 15px 0 15px;
+  word-wrap: break-word;
+  font-weight: normal;
 }
+
 .detail-tag {
-    font-size: 12px;
-    color: #959595;
+  font-size: 12px;
+  color: #959595;
 }
+
 .detail-tag span {
-    margin-right: 12px;
+  margin-right: 12px;
 }
+
 .detail-tag1 {
-    display: inline-block;
-    border: 1px solid #303030;
-    height: 16px;
-    line-height:16px;
-    text-align: center;
-    border-radius: 8px;
-    padding: 0 3px;
-    color: #303030;
+  display: inline-block;
+  border: 1px solid #303030;
+  height: 18px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 4px;
+  /*padding-bottom: 2px;*/
+  color: #303030;
 }
+
 .detail-Img {
-    width: 375px;
-    height:225px;
+  width: 375px;
+  height: 225px;
 }
+
 .detail-Img img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
 .Detail-down {
-    background-color: #f3f3f3;
+  background-color: #f3f3f3;
+  padding-bottom: 8px;
 }
+
 .artiDetail-con {
-    padding: 10px 12px;
-    background-color: white;
+  padding: 10px 12px;
+  background-color: white;
 }
+
+.artiDetail-con p {
+  line-height: 20px;
+}
+
+.comment-edit {
+  font-size: 0;
+  display: inline-block;
+  position: fixed;
+  left: 4px;
+  bottom: 80px;
+  width: 70px;
+  height: 70px;
+  background: url("../images/iconfont-button.png") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+
