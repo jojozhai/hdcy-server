@@ -35,10 +35,15 @@ $(document).ready(function(){
 	var validate = $("#signupForm").validate({
 		rules: {
 			names:{
-				required: true
+				required: true,
+				maxlength: 10,
 			},
 			company: {
-				required: true
+				required: true,
+				maxlength: 50,
+			},
+			zhiwei: {
+				maxlength: 50,
 			},
 			tel: {
 				required: true,
@@ -47,16 +52,19 @@ $(document).ready(function(){
 				maxlength: 11,
 			},
 			contact:{
-				required: true
+				required: true,
+				maxlength: 11,
 			}
 
 		},
 		messages: {
 			names: {
-				required: $.i18n.prop("请输入姓名")
+				required: $.i18n.prop("请输入姓名"),
+				maxlength: jQuery.format($.i18n.prop("姓名不能超过10位"))
 			},
 			company: {
-				required: $.i18n.prop("请输入单位")
+				required: $.i18n.prop("请输入单位"),
+				maxlength: jQuery.format($.i18n.prop("单位不能超过50位"))
 			},
 			tel: {
 				required: $.i18n.prop("请输入电话"),
@@ -64,8 +72,13 @@ $(document).ready(function(){
 				minlength: jQuery.format($.i18n.prop("电话少于11位")),
 				maxlength: jQuery.format($.i18n.prop("电话大于11位"))
 			},
+			zhiwei:{
+				maxlength: jQuery.format($.i18n.prop("职位不能超过50位"))
+			},
 			contact:{
-				required: $.i18n.prop("请输入邀请人")
+				required: $.i18n.prop("请输入邀请人"),
+				maxlength: jQuery.format($.i18n.prop("邀请人不能超过10位")),
+				
 			}
 		}
 	});
