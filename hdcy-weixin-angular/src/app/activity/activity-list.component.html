@@ -1,6 +1,6 @@
 <div>活动列表!!</div>
 
-<carousel [images]="topActivities"></carousel>
+<carousel target="activity" [images]="topActivities"></carousel>
 
 <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
 

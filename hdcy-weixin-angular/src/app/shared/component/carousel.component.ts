@@ -1,32 +1,37 @@
 /**
  * Created by zhailiang on 16/10/8.
  */
-import {Component, OnInit, OnChanges} from '@angular/core';
-import {SafeHtml, DomSanitizer} from "@angular/platform-browser";
+import {Component, OnChanges, ViewContainerRef, Compiler, OnDestroy} from "@angular/core";
 import {Input} from "@angular/core/src/metadata/directives";
+import {ViewChild} from "@angular/core/src/metadata/di";
+import {DynamicComponent} from "./dynamic.component";
 
 @Component({
   selector: 'carousel',
   templateUrl: 'carousel.component.html'
 })
-export class CarouselComponent implements OnInit, OnChanges {
+export class CarouselComponent extends DynamicComponent implements OnChanges, OnDestroy {
 
-  ngOnChanges(): void {
-    if (this.images) {
-      this.carouselHtml = this.sanitizer.bypassSecurityTrustHtml(this.getCarouselHtml());
-    }
+  @ViewChild('dynamiccompile', {read: ViewContainerRef}) private container: ViewContainerRef;
+
+  @Input() private images: Array<any>;
+
+  @Input() private target: string = "";
+
+  constructor(compiler: Compiler) {
+    super(compiler);
   }
 
-  carouselHtml: SafeHtml;
-
-  @Input() images: Array<any>;
-
-  @Input() target:string = "";
-
-  constructor(private sanitizer: DomSanitizer) {
+  protected isReady():boolean {
+    return this.images != null && this.images.length > 0;
   }
 
-  ngOnInit() {
+  protected getContentHtml() {
+    return this.getCarouselHtml();
+  }
+
+  protected targetDiv() {
+    return this.container;
   }
 
   private getCarouselHtml() {
@@ -66,7 +71,7 @@ export class CarouselComponent implements OnInit, OnChanges {
       if (index == 0) {
         active = "active";
       }
-      result = result + `<div class="item ${active}"><a href="/${this.target}/${image.id}"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
+      result = result + `<div class="item ${active}"><a [routerLink]="['/${this.target}', ${image.id}]"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
     })
     return result;
   }

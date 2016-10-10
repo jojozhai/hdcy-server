@@ -7,7 +7,6 @@ export class ListComponent {
 
     pageInfo: PageInfo;
 
-
     constructor(route: ActivatedRoute){
 
         let size:number = route.snapshot.params['size'];

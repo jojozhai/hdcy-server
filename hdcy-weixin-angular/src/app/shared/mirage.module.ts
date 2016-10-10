@@ -5,7 +5,6 @@ import {FormsModule} from "@angular/forms";
 import {TagService} from "./service/tag.service";
 import {HttpRestService} from "./service/http-rest.service";
 import {CarouselComponent} from "./component/carousel.component";
-import {LoginComponent} from "../login/login.component";
 /**
  * Created by zhailiang on 16/9/26.
  */

@@ -17,8 +17,6 @@ export class PageInfo {
 export let HTTP_PROFIX: string = "http://127.0.0.1:8181/app2/";
 //export let HTTP_PROFIX:string = "http://dev.haoduocheyou.com/app2/";
 
-export let userToken:string;
-
 @Injectable()
 export class HttpRestService {
 
@@ -26,9 +24,10 @@ export class HttpRestService {
   }
 
   query(condition?): Observable<any> {
+
     return this.http.get(HTTP_PROFIX + this.domain, {
       search: this.encodeParams(condition),
-      headers: new Headers({'Authorization': userToken})
+      headers: new Headers({'Authorization': environment.userToken})
     });
   }
 
@@ -64,7 +63,7 @@ export class HttpRestService {
 
   getBasicHeader() {
     return {
-      headers: new Headers({'Authorization': userToken})
+      headers: new Headers({'Authorization': environment.userToken})
     }
   }
 

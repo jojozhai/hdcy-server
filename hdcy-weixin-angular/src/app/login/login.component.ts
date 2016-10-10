@@ -3,6 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'login',
@@ -11,8 +12,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, router: Router) {
-    console.log("haha");
-    console.log(route.snapshot.queryParams['token']);
+    environment.userToken = route.snapshot.queryParams['token'];
+    let from = route.snapshot.queryParams['from'];
+    if (from == 'test') {
+      router.navigateByUrl("/activity");
+    } else {
+      router.navigateByUrl(from);
+    }
+
   }
 
   ngOnInit() {
