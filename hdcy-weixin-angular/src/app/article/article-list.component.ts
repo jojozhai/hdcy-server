@@ -34,7 +34,11 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (!tagId) {
       tagId = this.currentTag;
     }
-    this.articleService.query(this.buildCondition({tagId:tagId})).subscribe(res => {
+    let condition:any = {};
+    if(tagId != 0){
+      condition.tagId = tagId;
+    }
+    this.articleService.query(this.buildCondition(condition)).subscribe(res => {
       this.articles = res.json().content;
       this.currentTag = tagId;
     });
@@ -60,7 +64,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (article.linkOut && article.business) {
       window.location.href = article.outLink;
     } else {
-      this.router.navigate(['/article', article.id]);
+      this.router.navigate(['/article', article.id], {queryParams:{fromTag:this.currentTag}});
     }
   }
 

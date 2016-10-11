@@ -16,16 +16,15 @@ export class ArticleDetailComponent implements OnInit {
 
     tagName;
 
-    tagId;
+    fromTag:number;
 
     constructor(private articleService: ArticleService, private route: ActivatedRoute) {
-
+      this.fromTag = route.snapshot.queryParams['fromTag'];
     }
 
     ngOnInit() {
       this.articleService.get(this.route.snapshot.params['id']).subscribe(value => {
         this.article = value;
-        this.tagId = this.article.tagInfos[0]['id'];
         this.tagName = this.article.tagInfos[0]['name'];
       });
     }
