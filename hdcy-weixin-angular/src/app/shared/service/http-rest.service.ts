@@ -14,8 +14,6 @@ export class PageInfo {
 
 }
 
-export let HTTP_PROFIX: string = "http://127.0.0.1:8181/app2/";
-//export let HTTP_PROFIX:string = "http://dev.haoduocheyou.com/app2/";
 
 @Injectable()
 export class HttpRestService {
@@ -25,22 +23,22 @@ export class HttpRestService {
 
   query(condition?): Observable<any> {
 
-    return this.http.get(HTTP_PROFIX + this.domain, {
+    return this.http.get(environment.serviceLocation + this.domain, {
       search: this.encodeParams(condition),
       headers: new Headers({'Authorization': environment.userToken})
     });
   }
 
   getReqUrl(url: string) {
-    return HTTP_PROFIX + url;
+    return environment.serviceLocation + url;
   }
 
   get(id: number) {
-    return this.http.get(HTTP_PROFIX + this.domain + "/" + id, this.getBasicHeader()).map(res => res.json());
+    return this.http.get(environment.serviceLocation + this.domain + "/" + id, this.getBasicHeader()).map(res => res.json());
   }
 
   create(info: any, callbackFn?, errorHandler?): void {
-    this.http.post(HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(
+    this.http.post(environment.serviceLocation + this.domain, info, this.getBasicHeader()).subscribe(
       res => {
         this.callbackOnSuccess(res, callbackFn);
       },
@@ -51,7 +49,7 @@ export class HttpRestService {
   }
 
   update(info: any, callbackFn?, errorHandler?): void {
-    this.http.put(HTTP_PROFIX + this.domain, info, this.getBasicHeader()).subscribe(
+    this.http.put(environment.serviceLocation + this.domain, info, this.getBasicHeader()).subscribe(
       res => {
         this.callbackOnSuccess(res, callbackFn);
       },

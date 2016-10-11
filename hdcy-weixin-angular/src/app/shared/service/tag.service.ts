@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
-import {HTTP_PROFIX} from "./http-rest.service";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class TagService {
@@ -12,7 +12,7 @@ export class TagService {
     constructor(private http:Http) { }
 
     getChild(parentId?:number): Observable<any> {
-        let url:string = HTTP_PROFIX  + "tag/child?parentId="+(parentId?parentId:"");
+        let url:string = environment.serviceLocation  + "tag/child?parentId="+(parentId?parentId:"");
         return this.http.get(url).map(res => res.json());
     }
 

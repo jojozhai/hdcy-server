@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {TagService} from "./service/tag.service";
 import {HttpRestService} from "./service/http-rest.service";
 import {CarouselComponent} from "./component/carousel.component";
+import {PraiseService} from "./service/praise.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -12,7 +13,7 @@ import {CarouselComponent} from "./component/carousel.component";
   imports: [CommonModule],
   declarations: [InfiniteScrollDirective, CarouselComponent],
   exports: [CommonModule, FormsModule, InfiniteScrollDirective, CarouselComponent],
-  providers: [HttpRestService, TagService]
+  providers: [HttpRestService, TagService, PraiseService]
 })
 export default class MirageModule {
 

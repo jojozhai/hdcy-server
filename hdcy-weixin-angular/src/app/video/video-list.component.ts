@@ -19,7 +19,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   condition = {live: 'false'};
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService) {
+  constructor(route: ActivatedRoute, private videoService: VideoService) {
     super(route);
   }
 

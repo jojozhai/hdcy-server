@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ng serve --env=dev",
     "buildprod": "ng build --env=prod",
+    "buildtest": "ng build --env=test",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",

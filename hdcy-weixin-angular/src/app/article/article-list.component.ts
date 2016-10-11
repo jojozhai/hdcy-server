@@ -9,53 +9,59 @@ import {ListComponent} from "../shared/component/list.component";
 import {TagService} from "../shared/service/tag.service";
 
 @Component({
-    selector: 'article-list',
-    templateUrl: './article-list.component.html',
-    styleUrls: ['./article.module.css']
+  selector: 'article-list',
+  templateUrl: './article-list.component.html',
+  styleUrls: ['./article.module.css']
 })
 export class ArticleListComponent extends ListComponent implements OnInit {
 
-    articles:Array<any>;
+  articles: Array<any>;
 
-    tags: Array<any>;
+  tags: Array<any>;
 
-    currentTag:number = 0;
+  currentTag: number = 0;
 
-    constructor(
-        private articleService: ArticleService,
-        private tagService: TagService,
-        private router: Router,
-        private route: ActivatedRoute) {
-        super(route);
+  constructor(private articleService: ArticleService,
+              private tagService: TagService,
+              private router: Router,
+              route: ActivatedRoute) {
+    super(route);
 
+  }
+
+  ngOnInit() {
+    let tagId = this.getQueryParam("tagId");
+    if (!tagId) {
+      tagId = this.currentTag;
     }
+    this.articleService.query(this.buildCondition({tagId:tagId})).subscribe(res => {
+      this.articles = res.json().content;
+      this.currentTag = tagId;
+    });
+    this.tagService.getChild().subscribe(res => this.tags = res);
+  }
 
-    ngOnInit() {
-        this.articleService.query(this.pageInfo).subscribe(res => this.articles = res.json().content);
-        this.tagService.getChild().subscribe(res => this.tags = res);
-    }
+  isActive(id: number) {
+    return this.currentTag == id;
+  }
 
-    isActive(id: number) {
-      return this.currentTag == id;
+  changeTag(tagId?: number) {
+    let condition = super.buildCondition();
+    if (tagId != 0) {
+      condition.tagId = tagId;
     }
+    this.articleService.query(condition).subscribe(res => {
+      this.articles = res.json().content;
+      this.currentTag = tagId;
+    });
+  }
 
-    changeTag(tagId?: number) {
-        let condition = super.buildCondition();
-        if(tagId != 0){
-          condition.tagId = tagId;
-        }
-        this.articleService.query(condition).subscribe(res => {
-          this.articles = res.json().content
-          this.currentTag = tagId;
-        });
+  navToDetail(article) {
+    if (article.linkOut && article.business) {
+      window.location.href = article.outLink;
+    } else {
+      this.router.navigate(['/article', article.id]);
     }
-
-    navToDetail(article) {
-        if(article.linkOut && article.business){
-            window.location.href = article.outLink;
-        }else{
-            this.router.navigate(['/article', article.id]);
-        }
-    }
+  }
 
 }

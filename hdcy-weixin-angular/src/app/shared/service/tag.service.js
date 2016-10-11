@@ -19,7 +19,7 @@ var TagService = (function () {
         this.http = http;
     }
     TagService.prototype.getChild = function (parentId) {
-        var url = http_rest_service_1.HTTP_PROFIX + "tag/child?parentId=" + (parentId ? parentId : "");
+        var url = http_rest_service_1.HTTP_PROFIX + "tagName/child?parentId=" + (parentId ? parentId : "");
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     TagService = __decorate([
@@ -29,4 +29,4 @@ var TagService = (function () {
     return TagService;
 }());
 exports.TagService = TagService;
-//# sourceMappingURL=tag.service.js.map
+//# sourceMappingURL=tagName.service.js.map

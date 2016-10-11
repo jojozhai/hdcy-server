@@ -3,6 +3,10 @@
  */
 package com.ymt.mirage.hdcy.web;
 
+import java.util.Set;
+
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ymt.mirage.user.service.UserService;
+import com.ymt.pz365.framework.core.web.security.SecurityRequestConfig;
 
 /**
  * @author zhailiang
@@ -29,6 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
+    private Set<SecurityRequestConfig> securityRequestConfigs;
+	
+	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 	    auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
 	}
@@ -37,28 +45,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    http.csrf().disable() 
 	    	.httpBasic()
 	    		.and()
-	        .authorizeRequests()
-	        .antMatchers(HttpMethod.PUT, "/praise").authenticated()
-	        .antMatchers(HttpMethod.POST, 
-	        		"/comment", //发表评论
-	        		"/votingParticipator", //参与照片投票
-	        		"/votingParticipator/vote", //给照片投票
-	        		"/activityParticipator", //参与线下活动
-	        		"/contraryParticipator", //参与观点投票活动
-	        		"/leader",//申请大咖
-	        		"/lottery",//参与抽奖
-	        		"/parise"
-	        		).authenticated()
-	        .antMatchers(HttpMethod.GET, 
-	                "/praise", //获取用户赞过的东西
-	                "/user/current", 
-	                "/votingParticipator/*/vote", 
-	                "/lottery/*/permission",
-	                "/participator/member").authenticated()
+	    		.authorizeRequests()
+	            .antMatchers(HttpMethod.GET, getRequests("get")).authenticated()
+	            .antMatchers(HttpMethod.POST, getRequests("post")).authenticated()
+	            .antMatchers(HttpMethod.PUT, getRequests("put")).authenticated()
+	            .antMatchers(HttpMethod.DELETE, getRequests("delete")).authenticated()
 	        .anyRequest().permitAll()
 	        	.and()
 	        .headers().frameOptions().disable();
-	    
 	}
+	
+	private String[] getRequests(String flag) {
+        String[] result = new String[]{};
+        for (SecurityRequestConfig config : securityRequestConfigs) {
+            if(StringUtils.equals(flag, "get")) {
+                result = (String[]) ArrayUtils.addAll(result, config.getGetRequests());
+            }else if(StringUtils.equals(flag, "post")) {
+                result = (String[]) ArrayUtils.addAll(result, config.getPostRequests());
+            }else if(StringUtils.equals(flag, "put")) {
+                result = (String[]) ArrayUtils.addAll(result, config.getPutRequests());
+            }else if(StringUtils.equals(flag, "delete")) {
+                result = (String[]) ArrayUtils.addAll(result, config.getDeleteRequests());
+            }
+        }
+        return result;
+    }
 
 }
