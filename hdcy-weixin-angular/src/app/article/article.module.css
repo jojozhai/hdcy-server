@@ -9,11 +9,11 @@
   position: fixed;
   z-index: 333;
   background-color:white;
-  
+
 }
 /*.article-nav {
 	width: 100%;
-	
+
 }*/
 
 .article-nav a {
@@ -131,7 +131,7 @@
 .ad-tags {
   position: absolute;
   left: 12px;
-  bottom: 34px;  
+  bottom: 34px;
 }
 .ad-tag {
 	margin-right: 10px;
@@ -200,16 +200,4 @@
   line-height: 20px;
 }
 
-.comment-edit {
-  font-size: 0;
-  display: inline-block;
-  position: fixed;
-  left: 4px;
-  bottom: 80px;
-  width: 70px;
-  height: 70px;
-  background: url("../assets/images/iconfont-button.png") no-repeat;
-  background-size: 100% 100%;
-  border-radius: 50%;
-}
 

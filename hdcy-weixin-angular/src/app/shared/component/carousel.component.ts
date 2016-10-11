@@ -8,8 +8,8 @@ import {DynamicComponent} from "./dynamic.component";
 
 @Component({
   selector: 'carousel',
-  templateUrl: 'carousel.component.html',
-  styleUrls: ['./component.module.css']
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent extends DynamicComponent implements OnChanges, OnDestroy {
 

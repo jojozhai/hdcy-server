@@ -101,3 +101,15 @@
   background-size: 100% 100%;
   border-radius: 50%;
 }
+.comment-edit {
+  font-size: 0;
+  display: inline-block;
+  position: fixed;
+  left: 4px;
+  bottom: 80px;
+  width: 70px;
+  height: 70px;
+  background: url("../assets/images/iconfont-button.png") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
