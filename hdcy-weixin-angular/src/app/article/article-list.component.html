@@ -31,8 +31,10 @@
             <div class="ads" *ngIf="article.displayType == 'IMAGE'">
                 <img [src]="article.image" alt="" />
                 <h2 class="adsTit">{{article.title}}</h2>
-                <span *ngIf="article.top" class="ad-tag">置顶</span>
-                <span *ngIf="article.business" class="ad-tag">广告</span>
+                <div class="ad-tags">
+                	<span *ngIf="article.top" class="ad-tag">置顶</span>
+                	<span *ngIf="article.business" class="ad-tag">广告</span>                	
+                </div>
             </div>
         </li>
     </ul>

@@ -1,6 +1,110 @@
-.activitys-list img{
+.activitys-list {
+	position: relative;
+}
+.activity-img,.activity-bg{
 	width: 375px;
-	height: 225px;
+	height: 225px;	
+}
+.activity-bg {
+	position: absolute;
+	top:0;
+	left:0;
+	background: #000000;
+	opacity: 0.25;
+}
+.activitys-mes {
+	width: 100%;
+	position: absolute;
+	top:50%;	
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	text-align: center;
+	color: white;
 	
 }
-
+.activity-tit {
+	font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: bolder;
+}
+.activity-atime {
+	font-size: 14px;
+	display: inline-block;	
+	word-break: break-word;
+}
+.sponsor {
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	bottom: 7px;
+	right: 12px;
+	opacity: 0.6px;
+}
+/*活动详情*/
+.active-conmes {
+	background: #F3F3F3;
+}
+.detai-cntss,.activity-zhuban {
+	background: white;
+}
+.activity-zhuban {
+	margin: 10px 0;
+	padding: 0 12px;
+}
+.actDetail-mes {
+	padding: 0 12px;
+}
+.actDetail-tit {
+	padding: 12.5px 0;
+	text-align: center;
+	border-bottom: 1px solid rgb(155,155,155);
+	margin-bottom: 10px;
+}
+.actDetail-con {	
+	height: 108px;
+	overflow: hidden;	
+}
+.actDetail-imgs {
+	padding: 18px 0;	
+	overflow-x: auto;
+}
+.actDetail-imgsCon {	
+	width: 1000px;
+	margin-left: 12px;
+}
+.actDetail-img {
+	float: left;
+	margin-right: 8px;
+}
+.actDetail-img img{
+	width: 100px;
+	height: 80px;
+}
+.downs {
+	text-align: center;
+}
+.con-downs {
+	display: inline-block;
+	width: 22px;
+	height: 12px;
+	background: url(../../assets/images/dow.png) no-repeat;	
+	background-size: 100% 100%;	
+}
+.con-ups {
+	display: inline-block;
+	width: 22px;
+	height: 12px;
+	background: url(../../assets/images/up.png) no-repeat;
+	background-size: 100% 100%;
+}
+.zhuban-tit {
+	margin: 13px 0;
+}
+.zhuban-icon {
+	display: inline-block;
+	width: 22px;
+}
+.zhuban-icon img {
+	width: 100%;
+	height: 100%;
+}

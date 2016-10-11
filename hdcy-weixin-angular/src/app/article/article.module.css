@@ -1,10 +1,20 @@
-
+.cnts {
+	margin-top: 50px;
+}
 .article-navs {
   width: 100%;
   height: 40px;
   overflow-x: auto;
   font-size: 15px;
+  position: fixed;
+  z-index: 333;
+  background-color:white;
+  
 }
+/*.article-nav {
+	width: 100%;
+	
+}*/
 
 .article-nav a {
   display: inline-block;
@@ -26,6 +36,7 @@
 
 .content {
   background: #18212d;
+  padding-top: 40px;
 }
 
 .content li {
@@ -117,10 +128,13 @@
 
 }
 
-.ad-tag {
+.ad-tags {
   position: absolute;
   left: 12px;
-  bottom: 34px;
+  bottom: 34px;  
+}
+.ad-tag {
+	margin-right: 10px;
 }
 
 .ads img {
@@ -129,46 +143,6 @@
 }
 
 /*资讯详情*/
-header {
-  width: 100%;
-  height: 48px;
-  background: black;
-  line-height: 48px;
-}
-
-header h3 {
-  color: white;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-  line-height: 48px;
-}
-
-.back {
-  background: url("../assets/images/back.png") no-repeat;
-  left: 12px;
-}
-
-.message {
-  background: url("../assets/images/message.png") no-repeat;
-  right: 60px;
-}
-
-.share {
-  background: url("../assets/images/share.png") no-repeat;
-  right: 12px;
-}
-
-.back, .message, .share {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  background-size: 100% 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-}
 
 .Detail-up {
   padding: 0 12px 10px;
@@ -177,7 +151,7 @@ header h3 {
 
 .article-title {
   font-size: 17px;
-  margin: 15px 0 15px;
+  padding: 15px 0 15px;
   word-wrap: break-word;
   font-weight: normal;
 }
@@ -234,7 +208,7 @@ header h3 {
   bottom: 80px;
   width: 70px;
   height: 70px;
-  background: url("../images/iconfont-button.png") no-repeat;
+  background: url("../assets/images/iconfont-button.png") no-repeat;
   background-size: 100% 100%;
   border-radius: 50%;
 }
