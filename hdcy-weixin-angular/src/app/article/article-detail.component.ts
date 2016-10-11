@@ -14,7 +14,9 @@ export class ArticleDetailComponent implements OnInit {
 
     article: any = {};
 
-    tag;
+    tagName;
+
+    tagId;
 
     constructor(private articleService: ArticleService, private route: ActivatedRoute) {
 
@@ -23,7 +25,8 @@ export class ArticleDetailComponent implements OnInit {
     ngOnInit() {
       this.articleService.get(this.route.snapshot.params['id']).subscribe(value => {
         this.article = value;
-        this.tag = this.article.tagInfos[0]['name'];
+        this.tagId = this.article.tagInfos[0]['id'];
+        this.tagName = this.article.tagInfos[0]['name'];
       });
     }
 

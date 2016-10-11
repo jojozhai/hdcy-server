@@ -8,7 +8,7 @@
       <time class="time">{{comment.createdTime | date:'MM-dd'}}</time>
     </div>
     <div class="thumbs-count fl">
-      <span class="thumbs"></span>
+      <span class="thumbs" [class.thumbs-on]="comment.praised" (click)="praise(comment)"></span>
       <span>{{comment.praiseCount}}</span>
     </div>
   </div>

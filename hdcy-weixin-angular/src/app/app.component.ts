@@ -19,7 +19,11 @@ export class AppComponent {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
-        this.showFooter = this.showNavPaths.indexOf(event.url) != -1
+        let url = event.url;
+        if(url.indexOf("?") != -1){
+          url = url.substring(0, url.indexOf("?"));
+        }
+        this.showFooter = this.showNavPaths.indexOf(url) != -1
       });
 
 
