@@ -1,0 +1,13 @@
+.carousel .carousel-inner .item {
+	text-align: center;
+	color: white;
+}
+.carousel .carousel-inner > .item > a{
+	display: block;
+	width: 100%;
+}
+ .carousel .carousel-inner > .item > a > img {
+	width: 299px;
+	height: 225px;
+}
+

@@ -1,17 +1,19 @@
-<div>活动列表!!</div>
-
+<!--<div>活动列表!!</div>-->
+<div class="cnts">	
 <carousel target="activity" [images]="topActivities"></carousel>
 
 <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
 
-  <div>未结束</div>
+  <!--<div>未结束</div>-->
   <div *ngFor="let activity of workingActivities">
     <activity-list-item [activity]="activity"></activity-list-item>
   </div>
 
-  <div>已结束</div>
+  <!--<div>已结束</div>-->
 
   <div *ngFor="let activity of finishActivities">
     <activity-list-item [activity]="activity"></activity-list-item>
   </div>
+</div>
+	
 </div>

@@ -1,8 +1,11 @@
 header {
-  width:100%;
+  width:375px;
   height:50px;
   background: black;
   line-height: 50px;
+  position: fixed;
+  top:0px;
+  z-index: 333;
 }
 nav a {
   font-size: 15px;

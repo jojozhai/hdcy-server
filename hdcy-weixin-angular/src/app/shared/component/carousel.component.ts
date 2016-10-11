@@ -8,7 +8,8 @@ import {DynamicComponent} from "./dynamic.component";
 
 @Component({
   selector: 'carousel',
-  templateUrl: 'carousel.component.html'
+  templateUrl: 'carousel.component.html',
+  styleUrls: ['./component.module.css']
 })
 export class CarouselComponent extends DynamicComponent implements OnChanges, OnDestroy {
 
@@ -71,7 +72,9 @@ export class CarouselComponent extends DynamicComponent implements OnChanges, On
       if (index == 0) {
         active = "active";
       }
-      result = result + `<div class="item ${active}"><a [routerLink]="['/${this.target}', ${image.id}]"><img class="slide-image" src="${image.image}" alt=""></a>${image.name}</div>`;
+      result = result + `<div class="item ${active}"><a [routerLink]="['/${this.target}', ${image.id}]"><img class="slide-image" src="${image.image}" alt=""><div class="img-ala"></div></a>
+      <div class="slide-mes">${image.name}<div >${image.address}/${image.startTime}</div></div>
+      </div>`;
     })
     return result;
   }
