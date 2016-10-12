@@ -31,24 +31,58 @@
 			<span class="zhuban-icon fl">
 				<img src="../../assets/images/liwu.png"/>
 			</span>
-			<span class="zhuban-mes fl">
-				活动信息			
+			<div class="zhuban-mes fl">
+				<div class="clear">
+					<span class="zhuban-mes1 fl">活动信息</span>
+					<span class="zhuban-num fr">报名人数：{{activity.hot}}</span>					
+				</div>
+			</div>
+		</div>
+		<div class="zhuban">
+			<span class="zhuban-icon">
+				<img src="../../assets/images/zhuban-add.png"/>
 			</span>
-			<span class="fr">
-				报名人数：{{activity.hot}}			
+			<span id="">主办方：
+				<span class="zhuaban-name">{{activity.sponsorName}}</span>
 			</span>
 		</div>
-		<div>主办方:{{activity.sponsorName}}</div>
-		<div>活动时间:{{activity.startTime | date:'yyyy-MM-dd'}}</div>
-		<div>活动地点:{{activity.address}}</div>
-		<div>活动费用:{{activity.price}}</div>		
+		<div class="zhuban">
+			<span class="zhuban-icon">
+				<img src="../../assets/images/time.png"/>
+			</span>
+			<span id="">
+				活动时间：<span class="zhuban-item">{{activity.startTime | date:'yyyy-MM-dd'}}</span>
+			</span>
+		</div>
+		<div class="zhuban">
+			<span class="zhuban-icon">
+				<img src="../../assets/images/adds-zhu.png"/>
+			</span>
+			<span id="">
+				活动地点：<span class="zhuban-item">{{activity.address}}</span>
+			</span>
+		</div>
+		<div class="zhuban">
+			<span class="zhuban-icon">
+				<img src="../../assets/images/money.png"/>
+			</span>
+			<span id="">
+				活动费用：<span class="zhuban-item">{{activity.price}}</span>
+			</span>
+		</div>
+			
 	</div>
 
 	<comment-list target="activity" [targetId]="activity.id" [withReply]="true"></comment-list>
 
-	<div>客服</div>
-	<div>
-		<a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
+	<div class="signs clear">
+		<div class="steam fl">
+			<img  src="../../assets/images/steam.png"/>
+			<span class="steam-txt">客服</span>
+		</div>
+		<div class="sign fl">
+			<a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
+		</div>		
 	</div>
 </div>
 	
