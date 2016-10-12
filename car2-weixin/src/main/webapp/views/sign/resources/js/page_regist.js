@@ -169,10 +169,10 @@ $(document).ready(function(){
 			$(this).prev().fadeIn();
 		};
 	});
-	$("#YES").focus(function () {
+	$("#YES").click(function () {
 	    $(".lives").show();
 	})
-	$("#NO").focus(function () {
+	$("#NO").click(function () {
 	    $(".lives").hide();
 		$("#dpd1").val("");
 		$("#dpd2").val("");
