@@ -3,7 +3,7 @@
 <div class="header">
 	<h3>
       <a routerLink="/activity" class="back"></a>
-      <span>线下活动</span>        
+      <span>线下活动</span>
       <a href="#" class="share"></a>
     </h3>
 </div>
@@ -22,9 +22,9 @@
 
 	</div>
 	<div class="downs">
-		<span class="con-downs"></span>		
+		<span class="con-downs"></span>
 	</div>
-		
+
 	</div>
 	<div class="activity-zhuban">
 		<div class="zhuban-tit clear">
@@ -32,24 +32,24 @@
 				<img src="../../assets/images/liwu.png"/>
 			</span>
 			<span class="zhuban-mes fl">
-				活动信息			
+				活动信息
 			</span>
 			<span class="fr">
-				报名人数：{{activity.hot}}			
+				报名人数：{{activity.hot}}
 			</span>
 		</div>
 		<div>主办方:{{activity.sponsorName}}</div>
 		<div>活动时间:{{activity.startTime | date:'yyyy-MM-dd'}}</div>
 		<div>活动地点:{{activity.address}}</div>
-		<div>活动费用:{{activity.price}}</div>		
+		<div>活动费用:{{activity.price}}</div>
 	</div>
 
-	<comment-list target="activity" [targetId]="activity.id" [withReply]="true"></comment-list>
+	<comment-list target="activity" [targetId]="activity.id" [withReply]="true" styleType="activity"></comment-list>
 
 	<div>客服</div>
 	<div>
 		<a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
 	</div>
 </div>
-	
+
 </div>

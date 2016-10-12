@@ -21,11 +21,14 @@ export class CommentAllComponent extends ListComponent implements OnInit {
 
   private withReply: string;
 
+  private styleType: string = "default";
+
   constructor(route: ActivatedRoute, public commentService: CommentService) {
     super(route);
     this.target = route.snapshot.queryParams['target'];
     this.targetId = route.snapshot.queryParams['targetId'];
     this.withReply = route.snapshot.queryParams['withReply'];
+    this.styleType = route.snapshot.queryParams['styleType'];
   }
 
   ngOnInit() {
@@ -36,6 +39,10 @@ export class CommentAllComponent extends ListComponent implements OnInit {
     })).subscribe(res => {
       this.comments = res.json().content;
     });
+  }
+
+  isActived(styleType) {
+    return this.styleType == styleType;
   }
 
 }
