@@ -1,12 +1,12 @@
 <div class="box">
 	<div class="header">
-    <h3>
-        <a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
-        <span>资讯详情</span>
-        <a routerLink="/comment" [queryParams]="{target: 'article', targetId: article.id}" class="message"></a>
-        <a href="#" class="share"></a>
-    </h3>
-</div>
+		<h3>
+        	<a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
+        	<span>资讯详情</span>
+        	<a routerLink="/comment" [queryParams]="{target: 'article', targetId: article.id}" class="message"></a>
+        	<a href="#" class="share"></a>
+    	</h3>
+	</div>
 <div class="detai-cnts">
   <div class="Detail-up">
     <h1 class="article-title">{{article.title}}</h1>
