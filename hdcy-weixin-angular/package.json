@@ -28,7 +28,8 @@
     "zone.js": "^0.6.23",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.2",
-    "weixin-js-sdk": "1.0.7"
+    "weixin-js-sdk": "1.0.7",
+    "swiper":"2.7.6"
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.16",
