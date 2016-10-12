@@ -16,13 +16,12 @@
       "mobile": false,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/swiper/dist/idangerous.swiper.css",
+        "../node_modules/swiper/dist/css/swiper.css",
         "styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "../node_modules/swiper/dist/idangerous.swiper.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
@@ -33,7 +32,14 @@
     }
   ],
   "addons": [],
-  "packages": [],
+  "packages": [
+    {
+      "angular2-swiper": {
+        "main": "node_modules/angular2-swipe/dist/index.js",
+        "defaultExtension": "js"
+      }
+    }
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

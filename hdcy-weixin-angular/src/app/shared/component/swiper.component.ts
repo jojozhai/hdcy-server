@@ -1,20 +1,33 @@
+import {Input, Component} from "@angular/core";
+import {Router} from "@angular/router";
 /**
  * Created by zhailiang on 16/10/12.
  */
-import {Component, OnInit, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'swiper',
-  templateUrl: './swiper.component.html'
+  templateUrl: "./swiper.component.html",
+  styleUrls: ["./swiper.component.css"]
 })
-export class SwiperComponent implements OnInit {
+export class SwiperComponent {
 
-  constructor(el: ElementRef) {
-    $(el).append("<div>1</div>");
+  @Input() private images: Array<any> = [];
 
+  @Input() private target: string = "";
+
+  swiperOptions: any;
+
+  constructor(private router:Router) {
+    this.swiperOptions = {
+      loop: false,
+      autoplay: 3000,
+      pagination: '.swiper-pagination',
+      paginationClickable: true
+    };
   }
 
-  ngOnInit() {
+  nav(image) {
+    this.router.navigateByUrl("/"+this.target+"/"+image.id);
   }
 
 }
