@@ -1,6 +1,6 @@
 <!--<div>活动列表!!</div>-->
-<div class="cnts">	
-<carousel target="activity" [images]="topActivities"></carousel>
+<div class="cnts">
+<swiper target="activity" [images]="topActivities"></swiper>
 
 <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
 
@@ -15,5 +15,5 @@
     <activity-list-item [activity]="activity"></activity-list-item>
   </div>
 </div>
-	
+
 </div>

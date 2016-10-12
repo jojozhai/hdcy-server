@@ -1,5 +1,6 @@
 <div>视频列表</div>
-<carousel [images]="topVideos" target="video"></carousel>
+
+<swiper [images]="topVideos" target="video"></swiper>
 
 <div>
   <div *ngFor="let video of videos" [routerLink]="['/video', video.id]">
