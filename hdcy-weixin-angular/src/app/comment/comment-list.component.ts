@@ -14,15 +14,17 @@ import {CommentService} from "./comment.service";
 })
 export class CommentListComponent extends ListComponent implements OnChanges {
 
-  private comments:Array<any>;
+  private comments: Array<any>;
 
-  private count:number;
+  private count: number;
 
   @Input() private target: string;
 
   @Input() private targetId: number;
 
   @Input() private size: number = 5;
+
+  @Input() private styleType: string = "default";
 
   @Input() private withReply: string = 'false';
 
@@ -39,6 +41,10 @@ export class CommentListComponent extends ListComponent implements OnChanges {
         this.count = result.totalElements;
       })
     }
+  }
+
+  isActived(styleType) {
+    return this.styleType == styleType;
   }
 
   constructor(route: ActivatedRoute, private commentService: CommentService) {

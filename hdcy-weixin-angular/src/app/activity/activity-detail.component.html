@@ -3,7 +3,7 @@
 <div class="header">
 	<h3>
       <a routerLink="/activity" class="back"></a>
-      <span>线下活动</span>        
+      <span>线下活动</span>
       <a href="#" class="share"></a>
     </h3>
 </div>
@@ -22,15 +22,16 @@
 
 	</div>
 	<div class="downs">
-		<span class="con-downs"></span>		
+		<span class="con-downs"></span>
 	</div>
-		
+
 	</div>
 	<div class="activity-zhuban">
 		<div class="zhuban-tit clear">
 			<span class="zhuban-icon fl">
 				<img src="../../assets/images/liwu.png"/>
 			</span>
+
 			<div class="zhuban-mes fl">
 				<div class="clear">
 					<span class="zhuban-mes1 fl">活动信息</span>
@@ -69,11 +70,11 @@
 			<span id="">
 				活动费用：<span class="zhuban-item">{{activity.price}}</span>
 			</span>
-		</div>
-			
+		</div>			
+
 	</div>
 
-	<comment-list target="activity" [targetId]="activity.id" [withReply]="true"></comment-list>
+	<comment-list target="activity" [targetId]="activity.id" [withReply]="true" styleType="activity"></comment-list>
 
 	<div class="signs clear">
 		<div class="steam fl">
@@ -85,5 +86,5 @@
 		</div>		
 	</div>
 </div>
-	
+
 </div>

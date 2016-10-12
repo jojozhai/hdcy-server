@@ -12,7 +12,9 @@ import {environment} from "../../environments/environment";
 })
 export class CommentItemComponent implements OnInit {
 
-  @Input() comment;
+  @Input() private comment;
+
+  @Input() private styleType: string = "default";
 
   constructor(private praiseService: PraiseService) {
   }
@@ -31,4 +33,7 @@ export class CommentItemComponent implements OnInit {
     });
   }
 
+  isActived(styleType) {
+    return this.styleType == styleType;
+  }
 }
