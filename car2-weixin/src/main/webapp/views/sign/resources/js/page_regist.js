@@ -200,12 +200,12 @@ $(document).ready(function(){
 		    }
 
 		    var inviter=$("#contact")[0].value;
-		    var forums=[];
-		    for (var i = 0; i < $("input[name='luntan']").length; i++) {
-		        if ($("input[name='luntan']")[i].checked==true) {
-		            forums[i]=$("input[name='luntan']")[i].value;
-		        }
-		    }
+//		    var forums=[];
+//		    for (var i = 0; i < $("input[name='luntan']").length; i++) {
+//		        if ($("input[name='luntan']")[i].checked==true) {
+//		            forums[i]=$("input[name='luntan']")[i].value;
+//		        }
+//		    }
 		    var signMessage={
 		            name:signName,
 		            company:signDanwei,
@@ -214,13 +214,12 @@ $(document).ready(function(){
 		            stay:zhusu,
 		            stayStartTime:timestamp1,
 		            stayEndTime:timestamp2,
-		            inviter:inviter,
-		            forums:forums
+		            inviter:inviter,		           
 		        }
 
 		    var signMessages=JSON.stringify(signMessage);
 
-		     if (signName==" "||signDanwei==" "||tele==" "||forums.length==0) {
+		     if (signName==" "||signDanwei==" "||tele==" ") {
 				 alert("请完整信息")
 		     }else if ($("#YES")[0].checked==true) {
 				 if (comTime==""||comeOut=="") {

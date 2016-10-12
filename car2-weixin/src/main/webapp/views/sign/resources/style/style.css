@@ -177,10 +177,10 @@ body{background:#FFFFFF;font-size:14px;color:#333333;font-family:Arial,"微软�
 .fields {
 	width:85%;
 }
-.row-luntan {
+/* .row-luntan {
 	padding:10px 0;
 	line-height:25px;
-}
+} */
 .datepicker{
 	display: none;
 	background-color: white;
