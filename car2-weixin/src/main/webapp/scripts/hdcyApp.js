@@ -1715,7 +1715,7 @@ angular.module('hdcyApp', ['weixin',
 
 				turnplate.restaraunts = result.prizes;
 				turnplate.colors = result.colors;
-				turnplate.imgurl = ["images/cj-04.png", "images/cj-05.png", "images/cj-06.png", "images/cj-01.png","images/cj-02.png", "images/cj-03.png"];
+				turnplate.imgurl = [];
 
 				var rotateTimeOut = function (){
 					$('#wheelcanvas').rotate({
@@ -1787,7 +1787,7 @@ angular.module('hdcyApp', ['weixin',
 				 		}
 				 	});
 				});
-				turnplate.imgurl = ["images/cj-01.png","images/cj-02.png","images/cj-03.png","images/cj-04.png","images/cj-05.png","images/cj-06.png","images/cj-02.png"];
+				turnplate.imgurl = [];
 				var loaded = 0;
 				for (var i = 0; i < turnplate.imgurl.length; i++) {
 					var img = new Image();
