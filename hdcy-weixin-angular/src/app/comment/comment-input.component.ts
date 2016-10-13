@@ -3,7 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {CommentService} from "./comment.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'comment-input',
@@ -20,7 +20,7 @@ export class CommentInputComponent implements OnInit {
 
   targetId: number;
 
-  constructor(route: ActivatedRoute, private commentService: CommentService) {
+  constructor(route: ActivatedRoute, private router: Router, private commentService: CommentService) {
     this.target = route.snapshot.queryParams['target'];
     this.targetId = route.snapshot.queryParams['targetId'];
   }
@@ -37,6 +37,10 @@ export class CommentInputComponent implements OnInit {
     }, () => {
       this.comment = this.defaultContent;
     });
+  }
+
+  back(){
+    this.router.navigateByUrl("/"+this.target+"/"+this.targetId);
   }
 
   cleanComment() {

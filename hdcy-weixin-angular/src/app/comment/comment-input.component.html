@@ -1,7 +1,7 @@
-<div class="com-inputs">
+﻿<div class="com-inputs">
 	<div class="header">
 	<h3>
-        <a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
+ <a (click)="back()" class="back"></a>
         <span>写评论</span>        	
         <a class="comment-fs fr" (click)="saveComment()">发送</a>
     </h3>
@@ -16,3 +16,9 @@
 </div>
 	
 </div>
+
+       
+    </h3>
+</div>
+
+
