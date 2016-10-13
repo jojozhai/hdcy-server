@@ -20,9 +20,12 @@ export class SwiperComponent {
   constructor(private router:Router) {
     this.swiperOptions = {
       loop: false,
-      autoplay: 3000,
+//    autoplay: 3000,
       pagination: '.swiper-pagination',
-      paginationClickable: true
+      paginationClickable: true,
+      centeredSlides: true,
+      slidesPerView: 1.2,      
+      watchActiveIndex: true,
     };
   }
 

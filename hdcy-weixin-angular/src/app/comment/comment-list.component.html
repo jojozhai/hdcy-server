@@ -1,6 +1,10 @@
 <div [ngClass]="{commments: isActived('default'), xxxxx: isActived('activity')}">
   <div class="comment-count">
     <h4>评论({{count}})</h4>
+    <h5>
+    	<img class="xinxi" src="../../assets/images/xinxi.png"/>
+    	活动咨询({{count}})
+    </h5>
   </div>
   <ul class="commment-con">
     <li class="clear" *ngFor="let comment of comments">

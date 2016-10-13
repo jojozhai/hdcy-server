@@ -38,7 +38,7 @@
 	position: absolute;
 	bottom: 7px;
 	right: 12px;
-	opacity: 0.6px;
+	opacity: 0.6;
 }
 /*活动详情*/
 .active-conmes {
@@ -130,7 +130,7 @@
 	color: #9B9B9B;
 }
 .zhuban {
-	margin: 12px 0;
+	padding: 12px 0;
 	font-size: 14px;
 	color: #9B9B9B;
 }
