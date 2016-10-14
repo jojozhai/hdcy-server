@@ -1,28 +1,26 @@
 <div class="myslides">
   <ks-swiper-container [options]="swiperOptions">
     <ks-swiper-slide *ngFor="let image of images">
-
       <a (click)="nav(image)">
-      	<img class="activity-img" src="{{image.image}}">
-      	<div class="swiper-txt"></div>
-      	<img class="sponsor" src="{{image.sponsorImage}}" />
-      	<div class="activitys-mes">
+        <img class="activity-img" src="{{image.image}}">
+        <div class="swiper-txt"></div>
+        <img class="sponsor" src="{{image.sponsorImage}}"/>
+        <div class="activitys-mes">
 
-      		<div class="activity-tit">
-						{{image.name}}
-				</div>
-				<div class="activity-atime clear">
-					<div class="activity-add fl">
-						{{image.address}}/
-					</div>
-					<div class="activity-stime fl">
-						{{image.startTime | date:'yyyy-MM-dd'}}
-					</div>
+          <div class="activity-tit">
+            {{image.name}}
+          </div>
+          <div class="activity-atime clear">
+            <div class="activity-add fl">
+              {{image.address}}/
+            </div>
+            <div class="activity-stime fl">
+              {{image.startTime | date:'yyyy-MM-dd'}}
+            </div>
 
-      	</div>
-      	</div>
+          </div>
+        </div>
       </a>
-
     </ks-swiper-slide>
   </ks-swiper-container>
 </div>
