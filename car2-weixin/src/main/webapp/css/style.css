@@ -522,7 +522,7 @@ textarea {
 .commentpos{
 	position: absolute;
 	width: 100%;
-	top: 44px;
+	top: 0px;
 	bottom: 44px;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -603,10 +603,10 @@ textarea {
 
 .activity-list li span i {
 	display: inline-block;
-	width: 25px;
+	width: 20px;
 	height: 20px;
 	background: url(../images/ico-05.png) no-repeat;
-	background-size: 100%;
+	background-size: 100% 100%;
 	position: relative;
 	top: 3px;
 	margin-right: 4px;
@@ -2841,22 +2841,23 @@ textarea {
 }
 .menuBox1 li a{
 	padding: 5px 0;
-	font-size: 14px;
-	color: #000000;
+	font-size: 11px;
+	color: #959595;
 	display: block;
 	text-align: center;
 
 }
 .menuBox1 li .btnOn {
-	 color: #fd7400;
+	 color: #494949;
+	 font-weight: bold;
 }
 .menu-ico1 {
 	background: url(../images/menu-01.png) no-repeat 0px center;
-	background-size: 13px 17px;
+	background-size: 17px 17px;
 }
 .btnOn .menu-ico1 {
 	background: url(../images/menu-01-hover.png) no-repeat 0px center;
-	background-size: 13px 17px;
+	background-size: 17px 17px;
 }
 .menu-ico2 {
 	background: url(../images/menu-02.png) no-repeat 0px center;
@@ -2880,11 +2881,11 @@ textarea {
 }
 .menu-ico6 {
 	background: url(../images/menu-06.png) no-repeat 0px center;
-	background-size: 17px 11px;
+	background-size: 17px 17px;
 }
 .btnOn .menu-ico6 {
 	background: url(../images/menu-06-hover.png) no-repeat 0px center;
-	background-size: 17px 11px;
+	background-size: 17px 17px;
 }
 .guanzhubox{
 	position: fixed;
