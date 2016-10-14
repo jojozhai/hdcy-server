@@ -15,6 +15,7 @@
   </div>
   <div class="commmentList-con">
     {{comment.content}}
+    <time class="timew">{{comment.createdTime | date:'MM-dd'}}</time>
   </div>
 </div>
 	
@@ -22,19 +23,23 @@
 <div class="replayLists">	
 	 <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
   <div *ngFor="let reply of comment.replys">
-    <div class="relayList-le ">
-      <img [src]="reply.createrHeadimgurl" alt="" width="100px" height="100px"/>
-    </div>    
+      
     <div class="relaytList-ri ">    	
-      <div class="relayList">        
+      <div class="relayList">       	   
           <span class="nickname relayitem">{{reply.createrName}}</span>
-          <span class="relayitem">回复</span>
-          <span class="nicktoname relayitem">{{reply.replyToName}}</span>
+          <span class="relayitem huifu">回复</span>
+          <div class="relayList-les">
+          	<span class="relayList-le ">
+      		<img [src]="reply.createrHeadimgurl" alt="" />
+    	  </span> 
+          <span class="nicktoname ">{{reply.replyToName}}</span> 
+          </div>        
           <span class="relayitem">:</span>
-          <span class="commmentList-con">
+          <span class="commmentList-cons">
         		{{reply.content}}
-      		</span>          
-          <time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
+        		<time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
+      	 </span>          
+          
       </div>      
     </div>
   </div>

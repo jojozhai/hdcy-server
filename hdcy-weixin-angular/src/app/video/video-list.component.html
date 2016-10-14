@@ -1,14 +1,20 @@
-<div>视频列表</div>
-
-<swiper [images]="topVideos" target="video"></swiper>
+<!--<div>视频列表</div>-->
+<div class="cnts">
+	<swiper [images]="topVideos" target="video"></swiper>
 
 <div>
   <div *ngFor="let video of videos" [routerLink]="['/video', video.id]">
-    <div>
-      <img [src]="video.image">
+    <div class="videolist">
+      <img [src]="video.image">      
+   	 	<div class="videobg"></div>
+   	 	<div class="videotxt">
+      	<div class="videotit">
+      		{{video.name}}
+      	</div>
+   	 	</div>
     </div>
-    <div>
-      {{video.name}}
-    </div>
+    
   </div>
 </div>
+</div>
+
