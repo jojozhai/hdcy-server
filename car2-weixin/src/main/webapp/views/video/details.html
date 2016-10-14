@@ -1,35 +1,26 @@
 <div class="video-up">
-	<div class="videoBack">
-  <a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
-</div>
-<div class="guanzhus" ng-show="closes">
-        <div class="guanzhu" >
-            <div class="guanzhu-img">
-                <span class="closes" ng-click="close(false)"></span>
-                <img class="close1" src="images/close.png" alt="" />
-                <img class="logo" src="images/LOGO.png" alt="" />
-            </div>
-            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
-        </div>
-    </div>
-	
+	<!--<div class="videoBack">
+		<a href="javascript:void(0)" class="videoback" ng-click="goBack()"></a>
+	</div>-->
+	<div class="guanzhus" ng-show="closes">
+		<div class="guanzhu">
+			<div class="guanzhu-img">
+				<span class="closes" ng-click="close(false)"></span>
+				<img class="close1" src="images/close.png" alt="" />
+				<img class="logo" src="images/LOGO.png" alt="" />
+			</div>
+			<span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
+		</div>
+	</div>
+
 </div>
 <div class="chat2" ng-show="obs" ng-click="hides(false)">
-    <img src="images/guanzhu.png" alt="" />
+	<img src="images/guanzhu.png" alt="" />
 </div>
 <div class="cntVideoBox">
-    <!--<div class="guanzhus" ng-show="closes">
-        <div class="guanzhu" >
-            <div class="guanzhu-img">
-                <span class="closes" ng-click="close(false)"></span>
-                <img class="close1" src="images/close.png" alt="" />
-                <img class="logo" src="images/LOGO.png" alt="" />
-            </div>
-            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
-        </div>
-    </div>-->
+	
 	<div class="videodel-cnt">
-	   <iframe frameborder="0" width="100%" ng-src="{{video.securityUrl}}" allowfullscreen></iframe>
+		<iframe frameborder="0" width="100%" ng-src="{{video.securityUrl}}" allowfullscreen></iframe>
 	</div>
 </div>
 
@@ -38,8 +29,7 @@
 		<h2>评论({{video.commentCount}})</h2>
 		<div class="clear"></div>
 	</div>
-	<ul class="hd-pinglun" infinite-scroll="getNextPage()"
-		mirage-scroll="comments" size="10">
+	<ul class="hd-pinglun" infinite-scroll="getNextPage()" mirage-scroll="comments" size="10">
 		<ol ng-repeat="comment in comments">
 			<div class="hd-pinglun-user">
 				<img ng-src="{{comment.createrHeadimgurl}}" />
@@ -53,26 +43,22 @@
 <!--评论-->
 <div class="videoComment">
 	<div class="comment">
-	<div class="comment-cnt">
-		<input type="text" class="comment-input" readonly="readonly"
-			placeholder="说点啥呗" ng-click="clickCommentInput()" /> <i></i>
+		<div class="comment-cnt">
+			<input type="text" class="comment-input" readonly="readonly" placeholder="说点啥呗" ng-click="clickCommentInput()" /> <i></i>
+		</div>
 	</div>
-</div>
 </div>
 <!--评论弹窗-->
 <div class="videoAlert">
-	<div class="commentLayer"
-	ng-style="{display: showCommentDiv?'block':'none'}">
-	<div class="commentfix" ng-click="showCommentDiv = false"></div>
-	<div class="commentLayer-cnt">
-		<div class="commentLayer-title">
-			<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
-			<h2>写评论</h2>
-			<a class="comment-fs " ng-click="saveComment(comment)"
-				ng-class="{'comment-ok': comment.length>0}">发送</a>
+	<div class="commentLayer" ng-style="{display: showCommentDiv?'block':'none'}">
+		<div class="commentfix" ng-click="showCommentDiv = false"></div>
+		<div class="commentLayer-cnt">
+			<div class="commentLayer-title">
+				<a class="comment-qx" ng-click="showCommentDiv = false">取消</a>
+				<h2>写评论</h2>
+				<a class="comment-fs " ng-click="saveComment(comment)" ng-class="{'comment-ok': comment.length>0}">发送</a>
+			</div>
+			<textarea class="commentArea" ng-model="comment" maxlength="300" autofocus></textarea>
 		</div>
-		<textarea class="commentArea" ng-model="comment" maxlength="300"
-			autofocus></textarea>
 	</div>
-</div>
 </div>

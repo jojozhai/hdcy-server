@@ -530,7 +530,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.close=function (closes) {
         $scope.closes=false;
         $(".messagedel-cnt").css({
-		top:"102px"
+		top:"0px"
 	})
     }
     $scope.hides=function (obs) {
@@ -591,7 +591,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
-        $(".cntVideoBox").css({"margin-top":"48px"})
+        $(".cntVideoBox").css({"margin-top":"0px"})
     }
     $scope.hides=function (obs) {
         $scope.obs=false;
@@ -743,7 +743,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
-        $(".hd-Cnt").css({"margin-top":"44px"})
+        $(".hd-Cnt").css({"margin-top":"0px"})
     }
     $scope.hides=function (obs) {
         $scope.obs=false;

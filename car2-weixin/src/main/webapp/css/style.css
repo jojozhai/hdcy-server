@@ -210,15 +210,15 @@ textarea {
 
 .messagehead {
 	/*background: #fd7400;*/
-	background: #2c2c2c;
+	/*background: #2c2c2c;*/
 	position: relative;
-	padding: 39px 19px 10px;
+	padding: 10px 0;
 }
 
 .messagehead h2 {
 	font-size: 18px;
 	font-weight: normal;
-	color: #FFFFFF;
+	color: #494949;
 	line-height: 24px;
 	padding-bottom: 10px;
 	/* white-space: nowrap;
@@ -228,7 +228,7 @@ textarea {
 
 .messagehead-txt {
 	font-size: 11px;
-	color: #FFFFFF;
+	color: #9B9B9B;
 }
 
 .messagehead-txt .left span {
@@ -236,9 +236,12 @@ textarea {
 }
 /*TODO*/
 .messagedel-cnt {
+	width: 100%;
+	background: white;	
+	padding: 0 12px 10px;
 	padding-bottom: 10px;
 	font-size: 14px;
-	top: 126px;
+	top: 60px;
 	position: absolute;
 	bottom: 43px;
 	overflow: auto;
@@ -608,17 +611,28 @@ textarea {
 	top: 3px;
 	margin-right: 4px;
 }
-
+.kefuA {
+	display: inline-block;
+    width: 10%;
+    float: left;
+    text-align: center;
+    height: 46px;
+}
+.kefu-txt {
+	font-size: 11px;
+    color: #494949;
+}
 .kefuIco {
 	display: inline-block;
 	width: 28px;
 	height: 25px;
 	background: url(../images/kefu.png) no-repeat;
 	background-size: 100%;
-	position: absolute;
+	/*position: absolute;
 	right: 15px;
-	top: 10px;
+	top: 10px;*/
 }
+
 
 .hd-box {
 	padding: 15px 0px 10px 18px;
@@ -692,9 +706,15 @@ textarea {
 	background: #f7f7f7;
 	padding-bottom: 46px;
 	overflow: auto;
-	margin-top: 104px;
+	margin-top: 60px;
 }
-
+.activity-name {
+	background: white;
+    font-size: 18px;
+    color: #494949;
+    padding: 11.5px 0 11px;
+    text-align: center;
+}
 .hd-box2 {
 	margin: 12px 0px 15px 0px;
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
@@ -861,14 +881,14 @@ textarea {
 	height: 46px;
 	line-height: 46px;
 	text-align: center;
-	display: block;
+	display: inline-block;
 	font-size: 21px;
 	color: #FFFFFF;
 	background: #fd7400;
-	position: absolute;
+	/*position: fixed;
 	bottom: 0px;
-	left: 0px;
-	width: 100%;
+	right: 0px;*/
+	width: 90%;
 }
 
 .hd-layer {
@@ -1236,7 +1256,13 @@ textarea {
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
-
+.hd-lijsign {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	left: 0px;
+	background: white;
+}
 .hd-addbtn {
 	height: 44px;
 	position: fixed;
@@ -3007,7 +3033,7 @@ a.ng-scope {
 	margin: 12px 0 12px 19px;
 }
 .cntVideoBox {
-	margin-top: 107px;
+	margin-top: 60px;
 }
 .commentvideo-num {
 	float: right;
@@ -3071,7 +3097,10 @@ a.ng-scope {
 .guanzhus {
 	height:60px;
 	background: #2c2c2c;
-	position: relative;
+	width: 100%;
+	position:fixed;
+	top: 0;
+	z-index: 222;
 }
 .guanzhus .guanzhu {
 	position: absolute;

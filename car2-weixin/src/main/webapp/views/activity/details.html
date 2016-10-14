@@ -1,49 +1,36 @@
-<style>
-<!--
+<!--<style>
 .hd-more i{
     height: 20px;
     width: 20px;
 }
--->
-</style>
-<div id="">
-	<div class="headBox">
+</style>-->
+<!--<div class="headBox">
 	<div class="head heads">
 		<a ui-sref="app.participation.list" class="back"></a>
 		<h2>{{activity.name}}</h2>
 		<a ng-click="showKefuDiv = true" class="kefuIco" ></a>
 	</div>
+</div>-->
+<div class="guanzhus" ng-show="closes">
+	<div class="guanzhu">
+		<div class="guanzhu-img">
+			<span class="closes" ng-click="close(false)"></span>
+			<img class="close1" src="images/close.png" alt="" />
+			<img class="logo" src="images/LOGO.png" alt="" />
+		</div>
+		<span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
+	</div>
 </div>
-	<div class="guanzhus" ng-show="closes">
-        <div class="guanzhu" >
-            <div class="guanzhu-img">
-                <span class="closes" ng-click="close(false)"></span>
-                <img class="close1" src="images/close.png" alt="" />
-                <img class="logo" src="images/LOGO.png" alt="" />
-            </div>
-            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
-        </div>
-    </div>
-	
-</div>
+
 <div class="chat2" ng-show="obs" ng-click="hides(false)">
-    <img src="images/guanzhu.png" alt="" />
+	<img src="images/guanzhu.png" alt="" />
 </div>
 <div class="hd-Cnt">
-	<!--<div class="guanzhus" ng-show="closes">
-        <div class="guanzhu" >
-            <div class="guanzhu-img">
-                <span class="closes" ng-click="close(false)"></span>
-                <img class="close1" src="images/close.png" alt="" />
-                <img class="logo" src="images/LOGO.png" alt="" />
-            </div>
-            <span class="guanzhu-txt" ng-click="shows(true)">喜欢就关注我们吧</span>
-        </div>
-    </div>-->
+	<h2 class="activity-name">{{activity.name}}</h2>
 	<div class="hd-box">
 		<div class="hd-txt" ng-bind-html="desc | toHtml"></div>
 		<ul class="hd-img">
-			<li ng-repeat="image in activity.images" ng-click="viewPhoto(image)"><img ng-src="{{image}}"/></li>
+			<li ng-repeat="image in activity.images" ng-click="viewPhoto(image)"><img ng-src="{{image}}" /></li>
 		</ul>
 		<div class="hd-more" ng-style="{display: showExtender?'block':'none'}" ng-click="extendDesc()" ng-class="{'hd-more-zk': extended}">
 			<i ng-style="{'background': extended?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}"></i>
@@ -61,9 +48,9 @@
 				<p>活动时间&nbsp;:&nbsp;{{activity.startTime | date:"yyyy-MM-dd HH:mm"}}</p>
 			</li>
 			<li>
-                <i class="hd-ico04"></i>
-                <p>报名截止&nbsp;:&nbsp;{{activity.signEndTime | date:"yyyy-MM-dd HH:mm"}}</p>
-            </li>
+				<i class="hd-ico04"></i>
+				<p>报名截止&nbsp;:&nbsp;{{activity.signEndTime | date:"yyyy-MM-dd HH:mm"}}</p>
+			</li>
 			<li>
 				<i class="hd-ico02"></i>
 				<p>报名人数&nbsp;:&nbsp;{{activity.peopleLimit}}人<span class="hd-mianfei" style="padding-top: 1px;">{{activityPrice}}</span></p>
@@ -83,7 +70,7 @@
 		<ul class="hd-pinglun">
 			<li ng-repeat="comment in comments">
 				<div class="hd-pinglun-user">
-					<img ng-src="{{comment.createrHeadimgurl}}"/>
+					<img ng-src="{{comment.createrHeadimgurl}}" />
 					<label><span>{{comment.createrName}}: </span></label>
 				</div>
 				<div class="hd-pinglun-txt">{{comment.content}}</div>
@@ -97,16 +84,20 @@
 	</div>
 </div>
 <div ng-show="activity.finish">
-    <div class="hd-addbtn">
-        <a href="javascript:;" class="hdjieshu">已结束</a>
-    </div>
+	<div class="hd-addbtn">
+		<a href="javascript:;" class="hdjieshu">已结束</a>
+	</div>
 </div>
 <div ng-hide="activity.finish">
-	<div ng-hide="isParticipator">
-	    <a ng-click="clickSignButton()" class="hd-btn">立即报名</a>
+	<div ng-hide="isParticipator" class="hd-lijsign">
+		<a ng-click="showKefuDiv = true" class="kefuA">
+			<span class="kefuIco"></span>
+			<span class="kefu-txt">客服</span>
+		</a>
+		<a ng-click="clickSignButton()" class="hd-btn">立即报名</a>
 	</div>
 	<div ng-show="isParticipator" class="hd-addbtn">
-	    <a href="javascript:;" class="hdjieshu">已报名</a>
+		<a href="javascript:;" class="hdjieshu">已报名</a>
 	</div>
 </div>
 <!--评论弹窗-->
