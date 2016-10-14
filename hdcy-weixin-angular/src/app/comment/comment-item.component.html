@@ -1,4 +1,5 @@
-<div class="commmentList-le fl">
+<div class="clear">
+	<div class="commmentList-le fl">
   <img [src]="comment.createrHeadimgurl" alt="" width="100px" height="100px"/>
 </div>
 <div class="commmentList-ri fl">
@@ -7,7 +8,7 @@
       <span class="nickname">{{comment.createrName}}</span><br/>
       <time class="time">{{comment.createdTime | date:'MM-dd'}}</time>
     </div>
-    <div class="thumbs-count fl">
+    <div class="thumbs-count ">
       <span class="thumbs" [class.thumbs-on]="comment.praised" (click)="praise(comment)"></span>
       <span>{{comment.praiseCount}}</span>
     </div>
@@ -16,21 +17,25 @@
     {{comment.content}}
   </div>
 </div>
-<div>
+	
+</div>
+<div class="replayLists">	
+	 <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
   <div *ngFor="let reply of comment.replys">
-    <div class="commmentList-le fl">
+    <div class="relayList-le ">
       <img [src]="reply.createrHeadimgurl" alt="" width="100px" height="100px"/>
-    </div>
-    <div class="commmentList-ri fl">
-      <div class="commmentList-up clear ">
-        <div class="fl">
-          <span class="nickname">{{reply.createrName}}</span><br/>
-          <time class="time">{{reply.createdTime | date:'MM-dd'}}</time>
-        </div>
-      </div>
-      <div class="commmentList-con">
-        {{reply.content}}
-      </div>
+    </div>    
+    <div class="relaytList-ri ">    	
+      <div class="relayList">        
+          <span class="nickname relayitem">{{reply.createrName}}</span>
+          <span class="relayitem">回复</span>
+          <span class="nicktoname relayitem">{{reply.replyToName}}</span>
+          <span class="relayitem">:</span>
+          <span class="commmentList-con">
+        		{{reply.content}}
+      		</span>          
+          <time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
+      </div>      
     </div>
   </div>
 </div>

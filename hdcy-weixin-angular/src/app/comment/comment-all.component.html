@@ -1,3 +1,9 @@
+<div class="header">
+	<h3>
+      <a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
+      <span>全部评论</span>
+    </h3>
+</div>
 <div class="commments">
   <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo">
     <li class="clear" *ngFor="let comment of comments">

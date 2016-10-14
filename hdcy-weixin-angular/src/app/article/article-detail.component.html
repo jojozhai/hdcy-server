@@ -23,7 +23,7 @@
     <div class="artiDetail-con" [innerHTML]="article.content"></div>
   </div>
 </div>
-<comment-list target="article" [targetId]="article.id"></comment-list>
+<comment-list [withReply]="true" target="article" [targetId]="article.id"></comment-list>
 </div>
 
 

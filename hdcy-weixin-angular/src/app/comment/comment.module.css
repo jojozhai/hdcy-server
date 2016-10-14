@@ -1,31 +1,54 @@
 .commments {
-  margin-top:8px;
-  padding: 0px 12px;
+  /*margin-top:48px;*/
+  /*padding: 0px 12px;*/
   background-color: white;
 }
-.comment-count {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 0;
+
+.comment-count {  
+  padding: 10px 12px;
+  background: white;
+}
+.xxxxx .comment-count  h4{
+	display: none;
 }
 .comment-count h4 {
   padding-left: 5px;
   font-size: 14px;
   border-left: 2px solid #303030;
 }
+.comment-count h5 {
+	display: none;
+}
+.xxxxx .comment-count h5 {
+	display: block;
+  padding-left: 5px;
+  font-size: 14px; 
+  color: #494949;
+}
+.xxxxx .xinxi {
+	width: 22px;
+	margin-right: 8px;
+}
+.commment-con {	
+	margin: 0 12px;
+	border-top: 1px solid #e0e0e0;
+}
 .commment-con li {
   padding: 10px 0 13px;
   border-bottom: 1px solid #e0e0e0;
 }
-.commmentList-le {
+.commmentList-le,.relayList-le {
   width: 35px;
   height:35px;
   border-radius: 50%;
   overflow: hidden;
 }
-.commmentList-le  img {
+
+.commmentList-le  img,.relayList-le img {
   width: 100%;
   height:100%;
 }
+
 .commmentList-ri {
   width: 305px;
   margin-left: 10px;
@@ -44,6 +67,7 @@
   font-size: 11px;
   margin-top: 8px;
 }
+
 .thumbs-count {
   position: absolute;
   top:50%;
@@ -51,8 +75,10 @@
   -webkit-transform: translateY(-50%);
   right: 0px;
   font-size: 11px;
+  float: left;
 }
-.thumbs {
+
+.thumbs {	
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -62,7 +88,7 @@
   height: 15px;
   background: url("./assets/images/thumbs.png") no-repeat;
   background-size: 100% 100%;
-  right:30px;
+  right:20px;
 }
 .thumbs-on {
   background: url("./assets/images/thumbs-on.png") no-repeat;
@@ -72,6 +98,11 @@
   font-size: 17px;
   line-height: 24px;
   color: #494949;
+}
+.xxxxx .commmentList-con {
+	padding: 0 23px;	
+	background: url(../../assets/images/chat-white.png) no-repeat;
+	background-size: cover;	
 }
 .mores {
   text-align: center;
@@ -113,15 +144,23 @@
   background-size: 100% 100%;
   border-radius: 50%;
 }
+
 .comment-fs {
 	color: white;	
 	margin-right: 12px;
 }
+
+.com-inputs {
+	width: 100%;
+	height: 100%;
+	background-color: #F3F3F3;
+}
+
 .com-input {
 	position: relative;
-}
-.commentArea {
 	margin-top: 48px;
+}
+.commentArea {	
 	width: 100%;
 	height: 200px;
 	color: rgb(149,149,149);
@@ -131,7 +170,31 @@
 }
 .txt-num {
 	position: absolute;
-	bottom: 0;
+	bottom: 5px;
 	right: 0;
+	padding-right: 12px;
 	background-color: white;
+	
 }
+.replayLists {
+	position: relative;
+	padding-top: 12px;
+}
+.relayList {
+	width: 305px;
+	margin-left: 45px;
+	padding: 0 12px;
+	background: #F3F3F3;
+	background-size: 100% 100%;
+}
+.replays-jiao {
+	position: absolute;
+	top: 0;
+	margin-left: 45px;
+	margin-bottom: -1px;
+	width: 120px;
+	height: 13px;
+	background: url(../../assets/images/replays.png) no-repeat;
+	background-size: 100% 100%;
+}
+

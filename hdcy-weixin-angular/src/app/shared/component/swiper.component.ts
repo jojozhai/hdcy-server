@@ -30,9 +30,12 @@ export class SwiperComponent implements OnChanges {
   constructor(private router: Router, private swiperService: SwiperService) {
     this.swiperOptions = {
       loop: false,
-      autoplay: 3000,
+//    autoplay: 3000,
       pagination: '.swiper-pagination',
-      paginationClickable: true
+      paginationClickable: true,
+      centeredSlides: true,
+      slidesPerView: 1.2,      
+      watchActiveIndex: true,
     };
   }
 
