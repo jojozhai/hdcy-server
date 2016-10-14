@@ -5,6 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {ListComponent} from "../shared/component/list.component";
 import {ActivatedRoute} from "@angular/router";
 import {VideoService} from "./video.service";
+import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
   selector: 'video-list',
@@ -19,8 +20,13 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   condition = {live: 'false'};
 
-  constructor(route: ActivatedRoute, private videoService: VideoService) {
+  constructor(route: ActivatedRoute, private videoService: VideoService, swiperService: SwiperService) {
     super(route);
+    swiperService.onImageRendered.subscribe(event => {
+      if (event.type == 'video' && !event.image.swiperContent) {
+        event.image.swiperContent = event.image.name;
+      }
+    })
   }
 
   ngOnInit() {

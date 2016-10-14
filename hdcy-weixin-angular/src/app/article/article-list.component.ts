@@ -7,6 +7,7 @@ import {ArticleService} from "./article.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ListComponent} from "../shared/component/list.component";
 import {TagService} from "../shared/service/tag.service";
+import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
   selector: 'article-list',
@@ -26,7 +27,6 @@ export class ArticleListComponent extends ListComponent implements OnInit {
               private router: Router,
               route: ActivatedRoute) {
     super(route);
-
   }
 
   ngOnInit() {
@@ -34,8 +34,8 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (!tagId) {
       tagId = this.currentTag;
     }
-    let condition:any = {};
-    if(tagId != 0){
+    let condition: any = {};
+    if (tagId != 0) {
       condition.tagId = tagId;
     }
     this.articleService.query(this.buildCondition(condition)).subscribe(res => {
@@ -64,7 +64,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (article.linkOut && article.business) {
       window.location.href = article.outLink;
     } else {
-      this.router.navigate(['/article', article.id], {queryParams:{fromTag:this.currentTag}});
+      this.router.navigate(['/article', article.id], {queryParams: {fromTag: this.currentTag}});
     }
   }
 

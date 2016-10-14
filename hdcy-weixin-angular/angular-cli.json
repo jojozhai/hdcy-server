@@ -18,7 +18,9 @@
         "../node_modules/swiper/dist/css/swiper.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.dev.ts",
@@ -28,14 +30,7 @@
     }
   ],
   "addons": [],
-  "packages": [
-    {
-      "angular2-swiperxx": {
-        "main": "node_modules/angular2-swipe/dist/index.js",
-        "defaultExtension": "js"
-      }
-    }
-  ],
+  "packages": [],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

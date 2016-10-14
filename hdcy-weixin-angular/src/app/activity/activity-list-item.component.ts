@@ -1,7 +1,7 @@
 /**
  * Created by zhailiang on 16/10/8.
  */
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {Input} from "@angular/core/src/metadata/directives";
 
 @Component({
@@ -14,6 +14,7 @@ export class ActivityListItemComponent implements OnInit {
   @Input() activity;
 
   constructor() {
+
   }
 
   ngOnInit() {

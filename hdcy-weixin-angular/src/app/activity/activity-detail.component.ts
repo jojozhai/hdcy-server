@@ -1,9 +1,10 @@
 /**
  * Created by zhailiang on 16/10/8.
  */
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ElementRef, AfterViewInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ActivityService} from "./activity.service";
+import {ViewChild} from "@angular/core/src/metadata/di";
 
 @Component({
   selector: 'activity-detail',
@@ -22,6 +23,5 @@ export class ActivityDetailComponent implements OnInit {
       this.activity = value;
     });
   }
-   
 
 }

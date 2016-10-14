@@ -9,6 +9,7 @@ import {CarouselComponent} from "./component/carousel.component";
 import {PraiseService} from "./service/praise.service";
 import {SwiperComponent} from "./component/swiper.component";
 import {KSSwiperModule} from "angular2-swiper";
+import {SwiperService} from "./service/swiper.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -16,7 +17,7 @@ import {KSSwiperModule} from "angular2-swiper";
   imports: [CommonModule, KSSwiperModule],
   declarations: [InfiniteScrollDirective, CarouselComponent, SwiperComponent],
   exports: [CommonModule, FormsModule, InfiniteScrollDirective, CarouselComponent, SwiperComponent],
-  providers: [HttpRestService, TagService, PraiseService]
+  providers: [HttpRestService, TagService, PraiseService, SwiperService]
 })
 export default class MirageModule {
 

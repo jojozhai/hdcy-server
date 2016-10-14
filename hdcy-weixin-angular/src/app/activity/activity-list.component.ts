@@ -7,6 +7,7 @@ import {Component, OnInit} from "@angular/core";
 import {ListComponent} from "../shared/component/list.component";
 import {ActivatedRoute} from "@angular/router";
 import {ActivityService} from "./activity.service";
+import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
   selector: 'activity-list',
@@ -23,8 +24,13 @@ export class ActivityListComponent extends ListComponent implements OnInit {
 
   condition = {finish: 'true', top: 'false', sort: 'startTime,desc'};
 
-  constructor(route: ActivatedRoute, public activityService: ActivityService) {
+  constructor(route: ActivatedRoute, public activityService: ActivityService, swiperService: SwiperService) {
     super(route);
+    swiperService.onImageRendered.subscribe(event => {
+      if (event.type == 'activity' && !event.image.swiperContent) {
+        event.image.swiperContent = event.image.name;
+      }
+    })
   }
 
   ngOnInit() {

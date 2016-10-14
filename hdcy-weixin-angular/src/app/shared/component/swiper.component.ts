@@ -1,5 +1,6 @@
-import {Input, Component} from "@angular/core";
+import {Input, Component, OnChanges} from "@angular/core";
 import {Router} from "@angular/router";
+import {SwiperService, OnImageRenderedEvent} from "../service/swiper.service";
 /**
  * Created by zhailiang on 16/10/12.
  */
@@ -9,7 +10,15 @@ import {Router} from "@angular/router";
   templateUrl: "./swiper.component.html",
   styleUrls: ["./swiper.component.css"]
 })
-export class SwiperComponent {
+export class SwiperComponent implements OnChanges {
+
+  ngOnChanges(): void {
+    if(this.images){
+      this.images.forEach(img => {
+        this.swiperService.onImageRendered.emit(new OnImageRenderedEvent(this.target, img));
+      })
+    }
+  }
 
   @Input() private images: Array<any> = [];
 
@@ -17,7 +26,8 @@ export class SwiperComponent {
 
   swiperOptions: any;
 
-  constructor(private router:Router) {
+
+  constructor(private router: Router, private swiperService: SwiperService) {
     this.swiperOptions = {
       loop: false,
       autoplay: 3000,
@@ -27,7 +37,7 @@ export class SwiperComponent {
   }
 
   nav(image) {
-    this.router.navigateByUrl("/"+this.target+"/"+image.id);
+    this.router.navigateByUrl("/" + this.target + "/" + image.id);
   }
 
 }

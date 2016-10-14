@@ -26,6 +26,10 @@ public class Leader extends DomainImpl {
 	@ManyToOne
 	private User user;
 	/**
+	 * 机构大咖
+	 */
+	private boolean organ;
+	/**
 	 * 自我介绍
 	 */
 	@Column(length = 500)
@@ -135,6 +139,18 @@ public class Leader extends DomainImpl {
      */
     public void setTopIndex(int topIndex) {
         this.topIndex = topIndex;
+    }
+    /**
+     * @return the organ
+     */
+    public boolean isOrgan() {
+        return organ;
+    }
+    /**
+     * @param organ the organ to set
+     */
+    public void setOrgan(boolean organ) {
+        this.organ = organ;
     }
 	
 }

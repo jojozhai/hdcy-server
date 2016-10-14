@@ -1,5 +1,5 @@
 <div class="active-conmes">
-	<!--<div>活动详情</div>-->
+
 <div class="header">
 	<h3>
       <a routerLink="/activity" class="back"></a>
@@ -7,6 +7,7 @@
       <a href="#" class="share"></a>
     </h3>
 </div>
+
 <div class="detai-cnts">
 	<div class="detai-cntss">
 		<div class="actDetail-mes">
@@ -35,7 +36,7 @@
 			<div class="zhuban-mes fl">
 				<div class="clear">
 					<span class="zhuban-mes1 fl">活动信息</span>
-					<span class="zhuban-num fr">报名人数：{{activity.hot}}</span>					
+					<span class="zhuban-num fr">报名人数：{{activity.hot}}</span>
 				</div>
 			</div>
 		</div>
@@ -70,7 +71,7 @@
 			<span id="">
 				活动费用：<span class="zhuban-item">{{activity.price}}</span>
 			</span>
-		</div>			
+		</div>
 
 	</div>
 
@@ -83,7 +84,7 @@
 		</div>
 		<div class="sign fl">
 			<a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
-		</div>		
+		</div>
 	</div>
 </div>
 

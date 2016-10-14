@@ -1,7 +1,10 @@
 <div class="myslides">
   <ks-swiper-container [options]="swiperOptions">
     <ks-swiper-slide *ngFor="let image of images">
-      <a (click)="nav(image)"><img width="90%" src="{{image.image}}"></a>
+      <div>
+        <div><a (click)="nav(image)"><img width="90%" src="{{image.image}}"></a></div>
+        <div [innerHtml]="image.swiperContent"></div>
+      </div>
     </ks-swiper-slide>
   </ks-swiper-container>
 </div>

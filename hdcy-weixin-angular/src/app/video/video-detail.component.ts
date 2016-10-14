@@ -13,6 +13,8 @@ import {VideoService} from "./video.service";
 })
 export class VideoDetailComponent implements OnInit {
 
+
+
   video = {};
 
   constructor(private videoService: VideoService, private route: ActivatedRoute) {
