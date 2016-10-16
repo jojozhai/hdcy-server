@@ -778,7 +778,7 @@ angular.module('hdcyApp', ['weixin',
 		$scope.content = $scope.voting[attr];
 	}
 
-	$scope.condition = {votingId: $stateParams.id};
+	$scope.condition = {votingId: $stateParams.id, state: false};
 
 	$scope.dataService = votingParticipatorRestService;
 
