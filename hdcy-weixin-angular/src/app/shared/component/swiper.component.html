@@ -5,20 +5,9 @@
         <img class="activity-img" src="{{image.image}}">
         <div class="swiper-txt"></div>
         <img class="sponsor" src="{{image.sponsorImage}}"/>
-        <div class="activitys-mes">
+        <div class="activitys-mes" [innerHtml]="image.swiperContent">
 
-          <div class="activity-tit">
-            {{image.name}}
-          </div>
-          <div class="activity-atime clear">
-            <div class="activity-add fl">
-              {{image.address}}/
-            </div>
-            <div class="activity-stime fl">
-              {{image.startTime | date:'yyyy-MM-dd'}}
-            </div>
 
-          </div>
         </div>
       </a>
     </ks-swiper-slide>

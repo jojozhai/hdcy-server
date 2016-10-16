@@ -28,11 +28,22 @@ export class ActivityListComponent extends ListComponent implements OnInit {
     super(route);
     swiperService.onImageRendered.subscribe(event => {
       if (event.type == 'activity' && !event.image.swiperContent) {
-        event.image.swiperContent = event.image.name;
-        
+        event.image.swiperContent = `<div class="activity-tit">
+            ${event.image.name}
+          </div>
+          <div class="activity-atime clear">
+            <div class="activity-add fl">
+              ${event.image.address}/
+            </div>
+            <div class="activity-stime fl">
+              ${event.image.startTime}
+            </div>
+          </div>`;
+
       }
     })
   }
+
 
   ngOnInit() {
     this.activityService.query({
