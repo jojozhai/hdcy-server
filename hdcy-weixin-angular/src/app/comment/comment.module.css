@@ -33,40 +33,32 @@
 	margin: 0 12px;
 	border-top: 1px solid #e0e0e0;
 }
-.commment-con li {
-  padding: 10px 0 13px;
-  border-bottom: 1px solid #e0e0e0;
-}
+
 .commmentList-le,.relayList-le {
   width: 35px;
   height:35px;
   border-radius: 50%;
   overflow: hidden;
 }
-
+..commments .relayList-le {
+	display: none;
+}
+.xxxxx .relayList-le {
+	display: inline-block;
+}
 .commmentList-le  img,.relayList-le img {
   width: 100%;
   height:100%;
 }
 
-.commmentList-ri {
-  width: 305px;
+.commmentList-ri {  
   margin-left: 10px;
 }
 .commmentList-up {
   position: relative;
   margin-bottom: 6px;
 }
-.nickname {
-  color:#6593c5;
-  font-size: 15px;
-}
-.time {
-  display: inline-block;
-  color: #9B9B9B;
-  font-size: 11px;
-  margin-top: 8px;
-}
+
 
 .thumbs-count {
   position: absolute;
@@ -94,16 +86,14 @@
   background: url("./assets/images/thumbs-on.png") no-repeat;
   background-size: 100% 100%;
 }
-.commmentList-con {
+.commmentList-con, .commmentList-cons{
   font-size: 17px;
   line-height: 24px;
   color: #494949;
+  text-align: left;
+  position: relative;
 }
-.xxxxx .commmentList-con {
-	padding: 0 23px;	
-	background: url(../../assets/images/chat-white.png) no-repeat;
-	background-size: cover;	
-}
+
 .mores {
   text-align: center;
 }
@@ -180,12 +170,12 @@
 	position: relative;
 	padding-top: 12px;
 }
-.relayList {
-	width: 305px;
+.relayList {	
 	margin-left: 45px;
 	padding: 0 12px;
 	background: #F3F3F3;
 	background-size: 100% 100%;
+	box-sizing: border-box;
 }
 .replays-jiao {
 	position: absolute;
@@ -197,4 +187,9 @@
 	background: url(../../assets/images/replays.png) no-repeat;
 	background-size: 100% 100%;
 }
-
+.xxxxx {
+	margin-bottom: 40px;
+}
+.relayList-les {
+	display: inline-block;
+}

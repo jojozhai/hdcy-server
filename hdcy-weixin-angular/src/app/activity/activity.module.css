@@ -140,8 +140,13 @@
 .zhuban-item {
 	color: #494949;
 }
+.signs {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
 .steam {
-	width: 50px;
+	width: 24px;
 	background-color: #dddddd;
 	padding: 0 13px;
 	height: 40px;	
@@ -161,6 +166,5 @@
 	background-size: 100% 100%;
 	text-align: center;
 	color: white;
-	line-height: 40px;
-		
+	line-height: 40px;		
 }

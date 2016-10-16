@@ -29,6 +29,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
     swiperService.onImageRendered.subscribe(event => {
       if (event.type == 'activity' && !event.image.swiperContent) {
         event.image.swiperContent = event.image.name;
+        
       }
     })
   }

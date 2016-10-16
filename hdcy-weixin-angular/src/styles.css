@@ -129,15 +129,79 @@ textarea {
 .detai-cnts {
 	margin-top: 48px;
 }
-.commments .times,.commments .relayList-le,.commments .relayitem {
+.commments .times,.commments .relayList-le{
 	display: none;
 }
-
+.commments .huifu,.commments .nicktoname {
+	color: #9B9B9B;
+	font-size: 15px;
+}
+.commments .time {
+  display: inline-block;
+  color: #9B9B9B;
+  font-size: 11px;
+  margin-top: 8px;
+}
+.commments .commmentList-ri,.commments .relayList {
+  width: 305px;
+ 
+}
+.xxxxx .commmentList-ri,.xxxxx .relayList {
+  width: 305px;
+ 
+}
+ 
+.commments .timew {
+	display: none;
+}
+.commments .nickname {
+  color:#6593c5;
+  font-size: 15px;
+}
+.commments .commment-con li {
+  padding: 10px 0 13px;
+  border-bottom: 1px solid #e0e0e0;
+}
 .xxxxx .commmentList-con {
-	padding: 8.5px 23px;	
+	width: 180px;
+	padding: 8.5px 23px 30px;	
 	background: url(assets/images/chat-white.png) no-repeat;
 	background-size: 100% 100%;	
 }
-.xxxxx .thumbs-count  {
+.xxxxx .thumbs-count,.xxxxx .relayitem,.xxxxx .replays-jiao ,.xxxxx .time{
 	display: none;
+}
+.xxxxx .commmentList-cons {
+	width: 180px;
+	display: block;
+	padding: 8.5px 23px 30px;	
+	background: url(assets/images/chat-blue.png) no-repeat;
+	background-size: 100% 100%;	
+	margin-right: 43px;
+  margin-top: -19px;
+
+}
+.xxxxx .relayList-le ,.xxxxx .nicktoname{
+	float: right;
+}
+.xxxxx .relayList-le {
+	display: inline-block;
+}
+.xxxxx .relayList {
+	text-align: -webkit-right;
+	margin-top: 10px;
+}
+.xxxxx .relayList-les {
+	clear: both;
+}
+.xxxxx .timew,.xxxxx .times {
+		color: #9B9B9B;
+  	font-size: 11px;
+	  position: absolute;
+    bottom: 3px;
+    right: 23px;
+}
+.xxxxx .nickname,.xxxxx .nicktoname {
+	color: #9B9B9B;
+	font-size: 11px;
 }
