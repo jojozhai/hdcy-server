@@ -26,4 +26,6 @@ public interface VoterRepository extends PzRepository<Voter> {
 
     List<Voter> findByUserId(Long userId);
 
+    List<Voter> findByUserIdAndParticipatorId(Long userId, Long id);
+
 }

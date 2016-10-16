@@ -894,7 +894,7 @@ angular.module('hdcyApp', ['weixin',
 				if(result.infoCompleteType == "NONE"){
 					$scope.showMessage1Div = true;
 				}else if(result.infoCompleteType == "REQUIRED"){
-					$scope.showMessage2Div = true;
+					$scope.showMessage3Div = true;
 				}else if(result.infoCompleteType == "FULL"){
 					$scope.showMessage3Div = true;
 				}

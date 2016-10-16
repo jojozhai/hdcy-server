@@ -160,7 +160,7 @@ public class VotingParticipatorServiceImpl extends AbstractParticipationService 
 //		Date todayZeroHour = new DateTime().withTimeAtStartOfDay().toDate();
 //		List<Voter> todayVotes = voterRepository.findByUserIdAndCreatedTimeAfter(userId, todayZeroHour, pageable).getContent();
 		
-		List<Voter> voters = voterRepository.findByUserId(userId);
+		List<Voter> voters = voterRepository.findByUserIdAndParticipatorId(userId, id);
 		
 		if(CollectionUtils.isEmpty(voters)){
 			return new VotePermission(infoCompleteType, limit, limit, voting.getVoteLimit2());
