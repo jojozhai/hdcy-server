@@ -25,7 +25,7 @@ angular.module('hdcyApp', ['weixin',
 		controller: "agreementCtrl",
 		templateUrl: "views/agreement.html"
 	}).state('app.comment', {
-		url: "/comment?target&targetId",
+		url: "/comment?target&targetId&counts",
 		controller: "commentCtrl",
 		templateUrl: "views/comment.html"
 	}).state('app.user', {
@@ -416,11 +416,12 @@ angular.module('hdcyApp', ['weixin',
 		});
 	}
 
-}).controller('commentCtrl', function($scope, $stateParams, commentRestService, articleRestService, activityRestService, commonService, weixinService) {
+}).controller('commentCtrl', function($scope,$location, $stateParams, commentRestService, articleRestService, activityRestService, commonService, weixinService) {
 
 	$scope.condition = {
 		target: $stateParams.target,
-		targetId: $stateParams.targetId
+		targetId: $stateParams.targetId,
+		
 	};
 
 	$scope.dataService = commentRestService;
@@ -446,6 +447,12 @@ angular.module('hdcyApp', ['weixin',
 			$scope.comments.unshift(result);
 		});
 	}
+	if ($location.search().counts==0) {
+		$scope.nocomments=true;
+	} else{
+		$scope.nocomments=false;
+	}
+	
 
 }).controller('articleListCtrl', function($scope, $stateParams, articleRestService, commonService, tagRestService, weixinService) {
 

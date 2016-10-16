@@ -3159,3 +3159,16 @@ a.ng-scope {
 	width: 22px;
 	height:22px;	
 }
+.nocomment {
+	position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 18px;
+}
+.mybg {
+	background: #2c2c2c;
+}

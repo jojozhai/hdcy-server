@@ -4,7 +4,7 @@
 			<a class="back" back-button></a>
 			<h2>{{commentedObj.name}}</h2>
 		</div>
-	</div>-->
+	</div>-->	
 	<ul class="comment-list commentpos" infinite-scroll="getNextPage()" mirage-scroll="comments" size="35">
 		<li ng-repeat="comment in comments">
 			<div class="comment-lisimg">
@@ -17,6 +17,9 @@
 			</div>
 		</li>
 	</ul>
+	<div class="nocomment" ng-show="nocomments">
+		暂无评论		
+	</div>
 </div>
 <!--评论-->
 <div class="comment">
