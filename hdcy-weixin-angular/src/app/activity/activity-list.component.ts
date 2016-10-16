@@ -27,7 +27,9 @@ export class ActivityListComponent extends ListComponent implements OnInit {
   constructor(route: ActivatedRoute, public activityService: ActivityService, swiperService: SwiperService) {
     super(route);
     swiperService.onImageRendered.subscribe(event => {
+    	
       if (event.type == 'activity' && !event.image.swiperContent) {
+      	
         event.image.swiperContent = `<div class="activity-tit">
             ${event.image.name}
           </div>
@@ -36,7 +38,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
               ${event.image.address}/
             </div>
             <div class="activity-stime fl">
-              ${event.image.startTime}
+              ${event.image.startTime }
             </div>
           </div>`;
            event.image.swiperContent1 = `<img class="sponsor" src="${event.image.sponsorImage}"/>`;
