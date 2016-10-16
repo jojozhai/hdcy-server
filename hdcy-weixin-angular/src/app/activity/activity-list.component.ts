@@ -39,6 +39,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
               ${event.image.startTime}
             </div>
           </div>`;
+           event.image.swiperContent1 = `<img class="sponsor" src="${event.image.sponsorImage}"/>`;
 
       }
     })

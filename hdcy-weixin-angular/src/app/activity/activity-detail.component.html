@@ -44,7 +44,7 @@
 			<span class="zhuban-icon">
 				<img src="../../assets/images/zhuban-add.png"/>
 			</span>
-			<span id="">主办方：
+			<span class="zhuban-txt">主办方：
 				<span class="zhuaban-name">{{activity.sponsorName}}</span>
 			</span>
 		</div>
@@ -52,7 +52,7 @@
 			<span class="zhuban-icon">
 				<img src="../../assets/images/time.png"/>
 			</span>
-			<span id="">
+			<span class="zhuban-txt">
 				活动时间：<span class="zhuban-item">{{activity.startTime | date:'yyyy-MM-dd'}}</span>
 			</span>
 		</div>
@@ -60,7 +60,7 @@
 			<span class="zhuban-icon">
 				<img src="../../assets/images/adds-zhu.png"/>
 			</span>
-			<span id="">
+			<span class="zhuban-txt">
 				活动地点：<span class="zhuban-item">{{activity.address}}</span>
 			</span>
 		</div>
@@ -68,7 +68,7 @@
 			<span class="zhuban-icon">
 				<img src="../../assets/images/money.png"/>
 			</span>
-			<span id="">
+			<span class="zhuban-txt">
 				活动费用：<span class="zhuban-item">{{activity.price}}</span>
 			</span>
 		</div>
@@ -78,7 +78,7 @@
 	<comment-list target="activity" [targetId]="activity.id" [withReply]="true" styleType="activity"></comment-list>
 
 	<div class="signs clear">
-		<div class="steam fl">
+		<div class="steam fl" >
 			<img  src="../../assets/images/steam.png"/>
 			<span class="steam-txt">客服</span>
 		</div>
@@ -86,6 +86,24 @@
 			<a routerLink="/activity/sign" [queryParams]="{id: activity.id}">报名</a>
 		</div>
 	</div>
+	
 </div>
-
+	
+</div>
+<div class="telss" >
+	<div class="telbg"></div>
+	<div class="tel-mesbg">
+	<p>是否立即拨打电话进行咨询？</p>
+	<div class="kefu-tel">
+		<img class="kefu-telimg" src="../../assets/images/hdcy.png"/>
+		<span class="kefu-mes">客服小懒：400-134-33333</span>	
+		
+	</div>
+	<div class="caozuo">
+		<img class="boda" src="../../assets/images/boda.png"/>
+		<img class="guaduan" src="../../assets/images/guaduan.png"/>		
+	</div>
+		
+</div>
+	
 </div>

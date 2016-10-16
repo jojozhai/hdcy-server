@@ -1,2 +1,15 @@
-<textarea class="commentArea" (focus)="clean()" [(ngModel)]="message" maxlength="300"></textarea>
-<a class="comment-fs" (click)="sign()">立即报名</a>
+<div class="header">
+	<h3>
+      <a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
+      <span>写留言</span>
+    </h3>
+</div>
+<div class="signmes">
+	<textarea class="commentArea" (focus)="clean()" [(ngModel)]="message" maxlength="300"></textarea>
+	<span class="signnum">250</span>
+	
+</div>
+<div class="signbtn">
+	<a class="comment-fs" (click)="sign()">立即报名</a>
+</div>
+

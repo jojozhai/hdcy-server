@@ -115,6 +115,16 @@ textarea {
   background: url("assets/images/share.png") no-repeat;
   right: 12px;
 }
+.activity-tit {
+	font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: bolder;
+}
+.activity-atime {	
+	font-size: 14px;
+	display: inline-block;	
+	word-break: break-word;
+}
 
 .back, .message, .share {
   display: inline-block;
@@ -181,7 +191,7 @@ textarea {
   margin-top: -19px;
 
 }
-.xxxxx .relayList-le ,.xxxxx .nicktoname{
+.xxxxx .relayList-le ,.xxxxx .huifuni{
 	float: right;
 }
 .xxxxx .relayList-le {
@@ -201,7 +211,15 @@ textarea {
     bottom: 3px;
     right: 23px;
 }
-.xxxxx .nickname,.xxxxx .nicktoname {
+.xxxxx .nickname,.xxxxx .huifuni {
 	color: #9B9B9B;
 	font-size: 11px;
+}
+.sponsor {
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+	opacity: 0.6;
 }
