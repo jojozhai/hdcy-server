@@ -23,6 +23,7 @@ public class LeaderSpec extends PzSimpleSpecification<Leader, LeaderInfo> {
 		addLikeCondition(queryWraper, "nickname", "user.nickname");
 		addEqualsCondition(queryWraper, "status");
 		addEqualsCondition(queryWraper, "top");
+		addEqualsCondition(queryWraper, "enable");
 	}
 
 }
