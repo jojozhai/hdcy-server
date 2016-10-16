@@ -10,6 +10,7 @@ import LeaderModule from "./leader/leader.module";
 import MyModule from "./my/my.module";
 import ActivityModule from "./activity/activity.module";
 import LoginModule from "./login/login.module";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import LoginModule from "./login/login.module";
     //业务模块
     LoginModule, VideoModule, ArticleModule, ActivityModule, LeaderModule, MyModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

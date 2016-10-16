@@ -3,6 +3,9 @@
  */
 package com.ymt;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -19,13 +22,14 @@ import com.ymt.pz365.framework.core.utils.SpringBoot;
 @EnableJpaRepositories(repositoryBaseClass = PzRepositoryImpl.class)
 public class HdcyWeixinApplication2 extends SpringBootServletInitializer {
 	
-	public static void main(String[] args) {
-		SpringBoot.start(HdcyWeixinApplication2.class, args);
+	public static void main(String[] args) throws UnsupportedEncodingException {
+        //		SpringBoot.start(HdcyWeixinApplication2.class, args);
+	    System.out.println(URLEncoder.encode("login?token=Basic MToxMjM0NTY%3D&from=test","UTF-8"));
 	}
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(HdcyWeixinApplication2.class);
 	}
-
+	
 }

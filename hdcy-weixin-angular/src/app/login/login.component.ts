@@ -13,13 +13,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, router: Router) {
     environment.userToken = route.snapshot.queryParams['token'];
-    let from = route.snapshot.queryParams['from'];
+    let from = decodeURIComponent(route.snapshot.queryParams['from']);
     if (from == 'test') {
       router.navigateByUrl("/activity");
     } else {
       router.navigateByUrl(from);
     }
-
   }
 
   ngOnInit() {

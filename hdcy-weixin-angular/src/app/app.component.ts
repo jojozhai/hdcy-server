@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
+import {Component} from "@angular/core";
+import {NavigationEnd, Router, ActivatedRoute} from "@angular/router";
 import "rxjs/add/operator/filter";
 
 @Component({
@@ -13,18 +13,25 @@ export class AppComponent {
 
   // private wx = require('weixin-js-sdk');
 
-  private showNavPaths: Array<string> = ['/video','/article','/activity','/leader','/my', '/'];
+  private showNavPaths: Array<string> = ['/video', '/article', '/activity', '/leader', '/my', '/'];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, route: ActivatedRoute) {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
         let url = event.url;
-        if(url.indexOf("?") != -1){
+        if (url.indexOf("?") != -1) {
           url = url.substring(0, url.indexOf("?"));
         }
         this.showFooter = this.showNavPaths.indexOf(url) != -1
       });
+
+    let navTo = route.snapshot.queryParams['to'];
+    if (navTo) {
+      this.router.navigateByUrl(decodeURI(navTo));
+    } else {
+      this.router.navigateByUrl("video");
+    }
 
 
     // this.wx.config({
