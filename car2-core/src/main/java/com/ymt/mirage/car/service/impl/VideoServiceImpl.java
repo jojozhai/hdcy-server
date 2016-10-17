@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Video;
 import com.ymt.mirage.car.dto.VideoInfo;
+import com.ymt.mirage.car.repository.SponsorRepository;
 import com.ymt.mirage.car.repository.VideoRepository;
 import com.ymt.mirage.car.repository.spec.VideoSpec;
 import com.ymt.mirage.car.service.VideoService;
@@ -42,6 +43,9 @@ public class VideoServiceImpl implements VideoService {
     @Autowired
     private CommentRepository commentRepository;
     
+    @Autowired
+    private SponsorRepository sponsorRepository;
+    
     @Override
     public Page<VideoInfo> query(VideoInfo videoInfo, Pageable pageable) {
         Page<Video> pageData = videoRepository.findAll(new VideoSpec(videoInfo), pageable);
@@ -52,6 +56,7 @@ public class VideoServiceImpl implements VideoService {
     public VideoInfo create(VideoInfo videoInfo) {
         Video video = new Video();
         BeanUtils.copyProperties(videoInfo, video);
+        video.setSponsor(sponsorRepository.findOne(videoInfo.getSponsorId()));
         videoInfo.setId(videoRepository.save(video).getId());
         return videoInfo;
     }
@@ -62,6 +67,9 @@ public class VideoServiceImpl implements VideoService {
         VideoInfo info = new VideoInfo();
         BeanUtils.copyProperties(video, info);
         info.setCommentCount(commentRepository.findByTargetAndTargetIdAndDisable("video", id, false).size());
+        info.setSponsorName(video.getSponsor().getName());
+        info.setSponsorImage(video.getSponsor().getImage());
+        info.setSponsorId(video.getSponsor().getId());
         return info;
     }
 

@@ -15,6 +15,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.joda.time.DateTime;
@@ -92,6 +93,11 @@ public class Video extends DomainImpl {
      */
     @Lob
     private String desc;
+    /**
+     * 播放人
+     */
+    @ManyToOne
+    private Sponsor sponsor;
     
     /**
      * @return the name
@@ -280,6 +286,18 @@ public class Video extends DomainImpl {
      */
     public void setLiveState(String liveState) {
         this.liveState = liveState;
+    }
+    /**
+     * @return the sponsor
+     */
+    public Sponsor getSponsor() {
+        return sponsor;
+    }
+    /**
+     * @param sponsor the sponsor to set
+     */
+    public void setSponsor(Sponsor sponsor) {
+        this.sponsor = sponsor;
     }
     
 }

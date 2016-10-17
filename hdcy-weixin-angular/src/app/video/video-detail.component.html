@@ -1,3 +1,4 @@
+
 <!--<div>视频详情</div>-->
 	<div class="video-header">
 		<h3>
@@ -7,13 +8,16 @@
     	</h3>
 	</div>
 <!--<div><img [src]="video.image"></div>-->
-<video width="100%" height="" [src]="video.url"></video>
+<!--<video width="100%" height="" [src]="video.url"></video>-->
+<div [innerHtml]="videoFrame"></div>
 <div class="video-descom">
 	<div class="video-descs">
-	<h3 class="video-destit">简介</h3>
-	<div class="video-desc" [innerHTML]="video.desc" ></div>	
-</div>
+		<h3 class="video-destit">简介</h3>
+		<div class="video-desc" [innerHTML]="video.desc" ></div>	
+	</div>
 
 <comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
 	
 </div>
+
+

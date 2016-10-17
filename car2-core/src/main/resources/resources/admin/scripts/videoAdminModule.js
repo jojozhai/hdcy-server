@@ -66,8 +66,12 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 
 	$scope.query();
 
-}).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService) {
+}).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService, sponsorRestService) {
 
+	sponsorRestService.findAll().$promise.then(function(data){
+		$scope.sponsors = data;
+	});
+	
 	$scope.popup1 = {
 		opened : false
 	};

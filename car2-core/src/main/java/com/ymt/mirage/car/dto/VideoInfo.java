@@ -87,6 +87,18 @@ public class VideoInfo {
      */
     private String desc;
     /**
+     * 
+     */
+    private String sponsorName;
+    /**
+     * 
+     */
+    private String sponsorImage;
+    /**
+     * 
+     */
+    private Long sponsorId;
+    /**
      * @return the id
      */
     public Long getId() {
@@ -289,6 +301,42 @@ public class VideoInfo {
      */
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+    /**
+     * @return the sponsorName
+     */
+    public String getSponsorName() {
+        return sponsorName;
+    }
+    /**
+     * @param sponsorName the sponsorName to set
+     */
+    public void setSponsorName(String sponsorName) {
+        this.sponsorName = sponsorName;
+    }
+    /**
+     * @return the sponsorImage
+     */
+    public String getSponsorImage() {
+        return sponsorImage;
+    }
+    /**
+     * @param sponsorImage the sponsorImage to set
+     */
+    public void setSponsorImage(String sponsorImage) {
+        this.sponsorImage = sponsorImage;
+    }
+    /**
+     * @return the sponsorId
+     */
+    public Long getSponsorId() {
+        return sponsorId;
+    }
+    /**
+     * @param sponsorId the sponsorId to set
+     */
+    public void setSponsorId(Long sponsorId) {
+        this.sponsorId = sponsorId;
     }
     
 }

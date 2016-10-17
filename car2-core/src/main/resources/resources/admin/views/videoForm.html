@@ -127,6 +127,12 @@
                     <label class="control-label" ng-show="videoForm.length.$invalid && videoForm.length.$dirty">视频时长不能为空</label>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">视频提供者:</label>
+                <div class="col-lg-3">
+                    <select required="required" class="form-control input-sm" ng-model="video.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors"></select>
+                </div>
+            </div>
 			<div class="text-right m-top-md">
 				<button ng-click="save(video)" class="btn btn-success btn-sm" ng-disabled="videoForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
 			</div>
