@@ -42,29 +42,6 @@ export class ActivityListComponent extends ListComponent implements OnInit {
 		super(route);
 		swiperService.onImageRendered.subscribe(event => {
 			if(event.type == 'activity' && !event.image.swiperContent) {				
-				Date.prototype.Format = function(format) {
-					format ? format : format = "yyyy-MM-dd hh:mm:ss";
-					let o = {
-						"M+": this.getMonth() + 1,
-						"d+": this.getDate(),
-						"h+": this.getHours(),
-						"m+": this.getMinutes(),
-						"s+": this.getSeconds(),
-						"q+": Math.floor((this.getMonth() + 3) / 3),
-						"S": this.getMilliseconds()
-					};
-					if(/(y+)/.test(format)) {
-						format = format.replace(RegExp.$1, (this.getFullYear() + "").slice(4 - RegExp.$1.length));
-					}
-					for(let k in o) {
-						if(new RegExp("(" + k + ")").test(format)) {
-							format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substring(("" + o[k]).length));
-						}
-					}
-					return format;
-				};
-
-				let times = (new Date(event.image.startTime)).Format('yyyy-MM-dd');			
 
 				event.image.swiperContent = `<div class="activity-tit">
             ${event.image.name}
@@ -74,7 +51,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
               ${event.image.address}/
             </div>
             <div class="activity-stime fl">
-              ${times}
+
             </div>
           </div>`;
 				event.image.swiperContent1 = `<img class="sponsor" src="${event.image.sponsorImage}"/>`;
