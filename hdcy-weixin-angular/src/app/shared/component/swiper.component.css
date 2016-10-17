@@ -59,6 +59,7 @@
 	font-weight: bolder;
 }
 .activity-atime {
+	display: inline-block;
 	font-size: 14px;
 	display: inline-block;	
 	word-break: break-word;

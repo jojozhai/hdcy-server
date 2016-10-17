@@ -23,5 +23,6 @@ export class ActivityDetailComponent implements OnInit {
       this.activity = value;
     });
   }
+  
 
 }

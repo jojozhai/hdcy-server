@@ -4,9 +4,10 @@
       <a (click)="nav(image)">
         <img class="activity-img" src="{{image.image}}">
         <div class="swiper-txt"></div>
-        <img class="sponsor" src="{{image.sponsorImage}}"/>
+        <div class="" [innerHtml]="image.swiperContent1">
+        	
+        </div>
         <div class="activitys-mes" [innerHtml]="image.swiperContent">
-
 
         </div>
       </a>

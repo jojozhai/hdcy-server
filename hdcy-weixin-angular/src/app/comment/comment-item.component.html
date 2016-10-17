@@ -27,13 +27,16 @@
     <div class="relaytList-ri ">    	
       <div class="relayList">       	   
           <span class="nickname relayitem">{{reply.createrName}}</span>
-          <span class="relayitem huifu">回复</span>
+          <span class="relayitem huifu">回复</span>          
+          <span class="nicktoname relayitem">{{reply.replyToName}}</span> 
+         
           <div class="relayList-les">
           	<span class="relayList-le ">
-      		<img [src]="reply.createrHeadimgurl" alt="" />
+      		<!--<img [src]="reply.createrHeadimgurl" alt="" />-->
+      		<img src="../../assets/images/hdcy.png"/>
     	  </span> 
-          <span class="nicktoname ">{{reply.replyToName}}</span> 
-          </div>        
+          <span class="huifuni">好多车友</span> 
+          </div>   
           <span class="relayitem">:</span>
           <span class="commmentList-cons">
         		{{reply.content}}
