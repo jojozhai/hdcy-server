@@ -9,7 +9,8 @@ import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
   selector: 'leader-list',
-  templateUrl: './leader-list.component.html'
+  templateUrl: './leader-list.component.html',
+  styleUrls: ['./leader.module.css']
 })
 export class LeaderListComponent extends ListComponent implements OnInit {
 
@@ -23,7 +24,7 @@ export class LeaderListComponent extends ListComponent implements OnInit {
     super(route);
     swiperService.onImageRendered.subscribe(event => {
       if (event.type == 'leader' && !event.image.swiperContent) {
-        event.image.swiperContent = event.image.name;
+//      event.image.swiperContent = event.image.name;
       }
     })
   }

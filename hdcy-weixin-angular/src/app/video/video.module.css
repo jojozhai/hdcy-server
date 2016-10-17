@@ -34,3 +34,26 @@
 	margin-top: 19px;
 	font-size: 15px;	
 }
+.video-descom {
+	background: rgb(27,50,68);
+}
+.video-descs {
+	color: white;
+	padding: 12px;
+	background: url(../../assets/images/txt-btn.png) no-repeat;
+	background-size: 100% 100%;
+	margin-bottom: 8px;
+}
+
+.video-destit {
+	border-left: 3px solid white;
+	padding-left: 12px;
+	margin-bottom: 15px;
+}
+.video-desc {
+	word-break: break-word;
+}
+.video-com .commments {
+	background: url(../../assets/images/txt-btn.png) no-repeat;
+	background-size: 100% 100%;
+}

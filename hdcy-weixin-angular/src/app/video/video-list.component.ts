@@ -55,7 +55,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
               #${event.image.liveState}# 
             </div>
             <div class="activity-stime fl">
-//            ${times}
+             
             </div>
           </div>`;
       }
