@@ -459,7 +459,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/article/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 
 	$scope.condition = {
@@ -549,7 +549,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/video/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 	$scope.condition = {live:false, enable: true, top:false};
     $scope.dataService = videoRestService;
@@ -611,7 +611,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/participation/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 
 	$scope.types = [{name:"所有", value:""}, {name:"线下活动", value: "ACTIVITY"},{name:"线上活动", value: "ONLINE"}]
@@ -1142,7 +1142,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/leader/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 
 	$scope.condition = {
@@ -1174,7 +1174,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/leader/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 
 	$scope.condition = {
@@ -1194,7 +1194,7 @@ angular.module('hdcyApp', ['weixin',
 	weixinService.initWx(function(){
 		var link = commonService.getDomainUrl("/my/list");
 		var image = commonService.getDomain("images/getheadimg.jpeg");
-		weixinService.shareConfig("好多车友,不止玩乐", "", link, image);
+		weixinService.shareConfig("汽车运动 从你不一样", "", link, image);
 	});
 
 }).controller('myListCtrl', function($scope, userRestService) {
