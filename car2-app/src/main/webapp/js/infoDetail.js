@@ -51,6 +51,7 @@
          }
          var tagName=tagInfosName();
          var date = new Date(jsonObj.enableDate);
+         console.log(jsonObj.enableDate,date)
          var timess=date.Format();
          var timeArr=timess.split("-");
          var today=Math.round(new Date().getTime());
