@@ -18,7 +18,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   topVideos: Array<any>;
 
-  condition = {live: 'false'};
+  condition = {enable: 'true', live: 'false', top: 'false'};
 
   constructor(route: ActivatedRoute, private videoService: VideoService, swiperService: SwiperService) {
     super(route);
@@ -64,7 +64,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   ngOnInit() {
     this.videoService.query(super.buildCondition(this.condition)).subscribe(res => this.videos = res.json().content);
-    this.videoService.query(super.buildCondition({top: 'true', live: 'false'})).subscribe(res => this.topVideos = res.json().content);
+    this.videoService.query(super.buildCondition({top: 'true', live: 'false', enable: 'true'})).subscribe(res => this.topVideos = res.json().content);
   }
 
 }

@@ -1,1 +1,9 @@
 <div>大咖列表</div>
+<swiper target="leader" [images]="topLeaders"></swiper>
+<div *ngFor="let leader of leaders" [routerLink]="['/leader', leader.id]">
+  <div>{{leader.name}}</div>
+  <div>{{leader.slogan}}</div>
+  <div>
+    <img [src]="leader.image">
+  </div>
+</div>
