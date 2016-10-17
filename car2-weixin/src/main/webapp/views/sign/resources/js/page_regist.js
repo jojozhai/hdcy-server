@@ -196,7 +196,7 @@ $(document).ready(function(){
 		        var comTime=$("#dpd1")[0].value;
 		        var comeOut=$("#dpd2")[0].value;
 		        var timestamp1 = Date.parse(new Date(comTime))/1000;
-		        var timestamp2 = Date.parse(new Date(comeOut))/1000;
+		        var timestamp2 = Date.parse(new Date(comeOut))/1000;		        
 		    }
 
 		    var inviter=$("#contact")[0].value;
