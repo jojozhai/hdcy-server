@@ -2,5 +2,8 @@
 <div>
   <img [src]="video.image">
 </div>
+<div>
+  <iframe frameborder="0" height="210" width="100%" [src]="video.url" allowfullscreen></iframe>
+</div>
 <div [innerHTML]="video.desc"></div>
 <comment-list [withReply]="true" [targetId]="video.id" target="video"></comment-list>
