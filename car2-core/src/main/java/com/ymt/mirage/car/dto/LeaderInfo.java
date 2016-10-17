@@ -59,6 +59,10 @@ public class LeaderInfo {
 	 */
 	private String topImage;
 	/**
+	 * 头像
+	 */
+	private String image;
+	/**
 	 * @return the id
 	 */
 	public Long getId() {
@@ -214,5 +218,17 @@ public class LeaderInfo {
      */
     public void setOrgan(Boolean organ) {
         this.organ = organ;
+    }
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -96,13 +96,12 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.doUpload = function(files){
 		commonService.uploadImage(files, $scope, function(result){
-			$scope.leader.topImage = result.content;
+			$scope.leader.topImage = result;
 		});
 	}
 	
 	$scope.doUpload2 = function(files){
 		commonService.uploadImage(files, $scope, function(result){
-			console.log(result);
 			$scope.leader.image = result;
 		});
 	}

@@ -268,9 +268,9 @@ public class Video extends DomainImpl {
         DateTime _startTime = new DateTime(getStartTime());
         DateTime _endTime = new DateTime(getEndTime());
         if(_startTime.isAfterNow()) {
-            return "未开始";
+            return "预告";
         }else if(_endTime.isBeforeNow()){
-            return "已结束";
+            return "回放";
         }else{
             return "直播中";
         }
