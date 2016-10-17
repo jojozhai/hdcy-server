@@ -7,9 +7,9 @@
     </h3>
   </div>
   <div class="com-input">
-    <textarea id="commentTextInput" class="commentArea" (focus)="cleanComment()" [(ngModel)]="comment" maxlength="300">写点什么吧......</textarea>
+    <textarea id="commentTextInput" class="commentArea" (focus)="cleanComment()" [(ngModel)]="comment" maxlength="250">写点什么吧......</textarea>
     <span class="txt-num">
-		  250
+		  {{250 - comment.length}}
 	  </span>
   </div>
 </div>
