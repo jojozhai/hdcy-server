@@ -195,8 +195,9 @@ $(document).ready(function(){
 		        zhusu=true;
 		        var comTime=$("#dpd1")[0].value;
 		        var comeOut=$("#dpd2")[0].value;
-		        var timestamp1 = Date.parse(new Date(comTime))/1000;
-		        var timestamp2 = Date.parse(new Date(comeOut))/1000;		        
+		        var timestamp1 = Date.parse(new Date(comTime));
+		        var timestamp2 = Date.parse(new Date(comeOut));
+		       
 		    }
 
 		    var inviter=$("#contact")[0].value;

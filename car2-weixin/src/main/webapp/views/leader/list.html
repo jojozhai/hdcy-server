@@ -18,16 +18,19 @@
 <div class="daka-img" style="margin-bottom: 10px; padding-bottom: 10px;">
 	<div class="swiper-container" leader-swiper></div>
 </div>
-
-<ul class="daka-list" infinite-scroll="getNextPage()" mirage-scroll="leaders" size="40" sort="approveDate,asc">
-	<li ng-repeat="leader in leaders">
-		<a ui-sref="app.leader.details({id: leader.id, userId: leader.userId})">
-			<div class="daka-list-img">
-				<img ng-src="{{leader.headimgurl}}"/>
-				<i></i>
-			</div>
-			<p>{{leader.nickname}}</p>
-			<label>{{leader.participationCount}}次活动</label>
-		</a>
-	</li>
-</ul>
+<div class="cnt">
+	<div class="cntxiala">
+		<ul class="daka-list" infinite-scroll="getNextPage()" mirage-scroll="leaders" size="40" sort="approveDate,asc">
+			<li ng-repeat="leader in leaders">
+				<a ui-sref="app.leader.details({id: leader.id, userId: leader.userId})">
+				<div class="daka-list-img">
+					<img ng-src="{{leader.headimgurl}}"/>
+					<i></i>
+				</div>
+				<p>{{leader.nickname}}</p>
+				<label>{{leader.participationCount}}次活动</label>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
