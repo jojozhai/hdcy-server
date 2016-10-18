@@ -1,9 +1,9 @@
 <!--<div>大咖列表</div>-->
 <swiper target="leader" [images]="topLeaders"></swiper>
 <div class="daka-navs">
-	<a href="" class="active">全部</a>
-	<a href="" >个人</a>
-	<a href="" >机构</a>
+	<a (click)="changeTag(0)" [class.active]="isActive(0)" >全部</a>
+  <a (click)="changeTag(1)" [class.active]="isActive(1)" >个人</a>
+  <a (click)="changeTag(2)" [class.active]="isActive(2)" >机构</a>
 </div>
 <div class="leaders">
 

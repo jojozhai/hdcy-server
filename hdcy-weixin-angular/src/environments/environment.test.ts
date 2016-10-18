@@ -1,6 +1,7 @@
 export const environment = {
-  production: true,
+  production: false,
   appId: "wxce8eb11c51670a1d",
+  appLocation: "http://cdn4dev.haoduocheyou.com/",
   serviceLocation: "http://cdn4dev.haoduocheyou.com/app2/",
   userToken: null,
   getLoginServicePath: function () {
