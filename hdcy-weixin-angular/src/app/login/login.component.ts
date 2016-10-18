@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     environment.userToken = route.snapshot.queryParams['token'];
     let from = decodeURIComponent(route.snapshot.queryParams['from']);
     if (from == 'test') {
-      router.navigateByUrl("/activity");
+      router.navigateByUrl("/video");
     } else {
       router.navigateByUrl(from);
     }

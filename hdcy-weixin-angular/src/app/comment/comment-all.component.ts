@@ -41,8 +41,8 @@ export class CommentAllComponent extends ListComponent implements OnInit {
     });
   }
 
-  isActived(styleType) {
-    return this.styleType == styleType;
+  back(){
+    window.history.back();
   }
 
 }
