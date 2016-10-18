@@ -1,0 +1,61 @@
+.daka-navs a {
+	display: inline-block;
+	color: #8FAFCA;
+	width: 125px;
+	height: 40px;
+	background: url(../../assets/images/dakanav.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 15px;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+}
+.daka-navs a.active {
+	background: url(../../assets/images/xuanze.png) no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	font-weight: bold;
+}
+.dakalist {
+	background-color: rgb(27,50,68);
+	padding-top: 8px;
+	float: left;
+	width: 375px;
+}
+.dakalist .daka-left,.dakalist .daka-right {
+	float: left;
+}
+.daka-left,.daka-right {
+	width: 50%;	
+	height: 100px;
+	
+}
+.daka-left {
+	background: url(../../assets/images/leader-left.png) no-repeat;
+	background-size: 100% 100%;
+}
+.daka-right {
+	background: url(../../assets/images/leader-right.png) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.daka-left img {
+	width: 100%;
+	height: 100%;
+}
+.daka-txt {
+	color: white;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	left: 12px;
+}
+.leader-tit {	
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 13px;	
+}
+.leader-slogan {	
+	font-size: 11px;
+}

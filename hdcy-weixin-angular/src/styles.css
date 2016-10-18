@@ -83,7 +83,7 @@ textarea {
 	background: white;
 	opacity: 1;
 }
-.header {
+.header,.video-header {
   width: 375px;
   height: 48px;
   background: black;
@@ -92,8 +92,10 @@ textarea {
   top: 0;
   z-index: 111;
 }
-
-.header h3 {
+.video-header {
+	background: transparent;
+}
+.header h3,.video-header h3 {
   color: white;
   text-align: center;
   font-size: 16px;
@@ -222,4 +224,22 @@ textarea {
 	bottom: 12px;
 	right: 12px;
 	opacity: 0.6;
+}
+.leaders .dakalist:nth-of-type(odd) .daka-left,.leaders .dakalist:nth-of-type(odd) .daka-right
+{
+	float: left;
+}
+.leaders .dakalist:nth-of-type(even) .daka-left,.leaders .dakalist:nth-of-type(even) .daka-right
+{
+	float: right;
+}
+.video-com .commments {
+	background: url(assets/images/txt-btn.png) no-repeat;
+	background-size: 100% 100%;
+}
+.video-com .commment-con {
+	border: none;
+}
+.video-com .comment-count h4 {
+	color: white;
 }

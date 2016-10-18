@@ -1,6 +1,23 @@
-<div>视频详情</div>
-<div [innerHtml]="videoFrame">
 
+<!--<div>视频详情</div>-->
+	<div class="video-header">
+		<h3>
+        <a routerLink="/video" [queryParams]="{tagId: fromTag}" class="back"></a>
+        <span>{{video.name}}</span>        	
+        <a href="#" class="share"></a>
+    	</h3>
+	</div>
+<!--<div><img [src]="video.image"></div>-->
+<!--<video width="100%" height="" [src]="video.url"></video>-->
+<div [innerHtml]="videoFrame"></div>
+<div class="video-descom">
+	<div class="video-descs">
+		<h3 class="video-destit">简介</h3>
+		<div class="video-desc" [innerHTML]="video.desc" ></div>	
+	</div>
+
+<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
+	
 </div>
-<div [innerHTML]="video.desc"></div>
-<comment-list [withReply]="true" [targetId]="video.id" target="video"></comment-list>
+
+
