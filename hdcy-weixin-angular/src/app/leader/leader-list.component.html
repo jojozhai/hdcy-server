@@ -6,21 +6,20 @@
 	<a href="" >机构</a>
 </div>
 <div class="leaders">
-	
-	<div *ngFor="let leader of leaders" [routerLink]="['/leader', leader.id]" class="dakalist" >
-	
+
+	<div *ngFor="let leader of leaders; let i = index;" [routerLink]="['/leader', leader.id]" class="dakalist" >
+
 		  <div class="daka-left">
     		<img [src]="leader.image">
   		</div>
   		<div class="daka-right">
   			<div class="daka-txt">
-  				<div class="leader-tit">{{leader.name}}</div>
+  				<div class="leader-tit">{{i+leader.name}}</div>
   				<div class="leader-slogan">{{leader.slogan}}</div>
-  				
   			</div>
   		</div>
-	
-  
+
+
 </div>
-	
+
 </div>
