@@ -190,8 +190,8 @@ angular.module('hdcyApp', ['weixin',
 	});
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list","app.contrary.details"];
-		var showFooterStates = ["app.index","app.article.list","app.video.list","app.participation.list","app.my.list"];
+		var enablePullToRefreshStates = ["app.article.list","app.video.list","app.participation.list","app.leader.list","app.contrary.details"];
+		var showFooterStates = ["app.index","app.article.list","app.video.list","app.participation.list","app.my.list","app.leader.list",];
 		$scope.showFooter = $.inArray(toState.name, showFooterStates) != -1;
 		$scope.globalConfig.enablePullToRefresh = $.inArray(toState.name, enablePullToRefreshStates) != -1;
 		$(document.body).pullToRefreshDone();
