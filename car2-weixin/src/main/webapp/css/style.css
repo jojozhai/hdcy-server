@@ -280,18 +280,19 @@ textarea {
 }
 
 .comment-num a {
-	color: #fd7400;
+	/*color: #fd7400;*/
+	color: #494949;
 	font-size: 12px;
 }
 
 .comment-num a i {
-	background: url(../images/ico-03.png) no-repeat;
+	background: url(../images/ico-031.png) no-repeat;
 	background-size: 100%;
 	display: inline-block;
-	width: 23px;
+	width: 18px;
 	height: 18px;
 	position: relative;
-	top: 4px;
+	top: 6px;
 	margin-right: 5px;
 }
 
