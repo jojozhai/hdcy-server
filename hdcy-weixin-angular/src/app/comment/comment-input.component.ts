@@ -36,11 +36,12 @@ export class CommentInputComponent implements OnInit {
       content: this.comment
     }, () => {
       this.comment = this.defaultContent;
+      this.back();
     });
   }
 
   back(){
-    this.router.navigateByUrl("/"+this.target+"/"+this.targetId);
+    window.history.back();
   }
 
   cleanComment() {
