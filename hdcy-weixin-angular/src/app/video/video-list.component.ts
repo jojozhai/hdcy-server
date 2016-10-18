@@ -29,10 +29,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
           </div>
           <div class="activity-atime clear">
             <div class="activity-add fl">
-              #${event.image.liveState}# 
-            </div>
-            <div class="activity-stime fl">
-              ${event.image.startTime}
+              #视频# 
             </div>
           </div>`;
       }

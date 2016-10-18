@@ -1,0 +1,114 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">直播信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="showForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group"  ng-class="showForm.name.$invalid && showForm.name.$dirty ? 'has-error': ''">
+				<label class="control-label col-lg-3">直播名称:</label>
+				<div class="col-lg-6">
+					<input name="name" ng-model="show.name" type="text" class="form-control input-sm" placeholder="直播名称" required>
+					<label class="control-label" ng-show="showForm.name.$invalid && showForm.name.$dirty">直播名称不能为空</label>
+				</div>
+			</div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">列表图片:</label>
+                <div class="col-lg-6">
+                    <div class="fileinput-button" style="border: 1px solid #abcdef; width: 200px; height: 150px;">
+                        <img ng-src="{{show.image}}" width="200px" height="150px">
+                        <input type="file" id="file1" name="file1" pz-uploader action="doUpload(files)">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">发布:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection" ng-model="show.enable" ng-checked="show.enable" type="checkbox">
+                        <label for="selection" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+                <label class="control-label col-lg-1">置顶:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection3" ng-model="show.top" ng-checked="show.top" type="checkbox">
+                        <label for="selection3" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">浏览量:</label>
+                <div class="col-lg-2">
+                    <input name="readCount" ng-model="show.viewCount" type="number" class="form-control input-sm" placeholder="浏览量" required readonly="readonly">
+                    <label class="control-label" ng-show="showForm.viewCount.$invalid && showForm.viewCount.$dirty">浏览量不能为空</label>
+                </div>
+                <label class="control-label col-lg-2">浏览量加成:</label>
+                <div class="col-lg-2">
+                    <input name="readCountPlus" ng-model="show.viewCountPlus" type="number" class="form-control input-sm" placeholder="阅读量加成" required>
+                    <label class="control-label" ng-show="showForm.viewCountPlus.$invalid && showForm.viewCountPlus.$dirty">阅读量加成不能为空</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">直播流ID:</label>
+                <div class="col-lg-2">
+                    <input name="steamId" ng-model="show.streamId" type="text" class="form-control input-sm" placeholder="直播流ID">
+                </div>
+            </div>
+            <div class="form-group" ng-class="showForm.startTime.$invalid && showForm.startTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">直播开始时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="startTime" ng-model="show.startTime" class="form-control input-sm" is-open="popup1.opened"
+                            datepicker-options="dateOptions" placeholder="开始时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open1()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="showForm.startTime.$error.date && showForm.startTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="showForm.startTime.$error.required && showForm.startTime.$dirty">
+                        直播开始时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="show.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
+            <div class="form-group" ng-class="showForm.endTime.$invalid && showForm.endTime.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">直播结束时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="endTime" ng-model="show.endTime" class="form-control input-sm" is-open="popup2.opened"
+                            datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open2()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="showForm.endTime.$error.date && showForm.endTime.$dirty">
+                        时间格式错误
+                    </label>
+                    <label class="control-label has-error" ng-show="showForm.endTime.$error.required && showForm.endTime.$dirty">
+                        直播结束时间不能为空
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="show.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">直播提供者:</label>
+                <div class="col-lg-3">
+                    <select required="required" class="form-control input-sm" ng-model="show.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors"></select>
+                </div>
+            </div>
+			<div class="text-right m-top-md">
+				<button ng-click="save(show)" class="btn btn-success btn-sm" ng-disabled="showForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

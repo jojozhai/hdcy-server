@@ -1,0 +1,28 @@
+<div class="smart-widget widget-dark-blue margin-md">
+	<div class="smart-widget-header">回复信息</div>
+	<div class="smart-widget-inner">
+	<div class="smart-widget-body" >
+		<form name="commentForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
+			<div class="form-group">
+				<label class="control-label col-lg-3">咨询内容:</label>
+				<div class="col-lg-6">
+					{{comment.content}}
+				</div>
+			</div>
+			
+			<div class="form-group"  ng-class="commentForm.content.$invalid && commentForm.content.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3">回复内容:</label>
+                <div class="col-lg-6">
+                    <textarea ng-model="reply.content" cols="60" rows="10" required="required"></textarea>
+                    <label class="control-label" ng-show="commentForm.content.$invalid && commentForm.content.$dirty">回复内容不能为空</label>
+                </div>
+            </div>
+			
+			<div class="text-right m-top-md">
+				<button ng-click="save(reply)" class="btn btn-success btn-sm" ng-disabled="commentForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
+				<!-- <button ng-click="" class="btn btn-danger btn-sm" ng-disabled="commentForm.$invalid"><i class="fa fa-save m-right-xs"></i>放入仓库</button> -->
+			</div>
+		</form>
+	</div>
+	</div>
+</div>

@@ -12,12 +12,13 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	var config = commonService.getDefaultRestSetting();
 	return $resource("video/:id", {id:"@id"}, config);
 //控制器
-}).controller('videoManageCtrl', function($scope, $uibModal, videoRestService, commonService){
+}).controller('videoManageCtrl', function($scope, $stateParams, $uibModal, videoRestService, commonService){
 
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
 	$scope.query = function() {
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
+		condition.live = false;
 		videoRestService.query(condition).$promise.then(function(data){
 			$scope.pageInfo.totalElements = data.totalElements;
 			$scope.videos = data.content;
@@ -99,7 +100,7 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 		});
 	}
 
-	$scope.video = video;
+	$scope.video = videoRestService.get({id: video.id});
 
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
 
