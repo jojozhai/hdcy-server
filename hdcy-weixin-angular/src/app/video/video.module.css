@@ -39,7 +39,7 @@
 }
 .video-descs {
 	color: white;
-	padding: 12px;
+	padding: 12px 12px 0;
 	background: url(../../assets/images/txt-btn.png) no-repeat;
 	background-size: 100% 100%;
 	margin-bottom: 8px;
@@ -47,10 +47,13 @@
 
 .video-destit {
 	border-left: 3px solid white;
-	padding-left: 12px;
-	margin-bottom: 15px;
+	padding: 2.5px 0 2.5px 12px;
+	font-size: 15px;	
 }
 .video-desc {
+	padding: 19.5px;
+	font-size: 14px;
+	line-height: 21px;
 	word-break: break-word;
 }
 .video-com .commments {
