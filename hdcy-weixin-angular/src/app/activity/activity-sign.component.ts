@@ -4,6 +4,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivityService} from "./activity.service";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'activity-sign',
@@ -20,6 +21,9 @@ export class ActivitySignComponent implements OnInit {
 
   constructor(route: ActivatedRoute, private activityService: ActivityService) {
     this.activityId = route.snapshot.queryParams['id'];
+    if (!environment.userToken) {
+      activityService.login();
+    }
   }
 
   ngOnInit() {

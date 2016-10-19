@@ -30,13 +30,13 @@
                     <input name="topIndex" ng-model="activity.topIndex" type="number" class="form-control input-sm" placeholder="置顶顺序" required>
                     <label class="control-label" ng-show="activityForm.topIndex.$invalid && activityForm.topIndex.$dirty">置顶顺序能为空</label>
                 </div>
-                <label class="control-label col-lg-1">推荐:</label>
+                <!-- <label class="control-label col-lg-1">推荐:</label>
                 <div class="col-lg-1">
                     <div class="custom-checkbox todo-checkbox">
                         <input id="selection2" ng-model="activity.recommend" ng-checked="activity.recommend" type="checkbox">
                         <label for="selection2" style="margin-top: 4px;"></label>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="form-group">
                 <label class="control-label col-lg-3">浏览量:</label>
@@ -164,11 +164,10 @@
 				<div class="col-lg-3">
 					<select required="required" class="form-control input-sm" ng-model="activity.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors" ng-change="changeSponsor()"></select>
 				</div>
-				<div class="col-lg-4">
-					<div class="fileinput-button" style="border: 1px solid #abcdef; width: 240px; height: 135px;" >
-						<img ng-src="{{currentSponsor.image}}" width="240px;", height="133px;">{{currentSponsor.image}}
-					</div>
-				</div>
+				<label class="control-label col-lg-3">活动客服:</label>
+                <div class="col-lg-3">
+                    <select class="form-control input-sm" ng-model="activity.waiterId" ng-options="waiter.id as waiter.name for waiter in waiters"></select>
+                </div>
 			</div>
 			
 			<!-- <div class="form-group">
@@ -204,13 +203,6 @@
 			</div>
 			
 			<div class="form-group">
-				<label class="control-label col-lg-3">活动客服:</label>
-				<div class="col-lg-3">
-					<select class="form-control input-sm" ng-model="activity.waiterId" ng-options="waiter.id as waiter.name for waiter in waiters"></select>
-				</div>
-			</div>
-			
-			<div class="form-group">
 				<label class="control-label col-lg-3">报名人数加权:</label>
 				<div class="col-lg-3" >
 					<input name="weighting" ng-model="activity.weighting" type="number" class="form-control input-sm" placeholder="加权人数" required>
@@ -231,7 +223,7 @@
 				</div>
 			</div>
 			
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label class="control-label col-lg-3">联系电话:</label>
 				<div class="col-lg-3" >
 					<input name="contactPhone" ng-model="activity.contactPhone" type="text" class="form-control input-sm" placeholder="联系电话" required>
@@ -241,7 +233,7 @@
 				<div class="col-lg-3">
 					<input name="contactWeixin" ng-model="activity.contactWeixin" type="text" class="form-control input-sm" placeholder="联系微信">
 				</div>
-			</div>
+			</div> -->
 			
 			<div class="form-group"  ng-class="activityForm.desc.$invalid && activityForm.desc.$dirty ? 'has-error': ''">
 				<label class="control-label col-lg-3">活动简介:</label>

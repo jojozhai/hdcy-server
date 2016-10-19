@@ -56,7 +56,6 @@ export class AppComponent implements OnInit {
   }
 
   private configShareInfo(event: WeixinShareInfoChangedEvent) {
-    console.log(event);
     this.wx.onMenuShareTimeline({
       title: event.title,
       link: event.link,

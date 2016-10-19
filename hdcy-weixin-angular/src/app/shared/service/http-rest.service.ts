@@ -83,7 +83,7 @@ export class HttpRestService {
     }
   }
 
-  private login() {
+  login() {
     window.location.href = environment.getLoginServicePath();
   }
 

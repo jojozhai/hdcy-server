@@ -1,49 +1,49 @@
 <div class="clear">
-	<div class="commmentList-le fl">
-  <img [src]="comment.createrHeadimgurl" alt="" width="100px" height="100px"/>
-</div>
-<div class="commmentList-ri fl">
-  <div class="commmentList-up clear ">
-    <div class="fl">
-      <span class="nickname">{{comment.createrName}}</span><br/>
-      <time class="time">{{comment.createdTime | date:'MM-dd'}}</time>
+  <div class="commmentList-le fl">
+    <img [src]="comment.createrHeadimgurl" alt="" width="100px" height="100px"/>
+  </div>
+  <div class="commmentList-ri fl">
+    <div class="commmentList-up clear ">
+      <div class="fl">
+        <span class="nickname">{{comment.createrName}}</span><br/>
+        <time class="time">{{comment.createdTime | commentDate}}</time>
+      </div>
+      <div class="thumbs-count ">
+        <span class="thumbs" [class.thumbs-on]="comment.praised" (click)="praise(comment)"></span>
+        <span>{{comment.praiseCount}}</span>
+      </div>
     </div>
-    <div class="thumbs-count ">
-      <span class="thumbs" [class.thumbs-on]="comment.praised" (click)="praise(comment)"></span>
-      <span>{{comment.praiseCount}}</span>
+    <div class="commmentList-con">
+      {{comment.content}}
+      <time class="timew">{{comment.createdTime | commentDate}}</time>
     </div>
   </div>
-  <div class="commmentList-con">
-    {{comment.content}}
-    <time class="timew">{{comment.createdTime | date:'MM-dd'}}</time>
-  </div>
+
 </div>
-	
-</div>
-<div class="replayLists">	
-	 <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
+<div class="replayLists">
+  <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
   <div *ngFor="let reply of comment.replys">
-      
-    <div class="relaytList-ri ">    	
-      <div class="relayList">       	   
-          <span class="nickname relayitem">{{reply.createrName}}</span>
-          <span class="relayitem huifu">回复</span>          
-          <span class="nicktoname relayitem">{{reply.replyToName}}</span> 
-         
-          <div class="relayList-les">
+
+    <div class="relaytList-ri ">
+      <div class="relayList">
+        <span class="nickname relayitem">{{reply.createrName}}</span>
+        <span class="relayitem huifu">回复</span>
+        <span class="nicktoname relayitem">{{reply.replyToName}}</span>
+
+        <div class="relayList-les">
           	<span class="relayList-le ">
       		<!--<img [src]="reply.createrHeadimgurl" alt="" />-->
       		<img src="../../assets/images/hdcy.png"/>
-    	  </span> 
-          <span class="huifuni">好多车友</span> 
-          </div>   
-          <span class="relayitem">:</span>
-          <span class="commmentList-cons">
+    	  </span>
+          <span class="huifuni">好多车友</span>
+        </div>
+        <span class="relayitem">:</span>
+        <span class="commmentList-cons">
         		{{reply.content}}
-        		<time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
-      	 </span>          
-          
-      </div>      
+        		<time class="times">{{reply.createdTime | commentDate}}</time>
+      	 </span>
+
+      </div>
     </div>
   </div>
 </div>

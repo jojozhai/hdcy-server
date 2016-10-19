@@ -44,6 +44,7 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 			hot: 0,
 			hotplus: 1000,
 			enable: false,
+			finish: false,
 			top: false,
 			topIndex: 0,
 			recommend: false,
