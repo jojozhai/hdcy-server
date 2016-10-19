@@ -4,7 +4,8 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {VideoService} from "./video.service";
-import {DomSanitizer, SafeResourceUrl, SafeHtml} from "@angular/platform-browser";
+import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
+import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weixin.service";
 
 @Component({
   selector: 'video-detail',
@@ -16,17 +17,18 @@ export class VideoDetailComponent implements OnInit {
 
   video = {};
 
-  videoFrame:SafeHtml;
+  videoFrame: SafeHtml;
 
-  constructor(private videoService: VideoService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
-    this.videoService.get(this.route.snapshot.params['id']).subscribe(value => {
-      this.videoFrame = this.sanitizer.bypassSecurityTrustHtml(`<iframe frameborder="0" height="210" width="100%" src='${value.url}' allowfullscreen></iframe>`);
-      this.video = value;
-    });
+  constructor(private videoService: VideoService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private weixinService: WeixinService) {
+
   }
 
   ngOnInit() {
-
+    this.videoService.get(this.route.snapshot.params['id']).subscribe(value => {
+      this.videoFrame = this.sanitizer.bypassSecurityTrustHtml(`<iframe frameborder="0" height="210" width="100%" src='${value.url}' allowfullscreen></iframe>`);
+      this.video = value;
+      this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image));
+    });
   }
 
 }

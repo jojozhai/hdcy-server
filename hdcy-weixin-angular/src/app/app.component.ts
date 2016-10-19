@@ -6,7 +6,7 @@ import {Http} from "@angular/http";
 import {WeixinShareInfoChangedEvent, WeixinService} from "./shared/service/weixin.service";
 
 @Component({
-  selector: 'app-root',
+  selector: 'app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   private showNavPaths: Array<string> = ['/video', '/article', '/activity', '/leader', '/my', '/'];
 
-  private defaultShareInfo = new WeixinShareInfoChangedEvent("汽车运动 从你不一样");
+  private defaultShareInfo = new WeixinShareInfoChangedEvent("汽车运动 从你不一样", "http://img.haoduocheyou.com/logo.jpg");
 
   constructor(router: Router, private http: Http, weixinService: WeixinService) {
     router.events

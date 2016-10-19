@@ -8,7 +8,7 @@ const routes: Routes = [
     redirectTo: '/video',
     pathMatch: 'full'
   },
-  {path:'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -16,4 +16,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class HdcyWeixinAngularRoutingModule { }
+export class HdcyWeixinAngularRoutingModule {
+}

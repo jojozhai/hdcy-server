@@ -33,7 +33,4 @@ export class CommentItemComponent implements OnInit {
     });
   }
 
-  isActived(styleType) {
-    return this.styleType == styleType;
-  }
 }
