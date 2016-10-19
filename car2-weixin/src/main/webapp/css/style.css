@@ -2054,8 +2054,11 @@ textarea {
 .daka-img .swiper-slide img {
 	width: 98%;
 }
-
+.dakas-img .swiper-slide img {
+	width: 100%;
+}
 .daka-list {
+	margin-top: 10px;
 	padding-top: 20px;
 }
 
