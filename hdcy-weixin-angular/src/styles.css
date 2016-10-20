@@ -1,81 +1,142 @@
 /* You can add global styles to this file, and also import other style files */
-html,body {
-  width: 100%;
-  height: 100%;
-  background: #F3F3F3;
-  overflow: auto;
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background: #F3F3F3;
+	overflow: auto;
 }
 
+
 /*清除外边距*/
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, figure, /*结构元素*/
-dl, dt, dd, ul, ol, li, /*列表元素*/
-fieldset, lengend, button, input, textarea, /*表单元素*/
-th, td, /*表格元素*/
-pre /*文本格式元素*/ {
-  margin: 0;
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+figure,
+
+/*结构元素*/
+
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+
+/*列表元素*/
+
+fieldset,
+lengend,
+button,
+input,
+textarea,
+
+/*表单元素*/
+
+th,
+td,
+
+/*表格元素*/
+
+pre
+/*文本格式元素*/
+
+{
+	margin: 0;
 }
 
 
 /*清除内边距*/
-ul, ol, menu {
-  padding: 0;
+
+ul,
+ol,
+menu {
+	padding: 0;
 }
 
 
 /*重置列表元素*/
-ul, ol {
-  list-style: none;
+
+ul,
+ol {
+	list-style: none;
 }
 
 
 /*将字体扶正*/
-address, cite, dfn, em, var {
-  font-style: normal;
+
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
 }
 
 
 /*清下划线*/
+
 a {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }
+
+
 /*鼠标略过a标签，显示下划线*/
+
 a:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
+
 .fl {
-  float: left;
+	float: left;
 }
+
 .fr {
-  float: right;
+	float: right;
 }
 
 
 /*清浮动*/
+
 .clear:after {
-  content: '';
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 input,
 textarea {
-  outline: none;
-  font-family: "microsoft yahei";
+	outline: none;
+	font-family: "microsoft yahei";
 }
+
 .box {
-  width: 375px;
-  margin: 0 auto;
+	width: 375px;
+	height: 100%;
+	margin: 0 auto;
 }
+
 .cnts {
 	margin-top: 50px;
 }
+
 .swiper-pagination-bullet {
 	width: 6px;
 	height: 6px;
 	opacity: 0.5;
 	background: #FFFFFF;
 }
+
 .swiper-pagination-bullet-active {
 	width: 14px;
 	height: 6px;
@@ -83,140 +144,196 @@ textarea {
 	background: white;
 	opacity: 1;
 }
-.header,.video-header {
-  width: 375px;
-  height: 48px;
-  background: black;
-  line-height: 48px;
-  position: fixed;
-  top: 0;
-  z-index: 111;
+
+.header,
+.video-header {
+	width: 375px;
+	height: 48px;
+	background: black;
+	line-height: 48px;
+	position: fixed;
+	top: 0;
+	z-index: 111;
 }
+
 .video-header {
 	background: transparent;
 }
-.header h3,.video-header h3 {
-  color: white;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-  line-height: 48px;
+
+.header h3,
+.video-header h3 {
+	color: white;
+	text-align: center;
+	font-size: 16px;
+	position: relative;
+	line-height: 48px;
 }
 
 .back {
-  background: url("assets/images/back.png") no-repeat;
-  left: 12px;
+	background: url("assets/images/back.png") no-repeat;
+	left: 12px;
 }
 
 .message {
-  background: url("assets/images/message.png") no-repeat;
-  right: 60px;
+	background: url("assets/images/message.png") no-repeat;
+	right: 60px;
 }
 
 .share {
-  background: url("assets/images/share.png") no-repeat;
-  right: 12px;
+	background: url("assets/images/share.png") no-repeat;
+	right: 12px;
 }
+
 .activity-tit {
 	font-size: 18px;
 	margin-bottom: 20px;
 	font-weight: bolder;
 }
-.activity-atime {	
+
+.activity-atime {
 	font-size: 15px;
-	display: inline-block;	
+	display: inline-block;
 	word-break: break-word;
 }
 
-.back, .message, .share {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  background-size: 100% 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
+.back,
+.message,
+.share {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
+
 .detai-cnts {
 	margin-top: 48px;
 }
-.commments .times,.commments .relayList-le{
+
+.commments .times,
+.commments .relayList-le {
 	display: none;
 }
-.commments .huifu,.commments .nicktoname {
+
+.commments .huifu,
+.commments .nicktoname {
 	color: #9B9B9B;
-	font-size: 15px;
+	font-size: 13px;
 }
 .commments .time {
-  display: inline-block;
-  color: #9B9B9B;
-  font-size: 11px;
-  margin-top: 8px;
+	display: inline-block;
+	color: #9B9B9B;
+	font-size: 11px;
+	margin-top: 8px;
 }
-.commments .commmentList-ri,.commments .relayList {
-  width: 305px;
- 
+
+.commments .commmentList-ri,
+.commments .relayList {
+	width: 305px;
 }
-.xxxxx .commmentList-ri,.xxxxx .relayList {
-  width: 305px;
- 
+
+.xxxxx .commmentList-ri,
+.xxxxx .relayList {
+	width: 305px;
 }
- 
-.commments .timew {
+
+.commments .timew,
+.commments .huifuni,
+.commment .relayitem {
 	display: none;
 }
+
 .commments .nickname {
-  color:#6593c5;
-  font-size: 15px;
+	color: #6593c5;
+	font-size: 14px;
+}
+.video-descom .commments .nickname {
+	color: #00FEFC;	
 }
 .commments .commment-con li {
-  padding: 10px 0 13px;
-  border-bottom: 1px solid #e0e0e0;
+	padding: 10px 0 13px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.video-descom .commments .commment-con li {
+	border-bottom: 1px solid transparent;
+}
+.video-descom .commments .commment-con {
+	border-top: 1px solid transparent;
+}
+.video-descom .commments .commmentList-con,
+.video-descom .commments .commmentList-cons {
+	color: white;
+}
+.commments .comment-count h4 {
+  padding-left: 5px;
+  font-size: 14px;
+  border-left: 3px solid #303030;  
+}
+.video-descom .commments .comment-count h4 {
+	border-left: 3px solid white;
+	color: white;
 }
 .xxxxx .commmentList-con {
 	width: 180px;
-	padding: 8.5px 23px 30px;	
+	padding: 8.5px 23px 30px;
 	background: url(assets/images/chat-white.png) no-repeat;
-	background-size: 100% 100%;	
+	background-size: 100% 100%;
 }
-.xxxxx .thumbs-count,.xxxxx .relayitem,.xxxxx .replays-jiao ,.xxxxx .time{
+
+.xxxxx .thumbs-count,
+.xxxxx .relayitem,
+.xxxxx .replays-jiao,
+.xxxxx .time {
 	display: none;
 }
+
 .xxxxx .commmentList-cons {
 	width: 180px;
 	display: block;
-	padding: 8.5px 23px 30px;	
+	padding: 8.5px 23px 30px;
 	background: url(assets/images/chat-blue.png) no-repeat;
-	background-size: 100% 100%;	
+	background-size: 100% 100%;
 	margin-right: 43px;
-  margin-top: -19px;
-
+	margin-top: -19px;
 }
-.xxxxx .relayList-le ,.xxxxx .huifuni{
+
+.xxxxx .relayList-le,
+.xxxxx .huifuni {
 	float: right;
 }
+
 .xxxxx .relayList-le {
 	display: inline-block;
 }
+
 .xxxxx .relayList {
 	text-align: -webkit-right;
 	margin-top: 10px;
 }
+
 .xxxxx .relayList-les {
 	clear: both;
 }
-.xxxxx .timew,.xxxxx .times {
-		color: #9B9B9B;
-  	font-size: 11px;
-	  position: absolute;
-    bottom: 3px;
-    right: 23px;
+
+.xxxxx .timew,
+.xxxxx .times {
+	color: #9B9B9B;
+	font-size: 11px;
+	position: absolute;
+	bottom: 3px;
+	right: 23px;
 }
-.xxxxx .nickname,.xxxxx .huifuni {
+
+.xxxxx .nickname,
+.xxxxx .huifuni {
 	color: #9B9B9B;
 	font-size: 11px;
 }
+
 .sponsor {
 	width: 75px;
 	height: 25px;
@@ -225,21 +342,30 @@ textarea {
 	right: 12px;
 	opacity: 0.6;
 }
-.leaders .dakalist:nth-of-type(odd) .daka-left,.leaders .dakalist:nth-of-type(odd) .daka-right
-{
+
+.leaders .dakalist:nth-of-type(odd) .daka-left,
+.leaders .dakalist:nth-of-type(odd) .daka-right {
 	float: left;
 }
-.leaders .dakalist:nth-of-type(even) .daka-left,.leaders .dakalist:nth-of-type(even) .daka-right
-{
+
+.leaders .dakalist:nth-of-type(even) .daka-left,
+.leaders .dakalist:nth-of-type(even) .daka-right {
 	float: right;
 }
+
 .video-com .commments {
 	background: url(assets/images/txt-btn.png) no-repeat;
 	background-size: 100% 100%;
 }
-.video-com .commment-con {
-	border: none;
+
+.video-descom .commment-con {
+	border-top: 1px solid transparent;
 }
-.video-com .comment-count h4 {
-	color: white;
+
+
+.daka-contxt {
+	padding: 16px 0;
+	font-size: 14px;
+	line-height: 22px;
+	color: #494949;
 }

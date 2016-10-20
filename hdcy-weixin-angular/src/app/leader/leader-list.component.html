@@ -1,4 +1,3 @@
-<!--<div>大咖列表</div>-->
 <swiper target="leader" [images]="topLeaders"></swiper>
 <div class="daka-navs">
 	<a (click)="changeTag(0)" [class.active]="isActive(0)" >全部</a>
@@ -6,10 +5,8 @@
   <a (click)="changeTag(2)" [class.active]="isActive(2)" >机构</a>
 </div>
 <div class="leaders">
-
 	<div *ngFor="let leader of leaders; let i = index;" [routerLink]="['/leader', leader.id]" class="dakalist" >
-
-		  <div class="daka-left">
+		<div class="daka-left">
     		<img [src]="leader.image">
   		</div>
   		<div class="daka-right">
@@ -18,8 +15,5 @@
   				<div class="leader-slogan">{{leader.slogan}}</div>
   			</div>
   		</div>
-
-
-</div>
-
+	</div>
 </div>

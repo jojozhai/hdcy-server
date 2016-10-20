@@ -1,11 +1,26 @@
 <div class="video-header">
 	<h3>
         <a routerLink="/video" [queryParams]="{tagId: fromTag}" class="back"></a>
-        <span>{{video.name}}</span>        	
-        <a href="#" class="share"></a>
+        <span>{{video.name}}</span>
+        
     </h3>
 </div>
-<div [innerHtml]="videoFrame"></div>
+<div class="zhibo">    
+	<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
+    <!--<div class="zhibo-txt">
+        <p class="zhibo-tit">Challonger G汽车嘉年华 </p>
+        <p class="videoTime-txt">
+            <img src="../../assets/images/video-time.png"/>
+            <span class="video-time">开始时间：09-28/14：30</span>
+        </p>
+        <div class="video-name">
+            <span class="zhibo-icon"></span>
+            <span class="video-name1">好多车友</span>
+
+        </div>
+    </div>-->
+</div>
+
 <div class="video-descom">
 	<div class="video-descs">
 		<h3 class="video-destit">简介</h3>

@@ -1,14 +1,20 @@
-<div>大咖详情</div>
-<div>
-  <img [src]="leader.image">
+<div class="daka-box">
+	<div class="dakade-tit">
+	<div class="dakade-txt">
+		<div class="dakade-Img fl">
+		<img [src]="leader.image">		
+	</div>
+	<div class="dakade-right fl">
+		<div class="dakade-name">{{leader.name}}</div>
+		<div class="dakade-slogan">{{leader.slogan}}</div>
+		<div class="dakde-tag">{{leader.tags}}</div>
+	</div>
+	</div>
 </div>
-<div>
-  {{leader.name}}
+<div class="daka-detaicon">
+	<h3 class="daka-jianjie">个人简介</h3>
+	<div [innerHtml] = leader.intro class="daka-contxt"></div>
 </div>
-<div>
-  {{leader.slogan}}
+	
 </div>
-<div>
-  {{leader.tags}}
-</div>
-<div [innerHtml] = leader.intro></div>
+

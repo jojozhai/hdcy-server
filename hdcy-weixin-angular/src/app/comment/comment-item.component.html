@@ -13,37 +13,38 @@
       <span>{{comment.praiseCount}}</span>
     </div>
   </div>
-  <div class="commmentList-con">
+  <div class="commmentList-con commmentList-conc">
     {{comment.content}}
     <time class="timew">{{comment.createdTime | date:'MM-dd'}}</time>
   </div>
 </div>
 	
 </div>
-<div class="replayLists">	
-	 <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
-  <div *ngFor="let reply of comment.replys">
-      
+<div class="replayLists">		 
+  <div *ngFor="let reply of comment.replys">      
     <div class="relaytList-ri ">    	
       <div class="relayList">       	   
           <span class="nickname relayitem">{{reply.createrName}}</span>
           <span class="relayitem huifu">回复</span>          
-          <span class="nicktoname relayitem">{{reply.replyToName}}</span> 
-         
+          <span class="nicktoname relayitem">{{reply.replyToName}}:</span> 
+          
           <div class="relayList-les">
           	<span class="relayList-le ">
       		<!--<img [src]="reply.createrHeadimgurl" alt="" />-->
       		<img src="../../assets/images/hdcy.png"/>
     	  </span> 
-          <span class="huifuni">好多车友</span> 
+          <span class="huifuni">好多车友:</span> 
           </div>   
-          <span class="relayitem">:</span>
+          <!--<span class="relayitem">:</span>-->
           <span class="commmentList-cons">
         		{{reply.content}}
         		<time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
       	 </span>          
-          
+           <!--<a routerLink="/comment" [queryParams]="{target: target, targetId: targetId, withReply: withReply}" class="com-more">查看更多评论></a>-->
       </div>      
     </div>
+  
+    
   </div>
+
 </div>

@@ -76,14 +76,17 @@
 .txt-tag {
   font-size: 12px;
   color: rgb(187, 187, 187);
-  height:26px;
+  height:18px;
+  position: relative;  
+  
 }
 
 .txt-tag span {
   margin-right: 10px;
 }
 .eye-num {
-	line-height: 26px;
+	display: inline-block;
+	line-height: 18px;
 }
 .ball-activity {
   display: inline-block;
@@ -99,7 +102,7 @@
   }
 
 .tagRight {
-  /*line-height: 34px;*/
+  
   position: relative;
 }
 
@@ -178,6 +181,7 @@
   padding: 0 4px;
   /*padding-bottom: 2px;*/
   color: #303030;
+  line-height: 18px;
 }
 
 .detail-Img {
