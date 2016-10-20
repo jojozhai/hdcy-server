@@ -38,6 +38,20 @@ export class AppComponent implements OnInit {
     this.wx.error((res) => {
       console.log(res);
     });
+
+    toastr.options = {
+      "closeButton" : false,
+      "debug" : false,
+      "newestOnTop" : true,
+      "progressBar" : false,
+      "positionClass" : "toast-bottom-center",
+      "preventDuplicates" : true,
+      "onclick" : null,
+      "showEasing" : "swing",
+      "hideEasing" : "linear",
+      "showMethod" : "fadeIn",
+      "hideMethod" : "fadeOut"
+    }
   }
 
   ngOnInit(): void {
