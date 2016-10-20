@@ -12,19 +12,23 @@ import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weix
   styleUrls: ['./activity.module.css']
 })
 export class ActivityDetailComponent implements OnInit {
-
+  tagWidth: number = 0;
   activity = {};
 
   contactDivState = 'none';
 
-  constructor(private activityService: ActivityService, private route: ActivatedRoute, private weixinService: WeixinService) {
+  constructor(private activityService: ActivityService, 
+  			  private route: ActivatedRoute,
+  			  private weixinService: WeixinService) {
 
   }
 
   ngOnInit() {
     this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
       this.activity = value;
-      this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image))
+           this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image))
+      this.tagWidth= (this.activity.images.length*108);
+      
     });
   }
 

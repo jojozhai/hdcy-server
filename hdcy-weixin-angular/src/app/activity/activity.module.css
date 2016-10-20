@@ -73,14 +73,13 @@
 	overflow-x: auto;
 }
 .actDetail-imgsCon {	
-	width: 1000px;
-	margin-left: 12px;
+	margin-left: 4px;
 }
 .actDetail-img {
 	width: 100px;
 	height: 80px;
 	float: left;
-	margin-right: 8px;
+	margin-left: 8px;
 }
 .actDetail-img img{
 	width: 100%;
