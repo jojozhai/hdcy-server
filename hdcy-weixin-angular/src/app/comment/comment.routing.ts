@@ -4,8 +4,7 @@ import {CommentAllComponent} from "./comment-all.component";
 import {CommentInputComponent} from "./comment-input.component";
 
 const commentRoutes: Routes = [
-  {path: 'comment', component: CommentAllComponent},
-  {path: 'comment-reply', component: CommentAllComponent},
+  {path: 'comment', component: CommentAllComponent, data:[{size: 30}]},
   {path: 'comment/input', component: CommentInputComponent}
 ];
 

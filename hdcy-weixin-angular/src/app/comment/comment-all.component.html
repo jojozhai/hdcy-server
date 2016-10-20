@@ -1,13 +1,15 @@
 <div class="header">
-	<h3>
-      <a (click)="back()" class="back"></a>
-      <span>全部评论</span>
-    </h3>
+  <h3>
+    <a (click)="back()" class="back"></a>
+    <span>全部评论</span>
+  </h3>
 </div>
 <div class="commments comment-all">
   <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo">
     <li class="clear" *ngFor="let comment of comments">
-      <comment-item [comment]="comment"></comment-item>
+      <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: comment.id}">
+        <comment-item [comment]="comment"></comment-item>
+      </a>
     </li>
   </ul>
 </div>
