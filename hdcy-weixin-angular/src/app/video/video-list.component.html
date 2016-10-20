@@ -1,7 +1,6 @@
-<!--<div>视频列表</div>-->
 <div class="cnts">
-	<swiper [images]="topVideos" target="video"></swiper>
-
+	<div class="video-listcon" style="overflow-y:auto;" >
+		<swiper [images]="topVideos" target="video"></swiper>
 <div>
   <div *ngFor="let video of videos" [routerLink]="['/video', video.id]">
     <div class="videolist">
@@ -20,5 +19,6 @@
     
   </div>
 </div>
+	</div>
 </div>
 
