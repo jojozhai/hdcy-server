@@ -10,6 +10,9 @@
     <li class="clear" *ngFor="let comment of comments">
       <comment-item [comment]="comment"></comment-item>
     </li>
+    <!--<div class="">
+    	
+    </div>-->
   </ul>
   <div class="mores">
     <a routerLink="/comment" [queryParams]="{target: target, targetId: targetId, withReply: withReply}" class="more">查看更多</a>

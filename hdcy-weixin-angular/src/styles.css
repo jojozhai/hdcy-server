@@ -11,41 +11,9 @@ body {
 
 /*清除外边距*/
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-blockquote,
-figure,
-
-/*结构元素*/
-
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-
-/*列表元素*/
-
-fieldset,
-lengend,
-button,
-input,
-textarea,
-
-/*表单元素*/
-
-th,
-td,
-
-/*表格元素*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,figure,/*结构元素*/dl,dt,dd,ul,
+ol,li,/*列表元素*/fieldset,lengend,button,input,textarea,/*表单元素*/
+th,td,/*表格元素*/
 
 pre
 /*文本格式元素*/
@@ -253,6 +221,10 @@ textarea {
 .video-descom .commments .nickname {
 	color: #00FEFC;	
 }
+.video-descom .commments .time {	
+	color: #DDDDDD;
+	
+}
 .commments .commment-con li {
 	padding: 10px 0 13px;
 	border-bottom: 1px solid #e0e0e0;
@@ -269,12 +241,40 @@ textarea {
 	color: white;
 }
 .commments .comment-count h4 {
-  padding-left: 5px;
-  font-size: 14px;
-  border-left: 3px solid #303030;  
+  padding-left: 5px; 
+  border-left: 3px solid #303030; 
+  padding: 2.5px 0 2.5px 12px;
+  font-size: 15px;
 }
 .video-descom .commments .comment-count h4 {
 	border-left: 3px solid white;
+	color: white;
+}
+.commments .thumbs {	
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  background: url("./assets/images/thumbs.png") no-repeat;
+  background-size: 100% 100%;
+  right:20px;
+}
+.commments .thumbs-on {
+  background: url("./assets/images/thumbs-on.png") no-repeat;
+  background-size: 100% 100%;
+}
+.video-descom .thumbs {	 
+  background: url(assets/images/throms.png) no-repeat;
+  background-size: 100% 100%;  
+}
+.video-descom .thumbs-on {
+  background: url(assets/images/throms -active.png) no-repeat;
+  background-size: 100% 100%;
+}
+.video-descom .com-num {
 	color: white;
 }
 .xxxxx .commmentList-con {
@@ -284,10 +284,7 @@ textarea {
 	background-size: 100% 100%;
 }
 
-.xxxxx .thumbs-count,
-.xxxxx .relayitem,
-.xxxxx .replays-jiao,
-.xxxxx .time {
+.xxxxx .thumbs-count,.xxxxx .relayitem,.xxxxx .replays-jiao,.xxxxx .time {
 	display: none;
 }
 
@@ -298,12 +295,13 @@ textarea {
 	background: url(assets/images/chat-blue.png) no-repeat;
 	background-size: 100% 100%;
 	margin-right: 43px;
-	margin-top: -19px;
+	margin-top: -13px;
 }
 
 .xxxxx .relayList-le,
 .xxxxx .huifuni {
 	float: right;
+	margin: 4px 5px 0 0;
 }
 
 .xxxxx .relayList-le {

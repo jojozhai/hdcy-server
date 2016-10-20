@@ -89,22 +89,7 @@
   float: left;
 }
 
-.thumbs {	
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background: url("./assets/images/thumbs.png") no-repeat;
-  background-size: 100% 100%;
-  right:20px;
-}
-.thumbs-on {
-  background: url("./assets/images/thumbs-on.png") no-repeat;
-  background-size: 100% 100%;
-}
+
 .commmentList-con, .commmentList-cons{
   font-size: 13px;
   line-height: 19px;

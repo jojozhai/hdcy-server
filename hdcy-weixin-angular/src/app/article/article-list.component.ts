@@ -19,16 +19,15 @@ export class ArticleListComponent extends ListComponent implements OnInit {
   articles: Array<any>;
 
   tags: Array<any>;
-
+  
   currentTag: number = 0;
-
   constructor(private articleService: ArticleService,
               private tagService: TagService,
               private router: Router,
               route: ActivatedRoute) {
     super(route);
   }
-
+  
   ngOnInit() {
     let tagId = this.getQueryParam("tagId");
     if (!tagId) {
@@ -42,7 +41,11 @@ export class ArticleListComponent extends ListComponent implements OnInit {
       this.articles = res.json().content;
       this.currentTag = tagId;
     });
-    this.tagService.getChild().subscribe(res => this.tags = res);
+    this.tagService.getChild().subscribe(res => {
+    	this.tags = res;
+    	
+
+    });
   }
 
   isActive(id: number) {

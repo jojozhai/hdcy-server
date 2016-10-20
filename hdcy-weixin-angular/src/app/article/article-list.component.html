@@ -2,16 +2,14 @@
     <div class="article-navs">
         <div class="article-nav clear">
             <a (click)="changeTag(0)" [class.active]="isActive(0)">全部</a>
-            <a *ngFor="let tag of tags" (click)="changeTag(tag.id)" [class.active]="isActive(tag.id)">{{tag.name}}</a>
+            <a *ngFor="let tag of tags" (click)="changeTag(tag.id)" [class.active]="isActive(tag.id)" >{{tag.name}}</a>
         </div>
     </div>
     <ul class="content" [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo">
         <li *ngFor="let article of articles" (click)="navToDetail(article)">
-
             <div class="contentList" *ngIf="article.displayType == 'MIX'">
                 <img [src]="article.image" alt="" />
             </div>
-
             <div class="contentTxt" *ngIf="article.displayType == 'MIX'">
                 <h2>{{article.title}}</h2>
                 <div class="txt-tag clear">

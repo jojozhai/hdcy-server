@@ -52,7 +52,7 @@
 }
 .activity-zhuban {
 	margin: 10px 0;
-	padding: 0 12px;
+	padding: 0 12px 12px;
 }
 .actDetail-mes {
 	padding: 0 12px;
@@ -61,7 +61,8 @@
 	padding: 12.5px 0;
 	text-align: center;
 	border-bottom: 1px solid rgb(155,155,155);
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+	font-size: 16px;
 }
 .actDetail-con {	
 	height: 108px;
@@ -76,16 +77,18 @@
 	margin-left: 12px;
 }
 .actDetail-img {
+	width: 100px;
+	height: 80px;
 	float: left;
 	margin-right: 8px;
 }
 .actDetail-img img{
-	width: 100px;
-	height: 80px;
+	width: 100%;
+	height: 100%;
 }
 .downs {
 	text-align: center;
-	padding: 10px 0;
+	padding: 0 0 10px;
 }
 .con-downs {
 	display: inline-block;
@@ -134,11 +137,11 @@
 	color: #9B9B9B;
 }
 .zhuban {
-	position: relative;
-	padding: 12px 0;
+	position: relative;	
 	font-size: 14px;
 	color: #9B9B9B;
 	height: 22px;
+	margin-top: 12px;
 }
 .zhuban-txt {
 	position: absolute;
