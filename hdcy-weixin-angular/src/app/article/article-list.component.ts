@@ -60,7 +60,9 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (tagId != 0) {
       condition.tagId = tagId;
     }
+    condition.page = 0;
     this.articleService.query(condition).subscribe(res => {
+      $('#contentUl').scrollTop(0);
       this.articles = res.json().content;
       this.currentTag = tagId;
     });
