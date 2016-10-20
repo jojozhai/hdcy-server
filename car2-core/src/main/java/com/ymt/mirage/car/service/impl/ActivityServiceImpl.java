@@ -16,6 +16,7 @@ import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.KeyWord;
 import com.ymt.mirage.car.domain.ParticipationType;
 import com.ymt.mirage.car.dto.ActivityInfo;
+import com.ymt.mirage.car.dto.WaiterInfo;
 import com.ymt.mirage.car.repository.ActivityRepository;
 import com.ymt.mirage.car.repository.KeyWordRepository;
 import com.ymt.mirage.car.repository.SponsorRepository;
@@ -60,6 +61,9 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	                        info.setSponsorImage(domain.getSponsor().getImage());
 	                        info.setSponsorId(domain.getSponsor().getId());
 					    }
+					    if(domain.getWaiter() != null) {
+					        info.setWaiterId(domain.getWaiter().getId());
+					    }
 					}
 				});
 	}
@@ -75,6 +79,7 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		checkFinishOnUpdate(activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		activity.setSponsor(sponsorRepository.findOne(activityInfo.getSponsorId()));
+		activity.setWaiter(waiterRepository.findOne(activityInfo.getWaiterId()));
 
 		List<KeyWord> kwlist = activityInfo.getKwlist();
 		for (KeyWord keyWord : kwlist) {
@@ -83,6 +88,11 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		activityInfo.setSponsorName(activity.getSponsor().getName());
 		activityInfo.setSponsorImage(activity.getSponsor().getImage());
 		activityInfo.setId(activityRepository.save(activity).getId());
+		
+		WaiterInfo waiterInfo = new WaiterInfo();
+		BeanUtils.copyProperties(activity.getWaiter(), waiterInfo);
+		activityInfo.setWaiterInfo(waiterInfo);
+		
 		return activityInfo;
 	}
 
@@ -98,6 +108,13 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	        info.setSponsorImage(activity.getSponsor().getImage());
 		}
 		
+		if(activity.getWaiter() != null) {
+		    WaiterInfo waiterInfo = new WaiterInfo();
+	        BeanUtils.copyProperties(activity.getWaiter(), waiterInfo);
+	        info.setWaiterInfo(waiterInfo);
+	        info.setWaiterId(activity.getWaiter().getId());
+		}
+		
 		return info;
 	}
 
@@ -107,6 +124,8 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		BeanUtils.copyProperties(activityInfo, activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		checkFinishOnUpdate(activity);
+		activity.setWaiter(waiterRepository.findOne(activityInfo.getWaiterId()));
+		activity.setSponsor(sponsorRepository.findOne(activityInfo.getSponsorId()));
 		activityRepository.save(activity);
 		return activityInfo;
 	}

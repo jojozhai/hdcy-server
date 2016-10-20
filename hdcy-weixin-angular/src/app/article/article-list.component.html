@@ -19,7 +19,7 @@
                         <span *ngIf="article.top">置顶</span>
                         <span *ngIf="article.business">广告</span>
                         <span class="ball-activity">{{article.tagInfos[0].name}}</span>
-                        <span *ngIf="!article.top && !article.business">{{article.createdTime | date:'MM-dd'}}</span>
+                        <span *ngIf="!article.top && !article.business">{{article.createdTime | articleDate}}</span>
                     </div>
                     <div class="fr tagRight" *ngIf="!article.business">
                         <span class="eye"></span>
@@ -33,7 +33,7 @@
                 <h2 class="adsTit">{{article.title}}</h2>
                 <div class="ad-tags">
                 	<span *ngIf="article.top" class="ad-tag">置顶</span>
-                	<span *ngIf="article.business" class="ad-tag">广告</span>                	
+                	<span *ngIf="article.business" class="ad-tag">广告</span>
                 </div>
             </div>
         </li>

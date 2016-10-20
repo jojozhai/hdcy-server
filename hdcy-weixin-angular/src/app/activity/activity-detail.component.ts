@@ -15,6 +15,8 @@ export class ActivityDetailComponent implements OnInit {
 
   activity = {};
 
+  contactDivState = 'none';
+
   constructor(private activityService: ActivityService, private route: ActivatedRoute, private weixinService: WeixinService) {
 
   }
@@ -24,6 +26,14 @@ export class ActivityDetailComponent implements OnInit {
       this.activity = value;
       this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image))
     });
+  }
+
+  displayContactDiv(display) {
+    if (display) {
+      this.contactDivState = 'block';
+    } else {
+      this.contactDivState = 'none';
+    }
   }
 
 

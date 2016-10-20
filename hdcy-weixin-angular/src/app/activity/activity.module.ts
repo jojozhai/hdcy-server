@@ -7,13 +7,14 @@ import {ActivityDetailComponent} from "./activity-detail.component";
 import {ActivityListItemComponent} from "./activity-list-item.component";
 import CommentModule from "../comment/comment.module";
 import {ActivitySignComponent} from "./activity-sign.component";
+import {ActivityDatePipe} from "./activity-date.pipe";
 /**
  * Created by zhailiang on 16/9/23.
  */
 @NgModule({
-    imports: [MirageModule, CommentModule, activityRouting],
-    declarations: [ActivityListComponent, ActivityDetailComponent, ActivityListItemComponent, ActivitySignComponent],
-    providers: [ActivityService]
+  imports: [MirageModule, CommentModule, activityRouting],
+  declarations: [ActivityListComponent, ActivityDetailComponent, ActivityListItemComponent, ActivitySignComponent, ActivityDatePipe],
+  providers: [ActivityService]
 })
 export default class ActivityModule {
 }

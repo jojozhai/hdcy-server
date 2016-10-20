@@ -3,7 +3,9 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {CommentService} from "./comment.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
+import {HttpRestService} from "../shared/service/http-rest.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'comment-input',
@@ -12,7 +14,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CommentInputComponent implements OnInit {
 
-  private defaultContent:string = '写点什么吧......';
+  private defaultContent: string = '写点什么吧......';
 
   comment: string = this.defaultContent;
 
@@ -20,9 +22,12 @@ export class CommentInputComponent implements OnInit {
 
   targetId: number;
 
-  constructor(route: ActivatedRoute, private router: Router, private commentService: CommentService) {
+  constructor(route: ActivatedRoute, private commentService: CommentService) {
     this.target = route.snapshot.queryParams['target'];
     this.targetId = route.snapshot.queryParams['targetId'];
+    if (!environment.userToken) {
+      commentService.login();
+    }
   }
 
   ngOnInit() {
@@ -40,7 +45,7 @@ export class CommentInputComponent implements OnInit {
     });
   }
 
-  back(){
+  back() {
     window.history.back();
   }
 
