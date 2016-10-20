@@ -3,9 +3,9 @@
 html,
 body {
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	background: #F3F3F3;
-	overflow: auto;
+	/*overflow: hidden;*/
 }
 
 
@@ -144,7 +144,7 @@ textarea {
 
 .message {
 	background: url("assets/images/message.png") no-repeat;
-	right: 60px;
+	right: 12px;
 }
 
 .share {
