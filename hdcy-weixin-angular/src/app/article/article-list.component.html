@@ -5,7 +5,7 @@
       <a *ngFor="let tag of tags" (click)="changeTag(tag.id)" [class.active]="isActive(tag.id)">{{tag.name}}</a>
     </div>
   </div>
-  <ul class="content" style="overflow-y:auto;" [style.height.px]="contentHeight" [infinite-scroll]="articles"
+  <ul id="contentUl" class="content" style="overflow-y:auto;" [style.height.px]="contentHeight" [infinite-scroll]="articles"
       [dataService]="articleService" [pageInfo]="pageInfo">
     <li *ngFor="let article of articles" (click)="navToDetail(article)">
 

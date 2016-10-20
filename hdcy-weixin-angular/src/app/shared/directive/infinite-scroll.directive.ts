@@ -24,7 +24,6 @@ export class InfiniteScrollDirective {
 
   @HostListener("scroll")
   onScroll() {
-    console.log(1);
     if (this.loading) {
       return;
     }
