@@ -13,37 +13,43 @@
         <span>{{comment.praiseCount}}</span>
       </div>
     </div>
-    <div class="commmentList-con">
+    <!--<div class="commmentList-con">
       {{comment.content}}
       <time class="timew">{{comment.createdTime | commentDate}}</time>
-    </div>
-  </div>
+    </div>-->
+    <div class="commmentList-con commmentList-conc">
+    	{{comment.content}}
+    	<time class="timew">{{comment.createdTime | date:'MM-dd'}}</time>
+ 	 </div>
+ </div>
 
+  
 </div>
-<div class="replayLists">
-  <div class="replays-jiao" *ngFor="let reply of comment.replys"></div>
-  <div *ngFor="let reply of comment.replys">
 
-    <div class="relaytList-ri ">
-      <div class="relayList">
-        <span class="nickname relayitem">{{reply.createrName}}</span>
-        <span class="relayitem huifu">回复</span>
-        <span class="nicktoname relayitem">{{reply.replyToName}}</span>
-
-        <div class="relayList-les">
-          	<span class="relayList-le ">
-      		<!--<img [src]="reply.createrHeadimgurl" alt="" />-->
+<div class="replayLists">		 
+  <div *ngFor="let reply of comment.replys">      
+    <div class="relaytList-ri ">    	
+      <div class="relayList">       	   
+          <span class="nickname relayitem">{{reply.createrName}}</span>
+          <span class="relayitem huifu">回复</span>          
+          <span class="nicktoname relayitem">{{reply.replyToName}}:</span> 
+          
+          <div class="relayList-les">
+          	<span class="relayList-le ">      		
       		<img src="../../assets/images/hdcy.png"/>
-    	  </span>
-          <span class="huifuni">好多车友</span>
-        </div>
-        <span class="relayitem">:</span>
-        <span class="commmentList-cons">
+    	  </span> 
+          <span class="huifuni">好多车友</span> 
+          </div>   
+          
+          <span class="commmentList-cons">
         		{{reply.content}}
-        		<time class="times">{{reply.createdTime | commentDate}}</time>
-      	 </span>
+        		<time class="times">{{reply.createdTime | date:'MM-dd'}}</time>
+      	 </span>          
+          
+      </div>      
 
-      </div>
-    </div>
+    </div> 
+    
   </div>
+
 </div>

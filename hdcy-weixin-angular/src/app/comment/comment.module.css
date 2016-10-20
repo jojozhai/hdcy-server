@@ -11,10 +11,17 @@
 .xxxxx .comment-count  h4{
 	display: none;
 }
-.comment-count h4 {
-  padding-left: 5px;
+
+.video-comcount {
+	display: none;
+}
+
+.video-com .video-comcount {
+	display: block;
+	padding-left: 5px;
   font-size: 14px;
-  border-left: 2px solid #303030;
+	color: white;
+	border-left: 3px solid white;
 }
 .comment-count h5 {
 	display: none;
@@ -42,6 +49,9 @@
 	padding-top: 16px;
 	border-top: 1px solid #e0e0e0;
 }
+.video-descom .commment-con {
+	border-top: 1px solid transparent;
+}
 
 .commmentList-le,.relayList-le {
   width: 35px;
@@ -49,7 +59,7 @@
   border-radius: 50%;
   overflow: hidden;
 }
-..commments .relayList-le {
+.commments .relayList-le {
 	display: none;
 }
 .xxxxx .relayList-le {
@@ -96,12 +106,15 @@
   background-size: 100% 100%;
 }
 .commmentList-con, .commmentList-cons{
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 19px;
   color: #494949;
   text-align: left;
   position: relative;
   word-break: break-word;
+}
+.commmentList-conc {
+	font-size: 14px;
 }
 
 .mores {
@@ -155,7 +168,6 @@
 	height: 100%;
 	background-color: #F3F3F3;
 }
-
 .com-input {
 	position: relative;
 	margin-top: 48px;
@@ -176,8 +188,7 @@
 	right: 0;
 	padding-right: 12px;
 	padding-bottom: 12px;
-	background-color: white;
-	
+	background-color: white;	
 }
 .replayLists {
 	position: relative;
@@ -185,21 +196,12 @@
 }
 .relayList {	
 	margin-left: 45px;
-	padding: 0 12px;
+	padding: 12px 3px;
 	background: #F3F3F3;
 	background-size: 100% 100%;
 	box-sizing: border-box;
 }
-.replays-jiao {
-	position: absolute;
-	top: 0;
-	margin-left: 45px;
-	margin-bottom: -1px;
-	width: 120px;
-	height: 13px;
-	background: url(../../assets/images/replays.png) no-repeat;
-	background-size: 100% 100%;
-}
+
 .xxxxx {
 	margin-bottom: 40px;
 }

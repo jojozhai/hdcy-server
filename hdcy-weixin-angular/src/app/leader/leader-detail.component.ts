@@ -8,7 +8,8 @@ import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weix
 
 @Component({
   selector: 'leader-detail',
-  templateUrl: 'leader-detail.component.html'
+  templateUrl: 'leader-detail.component.html',
+  styleUrls: ['./leader.module.css']
 })
 export class LeaderDetailComponent implements OnInit {
 
