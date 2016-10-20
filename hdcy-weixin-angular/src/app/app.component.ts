@@ -4,6 +4,7 @@ import "rxjs/add/operator/filter";
 import {environment} from "../environments/environment";
 import {Http} from "@angular/http";
 import {WeixinShareInfoChangedEvent, WeixinService} from "./shared/service/weixin.service";
+import {LoadingService} from "./shared/service/loading.service";
 
 @Component({
   selector: 'app',
@@ -14,13 +15,21 @@ export class AppComponent implements OnInit {
 
   showFooter: boolean = false;
 
+  loading:boolean = false;
+
   private wx = require('weixin-js-sdk');
 
   private showNavPaths: Array<string> = ['/video', '/article', '/activity', '/leader', '/my', '/'];
 
   private defaultShareInfo = new WeixinShareInfoChangedEvent("汽车运动 从你不一样", "http://img.haoduocheyou.com/logo.jpg");
 
-  constructor(router: Router, private http: Http, weixinService: WeixinService) {
+  constructor(router: Router, private http: Http, weixinService: WeixinService, loadingService:LoadingService) {
+
+    loadingService.loadingEvent.subscribe(loading => {
+      console.log(loading);
+      this.loading = loading;
+    });
+
     router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {

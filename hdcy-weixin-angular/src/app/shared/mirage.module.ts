@@ -11,6 +11,7 @@ import {SwiperComponent} from "./component/swiper.component";
 import {KSSwiperModule} from "angular2-swiper";
 import {SwiperService} from "./service/swiper.service";
 import {WeixinService} from "./service/weixin.service";
+import {LoadingService} from "./service/loading.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -18,7 +19,7 @@ import {WeixinService} from "./service/weixin.service";
   imports: [CommonModule, KSSwiperModule],
   declarations: [InfiniteScrollDirective, CarouselComponent, SwiperComponent],
   exports: [CommonModule, FormsModule, InfiniteScrollDirective, CarouselComponent, SwiperComponent],
-  providers: [HttpRestService, WeixinService, TagService, PraiseService, SwiperService]
+  providers: [HttpRestService, WeixinService, TagService, PraiseService, SwiperService, LoadingService]
 })
 export default class MirageModule {
 

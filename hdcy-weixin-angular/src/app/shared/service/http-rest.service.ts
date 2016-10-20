@@ -1,10 +1,11 @@
 /**
  * Created by zhailiang on 16/9/23.
  */
-import {Injectable} from "@angular/core";
+import {Injectable, EventEmitter} from "@angular/core";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {LoadingService} from "./loading.service";
 
 export class PageInfo {
 
@@ -22,7 +23,6 @@ export class HttpRestService {
   }
 
   query(condition?): Observable<any> {
-
     return this.http.get(environment.serviceLocation + this.domain, {
       search: this.encodeParams(condition),
       headers: new Headers({'Authorization': environment.userToken})

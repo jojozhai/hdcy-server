@@ -9,7 +9,8 @@ import {environment} from "../../../environments/environment";
 @Injectable()
 export class TagService {
 
-    constructor(private http:Http) { }
+    constructor(private http:Http) {
+    }
 
     getChild(parentId?:number): Observable<any> {
         let url:string = environment.serviceLocation  + "tag/child?parentId="+(parentId?parentId:"");

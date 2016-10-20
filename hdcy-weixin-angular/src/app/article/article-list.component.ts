@@ -7,6 +7,7 @@ import {ArticleService} from "./article.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ListComponent} from "../shared/component/list.component";
 import {TagService} from "../shared/service/tag.service";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
   selector: 'article-list',
@@ -28,11 +29,13 @@ export class ArticleListComponent extends ListComponent implements OnInit {
   constructor(public articleService: ArticleService,
               private tagService: TagService,
               private router: Router,
+              private loadingService: LoadingService,
               route: ActivatedRoute) {
     super(route);
   }
 
   ngOnInit() {
+    this.loadingService.loadingEvent.emit(true);
     let tagId = this.getQueryParam("tagId");
     if (!tagId) {
       tagId = this.currentTag;
@@ -41,13 +44,15 @@ export class ArticleListComponent extends ListComponent implements OnInit {
     if (tagId != 0) {
       condition.tagId = tagId;
     }
-    this.articleService.query(this.buildCondition(condition)).subscribe(res => {
-      this.articles = res.json().content;
-      this.currentTag = tagId;
-    });
+
     this.tagService.getChild().subscribe(res => {
       this.tags = res
       this.tagWidth = document.body.clientWidth / (this.tags.length + 1);
+      this.articleService.query(this.buildCondition(condition)).subscribe(res => {
+        this.articles = res.json().content;
+        this.currentTag = tagId;
+        this.loadingService.loadingEvent.emit(false);
+      });
     });
   }
 
