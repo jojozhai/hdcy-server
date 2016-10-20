@@ -21,6 +21,9 @@ export class ArticleListComponent extends ListComponent implements OnInit {
   tags: Array<any>;
   
   currentTag: number = 0;
+
+  tagWidth: number = 0;
+
   constructor(private articleService: ArticleService,
               private tagService: TagService,
               private router: Router,
@@ -42,8 +45,9 @@ export class ArticleListComponent extends ListComponent implements OnInit {
       this.currentTag = tagId;
     });
     this.tagService.getChild().subscribe(res => {
-    	this.tags = res;
-    	
+
+      this.tags = res
+      this.tagWidth = document.body.clientWidth / (this.tags.length + 1);
 
     });
   }
