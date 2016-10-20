@@ -7,7 +7,6 @@ import {ArticleService} from "./article.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ListComponent} from "../shared/component/list.component";
 import {TagService} from "../shared/service/tag.service";
-import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
   selector: 'article-list',
@@ -24,7 +23,9 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
   tagWidth: number = 0;
 
-  constructor(private articleService: ArticleService,
+  contentHeight: number = document.body.clientHeight - 90;
+
+  constructor(public articleService: ArticleService,
               private tagService: TagService,
               private router: Router,
               route: ActivatedRoute) {
