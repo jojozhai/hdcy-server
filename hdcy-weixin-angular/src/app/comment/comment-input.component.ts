@@ -22,9 +22,12 @@ export class CommentInputComponent implements OnInit {
 
   targetId: number;
 
+  replyToId: number;
+
   constructor(route: ActivatedRoute, private commentService: CommentService) {
     this.target = route.snapshot.queryParams['target'];
     this.targetId = route.snapshot.queryParams['targetId'];
+    this.replyToId = route.snapshot.queryParams['replyToId'];
     if (!environment.userToken) {
       commentService.login();
     }
@@ -38,10 +41,16 @@ export class CommentInputComponent implements OnInit {
     this.commentService.create({
       target: this.target,
       targetId: this.targetId,
+      replyToId: this.replyToId,
       content: this.comment
     }, () => {
       this.comment = this.defaultContent;
       this.back();
+      if(this.target == 'activity') {
+        toastr.success('咨询信息提交成功');
+      }else{
+        toastr.success('评论发布成功');
+      }
     });
   }
 
