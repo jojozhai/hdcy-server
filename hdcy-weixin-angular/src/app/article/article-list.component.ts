@@ -47,7 +47,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     this.tagService.getChild().subscribe(res => {
       this.tags = res
-      this.tagWidth = document.body.clientWidth / (this.tags.length + 1);
+      this.tagWidth = (this.tags.length + 1)*93.75;
       this.articleService.query(this.buildCondition(condition)).subscribe(res => {
         this.articles = res.json().content;
         this.currentTag = tagId;

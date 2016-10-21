@@ -4,6 +4,9 @@
 }
 .comment-all {
 	margin-top: 48px;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
 }
 .comment-count {  
   padding: 10px 12px; 
@@ -89,22 +92,7 @@
   float: left;
 }
 
-.thumbs {	
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background: url("./assets/images/thumbs.png") no-repeat;
-  background-size: 100% 100%;
-  right:20px;
-}
-.thumbs-on {
-  background: url("./assets/images/thumbs-on.png") no-repeat;
-  background-size: 100% 100%;
-}
+
 .commmentList-con, .commmentList-cons{
   font-size: 13px;
   line-height: 19px;
@@ -196,7 +184,7 @@
 }
 .relayList {	
 	margin-left: 45px;
-	padding: 12px 3px;
+	padding: 0px 3px;
 	background: #F3F3F3;
 	background-size: 100% 100%;
 	box-sizing: border-box;

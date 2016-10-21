@@ -7,34 +7,39 @@ import {ActivityService} from "./activity.service";
 import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weixin.service";
 
 @Component({
-  selector: 'activity-detail',
-  templateUrl: './activity-detail.component.html',
-  styleUrls: ['./activity.module.css']
+    selector: 'activity-detail',
+    templateUrl: './activity-detail.component.html',
+    styleUrls: ['./activity.module.css']
 })
 export class ActivityDetailComponent implements OnInit {
 
-  activity = {};
+    imgDivWidth: number = 0;
 
-  contactDivState = 'none';
+    activity = {images:[]};
 
-  constructor(private activityService: ActivityService, private route: ActivatedRoute, private weixinService: WeixinService) {
+    contactDivState = 'none';
 
-  }
+    constructor(private activityService: ActivityService,
+                private route: ActivatedRoute,
+                private weixinService: WeixinService) {
 
-  ngOnInit() {
-    this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
-      this.activity = value;
-      this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image))
-    });
-  }
-
-  displayContactDiv(display) {
-    if (display) {
-      this.contactDivState = 'block';
-    } else {
-      this.contactDivState = 'none';
     }
-  }
+
+    ngOnInit() {
+        this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
+            this.activity = value;
+            this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image))
+            this.imgDivWidth = this.activity.images.length * 108;
+        });
+    }
+
+    displayContactDiv(display) {
+        if (display) {
+            this.contactDivState = 'block';
+        } else {
+            this.contactDivState = 'none';
+        }
+    }
 
 
 }

@@ -15,7 +15,7 @@
         <div class="actDetail-con" [innerHtml]="activity.desc"></div>
       </div>
       <div class="actDetail-imgs ">
-        <div class="actDetail-imgsCon clear">
+        <div class="actDetail-imgsCon clear" [style.width.px]="imgDivWidth">
           <div *ngFor="let image of activity.images" class="actDetail-img">
             <img [src]="image">
           </div>

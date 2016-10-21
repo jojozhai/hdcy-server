@@ -1,5 +1,14 @@
+
 <div class="daka-box">
-	<div class="dakade-tit">
+	<div class="header">
+	<h3>
+        <a routerLink="/leader"  class="back"></a>
+        <span>大咖详情</span>        
+     	
+    </h3>
+</div>
+	<div class="daka-detail">
+		<div class="dakade-tit">
 	<div class="dakade-txt">
 		<div class="dakade-Img fl">
 		<img [src]="leader.image">
@@ -15,6 +24,8 @@
 	<h3 class="daka-jianjie">个人简介</h3>
 	<div [innerHtml] = leader.intro class="daka-contxt"></div>
 </div>
+		
+	</div>
 
 </div>
 

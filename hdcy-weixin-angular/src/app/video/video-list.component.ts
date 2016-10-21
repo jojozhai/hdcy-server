@@ -17,7 +17,7 @@ export class VideoListComponent extends ListComponent implements OnInit {
   videos: Array<any>;
 
   topVideos: Array<any>;
-
+//contentHeight: number = document.body.clientHeight;
   condition = {enable: 'true', live: 'false', top: 'false'};
 
   constructor(route: ActivatedRoute, private videoService: VideoService, swiperService: SwiperService) {
