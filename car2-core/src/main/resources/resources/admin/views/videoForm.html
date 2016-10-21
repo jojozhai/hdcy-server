@@ -10,6 +10,26 @@
 					<label class="control-label" ng-show="videoForm.name.$invalid && videoForm.name.$dirty">视频名称不能为空</label>
 				</div>
 			</div>
+			<div class="form-group">
+                <label class="control-label col-lg-3">直播回放:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection3" ng-model="video.replay" ng-checked="video.replay" type="checkbox">
+                        <label for="selection3" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+                <div ng-show="video.replay">
+                <label class="control-label col-lg-2">回放直播:</label>
+                <div class="col-lg-6">
+                  <ui-select ng-model="video.replayId" theme="bootstrap">
+                    <ui-select-match placeholder="可以输入直播名称来查找">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item.id as item in shows | filter: $select.search">
+                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+                </div>
+            </div>
 			<div class="form-group"  ng-class="videoForm.url.$invalid && videoForm.url.$dirty ? 'has-error': ''">
                 <label class="control-label col-lg-3">视频链接(腾讯):</label>
                 <div class="col-lg-6">

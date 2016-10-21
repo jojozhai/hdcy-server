@@ -26,7 +26,7 @@ angular.module('showAdminModule',[]).config(function($stateProvider) {
 	}
 
 	$scope.create = function() {
-		$scope.save({viewCount: 0, viewCountPlus: 0, live: true, enable: true, top: false, liveForApp: true, liveForWeixin: false});
+		$scope.save({viewCount: 0, viewCountPlus: 0, live: true, enable: true, top: false, liveForApp: true, liveForWeixin: false, replay: false});
 	}
 
 	$scope.update = function(show) {

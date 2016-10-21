@@ -51,7 +51,8 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 			price: 0,
 			images: [],
 			peopleLimit: 0,
-			kwlist: []
+			kwlist: [],
+			signCountPlus: 0
 		});
 	}
 	
@@ -218,7 +219,7 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 
 	$scope.query();
 	
-}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, commonService, waiterRestService, paramRestService) {
+}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, activityRestService, commonService, waiterRestService, paramRestService) {
 	
 	if(activity.id) {
 		paramRestService.getParam({code:"weixinAppId"}).$promise.then(function(resultA){
@@ -266,7 +267,9 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 		startingDay : 1
 	};
 	
-	$scope.activity = activity;
+	activityRestService.get({id: activity.id}).$promise.then(function(result){
+		$scope.activity = result;
+	});
 	
 	$scope.changeSponsor = function(){
 		angular.forEach($scope.sponsors, function(data){

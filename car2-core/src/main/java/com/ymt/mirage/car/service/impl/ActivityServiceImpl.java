@@ -16,11 +16,14 @@ import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.KeyWord;
 import com.ymt.mirage.car.domain.ParticipationType;
 import com.ymt.mirage.car.dto.ActivityInfo;
+import com.ymt.mirage.car.dto.ActivityParticipatorInfo;
 import com.ymt.mirage.car.dto.WaiterInfo;
+import com.ymt.mirage.car.repository.ActivityParticipatorRepository;
 import com.ymt.mirage.car.repository.ActivityRepository;
 import com.ymt.mirage.car.repository.KeyWordRepository;
 import com.ymt.mirage.car.repository.SponsorRepository;
 import com.ymt.mirage.car.repository.WaiterRepository;
+import com.ymt.mirage.car.repository.spec.ActivityParticipatorSpec;
 import com.ymt.mirage.car.repository.spec.ActivitySpec;
 import com.ymt.mirage.car.service.ActivityService;
 import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
@@ -36,6 +39,9 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 
 	@Autowired
 	private ActivityRepository activityRepository;
+	
+	@Autowired
+	private ActivityParticipatorRepository activityParticipatorRepository;
 
 	@Autowired
 	private WaiterRepository waiterRepository;
@@ -103,7 +109,12 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		BeanUtils.copyProperties(activity, info);
 		activity.setHot(activity.getHot() + 1);
 		
+		ActivityParticipatorInfo condition = new ActivityParticipatorInfo();
+		condition.setActivityId(id);
+		info.setSignCount(activityParticipatorRepository.count(new ActivityParticipatorSpec(condition)));
+		
 		if(activity.getSponsor() != null) {
+		    info.setSponsorId(activity.getSponsor().getId());
 		    info.setSponsorName(activity.getSponsor().getName());
 	        info.setSponsorImage(activity.getSponsor().getImage());
 		}
