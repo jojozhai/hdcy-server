@@ -11,6 +11,7 @@
  */
 package com.ymt.mirage.car.service.impl;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,6 +58,8 @@ public class VideoServiceImpl implements VideoService {
         Video video = new Video();
         BeanUtils.copyProperties(videoInfo, video);
         video.setSponsor(sponsorRepository.findOne(videoInfo.getSponsorId()));
+        video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
+        video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
         videoInfo.setId(videoRepository.save(video).getId());
         return videoInfo;
     }
@@ -77,6 +80,8 @@ public class VideoServiceImpl implements VideoService {
     public VideoInfo update(VideoInfo videoInfo) {
         Video video = videoRepository.findOne(videoInfo.getId());
         BeanUtils.copyProperties(videoInfo, video);
+        video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
+        video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
         videoRepository.save(video);
         return videoInfo;
     }

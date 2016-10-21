@@ -1,24 +1,24 @@
 <div class="cnts">
-	<div class="video-listcon" style="overflow-y:auto;" >
-		<swiper [images]="topVideos" target="video"></swiper>
-<div>
-  <div *ngFor="let video of videos" [routerLink]="['/video', video.id]">
-    <div class="videolist">
-      <img [src]="video.image">      
-   	 	<div class="videobg"></div>
-   	 	<div class="videotxt">
-      	<div class="videotit">
-      		{{video.name}}
-      	</div>      	
-      	<div class="videostyle" *ngIf="video.live == false">
-      		#视频#	
-      	</div>
-      	
-   	 	</div>
+    <div class="video-listcon" style="overflow-y:auto;">
+        <swiper [images]="topVideos" target="video"></swiper>
+        <div>
+            <div *ngFor="let video of videos" (click)="navToDetail(video)">
+                <div class="videolist">
+                    <img [src]="video.image">
+                    <div class="videobg"></div>
+                    <div class="videotxt">
+                        <div class="videotit">
+                            {{video.name}}
+                        </div>
+                        <div class="videostyle">
+                            <span *ngIf="!video.live">#视频#</span>
+                            <span *ngIf="video.live">#{{video.liveState}}#</span>
+                            <span *ngIf="video.live"> / <span [video-date]="video.startTime"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-  </div>
-</div>
-	</div>
 </div>
 

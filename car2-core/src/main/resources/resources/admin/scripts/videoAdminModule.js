@@ -26,7 +26,7 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	}
 
 	$scope.create = function() {
-		$scope.save({viewCount: 0, live: false, enable: true, top: false});
+		$scope.save({viewCount: 0, viewCountPlus: 0, live: false, enable: true, top: false, liveForApp: false, liveForWeixin:false});
 	}
 
 	$scope.update = function(video) {

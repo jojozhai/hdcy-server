@@ -41,16 +41,33 @@
                     <input name="readCount" ng-model="show.viewCount" type="number" class="form-control input-sm" placeholder="浏览量" required readonly="readonly">
                     <label class="control-label" ng-show="showForm.viewCount.$invalid && showForm.viewCount.$dirty">浏览量不能为空</label>
                 </div>
-                <label class="control-label col-lg-2">浏览量加成:</label>
+                <label class="control-label col-lg-3">浏览量加成:</label>
                 <div class="col-lg-2">
                     <input name="readCountPlus" ng-model="show.viewCountPlus" type="number" class="form-control input-sm" placeholder="阅读量加成" required>
                     <label class="control-label" ng-show="showForm.viewCountPlus.$invalid && showForm.viewCountPlus.$dirty">阅读量加成不能为空</label>
                 </div>
             </div>
             <div class="form-group">
+                
+                <label class="control-label col-lg-3">直播提供者:</label>
+                <div class="col-lg-3">
+                    <select required="required" class="form-control input-sm" ng-model="show.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors"></select>
+                </div>
+                <label class="control-label col-lg-2">直播方式:</label>
+                <div class="col-lg-2">
+                    <select required="required" class="form-control input-sm" ng-model="liveType" ng-options="type.value as type.name for type in liveTypes"></select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="liveType == 'app'">
                 <label class="control-label col-lg-3">直播流ID:</label>
                 <div class="col-lg-2">
                     <input name="steamId" ng-model="show.streamId" type="text" class="form-control input-sm" placeholder="直播流ID">
+                </div>
+            </div>
+            <div class="form-group" ng-show="liveType == 'weixin'"  ng-class="showForm.liveLink.$invalid && showForm.liveLink.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3">直播链接:</label>
+                <div class="col-lg-6">
+                    <input name="liveLink" ng-model="show.liveLink" type="text" class="form-control input-sm" placeholder="直播链接">
                 </div>
             </div>
             <div class="form-group" ng-class="showForm.startTime.$invalid && showForm.startTime.$dirty ? 'has-error': ''">
@@ -97,12 +114,6 @@
                 </div>
                 <div class="col-md-3">
                     <uib-timepicker class="input-sm" ng-model="show.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-3">直播提供者:</label>
-                <div class="col-lg-3">
-                    <select required="required" class="form-control input-sm" ng-model="show.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors"></select>
                 </div>
             </div>
 			<div class="text-right m-top-md">

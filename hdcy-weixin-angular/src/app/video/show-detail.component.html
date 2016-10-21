@@ -1,0 +1,25 @@
+<div class="video-header">
+	<h3>
+        <a routerLink="/video" [queryParams]="{tagId: fromTag}" class="back"></a>
+        <span>{{video.name}}</span>
+    </h3>
+</div>
+<div>
+    <img [src]="video.image" height="200" width="200">
+</div>
+<div>
+	开始时间:{{video.startTime | date:'MM-dd/HH:mm'}}
+</div>
+<div>
+	直播人的头像:<img [src]="video.sponsorImage" height="200" width="200">
+</div>
+<div>
+	直播人的姓名:{{video.sponsorName}}
+</div>
+<div class="video-descom">
+	<div class="video-descs">
+		<h3 class="video-destit">简介</h3>
+		<div class="video-desc" [innerHTML]="video.desc"></div>
+	</div>
+	<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
+</div>

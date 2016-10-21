@@ -26,7 +26,7 @@ angular.module('showAdminModule',[]).config(function($stateProvider) {
 	}
 
 	$scope.create = function() {
-		$scope.save({viewCount: 0, live: true, enable: true, top: false});
+		$scope.save({viewCount: 0, viewCountPlus: 0, live: true, enable: true, top: false, liveForApp: true, liveForWeixin: false});
 	}
 
 	$scope.update = function(show) {
@@ -90,7 +90,6 @@ angular.module('showAdminModule',[]).config(function($stateProvider) {
 	};
 
 	$scope.dateOptions = {
-		minDate : new Date(),
 		startingDay : 1
 	};
 
@@ -99,8 +98,19 @@ angular.module('showAdminModule',[]).config(function($stateProvider) {
 			$scope.show.image = result;
 		});
 	}
+	
+	if(show.id){
+		showRestService.get({id: show.id}).$promise.then(function(result){
+			$scope.show = result;
+			$scope.liveType = $scope.show.liveForApp?'app':'weixin';
+		});
+	}else{
+		$scope.show = show;
+		$scope.liveType = $scope.show.liveForApp?'app':'weixin';
+	}
+	
 
-	$scope.show = showRestService.get({id: show.id});
+	$scope.liveTypes = [{value:'app',name:'APP直播'},{value:'weixin', name:'微信直播'}];
 
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
 

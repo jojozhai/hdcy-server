@@ -11,6 +11,8 @@
  */
 package com.ymt.mirage.car.repository.spec;
 
+import javax.persistence.criteria.Predicate;
+
 import com.ymt.mirage.car.domain.Video;
 import com.ymt.mirage.car.dto.VideoInfo;
 import com.ymt.pz365.data.jpa.repository.spec.PzSimpleSpecification;
@@ -34,6 +36,17 @@ public class VideoSpec extends PzSimpleSpecification<Video, VideoInfo> {
         addEqualsCondition(queryWraper, "enable");
         addEqualsCondition(queryWraper, "top");
         addEqualsCondition(queryWraper, "live");
+        
+        if(getCondition().getLiveForApp() != null || getCondition().getLiveForWeixin() != null) {
+            Predicate orPredicates;
+            Predicate video = queryWraper.getCb().equal(queryWraper.getRoot().get("live"), false);
+            if(getCondition().getLiveForApp() != null){
+                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().equal(queryWraper.getRoot().get("liveForApp"), true));
+            }else{
+                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().equal(queryWraper.getRoot().get("liveForWeixin"), true));
+            }
+            queryWraper.getPredicates().add(orPredicates);
+        }
     }
 
 }

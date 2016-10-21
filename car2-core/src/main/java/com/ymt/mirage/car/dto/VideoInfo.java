@@ -63,6 +63,10 @@ public class VideoInfo {
      */
     private Boolean live;
     /**
+     * 直播链接
+     */
+    private String liveLink;
+    /**
      * 直播状态
      */
     private String liveState;
@@ -98,6 +102,14 @@ public class VideoInfo {
      * 
      */
     private Long sponsorId;
+    /**
+     * app直播
+     */
+    private Boolean liveForApp;
+    /**
+     * weixin直播
+     */
+    private Boolean liveForWeixin;
     /**
      * @return the id
      */
@@ -337,6 +349,42 @@ public class VideoInfo {
      */
     public void setSponsorId(Long sponsorId) {
         this.sponsorId = sponsorId;
+    }
+    /**
+     * @return the liveLink
+     */
+    public String getLiveLink() {
+        return liveLink;
+    }
+    /**
+     * @param liveLink the liveLink to set
+     */
+    public void setLiveLink(String liveLink) {
+        this.liveLink = liveLink;
+    }
+    /**
+     * @return the liveForApp
+     */
+    public Boolean getLiveForApp() {
+        return liveForApp;
+    }
+    /**
+     * @param liveForApp the liveForApp to set
+     */
+    public void setLiveForApp(Boolean liveForApp) {
+        this.liveForApp = liveForApp;
+    }
+    /**
+     * @return the liveForWeixin
+     */
+    public Boolean getLiveForWeixin() {
+        return liveForWeixin;
+    }
+    /**
+     * @param liveForWeixin the liveForWeixin to set
+     */
+    public void setLiveForWeixin(Boolean liveForWeixin) {
+        this.liveForWeixin = liveForWeixin;
     }
     
 }

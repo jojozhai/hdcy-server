@@ -52,6 +52,14 @@ public class Video extends DomainImpl {
      */
     private boolean enable;
     /**
+     * app直播
+     */
+    private boolean liveForApp;
+    /**
+     * weixin直播
+     */
+    private boolean liveForWeixin;
+    /**
      * 图片
      */
     private String image;
@@ -71,6 +79,10 @@ public class Video extends DomainImpl {
      * 是否是直播
      */
     private boolean live;
+    /**
+     * 直播链接
+     */
+    private String liveLink;
     /**
      * 直播状态
      */
@@ -298,6 +310,42 @@ public class Video extends DomainImpl {
      */
     public void setSponsor(Sponsor sponsor) {
         this.sponsor = sponsor;
+    }
+    /**
+     * @return the liveLink
+     */
+    public String getLiveLink() {
+        return liveLink;
+    }
+    /**
+     * @param liveLink the liveLink to set
+     */
+    public void setLiveLink(String liveLink) {
+        this.liveLink = liveLink;
+    }
+    /**
+     * @return the liveForApp
+     */
+    public boolean isLiveForApp() {
+        return liveForApp;
+    }
+    /**
+     * @param liveForApp the liveForApp to set
+     */
+    public void setLiveForApp(boolean liveForApp) {
+        this.liveForApp = liveForApp;
+    }
+    /**
+     * @return the liveForWeixin
+     */
+    public boolean isLiveForWeixin() {
+        return liveForWeixin;
+    }
+    /**
+     * @param liveForWeixin the liveForWeixin to set
+     */
+    public void setLiveForWeixin(boolean liveForWeixin) {
+        this.liveForWeixin = liveForWeixin;
     }
     
 }

@@ -9,11 +9,11 @@ import {WeixinService} from "../shared/service/weixin.service";
 import {BaseVideoDetailComponent} from "./base-video-detail.component";
 
 @Component({
-    selector: 'video-detail',
-    templateUrl: './video-detail.component.html',
+    selector: 'show-detail',
+    templateUrl: './show-detail.component.html',
     styleUrls: ['./video.module.css']
 })
-export class VideoDetailComponent extends BaseVideoDetailComponent implements OnInit {
+export class ShowDetailComponent extends BaseVideoDetailComponent implements OnInit {
 
     constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService) {
         super(videoService, route, sanitizer, weixinService);
