@@ -12,6 +12,7 @@
 package com.ymt.mirage.car.service.impl;
 
 import org.apache.commons.lang.StringUtils;
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,6 +61,9 @@ public class VideoServiceImpl implements VideoService {
         video.setSponsor(sponsorRepository.findOne(videoInfo.getSponsorId()));
         video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
         video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
+        if(video.getEndTime() == null) {
+            video.setEndTime(new DateTime().plusYears(100).toDate());
+        }
         videoInfo.setId(videoRepository.save(video).getId());
         return videoInfo;
     }
@@ -82,6 +86,9 @@ public class VideoServiceImpl implements VideoService {
         BeanUtils.copyProperties(videoInfo, video);
         video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
         video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
+        if(video.getEndTime() == null) {
+            video.setEndTime(new DateTime().plusYears(100).toDate());
+        }
         videoRepository.save(video);
         return videoInfo;
     }

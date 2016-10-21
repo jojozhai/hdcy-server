@@ -11,6 +11,9 @@
  */
 package com.ymt.mirage.car.repository.spec;
 
+import java.util.Date;
+
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 
 import com.ymt.mirage.car.domain.Video;
@@ -40,13 +43,21 @@ public class VideoSpec extends PzSimpleSpecification<Video, VideoInfo> {
         if(getCondition().getLiveForApp() != null || getCondition().getLiveForWeixin() != null) {
             Predicate orPredicates;
             Predicate video = queryWraper.getCb().equal(queryWraper.getRoot().get("live"), false);
+            
+            Path<? extends Comparable> fieldPath = getPath(queryWraper.getRoot(), "endTime");
+            Predicate timeCondition = queryWraper.getCb().greaterThan(fieldPath, new Date());
+            
             if(getCondition().getLiveForApp() != null){
-                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().equal(queryWraper.getRoot().get("liveForApp"), true));
+                Predicate liveCondition = queryWraper.getCb().equal(queryWraper.getRoot().get("liveForApp"), true);
+                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().and(liveCondition, timeCondition));
             }else{
-                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().equal(queryWraper.getRoot().get("liveForWeixin"), true));
+                Predicate liveCondition = queryWraper.getCb().equal(queryWraper.getRoot().get("liveForWeixin"), true);
+                orPredicates = queryWraper.getCb().or(video, queryWraper.getCb().and(liveCondition, timeCondition));
             }
             queryWraper.getPredicates().add(orPredicates);
+            
         }
+        
     }
 
 }

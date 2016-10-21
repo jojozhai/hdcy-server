@@ -9,8 +9,6 @@ import {NgModule} from "@angular/core/src/metadata/ng_module";
  */
 export abstract class DynamicComponent implements OnChanges, OnDestroy {
 
-
-
   private cmpRef: ComponentRef<any>;
 
   constructor(private compiler: Compiler){

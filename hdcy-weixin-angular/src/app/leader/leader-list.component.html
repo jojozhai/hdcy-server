@@ -1,4 +1,12 @@
-<swiper target="leader" [images]="topLeaders"></swiper>
+<div class="myslides">
+	<ks-swiper-container [options]="swiperOptions">
+		<ks-swiper-slide *ngFor="let leader of topLeaders">
+			<a [routerLink]="['/leader', leader.id]">
+				<img class="activity-img" [src]="leader.image">
+			</a>
+		</ks-swiper-slide>
+	</ks-swiper-container>
+</div>
 <div class="daka-navs">
 	<a (click)="changeTag(0)" [class.active]="isActive(0)" >全部</a>
   <a (click)="changeTag(1)" [class.active]="isActive(1)" >个人</a>

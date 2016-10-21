@@ -26,7 +26,7 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	}
 
 	$scope.create = function() {
-		$scope.save({viewCount: 0, viewCountPlus: 0, live: false, enable: true, top: false, liveForApp: false, liveForWeixin:false});
+		$scope.save({viewCount: 0, viewCountPlus: 0, live: false, enable: true, top: false, liveForApp: false, liveForWeixin:false, replay: false});
 	}
 
 	$scope.update = function(video) {
@@ -69,6 +69,10 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 
 }).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService, sponsorRestService) {
 
+	videoRestService.query({live:true, size: 1000, sort: 'createdTime,desc'}).$promise.then(function(result){
+		$scope.shows = result.content;
+	})
+	
 	sponsorRestService.findAll().$promise.then(function(data){
 		$scope.sponsors = data;
 	});
@@ -100,7 +104,12 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 		});
 	}
 
-	$scope.video = videoRestService.get({id: video.id});
+	if(video.id){
+		$scope.video = videoRestService.get({id: video.id});
+	}else{
+		$scope.video = video;
+	}
+	
 
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
 

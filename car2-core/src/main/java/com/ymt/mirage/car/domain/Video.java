@@ -52,6 +52,14 @@ public class Video extends DomainImpl {
      */
     private boolean enable;
     /**
+     * 回放
+     */
+    private boolean replay;
+    /**
+     * 回放直播id
+     */
+    private Long replayId;
+    /**
      * app直播
      */
     private boolean liveForApp;
@@ -346,6 +354,30 @@ public class Video extends DomainImpl {
      */
     public void setLiveForWeixin(boolean liveForWeixin) {
         this.liveForWeixin = liveForWeixin;
+    }
+    /**
+     * @return the replay
+     */
+    public boolean isReplay() {
+        return replay;
+    }
+    /**
+     * @param replay the replay to set
+     */
+    public void setReplay(boolean replay) {
+        this.replay = replay;
+    }
+    /**
+     * @return the replayId
+     */
+    public Long getReplayId() {
+        return replayId;
+    }
+    /**
+     * @param replayId the replayId to set
+     */
+    public void setReplayId(Long replayId) {
+        this.replayId = replayId;
     }
     
 }

@@ -111,6 +111,14 @@ public class VideoInfo {
      */
     private Boolean liveForWeixin;
     /**
+     * 回放
+     */
+    private Boolean replay;
+    /**
+     * 回放直播id
+     */
+    private Long replayId;
+    /**
      * @return the id
      */
     public Long getId() {
@@ -385,6 +393,30 @@ public class VideoInfo {
      */
     public void setLiveForWeixin(Boolean liveForWeixin) {
         this.liveForWeixin = liveForWeixin;
+    }
+    /**
+     * @return the replay
+     */
+    public Boolean getReplay() {
+        return replay;
+    }
+    /**
+     * @param replay the replay to set
+     */
+    public void setReplay(Boolean replay) {
+        this.replay = replay;
+    }
+    /**
+     * @return the replayId
+     */
+    public Long getReplayId() {
+        return replayId;
+    }
+    /**
+     * @param replayId the replayId to set
+     */
+    public void setReplayId(Long replayId) {
+        this.replayId = replayId;
     }
     
 }

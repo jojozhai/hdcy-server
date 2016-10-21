@@ -5,7 +5,6 @@ import {Component, OnInit} from "@angular/core";
 import {ListComponent} from "../shared/component/list.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {VideoService} from "./video.service";
-import {SwiperService} from "../shared/service/swiper.service";
 
 @Component({
     selector: 'video-list',
@@ -20,22 +19,18 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
     condition = {enable: 'true', liveForWeixin: 'true', top: 'false'};
 
-    dateFormat = "yyyy-MM-dd";
+    swiperOptions = {
+        loop: false,
+        autoplay: 3000,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        centeredSlides: true,
+        slidesPerView: 1.2,
+        watchActiveIndex: true,
+    };
 
-    constructor(route: ActivatedRoute, private router: Router, private videoService: VideoService, swiperService: SwiperService) {
+    constructor(route: ActivatedRoute, private router: Router, private videoService: VideoService) {
         super(route);
-        swiperService.onImageRendered.subscribe(event => {
-            if (event.type == 'video' && !event.image.swiperContent) {
-                event.image.swiperContent = `<div class="activity-tit">
-            ${event.image.name}
-          </div>
-          <div class="activity-atime clear">
-            <div class="activity-add fl">
-              #视频# 
-            </div>
-          </div>`;
-            }
-        })
     }
 
     ngOnInit() {
@@ -49,15 +44,18 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
     navToDetail(video) {
         if (video.live) {
-            let begin = new Date().getTime() - new Date(video.startTime).getTime();
-            console.log(begin);
-            if(begin > 0){
+            let begin = new Date().getTime() - new Date(video.startTime).getTime() > 0;
+            if (begin) {
                 window.location.href = video.liveLink;
-            }else{
+            } else {
                 this.router.navigateByUrl('/show/' + video.id);
             }
         } else {
-            this.router.navigateByUrl('/video/' + video.id);
+            if (video.replay) {
+                this.router.navigateByUrl('/show/' + video.id);
+            } else {
+                this.router.navigateByUrl('/video/' + video.id);
+            }
         }
     }
 
