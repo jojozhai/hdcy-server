@@ -16,6 +16,14 @@ public class ActivityInfo extends ParticipationInfo {
 
 	private Long id;
 	/**
+     * 省份
+     */
+    private String province;
+    /**
+     * 城市
+     */
+    private String city;
+	/**
 	 * 活动介绍图片
 	 */
 	private List<String> images;
@@ -59,6 +67,15 @@ public class ActivityInfo extends ParticipationInfo {
      * 报名结束时间
      */
     private Date signEndTime;
+    /**
+     * 报名人数
+     */
+    private Long signCount;
+    /**
+     * 报名人数加权
+     */
+    private Long signCountPlus;
+
 
 	public long getCustomerServiceId() {
 		return customerServiceId;
@@ -226,6 +243,62 @@ public class ActivityInfo extends ParticipationInfo {
      */
     public void setWaiterImage(String waiterImage) {
         this.waiterImage = waiterImage;
+    }
+
+    /**
+     * @return the signCount
+     */
+    public Long getSignCount() {
+        return signCount;
+    }
+
+    /**
+     * @param signCount the signCount to set
+     */
+    public void setSignCount(Long signCount) {
+        this.signCount = signCount;
+    }
+
+    /**
+     * @return the signCountPlus
+     */
+    public Long getSignCountPlus() {
+        return signCountPlus;
+    }
+
+    /**
+     * @param signCountPlus the signCountPlus to set
+     */
+    public void setSignCountPlus(Long signCountPlus) {
+        this.signCountPlus = signCountPlus;
+    }
+
+    /**
+     * @return the province
+     */
+    public String getProvince() {
+        return province;
+    }
+
+    /**
+     * @param province the province to set
+     */
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override

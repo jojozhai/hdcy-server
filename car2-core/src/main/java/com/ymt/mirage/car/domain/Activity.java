@@ -24,6 +24,15 @@ public class Activity extends Participation {
 	}
 	
 	/**
+	 * 省份
+	 */
+	private String province;
+	/**
+	 * 城市
+	 */
+	private String city;
+	
+	/**
      * 报名开始时间
      */
     @Temporal(TemporalType.TIMESTAMP)
@@ -55,7 +64,10 @@ public class Activity extends Participation {
 	 * 活动费用
 	 */
 	private BigDecimal price;
-
+	/**
+	 * 报名人数加权
+	 */
+	private long signCountPlus;	
 	/**
 	 * @return the contactPhone
 	 */
@@ -157,6 +169,48 @@ public class Activity extends Participation {
      */
     public void setSignEndTime(Date signEndTime) {
         this.signEndTime = signEndTime;
+    }
+
+    /**
+     * @return the signCountPlus
+     */
+    public long getSignCountPlus() {
+        return signCountPlus;
+    }
+
+    /**
+     * @param signCountPlus the signCountPlus to set
+     */
+    public void setSignCountPlus(long signCountPlus) {
+        this.signCountPlus = signCountPlus;
+    }
+
+    /**
+     * @return the province
+     */
+    public String getProvince() {
+        return province;
+    }
+
+    /**
+     * @param province the province to set
+     */
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
     }
 	
 	
