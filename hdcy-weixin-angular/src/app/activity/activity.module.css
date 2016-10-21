@@ -97,7 +97,7 @@
 	background-size: 100% 100%;	
 }
 .con-ups {
-	display: inline-block;
+	display: none;	
 	width: 22px;
 	height: 12px;
 	background: url(../../assets/images/up.png) no-repeat;

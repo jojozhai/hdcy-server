@@ -8,7 +8,7 @@
     </h3>
   </div>
 
-  <div class="detai-cnts">
+  <div class="detai-cnts" [style.height.px]="detailboxHeight">
     <div class="detai-cntss">
       <div class="actDetail-mes">
         <div class="actDetail-tit">{{activity.name}}</div>
@@ -20,10 +20,10 @@
             <img [src]="image">
           </div>
         </div>
-
       </div>
       <div class="downs">
-        <span class="con-downs"></span>
+        <span class="con-downs"[ngStyle]="{'display': pulls}" (click)="change(true)"></span>
+        <span class="con-ups" [ngStyle]="{'display': pushs}" (click)="changeback(true)"></span>
       </div>
 
     </div>

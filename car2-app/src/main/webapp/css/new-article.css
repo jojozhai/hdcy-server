@@ -1,0 +1,68 @@
+html,body  {
+                width: 100%;
+                
+            }
+            .articleBox {
+                width:375px;
+                margin: 0 auto;
+            }        
+            
+            .header {
+                padding: 0px 15px;
+                box-sizing: border-box;
+
+            }
+            h1 {
+            	padding: 15px 0;
+                color: #494949;
+                font-size: 17px;
+               	word-break: break-word;
+            }
+            .times {
+                padding-bottom: 10px;
+                color: #959595;
+                font-size:11px;
+            }
+            .author {
+                padding: 0 24px;
+            }
+            .sort {
+            	display: inline-block;
+            	line-height: 20px;
+                display: inline-block;
+                color: #303030;
+                border: 1px solid #303030;
+                border-radius: 20px;
+                padding: 0px 4px;
+                text-align: center;
+                margin-right: 8px; 
+            }
+
+            .article-img {
+                width: 375px;
+                height: 225px;
+            }
+            #conDetail {
+               padding: 9px 12px 35px;
+            }
+            .comment {
+            	position: fixed;
+            	bottom:0px;
+            	display:none;
+                width: 375px;
+            }
+            .pinglun {
+                text-align: center;
+            	padding:15px 0;
+            	font-size:25px;
+                color: white;
+                background: #B2B2B2;
+            }
+            .erweima {
+            	text-align: center;
+    			display:none;
+            }
+            .erweima img{
+            	width:275px;
+            }
+            

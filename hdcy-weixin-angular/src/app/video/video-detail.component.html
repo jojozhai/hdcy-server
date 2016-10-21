@@ -5,8 +5,9 @@
         
     </h3>
 </div>
-<div class="zhibo">    
-	<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
+<div class="detai-cnts1" [style.height.px]="detailboxHeight">
+	<div class="zhibo">    
+		<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
     <!--<div class="zhibo-txt">
         <p class="zhibo-tit">Challonger G汽车嘉年华 </p>
         <p class="videoTime-txt">
@@ -19,12 +20,13 @@
 
         </div>
     </div>-->
-</div>
-
-<div class="video-descom">
-	<div class="video-descs">
-		<h3 class="video-destit">简介</h3>
-		<div class="video-desc" [innerHTML]="video.desc"></div>
 	</div>
-	<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
+
+	<div class="video-descom">
+		<div class="video-descs">
+			<h3 class="video-destit">简介</h3>
+			<div class="video-desc" [innerHTML]="video.desc"></div>
+		</div>
+		<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
+	</div>
 </div>

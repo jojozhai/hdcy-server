@@ -18,7 +18,9 @@ export class ActivityDetailComponent implements OnInit {
     activity = {images:[]};
 
     contactDivState = 'none';
-
+	pushs='none';
+	pulls='inline-block';
+	detailboxHeight: number = document.body.clientHeight - 48;
     constructor(private activityService: ActivityService,
                 private route: ActivatedRoute,
                 private weixinService: WeixinService) {
@@ -39,6 +41,21 @@ export class ActivityDetailComponent implements OnInit {
         } else {
             this.contactDivState = 'none';
         }
+    }
+    changeback(display) {
+    	if (display) {
+            this.pulls = 'inline-block';
+            this.pushs = 'none';
+        } 
+         $(".actDetail-con").height(108);
+    }
+     change(display) {
+    	if (display) {
+            this.pushs = 'inline-block';
+            this.pulls = 'none';
+        } 
+        $(".actDetail-con").height('auto');
+       
     }
 
 

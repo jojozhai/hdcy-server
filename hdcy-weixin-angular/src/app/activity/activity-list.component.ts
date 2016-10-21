@@ -1,7 +1,6 @@
 /**
  * Created by zhailiang on 16/9/23.
  */
-
 import {
 	Component,
 	OnInit
@@ -29,9 +28,8 @@ export class ActivityListComponent extends ListComponent implements OnInit {
 	workingActivities: Array < any > ;
 
 	finishActivities: Array < any > ;
-
 	topActivities: Array < any > ;
-
+	cntsboxHeight: number = document.body.clientHeight - 50;
 	condition = {
 		finish: 'true',
 		top: 'false',

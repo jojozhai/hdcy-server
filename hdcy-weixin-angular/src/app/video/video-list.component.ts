@@ -21,7 +21,8 @@ export class VideoListComponent extends ListComponent implements OnInit {
     condition = {enable: 'true', liveForWeixin: 'true', top: 'false'};
 
     dateFormat = "yyyy-MM-dd";
-
+	
+	cntsboxHeight: number = document.body.clientHeight - 50;
     constructor(route: ActivatedRoute, private router: Router, private videoService: VideoService, swiperService: SwiperService) {
         super(route);
         swiperService.onImageRendered.subscribe(event => {

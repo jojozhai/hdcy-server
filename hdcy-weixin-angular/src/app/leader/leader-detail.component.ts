@@ -14,7 +14,7 @@ import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weix
 export class LeaderDetailComponent implements OnInit {
 
   leader = {};
-
+  detailboxHeight: number = document.body.clientHeight - 48;
   constructor(private leaderService: LeaderService, private route: ActivatedRoute, private weixinService:WeixinService) {
   }
 

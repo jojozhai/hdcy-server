@@ -26,6 +26,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
   contentHeight: number = document.body.clientHeight - 90;
 
+  cntsboxHeight: number = document.body.clientHeight - 50;
   constructor(public articleService: ArticleService,
               private tagService: TagService,
               private router: Router,

@@ -18,7 +18,7 @@ export class ArticleDetailComponent implements OnInit {
     tagName;
 
     fromTag:number;
-
+    detailboxHeight: number = document.body.clientHeight - 48;
     constructor(private articleService: ArticleService, private route: ActivatedRoute, private weixinService: WeixinService) {
       this.fromTag = route.snapshot.queryParams['fromTag'];
     }

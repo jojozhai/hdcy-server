@@ -21,7 +21,7 @@ export class LeaderListComponent extends ListComponent implements OnInit {
   condition = {enable: 'true', top: 'false', organ: null};
 
   currentTag = 0;
-
+  cntsboxHeight: number = document.body.clientHeight - 50;
   constructor(route: ActivatedRoute, private leaderService: LeaderService, swiperService: SwiperService) {
     super(route);
     swiperService.onImageRendered.subscribe(event => {
