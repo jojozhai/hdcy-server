@@ -12,7 +12,17 @@ import {ActivatedRoute} from "@angular/router";
     styleUrls: ['./leader.module.css']
 })
 export class LeaderListComponent extends ListComponent implements OnInit {
-
+// 
+//
+//constructor(route: ActivatedRoute, private leaderService: LeaderService, swiperService: SwiperService) {
+//  super(route);
+//  swiperService.onImageRendered.subscribe(event => {
+//    if (event.type == 'leader' && !event.image.swiperContent) {
+////      event.image.swiperContent = event.image.name;
+//    }
+//  })
+//}
+  
     leaders: Array<any>;
 
     topLeaders: Array<any>;
@@ -20,7 +30,7 @@ export class LeaderListComponent extends ListComponent implements OnInit {
     condition = {enable: 'true', top: 'false', organ: null};
 
     currentTag = 0;
-
+	cntsboxHeight: number = document.body.clientHeight - 50;
     swiperOptions = {
         loop: false,
         autoplay: 3000,
@@ -33,6 +43,7 @@ export class LeaderListComponent extends ListComponent implements OnInit {
 
     constructor(route: ActivatedRoute, private leaderService: LeaderService) {
         super(route);
+
     }
 
     ngOnInit() {

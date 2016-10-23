@@ -14,10 +14,12 @@
 				<div class="activity-stime fl">
 					{{activity.startTime | date:'yyyy-MM-dd'}}
 				</div>
+
 			</div>
 			<div class="activity-etime" *ngIf="showSignTip(activity)">
 				<span [count-down]="activity.signEndTime" tip="距报名截止还有  "></span>
 			</div>
+
 		</div>
 	</div>
 

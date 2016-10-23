@@ -19,7 +19,11 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
     condition = {enable: 'true', liveForWeixin: 'true', top: 'false'};
 
-    swiperOptions = {
+
+    dateFormat = "yyyy-MM-dd";
+	
+	cntsboxHeight: number = document.body.clientHeight - 50;
+	swiperOptions = {
         loop: false,
         autoplay: 3000,
         pagination: '.swiper-pagination',
@@ -30,8 +34,9 @@ export class VideoListComponent extends ListComponent implements OnInit {
     };
 
     constructor(route: ActivatedRoute, private router: Router, private videoService: VideoService) {
-        super(route);
-    }
+	super(route);   
+	
+}
 
     ngOnInit() {
         this.videoService.query(super.buildCondition(this.condition)).subscribe(res => this.videos = res.json().content);

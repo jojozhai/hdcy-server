@@ -14,7 +14,7 @@ import {BaseVideoDetailComponent} from "./base-video-detail.component";
     styleUrls: ['./video.module.css']
 })
 export class VideoDetailComponent extends BaseVideoDetailComponent implements OnInit {
-
+	detailboxHeight: number = document.body.clientHeight;
     constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService) {
         super(videoService, route, sanitizer, weixinService);
     }

@@ -1,3 +1,5 @@
+
+<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="leaders"> 
 <div class="myslides">
 	<ks-swiper-container [options]="swiperOptions">
 		<ks-swiper-slide *ngFor="let leader of topLeaders">
@@ -8,7 +10,7 @@
 	</ks-swiper-container>
 </div>
 <div class="daka-navs">
-	<a (click)="changeTag(0)" [class.active]="isActive(0)" >全部</a>
+  <a (click)="changeTag(0)" [class.active]="isActive(0)" >全部</a>
   <a (click)="changeTag(1)" [class.active]="isActive(1)" >个人</a>
   <a (click)="changeTag(2)" [class.active]="isActive(2)" >机构</a>
 </div>
@@ -21,7 +23,9 @@
   			<div class="daka-txt">
   				<div class="leader-tit">{{i+leader.name}}</div>
   				<div class="leader-slogan">{{leader.slogan}}</div>
+
   			</div>
-  		</div>
+		</div>
 	</div>
+</div>
 </div>

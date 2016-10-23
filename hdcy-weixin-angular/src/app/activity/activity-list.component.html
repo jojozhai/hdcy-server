@@ -1,5 +1,4 @@
-<!--<div>活动列表!!</div>-->
-<div class="cnts">
+<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
     <div class="myslides">
         <ks-swiper-container [options]="swiperOptions">
             <ks-swiper-slide *ngFor="let activity of topActivities">

@@ -2,11 +2,13 @@
  * Created by zhailiang on 16/9/23.
  */
 
+//import {
+//	SwiperService
+//} from "../shared/service/swiper.service";
 import {Component, OnInit} from "@angular/core";
 import {ListComponent} from "../shared/component/list.component";
 import {ActivatedRoute} from "@angular/router";
 import {ActivityService} from "./activity.service";
-
 @Component({
     selector: 'activity-list',
     templateUrl: './activity-list.component.html',
@@ -15,17 +17,15 @@ import {ActivityService} from "./activity.service";
 export class ActivityListComponent extends ListComponent implements OnInit {
 
     workingActivities: Array < any >;
-
     finishActivities: Array < any >;
 
     topActivities: Array < any >;
-
+	cntsboxHeight: number = document.body.clientHeight - 50;
     condition = {
         finish: 'true',
         top: 'false',
         sort: 'startTime,desc'
     };
-
     swiperOptions = {
         loop: false,
         autoplay: 3000,

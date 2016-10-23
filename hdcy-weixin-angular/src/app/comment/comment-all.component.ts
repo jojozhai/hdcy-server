@@ -22,7 +22,8 @@ export class CommentAllComponent extends ListComponent implements OnInit {
   private withReply: string;
 
   private styleType: string = "default";
-
+  
+  cntsboxHeight: number = document.body.clientHeight - 48;
   constructor(route: ActivatedRoute, public commentService: CommentService) {
     super(route);
     this.target = route.snapshot.queryParams['target'];

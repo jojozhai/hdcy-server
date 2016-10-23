@@ -1,5 +1,6 @@
-<div class="cnts">
-    <div class="video-listcon" style="overflow-y:auto;">
+<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="videos"
+      [dataService]="videoService" [pageInfo]="pageInfo">
+    <div class="video-listcon" >
         <div class="myslides">
             <ks-swiper-container [options]="swiperOptions">
                 <ks-swiper-slide *ngFor="let video of topVideos">
