@@ -60,7 +60,7 @@
 				<img src="../../assets/images/adds-zhu.png"/>
 			</span>
                 <span class="zhuban-txt">
-				活动地点：<span class="zhuban-item">{{activity.province+activity.city+activity.address}}</span>
+				活动地点：<span class="zhuban-item">{{activity.province?activity.province:""+activity.city+activity.address}}</span>
 			</span>
             </div>
             <div class="zhuban">

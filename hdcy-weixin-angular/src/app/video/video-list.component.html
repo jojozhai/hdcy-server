@@ -5,7 +5,7 @@
                 <ks-swiper-slide *ngFor="let video of topVideos">
                     <a (click)="navToDetail(video)">
                         <img class="activity-img" src="{{video.image}}">
-                        <div class="swiper-txt"></div>
+                        <div class="swiper-txt">{{video.name}}</div>
                         <div class="activitys-mes">
                             <span *ngIf="!video.live">
                                 <span *ngIf="!video.replay">#视频#</span>
