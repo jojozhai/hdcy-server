@@ -2,26 +2,13 @@
     <div class="myslides">
         <ks-swiper-container [options]="swiperOptions">
             <ks-swiper-slide *ngFor="let activity of topActivities">
-                <a [routerLink]="['/activity', activity.id]">
-                    <img class="activity-img" [src]="activity.image">
-                    <div class="swiper-txt"></div>
-                    <img class="sponsor" [src]="activity.sponsorImage"/>
-                    <div class="activitys-mes">
-                        <div class="activity-tit">
-                            {{activity.name}}
-                        </div>
-                        <div class="activity-atime clear">
-                            <div class="activity-add fl">
-                                {{activity.address}}/{{activity.startTime | date:'yyyy-MM-dd'}}
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                <activity-list-item [activity]="activity"></activity-list-item>
             </ks-swiper-slide>
         </ks-swiper-container>
     </div>
 
-    <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
+    <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo"
+         [condition]="condition">
         <!--<div>未结束</div>-->
         <div *ngFor="let activity of workingActivities">
             <activity-list-item [activity]="activity"></activity-list-item>
