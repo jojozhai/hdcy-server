@@ -24,7 +24,8 @@ export class LeaderListComponent extends ListComponent implements OnInit {
 //}
   
     leaders: Array<any>;
-
+	applys='none';
+	applys1 = 'none';
     topLeaders: Array<any>;
 
     condition = {enable: 'true', top: 'false', organ: null};
@@ -72,6 +73,22 @@ export class LeaderListComponent extends ListComponent implements OnInit {
 
     private query() {
         this.leaderService.query(super.buildCondition(this.condition)).subscribe(res => this.leaders = res.json().content);
+    }
+    apply(display) {
+    	if (display) {
+    		this.applys = 'inline-block';            
+    	}
+    }
+    hidden(display) {
+    	if (display) {
+    		this.applys = 'none'; 
+    		this.applys1 = 'none'; 
+    	}
+    }
+    addapply(display) {
+    	if(display){
+    		this.applys1="inline-block"
+    	}
     }
 
 }
