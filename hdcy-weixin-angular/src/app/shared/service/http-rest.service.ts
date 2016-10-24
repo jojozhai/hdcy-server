@@ -1,11 +1,10 @@
 /**
  * Created by zhailiang on 16/9/23.
  */
-import {Injectable, EventEmitter} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
-import {LoadingService} from "./loading.service";
 
 export class PageInfo {
 
@@ -71,7 +70,7 @@ export class HttpRestService {
     }
   }
 
-  protected handleException(err, errorHandler?) {
+  handleException(err, errorHandler?) {
     if (errorHandler && typeof errorHandler == 'function') {
       errorHandler(err.json());
     } else {

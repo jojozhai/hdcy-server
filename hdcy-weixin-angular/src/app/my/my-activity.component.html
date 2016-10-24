@@ -1,0 +1,15 @@
+<div>我的活动</div>
+<div *ngFor="let activity of activitys" [routerLink]="['/activity', activity.id]" [queryParams]="{from: '/my/activity'}">
+    <div>
+        <img [src]="activity.image" height="200" width="200">
+    </div>
+    <div>
+        {{activity.name}}
+    </div>
+    <div>
+        {{activity.city}}/{{activity.startTime | date:'yyyy-MM-dd'}}
+    </div>
+    <div>
+        {{activity.state | myActivityState}}
+    </div>
+</div>

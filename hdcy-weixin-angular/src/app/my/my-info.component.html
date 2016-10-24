@@ -1,0 +1,29 @@
+<div>个人信息</div>
+<div>
+    <img [src]="user?.headimgurl" height="200" width="200">
+</div>
+<div>
+    昵称：{{user?.nickname}}
+</div>
+<div>
+    姓名:lv{{user?.realname}}
+</div>
+<div>
+    性别:{{user?.sex}}
+</div>
+<div>
+    手机:{{user?.mobile}}
+</div>
+<div>
+    出生年月:{{user?.birthday | date:'yyyy年MM月'}}
+</div>
+<div>
+    所在地:{{user?.province}} {{user?.city}}
+</div>
+<div>
+    车型:{{user?.car}}
+</div>
+
+<div>
+    标签:{{user?.tags}}
+</div>

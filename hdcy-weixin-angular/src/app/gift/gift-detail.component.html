@@ -1,0 +1,21 @@
+<div>礼品详情</div>
+<ks-swiper-container [options]="swiperOptions">
+    <ks-swiper-slide *ngFor="let image of gift?.images">
+        <img [src]="image" width="100" height="100">
+    </ks-swiper-slide>
+</ks-swiper-container>
+<div>
+    友豆:{{gift?.beans}}
+</div>
+<div>
+    库存:{{gift?.stock}}
+</div>
+<div>
+    <div [innerHtml]="gift?.brandDesc"></div>
+</div>
+<div>
+    <div [innerHtml]="gift?.desc"></div>
+</div>
+<div>
+    <a (click)="exchange()">立即兑换</a>
+</div>

@@ -21,6 +21,7 @@ public class ParticipatorSpec extends PzSimpleSpecification<Participator, Partic
 	@Override
 	protected void addCondition(QueryWraper<Participator> queryWraper) {
 		addEqualsCondition(queryWraper, "userId", "user.id");
+		addEqualsConditionToColumn(queryWraper, "participation.enable", true);
 	}
 
 }

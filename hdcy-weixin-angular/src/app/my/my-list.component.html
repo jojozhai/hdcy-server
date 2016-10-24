@@ -1,1 +1,22 @@
 <div>我的列表</div>
+<div>
+    <img [src]="user?.headimgurl" height="200" width="200">
+</div>
+<div>
+    昵称：{{user?.nickname}}
+</div>
+<div>
+    等级:lv{{user?.level?user?.level:"1"}}
+</div>
+<div>
+    积分:{{user?.point}}
+</div>
+<div>
+    豆子:{{user?.beans}}
+</div>
+<div>
+    <a routerLink="/my/info">个人资料</a>
+    <a routerLink="/my/activity">我的活动</a>
+    <a routerLink="/gift">礼品兑换</a>
+    <a routerLink="/about">关于我们</a>
+</div>

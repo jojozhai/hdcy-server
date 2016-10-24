@@ -16,6 +16,22 @@ public class GiftInfo {
 	private String name;
 	
 	private List<String> images;
+	/**
+     * 图片
+     */
+    private String image;
+    /**
+     * 品牌
+     */
+    private String brand;
+    /**
+     * 品牌图标
+     */
+    private String brandImage;
+    /**
+     * 豆子
+     */
+    private Integer beans;
 	
 	private Integer point;
 	
@@ -24,6 +40,10 @@ public class GiftInfo {
 	private Integer used;
 	
 	private String desc;
+	/**
+	 * 
+	 */
+	private String brandDesc;
 	/**
 	 * @return the id
 	 */
@@ -121,6 +141,76 @@ public class GiftInfo {
 	public void setUsed(Integer used) {
 		this.used = used;
 	}
+
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    /**
+     * @return the brand
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * @param brand the brand to set
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * @return the brandImage
+     */
+    public String getBrandImage() {
+        return brandImage;
+    }
+
+    /**
+     * @param brandImage the brandImage to set
+     */
+    public void setBrandImage(String brandImage) {
+        this.brandImage = brandImage;
+    }
+
+    /**
+     * @return the beans
+     */
+    public Integer getBeans() {
+        return beans;
+    }
+
+    /**
+     * @param beans the beans to set
+     */
+    public void setBeans(Integer beans) {
+        this.beans = beans;
+    }
+
+    /**
+     * @return the brandDesc
+     */
+    public String getBrandDesc() {
+        return brandDesc;
+    }
+
+    /**
+     * @param brandDesc the brandDesc to set
+     */
+    public void setBrandDesc(String brandDesc) {
+        this.brandDesc = brandDesc;
+    }
 
 	
 }

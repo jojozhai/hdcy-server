@@ -2,6 +2,7 @@
  * Created by zhailiang on 16/9/23.
  */
 import {Component, OnInit} from "@angular/core";
+import {UserService} from "../shared/service/user.service";
 
 @Component({
     selector: 'my-list',
@@ -9,9 +10,14 @@ import {Component, OnInit} from "@angular/core";
 })
 export class MyListComponent implements OnInit {
 
-    constructor() { }
+    user;
+
+    constructor(private userService: UserService) {
+
+    }
 
     ngOnInit() {
+        this.userService.getCurrentUserInfo().subscribe(res => this.user = res.json(), err => this.userService.handleException(err));
     }
 
 }

@@ -2,9 +2,8 @@
  * Created by zhailiang on 16/10/8.
  */
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ActivityService} from "./activity.service";
-import {WeixinService} from "../shared/service/weixin.service";
 
 @Component({
     selector: 'activity-detail',
@@ -15,16 +14,25 @@ export class ActivityDetailComponent implements OnInit {
 
     imgDivWidth: number = 0;
 
-    activity = {images:[]};
+    activity = {images: []};
 
     contactDivState = 'none';
-	pushs='none';
-	pulls='inline-block';
-	detailboxHeight: number = document.body.clientHeight - 48;
-    constructor(private activityService: ActivityService,
-                private route: ActivatedRoute,
-                private weixinService: WeixinService) {
+    pushs = 'none';
+    pulls = 'inline-block';
+    detailboxHeight: number = document.body.clientHeight - 48;
 
+    constructor(private activityService: ActivityService,
+                private route: ActivatedRoute, private router: Router) {
+
+    }
+
+    goBack() {
+        let url = "/activity";
+        let from = this.route.snapshot.queryParams['from'];
+        if(from){
+            url = from;
+        }
+        this.router.navigateByUrl(url);
     }
 
     ngOnInit() {
@@ -41,20 +49,22 @@ export class ActivityDetailComponent implements OnInit {
             this.contactDivState = 'none';
         }
     }
+
     changeback(display) {
-    	if (display) {
+        if (display) {
             this.pulls = 'inline-block';
             this.pushs = 'none';
-        } 
-         $(".actDetail-con").height(108);
+        }
+        $(".actDetail-con").height(108);
     }
-     change(display) {
-    	if (display) {
+
+    change(display) {
+        if (display) {
             this.pushs = 'inline-block';
             this.pulls = 'none';
-        } 
+        }
         $(".actDetail-con").height('auto');
-       
+
     }
 
 

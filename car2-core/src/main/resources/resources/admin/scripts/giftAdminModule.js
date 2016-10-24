@@ -36,6 +36,24 @@ angular.module('giftAdminModule',[]).config(function($stateProvider) {
 		$scope.save(gift);
 	}
 	
+	$scope.editContent = function(gift, prop) {
+		$uibModal.open({
+			size: "lg",
+			templateUrl : 'admin/views/umeditor.html',
+			controller: 'umeditorCtrl',
+			resolve: {
+		        domain : function() {return gift;},
+		        params : function() {
+		        	return {
+		        		target: 'gift',
+		        		targetId: gift.id,
+		        		targetProp: prop
+		        	}
+		        }
+			}
+		})
+	}
+	
 	$scope.save = function(gift){
 		$uibModal.open({
 			size: "lg",
@@ -122,7 +140,7 @@ angular.module('giftAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.doUpload = function(files){
 		commonService.uploadImage(files, $scope, function(result){
-			$scope.gift.image = result;
+			$scope.gift.brandImage = result;
 		});
 	}
 	

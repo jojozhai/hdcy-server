@@ -9,6 +9,7 @@ import {KSSwiperModule} from "angular2-swiper";
 import {WeixinService} from "./service/weixin.service";
 import {LoadingService} from "./service/loading.service";
 import {CountDownDirective} from "./directive/count-down.directive";
+import {UserService} from "./service/user.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -16,7 +17,7 @@ import {CountDownDirective} from "./directive/count-down.directive";
     imports: [CommonModule, KSSwiperModule],
     declarations: [InfiniteScrollDirective, CountDownDirective],
     exports: [CommonModule, FormsModule, KSSwiperModule, InfiniteScrollDirective, CountDownDirective],
-    providers: [HttpRestService, WeixinService, TagService, PraiseService, LoadingService]
+    providers: [HttpRestService, UserService, WeixinService, TagService, PraiseService, LoadingService]
 })
 export default class MirageModule {
 
