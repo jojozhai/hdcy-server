@@ -4,22 +4,32 @@
         <span>{{video.name}}</span>
     </h3>
 </div>
-<div>
-    <img [src]="video.image" height="200" width="200">
-</div>
-<div>
-	开始时间:{{video.startTime | date:'MM-dd/HH:mm'}}
-</div>
-<div>
-	直播人的头像:<img [src]="video.sponsorImage" height="200" width="200">
-</div>
-<div>
-	直播人的姓名:{{video.sponsorName}}
-</div>
-<div class="video-descom">
-	<div class="video-descs">
-		<h3 class="video-destit">简介</h3>
-		<div class="video-desc" [innerHTML]="video.desc"></div>
+<div class="zhibo">
+	<div class="yugao">
+    	<img [src]="video.image" >
 	</div>
-	<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com" [size]="20"></comment-list>
+	<div class="yugao-bg"></div>
+    <div class="zhibo-txt">
+        <p class="zhibo-tit">{{video.name}} </p>
+        <p class="videoTime-txt">
+            <img class="videotime-img" src="../../assets/images/video-time.png"/>
+            <span class="video-time">开始时间:{{video.startTime | date:'MM-dd/HH:mm'}}</span>
+        </p>
+        <div class="video-name">
+            <span class="zhibo-icon">
+            	<img [src]="video.sponsorImage"></span>
+            <span class="video-name1">{{video.sponsorName}}</span>
+
+        </div>
+    </div>
+</div>
+<div class="video-descom">	
+	<div class="yugao-nav">
+		<a href="#" class="actived">直播介绍</a>
+		<a href="#">直播交流()</a>
+	</div>
+	<section class="zbjianjie">{{video.desc}}</section>
+	<section class="zbjiaoliu">
+		<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com" [size]="20"></comment-list>
+	</section>
 </div>
