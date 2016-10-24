@@ -12,6 +12,9 @@ import ActivityModule from "./activity/activity.module";
 import LoginModule from "./login/login.module";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import MirageModule from "./shared/mirage.module";
+import AboutModule from "./about/about.module";
+import GiftModule from "./gift/gift.module";
+import MessageModule from "./message/message.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import MirageModule from "./shared/mirage.module";
     //路由模块
     HdcyWeixinAngularRoutingModule,
     //业务模块
-    MirageModule, LoginModule, VideoModule, ArticleModule, ActivityModule, LeaderModule, MyModule
+    MirageModule, LoginModule,
+    VideoModule, ArticleModule, ActivityModule, LeaderModule,
+    MyModule, AboutModule, GiftModule, MessageModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

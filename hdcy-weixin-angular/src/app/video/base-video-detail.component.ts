@@ -20,7 +20,7 @@ export class BaseVideoDetailComponent implements OnInit {
         this.videoService.get(this.route.snapshot.params['id']).subscribe(value => {
             this.videoFrame = this.sanitizer.bypassSecurityTrustHtml(`<iframe frameborder="0" height="210" width="100%" src='${value.url}' allowfullscreen></iframe>`);
             this.video = value;
-            this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value.image));
+            this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value['image']));
         });
     }
 

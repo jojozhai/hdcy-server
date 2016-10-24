@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   private wx = require('weixin-js-sdk');
 
-  private showNavPaths: Array<string> = ['/video', '/article', '/activity', '/leader', '/my', '/'];
+  private showNavPaths: Array<string> = ['/video', '/article', '/activity', '/leader', '/message', '/my', '/'];
 
   private defaultShareInfo = new WeixinShareInfoChangedEvent("汽车运动 从你不一样", "http://img.haoduocheyou.com/logo.jpg");
 

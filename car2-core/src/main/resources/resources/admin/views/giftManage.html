@@ -35,24 +35,27 @@
 						<tr>
 							<th width="100">序号</th>
 							<th>名称</th>
-							<th width="100">积分</th>
+							<th width="100">豆子</th>
 							<th width="100">库存</th>
-							<th width="200">操作</th>
+							<th width="300">操作</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat = "gift in gifts">
 							<td>{{$index+1}}</td>
 							<td>{{gift.name}}</td>
-							<td>{{gift.point}}</td>
+							<td>{{gift.beans}}</td>
 							<td>{{gift.stock}}</td>
 							<td>
 								<button class="btn btn-warning btn-xs" ng-click="update(gift)">
 									<i class="ion-edit m-right-xs"></i>修改
 								</button>
-								<button class="btn btn-danger btn-xs" ng-click="remove(gift)">
-									<i class="ion-trash-a m-right-xs"></i>删除
-								</button>
+								<span class="btn btn-warning btn-xs btn-edit" ng-click="editContent(gift, 'brandDesc')" >
+                                    <i  class="ion-edit m-right-xs"></i>商品介绍
+                                </span>
+                                <span class="btn btn-warning btn-xs btn-edit" ng-click="editContent(gift, 'desc')" >
+                                    <i  class="ion-edit m-right-xs"></i>商家介绍
+                                </span>
 							</td>
 						</tr>
 					</tbody>

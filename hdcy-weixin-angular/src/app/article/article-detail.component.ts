@@ -27,7 +27,7 @@ export class ArticleDetailComponent implements OnInit {
       this.articleService.get(this.route.snapshot.params['id']).subscribe(value => {
         this.article = value;
         this.tagName = this.article.tagInfos[0]['name'];
-        this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.title, value.image));
+        this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.title, value['image']));
       });
     }
 

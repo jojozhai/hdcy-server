@@ -15,6 +15,7 @@ import com.ymt.mirage.car.dto.GiftInfo;
 import com.ymt.mirage.car.repository.GiftRepository;
 import com.ymt.mirage.car.repository.spec.GiftSpec;
 import com.ymt.mirage.car.service.GiftService;
+import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
 
 /**
@@ -31,7 +32,13 @@ public class GiftServiceImpl implements GiftService {
 	@Override
 	public Page<GiftInfo> query(GiftInfo giftInfo, Pageable pageable) {
 		Page<Gift> pageData = giftRepository.findAll(new GiftSpec(giftInfo), pageable);
-		return QueryResultConverter.convert(pageData, GiftInfo.class, pageable);
+		return QueryResultConverter.convert(pageData, pageable, new AbstractDomain2InfoConverter<Gift, GiftInfo>() {
+            @Override
+            protected void doConvert(Gift domain, GiftInfo info) throws Exception {
+                info.setDesc("");
+                info.setBrandDesc("");
+            }
+        });
 	}
 
 	@Override

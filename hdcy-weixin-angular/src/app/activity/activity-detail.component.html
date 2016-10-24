@@ -1,7 +1,7 @@
 <div class="active-conmes">
     <div class="header">
         <h3>
-            <a routerLink="/activity" class="back"></a>
+            <a (click)="goBack()" class="back"></a>
             <span>线下活动</span>
             <!--<a href="#" class="share"></a>-->
         </h3>
@@ -20,11 +20,9 @@
                 </div>
             </div>
             <div class="downs">
-        			<span class="con-downs"[ngStyle]="{'display': pulls}" (click)="change(true)"></span>
-        			<span class="con-ups" [ngStyle]="{'display': pushs}" (click)="changeback(true)"></span>
-      			</div>
->>>>>>> 8063ec4bdd8c3813d3876fcc0ab5bf5a95cb11c4
-
+                <span class="con-downs" [ngStyle]="{'display': pulls}" (click)="change(true)"></span>
+                <span class="con-ups" [ngStyle]="{'display': pushs}" (click)="changeback(true)"></span>
+            </div>
         </div>
         <div class="activity-zhuban">
             <div class="zhuban-tit clear">
@@ -60,7 +58,8 @@
 				<img src="../../assets/images/adds-zhu.png"/>
 			</span>
                 <span class="zhuban-txt">
-				活动地点：<span class="zhuban-item">{{activity.province?activity.province:""+activity.city+activity.address}}</span>
+				活动地点：<span
+                        class="zhuban-item">{{activity.province?activity.province:""+activity.city+activity.address}}</span>
 			</span>
             </div>
             <div class="zhuban">
