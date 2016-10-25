@@ -10,6 +10,7 @@ import {WeixinService} from "./service/weixin.service";
 import {LoadingService} from "./service/loading.service";
 import {CountDownDirective} from "./directive/count-down.directive";
 import {UserService} from "./service/user.service";
+import {ParamService} from "./service/param.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -17,7 +18,7 @@ import {UserService} from "./service/user.service";
     imports: [CommonModule, KSSwiperModule],
     declarations: [InfiniteScrollDirective, CountDownDirective],
     exports: [CommonModule, FormsModule, KSSwiperModule, InfiniteScrollDirective, CountDownDirective],
-    providers: [HttpRestService, UserService, WeixinService, TagService, PraiseService, LoadingService]
+    providers: [HttpRestService, UserService, WeixinService, TagService, PraiseService, LoadingService, ParamService]
 })
 export default class MirageModule {
 

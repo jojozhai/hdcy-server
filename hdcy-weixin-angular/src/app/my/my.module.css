@@ -32,8 +32,7 @@
     padding: 2px 8px;
 }
 .my-listcon {
-	width: 375px;
-	height: 392px;
+	width: 375px;	
 	background: url(../../assets/images/my-con.png) no-repeat;
 	background-size: 100% 100%;
 	padding: 1px 0 41px;

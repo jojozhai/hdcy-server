@@ -1,7 +1,7 @@
 /**
  * Created by zhailiang on 16/10/8.
  */
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {HttpRestService} from "../shared/service/http-rest.service";
 import {Http} from "@angular/http";
 
@@ -18,5 +18,9 @@ export class ActivityService extends HttpRestService {
       console.log("sign success");
     }, err => this.handleException(err));
 
+  }
+
+  isSigned(id: number) {
+    return this.http.get(this.getReqUrl("participator/member?participationId="+id), this.getBasicHeader());
   }
 }

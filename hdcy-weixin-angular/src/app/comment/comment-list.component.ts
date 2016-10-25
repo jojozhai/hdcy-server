@@ -1,7 +1,7 @@
 /**
  * Created by zhailiang on 16/9/24.
  */
-import {Component, OnChanges} from "@angular/core";
+import {Component, OnChanges, Output, EventEmitter} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {Input} from "@angular/core/src/metadata/directives";
 import {ListComponent} from "../shared/component/list.component";
@@ -28,6 +28,8 @@ export class CommentListComponent extends ListComponent implements OnChanges {
 
   @Input() private withReply: string = 'false';
 
+  @Output() commentCount: EventEmitter<number> = new EventEmitter<number>();
+
   ngOnChanges(): void {
     if (this.target && this.targetId) {
       this.commentService.query(this.buildCondition({
@@ -39,6 +41,7 @@ export class CommentListComponent extends ListComponent implements OnChanges {
         let result = res.json();
         this.comments = result.content;
         this.count = result.totalElements;
+        this.commentCount.emit(this.count);
       })
     }
   }

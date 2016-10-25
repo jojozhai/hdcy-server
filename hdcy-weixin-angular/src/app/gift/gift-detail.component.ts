@@ -4,36 +4,39 @@
 import {Component, OnInit} from "@angular/core";
 import {GiftService} from "./gift.service";
 import {ActivatedRoute} from "@angular/router";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
-    selector: 'gift-detail',
-    templateUrl: './gift-detail.component.html'
+  selector: 'gift-detail',
+  templateUrl: './gift-detail.component.html'
 })
 export class GiftDetailComponent implements OnInit {
 
-    gift;
+  gift;
 
-    swiperOptions = {
-        loop: false,
-        autoplay: 3000,
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        centeredSlides: true,
-        slidesPerView: 1.2,
-        watchActiveIndex: true,
-    };
+  swiperOptions = {
+    loop: false,
+    autoplay: 3000,
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    centeredSlides: true,
+    slidesPerView: 1.2,
+    watchActiveIndex: true,
+  };
 
-    constructor(private route: ActivatedRoute, private giftService: GiftService) {
-    }
+  constructor(private route: ActivatedRoute, private giftService: GiftService, private loadingService: LoadingService) {
+  }
 
-    ngOnInit() {
-        this.giftService.get(this.route.snapshot.params['id']).subscribe(value => {
-            this.gift = value;
-        })
-    }
+  ngOnInit() {
+    this.loadingService.loadingEvent.emit(true);
+    this.giftService.get(this.route.snapshot.params['id']).subscribe(value => {
+      this.gift = value;
+      this.loadingService.loadingEvent.emit(false);
+    })
+  }
 
-    exchange() {
-        toastr.info('积分不足,无法兑换');
-    }
+  exchange() {
+    toastr.info('积分不足,无法兑换');
+  }
 
 }

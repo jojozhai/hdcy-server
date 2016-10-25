@@ -95,5 +95,8 @@ export class HttpRestService {
       }, new URLSearchParams());
   }
 
+  getCurrentUserInfo() {
+    return this.http.get(environment.serviceLocation + "user/current", this.getBasicHeader());
+  }
 
 }
