@@ -31,6 +31,6 @@ public class HdcySecurityRequestConfig extends SecurityRequestConfigAdapter {
     
     @Override
     public String[] getGetRequests() {
-        return new String[]{"/participator"};
+        return new String[]{"/participator", "/participator/member"};
     }
 }
