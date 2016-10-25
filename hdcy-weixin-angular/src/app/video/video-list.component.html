@@ -6,7 +6,7 @@
                 <ks-swiper-slide *ngFor="let video of topVideos">
                     <a (click)="navToDetail(video)">
                         <img class="activity-img" src="{{video.image}}">
-                        <div class="swiper-txt"></div>
+                        <div class="swiper-bg"></div>
                         <div class="activitys-mes">
                         	<div class="videotit">{{video.name}}</div>
                             <span *ngIf="!video.live">

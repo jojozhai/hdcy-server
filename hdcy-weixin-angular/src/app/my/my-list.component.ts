@@ -6,12 +6,14 @@ import {UserService} from "../shared/service/user.service";
 
 @Component({
     selector: 'my-list',
-    templateUrl: './my-list.component.html'
+    templateUrl: './my-list.component.html',
+    styleUrls: ['./my.module.css']
 })
 export class MyListComponent implements OnInit {
 
     user;
-
+	cntsboxHeight: number = document.body.clientHeight - 50; 
+	
     constructor(private userService: UserService) {
 
     }

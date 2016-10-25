@@ -5,16 +5,28 @@
 	height: 225px;
 }
 
-.activity-img,.activity-bg{
+.activity-imgs,.activity-bg{
 	width: 375px;
 	height: 225px;	
 }
-.activity-bg {
+.activity-bg,.activity-end {
 	position: absolute;
 	top:0;
 	left:0;
 	background: #000000;
 	opacity: 0.25;
+}
+.activity-end {
+	width: 375px;
+	height: 225px;
+	opacity: 0.7;
+	z-index: 3333;
+}
+.activity-endicon {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	z-index: 5555;
 }
 
 .activitys-mes {
@@ -36,6 +48,11 @@
 	font-size: 14px;
 	display: inline-block;	
 	word-break: break-word;
+}
+.activity-etime {
+	margin-top: 13px;
+	font-size: 11px;
+	
 }
 .sponsor {
 	width: 75px;

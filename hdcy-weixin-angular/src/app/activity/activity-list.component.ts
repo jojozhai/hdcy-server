@@ -64,5 +64,12 @@ export class ActivityListComponent extends ListComponent implements OnInit {
             this.topActivities = res.json().content;
         })
     }
+    showSignTip(activity) {
+        let distance = new Date(activity.signEndTime).getTime() - new Date().getTime();
+        if(distance > 0) {
+            return distance < 1000 * 60 * 60 * 24 * 3
+        }
+        return false;
+    }
 
 }

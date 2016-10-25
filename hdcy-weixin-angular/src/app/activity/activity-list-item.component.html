@@ -1,8 +1,10 @@
 <div [routerLink]="['/activity', activity.id]" >
 	<div class="activitys-list">
-		<img class="activity-img" [src]="activity.image">
+		<img class="activity-imgs" [src]="activity.image">
 		<img class="sponsor" [src]="activity.sponsorImage" />
 		<div class="activity-bg"></div>
+		<div *ngIf="activity.finish" class="activity-end"></div>
+		<img class="activity-endicon" *ngIf="activity.finish" src="../../assets/images/end.png"/>
 		<div class="activitys-mes">
 			<div class="activity-tit">
 				{{activity.name}}
@@ -22,5 +24,4 @@
 
 		</div>
 	</div>
-
 </div>

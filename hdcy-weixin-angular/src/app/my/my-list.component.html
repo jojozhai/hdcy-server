@@ -1,22 +1,44 @@
-<div>我的列表</div>
-<div>
-    <img [src]="user?.headimgurl" height="200" width="200">
-</div>
-<div>
-    昵称：{{user?.nickname}}
-</div>
-<div>
-    等级:lv{{user?.level?user?.level:"1"}}
-</div>
-<div>
-    积分:{{user?.point}}
-</div>
-<div>
-    豆子:{{user?.beans}}
-</div>
-<div>
-    <a routerLink="/my/info">个人资料</a>
-    <a routerLink="/my/activity">我的活动</a>
-    <a routerLink="/gift">礼品兑换</a>
-    <a routerLink="/about">关于我们</a>
+<div class="cnts" [style.height.px]="cntsboxHeight" >
+	<div class="mylist-up">
+		<div class="head">
+			<img [src]="user?.headimgurl" height="200" width="200">
+		</div>
+		<div class="nickname">
+			昵称：{{user?.nickname}}
+		</div>
+		<div class="my-level">
+			<span>等级:lv{{user?.level?user?.level:"1"}}</span>
+			<span class="integral">积分:{{user?.point}}</span>
+			<span>友豆:{{user?.beans}}</span>
+		</div>
+		
+	</div>
+	<ul class="my-listcon">
+		<li>
+			<a routerLink="/my/info">
+				<img src="../../assets/images/my.png"/>
+				<span>个人资料</span>
+			</a>
+		</li>
+		<li>
+			<a routerLink="/my/activity">
+				<img src="../../assets/images/my-activity.png"/>
+				<span>我的活动</span>
+			</a>
+		</li>
+		<li>
+			<a routerLink="/gift">
+				<img src="../../assets/images/gift.png"/>
+				<span>礼品兑换</span>
+			</a>
+		</li>
+		<li>
+			<a routerLink="/about">
+				<img src="../../assets/images/about.png"/>
+				<span>关于我们</span>
+			</a>
+		</li>
+		
+	</ul>
+
 </div>

@@ -1,0 +1,62 @@
+.mylist-up {
+	width: 375px;
+	height: 225px;
+	background: url(../../assets/images/my-bg.png) no-repeat;
+	background-size: 100% 100%;	
+}
+.head {
+	text-align: center;
+	padding-top: 35px;
+}
+.head img {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+.nickname {
+	margin: 20px 0;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: #FEFEFE;	
+}
+.my-level {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+.integral {
+	margin: 0 7px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    padding: 2px 8px;
+}
+.my-listcon {
+	width: 375px;
+	height: 392px;
+	background: url(../../assets/images/my-con.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 1px 0 41px;
+	
+}
+.my-listcon a {
+	display:inline-block ;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+.my-listcon li {
+	text-align: center;
+	height: 22px;
+	overflow: hidden;
+	padding-top: 48px;
+}
+.my-listcon a img{
+	height: 20px;
+	float: left;
+}
+.my-listcon a span{
+	line-height: 20px;
+	float: left;
+	margin-left: 10px;
+}
