@@ -35,7 +35,7 @@
 	width: 375px;	
 	background: url(../../assets/images/my-con.png) no-repeat;
 	background-size: 100% 100%;
-	padding: 1px 0 41px;
+	padding: 1px 0 0px;
 	
 }
 .my-listcon a {
@@ -58,4 +58,51 @@
 	line-height: 20px;
 	float: left;
 	margin-left: 10px;
+}
+.boxs {
+	background: #18212d;
+	color: white;
+	font-size: 16px;
+}
+.tou {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	float: right;
+	margin-right: 12px;
+}
+.boxs li {
+	padding: 18px 12px;
+	overflow:hidden;
+	box-sizing: border-box;
+}
+.boxs li:nth-of-type(odd) {
+	width: 375px;
+	background: url(../../assets/images/light.png) no-repeat;
+	background-size: 100% 100%;
+}
+.boxs li:nth-of-type(even) {
+	width: 375px;
+	background: url(../../assets/images/deep.png) no-repeat;
+	background-size: 100% 100%;
+}
+.boxs li span:nth-of-type(1) {
+	float: left;
+}
+.boxs li span:nth-of-type(2) {
+	float: right;
+	margin-right: 12px;
+}
+.ziliao-tou {
+	line-height: 50px;
+}
+.my-right {	
+	width: 10px;
+	height: 18px;
+	background: url(../../assets/images/my-right.png) no-repeat;
+	background-size: 100% 100%;
+	float: right;
+}
+.toua {
+	margin-top: 16px;
 }

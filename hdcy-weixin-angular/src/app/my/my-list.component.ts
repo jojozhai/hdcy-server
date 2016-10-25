@@ -13,7 +13,7 @@ export class MyListComponent implements OnInit {
 
     user;
 	cntsboxHeight: number = document.body.clientHeight - 50; 
-	
+	myconHeight: number = document.body.clientHeight - 275;
     constructor(private userService: UserService) {
 
     }

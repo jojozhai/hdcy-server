@@ -1,29 +1,62 @@
-<div>个人信息</div>
-<div>
-    <img [src]="user?.headimgurl" height="200" width="200">
+<div class="header">
+	<h3>
+      <a (click)="goBack()" class="back"></a>
+      <span>个人资料</span>
+    </h3>
 </div>
-<div>
-    昵称：{{user?.nickname}}
-</div>
-<div>
-    姓名:lv{{user?.realname}}
-</div>
-<div>
-    性别:{{user?.sex}}
-</div>
-<div>
-    手机:{{user?.mobile}}
-</div>
-<div>
-    出生年月:{{user?.birthday | date:'yyyy年MM月'}}
-</div>
-<div>
-    所在地:{{user?.province}} {{user?.city}}
-</div>
-<div>
-    车型:{{user?.car}}
-</div>
+<ul class="boxs" [style.height.px]="detailboxHeight">
+	<li>
+		<span class="ziliao-tou">头像</span>
+		<a class="toua" href="" class="my-right"></a>
+		<img class="tou" [src]="user?.headimgurl">
+		
+	</li>
 
-<div>
-    标签:{{user?.tags}}
-</div>
+	<li>
+		<span>昵称</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.nickname}}</span>
+		
+	</li>
+	<li>
+		<span>姓名</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.realname}}</span>
+		
+	</li>
+	<li>
+		<span>性别</span>
+		<span>{{user?.sex}}</span>
+	</li>
+	<li>
+		<span>手机</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.mobile}}</span>
+		
+	</li>
+	<li>
+		<span>出生年月</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.birthday | date:'yyyy年MM月'}}</span>
+		
+	</li>
+	<li>
+		<span>所在地</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.province}} {{user?.city}}</span>
+		
+	</li>
+	<li>
+		<span>车型</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.car}}</span>
+		
+	</li>
+
+	<li>
+		<span>标签</span>
+		<a href="" class="my-right"></a>
+		<span>{{user?.tags}}</span>
+		
+	</li>
+</ul>
