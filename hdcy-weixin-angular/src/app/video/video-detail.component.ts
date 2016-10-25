@@ -7,6 +7,7 @@ import {VideoService} from "./video.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {WeixinService} from "../shared/service/weixin.service";
 import {BaseVideoDetailComponent} from "./base-video-detail.component";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
     selector: 'video-detail',
@@ -14,10 +15,11 @@ import {BaseVideoDetailComponent} from "./base-video-detail.component";
     styleUrls: ['./video.module.css']
 })
 export class VideoDetailComponent extends BaseVideoDetailComponent implements OnInit {
+
     detailboxHeight: number = document.body.clientHeight;
 
-    constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService) {
-        super(videoService, route, sanitizer, weixinService);
+    constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, loadingService: LoadingService) {
+        super(videoService, route, sanitizer, weixinService, loadingService);
     }
 
 }

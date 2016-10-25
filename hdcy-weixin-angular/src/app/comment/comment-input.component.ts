@@ -5,74 +5,77 @@ import {Component, OnInit} from "@angular/core";
 import {CommentService} from "./comment.service";
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../environments/environment";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
-    selector: 'comment-input',
-    templateUrl: './comment-input.component.html',
-    styleUrls: ['./comment.module.css']
+  selector: 'comment-input',
+  templateUrl: './comment-input.component.html',
+  styleUrls: ['./comment.module.css']
 })
 export class CommentInputComponent implements OnInit {
 
-    private defaultContent: string = '写点什么吧......';
+  private defaultContent: string = '写点什么吧......';
 
-    comment: string = this.defaultContent;
+  comment: string = this.defaultContent;
 
-    target: string;
+  target: string;
 
-    targetId: number;
+  targetId: number;
 
-    replyToId: number;
+  replyToId: number;
 
-    title: string;
+  title: string;
 
-    constructor(route: ActivatedRoute, private commentService: CommentService) {
-        if (!environment.userToken) {
-            commentService.login();
-        }
-        this.target = route.snapshot.queryParams['target'];
-        this.targetId = route.snapshot.queryParams['targetId'];
-        this.replyToId = route.snapshot.queryParams['replyToId'];
-        this.title = route.snapshot.queryParams['title'];
-        if(this.replyToId) {
-            this.title = "写回复";
-        }else{
-            if (this.target == 'activity') {
-                this.title = '活动咨询';
-            } else {
-                this.title = '写评论';
-            }
-        }
+  constructor(route: ActivatedRoute, private commentService: CommentService, private loadingService: LoadingService) {
+    if (!environment.userToken) {
+      commentService.login();
     }
-
-    ngOnInit() {
-
+    this.target = route.snapshot.queryParams['target'];
+    this.targetId = route.snapshot.queryParams['targetId'];
+    this.replyToId = route.snapshot.queryParams['replyToId'];
+    this.title = route.snapshot.queryParams['title'];
+    if (this.replyToId) {
+      this.title = "写回复";
+    } else {
+      if (this.target == 'activity') {
+        this.title = '活动咨询';
+      } else {
+        this.title = '写评论';
+      }
     }
+  }
 
-    saveComment() {
-        this.commentService.create({
-            target: this.target,
-            targetId: this.targetId,
-            replyToId: this.replyToId,
-            content: this.comment
-        }, () => {
-            this.comment = this.defaultContent;
-            this.back();
-            if (this.target == 'activity') {
-                toastr.success('咨询信息提交成功');
-            } else {
-                toastr.success('评论发布成功');
-            }
-        });
-    }
+  ngOnInit() {
 
-    back() {
-        window.history.back();
-    }
+  }
 
-    cleanComment() {
-        if (this.comment == this.defaultContent) {
-            this.comment = '';
-        }
+  saveComment() {
+    this.loadingService.loadingEvent.emit(true);
+    this.commentService.create({
+      target: this.target,
+      targetId: this.targetId,
+      replyToId: this.replyToId,
+      content: this.comment
+    }, () => {
+      this.comment = this.defaultContent;
+      this.loadingService.loadingEvent.emit(false);
+      this.back();
+      if (this.target == 'activity') {
+        toastr.success('咨询信息提交成功');
+      } else {
+        toastr.success('评论发布成功');
+      }
+    });
+  }
+
+  back() {
+    window.history.back();
+  }
+
+  cleanComment() {
+    if (this.comment == this.defaultContent) {
+      this.comment = '';
     }
+  }
 
 }

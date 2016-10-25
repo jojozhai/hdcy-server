@@ -1,5 +1,6 @@
 import {Directive, ElementRef, HostListener, Input} from "@angular/core";
 import {HttpRestService, PageInfo} from "../service/http-rest.service";
+import {LoadingService} from "../service/loading.service";
 /**
  * Created by zhailiang on 16/9/26.
  */
@@ -7,7 +8,7 @@ import {HttpRestService, PageInfo} from "../service/http-rest.service";
 @Directive({selector: '[infinite-scroll]'})
 export class InfiniteScrollDirective {
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private loadingService:LoadingService) {
   }
 
   @Input() dataService: HttpRestService;
@@ -40,11 +41,13 @@ export class InfiniteScrollDirective {
       if (!this.condition.sort) {
         this.condition.sort = this.pageInfo.sort;
       }
+      this.loadingService.loadingEvent.emit(true);
       this.dataService.query(this.condition).subscribe(res => {
         for (let item of res.json().content) {
           this.dataList.push(item);
         }
         this.loading = false;
+        this.loadingService.loadingEvent.emit(false);
       }, err => console.log(err));
     }
   }

@@ -5,6 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ActivityService} from "./activity.service";
 import {environment} from "../../environments/environment";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
   selector: 'activity-detail',
@@ -25,7 +26,8 @@ export class ActivityDetailComponent implements OnInit {
   signText = "";
 
   constructor(private activityService: ActivityService,
-              private route: ActivatedRoute, private router: Router) {
+              private route: ActivatedRoute,
+              private router: Router, private loadingService:LoadingService) {
 
   }
 
@@ -39,10 +41,12 @@ export class ActivityDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadingService.loadingEvent.emit(true);
     this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
       this.activity = value;
       this.initSignText();
       this.imgDivWidth = this.activity.images.length * 108;
+      this.loadingService.loadingEvent.emit(false);
     });
   }
 

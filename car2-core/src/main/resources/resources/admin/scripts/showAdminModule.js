@@ -32,6 +32,24 @@ angular.module('showAdminModule',[]).config(function($stateProvider) {
 	$scope.update = function(show) {
 		$scope.save(show);
 	}
+	
+	$scope.editContent = function(video) {
+		$uibModal.open({
+			size: "lg",
+			templateUrl : 'admin/views/umeditor.html',
+			controller: 'umeditorCtrl',
+			resolve: {
+		        domain : function() {return video;},
+		        params : function() {
+		        	return {
+		        		target: 'video',
+		        		targetId: video.id,
+		        		targetProp: 'desc'
+		        	}
+		        }
+			}
+		})
+	}
 
 	$scope.save = function(show){
 		$uibModal.open({
