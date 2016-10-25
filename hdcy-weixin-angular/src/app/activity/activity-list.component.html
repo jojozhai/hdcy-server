@@ -2,7 +2,7 @@
     <div class="myslides">
         <ks-swiper-container [options]="swiperOptions">
             <ks-swiper-slide *ngFor="let activity of topActivities">
-                <activity-list-item [activity]="activity"></activity-list-item>
+                <activity-list-item [activity]="activity" class="activity-slide"></activity-list-item>
             </ks-swiper-slide>
         </ks-swiper-container>
     </div>

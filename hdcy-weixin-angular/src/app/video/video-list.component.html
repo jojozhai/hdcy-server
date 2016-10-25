@@ -6,12 +6,14 @@
                 <ks-swiper-slide *ngFor="let video of topVideos">
                     <a (click)="navToDetail(video)">
                         <img class="activity-img" src="{{video.image}}">
-                        <div class="swiper-txt">{{video.name}}</div>
+                        <div class="swiper-txt"></div>
                         <div class="activitys-mes">
+                        	<div class="videotit">{{video.name}}</div>
                             <span *ngIf="!video.live">
                                 <span *ngIf="!video.replay">#视频#</span>
                                 <span *ngIf="video.replay">#回放#</span>
                             </span>
+                            
                             <span *ngIf="video.live">#{{video.liveState}}#</span>
                             <span *ngIf="video.liveState == '预告'"> / <span [count-down]="video.startTime" tip="距离直播开始还有 "></span></span>
                         </div>

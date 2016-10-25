@@ -177,10 +177,6 @@ textarea {
 	-webkit-transform: translateY(-50%);
 }
 
-.detai-cnts {
-	margin-top: 48px;
-}
-
 .commments .times,
 .commments .relayList-le {
 	display: none;
@@ -367,8 +363,11 @@ textarea {
 	line-height: 22px;
 	color: #494949;
 }
-
-.cnts,.detai-cnts,.detai-cnts1 {
+.boxs {
+	margin-top: 48px;
+	background: white;
+}
+.cnts,.boxs,.detai-cnts1 {
 	overflow-y: auto;
 }
 
@@ -384,6 +383,11 @@ textarea {
 
 .myslides {
     background: #18212d;
+    height: 225px;
+}
+.activity-slide .activity-img, .activity-slide .activity-bg{
+	width: 299px;
+	height: 225px;
 }
 .swiper-slide {
     text-align: center;
@@ -448,3 +452,5 @@ textarea {
     display: inline-block;
     word-break: break-all;
 }
+
+
