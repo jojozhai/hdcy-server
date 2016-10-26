@@ -106,3 +106,43 @@
 .toua {
 	margin-top: 16px;
 }
+.gift-icon img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+.activityboxs{
+	background: #18212d;
+    margin-top: 48px;
+    overflow-y: auto;
+}
+.my-activity {
+	width: 100%;
+	padding: 7.5px 12px;
+	background: url(../../assets/images/my-activitybg.png) no-repeat;
+	background-size: 100% 100%;	
+	box-sizing: border-box;
+	margin-bottom: 8px;
+}
+.my-img {
+	width: 110px;
+	height: 80px;
+}
+.my-activitymes {
+	margin-left: 16px;
+	width: 225px;
+	height: 70px;
+    margin-top: 5px;
+    position: relative;
+}
+.acti-name {
+	color: white;
+	font-size: 16px;
+}
+.acti-tag {
+	color: #959595;
+	font-size: 12px;
+	position: absolute;
+    bottom: 0px;
+    width: 225px;	
+}

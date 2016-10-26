@@ -8,23 +8,26 @@ import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
   selector: 'gift-detail',
-  templateUrl: './gift-detail.component.html'
+  templateUrl: './gift-detail.component.html',
+  styleUrls: ['./gift.module.css']
 })
 export class GiftDetailComponent implements OnInit {
 
   gift;
-
+  tag;
+  detailboxHeight: number = document.body.clientHeight - 48;
   swiperOptions = {
     loop: false,
     autoplay: 3000,
     pagination: '.swiper-pagination',
     paginationClickable: true,
-    centeredSlides: true,
-    slidesPerView: 1.2,
-    watchActiveIndex: true,
+
   };
 
   constructor(private route: ActivatedRoute, private giftService: GiftService, private loadingService: LoadingService) {
+  	if (!this.tag) {
+      this.tag = 'business';
+    }
   }
 
   ngOnInit() {
@@ -37,6 +40,9 @@ export class GiftDetailComponent implements OnInit {
 
   exchange() {
     toastr.info('积分不足,无法兑换');
+  }
+  changeTag(tag){
+  	this.tag=tag;
   }
 
 }

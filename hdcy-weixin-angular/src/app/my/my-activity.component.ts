@@ -6,11 +6,14 @@ import {MyService} from "./my.service";
 
 @Component({
     selector: 'my-activity',
-    templateUrl: './my-activity.component.html'
+    templateUrl: './my-activity.component.html',
+    styleUrls: ['./my.module.css']
 })
 export class MyActivityComponent implements OnInit {
 
     activitys;
+    
+    detailboxHeight: number = document.body.clientHeight - 48;
 
     constructor(private myService: MyService) {
     }

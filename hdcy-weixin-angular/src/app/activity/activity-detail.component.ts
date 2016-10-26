@@ -21,6 +21,7 @@ export class ActivityDetailComponent implements OnInit {
   contactDivState = 'none';
   pushs = 'none';
   pulls = 'inline-block';
+  swipers='none';
   detailboxHeight: number = document.body.clientHeight - 48;
 
   signText = "";
@@ -104,6 +105,22 @@ export class ActivityDetailComponent implements OnInit {
         this.activityService.login();
       }
     }
+  }
+  swiperOptions = {
+    	loop: false,
+    	autoplay: 3000,
+    	pagination: '.swiper-pagination',
+   		paginationClickable: true,
+  	};
+  showchange(num) {
+  	this.swipers="inline-block";  	
+  	$(".swiper-wrapper").css({
+  		transform:" translate3d("+(-375)*(num)+"px, 0px, 0px)",
+  		
+  	})
+  }
+  hidechange() {
+  	this.swipers="none";
   }
 
 

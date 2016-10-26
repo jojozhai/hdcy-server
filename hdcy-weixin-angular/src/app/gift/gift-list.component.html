@@ -1,19 +1,22 @@
-<div>礼品列表</div>
-<div *ngFor="let gift of gifts" [routerLink]="['/gift', gift.id]">
-    <div>{{gift?.brand}}</div>
-    <div>
-        <img [src]="gift?.brandImage" height="100" width="100">
-    </div>
-    <div>
-        <img [src]="gift?.images[0]" height="200" width="200">
-    </div>
-    <div>
-        名称:{{gift?.name}}
-    </div>
-    <div>
-        友豆:{{gift?.beans}}
-    </div>
-    <div>
-        库存:{{gift?.stock}}
-    </div>
+<div class="header">
+	<h3>
+      <a routerLink="/my" class="back"></a>
+      <span>礼品兑换</span>
+    </h3>
+</div>
+<div class="boxs" [style.height.px]="detailboxHeight">
+	<div *ngFor="let gift of gifts" [routerLink]="['/gift', gift.id]" class="giftlist">
+		<div class="gift-icon">
+			<img [src]="gift?.brandImage">
+			<span>{{gift?.brand}}</span>
+		</div>
+		<div class="gift-img">
+			<img [src]="gift?.images[0]">
+		</div>
+		<div class="gift-mes">
+			<div class="gift-tit">{{gift?.name}}</div>
+			<span>{{gift?.beans}}友豆	</span>
+			<span class="stock">剩余{{gift?.stock}}个</span>			
+		</div>
+	</div>
 </div>

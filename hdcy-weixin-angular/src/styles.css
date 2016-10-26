@@ -385,7 +385,9 @@ textarea {
     background: #18212d;
     height: 225px;
 }
-
+.boxss .swiper-wrapper {
+	height: 200px;
+}
 .swiper-slide {
     text-align: center;
 }

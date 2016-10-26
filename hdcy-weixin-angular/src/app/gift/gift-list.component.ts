@@ -9,15 +9,17 @@ import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
   selector: 'gift-list',
-  templateUrl: './gift-list.component.html'
+  templateUrl: './gift-list.component.html',
+  styleUrls: ['./gift.module.css']
 })
 export class GiftListComponent extends ListComponent implements OnInit {
 
   gifts;
-
+  detailboxHeight: number = document.body.clientHeight - 48;
   constructor(route: ActivatedRoute, private giftService: GiftService, private loadingService: LoadingService) {
     super(route);
   }
+   
 
   ngOnInit() {
     this.loadingService.loadingEvent.emit(true);

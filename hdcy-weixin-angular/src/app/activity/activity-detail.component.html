@@ -14,10 +14,9 @@
 			</div>
 			<div class="actDetail-imgs ">
 				<div class="actDetail-imgsCon clear" [style.width.px]="imgDivWidth">
-					<div *ngFor="let image of activity?.images" class="actDetail-img">
-						<img [src]="image">
+					<div *ngFor="let image of activity?.images;let i = index;" class="actDetail-img" (click)="showchange(i)">
+						<img  [src]="image">
 					</div>
-
 				</div>
 			</div>
 			<div class="downs">
@@ -28,7 +27,6 @@
 		<div class="activity-zhuban">
 			<div class="zhuban-tit clear">
 				<span class="zhuban-icon fl">
-
 				<img src="../../assets/images/liwu.png"/>
 			</span>
 
@@ -112,4 +110,13 @@
 			<img (click)="displayContactDiv(false)" class="guaduan" src="../../assets/images/guaduan.png" />
 		</div>
 	</div>
+</div>
+<div class="detail-swiperbg" [ngStyle]="{'display': swipers}"></div>
+<div class="detail-swiper" [ngStyle]="{'display': swipers}">
+	<ks-swiper-container [options]="swiperOptions">
+		<ks-swiper-slide *ngFor="let image of activity?.images;" >
+			<img (click)="hidechange()"  [src]="image">
+		</ks-swiper-slide>
+	</ks-swiper-container>
+
 </div>
