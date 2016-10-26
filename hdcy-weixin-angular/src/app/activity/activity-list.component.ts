@@ -43,6 +43,15 @@ export class ActivityListComponent extends ListComponent implements OnInit {
     super(route);
   }
 
+
+    showSignTip(activity) {
+        let distance = new Date(activity.signEndTime).getTime() - new Date().getTime();
+        if(distance > 0) {
+            return distance < 1000 * 60 * 60 * 24 * 3
+        }
+        return false;
+    }
+
   ngOnInit() {
     this.loadingService.loadingEvent.emit(true);
     this.activityService.query({
@@ -54,6 +63,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
     }).subscribe(res => {
       this.workingActivities = res.json().content;
     })
+
 
     this.activityService.query(super.buildCondition(this.condition)).subscribe(res => {
       this.finishActivities = res.json().content;

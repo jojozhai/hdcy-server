@@ -385,24 +385,22 @@ textarea {
     background: #18212d;
     height: 225px;
 }
-.activity-slide .activity-img, .activity-slide .activity-bg{
-	width: 299px;
-	height: 225px;
-}
+
 .swiper-slide {
     text-align: center;
 }
 
-.swiper-slide .activity-img {
+.swiper-slide .activity-img,.swiper-slide .activitys-list{
     width:299px;
     height: 225px;
 }
-.swiper-slide-next {
-    text-align: right;
-}
-.swiper-slide-prev .activity-img ,.swiper-slide-next .activity-img,.swiper-slide-prev .swiper-txt ,.swiper-slide-next .swiper-txt {
+.swiper-slide-prev .activity-img,.swiper-slide-next .activity-img,.swiper-slide-prev .swiper-bg ,.swiper-slide-next .swiper-bg {
     height: 190px;
     margin-top: 17.5px;
+}
+
+.swiper-slide-next {
+    text-align: right;
 }
 
 .swiper-pagination-bullets .swiper-pagination-bullet-active {
@@ -419,7 +417,7 @@ textarea {
     right: 12px;
     opacity: 0.6;
 }
-.swiper-txt {
+.swiper-bg {
     position: absolute;
     top: 0;
     left: 50%;
@@ -429,7 +427,7 @@ textarea {
     height: 225px;
     background: #000000;
     opacity: 0.25;
-    color: white;
+    
 }
 .activitys-mes {
     width: 100%;
