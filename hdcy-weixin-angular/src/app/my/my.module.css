@@ -138,6 +138,7 @@
 .acti-name {
 	color: white;
 	font-size: 16px;
+	word-break: break-all;
 }
 .acti-tag {
 	color: #959595;
