@@ -63,6 +63,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
   }
 
   changeTag(tagId?: number) {
+    this.loadingService.loadingEvent.emit(true);
     let condition = super.buildCondition();
     if (tagId != 0) {
       condition.tagId = tagId;
@@ -72,6 +73,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
       $('#contentUl').scrollTop(0);
       this.articles = res.json().content;
       this.currentTag = tagId;
+      this.loadingService.loadingEvent.emit(false);
     });
   }
 

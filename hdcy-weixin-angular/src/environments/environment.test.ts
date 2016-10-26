@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   appId: "wxce8eb11c51670a1d",
   appLocation: "http://cdn4dev.haoduocheyou.com/",
-  serviceLocation: "http://127.0.0.1:8181/app2/",
+  serviceLocation: "http://cdn4dev.haoduocheyou.com/app2/",
   userToken: null,
   getLoginServicePath: function () {
     var hash = window.location.hash;

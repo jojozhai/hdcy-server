@@ -11,11 +11,11 @@
       <comment-item [comment]="comment"></comment-item>
     </li>
     <!--<div class="">
-    	
+
     </div>-->
   </ul>
   <div class="mores">
-    <a routerLink="/comment" [queryParams]="{target: target, targetId: targetId, withReply: withReply}" class="more">查看更多</a>
+    <a (click)="gotoCommentList()" class="more">查看更多</a>
   </div>
 </div>
-<a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId}" class="comment-edit"></a>
+<a (click)="gotoCommentInput()" class="comment-edit"></a>

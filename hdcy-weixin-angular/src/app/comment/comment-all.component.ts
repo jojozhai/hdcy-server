@@ -3,8 +3,9 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {ListComponent} from "../shared/component/list.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CommentService} from "./comment.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'comment-all',
@@ -22,9 +23,9 @@ export class CommentAllComponent extends ListComponent implements OnInit {
   private withReply: string;
 
   private styleType: string = "default";
-  
+
   cntsboxHeight: number = document.body.clientHeight - 48;
-  constructor(route: ActivatedRoute, public commentService: CommentService) {
+  constructor(route: ActivatedRoute, private router:Router, public commentService: CommentService) {
     super(route);
     this.target = route.snapshot.queryParams['target'];
     this.targetId = route.snapshot.queryParams['targetId'];
@@ -46,4 +47,11 @@ export class CommentAllComponent extends ListComponent implements OnInit {
     window.history.back();
   }
 
+  gotoCommentInput(){
+    if(environment.userToken) {
+      this.router.navigateByUrl('/comment/input?target='+this.target+'&targetId='+this.targetId);
+    }else{
+      this.commentService.login();
+    }
+  }
 }

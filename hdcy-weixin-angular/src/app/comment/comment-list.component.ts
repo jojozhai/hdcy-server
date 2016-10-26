@@ -2,10 +2,11 @@
  * Created by zhailiang on 16/9/24.
  */
 import {Component, OnChanges, Output, EventEmitter} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Input} from "@angular/core/src/metadata/directives";
 import {ListComponent} from "../shared/component/list.component";
 import {CommentService} from "./comment.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'comment-list',
@@ -50,8 +51,23 @@ export class CommentListComponent extends ListComponent implements OnChanges {
     return this.styleType == styleType;
   }
 
-  constructor(route: ActivatedRoute, private commentService: CommentService) {
+  constructor(route: ActivatedRoute, private router: Router, private commentService: CommentService) {
     super(route);
   }
 
+  gotoCommentInput() {
+    if (environment.userToken) {
+      this.router.navigateByUrl('/comment/input?target=' + this.target + '&targetId=' + this.targetId);
+    } else {
+      this.commentService.login();
+    }
+  }
+
+  gotoCommentList() {
+    if (environment.userToken) {
+      this.router.navigateByUrl('/comment?target=' + this.target + '&targetId=' + this.targetId + "&withReply=" + this.withReply);
+    } else {
+      this.commentService.login();
+    }
+  }
 }
