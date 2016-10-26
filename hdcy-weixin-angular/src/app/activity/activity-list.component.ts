@@ -24,7 +24,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
   cntsboxHeight: number = document.body.clientHeight - 50;
 
   condition = {
-    finish: 'true',
+    signFinish: 'true',
     top: 'false',
     sort: 'startTime,desc'
   };
@@ -55,7 +55,7 @@ export class ActivityListComponent extends ListComponent implements OnInit {
   ngOnInit() {
     this.loadingService.loadingEvent.emit(true);
     this.activityService.query({
-      finish: 'false',
+      signFinish: 'false',
       top: 'false',
       size: 100,
       page: 0,
