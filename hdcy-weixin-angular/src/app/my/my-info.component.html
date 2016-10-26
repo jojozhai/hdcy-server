@@ -8,53 +8,54 @@
 	<li>
 		<span class="ziliao-tou">头像</span>
 		<a  href="" class="my-right toua"></a>
-		<img class="tou" [src]="user?.headimgurl">		
+		<img class="tou" [src]="user?.headimgurl" (click)="uploadHeadImg()">
+
 	</li>
 	<li>
 		<span>昵称</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.nickname}}</span>
-		
+
 	</li>
 	<li>
 		<span>姓名</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.realname}}</span>
-		
+
 	</li>
 	<li>
 		<span>性别</span>
-		<span>{{user?.sex}}</span>
+		<span>{{user?.sex | sex}}</span>
 	</li>
 	<li>
 		<span>手机</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.mobile}}</span>
-		
+
 	</li>
 	<li>
 		<span>出生年月</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.birthday | date:'yyyy年MM月'}}</span>
-		
+
 	</li>
 	<li>
 		<span>所在地</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.province}} {{user?.city}}</span>
-		
+
 	</li>
 	<li>
 		<span>车型</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.car}}</span>
-		
+
 	</li>
 
 	<li>
 		<span>兴趣</span>
 		<a href="" class="my-right"></a>
 		<span>{{user?.tags}}</span>
-		
+
 	</li>
 </ul>

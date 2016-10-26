@@ -14,15 +14,6 @@ import java.util.List;
  */
 public class ActivityInfo extends ParticipationInfo {
 
-	private Long id;
-	/**
-     * 省份
-     */
-    private String province;
-    /**
-     * 城市
-     */
-    private String city;
 	/**
 	 * 活动介绍图片
 	 */
@@ -68,6 +59,10 @@ public class ActivityInfo extends ParticipationInfo {
      */
     private Date signEndTime;
     /**
+     * 报名结束
+     */
+    private Boolean signFinish;
+    /**
      * 报名人数
      */
     private Long signCount;
@@ -83,21 +78,6 @@ public class ActivityInfo extends ParticipationInfo {
 
 	public void setCustomerServiceId(long customerServiceId) {
 		this.customerServiceId = customerServiceId;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -274,36 +254,22 @@ public class ActivityInfo extends ParticipationInfo {
     }
 
     /**
-     * @return the province
+     * @return the signFinish
      */
-    public String getProvince() {
-        return province;
+    public Boolean getSignFinish() {
+        return signFinish;
     }
 
     /**
-     * @param province the province to set
+     * @param signFinish the signFinish to set
      */
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    /**
-     * @return the city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * @param city the city to set
-     */
-    public void setCity(String city) {
-        this.city = city;
+    public void setSignFinish(Boolean signFinish) {
+        this.signFinish = signFinish;
     }
 
     @Override
 	public String toString() {
-		return "ActivityInfo [id=" + id + ", images=" + images + ", contactPhone=" + contactPhone + ", contactWeixin="
+		return "ActivityInfo [id=" + getId() + ", images=" + images + ", contactPhone=" + contactPhone + ", contactWeixin="
 				+ contactWeixin + ", peopleLimit=" + peopleLimit + ", price=" + price + ", customerService="
 				+ customerServiceId + "]";
 	}
