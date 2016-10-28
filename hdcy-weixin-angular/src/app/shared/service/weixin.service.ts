@@ -24,6 +24,8 @@ export class WeixinService implements OnInit {
 
   private wx = require('weixin-js-sdk');
 
+  fileUploadFinishEvent:EventEmitter<string> = new EventEmitter<string>();
+
   defaultShareInfo = new WeixinShareInfoChangedEvent("汽车运动 从你不一样", "http://img.haoduocheyou.com/logo.jpg");
 
   weixinShareInfoChangedEvent: EventEmitter<WeixinShareInfoChangedEvent> = new EventEmitter<WeixinShareInfoChangedEvent>();
@@ -61,7 +63,7 @@ export class WeixinService implements OnInit {
     });
   }
 
-  fileUpload(callback, limit: number = 1) {
+  fileUpload(limit: number = 1) {
     this.wx.chooseImage({
       count: limit, // 默认1
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -69,21 +71,21 @@ export class WeixinService implements OnInit {
       success: (res) => {
         var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
         if (localIds && localIds.length > 0) {
-          this.weixinUpload(localIds, callback);
+          this.weixinUpload(localIds);
         }
       }
     });
   }
 
-  private weixinUpload(ids, callback) {
+  private weixinUpload(ids) {
     var dealId = ids.shift();
     this.wx.uploadImage({
       localId: dealId,
       success: (res) => {
         this.http.post(environment.serviceLocation + "weixin/upload", res.serverId).subscribe(res => {
-          callback(res.json().content);
+          this.fileUploadFinishEvent.emit(res.json().content);
           if (ids.length > 0) {
-            this.weixinUpload(ids, callback);
+            this.weixinUpload(ids);
           }
         })
       },

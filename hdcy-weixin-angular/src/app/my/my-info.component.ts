@@ -17,8 +17,12 @@ export class MyInfoComponent implements OnInit {
   detailboxHeight: number = document.body.clientHeight - 48;
 
   constructor(private userService: UserService, private weixinService: WeixinService) {
-
-
+    this.weixinService.fileUploadFinishEvent.subscribe(url => {
+      console.log("url is:" + url);
+      this.userService.setUserProperty({name: 'headimgurl', value: url}).subscribe(
+        res => this.ngOnInit()
+      );
+    });
   }
 
   ngOnInit() {
@@ -29,9 +33,7 @@ export class MyInfoComponent implements OnInit {
   }
 
   uploadHeadImg() {
-    this.weixinService.fileUpload((imgUrl) => {
-      this.user.headimgurl = imgUrl;
-    });
+    this.weixinService.fileUpload();
   }
 
 }

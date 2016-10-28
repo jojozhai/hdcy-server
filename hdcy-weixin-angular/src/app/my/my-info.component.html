@@ -1,6 +1,6 @@
 <div class="header">
 	<h3>
-      <a (click)="goBack()" class="back"></a>
+      <a routerLink="/my" class="back"></a>
       <span>个人资料</span>
     </h3>
 </div>
@@ -8,8 +8,8 @@
 	<li>
 		<span class="ziliao-tou">头像</span>
 		<a  href="" class="my-right toua"></a>
-		<img class="tou" [src]="user?.headimgurl" (click)="uploadHeadImg()">
-
+		<!--<img class="tou" [src]="user?.headimgurl" (click)="uploadHeadImg()">-->
+    <img class="tou" [src]="user?.headimgurl">
 	</li>
 	<li>
 		<span>昵称</span>

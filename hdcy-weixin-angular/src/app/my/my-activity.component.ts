@@ -3,25 +3,28 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {MyService} from "./my.service";
+import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
-    selector: 'my-activity',
-    templateUrl: './my-activity.component.html',
-    styleUrls: ['./my.module.css']
+  selector: 'my-activity',
+  templateUrl: './my-activity.component.html',
+  styleUrls: ['./my.module.css']
 })
 export class MyActivityComponent implements OnInit {
 
-    activitys;
-    
-    detailboxHeight: number = document.body.clientHeight - 48;
+  activitys;
 
-    constructor(private myService: MyService) {
-    }
+  detailboxHeight: number = document.body.clientHeight - 48;
 
-    ngOnInit() {
-        this.myService.getMyActivity().subscribe(res => {
-            this.activitys = res.json().content;
-        }, err => this.myService.handleException(err))
-    }
+  constructor(private myService: MyService, private loadingService: LoadingService) {
+  }
+
+  ngOnInit() {
+    this.loadingService.loadingEvent.emit(true);
+    this.myService.getMyActivity().subscribe(res => {
+      this.activitys = res.json().content;
+      this.loadingService.loadingEvent.emit(false);
+    }, err => this.myService.handleException(err))
+  }
 
 }
