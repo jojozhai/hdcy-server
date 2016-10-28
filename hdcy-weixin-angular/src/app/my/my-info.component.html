@@ -46,16 +46,81 @@
 
 	</li>
 	<li>
-		<span>车型</span>
-		<a href="" class="my-right"></a>
+		<span class="cartys">车型</span>
+		<a class="my-right" (click)="edit('cars')"></a>
 		<span>{{user?.car}}</span>
 
 	</li>
 
 	<li>
 		<span>兴趣</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('likes')"></a>
 		<span>{{user?.tags}}</span>
 
 	</li>
 </ul>
+
+<div class="carboxs" [style.display]="type == 'cars'?'block':'none'">
+	<div class="hot-car">
+		<div class="car-close" ></div>
+		<div class="hot-txt">热门</div>
+		<div class="like-list clear" (click)="huoqu(even)">
+			<a >宝马</a>
+			<a >奥迪</a>
+			<a >奔驰</a>
+			<a >路虎</a>
+			<a >保时捷</a>
+			<a >本田</a>
+			<a >北京现代</a>
+			<a >比亚迪</a>
+			<a >大众</a>
+			<a >法拉利</a>
+			<a >兰博基尼</a>
+			<a >福特</a>
+		</div>
+
+	</div>
+	<div class="types" (click)="huoqu(even)">
+		<ul>
+			<p class="types-list">A</p>
+			<li>阿斯顿马丁</li>
+			<li>阿尔法罗密欧丁</li>
+			<li>奥迪</li>
+			<li>安凯汽车</li>
+		</ul>
+		<ul>
+			<p class="types-list">B</p>
+			<li>宝马</li>
+			<li>宾利</li>
+			<li>比亚迪</li>
+			<li>别克</li>
+			<li>奔驰</li>
+		</ul>
+
+	</div>
+
+</div>
+<div class="likeboxs" [style.display]="type == 'likes'?'block':'none'">
+	<div class="car-close"></div>
+	<div class="like-txt">
+		选择您的喜好（最多4个）
+	</div>
+	<div class="like-list clear" (click)="like('likes')">
+			<a [class.actived]="tag == 'likes'">竞速</a>
+			<a [class.actived]="tag == 'likes'">极限</a>
+			<a [class.actived]="tag == 'likes'">卡丁车</a>
+			<a [class.actived]="tag == 'likes'">GTR</a>
+			<a [class.actived]="tag == 'likes'">F1</a>
+			<a >漂移</a>
+			<a >改装</a>
+			<a >遥控模型</a>
+			<a >发烧友</a>
+			<a >飙车党</a>
+			<a >引擎控</a>
+			<a >资深车手</a>
+			<a >改装大神</a>
+			<a >数据党</a>
+			<a >其他</a>
+		</div>
+
+</div>

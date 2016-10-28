@@ -13,7 +13,10 @@ import {WeixinService} from "../shared/service/weixin.service";
 export class MyInfoComponent implements OnInit {
 
   user;
-
+  num=0;
+  tag;
+  type;
+  
   detailboxHeight: number = document.body.clientHeight - 48;
 
   constructor(private userService: UserService, private weixinService: WeixinService) {
@@ -35,5 +38,31 @@ export class MyInfoComponent implements OnInit {
   uploadHeadImg() {
     this.weixinService.fileUpload();
   }
+  edit(type){
+	this.type=type;  		
+  }
+  huoqu(){
+  	this.type="none";
+  	console.log(event.target.innerHTML);
+//	$.ajax({
+//      type: "put",
+//      url: "/user/property",
+//      data: ,
+//      dataType: "json",
+//      success: function (obj) {
+//          
+//      }
+//
+//  });
+  }
+ 
+  like(tag){
+  	this.tag=tag;
+  	this.num++;
+  	console.log(this);
+  	console.log(this.num)
+  	console.log(event.target.innerHTML);
+  }
+  
 
 }

@@ -147,3 +147,77 @@
     bottom: 0px;
     width: 225px;	
 }
+/*车型*/
+.carboxs,.likeboxs {
+	display: none;
+	background: #18212d;
+	height: 100%;
+	width: 100%;
+	overflow-y: auto;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 22222;
+	color: white;
+	font-size: 13px;
+}
+.hot-car {
+	width: 100%;
+	padding: 15px 12px 43px;
+	background: rgb(34,63,86);
+}
+.car-close {
+	width: 17px;
+	height: 17px;
+	background: url(../../assets/images/type-close.png) no-repeat;
+	background-size: 100% 100%;	
+}
+.hot-txt {
+	margin: 31px 0 20px;
+}
+.hot-carlist a ,.like-list a{
+	display: inline-block;
+	background: url(../../assets/images/type.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+	width: 95px;
+	height: 32px;
+	color: white;
+	font-size: 13px;
+	padding: 10px 0;
+	text-align: center;
+	box-sizing: border-box;
+	margin: 0 10px 8px 0;
+	
+}
+.like-list a.actived {
+	background: url(../../assets/images/type-press.png) no-repeat;
+	background-size: 100% 100%;
+}
+.types {
+	margin-top: -43px;
+	padding-bottom: 10px;
+}
+.types-list {
+	margin: 20px 12px 8px;
+}
+.types ul li {
+	width: 100%;
+	padding: 11px 12px;
+}
+.types ul li:nth-of-type(odd) {	
+	background: url(../../assets/images/type-light.png) no-repeat;
+	background-size: 100% 100%;	
+}
+.types ul li:nth-of-type(even) {	
+	background: url(../../assets/images/type-deep.png) no-repeat;
+	background-size: 100% 100%;	
+}
+.likeboxs {
+	padding: 15px 48px 0 12px;
+    box-sizing: border-box;
+}
+.like-txt {
+	margin-top: 55px;
+	margin-bottom: 20px;
+}
