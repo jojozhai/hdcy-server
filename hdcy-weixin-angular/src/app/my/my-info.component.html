@@ -13,35 +13,34 @@
 	</li>
 	<li>
 		<span>昵称</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('nicks')"></a>
 		<span>{{user?.nickname}}</span>
 
 	</li>
 	<li>
 		<span>姓名</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('names')"></a>
 		<span>{{user?.realname}}</span>
-
 	</li>
 	<li>
 		<span>性别</span>
-		<span>{{user?.sex | sex}}</span>
+		<span (click)="edit('sexs')">{{user?.sex | sex}}</span>
 	</li>
 	<li>
 		<span>手机</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('tels')"></a>
 		<span>{{user?.mobile}}</span>
 
 	</li>
 	<li>
 		<span>出生年月</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('briths')"></a>
 		<span>{{user?.birthday | date:'yyyy年MM月'}}</span>
 
 	</li>
 	<li>
 		<span>所在地</span>
-		<a href="" class="my-right"></a>
+		<a  class="my-right" (click)="edit('addrs')"></a>
 		<span>{{user?.province}} {{user?.city}}</span>
 
 	</li>
@@ -56,13 +55,39 @@
 		<span>兴趣</span>
 		<a  class="my-right" (click)="edit('likes')"></a>
 		<span>{{user?.tags}}</span>
-
 	</li>
 </ul>
 
+<div class="editbg" [ngStyle]="{'display': editbg}" ></div>
+<!--昵称编辑-->
+<div class="nickname-edit" [style.display]="type == 'nicks'?'block':'none'">
+	<h4>编辑昵称</h4>
+	<div class="nicks">
+		<input type="text" name=""  value={{user?.nickname}} />
+		<span class="nickclose" (click)="clearnick()"></span>		
+	</div>
+	
+	<div class="nickbn clear">
+		<span (click)="close()">取消</span>
+		<span (click)="commitnick()">确定</span>
+	</div>
+</div>
+<!--性别编辑-->
+<div class="sexboxs" [style.display]="type == 'sexs'?'block':'none'">
+	<div class="updata">修改性别</div>
+	<ul>
+	
+	<li>男</li>
+	<li>女</li>
+</ul>
+	<div class="cancel">
+		<a >取消</a>
+	</div>
+</div>
+<!--车型编辑-->
 <div class="carboxs" [style.display]="type == 'cars'?'block':'none'">
 	<div class="hot-car">
-		<div class="car-close" ></div>
+		<div class="car-close" (click)="close()"></div>
 		<div class="hot-txt">热门</div>
 		<div class="like-list clear" (click)="huoqu(even)">
 			<a >宝马</a>
@@ -96,21 +121,20 @@
 			<li>别克</li>
 			<li>奔驰</li>
 		</ul>
-
 	</div>
-
 </div>
+<!--兴趣编辑-->
 <div class="likeboxs" [style.display]="type == 'likes'?'block':'none'">
-	<div class="car-close"></div>
+	<div class="car-close"  (click)="close()"></div>
 	<div class="like-txt">
 		选择您的喜好（最多4个）
 	</div>
-	<div class="like-list clear" (click)="like('likes')">
-			<a [class.actived]="tag == 'likes'">竞速</a>
-			<a [class.actived]="tag == 'likes'">极限</a>
-			<a [class.actived]="tag == 'likes'">卡丁车</a>
-			<a [class.actived]="tag == 'likes'">GTR</a>
-			<a [class.actived]="tag == 'likes'">F1</a>
+	<div class="like-list clear" >
+			<a (click)="like0('likes0')" [class.actived]="tag == 'likes0'">竞速</a>
+			<a >极限</a>
+			<a >卡丁车</a>
+			<a >GTR</a>
+			<a >F1</a>
 			<a >漂移</a>
 			<a >改装</a>
 			<a >遥控模型</a>
