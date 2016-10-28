@@ -295,9 +295,9 @@
 /*性别*/
 .sexboxs {
 	width: 100%;
-	/*display: none;*/
+	display: none;
 	position: absolute;
-	bottom: 0;
+	bottom: -1px;
 	text-align: center;
 	color:#494949 ;
 }
