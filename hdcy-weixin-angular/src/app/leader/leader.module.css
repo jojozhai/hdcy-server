@@ -23,8 +23,12 @@
 	width: 375px;
 }
 .dakalist .daka-left,.dakalist .daka-right {
+	float: right;
+}
+.even .daka-left,.even.daka-right {
 	float: left;
 }
+
 .daka-left,.daka-right {
 	width: 50%;	
 	height: 100px;

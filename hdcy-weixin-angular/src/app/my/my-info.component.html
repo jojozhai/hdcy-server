@@ -7,15 +7,13 @@
 <ul class="boxs" [style.height.px]="detailboxHeight">
 	<li>
 		<span class="ziliao-tou">头像</span>
-		<a  href="" class="my-right toua"></a>
-		<!--<img class="tou" [src]="user?.headimgurl" (click)="uploadHeadImg()">-->
-    <img class="tou" [src]="user?.headimgurl">
+		<a  href="" class="my-right toua"></a>		
+    	<img class="tou" [src]="user?.headimgurl">
 	</li>
 	<li>
 		<span>昵称</span>
-		<a  class="my-right" (click)="edit('nicks')"></a>
+		<a class="my-right" (click)="edit('nicks')"></a>
 		<span>{{user?.nickname}}</span>
-
 	</li>
 	<li>
 		<span>姓名</span>
@@ -59,14 +57,14 @@
 </ul>
 
 <div class="editbg" [ngStyle]="{'display': editbg}" ></div>
+
 <!--昵称编辑-->
 <div class="nickname-edit" [style.display]="type == 'nicks'?'block':'none'">
 	<h4>编辑昵称</h4>
 	<div class="nicks">
 		<input type="text" name=""  value={{user?.nickname}} />
 		<span class="nickclose" (click)="clearnick()"></span>		
-	</div>
-	
+	</div>	
 	<div class="nickbn clear">
 		<span (click)="close()">取消</span>
 		<span (click)="commitnick()">确定</span>
