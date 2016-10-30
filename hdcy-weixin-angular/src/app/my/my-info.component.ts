@@ -11,12 +11,12 @@ import {WeixinService} from "../shared/service/weixin.service";
   styleUrls: ['./my.module.css']
 })
 export class MyInfoComponent implements OnInit {
-
   user;
   num=0;
   tag;
-  type;
-  
+  type; 
+  closes;
+  editbg;
   detailboxHeight: number = document.body.clientHeight - 48;
 
   constructor(private userService: UserService, private weixinService: WeixinService) {
@@ -38,29 +38,45 @@ export class MyInfoComponent implements OnInit {
   uploadHeadImg() {
     this.weixinService.fileUpload();
   }
+  
+//个人资料
   edit(type){
-	this.type=type;  		
+	this.type=type;
+	if (this.type!='cars') {
+		this.editbg="block";
+	}
+	if (this.type=='nicks') {
+		console.log(this)
+	}
+  }
+  
+//昵称
+  clearnick(){
+  	$(".nicks input").val("");
+  }
+  commitnick() {
+  	$(".nicks input").val();
+  	console.log($(".nicks input").val())
+  }
+//车型
+  close () {
+	this.type="none";
+	this.editbg="none";
   }
   huoqu(){
   	this.type="none";
   	console.log(event.target.innerHTML);
-//	$.ajax({
-//      type: "put",
-//      url: "/user/property",
-//      data: ,
-//      dataType: "json",
-//      success: function (obj) {
-//          
-//      }
-//
-//  });
   }
- 
-  like(tag){
-  	this.tag=tag;
-  	this.num++;
-  	console.log(this);
-  	console.log(this.num)
+  
+//兴趣 
+  like0(tag){
+  	this.tag=tag;  	
+  	this.num++;  	
+  	console.log(event.target.innerHTML);
+  }
+  like1(tag){
+  	this.tag=tag;  	
+  	this.num++;  	
   	console.log(event.target.innerHTML);
   }
   
