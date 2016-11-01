@@ -18,13 +18,32 @@ export class DateInfo {
 
 export class BaseDatePipe {
 
+  getMidNightDate(){
+    let now:Date = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDay() - 1, 23, 59, 59)
+  }
+
+  parse2(date: Date, target:Date) {
+
+    var value = target.getTime() - new Date(date).getTime();
+
+    if (value < 0) {
+      value = new Date(date).getTime() - target.getTime();
+    }
+
+    return this.parseValue(value);
+  }
+
   parse(date: Date):DateInfo {
     var value = new Date().getTime() - new Date(date).getTime();
 
     if (value < 0) {
       value = new Date(date).getTime() - new Date().getTime();
     }
+    return this.parseValue(value);
+  }
 
+  private parseValue(value):DateInfo {
     var secondMil = 1000;
     var minuteMil = secondMil * 60;
     var hourMil = minuteMil * 60;
@@ -43,6 +62,7 @@ export class BaseDatePipe {
 
     return new DateInfo(year, month, week, day, hour, min, s);
   }
+
 
   format(date: Date, fmt): string { //author: meizz
     var o = {

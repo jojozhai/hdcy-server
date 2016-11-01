@@ -50,6 +50,10 @@ export class CommentInputComponent implements OnInit {
   }
 
   saveComment() {
+    if(this.comment == null || this.comment.length == 0){
+      toastr.warning('请填写内容');
+      return;
+    }
     this.loadingService.loadingEvent.emit(true);
     this.commentService.create({
       target: this.target,

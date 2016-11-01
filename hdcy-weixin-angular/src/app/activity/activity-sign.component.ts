@@ -30,7 +30,11 @@ export class ActivitySignComponent implements OnInit {
   }
 
   sign() {
-    this.activityService.sign({activityId: this.activityId, message: this.message})
+    if(environment.userToken){
+      this.activityService.sign({activityId: this.activityId, message: this.message})
+    }else{
+      this.activityService.login();
+    }
   }
 
   clean() {

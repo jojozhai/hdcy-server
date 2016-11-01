@@ -84,6 +84,10 @@ public class ParticipationInfo {
 	 */
 	private Long sponsorId;
 	/**
+	 * 大咖id
+	 */
+	private Long sponsorLeaderId;
+	/**
 	 * 主办方名称
 	 */
 	private String sponsorName;
@@ -539,6 +543,20 @@ public class ParticipationInfo {
      */
     public void setCity(String city) {
         this.city = city;
+    }
+
+    /**
+     * @return the sponsorLeaderId
+     */
+    public Long getSponsorLeaderId() {
+        return sponsorLeaderId;
+    }
+
+    /**
+     * @param sponsorLeaderId the sponsorLeaderId to set
+     */
+    public void setSponsorLeaderId(Long sponsorLeaderId) {
+        this.sponsorLeaderId = sponsorLeaderId;
     }
 
 

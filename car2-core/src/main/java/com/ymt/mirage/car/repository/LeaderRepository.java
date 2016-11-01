@@ -20,4 +20,6 @@ public interface LeaderRepository extends PzRepository<Leader> {
 
 	List<Leader> findByUserIdAndStatus(Long userId, LeaderStatus leaderStatus);
 
+    Leader findByName(String name);
+
 }
