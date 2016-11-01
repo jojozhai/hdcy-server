@@ -3,7 +3,7 @@
 		<h3>
         	<a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
         	<span>资讯详情</span>
-        	<a routerLink="/comment" [queryParams]="{target: 'article', targetId: article.id}" class="message"></a>
+        	<a routerLink="/comment" [queryParams]="{target: 'article', targetId: article.id, withReply: 'true'}" class="message"></a>
         	
     	</h3>
 	</div>

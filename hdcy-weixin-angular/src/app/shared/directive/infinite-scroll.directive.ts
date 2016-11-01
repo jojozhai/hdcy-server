@@ -32,6 +32,10 @@ export class InfiniteScrollDirective {
     let scrollHeight = this.el.nativeElement.scrollHeight;
     let scrollTop = this.el.nativeElement.scrollTop;
 
+    if(this.pageInfo.page == 0 && this.max != 0) {
+      this.max = 0;
+    }
+
     if (height + scrollTop >= scrollHeight - 100 && height + scrollTop > this.max) {
       this.max = scrollHeight + 100;
       this.loading = true;
@@ -51,4 +55,5 @@ export class InfiniteScrollDirective {
       }, err => console.log(err));
     }
   }
+
 }

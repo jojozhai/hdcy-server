@@ -7,9 +7,7 @@
 <div class="commments comment-all" [style.height.px]="cntsboxHeight">
   <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo">
     <li class="clear" *ngFor="let comment of comments">
-      <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: comment.id}">
         <comment-item [comment]="comment"></comment-item>
-      </a>
     </li>
   </ul>
 </div>

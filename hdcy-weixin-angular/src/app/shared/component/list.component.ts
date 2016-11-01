@@ -49,7 +49,7 @@ export class ListComponent {
     if (!condition) {
       condition = {};
     }
-    if (!condition.page) {
+    if (condition.page == null) {
       condition.page = this.pageInfo.page;
     }
 
