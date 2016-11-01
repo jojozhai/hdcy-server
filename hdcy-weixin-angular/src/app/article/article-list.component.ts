@@ -10,79 +10,84 @@ import {TagService} from "../shared/service/tag.service";
 import {LoadingService} from "../shared/service/loading.service";
 
 @Component({
-  selector: 'article-list',
-  templateUrl: './article-list.component.html',
-  styleUrls: ['./article.module.css']
+    selector: 'article-list',
+    templateUrl: './article-list.component.html',
+    styleUrls: ['./article.module.css']
 })
 export class ArticleListComponent extends ListComponent implements OnInit {
 
-  articles: Array<any>;
+    articles: Array<any>;
 
-  tags: Array<any>;
+    tags: Array<any>;
 
-  currentTag: number = 0;
+    currentTag: number = 0;
 
-  tagWidth: number = 0;
+    tagWidth: number = 0;
 
-  contentHeight: number = document.body.clientHeight - 90;
+    contentHeight: number = document.body.clientHeight - 90;
 
-  cntsboxHeight: number = document.body.clientHeight - 50;
+    cntsboxHeight: number = document.body.clientHeight - 50;
 
-  constructor(public articleService: ArticleService,
-              private tagService: TagService,
-              private router: Router,
-              private loadingService: LoadingService,
-              route: ActivatedRoute) {
-    super(route);
-  }
+    condition = {};
 
-  ngOnInit() {
-    this.loadingService.loadingEvent.emit(true);
-    let tagId = this.getQueryParam("tagId");
-    if (!tagId) {
-      tagId = this.currentTag;
-    }
-    let condition: any = {};
-    if (tagId != 0) {
-      condition.tagId = tagId;
+    scrollMax = 100;
+
+    constructor(public articleService: ArticleService,
+                private tagService: TagService,
+                private router: Router,
+                private loadingService: LoadingService,
+                route: ActivatedRoute) {
+        super(route);
     }
 
-    this.tagService.getChild().subscribe(res => {
-      this.tags = res
-      this.tagWidth = (this.tags.length + 1)*93.75;
-      this.articleService.query(this.buildCondition(condition)).subscribe(res => {
-        this.articles = res.json().content;
-        this.currentTag = tagId;
-        this.loadingService.loadingEvent.emit(false);
-      });
-    });
-  }
+    ngOnInit() {
+        this.loadingService.loadingEvent.emit(true);
+        let tagId = this.getQueryParam("tagId");
+        if (!tagId) {
+            tagId = this.currentTag;
+        }
+        if (tagId != 0) {
+            this.condition['tagId'] = tagId;
+        }
 
-  isActive(id: number) {
-    return this.currentTag == id;
-  }
-
-  changeTag(tagId?: number) {
-    this.loadingService.loadingEvent.emit(true);
-    let condition = super.buildCondition();
-    if (tagId != 0) {
-      condition.tagId = tagId;
+        this.tagService.getChild().subscribe(res => {
+            this.tags = res
+            this.tagWidth = (this.tags.length + 1) * 93.75;
+            this.articleService.query(this.buildCondition(this.condition)).subscribe(res => {
+                this.articles = res.json().content;
+                this.currentTag = tagId;
+                this.loadingService.loadingEvent.emit(false);
+            });
+        });
     }
-    condition.page = 0;
-    this.articleService.query(condition).subscribe(res => {
-      $('#contentUl').scrollTop(0);
-      this.articles = res.json().content;
-      this.currentTag = tagId;
-      this.loadingService.loadingEvent.emit(false);
-    });
-  }
 
-  navToDetail(article) {
-    if (article.linkOut && article.business) {
-      window.location.href = article.outLink;
-    } else {
-      this.router.navigate(['/article', article.id], {queryParams: {fromTag: this.currentTag}});
+    isActive(id: number) {
+        return this.currentTag == id;
     }
-  }
+
+    changeTag(tagId?: number) {
+        this.loadingService.loadingEvent.emit(true);
+        if (tagId != 0) {
+            this.condition['tagId'] = tagId;
+        } else {
+            this.condition['tagId'] = null;
+        }
+        this.condition['page'] = 0;
+        this.pageInfo.page = 0;
+        this.articleService.query(super.buildCondition(this.condition)).subscribe(res => {
+            this.articles = res.json().content;
+            this.currentTag = tagId;
+            this.loadingService.loadingEvent.emit(false);
+            $('#contentUl').scrollTop(0);
+        });
+    }
+
+    navToDetail(article) {
+        if (article.linkOut && article.business) {
+            window.location.href = article.outLink;
+        } else {
+            this.router.navigate(['/article', article.id], {queryParams: {fromTag: this.currentTag}});
+        }
+    }
 
 }

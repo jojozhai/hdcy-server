@@ -6,7 +6,7 @@
         </div>
     </div>
     <ul id="contentUl" class="content" style="overflow-y:auto;" [style.height.px]="contentHeight"
-        [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo">
+        [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo" [condition]="condition">
         <li *ngFor="let article of articles" (click)="navToDetail(article)">
 
             <div class="contentList" *ngIf="article.displayType == 'MIX'">

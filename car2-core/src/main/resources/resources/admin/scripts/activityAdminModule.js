@@ -52,6 +52,7 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 			images: [],
 			peopleLimit: 0,
 			kwlist: [],
+			signCount: 0,
 			signCountPlus: 0
 		});
 	}
@@ -267,9 +268,14 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 		startingDay : 1
 	};
 	
-	activityRestService.get({id: activity.id}).$promise.then(function(result){
-		$scope.activity = result;
-	});
+	if(activity.id) {
+		activityRestService.get({id: activity.id}).$promise.then(function(result){
+			$scope.activity = result;
+		});
+	}else{
+		$scope.activity = activity;
+	}
+	
 	
 	$scope.changeSponsor = function(){
 		angular.forEach($scope.sponsors, function(data){
