@@ -26,8 +26,10 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
+			enable:true,
 			topIndex:0,
-			top:false
+			top:false,
+			organ:false
 		});
 	}
 	
