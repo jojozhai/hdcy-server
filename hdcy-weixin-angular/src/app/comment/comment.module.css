@@ -47,8 +47,8 @@
 	margin-right: 8px;
 }
 .commment-con {	
-	margin: 0 12px;
-	padding-top: 16px;
+	padding: 16px 12px 0;
+	box-sizing: border-box;
 	border-top: 1px solid #e0e0e0;
 	overflow-y: auto;
 }
@@ -171,16 +171,8 @@
 	padding-bottom: 12px;
 	background-color: white;	
 }
-.replayLists {
-	position: relative;	
-	background: #f3f3f3;
-  width: 305px;
-  margin-left: 45px;
-  padding: 0 3px;
-  margin-top: 12px;
-  box-sizing: border-box;
-}
-.relayList,.com-more {	
+
+.com-more {	
 	margin-left: 45px;
 	padding: 0px 3px;
 	background: #F3F3F3;	
@@ -202,4 +194,10 @@
 	color: #959595;
 	text-align: center;
   padding: 10px 0;
+}
+.zbjiaoliu .commments .relayLists {
+	background: transparent;	
+}
+.zbjiaoliu .commments {
+	background: transparent;
 }

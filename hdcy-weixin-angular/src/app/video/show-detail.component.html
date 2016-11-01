@@ -30,7 +30,7 @@
 	</div>
 	<section class="zbjianjie" [style.min-height.px]="detailboxHeight" [style.display]="tag == 'comment'?'none':'block'"[innerHtml]="video.desc"></section>
 	<section class="zbjiaoliu" [style.min-height.px]="detailboxHeight" [style.display]="tag == 'intro'?'none':'block'">
-		<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com" [size]="20" (commentCount)="setCommentCount($event)" ></comment-list>
+		<comment-list [withReply]="true" styleType="video" [targetId]="video.id" target="video" class="video-com" [size]="20" (commentCount)="setCommentCount($event)" ></comment-list>
 		<div class="comwu">
 			暂无评论~
 		</div>

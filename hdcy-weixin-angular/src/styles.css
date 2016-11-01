@@ -203,7 +203,27 @@ textarea {
 .xxxxx .relayList {
 	width: 305px;
 }
-.commments .zbjiaoliu .relayList {
+.xxxxx .replayLists {
+	background: transparent;
+	margin-left: 45px;
+}
+
+.xxxxx .com-more {
+	display: none;
+}
+.commments .replayLists {
+  position: relative;	
+  background: #f3f3f3;
+  width: 305px;
+  margin-left: 45px;
+  padding: 0 3px;
+  margin-top: 12px;
+  box-sizing: border-box;
+}
+.zbjiaoliu .commments .relayLists {
+	background: transparent;	
+}
+.zbjiaoliu .commments {
 	background: transparent;
 }
 .commments .timew,
