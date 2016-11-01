@@ -124,19 +124,19 @@ birthSave() {
    
   huoqu(){
   	this.type="none";
-  	console.log(event.target.innerHTML);
+  	console.log(event.target['innerHTML']);
   }
   
 //兴趣 
   like0(tag){
   	this.tag=tag;  	
   	this.num++;  	
-  	console.log(event.target.innerHTML);
+  	console.log(event.target['innerHTML']);
   }
   like1(tag){
   	this.tag=tag;  	
   	this.num++;  	
-  	console.log(event.target.innerHTML);
+  	console.log(event.target['innerHTML']);
   }
   
   
