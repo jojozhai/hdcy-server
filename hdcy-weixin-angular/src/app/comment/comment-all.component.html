@@ -4,9 +4,9 @@
     <span>{{target == 'activity'?'全部咨询':'全部评论'}}</span>
   </h3>
 </div>
-<div class="commments comment-all" [style.height.px]="cntsboxHeight">
+<div class="commments comment-all" >
   <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo">
-    <li class="clear" *ngFor="let comment of comments">
+    <li class="clear" *ngFor="let comment of comments" [style.height.px]="cntsboxHeight">
       <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: comment.id}">
         <comment-item [comment]="comment"></comment-item>
       </a>
