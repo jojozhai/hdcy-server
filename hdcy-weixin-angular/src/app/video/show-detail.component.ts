@@ -17,7 +17,7 @@ import {LoadingService} from "../shared/service/loading.service";
 export class ShowDetailComponent extends BaseVideoDetailComponent implements OnInit {
 
   tag;
-
+  detailboxHeight: number = document.body.clientHeight-290;
   commentCount;
 
   constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, private router: Router, loadingService: LoadingService) {
@@ -31,6 +31,18 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
   changeTag(tag) {
     this.router.navigate(['/show',this.video['id']], {queryParams: {tag:tag}});
     this.tag = tag;
+    $(".comment-count h4").html();
+    var counts=$(".comment-count h4").html().split("(")[1].split(")")[0];
+    if (counts==0) {
+    	$(".zbjiaoliu .video-com").hide();
+    	$(".comwu").show();
+    }else {
+    	$(".zbjiaoliu .video-com").show();
+    	$(".comwu").hide();
+    	$(".comment-count").hide();
+    	
+    }
+    
   }
 
   setCommentCount(event){

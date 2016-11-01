@@ -85,6 +85,7 @@
 		<span (click)="commitnick()">确定</span>
 	</div>
 </div>
+<!--手机号码-->
 <div class="telsboxs" [style.display]="type == 'tels'?'block':'none'">
 	
     <div class="step1">
@@ -101,6 +102,24 @@
     		
     	</div>   	
     </div>
+    <div class="step2">
+    	<div class="tel-bg"></div>
+    	<div class="queren">
+    		<div class="que-tit">
+    			确认手机号码    			
+    		</div>
+    		<div class="que-mes">
+    			<div class="">
+    				我们将发送验证码短信到这个号码：
+    			</div>
+    			<div class="queren-num"></div>    			
+    		</div>
+    		<div class="quebtn clear">
+    			<span (click)="cancel()">取消</span>
+    			<span (click)="confirm()">确定</span>
+    		</div>
+    	</div>
+    </div>
     <div class="step3">
     	<h3>
        		<a  class="back" (click)="close()"></a>
@@ -111,11 +130,12 @@
     		<span >手机号</span>
     		<input type="text" name="" id="" value="" />
     	</div>
-    	<div class="newpass">
+    	<div class="newpass code">
     		<span>验证码</span>
     		<input type="text" name="" id="" value="" />
+    		<span class="code-mes" (click)="resend()">60</span>
     	</div>
-    	<a class="pass-commit">提交</a>
+    	<a class="pass-commit" (click)="telscode()">提交</a>
     	
     </div>
     	
@@ -136,7 +156,7 @@
     		<span>新密码</span>
     		<input type="password" name="" id="" value="" />
     	</div>
-    	<a class="pass-commit">提交</a>
+    	<a class="pass-commit" (click)="passcom()">提交</a>
     	
     </div>
 </div>
@@ -678,7 +698,7 @@
 		选择您的喜好（最多4个）
 	</div>
 	<div class="like-list clear" >
-			<a (click)="like0('likes0')" [class.actived]="tag == 'likes0'">竞速</a>
+			<a >竞速</a>
 			<a >极限</a>
 			<a >卡丁车</a>
 			<a >GTR</a>

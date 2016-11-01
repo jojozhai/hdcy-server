@@ -2,7 +2,6 @@
 	<div class="myslides">
 		<ks-swiper-container [options]="swiperOptions">
 			<ks-swiper-slide *ngFor="let activity of topActivities" class="activity-slide">
-			
 				<div [routerLink]="['/activity', activity.id]">
 					<div class="activitys-lists">
 						<img class="activity-img" [src]="activity.image">

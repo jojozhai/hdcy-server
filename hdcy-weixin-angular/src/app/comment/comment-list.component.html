@@ -1,21 +1,23 @@
 <div [ngClass]="{commments: isActived('default'), xxxxx: isActived('activity')}">
-  <div class="comment-count">
-    <h4>评论({{count}})</h4>
-    <h5>
+	<div class="comment-count">
+		<h4>评论({{count}})</h4>
+		<h5>
     	<img class="xinxi" src="../../assets/images/xinxi.png"/>
     	<span class="comzixun">活动咨询({{count}})</span>
     </h5>
-  </div>
-  <ul class="commment-con">
-    <li class="clear" *ngFor="let comment of comments">
-      <comment-item [comment]="comment"></comment-item>
-    </li>
-    <!--<div class="">
+	</div>
+	<div class="" *ngIf="count>0">
+		<ul class="commment-con">
+			<li class="clear" *ngFor="let comment of comments">
+				<comment-item [comment]="comment"></comment-item>
+			</li>
+		</ul>
+		<div class="mores">
+			<a (click)="gotoCommentList()" class="more">查看更多</a>
+		</div>
+	</div>
+	<div class="" *ngIf="count<=0">
+		暂无评论
+	</div>
 
-    </div>-->
-  </ul>
-  <div class="mores">
-    <a (click)="gotoCommentList()" class="more">查看更多</a>
-  </div>
-</div>
-<a (click)="gotoCommentInput()" class="comment-edit"></a>
+	<a (click)="gotoCommentInput()" class="comment-edit"></a>

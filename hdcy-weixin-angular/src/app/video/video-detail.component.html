@@ -5,24 +5,20 @@
         
     </h3>
 </div>
-<div class="detai-cnts1" [style.height.px]="detailboxHeight">
+<div class="detai-cnts1" >
 	<div class="zhibo">    
 		<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
-    <!--<div class="zhibo-txt">
-        <p class="zhibo-tit">Challonger G汽车嘉年华 </p>
-        <p class="videoTime-txt">
-            <img src="../../assets/images/video-time.png"/>
-            <span class="video-time">开始时间：09-28/14：30</span>
-        </p>
+    <div class="zhibo-txt">        
         <div class="video-name">
-            <span class="zhibo-icon"></span>
-            <span class="video-name1">好多车友</span>
-
+            <span class="zhibo-icon">
+            	<img [src]="video.sponsorImage">
+            </span>
+            <span class="video-name1">{{video.sponsorName}}</span>
         </div>
-    </div>-->
+    </div>
 	</div>
 
-	<div class="video-descom">
+	<div class="video-descom" [style.height.px]="detailboxHeight">
 		<div class="video-descs">
 			<h3 class="video-destit">简介</h3>
 			<div class="video-desc" [innerHTML]="video.desc"></div>

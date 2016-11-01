@@ -11,8 +11,7 @@ import {WeixinService} from "../shared/service/weixin.service";
   styleUrls: ['./my.module.css']
 })
 export class MyInfoComponent implements OnInit {
-  user;
-  num=0;
+  user; 
   tag;
   type; 
   closes;
@@ -64,6 +63,13 @@ export class MyInfoComponent implements OnInit {
 		$('.month').append(opsri);
 	}
 	
+	$(".like-list a").on('click',function () {
+		if ($(".like-list .actived").length<5) {
+			$(this).addClass('actived');
+		}
+		
+	})
+	
 	
   }
 
@@ -85,27 +91,69 @@ export class MyInfoComponent implements OnInit {
 		$('html,body').css({
 			height:'auto',
 			overflow: 'scroll',
-		})
-		
+		})		
 	}
 	if (this.type=='births') {			
 		$(".datas .year").val($(".birthday").html().substring(0,5));
 		$(".datas .month").val($(".birthday").html().substring(5));
 	}
+	if (this.type=='likes') {
+		var num=0
+	}
   }
 //手机号
-nextstep() {
+nextstep() {	
+	$(".step2").show();
+	$(".tel-bg").show();
+	$(".queren-num").html($(".tel-num input").val());	
+}
+cancel() {	
+	$(".step2").hide()
+}
+confirm() {
 	$(".step1").hide();
+	$(".step2").hide();
+	$(".tel-bg").hide();
 	$(".step3").show();
 	$(".telphon-num input").val($(".tel-num input").val())
-	
+	var seconds=60;
+	var timer=setInterval(function () {
+		seconds--;
+		if (seconds<=0) {
+			clearInterval(timer);
+			$(".code-mes").html("重新发送");
+		}else {
+			$(".code-mes").html(seconds);
+		}		
+	},1000)
+}
+resend() {
+	var seconds=60;
+	var timer=setInterval(function () {
+		seconds--;
+		if (seconds<=0) {
+			clearInterval(timer);
+			$(".code-mes").html("重新发送");
+		}else {
+			$(".code-mes").html(seconds);
+		}		
+	},1000)
+}
+//电话验证码提交
+telscode() {
+	$(".telsboxs").hide();
+	$(".editbg").hide();
+}
+//密码提交
+passcom() {
+	$(".passboxs").hide();
+	$(".editbg").hide();
 }
 //出生年月编辑
 birthSave() {
 	var year=$(".datas .year").val();
 	var month=$(".datas .month").val();
-	console.log(year+month)
-	
+	console.log(year+month)	
 }
 //昵称
   clearnick(){
@@ -115,30 +163,16 @@ birthSave() {
   	$(".nicks input").val();
   	console.log($(".nicks input").val())
   }
-
 //车型
   close () {
 	this.type="none";
 	this.editbg="none";
-  }
-   
+  }   
   huoqu(){
   	this.type="none";
   	console.log(event.target['innerHTML']);
   }
-  
-//兴趣 
-  like0(tag){
-  	this.tag=tag;  	
-  	this.num++;  	
-  	console.log(event.target['innerHTML']);
-  }
-  like1(tag){
-  	this.tag=tag;  	
-  	this.num++;  	
-  	console.log(event.target['innerHTML']);
-  }
-  
+
   
 
 }

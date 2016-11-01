@@ -32,7 +32,9 @@ export class ArticleDetailComponent implements OnInit {
         this.tagName = this.article.tagInfos[0]['name'];
         this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.title, value['image']));
         this.loadingService.loadingEvent.emit(false);
+        
       });
+     
     }
 
 }

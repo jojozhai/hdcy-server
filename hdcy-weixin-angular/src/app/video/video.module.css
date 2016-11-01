@@ -36,7 +36,9 @@
 	font-size: 15px;
 }
 .video-descom {
-	background: rgb(27,50,68);
+	overflow: auto;
+	background: url(../../assets/images/txt-btn.png)no-repeat;
+	background-size: 100% 100%;
 }
 
 .video-descs {
@@ -161,9 +163,23 @@
 	background-size: 100% 100%;
 }
 .zbjianjie {
-	padding: 19px 12px;
+	padding: 19px 12px;	
 }
 
 .zbjiaoliu {
 	display: none;
+	position: relative;
 }
+.comwu {
+	display: none;
+	color: #959595;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+.zbjiaoliu .relayList {
+	background: transparent;
+}
+

@@ -168,6 +168,10 @@
 	
 }
 /*手机号*/
+
+.step2,.step3 {
+	display: none;	
+}
 .tel-alert {
 	color: #B9B9B9;
 	font-size: 14px;
@@ -189,8 +193,62 @@
     background: transparent;
     border: 0;
 }
-.step2 {
-	display: none;
+.queren {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	z-index: 5555;
+	background: #F3F3F3;
+	border-radius: 10px;
+	text-align: center;
+	padding: 0 14px;
+	width: 281px;
+	box-sizing: border-box;
+}
+.que-tit {
+	font-size: 18px;
+	color: #303030;
+	font-weight: bold;
+	margin: 8px 0 38px;	
+}
+.que-mes {
+	font-size: 14px;
+	color: #494949;
+	font-weight: bold;
+}
+.queren-num {
+	margin-top: 12px;
+}
+.quebtn {
+	margin: 30px 0 18px;
+	font-size: 16px;
+	color: #959595;
+}
+.quebtn span {	
+	float: left;
+	border: 1px solid #959595;
+	border-radius: 10px;
+	width: 121px;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+.quebtn span:nth-of-type(2) {
+	color: #303030;
+	margin-left: 11px;
+}
+.code {
+	position: relative;
+}
+.code-mes {
+	position: absolute;
+    margin-right: 38px;
+    right: -36px;
+    border: 1px solid white;    
+    padding: 6px 10px;
+    border-radius: 14px;
+    bottom: 11px;
 }
 /*密码*/
 .passboxs,.telsboxs {	
@@ -329,7 +387,7 @@
 	margin-top: 55px;
 	margin-bottom: 20px;
 }
-.editbg {
+.editbg,.tel-bg {
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -340,6 +398,7 @@
 	opacity: 0.7;
 	z-index: 222;
 }
+
 .nickname-edit {
 	text-align: center;
 	display: none;

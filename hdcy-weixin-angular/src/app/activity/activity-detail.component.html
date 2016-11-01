@@ -114,7 +114,7 @@
 <div class="detail-swiper" [ngStyle]="{'display': swipers}">
 	<ks-swiper-container [options]="swiperOptions">
 		<ks-swiper-slide *ngFor="let image of activity?.images;" >
-			<img (click)="hidechange()"  [src]="image">
+			<img class="bigImg" (click)="hidechange()"  [src]="image">
 		</ks-swiper-slide>
 	</ks-swiper-container>
 

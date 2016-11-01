@@ -308,10 +308,13 @@
 	left: 0;
 	width: 100%;
 	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	
+	-webkit-transform: translateY(-50%);	
 }
 .detail-swiper img {
 	width: 100%;
 	
+}
+.bigImg {
+	width: 375px;
+	height: 300px;
 }

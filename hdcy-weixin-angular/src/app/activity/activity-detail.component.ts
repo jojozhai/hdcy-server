@@ -113,7 +113,7 @@ export class ActivityDetailComponent implements OnInit {
    		paginationClickable: true,
   	};
   showchange(num) {
-  	this.swipers="inline-block";  	
+  	this.swipers="block";  	
   	$(".swiper-wrapper").css({
   		transform:" translate3d("+(-375)*(num)+"px, 0px, 0px)",
   		

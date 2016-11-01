@@ -203,7 +203,9 @@ textarea {
 .xxxxx .relayList {
 	width: 305px;
 }
-
+.commments .zbjiaoliu .relayList {
+	background: transparent;
+}
 .commments .timew,
 .commments .huifuni,
 .commment .relayitem {
@@ -355,8 +357,6 @@ textarea {
 .video-descom .commment-con {
 	border-top: 1px solid transparent;
 }
-
-
 .daka-contxt {
 	padding: 16px 0;
 	font-size: 14px;
@@ -367,7 +367,7 @@ textarea {
 	margin-top: 48px;
 	background: white;
 }
-.cnts,.boxs,.detai-cnts1 {
+.cnts,.boxs {
 	overflow-y: auto;
 }
 
