@@ -147,6 +147,111 @@
     bottom: 0px;
     width: 225px;	
 }
+/*头像*/
+.headboxs {
+	position: absolute;
+    display: none;
+    bottom: -1px;
+    width: 100%;
+    text-align: center;
+    z-index: 333;
+}
+.headlist {
+	background: white;
+}
+.headlist li {
+	height: 45px;
+	line-height: 45px;
+	color: #303030;
+	font-size: 18px;
+	border-top: 1px solid #E0E0E0;
+	
+}
+/*手机号*/
+.tel-alert {
+	color: #B9B9B9;
+	font-size: 14px;
+	margin: 19px 0 58px;
+}
+.step1-mes {
+	padding: 0 38px;
+}
+.tel-num{
+	border-bottom: 1px solid white;
+	opacity: 0.7;
+	padding: 0 21px 12px;
+}
+.tel-num input {
+	font-size: 15px;
+	color: white;
+	opacity: 0.7;
+	width: 257px;
+    background: transparent;
+    border: 0;
+}
+.step2 {
+	display: none;
+}
+/*密码*/
+.passboxs,.telsboxs {	
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(../../assets/images/editbg.png) no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	z-index: 333;
+}
+.passboxs h3 ,.telsboxs h3{
+	position: relative;
+	text-align: center;
+	color: white;
+	height: 48px;
+    line-height: 48px;
+    font-size: 15px;
+}
+.pass {	
+	font-size: 15px;
+	width: 299px;
+	margin: 0 auto;
+	margin-top: 68px;
+}
+.oldpass,.newpass {
+	padding: 11px 21px;
+	margin-top: 24px;
+	border-bottom: 1px solid white;
+}
+.oldpass span ,.newpass span {
+	color: white;
+	opacity: 0.7;
+	margin-right: 45px;	
+}
+.oldpass input,.newpass input {
+	background: transparent;
+	border: 0;	
+}
+.oldpass input {
+	color: #FEFEFE;
+	opacity: 0.7;
+}
+.newpass input {
+	color: #F3F3F3;	
+}
+
+.pass-commit,.tel-nex {
+	display: inline-block;
+	width: 299px;
+	height: 40px;
+	background: url(../../assets/images/commit.png) no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	line-height: 40px;
+	font-size: 18px;
+	margin-top: 35px;
+}
 /*车型*/
 .carboxs,.likeboxs {
 	display: none;
@@ -218,6 +323,7 @@
     box-sizing: border-box;
     background: url(../../assets/images/editbg.png) no-repeat;
     background-size: 100% 100%;
+    
 }
 .like-txt {
 	margin-top: 55px;
@@ -232,6 +338,7 @@
 	left: 0;
 	background: #000000;
 	opacity: 0.7;
+	z-index: 222;
 }
 .nickname-edit {
 	text-align: center;
@@ -244,6 +351,7 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
+	z-index: 3333;
 }
 .nickname-edit h4 {
 	color: #303030;
@@ -300,6 +408,7 @@
 	bottom: -1px;
 	text-align: center;
 	color:#494949 ;
+	z-index: 333;
 }
 .sexboxs ul {
 	background: white;
@@ -316,6 +425,7 @@
 	height: 54px;
 	line-height: 54px;
 	font-size: 15px;
+	color: #494949;
 }
 .cancel {
 	background: white;
@@ -326,4 +436,125 @@
 	line-height: 45px;
 	font-size: 16px;
 }
+/*出生年月*/
+.birthboxs {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: white;
+	width: 100%;
+	padding-bottom: 15px;
+	z-index: 333;
+}
+.birthbtn {
+	font-size: 16px;
+	color: #303030;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 1px solid #E0E0E0;
+	padding: 0 27px;
+}
+.birthbtn span:nth-of-type(1){
+	color: #959595;	
+	float: left;
+}
+.birthbtn span:nth-of-type(2) {
+	float: right;
+}
+.datas {
+	padding: 0 27px;
+	margin-top: 20px;
+}
+.datas select {
+	width: 50% ;
+	float: left;
+	height: 35px;
+}
+.container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;	
+	z-index: 9999;
+	transform-origin: 0px 0px 0px;
+	opacity: 1;
+	transform: scale(1, 1);	
+	background:url(../../assets/images/editbg.png) no-repeat;
+	background-size: 100% 100%;
+}
 
+.city-up {	
+	padding: 12px 12px 0;
+}
+.current {
+	margin-top: 25px;
+	margin-bottom: 20px;
+	color: white;
+	font-size: 13px;
+}
+.currentbtn {
+	display: inline-block;
+	background: url(../../assets/images/type-press.png) no-repeat;
+	background-size: 100% 100%;
+	width: 95px;
+	height: 32px;
+	text-align: center;
+    line-height: 32px;
+    color: white;
+}
+.letter {	
+	overflow: hidden;	
+	font-size: 16px;
+	position: fixed;
+	top: 72px;
+	right: 12px;
+	text-align: center;
+}
+
+.letter ul {
+	list-style-type: none;
+}
+.letter ul li {
+	margin-bottom: 8px;
+}
+.letter ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 13px;
+}
+
+.city {
+	width: 100%;
+	overflow: hidden;	
+}
+.city-list {
+	width: 100%;
+	overflow: hidden;
+}
+
+.city-list .city-letter {
+	color: white;
+	font-size: 13px;
+	display: inline-block;
+	padding: 10px 0 8px 12px;		
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.city-list p {
+	color: white;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;	
+	cursor: pointer;
+	padding: 0 12px;
+	font-size: 13px;
+}
+.city p:nth-of-type(odd) {
+	background: url(../../assets/images/type-light.png) no-repeat;
+	background-size: 100% 100%;
+}
+.city p:nth-of-type(even) {
+	background: url(../../assets/images/type-deep.png) no-repeat;
+	background-size: 100% 100%;
+}
