@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.KeyWord;
+import com.ymt.mirage.car.domain.Leader;
 import com.ymt.mirage.car.domain.ParticipationType;
 import com.ymt.mirage.car.dto.ActivityInfo;
 import com.ymt.mirage.car.dto.ActivityParticipatorInfo;
@@ -21,6 +22,7 @@ import com.ymt.mirage.car.dto.WaiterInfo;
 import com.ymt.mirage.car.repository.ActivityParticipatorRepository;
 import com.ymt.mirage.car.repository.ActivityRepository;
 import com.ymt.mirage.car.repository.KeyWordRepository;
+import com.ymt.mirage.car.repository.LeaderRepository;
 import com.ymt.mirage.car.repository.SponsorRepository;
 import com.ymt.mirage.car.repository.WaiterRepository;
 import com.ymt.mirage.car.repository.spec.ActivityParticipatorSpec;
@@ -51,6 +53,9 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 
 	@Autowired
 	private KeyWordRepository keyWordRepository;
+	
+	@Autowired
+	private LeaderRepository leaderRepository;
 
 	@Override
 	public Page<ActivityInfo> query(ActivityInfo activityInfo, Pageable pageable) {
@@ -117,6 +122,11 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		    info.setSponsorId(activity.getSponsor().getId());
 		    info.setSponsorName(activity.getSponsor().getName());
 	        info.setSponsorImage(activity.getSponsor().getImage());
+	        
+	        Leader leader = leaderRepository.findByName(activity.getSponsor().getName());
+	        if(leader != null) {
+	            info.setSponsorLeaderId(leader.getId());
+	        }
 		}
 		
 		if(activity.getWaiter() != null) {

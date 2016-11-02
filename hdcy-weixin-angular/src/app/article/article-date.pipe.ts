@@ -12,7 +12,9 @@ export class ArticleDatePipe extends BaseDatePipe implements PipeTransform {
 
   transform(date: any, args: any[]): any {
 
-    let dateInfo:DateInfo = this.parse(date);
+    let dateInfo:DateInfo = this.parse2(date, this.getMidNightDate());
+
+    console.log(dateInfo);
 
     if(dateInfo.day == 0) {
       return "今天"

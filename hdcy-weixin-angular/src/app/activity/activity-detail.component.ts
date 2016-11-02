@@ -21,16 +21,23 @@ export class ActivityDetailComponent implements OnInit {
   contactDivState = 'none';
   pushs = 'none';
   pulls = 'inline-block';
-  swipers='none';
+  swipers = 'none';
   detailboxHeight: number = document.body.clientHeight - 48;
 
   signText = "";
 
   constructor(private activityService: ActivityService,
               private route: ActivatedRoute,
-              private router: Router, private loadingService:LoadingService) {
+              private router: Router, private loadingService: LoadingService) {
 
   }
+
+  swiperOptions = {
+    loop: false,
+    autoplay: 3000,
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+  };
 
   goBack() {
     let url = "/activity";
@@ -106,21 +113,22 @@ export class ActivityDetailComponent implements OnInit {
       }
     }
   }
-  swiperOptions = {
-    	loop: false,
-    	autoplay: 3000,
-    	pagination: '.swiper-pagination',
-   		paginationClickable: true,
-  	};
+
   showchange(num) {
-  	this.swipers="block";  	
-  	$(".swiper-wrapper").css({
-  		transform:" translate3d("+(-375)*(num)+"px, 0px, 0px)",
-  		
-  	})
+    this.swipers = "block";
+    $(".swiper-wrapper").css({
+      transform: " translate3d(" + (-375) * (num) + "px, 0px, 0px)",
+
+    })
   }
   hidechange() {
-  	this.swipers="none";
+    this.swipers = "none";
+  }
+
+  gotoLeaderDetail() {
+    if(this.activity.sponsorLeaderId){
+      this.router.navigateByUrl("/leader/"+this.activity.sponsorLeaderId);
+    }
   }
 
 

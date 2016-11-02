@@ -41,7 +41,7 @@
 				<img src="../../assets/images/zhuban-add.png"/>
 			</span>
 				<span class="zhuban-txt">主办方：
-				<span class="zhuaban-name">{{activity?.sponsorName}}</span>
+				<span class="zhuaban-name" (click)="gotoLeaderDetail()">{{activity?.sponsorName}}</span>
 				</span>
 			</div>
 			<div class="zhuban">
@@ -61,7 +61,7 @@
 
 				活动地点：
 				<span
-          class="zhuban-item">{{(activity?.province)?(activity?.province):"" + (activity?.city)+ (activity?.address)}}
+          class="zhuban-item">{{((activity?.province)?(activity?.province):"") + (activity?.city)+ (activity?.address)}}
         </span>
 				</span>
 			</div>
@@ -110,12 +110,11 @@
 		</div>
 	</div>
 </div>
-<div class="detail-swiperbg" [ngStyle]="{'display': swipers}"></div>
-<div class="detail-swiper" [ngStyle]="{'display': swipers}">
-	<ks-swiper-container [options]="swiperOptions">
+<div class="detail-swiperbg" [ngStyle]="{'display': swipers}" (click)="hidechange()"></div>
+<div class="detail-swiper">
+	<ks-swiper-container [options]="swiperOptions" *ngIf="swipers == 'block'">
 		<ks-swiper-slide *ngFor="let image of activity?.images;" >
-			<img class="bigImg" (click)="hidechange()"  [src]="image">
+			<img class="bigImg" (click)="hidechange()" [src]="image">
 		</ks-swiper-slide>
 	</ks-swiper-container>
-
 </div>

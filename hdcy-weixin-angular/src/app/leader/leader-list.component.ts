@@ -69,6 +69,9 @@ export class LeaderListComponent extends ListComponent implements OnInit {
     } else if (index == 2) {
       this.condition.organ = 'true';
     }
+
+    this.condition['page'] = 0;
+    this.pageInfo.page = 0;
     this.currentTag = index;
     this.query();
   }
