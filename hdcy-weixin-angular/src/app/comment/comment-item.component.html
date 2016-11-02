@@ -21,8 +21,9 @@
         </a>
     </div>
 </div>
-<div class="replayLists">
-    <div *ngFor="let reply of comment.replys">
+<div class="replayLists" >
+    <div class="morecoms" [ngClass]="comment.replys.length>2?'defaultcom':'activicom'" [style.overflow-y]="comment.replys.length>2?'hidden':'auto'">    	
+    	<div *ngFor="let reply of comment.replys"  >
         <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: reply.id}">
             <div class="relaytList-ri ">
                 <div class="relayList">
@@ -43,5 +44,7 @@
             </div>
         </a>
     </div>
-    <div class="com-more" *ngIf="comment.replys.length>2">查看更多评论 ></div>
+    	
+    </div>
+    <div class="com-more" (click)="morcom()" *ngIf="comment.replys.length>2">查看更多评论 ></div>
 </div>

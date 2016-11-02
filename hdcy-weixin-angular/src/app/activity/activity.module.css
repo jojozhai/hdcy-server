@@ -79,7 +79,7 @@
 	padding: 12.5px 0;
 	text-align: center;
 	border-bottom: 1px solid rgb(155,155,155);
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 16px;
 }
 .actDetail-con {
@@ -200,6 +200,9 @@
 	text-align: center;
 	color: white;
 	line-height: 40px;
+}
+.sign a.activity-end {
+	background: gray;
 }
 .signmes {
 	width: 100%;

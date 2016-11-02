@@ -48,8 +48,7 @@
 }
 .commment-con {	
 	padding: 16px 12px 0;
-	box-sizing: border-box;
-	border-top: 1px solid #e0e0e0;
+	box-sizing: border-box;	
 	overflow-y: auto;
 }
 .video-descom .commment-con {
@@ -88,16 +87,12 @@
   font-size: 11px;
   float: left;
 }
-.commmentList-con, .commmentList-cons{
-  font-size: 13px;
-  line-height: 19px;
-  color: #494949;
-  text-align: left;
+.commmentList-con, .commmentList-cons{ 
   position: relative;
-  word-break: break-word;
-}
-.commmentList-conc {
-	font-size: 14px;
+  text-align: left;  
+  word-break: break-word; 
+  font-size: 14px;
+  
 }
 
 .mores {
@@ -171,29 +166,21 @@
 	padding-bottom: 12px;
 	background-color: white;	
 }
-
-.com-more {	
-	/*margin-left: 45px;*/
-	padding: 0px 3px;
-	background: #F3F3F3;	
-	box-sizing: border-box;
-	margin-top: -1px;
-}
 .xxxxx {
-	margin-bottom: 40px;
-}
-.relayList-les {
-	display: inline-block;
+	margin-bottom: 40px;	
 }
 .com-more {
 	font-size: 13px;
-	color: #494949;
-	padding: 5px 0;
+	color: #DDDDDD;
+	padding: 10px 3px;	
+	box-sizing: border-box;
+
 }
 .comwu {
 	color: #959595;
 	text-align: center;
   padding: 10px 0;
+  
 }
 .zbjiaoliu .commments .relayLists {
 	background: transparent;	
