@@ -97,16 +97,24 @@
 .dakade-right {
 	margin-left: 12px;
 }
-.dakade-name {
-	color: white;
-	font-size: 17px;
+.dakade-names {
 	margin-bottom: 16px;
+	color: white;
+}
+.dakade-name {
+	font-weight: bold;
+	font-size: 17px;	
+}
+.dakalv {
+	font-size: 12px;
+	margin-left: 20px;
 }
 .dakade-slogan {
 	color: #C8C8C8;
 	font-size: 12px;
 	margin-bottom: 18px;
 }
+
 .dakde-tag {
 	background: #1F3B52;
 	border-radius: 10px;

@@ -37,8 +37,7 @@
 }
 .video-descom {
 	overflow: auto;
-	background: url(../../assets/images/txt-btn.png)no-repeat;
-	background-size: 100% 100%;
+	background:rgb(27,50,68) ;
 }
 
 .video-descs {
@@ -67,15 +66,20 @@
 .zhibo {
     position: relative;
 }
-/*.zhiiboa-video {
-    width: 100%;
-    height: 250px;   
-}*/
+
 
 .zhibo-txt {
     position: absolute;
     padding:0 12px 12px;
     bottom: 0;
+    font-size: 14px;
+    color: #00FEFC;
+	width: 100%;
+}
+.zhibo-txts {
+	position: absolute;
+    padding:0 12px 12px;
+    top: 155px;
     font-size: 14px;
     color: #00FEFC;
 	width: 100%;
@@ -164,6 +168,7 @@
 }
 .zbjianjie {
 	padding: 19px 12px;	
+	word-break: break-all;
 }
 
 .zbjiaoliu {

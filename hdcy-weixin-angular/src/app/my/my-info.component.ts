@@ -64,11 +64,27 @@ export class MyInfoComponent implements OnInit {
 	}
 	
 	$(".like-list a").on('click',function () {
-		if ($(".like-list .actived").length<5) {
-			$(this).addClass('actived');
-		}
+		if ($(".like-list .actived").length<5) {			
+			if ($(this).hasClass('actived')) {				
+				$(this).removeClass('actived');
+			}else if ($(this).hasClass('monys')) {
+				console.log("s")
+				$(".editbgs").show();
+				$(".monys-select").show();	
+				$(".gao").on('click',function(){
+					$(".monys").addClass('actived');
+				})
+				$(".loser").on('click',function(){
+					$(".editbgs").hide();
+					$(".monys-select").hide();	
+				})
+			}else {
+				$(this).addClass('actived');
+			}
+		}		
 		
 	})
+	
 	
 	
   }

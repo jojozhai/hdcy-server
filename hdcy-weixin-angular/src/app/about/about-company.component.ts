@@ -5,10 +5,11 @@ import {Component, OnInit} from "@angular/core";
 
 @Component({
     selector: 'about-company',
-    templateUrl: './about-company.component.html'
+    templateUrl: './about-company.component.html',
+    styleUrls: ['./about.component.css']
 })
 export class AboutCompanyComponent implements OnInit {
-
+	detailboxHeight: number = document.body.clientHeight - 48;
     constructor() {
     }
 

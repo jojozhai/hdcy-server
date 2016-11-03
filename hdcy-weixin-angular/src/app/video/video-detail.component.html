@@ -8,7 +8,7 @@
 <div class="detai-cnts1" >
 	<div class="zhibo">    
 		<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
-    <div class="zhibo-txt">        
+    <div class="zhibo-txts">        
         <div class="video-name">
             <span class="zhibo-icon">
             	<img [src]="video.sponsorImage">
@@ -23,6 +23,6 @@
 			<h3 class="video-destit">简介</h3>
 			<div class="video-desc" [innerHTML]="video.desc"></div>
 		</div>
-		<comment-list [withReply]="true" [targetId]="video.id" target="video" class="video-com"></comment-list>
+		<comment-list [withReply]="true" styleType="video" [targetId]="video.id" target="video" class="video-com"></comment-list>
 	</div>
 </div>

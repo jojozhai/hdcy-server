@@ -56,12 +56,8 @@
 				<span class="zhuban-icon">
 					<img src="../../assets/images/adds-zhu.png"/>
 			</span>
-
-				<span class="zhuban-txt">
-
-				活动地点：
-				<span
-          class="zhuban-item">{{((activity?.province)?(activity?.province):"") + (activity?.city)+ (activity?.address)}}
+				<span class="zhuban-txt">活动地点：
+					<span class="zhuban-item">{{((activity?.province)?(activity?.province):"") + (activity?.city)+ (activity?.address)}}
         </span>
 				</span>
 			</div>
@@ -88,7 +84,7 @@
 				<span class="steam-txt">客服</span>
 			</div>
 			<div class="sign fl">
-				<a (click)="sign()">{{signText}}</a>
+				<a class="activity-ends" (click)="sign()">{{signText}}</a>
 			</div>
 		</div>
 

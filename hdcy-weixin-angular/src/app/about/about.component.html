@@ -1,4 +1,20 @@
-<div>关于我们</div>
-<a routerLink="/about/company">公司介绍</a>
-<a routerLink="/about/contact">联系我们</a>
-<a routerLink="/about/agreement">用户协议</a>
+<div class="header">
+	<h3>
+      <a routerLink="/my" class="back"></a>
+      <span>关于我们</span>
+    </h3>
+</div>
+<ul class="aboutboxs" [style.min-height.px]="detailboxHeight">
+	<li class="">
+		<a routerLink="/about/company">公司介绍</a>
+		<span routerLink="/about/company" class="about-right"></span>
+	</li>
+	<li class="">
+		<a routerLink="/about/contact">联系我们</a>
+		<span routerLink="/about/company" class="about-right"></span>
+	</li>	
+	<li class="">
+		<a routerLink="/about/agreement">用户协议</a>
+		<span routerLink="/about/company" class="about-right"></span>
+	</li>	
+</ul>
