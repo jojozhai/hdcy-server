@@ -7,10 +7,7 @@ body {
 	background: #F3F3F3;
 	overflow: hidden;
 }
-
-
 /*清除外边距*/
-
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,figure,/*结构元素*/dl,dt,dd,ul,
 ol,li,/*列表元素*/fieldset,lengend,button,input,textarea,/*表单元素*/
 th,td,/*表格元素*/
@@ -42,25 +39,15 @@ ol {
 
 /*将字体扶正*/
 
-address,
-cite,
-dfn,
-em,
-var {
+address,cite,dfn,em,var {
 	font-style: normal;
 }
-
-
 /*清下划线*/
-
 a {
 	text-decoration: none;
 	color: black;
 }
-
-
 /*鼠标略过a标签，显示下划线*/
-
 a:hover {
 	text-decoration: none;
 }
@@ -182,8 +169,7 @@ textarea {
 	display: none;
 }
 
-.commments .huifu,
-.commments .nicktoname {
+.commments .huifu,.commments .nicktoname {
 	color: #9B9B9B;
 	font-size: 13px;
 }
@@ -192,6 +178,10 @@ textarea {
 	color: #9B9B9B;
 	font-size: 11px;
 	margin-top: 8px;
+}
+.commments .more ,.xxxxx .more{
+	border: 1px solid #3f749b;
+	color: #303030;
 }
 
 .commments .commmentList-ri,.commments .relayList {
@@ -244,7 +234,7 @@ textarea {
 }
 
 .video-descom .commments .commment-con li {
-	border-bottom: 1px solid transparent;
+	border-bottom: 1px solid #303030;
 }
 .video-descom .commments .commment-con {
 	border-top: 1px solid transparent;
@@ -390,7 +380,6 @@ textarea {
 	overflow-y: auto;
 }
 /*直播预告*/
-
 .videos .commmentList-up {
 	font-size: 11px;
 	color: #DDDDDD;
@@ -413,14 +402,16 @@ textarea {
 }
 .videos .commmentList-con {
 	color: white;
-	margin-top: 8px;
-    margin-bottom: 19px;
+	margin-top: 8px;    
     font-size: 14px;
 }
 .videos .commmentList-ri {
 	width: 305px;
 }
-
+.videos {
+	background: url(assets/images/txt-btn.png) no-repeat;
+	background-size: 100% 100%;
+}
 .videos .replayLists {	
 	margin-left: 45px;
     background: #39627F;
@@ -459,7 +450,21 @@ textarea {
 	height: 55px;
 	overflow-y: hidden;
 }
-
+.videos .more {
+	border: 1px solid white;
+	color: #DDDDDD;
+}
+.videos .comment-count h4 {
+	color: white;
+	padding-left: 5px;
+    border-left: 3px solid white;
+    padding: 2.5px 0 2.5px 12px;
+    font-size: 15px;
+}
+.videos .commment-con li {
+	padding: 12px 0;
+	border-bottom: 1px solid #303030;
+}
 
 
 /*临时放置swiper的样式*/

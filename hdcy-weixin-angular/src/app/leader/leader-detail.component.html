@@ -13,7 +13,10 @@
           <img [src]="leader.image">
         </div>
         <div class="dakade-right fl">
-          <div class="dakade-name">{{leader.name}}</div>
+          <div class="dakade-names">
+          	<span class="dakade-name">{{leader.name}}</span>
+          	<span class="dakalv">LV{{leader.level}}</span>
+          </div>
           <div class="dakade-slogan">{{leader.slogan}}</div>
           <div class="dakde-tag" *ngFor="let tag of leader?.tags?.split(',')">{{tag}}</div>
         </div>

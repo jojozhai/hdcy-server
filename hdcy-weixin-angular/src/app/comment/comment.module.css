@@ -1,5 +1,4 @@
-.commments {  
-  /*padding: 0px 12px;*/
+.commments {
   background-color: white;
 }
 .comment-all {
@@ -99,8 +98,7 @@
   text-align: center;
 }
 .more {
-  display: inline-block;
-  border: 1px solid #3f749b;
+  display: inline-block;  
   width: 90px;
   height:30px;
   text-align: center;
