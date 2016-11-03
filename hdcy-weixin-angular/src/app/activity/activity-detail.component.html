@@ -88,7 +88,7 @@
 				<span class="steam-txt">客服</span>
 			</div>
 			<div class="sign fl">
-				<a (click)="sign()">{{signText}}</a>
+				<a (click)="sign()" [ngClass]="{'activity-ends': signText != '立即报名'}">{{signText}}</a>
 			</div>
 		</div>
 

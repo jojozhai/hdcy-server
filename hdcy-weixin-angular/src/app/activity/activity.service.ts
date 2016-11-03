@@ -15,7 +15,8 @@ export class ActivityService extends HttpRestService {
   sign(param: {activityId; message}) {
 
     this.http.post(this.getReqUrl("activityParticipator"), param, this.getBasicHeader()).subscribe(() => {
-      console.log("sign success");
+      toastr.success("报名成功");
+      window.history.back();
     }, err => this.handleException(err));
 
   }

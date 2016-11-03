@@ -5,6 +5,7 @@ package com.ymt.mirage.car.service.impl;
 
 import java.util.List;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -135,7 +136,7 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	        info.setWaiterInfo(waiterInfo);
 	        info.setWaiterId(activity.getWaiter().getId());
 		}
-		
+		info.setSignFinish(new DateTime(activity.getSignEndTime()).isBeforeNow());
 		return info;
 	}
 
