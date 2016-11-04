@@ -41,13 +41,15 @@
 	margin-top: 48px;
 	padding: 0 12px;
 	color: #DDDDDD;
-	font-size: 15px;	
+	font-size: 15px;
+	line-height: 23px;	
 }
 .mestail-tit {
 	padding: 35px 0 20px;
 	color: white;
 	font-size: 18px;
 	line-height: 19px;
+	text-align: center;
 }
 .messDetail p {
 	margin-bottom: 20px;
