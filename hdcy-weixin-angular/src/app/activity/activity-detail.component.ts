@@ -107,7 +107,7 @@ export class ActivityDetailComponent implements OnInit {
   sign() {
     if (this.signText == "立即报名") {
       if (environment.userToken) {
-        this.router.navigateByUrl("/activity/sign", {queryParams: {id: this.activity.id}});
+        this.router.navigate(["/activity/sign"], {queryParams: {id: this.activity.id}});
       } else {
         this.activityService.login();
       }
