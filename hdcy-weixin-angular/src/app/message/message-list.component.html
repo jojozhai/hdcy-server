@@ -1,5 +1,4 @@
-<div>消息列表</div>
-<div *ngIf="messages.length == 0">
+<!--<div *ngIf="messages.length == 0">
     暂无消息
 </div>
 <div *ngIf="messages.length > 0">
@@ -10,5 +9,25 @@
         <div>{{message.createdTime | date:'yyyy-MM-dd'}}</div>
         <div>是否已读:{{message.read}}</div>
     </div>
+</div>-->
+<div class="messageboxs" [style.min-height.px]="cntsboxHeight">
+	<ul class="messageLists">
+		<li class="clear" [routerLink]="['/message',123]">
+			<div class="mesList-left fl">
+				<img src="../../assets/images/touxiang.png"/>
+			</div>
+			<div class="mesList-right fl">
+				<div class="clear">
+					<span class="mesName fl">好多车友</span>
+					<span class="fr">14:39</span>
+				</div>
+				<div class="mescon">
+					我的心愿是世界和平
+				</div>
+			</div>
+		</li>
+		
+	</ul>
+	
 </div>
 

@@ -67,11 +67,12 @@ export class MyInfoComponent implements OnInit {
 		if ($(".like-list .actived").length<5) {			
 			if ($(this).hasClass('actived')) {				
 				$(this).removeClass('actived');
-			}else if ($(this).hasClass('monys')) {
-				console.log("s")
+			}else if ($(this).hasClass('monys')) {				
 				$(".editbgs").show();
 				$(".monys-select").show();	
 				$(".gao").on('click',function(){
+					$(".editbgs").hide();
+					$(".monys-select").hide();
 					$(".monys").addClass('actived');
 				})
 				$(".loser").on('click',function(){

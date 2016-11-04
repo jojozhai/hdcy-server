@@ -1,0 +1,38 @@
+.messageboxs {
+	margin-top: 50px;
+	background: url(../../assets/images/editbg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.messageLists li {
+	padding: 13px 12px;
+}
+.messageLists li:nth-of-type(1){
+	background:rgb(40,69,94);
+}
+.messageLists li:nth-of-type(2){
+	background:rgb(34,55,75);
+}
+.mesList-left {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	overflow: hidden;	
+}
+.mesList-left img {
+	width: 100%;
+	height: 100%;
+}
+.mesList-right {
+	width: 303px;
+	margin-left: 8px;
+	color: #959595;
+	font-size: 11px;
+	margin-top: 7px;
+}
+.mesName {
+	color: white;
+	font-size: 14px;
+}
+.mescon {
+	margin-top: 7px;
+}
