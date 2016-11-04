@@ -2060,6 +2060,9 @@ textarea {
 .daka-list {
 	margin-top: 10px;
 	padding-top: 20px;
+	overflow: hidden;
+	margin-top: 131px;
+	
 }
 
 .daka-list li {
