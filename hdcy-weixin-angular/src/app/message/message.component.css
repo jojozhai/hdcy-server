@@ -1,7 +1,8 @@
-.messageboxs {
+.messageboxs,.messDetail {
 	margin-top: 50px;
 	background: url(../../assets/images/editbg.png) no-repeat;
 	background-size: 100% 100%;
+	overflow-y: auto;
 }
 .messageLists li {
 	padding: 13px 12px;
@@ -35,4 +36,19 @@
 }
 .mescon {
 	margin-top: 7px;
+}
+.messDetail {
+	margin-top: 48px;
+	padding: 0 12px;
+	color: #DDDDDD;
+	font-size: 15px;	
+}
+.mestail-tit {
+	padding: 35px 0 20px;
+	color: white;
+	font-size: 18px;
+	line-height: 19px;
+}
+.messDetail p {
+	margin-bottom: 20px;
 }
