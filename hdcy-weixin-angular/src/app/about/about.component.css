@@ -81,5 +81,11 @@ section
 	font-size: 18px;
 	padding: 23px 0 18px;
 }
-
-
+.agreementcon {
+	color: #DDDDDD;
+	font-size: 11px;
+	line-height: 16.5px;
+}
+.agreementcon p {
+	margin-bottom: 20px;
+}
