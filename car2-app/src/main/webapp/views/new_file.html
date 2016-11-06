@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<!--<script type="text/javascript" src="jquery-1.8.0.min.js"></script>-->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $ (function ()
+    {
+    	var timestamp3 = 1477984172000;
+		var newDate = new Date(timestamp3);
+        gap (newDate.toString(), $ ('div'));
+    })
+    
+    var gap = function (date, div)
+    {
+        var now = new Date;
+        var that = new Date (date);
+        console.log(that)
+        if (that.getFullYear () == now.getFullYear () && that.getMonth () == now.getMonth ()
+                && that.getDate () == now.getDate () - 1){
+            div.text ('昨天 ' + that.toLocaleTimeString ());
+        }
+        else if (that.getFullYear () == now.getFullYear () && that.getMonth () == now.getMonth ()
+                && that.getDate () == now.getDate ()){
+        	
+            var ms = Math.floor ((now - that) / 1000 / 60 / 60);
+            if ((now - that) / 1000 / 60<60) { 
+            	ms = Math.floor ((now - that) / 1000 / 60);
+            	div.text (ms + '分钟前');
+            }else {
+            	div.text (ms + ' 小时前');
+            }
+           
+        }
+        else
+        {
+            div.text (that.toLocaleDateString ());
+        }
+    }
+</script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

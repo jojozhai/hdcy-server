@@ -9,7 +9,7 @@ import {Component, OnInit} from "@angular/core";
     styleUrls: ['./about.component.css']
 })
 export class AboutAgreementComponent implements OnInit {
-
+	detailboxHeight: number = document.body.clientHeight - 48;
     constructor() {
     }
 

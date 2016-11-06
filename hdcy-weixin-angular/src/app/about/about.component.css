@@ -75,17 +75,23 @@ section
 	font-size: 11px;
 	color: #DDDDDD;
 	line-height: 16.5px;
+	overflow-y: auto;
 }
 .agreement h4 {
 	color: white;
 	font-size: 18px;
 	padding: 23px 0 18px;
+	text-align: center;
 }
 .agreementcon {
 	color: #DDDDDD;
 	font-size: 11px;
 	line-height: 16.5px;
 }
-.agreementcon p {
+.agreementcon section {
 	margin-bottom: 20px;
+	text-indent: 2em;
 }
+/*.agreementcon section p {
+	text-indent: 2em;
+}*/
