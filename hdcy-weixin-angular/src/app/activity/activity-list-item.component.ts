@@ -33,4 +33,9 @@ export class ActivityListItemComponent implements OnInit {
     return distance < 0;
   }
 
+  isEnd(){
+    let distance = new Date(this.activity.endTime).getTime() - new Date().getTime();
+    return distance < 0;
+  }
+
 }

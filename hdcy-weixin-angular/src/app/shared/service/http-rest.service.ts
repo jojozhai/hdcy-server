@@ -99,4 +99,15 @@ export class HttpRestService {
     return this.http.get(environment.serviceLocation + "user/current", this.getBasicHeader());
   }
 
+  sendSmsCheckCode(phone:string) {
+    return this.http.get(environment.serviceLocation + "sms/code?phone="+phone, this.getBasicHeader()).subscribe(
+      () => toastr.info('验证码已发送'),
+      err => this.handleException(err)
+    );
+  }
+
+  checkSmsCheckCode(phone:string, code:string) {
+    return this.http.get(environment.serviceLocation + "sms/code/check?phone="+phone+"&code="+code, this.getBasicHeader());
+  }
+
 }

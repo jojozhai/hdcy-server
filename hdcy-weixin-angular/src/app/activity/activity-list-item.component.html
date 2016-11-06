@@ -3,8 +3,8 @@
 		<img class="activity-imgs" [src]="activity.image">
 		<img class="sponsor" [src]="activity.sponsorImage" />
 		<div class="activity-bg"></div>
-		<div *ngIf="isSignEnd()" class="activity-end"></div>
-		<img *ngIf="isSignEnd()" class="activity-endicon" src="../../assets/images/end.png"/>
+		<div *ngIf="isEnd()" class="activity-end"></div>
+		<img *ngIf="isEnd()" class="activity-endicon" src="../../assets/images/end.png"/>
 		<div class="activitys-mes">
 			<div class="activity-tit">
 				{{activity.name}}

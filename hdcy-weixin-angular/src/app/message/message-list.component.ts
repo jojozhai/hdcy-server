@@ -7,23 +7,24 @@ import {ActivatedRoute} from "@angular/router";
 import {MessageService} from "./message.service";
 
 @Component({
-    selector: 'message-list',
-    templateUrl: './message-list.component.html',
-    styleUrls: ['./message.component.css'],
+  selector: 'message-list',
+  templateUrl: './message-list.component.html',
+  styleUrls: ['./message.component.css'],
 })
 export class MessageListComponent extends ListComponent implements OnInit {
 
-    messages = [];
-	cntsboxHeight: number = document.body.clientHeight - 50;
-    constructor(route: ActivatedRoute, private messageService: MessageService) {
-        super(route);
-    }
+  messages = [];
+  cntsboxHeight: number = document.body.clientHeight - 50;
 
-    ngOnInit() {
-        this.messageService.query(super.buildCondition()).subscribe(
-            res => this.messages = res.json().content,
-            err => this.messageService.handleException(err)
-        );
-    }
+  constructor(route: ActivatedRoute, private messageService: MessageService) {
+    super(route);
+  }
+
+  ngOnInit() {
+    // this.messageService.query(super.buildCondition()).subscribe(
+    //   res => this.messages = res.json().content,
+    //   err => this.messageService.handleException(err)
+    // );
+  }
 
 }
