@@ -6,7 +6,7 @@
 </div>
 <div class="signmes">
 	<textarea class="commentArea" (focus)="clean()" [(ngModel)]="message" maxlength="70"></textarea>
-	<span class="signnum">{{70 - message.length}}</span>
+	<span class="signnum">{{(message == defaultContent)?70:70-message.length}}</span>
 
 </div>
 <div class="signbtn">

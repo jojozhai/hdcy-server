@@ -77,7 +77,7 @@ export class HttpRestService {
       if (err.status == 401 || err.status == 403) {
         this.login();
       } else if (err.status == 500) {
-        alert(err.json()['errorMsg']);
+        toastr.error(err.json()['errorMsg']);
       }
     }
   }
