@@ -36,55 +36,55 @@ export class MyInfoComponent implements OnInit {
     );
 //  城市编辑
     $('body').on('click', '.city-list p', function () {
-      var type = $('.container').data('type');
-      //$('#zone_ids').html($(this).html()).attr('data-id',$(this).attr('data-id'));
-      //	$('body').html($(this).html()).attr('data-id', $(this).attr('data-id'));
+		var type = $('.container').data('type');
+		// $('#zone_ids').html($(this).html()).attr('data-id',$(this).attr('data-id'));
+	//	$('body').html($(this).html()).attr('data-id', $(this).attr('data-id'));
 
-      console.log($(this).html());
+	  console.log($(this).html());
 
-      $('.container').hide();
-      $('.editbg').hide()
-    });
-    $('body').on('click', '.letter a', function () {
-      var s = $(this).html();
-      $(window).scrollTop($('#' + s + '1').offset().top);
-    });
-    var newyear = (new Date()).getFullYear();
-    for (var i = 1970; i < newyear; i++) {
-      var ops = $("<option value=" + i + "年>" + i + "年</option>");
-      $('.year').append(ops);
-    }
-    for (var j = 1; j <= 12; j++) {
-      if (j < 10) {
-        var opsri = $("<option value=0" + j + "月>0" + j + "月</option>");
-      } else {
-        var opsri = $("<option value=" + j + "月>" + j + "月</option>");
-      }
-      $('.month').append(opsri);
-    }
+	  $('.container').hide();
+	  $('.editbg').hide()
+	});
+	$('body').on('click', '.letter a', function () {
+		var s = $(this).html();
+		$(window).scrollTop($('#' + s + '1').offset().top);
+	});
+	var newyear=(new Date()).getFullYear();
+	for (var i=1970;i< newyear;i++) {
+		var ops=$("<option value="+i+"年>"+i+"年</option>");
+		$('.year').append(ops);
+	}
+	for (var j=1;j<=12;j++) {
+		if (j<10) {
+			var opsri=$("<option value=0"+j+"月>0"+j+"月</option>");
+		}else {
+			var opsri=$("<option value="+j+"月>"+j+"月</option>");
+		}
+		$('.month').append(opsri);
+	}
 
-    $(".like-list a").on('click', function () {
-      if ($(".like-list .actived").length < 5) {
-        if ($(this).hasClass('actived')) {
-          $(this).removeClass('actived');
-        } else if ($(this).hasClass('monys')) {
-          console.log("s")
-          $(".editbgs").show();
-          $(".monys-select").show();
-          $(".gao").on('click', function () {
-            $(".monys").addClass('actived');
-          })
-          $(".loser").on('click', function () {
-            $(".editbgs").hide();
-            $(".monys-select").hide();
-          })
-        } else {
-          $(this).addClass('actived');
-        }
-      }
+	$(".like-list a").on('click',function () {
+		if ($(".like-list .actived").length<5) {
+			if ($(this).hasClass('actived')) {
+				$(this).removeClass('actived');
+			}else if ($(this).hasClass('monys')) {
+				$(".editbgs").show();
+				$(".monys-select").show();
+				$(".gao").on('click',function(){
+					$(".editbgs").hide();
+					$(".monys-select").hide();
+					$(".monys").addClass('actived');
+				})
+				$(".loser").on('click',function(){
+					$(".editbgs").hide();
+					$(".monys-select").hide();
+				})
+			}else {
+				$(this).addClass('actived');
+			}
+		}
 
-    })
-
+	})
 
   }
 

@@ -30,20 +30,18 @@ nav a.artnav-on{
   background-size: 12px 6px;
 }
 nav .fr {
-  margin-top: 5px;
+  margin-top: 7px;
 }
-.nav-xin {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
+.nav-xin { 
   background: url("../assets/images/nav-xin.png") no-repeat;
   background-size: 100% 100%;
 
 }
-.nav-me {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
+nav .nav-xin.artnav-on {
+	background: url(../assets/images/nav-xin-hover.png) no-repeat;
+  background-size: 100% 100%;
+}
+.nav-me {  
   background: url("../assets/images/nav-me.png") no-repeat;
   background-size: 100% 100%;
 }

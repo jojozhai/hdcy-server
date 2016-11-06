@@ -1,2 +1,12 @@
-<div>站内信</div>
-<div [innerHtml]="message?.content"></div>
+<!--<div [innerHtml]="message?.content"></div>-->
+<div class="header">
+	<h3>
+      <a routerLink="/message" class="back"></a>
+      <span>好多车友</span>
+    </h3>
+</div>
+<div class="messDetail" [style.min-height.px]="cntsboxHeight">
+	<h3 class="mestail-tit">我的心愿</h3>
+	<p>我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！</p>
+	<p>我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！我的心愿是世界和平！</p>
+</div>

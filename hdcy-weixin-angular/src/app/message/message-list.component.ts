@@ -8,12 +8,13 @@ import {MessageService} from "./message.service";
 
 @Component({
     selector: 'message-list',
-    templateUrl: './message-list.component.html'
+    templateUrl: './message-list.component.html',
+    styleUrls: ['./message.component.css'],
 })
 export class MessageListComponent extends ListComponent implements OnInit {
 
     messages = [];
-
+	cntsboxHeight: number = document.body.clientHeight - 50;
     constructor(route: ActivatedRoute, private messageService: MessageService) {
         super(route);
     }
