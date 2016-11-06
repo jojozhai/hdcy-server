@@ -8,9 +8,10 @@
  			$(".zhiiboa-video video").attr('src', obj.url2);
  			$(".zhibo-icon img").attr('src', obj.sponsorImage);
  			$(".video-name1").html(obj.sponsorName);
- 			$(".video-desc").html(obj.desc)
- 		}
- 	});
+ 			$(".video-desc").html(obj.desc); 			
+ 		} 		
+ 	}); 	
+ 	$(".video-descom").height($(document).height()-250) 	
 
  	$.ajax({
  		type: "get",
@@ -71,4 +72,29 @@
 
  		}
  	});
+ 	
+ 	$('body').on('touchstart',function (e) {
+ 		var touch = e.originalEvent,
+        startX = touch.changedTouches[0].pageX;
+        startY = touch.changedTouches[0].pageY;
+       $('body').on('touchmove', function(e) {
+                e.preventDefault();
+                touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];                
+                if (touch.pageY - startY > 10) {
+                   $(".guanzhu").fadeIn();
+                } else if (touch.pageY - startY < -10) {
+                   $(".guanzhu").fadeOut()
+                };
+            });
+ 	})
+ 	$(".guanzhu-txt span").on("click",function(){
+ 		$(".chatcode").show();
+ 		$(".chat").on("click",function(){
+ 			$(".chatcode").hide();
+ 		})
+ 		
+ 	})
+ 	
+ 	
  })

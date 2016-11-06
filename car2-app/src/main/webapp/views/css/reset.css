@@ -44,7 +44,7 @@ td, th { padding: 0; }
 html, button, input, select, textarea { font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif; }
 h1, h2, h3, h4, h5, h6, p, figure, form, blockquote { margin: 0; }
 ul, ol, li, dl, dd { margin: 0; padding: 0; }
-ul, ol { list-style: none outside none; }
+ul, ol,li { list-style: none outside none; }
 
 input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }

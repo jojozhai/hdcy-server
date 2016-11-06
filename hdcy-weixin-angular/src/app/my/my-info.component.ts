@@ -28,6 +28,7 @@ export class MyInfoComponent implements OnInit {
       );
     });
   }
+ 
 
   ngOnInit() {
     this.userService.getCurrentUserInfo().subscribe(
@@ -36,14 +37,11 @@ export class MyInfoComponent implements OnInit {
     );
 //  城市编辑
     $('body').on('click', '.city-list p', function () {
-		var type = $('.container').data('type');	
-		$('#zone_ids').html($(this).html()).attr('data-id',$(this).attr('data-id'));
-	//	$('body').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-	
-	  console.log($(this).html());
-	  
-	  $('.container').hide();
-	  $('.editbg').hide()
+		var type = $('.container').data('type');
+		console.log($(this).html());	  
+//	  $('.container').hide();
+//	  $('.editbg').hide()
+//     this.type='none'
 	});
 	$('body').on('click', '.letter a', function () {
 		var s = $(this).html();
@@ -96,7 +94,8 @@ export class MyInfoComponent implements OnInit {
   
    
 //个人资料
-  edit(type,year,month){
+  edit(type){
+  	console.log()
 	this.type=type;
 	if (this.type!='cars') {
 		this.editbg="block";
@@ -117,6 +116,7 @@ export class MyInfoComponent implements OnInit {
 	if (this.type=='likes') {
 		var num=0
 	}
+	
   }
 //手机号
 nextstep() {	
