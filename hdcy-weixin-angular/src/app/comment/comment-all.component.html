@@ -5,7 +5,7 @@
   </h3>
 </div>
 <div class="commments comment-all" >
-  <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [pageInfo]="pageInfo" [style.height.px]="cntsboxHeight">
+  <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [condition]="condition" [pageInfo]="pageInfo" [style.height.px]="cntsboxHeight">
     <li class="clear" *ngFor="let comment of comments" >
         <comment-item [comment]="comment"></comment-item>
     </li>

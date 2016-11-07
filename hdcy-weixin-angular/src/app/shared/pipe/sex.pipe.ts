@@ -14,6 +14,10 @@ export class SexPipe implements PipeTransform {
       return '男'
     } else if (value == '2') {
       return '女'
+    } else if (value == '男') {
+      return '男'
+    } else if (value == '女') {
+      return '女'
     }
     return '未知'
   }

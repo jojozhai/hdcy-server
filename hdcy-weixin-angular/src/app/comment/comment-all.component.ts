@@ -24,6 +24,8 @@ export class CommentAllComponent extends ListComponent implements OnInit {
 
   private styleType: string = "default";
 
+  condition = {};
+
   cntsboxHeight: number = document.body.clientHeight - 48;
   constructor(route: ActivatedRoute, private router:Router, public commentService: CommentService) {
     super(route);
@@ -31,6 +33,8 @@ export class CommentAllComponent extends ListComponent implements OnInit {
     this.targetId = route.snapshot.queryParams['targetId'];
     this.withReply = route.snapshot.queryParams['withReply'];
     this.styleType = route.snapshot.queryParams['styleType'];
+    this.condition['target'] = this.target;
+    this.condition['targetId'] = this.targetId;
   }
 
   ngOnInit() {
