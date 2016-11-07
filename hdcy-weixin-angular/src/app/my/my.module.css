@@ -613,7 +613,8 @@
 	font-size: 16px;
 	position: fixed;
 	top: 72px;
-	right: 12px;
+	right: 0px;
+	width: 30px;
 	text-align: center;
 }
 
@@ -655,6 +656,7 @@
 	cursor: pointer;
 	padding: 0 12px;
 	font-size: 13px;
+	box-sizing: border-box;
 }
 .city p:nth-of-type(odd) {
 	background: url(../../assets/images/type-light.png) no-repeat;

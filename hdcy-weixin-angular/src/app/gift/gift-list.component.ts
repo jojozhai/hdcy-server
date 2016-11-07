@@ -25,6 +25,7 @@ export class GiftListComponent extends ListComponent implements OnInit {
     this.loadingService.loadingEvent.emit(true);
     this.giftService.query(super.buildCondition()).subscribe(res => {
       this.gifts = res.json().content
+      console.log(this.gifts)
       this.loadingService.loadingEvent.emit(false);
     });
   }
