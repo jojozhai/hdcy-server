@@ -93,7 +93,8 @@ $(function(){
 						"font-size": "14px",
 						"margin-top": "12px",
 						"color": "#9B9B9B"
- 					}) 					
+ 					}) 
+ 					
  					 for (var j = 0; j < obj.content[i].replys.length; j++) {
                         var newReply=$("<div class='replyList'><span class='nickname'>"+obj.content[i].replys[j].createrName+"</span>\
                         <span>回复</span>\
@@ -101,6 +102,10 @@ $(function(){
                         <span class='replycon'>"+obj.content[i].replys[j].content+"</span></div>");
                         $(".replys"+i).append(newReply);
                     }
+ 					 if (obj.content[i].replys.length>2) {
+   						var mores=$("<div class='mores'>查看更多</div>");
+   						$(".replys"+i).append(mores)
+ 					}
  				}
  				
  				var timestamp3 = obj.content[i].createdTime;
