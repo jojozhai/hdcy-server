@@ -145,17 +145,19 @@ $(function(){
                     "</span></div>"+
                     "<div class='commentCon'>\
                     <div>"+obj.content[i].content+"</div>\
-                    <div class='replys'><div class='sanjiao'></div>\
+                    <div class='replys'>\
                     <div class='replys"+i+"'></div></div>\
                     </div></li>");
-                    $(".commentList").append(newCom);
-                    if (obj.content[i].replys.length>0) {
-                        $(".replys").css({"padding":"10px 0 10px 10px"});
-                        $(".sanjiao").css({
+                    $(".commentList").append(newCom);                    
+                    if (obj.content[i].replys.length>0) {                       
+						var sanjiao=$("<div class='sanjiao'></div>");
+						$(".sanjiao").css({
                             "border-left": "10px solid transparent",
                         	"border-right": "10px solid transparent",
                         	"border-bottom":"10px solid rgba(155,155,155,0.2)"
                         })
+						$(".replys"+i).append(sanjiao);
+						$(".replys"+i).css({"padding":"6px 0 6px 6px"})
                     }
                     for (var j = 0; j < obj.content[i].replys.length; j++) {
                         var newReply=$("<div class='reply'><span>"+obj.content[i].replys[j].createrName+"</span>\

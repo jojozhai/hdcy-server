@@ -12,12 +12,12 @@ $(function(){
                 e.preventDefault();
                 touch = e.originalEvent.touches[0] ||
                     e.originalEvent.changedTouches[0];                
-                if (touch.pageY - startY > 10) {
-                   $(".guanzhu").fadeIn();
-                   $("header").fadeOut();
-                } else if (touch.pageY - startY < -10) {
+                if (touch.pageY - startY > 10) {                   
                    $(".guanzhu").fadeOut();
-                   $("header").fadeIn();
+//                 $("header").fadeIn();                   
+                } else if (touch.pageY - startY < -10) {
+                   $(".guanzhu").fadeIn();
+//                 $("header").fadeOut();                   
                 };
             });
  	})
