@@ -8,8 +8,8 @@ audio:not([controls]) { display: none; height: 0; }
 svg:not(:root) { overflow: hidden; }
 
 a { background: transparent; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-a:active { outline: 0; }
-a:active { color: #006699; }
+/*a:active { outline: 0; }
+a:active { color: #006699; }*/
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 dfn { font-style: italic; }

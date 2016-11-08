@@ -34,6 +34,7 @@ html,body {
 }
 .zhibo {
 	position: relative;
+	top: 50px;
 }
 .zhibo-txts {
 	position: absolute;    
@@ -66,6 +67,7 @@ html,body {
 .video-descom {
 	overflow-y: auto;
     background: rgb(27,50,68);
+    margin-top: 50px;
 }
 .video-descs {
 	color: white;
@@ -73,6 +75,7 @@ html,body {
     background: url(../images/txt-btn.png) no-repeat;
     background-size: 100% 100%;
     margin-bottom: 8px;
+   
 }
 .video-destit {
 	border-left: 3px solid white;

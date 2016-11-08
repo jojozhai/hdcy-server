@@ -1,3 +1,6 @@
+.artDetail {
+	margin-top: 50px;
+}
 .Detail-up {
   padding: 0 12px 10px;
   font-family: "PingFang Bold";
@@ -109,11 +112,14 @@
 .replycon {
 	color: #494949;
 }
+.mores {
+	padding: 6px;
+}
 .more {
 	text-align: center;
 	padding: 8px 0;
 }
-.more a {
+.more a {	
 	display: inline-block;
 	width: 90px;
 	height: 30px;

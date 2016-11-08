@@ -17,7 +17,7 @@
   </li>
   <li>
     <span>姓名</span>
-    <!--<a  class="my-right" (click)="edit('names')"></a>-->
+    <a  class="my-right" (click)="edit('names')"></a>
     <span>{{user?.realname}}</span>
   </li>
   <li (click)="edit('sexs')">
@@ -78,6 +78,18 @@
   <h4>编辑昵称</h4>
   <div class="nicks">
     <input type="text" name="" [(ngModel)]="user.nickname"/>
+    <span class="nickclose" (click)="clearnick()"></span>
+  </div>
+  <div class="nickbn clear">
+    <span (click)="recover('nickname')">取消</span>
+    <span (click)="commitnick()">确定</span>
+  </div>
+</div>
+<!--姓名修改-->
+<div class="nickname-edit" [style.display]="type == 'names'?'block':'none'">
+  <h4>编辑姓名</h4>
+  <div class="nicks">
+    <input type="text" name="" [(ngModel)]="user.realname"/>
     <span class="nickclose" (click)="clearnick()"></span>
   </div>
   <div class="nickbn clear">
@@ -291,7 +303,7 @@
   <div class="hot-car">
     <div class="car-close" (click)="close()"></div>
     <div class="hot-txt">热门</div>
-    <div class="like-list clear" (click)="huoqu(even)">
+    <div class="hot-carlist clear" (click)="huoqu(even)">
       <a>宝马</a>
       <a>奥迪</a>
       <a>奔驰</a>
