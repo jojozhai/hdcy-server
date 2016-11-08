@@ -47,16 +47,15 @@
     <span>{{user?.city}}</span>
 
   </li>
-  <li>
+  <li (click)="edit('cars')">
     <span class="cartys">车型</span>
-    <a class="my-right" (click)="edit('cars')"></a>
+    <a class="my-right" ></a>
     <span>{{user?.car}}</span>
-
   </li>
 
-  <li>
+  <li (click)="edit('likes')">
     <span>兴趣</span>
-    <a class="my-right" (click)="edit('likes')"></a>
+    <a class="my-right"></a>
     <span>{{user?.tags}}</span>
   </li>
 </ul>
@@ -180,71 +179,71 @@
     <a class="currentbtn">{{user?.city}}</a>
   </div>
   <div class="city">
-    <div class="city-list"><span class="city-letter" id="A1">A</span>    	
-    	<p *ngFor="let city of citysA" (click)="citys(city.A)">{{city.A}}</p>	            
+    <div class="city-list"><span class="city-letter" id="A1">A</span>
+    	<p *ngFor="let city of citysA" (click)="citys(city.A)">{{city.A}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="B1">B</span>
-      <p *ngFor="let city of citysB" (click)="citys(city.B)">{{city.B}}</p>	
+      <p *ngFor="let city of citysB" (click)="citys(city.B)">{{city.B}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="C1">C</span>
-      <p *ngFor="let city of citysC" (click)="citys(city.C)">{{city.C}}</p>	
+      <p *ngFor="let city of citysC" (click)="citys(city.C)">{{city.C}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="D1">D</span>
-      <p *ngFor="let city of citysD" (click)="citys(city.D)">{{city.D}}</p>	
+      <p *ngFor="let city of citysD" (click)="citys(city.D)">{{city.D}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="E1">E</span>
-      <p *ngFor="let city of citysE" (click)="citys(city.E)">{{city.E}}</p>	
+      <p *ngFor="let city of citysE" (click)="citys(city.E)">{{city.E}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="F1">F</span>
-      <p *ngFor="let city of citysF" (click)="citys(city.F)">{{city.F}}</p>	
+      <p *ngFor="let city of citysF" (click)="citys(city.F)">{{city.F}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="G1">G</span>
-      <p *ngFor="let city of citysG" (click)="citys(city.G)">{{city.G}}</p>	
+      <p *ngFor="let city of citysG" (click)="citys(city.G)">{{city.G}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="H1">H</span>
-      <p *ngFor="let city of citysH" (click)="citys(city.H)">{{city.H}}</p>	
+      <p *ngFor="let city of citysH" (click)="citys(city.H)">{{city.H}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="J1">J</span>
-      <p *ngFor="let city of citysJ" (click)="citys(city.J)">{{city.J}}</p>	
+      <p *ngFor="let city of citysJ" (click)="citys(city.J)">{{city.J}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="K1">K</span>
-      <p *ngFor="let city of citysK" (click)="citys(city.K)">{{city.K}}</p>	
+      <p *ngFor="let city of citysK" (click)="citys(city.K)">{{city.K}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="L1">L</span>
-     <p *ngFor="let city of citysL" (click)="citys(city.L)">{{city.L}}</p>	
+     <p *ngFor="let city of citysL" (click)="citys(city.L)">{{city.L}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="M1">M</span>
-      <p *ngFor="let city of citysM" (click)="citys(city.M)">{{city.M}}</p>	
+      <p *ngFor="let city of citysM" (click)="citys(city.M)">{{city.M}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="N1">N</span>
-      <p *ngFor="let city of citysN" (click)="citys(city.N)">{{city.N}}</p>	
+      <p *ngFor="let city of citysN" (click)="citys(city.N)">{{city.N}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="P1">P</span>
-      <p *ngFor="let city of citysP" (click)="citys(city.P)">{{city.P}}</p>	
+      <p *ngFor="let city of citysP" (click)="citys(city.P)">{{city.P}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="Q1">Q</span>
-      <p *ngFor="let city of citysQ" (click)="citys(city.Q)">{{city.Q}}</p>	
+      <p *ngFor="let city of citysQ" (click)="citys(city.Q)">{{city.Q}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="R1">R</span>
-      <p *ngFor="let city of citysR" (click)="citys(city.R)">{{city.R}}</p>	
+      <p *ngFor="let city of citysR" (click)="citys(city.R)">{{city.R}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="S1">S</span>
-      <p *ngFor="let city of citysS" (click)="citys(city.S)">{{city.S}}</p>	
+      <p *ngFor="let city of citysS" (click)="citys(city.S)">{{city.S}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="T1">T</span>
-      <p *ngFor="let city of citysT" (click)="citys(city.T)">{{city.T}}</p>	
+      <p *ngFor="let city of citysT" (click)="citys(city.T)">{{city.T}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="W1">W</span>
-     <p *ngFor="let city of citysW" (click)="citys(city.W)">{{city.W}}</p>	
+     <p *ngFor="let city of citysW" (click)="citys(city.W)">{{city.W}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="X1">X</span>
-      <p *ngFor="let city of citysX" (click)="citys(city.X)">{{city.X}}</p>	
+      <p *ngFor="let city of citysX" (click)="citys(city.X)">{{city.X}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="Y1">Y</span>
-      <p *ngFor="let city of citysY" (click)="citys(city.Y)">{{city.Y}}</p>	
+      <p *ngFor="let city of citysY" (click)="citys(city.Y)">{{city.Y}}</p>
     </div>
     <div class="city-list"><span class="city-letter" id="Z1">Z</span>
-      <p *ngFor="let city of citysZ" (click)="citys(city.Z)">{{city.Z}}</p>	
+      <p *ngFor="let city of citysZ" (click)="citys(city.Z)">{{city.Z}}</p>
     </div>
   </div>
   <div class="letter">
@@ -291,7 +290,7 @@
   <div class="hot-car">
     <div class="car-close" (click)="close()"></div>
     <div class="hot-txt">热门</div>
-    <div class="like-list clear" (click)="huoqu(even)">
+    <div class="like-list clear" (click)="updateCar(even)">
       <a>宝马</a>
       <a>奥迪</a>
       <a>奔驰</a>
@@ -307,7 +306,7 @@
     </div>
 
   </div>
-  <div class="types" (click)="huoqu(even)">
+  <div class="types" (click)="updateCar(even)">
     <ul>
       <p class="types-list">A</p>
       <li>阿斯顿马丁</li>
@@ -327,37 +326,23 @@
 </div>
 <!--兴趣编辑-->
 <div class="likeboxs" [style.display]="type == 'likes'?'block':'none'">
-  <div class="car-close" (click)="close()"></div>
+  <div class="car-close" (click)="closeTagsChoice()"></div>
   <div class="like-txt">
     选择您的喜好（最多4个）
   </div>
   <div class="like-list clear">
-    <a>竞速</a>
-    <a>极限</a>
-    <a>卡丁车</a>
-    <a class="monys">GTR</a>
-    <a>F1</a>
-    <a>漂移</a>
-    <a>改装</a>
-    <a>遥控模型</a>
-    <a>发烧友</a>
-    <a>飙车党</a>
-    <a>引擎控</a>
-    <a>资深车手</a>
-    <a>改装大神</a>
-    <a>数据党</a>
-    <a>其他</a>
+    <a *ngFor="let tag of tags" [ngClass]="{'actived': isActiveTag(tag)}" (click)="clickTag(tag)">{{tag}}</a>
   </div>
 </div>
-<div class="editbgs"></div>
-<div class="monys-select">
+<div class="editbgs" (click)="showGTR = false;" [style.display]="showGTR?'block':'none'"></div>
+<div class="monys-select" [style.display]="showGTR?'block':'none'">
   <div class="monys-up">
     <div class="monys-upcon">
       此选项为高富帅，你配吗？
     </div>
   </div>
   <div class="monys-down clear">
-    <a class="gao">任性选择</a>
-    <a class="loser">屌丝飘过</a>
+    <a class="gao" (click)="choiceGTR()">任性选择</a>
+    <a class="loser" (click)="showGTR = false;">屌丝飘过</a>
   </div>
 </div>
