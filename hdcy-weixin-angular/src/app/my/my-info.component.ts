@@ -255,9 +255,7 @@ citysZ=[{Z:"张家口市"},{Z:"诸暨市"},{Z:"镇江市"},{Z:"张家港市"},{Z
   birthSave() {
     var year = $(".datas .year").val();
     var month = $(".datas .month").val();
-
     var value = year + "-" + month + "-01";
-
     this.userService.setUserProperty({
       name: 'birthday',
       value: value

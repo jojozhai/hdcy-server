@@ -1,0 +1,42 @@
+header {
+  width:375px;
+  height:50px;
+  background: black;
+  line-height: 50px;  
+  z-index: 333;
+  padding: 0 12px;
+}
+nav a {
+  font-size: 15px;
+  color: rgb(221, 221, 221);
+  font-family:" HiraginoSansGB W3[Bold]";
+
+}
+nav .fl a,nav .fr a {
+  float: left;
+}
+nav .fl a {
+  margin-right: 20px;
+}
+nav .fr a  {
+  width: 35px;
+  height:35px;
+  /*margin:0 5px;*/
+}
+nav a.artnav-on{
+  color: rgb(0, 254, 252);
+  background: url(../images/nav-on.png) no-repeat bottom center;
+  background-size: 12px 6px;
+}
+nav .fr {
+  margin-top: 7px;
+}
+
+.nav-me {  
+  background: url(../images/nav-me.png) no-repeat;
+  background-size: 100% 100%;
+}
+nav .nav-me.artnav-on {
+	background: url("../images/nav-me-hover.png") no-repeat;
+  background-size: 100% 100%;
+}
