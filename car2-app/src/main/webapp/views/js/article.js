@@ -37,7 +37,7 @@ $(function() {
 	}
 	$.ajax({
 		type: "get",
-		url: "/app2/article/632981",
+		url: "/app2/article/"+id,
 		dataType: "json",
 		success: function(obj) {
 			var timestamp3 = obj.createdTime;
@@ -47,7 +47,8 @@ $(function() {
 			$(".detail-tag1").html(obj.tagName);
 			$(".author").html(obj.principal);
 			$(".detail-Img img").attr('src', obj.image);
-			$(".artiDetail-con").html(obj.content)
+			$(".artiDetail-con").html(obj.content);
+			$(".comment-count h4").html("评论("+obj.commentCount+")")
 		}
 	});
 	var flag = true;
@@ -56,13 +57,13 @@ $(function() {
 		url: "/app2/comment",
 		data: {
 			target: "article",
-			targetId: "632981",
+			targetId: id,
 			size: "5",
 			withReply: "true",
 			sort: "createdTime,desc"
 		},
 		dataType: "json",
-		success: function(obj) {
+		success: function(obj) {			
 			for(var i = 0; i < obj.content.length; i++) {
 				var comcon = $("<div class='comsList'>" +
 					"<div class='comsup clear'>" +

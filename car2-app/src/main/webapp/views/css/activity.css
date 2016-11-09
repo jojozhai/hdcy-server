@@ -1,5 +1,6 @@
-active-conmes {
+.active-conmes {
 	background: #F3F3F3;
+	margin-top: 50px;
 }
 .detai-cntss,.activity-zhuban {
 	background: white;
@@ -23,6 +24,7 @@ active-conmes {
 	overflow: hidden;
 }
 .actDetail-imgs {
+	/*display: none;*/
 	padding: 18px 0;
 	overflow-x: auto;
 }
@@ -47,14 +49,14 @@ active-conmes {
 	display: inline-block;
 	width: 22px;
 	height: 12px;
-	background: url(../../assets/images/dow.png) no-repeat;
+	background: url(../images/dow.png) no-repeat;
 	background-size: 100% 100%;
 }
 .con-ups {
 	display: none;
 	width: 22px;
 	height: 12px;
-	background: url(../../assets/images/up.png) no-repeat;
+	background: url(../images/up.png) no-repeat;
 	background-size: 100% 100%;
 }
 .zhuban-tit {
@@ -126,4 +128,102 @@ active-conmes {
 .steam-txt {
 	font-size: 11px;
 	color: #303030;
+}
+.comment {  
+  word-break: break-all;
+}
+.comment-count {  
+  padding: 10px 12px; 
+  background: white;
+}
+.comment-count h5 {	  
+  font-size: 14px; 
+  color: #494949;
+  position: relative;
+  height: 22px;
+}
+.xinxi {
+	width: 22px;
+	margin-right: 8px;
+}
+.comments {
+	padding: 16px 12px 0;
+}
+.comment-up {
+	color: #9B9B9B;
+	font-size: 11px;
+	font-weight: bold;
+}
+.commhand {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 5px;
+}
+.conmmentList ,.replyList {
+	margin-bottom: 20px;
+}
+.replyImg {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-left: 5px;
+}
+.commhand img ,.replyImg img {
+	width: 100%;
+	height: 100%;
+}
+.comment-right {
+	font-size: 11px;
+}
+.replay-right {
+	text-align: right;
+	font-size: 11px;
+}
+.nickname {
+	display: inline-block;
+	color: #9B9B9B;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+.commentcon-time {
+	width: 226px;
+	position: relative;	
+	background: url(../images/chat-white.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 8.5px 23px 29px;
+}
+.replytcon-time {
+	text-align: left;
+	width: 226px;
+	position: relative;	
+	background: url(../images/chat-blue.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 8.5px 23px 29px;
+}
+.commentcon {
+	color:#303030 ;
+	font-size: 13px;
+}
+.com-time,.recom-time {
+	position: absolute;
+	bottom: 4px;
+	right: 23px;
+	color: #959595;	
+}
+.more {
+	text-align: center;
+	padding: 8px 0;
+}
+.more a {	
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #3f749b;
+  	color: #303030;
+	border-radius: 15px;
+	font-size: 14px;
 }
