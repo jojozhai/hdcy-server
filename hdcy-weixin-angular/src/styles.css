@@ -358,7 +358,7 @@ input,textarea {
 }
 .boxs {
 	margin-top: 48px;
-	background: white;
+	/*background: white;*/
 }
 .cnts,.boxs {
 	overflow-y: auto;

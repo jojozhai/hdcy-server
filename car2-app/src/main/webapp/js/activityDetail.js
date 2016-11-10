@@ -46,15 +46,14 @@ $(function(){
                 var newSpan=$("<span>"+obj.hot+"人</span>");
                 $(".participants").append(newSpan);
                 $(".article").append(newDiv);
-
-            	var date = new Date(obj.startTime);
+				var date = new Date(obj.startTime);
                 var timess=date.Format();
                 var date1 = new Date(obj.signEndTime);
                 var sgintime=date1.Format();
 
                 var messageList=$("<li>\
                     <span class='item'>主办方：</span>\
-                    <span>"+obj.sponsor+"</span>\
+                    <span>"+obj.sponsorName+"</span>\
                 </li>\
                 <li>\
                     <span class='item'>活动时间：</span>\
@@ -77,7 +76,7 @@ $(function(){
                     <span>"+obj.address+"</span>\
                 </li>");
                 $(".message-list").append(messageList);
-                $(".activityImgs").width(obj.images.length*140)
+                $(".activityImgs").width(obj.images.length*108)
                 for (var i = 0; i < obj.images.length; i++) {
                     var newImg=$("<li dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></li>");
                     $(".activityImgs").append(newImg);

@@ -59,7 +59,7 @@
 }
 
 .comment {
-	padding: 0 12px;	
+  padding: 0 12px;	
   word-break: break-all;
 }
 .comsupLeft {
@@ -81,6 +81,9 @@
 .nickname {
 	color: #6593C5;
 	font-size: 14px;
+}
+.comments {
+	border-top: 1px solid #E0E0E0;
 }
 .comsList {
 	border-bottom: 1px solid #E0E0E0;
@@ -125,7 +128,17 @@
 	height: 30px;
 	line-height: 30px;
 	border: 1px solid #3f749b;
-  color: #303030;
+  	color: #303030;
 	border-radius: 15px;
 	font-size: 14px;
+}
+.comment-count {  
+  padding: 10px 0px; 
+  background: white;
+}
+.comment-count h4 {
+  padding-left: 5px;
+  border-left: 3px solid #303030;
+  padding: 2.5px 0 2.5px 12px;
+  font-size: 15px;
 }
