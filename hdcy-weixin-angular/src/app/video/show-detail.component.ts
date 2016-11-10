@@ -17,7 +17,9 @@ import {LoadingService} from "../shared/service/loading.service";
 export class ShowDetailComponent extends BaseVideoDetailComponent implements OnInit {
 
   tag;
-  detailboxHeight: number = document.body.clientHeight-290;
+  detailboxHeight: number = document.body.clientHeight-328;
+  detailboxHeights: number = document.body.clientHeight-250;
+  detailboxHeigh: number = document.body.clientHeight-290;
   commentCount;
 
   constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, private router: Router, loadingService: LoadingService) {

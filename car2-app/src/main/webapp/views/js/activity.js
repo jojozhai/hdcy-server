@@ -1,4 +1,6 @@
 $(function() {
+	var heights=document.documentElement.clientHeight;
+    $(".active-conmes").height(heights-50);
 	var gap = function(date, creatime) {
 		var now = new Date;
 		var that = new Date(date);
@@ -76,8 +78,34 @@ $(function() {
 				var smallImg = $('<div class="actDetail-img">\
 							<img src=' + obj.images[i] + '>\
 						</div>')
-				$(".actDetail-imgsCon").append(smallImg)
+				$(".actDetail-imgsCon").append(smallImg);
+				var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
+                $(".bigactImg .swiper-wrapper").append(newImg1);
 			}
+			$(".actDetail-img").on('click',function () {
+				$(".bigactImg").show();
+				var mySwiper = new Swiper ('.bigactImg .swiper-container', {
+                    loop: true,
+                    pagination: '.swiper-pagination',
+                })
+				var index=$(this).index();
+                    $(".bigactImg").show();
+                    $(".bigactImg").css({
+                        "background": "rgba(0, 0, 0, 0.9)",
+                        "z-index": "9999",
+                    })
+                    $(".swiper-wrapper").css({
+                         transform:" translate3d("+(-375)*(index+1)+"px, 0px, 0px)",
+                     })
+                    $(".swiper-slide").removeClass("swiper-slide-active");
+                    $(".swiper-slide").eq(index).addClass("swiper-slide-active");
+                    $(".swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
+                    $(".swiper-pagination-bullet").eq(index).addClass("swiper-pagination-bullet-active");
+
+                    $(".swiper-slide img").on("click",function(){
+                        $(".bigactImg").hide();
+                    })
+			})
 		}
 
 	});
@@ -137,5 +165,15 @@ $(function() {
 			}
 		}
 	});
+	$(".con-downs").on('click',function(){
+		$(".actDetail-con").height('auto');
+		$(".con-ups").css('display','inline-block');
+		$(".con-downs").hide()
+	})
+	$(".con-ups").on('click',function () {
+		$(".actDetail-con").height(108);
+		$(".con-downs").css('display','inline-block');
+		$(".con-ups").hide();
+	})
 
 })

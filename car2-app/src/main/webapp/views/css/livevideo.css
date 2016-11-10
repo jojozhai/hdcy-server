@@ -1,77 +1,6 @@
-.videolist {
-	position: relative;
-	width: 375px;
-	height: 225px;
-}
-.videolist img{
-	width: 100%;
-	height: 100%;
-}
-.videotxt {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	width: 100%;
-	text-align: center;
-	color: white;
-}
-.videotit {
-	font-size: 18px;
-	font-weight: bold;
-	word-break: break-word;
-	margin-bottom: 19px;
-}
-.videobg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 375px;
-	height: 225px;
-	background: #000000;
-	opacity: 0.25;
-}
-.videostyle {
-	
-	font-size: 15px;
-}
-.video-descom {
-	overflow: hidden;
-	background:rgb(27,50,68) ;
-}
-.video-descom section {
-	overflow-y: auto;
-	box-sizing: border-box;
-}
-
-.video-descs {
-	color: white;
-	padding: 12px 12px 0;
-	background: url(../../assets/images/txt-btn.png) no-repeat;
-	background-size: 100% 100%;
-	margin-bottom: 8px;
-}
-
-.video-destit {
-	border-left: 3px solid white;
-	padding: 2.5px 0 2.5px 12px;
-	font-size: 15px;
-}
-.video-desc {
-	padding: 19.5px;
-	font-size: 14px;
-	line-height: 21px;
-	word-break: break-word;
-}
-.video-com .commments {
-	background: url(../../assets/images/txt-btn.png) no-repeat;
-	background-size: 100% 100%;
-}
 .zhibo {
     position: relative;
 }
-
-
 .zhibo-txt {
     position: absolute;
     padding:0 12px 12px;
@@ -156,7 +85,7 @@
 	display: inline-block;
 	width: 187.5px;
 	height: 40px;
-	background: url(../../assets/images/artnav.png) no-repeat;
+	background: url(../images/artnav.png) no-repeat;
 	background-size: 100% 100%;
 	float: left;
 	line-height: 40px;
@@ -167,26 +96,15 @@
 .yugao-nav a.actived {
 	display: inline-block;
 	color: white;
-	background: url(../../assets/images/xuanze.png) no-repeat;
+	background: url(../images/xuanze.png) no-repeat;
 	background-size: 100% 100%;
 }
 .zbjianjie {
-	padding: 0px 12px 0;	
+	padding: 19px 12px;	
 	word-break: break-all;
-	margin-top: 19px;
 }
 
 .zbjiaoliu {
 	display: none;
 	position: relative;
 }
-.comwu {
-	display: none;
-	color: #959595;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-}
-

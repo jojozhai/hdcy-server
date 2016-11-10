@@ -232,7 +232,9 @@ input,textarea {
   line-height: 19px;
   color: #494949;   
 }
-
+.xxxxx .comment-count {
+	background: white;
+}
 .commments .comment-count h4 {
   padding-left: 5px;
   border-left: 3px solid #303030;
