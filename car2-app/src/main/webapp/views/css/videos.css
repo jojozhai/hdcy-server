@@ -32,9 +32,11 @@ html,body {
     -webkit-transform: translateY(-50%);
     left: 12px;
 }
+.detai-cnts1 {
+	margin-top: 50px;
+}
 .zhibo {
-	position: relative;
-	top: 50px;
+	position: relative;	
 }
 .zhibo-txts {
 	position: absolute;    
@@ -151,4 +153,5 @@ html,body {
 	border-radius: 15px;
 	font-size: 14px;
 }
+
 
