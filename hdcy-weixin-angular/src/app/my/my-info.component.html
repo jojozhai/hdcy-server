@@ -15,9 +15,9 @@
     <a class="my-right"></a>
     <span>{{user?.nickname}}</span>
   </li>
-  <li>
+  <li (click)="edit('names')">
     <span>姓名</span>
-    <a  class="my-right" (click)="edit('names')"></a>
+    <a  class="my-right" *ngIf="user.realname == null || user.realname == ''" ></a>
     <span>{{user?.realname}}</span>
   </li>
   <li (click)="edit('sexs')">
@@ -89,11 +89,11 @@
   <h4>编辑姓名</h4>
   <div class="nicks">
     <input type="text" name="" [(ngModel)]="user.realname"/>
-    <span class="nickclose" (click)="clearnick()"></span>
+    <span class="nickclose" (click)="clearRealName()"></span>
   </div>
   <div class="nickbn clear">
-    <span (click)="recover('nickname')">取消</span>
-    <span (click)="commitnick()">确定</span>
+    <span (click)="recover('realname')">取消</span>
+    <span (click)="commitRealName()">确定</span>
   </div>
 </div>
 <!--手机号码-->
