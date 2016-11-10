@@ -13,7 +13,7 @@
                 <span class="com-num">{{comment.praiseCount}}</span>
             </div>
         </div>
-        <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: comment.id}">
+        <a (click)="toReplyPage(comment.id)">
             <div class="commmentList-con commmentList-conc">
                 {{comment.content}}
                 <time class="timew">{{comment.createdTime | commentDate:'a'}}</time>
@@ -22,16 +22,16 @@
     </div>
 </div>
 <div class="replayLists" >
-    <div class="morecoms" [ngClass]="comment.replys.length>2?'defaultcom':'activicom'" [style.overflow-y]="comment.replys.length>2?'hidden':'auto'">    	
+    <div class="morecoms" [ngClass]="comment.replys.length>2?'defaultcom':'activicom'" [style.overflow-y]="comment.replys.length>2?'hidden':'auto'">
     	<div *ngFor="let reply of comment.replys"  >
-        <a routerLink="/comment/input" [queryParams]="{target: target, targetId: targetId, replyToId: reply.id}">
+        <a (click)="toReplyPage(reply.id)">
             <div class="relaytList-ri ">
                 <div class="relayList">
                     <span class="nickname relayitem">{{reply.createrName}}</span>
                     <span class="relayitem huifu">回复</span>
                     <span class="nicktoname relayitem">{{reply.replyToName}}:</span>
                     <div class="relayList-les">
-					<span class="relayList-le ">      		
+					<span class="relayList-le ">
       					<img src="../../assets/images/hdcy.png"/>
     	  			</span>
                         <span class="huifuni">好多车友</span>
@@ -44,7 +44,7 @@
             </div>
         </a>
     </div>
-    	
+
     </div>
     <div class="com-more" (click)="morcom()" *ngIf="comment.replys.length>2">查看更多评论 ></div>
 </div>
