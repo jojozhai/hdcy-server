@@ -169,7 +169,7 @@ input,textarea {
 }
 
 .commments .commmentList-ri,.commments .relayList {
-	width: 305px;
+	width: 295px;
 }
 .xxxxx .commmentList-ri,.xxxxx .relayList {
 	width: 305px;
@@ -178,7 +178,6 @@ input,textarea {
 	background: transparent;
 	margin-left: 45px;
 }
-
 .xxxxx .com-more {
 	display: none;
 }
@@ -232,7 +231,9 @@ input,textarea {
   line-height: 19px;
   color: #494949;   
 }
-
+.xxxxx .comment-count {
+	background: white;
+}
 .commments .comment-count h4 {
   padding-left: 5px;
   border-left: 3px solid #303030;
@@ -474,7 +475,7 @@ input,textarea {
 }
 
 .swiper-slide-next {
-    text-align: right;
+    text-align: center;
 }
 
 .swiper-pagination-bullets .swiper-pagination-bullet-active {

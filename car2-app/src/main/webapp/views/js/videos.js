@@ -78,11 +78,69 @@
  					"</div>" +
  					"</div>" +
  					"<div class='comcontent'>" + obj.content[i].content + "</div>" +
+ 					"<div class='replys'><div class='replys" + i + "'>"+
+					"<div class='replyscon" + i + "'></div>"+
+					"<div class='replyscons"+i+"'></div>"+
+					"</div>" +
  					"</div>")
  				$(".comments").append(comcon);
+ 				
+ 				if(obj.content[i].replys.length != 0) {
+					$(".replys" + i).css({
+						"background": "#39627F",
+						"margin-left": " 40px",
+						"width": "311px",
+						"font-size": "14px",
+						"margin-top": "12px",
+						"color": "#9B9B9B"
+					})
+
+					function huifu(b) {
+						for(var j = 0; j < b; j++) {
+							var newReply = $("<div class='replyList'><span class='nickname'>" + obj.content[i].replys[j].createrName + "</span>\
+                        <span class='huifu'>回复</span>\
+                        <span class='nickname'>" + obj.content[i].replys[j].replyToName + "：</span>\
+                        <span class='replycon'>" + obj.content[i].replys[j].content + "</span></div>");
+							$(".replyscon" + i).append(newReply);
+						}
+					}
+					function huifuMore(max) {
+						for(var j = 2; j <max; j++) {
+							var newReply = $("<div class='replyList'><span class='nickname'>" + obj.content[i].replys[j].createrName + "</span>\
+                        <span>回复</span>\
+                        <span>" + obj.content[i].replys[j].replyToName + "：</span>\
+                        <span class='replycon'>" + obj.content[i].replys[j].content + "</span></div>");
+							$(".replyscons" + i).append(newReply);
+						}
+					}
+					if(obj.content[i].replys.length > 2) {
+						b = 2;
+						huifu(b);
+						huifuMore(obj.content[i].replys.length);
+						$(".replyscons" + i).css('display','none');						
+						var mores = $("<div class='mores'>查看更多评论>></div>");
+						$(".replys" + i).append(mores);
+						$(".mores").on("click", function() {
+							if(flag == true) {
+								$(this).prev().show();
+								flag = false;
+							} else {
+								$(this).prev().hide();
+								flag = true;
+							}
+						})
+
+					} else {
+						b = obj.content[i].replys.length;
+						huifu(b);
+					}
+
+				}
  				var timestamp3 = obj.content[i].createdTime;
 				var newDate = new Date(timestamp3);
        			gap (newDate.toString(), $ ('.comtime'));
+       			
+       			
  			}
 
  		}

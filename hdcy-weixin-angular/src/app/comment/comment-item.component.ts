@@ -29,12 +29,33 @@ export class CommentItemComponent implements OnInit {
   flag = 1;
 
   ngOnInit() {
-
+    $(".com-more").on('click', function () {
+      if (this.flag == 1) {
+        console.log($(this).prev())
+        $(this).prev().css({
+          height: 'auto',
+          'overflow-y': 'auto',
+        });
+        this.flag = 2;
+      } else {
+        $(this).prev().css({
+          height: '55px',
+          'overflow-y': 'hidden',
+        });
+        this.flag = 1;
+      }
+    })
   }
 
-  toReplyPage(id:number){
-    if(this.target && this.targetId) {
-      this.router.navigate(['/comment/input'], {queryParams: {target: this.target, targetId: this.targetId, replyToId: id}})
+  toReplyPage(id: number) {
+    if (this.target && this.targetId) {
+      this.router.navigate(['/comment/input'], {
+        queryParams: {
+          target: this.target,
+          targetId: this.targetId,
+          replyToId: id
+        }
+      })
     }
   }
 
@@ -48,27 +69,5 @@ export class CommentItemComponent implements OnInit {
       }
     });
   }
-
-  morcom() {
-    if (this.flag == 1) {
-      $(".commments .morecoms").css({
-        height: 'auto',
-        'overflow-y': 'auto',
-      });
-      this.flag = 2;
-    } else {
-      for (var i = 0; i < $(".commments .morecoms").length; i++) {
-        if ($(".commments .morecoms").eq(i).height() != 0) {
-          $(".commments .com-more").prev().css({
-            height: '55px',
-            'overflow-y': 'hidden',
-
-          });
-        }
-      }
-
-    }
-  }
-
 }
 

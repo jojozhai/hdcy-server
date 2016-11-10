@@ -32,9 +32,11 @@ html,body {
     -webkit-transform: translateY(-50%);
     left: 12px;
 }
+.detai-cnts1 {
+	margin-top: 50px;
+}
 .zhibo {
-	position: relative;
-	top: 50px;
+	position: relative;	
 }
 .zhibo-txts {
 	position: absolute;    
@@ -66,8 +68,7 @@ html,body {
 }
 .video-descom {
 	overflow-y: auto;
-    background: rgb(27,50,68);
-    margin-top: 50px;
+    background: rgb(27,50,68);    
 }
 .video-descs {
 	color: white;
@@ -151,4 +152,5 @@ html,body {
 	border-radius: 15px;
 	font-size: 14px;
 }
+
 

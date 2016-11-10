@@ -31,8 +31,7 @@
 
 .daka-left,.daka-right {
 	width: 50%;	
-	height: 100px;
-	
+	height: 100px;	
 }
 .daka-left {
 	background: url(../../assets/images/leader-left.png) no-repeat;
@@ -70,6 +69,7 @@
 }
 .daka-detail {
 	margin-top: 48px;
+	overflow-y: auto;
 }
 .dakade-tit {
 	width: 375px;
