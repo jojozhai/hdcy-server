@@ -106,9 +106,9 @@ $(function() {
                         $(".bigactImg").hide();
                     })
 			})
-			$(".zhuaban-name").on('click',function () {
+			$(".zhuaban-name").on('click',function () {			
 				if (obj.sponsorLeaderId) {
-					window.location.href='/leader/'+id
+					window.location.href='http://cdn4dev.haoduocheyou.com/#/leader/'+obj.sponsorLeaderId
 				}
 			})
 		}

@@ -185,7 +185,8 @@
 	height: 40px;
 }
 .steam img {
-	width: 24px;
+	width: 22px;
+	margin-top: 4px;
 }
 .steam-txt {
 	font-size: 11px;

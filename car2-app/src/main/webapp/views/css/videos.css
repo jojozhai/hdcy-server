@@ -68,8 +68,7 @@ html,body {
 }
 .video-descom {
 	overflow-y: auto;
-    background: rgb(27,50,68);
-    margin-top: 50px;
+    background: rgb(27,50,68);    
 }
 .video-descs {
 	color: white;

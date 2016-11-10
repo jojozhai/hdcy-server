@@ -114,7 +114,10 @@ $(function(){
 					"</div>" +
 					"</div>" +
 					"<div class='comcontent'>" + obj.content[i].content + "</div>" +
-					"<div class='replys'><div class='replys" + i + "'><div class='replyscon" + i + "'></div></div>" +
+					"<div class='replys'><div class='replys" + i + "'>"+
+					"<div class='replyscon" + i + "'></div>"+
+					"<div class='replyscons"+i+"'></div>"+
+					"</div>" +
 					"</div>")
 				$(".comments").append(comcon);
 				if(obj.content[i].replys.length != 0) {
@@ -136,27 +139,28 @@ $(function(){
 							$(".replyscon" + i).append(newReply);
 						}
 					}
+					function huifuMore(max) {
+						for(var j = 2; j <max; j++) {
+							var newReply = $("<div class='replyList'><span class='nickname'>" + obj.content[i].replys[j].createrName + "</span>\
+                        <span>回复</span>\
+                        <span>" + obj.content[i].replys[j].replyToName + "：</span>\
+                        <span class='replycon'>" + obj.content[i].replys[j].content + "</span></div>");
+							$(".replyscons" + i).append(newReply);
+						}
+					}
 					if(obj.content[i].replys.length > 2) {
-						b = obj.content[i].replys.length;
-						huifu(b)
-						$(".replyscon" + i).height(50);
-						$(".replyscon" + i).css({
-							"overflow-y": "hidden"
-						})
+						b = 2;
+						huifu(b);
+						huifuMore(obj.content[i].replys.length);
+						$(".replyscons" + i).css('display','none');						
 						var mores = $("<div class='mores'>查看更多评论>></div>");
 						$(".replys" + i).append(mores);
 						$(".mores").on("click", function() {
 							if(flag == true) {
-								$(this).prev().height('auto');
-								$(this).prev().css({
-									"overflow-y": "auto"
-								})
+								$(this).prev().show();
 								flag = false;
 							} else {
-								$(this).prev().height(50);
-								$(this).prev().css({
-									"overflow-y": "hidden"
-								})
+								$(this).prev().hide();
 								flag = true;
 							}
 						})
