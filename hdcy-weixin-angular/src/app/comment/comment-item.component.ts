@@ -37,7 +37,6 @@ export class CommentItemComponent implements OnInit {
     	}
 	})
   }
-
   praise(comment) {
     this.praiseService.create({target: 'comment', targetId: comment.id}, function (res) {
       comment.praised = !comment.praised;

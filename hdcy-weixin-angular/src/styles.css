@@ -169,7 +169,7 @@ input,textarea {
 }
 
 .commments .commmentList-ri,.commments .relayList {
-	width: 305px;
+	width: 295px;
 }
 .xxxxx .commmentList-ri,.xxxxx .relayList {
 	width: 305px;
@@ -178,7 +178,6 @@ input,textarea {
 	background: transparent;
 	margin-left: 45px;
 }
-
 .xxxxx .com-more {
 	display: none;
 }

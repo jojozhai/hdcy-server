@@ -36,11 +36,12 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
     $(".comment-count h4").html();
     var counts=$(".comment-count h4").html().split("(")[1].split(")")[0];
     if (counts=='0') {
-    	$(".zbjiaoliu .video-com").hide();
-    	$(".comwu").show();
+    	$(".zbjiaoliu .comwu").hide();
+    	$(".zbjiaoliu .comment-count").hide();
+    	$(".comwus").show();
     }else {
     	$(".zbjiaoliu .video-com").show();
-    	$(".comwu").hide();
+    	$(".comwus").hide();
     	$(".comment-count").hide();
 
     }
