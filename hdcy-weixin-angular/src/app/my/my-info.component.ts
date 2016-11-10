@@ -168,6 +168,12 @@ export class MyInfoComponent implements OnInit {
       }
     }
 
+    if (type == 'names') {
+      if (!this.isEmpty(this.user['realname'])) {
+        return;
+      }
+    }
+
     this.type = type;
     if (this.type != 'cars') {
       this.editbg = "block";
@@ -296,9 +302,17 @@ export class MyInfoComponent implements OnInit {
     );
   }
 
+  clearRealName() {
+    this.user['realname'] = "";
+  }
+
 //昵称
   clearnick() {
     this.user['nickname'] = "";
+  }
+
+  commitRealName() {
+    this.updateUserProperty('realname', '姓名');
   }
 
   commitnick() {
