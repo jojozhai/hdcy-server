@@ -1,0 +1,42 @@
+<div class="video-header">
+	<h3>
+        <a routerLink="/video" class="back"></a>
+        <span>&nbsp;</span>
+    </h3>
+</div>
+<div class="zhibo">
+	<div class="yugao">
+    	<img [src]="video.image" >
+	</div>
+	<div class="yugao-bg"></div>
+    <div class="zhibo-txt">
+        <p class="zhibo-tit">{{video.name}} </p>
+        <p class="videoTime-txt">
+            <img class="videotime-img" src="../../assets/images/video-time.png"/>
+            <span class="video-time">开始时间:{{video.startTime | date:'MM-dd/HH:mm'}}</span>
+        </p>
+        <div class="video-name">
+            <span class="zhibo-icon">
+            	<img [src]="video.sponsorImage">
+            </span>
+            <span class="video-name1">{{video.sponsorName}}</span>
+        </div>
+    </div>
+</div>
+<div class="video-descom">
+	<div class="yugao-nav clear">
+		<a (click)="changeTag('intro')" [class.actived]="tag == 'intro'">直播介绍</a>
+		<a (click)="changeTag('comment')" [class.actived]="tag == 'comment'">直播交流({{commentCount}})</a>
+	</div>
+	<section class="zbjianjie" [style.min-height.px]="detailboxHeight" [style.display]="tag == 'comment'?'none':'block'"[innerHtml]="video.desc">
+		<div class="" *ngIf="!video.desc">
+			暂无介绍
+		</div>
+	</section>
+	<section class="zbjiaoliu" [style.min-height.px]="detailboxHeight" [style.display]="tag == 'intro'?'none':'block'">
+		<comment-list [withReply]="true" styleType="video" [targetId]="video.id" target="video" class="video-com" [size]="20" (commentCount)="setCommentCount($event)" ></comment-list>
+		<div class="comwus">
+			暂无评论~
+		</div>
+	</section>
+</div>

@@ -1,0 +1,526 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #F3F3F3;
+  overflow: hidden;
+}
+/*清除外边距*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,figure,/*结构元素*/dl,dt,dd,ul,
+ol,li,/*列表元素*/fieldset,lengend,button,input,textarea,/*表单元素*/
+th,td,/*表格元素*/
+
+pre{
+  margin: 0;
+}
+
+
+/*清除内边距*/
+
+ul,
+ol,
+menu {
+  padding: 0;
+}
+ul,ol,li {
+  list-style: none;
+
+}
+/*将字体扶正*/
+address,cite,dfn,em,var {
+  font-style: normal;
+}
+/*清下划线*/
+a {
+  text-decoration: none;
+  color: black;
+}
+/*鼠标略过a标签，显示下划线*/
+a:hover {
+  text-decoration: none;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+/*清浮动*/
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+input,textarea {
+  outline: none;
+  font-family: "microsoft yahei";
+}
+.box {
+  width: 375px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.cnts {
+  margin-top: 50px;
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  opacity: 0.5;
+  background: #FFFFFF;
+}
+
+.swiper-pagination-bullet-active {
+  width: 14px;
+  height: 6px;
+  border-radius: 2px;
+  background: white;
+  opacity: 1;
+}
+
+.header,
+.video-header {
+  width: 375px;
+  height: 48px;
+  background: black;
+  line-height: 48px;
+  position: fixed;
+  top: 0;
+  z-index: 111;
+}
+
+.video-header {
+  background: transparent;
+}
+
+.header h3,
+.video-header h3 {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  line-height: 48px;
+}
+
+.back {
+  background: url("../assets/images/back.png") no-repeat;
+  left: 12px;
+}
+
+.message {
+  background: url("../assets/images/message.png") no-repeat;
+  right: 12px;
+}
+
+.share {
+  background: url("../assets/images/share.png") no-repeat;
+  right: 12px;
+}
+
+.activity-tit {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+.activity-atime {
+  font-size: 15px;
+  display: inline-block;
+  word-break: break-word;
+}
+
+.back,
+.message,
+.share {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.commments .times,
+.commments .relayList-les {
+  display: none;
+}
+
+.commments .huifu,.commments .nicktoname {
+  color: #9B9B9B;
+  font-size: 13px;
+}
+.commments .time {
+  display: inline-block;
+  color: #9B9B9B;
+  font-size: 11px;
+  margin-top: 8px;
+}
+.commments .more ,.xxxxx .more{
+  border: 1px solid #3f749b;
+  color: #303030;
+}
+
+.commments .commmentList-ri,.commments .relayList {
+  width: 305px;
+}
+.xxxxx .commmentList-ri,.xxxxx .relayList {
+  width: 305px;
+}
+.xxxxx .replayLists {
+  background: transparent;
+  margin-left: 45px;
+}
+
+.xxxxx .com-more {
+  display: none;
+}
+.commments .replayLists {
+  position: relative;
+  background: #f3f3f3;
+  width: 305px;
+  margin-left: 45px;
+  padding: 0px 5px;
+  margin-top: 12px;
+  box-sizing: border-box;
+}
+.zbjiaoliu .commments .relayLists {
+  background: transparent;
+}
+.zbjiaoliu .commments {
+  background: transparent;
+}
+.commments .timew,.commment .relayitem {
+  display: none;
+}
+
+.commments .nickname {
+  color: #6593c5;
+  font-size: 14px;
+}
+.video-descom .commments .nickname {
+  color: #00FEFC;
+}
+.video-descom .commments .time {
+  color: #DDDDDD;
+
+}
+.commments .commment-con li {
+  padding: 10px 0 13px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.video-descom .commments .commment-con li {
+  border-bottom: 1px solid #303030;
+}
+.video-descom .commments .commment-con {
+  border-top: 1px solid transparent;
+}
+.video-descom .commments .commmentList-con,
+.video-descom .commments .commmentList-cons {
+  color: white;
+}
+.commments .commmentList-con,.commments .commmentList-cons, .xxxxx .commmentList-cons,.xxxxx .commmentList-con{
+  font-size: 13px;
+  line-height: 19px;
+  color: #494949;
+}
+
+.commments .comment-count h4 {
+  padding-left: 5px;
+  border-left: 3px solid #303030;
+  padding: 2.5px 0 2.5px 12px;
+  font-size: 15px;
+}
+.video-descom .commments .comment-count h4 {
+  border-left: 3px solid white;
+  color: white;
+}
+.commments .commment-con,.xxxxx .commment-con{
+  border-top: 1px solid #e0e0e0;
+}
+.commments .thumbs {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  display: inline-block;
+  width: 15px;
+  height: 16px;
+  background: url("../assets/images/thumbs.png") no-repeat;
+  background-size: 100% 100%;
+  right:20px;
+}
+.commments .thumbs-on {
+  background: url("../assets/images/thumbs-on.png") no-repeat;
+  background-size: 100% 100%;
+}
+.commments .relayList {
+  padding: 6px 0 3px;
+}
+.commments .defaultcom {
+  height: 55px;
+  overflow-y: hidden;
+}
+
+.xxxxx .commmentList-con {
+  width: 180px;
+  padding: 8.5px 23px 30px;
+  background: url(../assets/images/chat-white.png) no-repeat;
+  background-size: 100% 100%;
+}
+.xxxxx .thumbs-count,.xxxxx .relayitem,.xxxxx .replays-jiao,.xxxxx .time {
+  display: none;
+}
+.xxxxx .commmentList-cons {
+  width: 180px;
+  display: block;
+  padding: 8.5px 23px 30px;
+  background: url(../assets/images/chat-blue.png) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 43px;
+  margin-top: -13px;
+}
+.xxxxx .relayList-le,.xxxxx .huifuni {
+  float: right;
+  margin: 4px 5px 0 0;
+}
+.xxxxx .relayList-le {
+  display: inline-block;
+}
+
+.xxxxx .relayList {
+  text-align: -webkit-right;
+  margin-top: 10px;
+}
+
+.xxxxx .relayList-les {
+  clear: both;
+}
+
+.xxxxx .timew,
+.xxxxx .times {
+  color: #9B9B9B;
+  font-size: 11px;
+  position: absolute;
+  bottom: 3px;
+  right: 23px;
+}
+
+.xxxxx .nickname,
+.xxxxx .huifuni {
+  color: #9B9B9B;
+  font-size: 11px;
+}
+.xxxxx .relayList-les {
+  display: inline-block;
+}
+
+.sponsor {
+  width: 75px;
+  height: 25px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  opacity: 0.6;
+}
+
+.leaders .dakalist:nth-of-type(odd) .daka-left,
+.leaders .dakalist:nth-of-type(odd) .daka-right {
+  float: left;
+}
+
+.leaders .dakalist:nth-of-type(even) .daka-left,
+.leaders .dakalist:nth-of-type(even) .daka-right {
+  float: right;
+}
+
+.video-com .commments {
+  background: url(../assets/images/txt-btn.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.video-descom .commment-con {
+  border-top: 1px solid transparent;
+}
+.daka-contxt {
+  padding: 16px 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #494949;
+}
+.boxs {
+  margin-top: 48px;
+  /*background: white;*/
+}
+.cnts,.boxs {
+  overflow-y: auto;
+}
+/*直播预告*/
+.videos .commmentList-up {
+  font-size: 11px;
+  color: #DDDDDD;
+}
+.videos .nickname {
+  color: #00FEFC;
+  font-size: 14px;
+  margin-bottom: 7px;
+
+}
+.videos .commmentList-le {
+  width: 30px;
+  height: 30px;
+}
+.videos .relayList-les {
+  display: none;
+}
+.videos .timew {
+  display: none;
+}
+.videos .commmentList-con {
+  color: white;
+  margin-top: 8px;
+  font-size: 14px;
+}
+.videos .commmentList-ri {
+  width: 305px;
+}
+.videos {
+  background: url(../assets/images/txt-btn.png) no-repeat;
+  background-size: 100% 100%;
+}
+.videos .replayLists {
+  margin-left: 45px;
+  background: #39627F;
+  padding: 0px 5px;
+  font-size: 13px;
+}
+.videos .relayList {
+  padding: 6px 0 3px;
+}
+.videos .replayLists a {
+  color: white;
+}
+.videos .replayLists a .nicktoname {
+  color: #00FEFC;
+}
+.videos .times {
+  display: none;
+}
+.video-descom .thumbs-count span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  float: left;
+  text-align: center;
+  line-height: 22px;
+}
+.video-descom .thumbs {
+  background: url(../assets/images/videos-hand.png) no-repeat;
+  background-size: 100% 100%;
+}
+.video-descom .thumbs-on {
+  background: url(../assets/images/video-handhover.png) no-repeat;
+  background-size: 100% 100%;
+}
+.videos .defaultcom {
+  height: 55px;
+  overflow-y: hidden;
+}
+.videos .more {
+  border: 1px solid white;
+  color: #DDDDDD;
+}
+.videos .comment-count h4 {
+  color: white;
+  padding-left: 5px;
+  border-left: 3px solid white;
+  padding: 2.5px 0 2.5px 12px;
+  font-size: 15px;
+}
+.videos .commment-con li {
+  padding: 12px 0;
+  border-bottom: 1px solid #303030;
+}
+
+
+/*临时放置swiper的样式*/
+
+.myslides {
+  background: #18212d;
+  height: 225px;
+}
+.boxss .swiper-wrapper {
+  height: 200px;
+}
+.swiper-slide {
+  text-align: center;
+}
+
+.swiper-slide .activity-img,.swiper-slide .activitys-list{
+  width:299px;
+  height: 225px;
+}
+.swiper-slide-prev .activity-img,.swiper-slide-next .activity-img,.swiper-slide-prev .swiper-bg ,.swiper-slide-next .swiper-bg {
+  height: 190px;
+  margin-top: 17.5px;
+}
+
+.swiper-slide-next {
+  text-align: right;
+}
+
+.swiper-pagination-bullets .swiper-pagination-bullet-active {
+  width: 12px;
+  height: 6px;
+  border-radius: 2px;
+  background: white;
+}
+.sponsor {
+  width: 75px;
+  height: 25px;
+  position: absolute;
+  bottom: 7px;
+  right: 12px;
+  opacity: 0.6;
+}
+.swiper-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 299px;
+  height: 225px;
+  background: #000000;
+  opacity: 0.25;
+
+}
+.activitys-mes {
+  width: 100%;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center;
+  color: white;
+
+}
+.activity-tit {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+.activity-atime {
+  display: inline-block;
+  font-size: 14px;
+  display: inline-block;
+  word-break: break-all;
+}
