@@ -323,6 +323,20 @@ input,textarea {
   display: inline-block;
 }
 
+.xxxxx .comment-count {
+  background: white;
+}
+
+.comment-count {
+  padding: 10px 12px;
+}
+
+.dakade-right {
+  margin-left: 12px;
+  width: 253px;
+  word-wrap: break-word;
+}
+
 .sponsor {
   width: 75px;
   height: 25px;
@@ -523,4 +537,27 @@ input,textarea {
   font-size: 14px;
   display: inline-block;
   word-break: break-all;
+}
+
+.videos .time {
+  display: inline-block;
+  margin-top: 7px;
+}
+
+.videos .replayLists {
+  margin-left: 45px;
+  background: #39627F;
+  padding: 0px 5px;
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+.videos .commmentList-con {
+  color: white;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.zbjiaoliu .videos .comment-count {
+  display: none;
 }
