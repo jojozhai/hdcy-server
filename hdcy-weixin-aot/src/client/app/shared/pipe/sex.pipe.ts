@@ -9,7 +9,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 
 export class SexPipe implements PipeTransform {
 
-  transform(value: any, args: any[]): any {
+  transform(value: any, args?: any[]): any {
     if (value == '1') {
       return '男'
     } else if (value == '2') {

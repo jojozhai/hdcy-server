@@ -1,0 +1,360 @@
+<div class="header">
+  <h3>
+    <a routerLink="/my" class="back"></a>
+    <span>个人资料</span>
+  </h3>
+</div>
+<ul class="boxs" [style.height.px]="detailboxHeight">
+  <li>
+    <span class="ziliao-tou">头像</span>
+    <a class="my-right toua"></a>
+    <img class="tou" [src]="user?.headimgurl">
+  </li>
+  <li (click)="edit('nicks')">
+    <span>昵称</span>
+    <a class="my-right"></a>
+    <span>{{user?.nickname}}</span>
+  </li>
+  <li (click)="edit('names')">
+    <span>姓名</span>
+    <a class="my-right" *ngIf="user.realname == null || user.realname == ''" ></a>
+    <span>{{user?.realname}}</span>
+  </li>
+  <li (click)="edit('sexs')">
+    <span>性别</span>
+    <a class="my-right" *ngIf="user.sex!= '1' && user.sex!= '2' && user.sex!= '男' && user.sex!= '女'" ></a>
+    <span>{{user?.sex | sex}}</span>
+  </li>
+  <li (click)="edit('tels')">
+    <span>手机</span>
+    <a class="my-right"></a>
+    <span>{{user?.mobile}}</span>
+  </li>
+  <!--<li>-->
+    <!--<span>密码</span>-->
+    <!--<a class="my-right" (click)="edit('passwords')"></a>-->
+    <!--<span>********</span>-->
+  <!--</li>-->
+  <li (click)="edit('births')">
+    <span>出生年月</span>
+    <a class="my-right" ></a>
+    <span class="birthday">{{user?.birthday | date:'yyyy年MM月'}}</span>
+
+  </li>
+  <li (click)="edit('citys')">
+    <span>所在地</span>
+    <a class="my-right"></a>
+    <span>{{user?.city}}</span>
+
+  </li>
+  <li (click)="edit('cars')">
+    <span class="cartys">车型</span>
+    <a class="my-right" ></a>
+    <span>{{user?.car}}</span>
+  </li>
+
+  <li (click)="edit('likes')">
+    <span>兴趣</span>
+    <a class="my-right"></a>
+    <span>{{user?.tags}}</span>
+  </li>
+</ul>
+
+<div class="editbg" [ngStyle]="{'display': editbg}"></div>
+<!--头像编辑-->
+<div class="headboxs" [style.display]="type == 'heads'?'block':'none'">
+  <div class="updata">头像修改</div>
+  <ul class="headlist">
+    <li>拍照上传</li>
+    <li>本地相册</li>
+  </ul>
+  <div class="cancel">
+    <a (click)="close()">取消</a>
+  </div>
+</div>
+<!--昵称编辑-->
+<div class="nickname-edit" [style.display]="type == 'nicks'?'block':'none'">
+  <h4>编辑昵称</h4>
+  <div class="nicks">
+    <input type="text" name="" [(ngModel)]="user.nickname"/>
+    <span class="nickclose" (click)="clearnick()"></span>
+  </div>
+  <div class="nickbn clear">
+    <span (click)="recover('nickname')">取消</span>
+    <span (click)="commitnick()">确定</span>
+  </div>
+</div>
+<!--姓名修改-->
+<div class="nickname-edit" [style.display]="type == 'names'?'block':'none'">
+  <h4>编辑姓名</h4>
+  <div class="nicks">
+    <input type="text" name="" [(ngModel)]="user.realname"/>
+    <span class="nickclose" (click)="clearRealName()"></span>
+  </div>
+  <div class="nickbn clear">
+    <span (click)="recover('realname')">取消</span>
+    <span (click)="commitRealName()">确定</span>
+  </div>
+</div>
+<!--手机号码-->
+<div class="telsboxs" [style.display]="type == 'tels'?'block':'none'">
+
+  <div class="step1">
+    <h3>
+      <a class="back" (click)="close()"></a>
+      <span>手机号码</span>
+    </h3>
+    <div class="step1-mes">
+      <p class="tel-alert">更换手机号码后，下次登录可使用新手机号登录。</p>
+      <div class="tel-num">
+        <input type="text" max="99999999999" maxlength="11" placeholder="请输入新手机号" [(ngModel)]="newMobile"/>
+      </div>
+      <a class="tel-nex" (click)="confirm()">发送验证码</a>
+
+    </div>
+  </div>
+  <div class="step2">
+    <div class="tel-bg"></div>
+    <div class="queren">
+      <div class="que-tit">
+        确认手机号码
+      </div>
+      <div class="que-mes">
+        <div class="">
+          我们将发送验证码短信到这个号码：
+        </div>
+        <div class="queren-num"></div>
+      </div>
+      <div class="quebtn clear">
+        <span (click)="cancel()">取消</span>
+        <span (click)="confirm()">确定</span>
+      </div>
+    </div>
+  </div>
+  <div class="step3">
+    <h3>
+      <a class="back" (click)="close()"></a>
+      <span>输入验证码</span>
+    </h3>
+    <div class="pass">
+      <div class="oldpass telphon-num">
+        <span>手机号</span>
+        <input type="text" max="99999999999" name="" [(ngModel)]="newMobile"/>
+      </div>
+      <div class="newpass code">
+        <span>验证码</span>
+        <input type="text" max="999999" name="" [(ngModel)]="checkcode"  maxlength="6"/>
+        <!--<span class="code-mes" (click)="resend()">60</span>-->
+        <span class="code-mes">60</span>
+      </div>
+      <a class="pass-commit" (click)="telscode()">提交</a>
+
+    </div>
+
+  </div>
+</div>
+<!--密码-->
+<div class="passboxs" [style.display]="type == 'passwords'?'block':'none'">
+  <h3>
+    <a class="back" (click)="close()"></a>
+    <span>修改密码</span>
+  </h3>
+  <div class="pass">
+    <div class="oldpass">
+      <span>旧密码</span>
+      <input type="password" name="" id="" value=""/>
+    </div>
+    <div class="newpass">
+      <span>新密码</span>
+      <input type="password" name="" id="" value=""/>
+    </div>
+    <a class="pass-commit" (click)="passcom()">提交</a>
+
+  </div>
+</div>
+<!--出生年月-->
+<div class="birthboxs" [style.display]="type == 'births'?'block':'none'">
+  <div class="birthbtn">
+    <span (click)="close()">取消</span>
+    <span (click)="birthSave()">确定</span>
+  </div>
+  <div class="datas">
+    <select name="" class="year" id="selectYear"></select>
+    <select name="" class="month"></select>
+  </div>
+</div>
+<!--城市-->
+<div class="container" [style.display]="type == 'citys'?'block':'none'">
+  <div class="city-up">
+    <div class="car-close" (click)="close()"></div>
+    <div class="current">当前</div>
+    <a class="currentbtn">{{user?.city}}</a>
+  </div>
+  <div class="city">
+    <div class="city-list"><span class="city-letter" id="A1">A</span>
+    	<p *ngFor="let city of citysA" (click)="citys(city.A)">{{city.A}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="B1">B</span>
+      <p *ngFor="let city of citysB" (click)="citys(city.B)">{{city.B}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="C1">C</span>
+      <p *ngFor="let city of citysC" (click)="citys(city.C)">{{city.C}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="D1">D</span>
+      <p *ngFor="let city of citysD" (click)="citys(city.D)">{{city.D}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="E1">E</span>
+      <p *ngFor="let city of citysE" (click)="citys(city.E)">{{city.E}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="F1">F</span>
+      <p *ngFor="let city of citysF" (click)="citys(city.F)">{{city.F}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="G1">G</span>
+      <p *ngFor="let city of citysG" (click)="citys(city.G)">{{city.G}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="H1">H</span>
+      <p *ngFor="let city of citysH" (click)="citys(city.H)">{{city.H}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="J1">J</span>
+      <p *ngFor="let city of citysJ" (click)="citys(city.J)">{{city.J}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="K1">K</span>
+      <p *ngFor="let city of citysK" (click)="citys(city.K)">{{city.K}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="L1">L</span>
+     <p *ngFor="let city of citysL" (click)="citys(city.L)">{{city.L}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="M1">M</span>
+      <p *ngFor="let city of citysM" (click)="citys(city.M)">{{city.M}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="N1">N</span>
+      <p *ngFor="let city of citysN" (click)="citys(city.N)">{{city.N}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="P1">P</span>
+      <p *ngFor="let city of citysP" (click)="citys(city.P)">{{city.P}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="Q1">Q</span>
+      <p *ngFor="let city of citysQ" (click)="citys(city.Q)">{{city.Q}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="R1">R</span>
+      <p *ngFor="let city of citysR" (click)="citys(city.R)">{{city.R}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="S1">S</span>
+      <p *ngFor="let city of citysS" (click)="citys(city.S)">{{city.S}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="T1">T</span>
+      <p *ngFor="let city of citysT" (click)="citys(city.T)">{{city.T}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="W1">W</span>
+     <p *ngFor="let city of citysW" (click)="citys(city.W)">{{city.W}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="X1">X</span>
+      <p *ngFor="let city of citysX" (click)="citys(city.X)">{{city.X}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="Y1">Y</span>
+      <p *ngFor="let city of citysY" (click)="citys(city.Y)">{{city.Y}}</p>
+    </div>
+    <div class="city-list"><span class="city-letter" id="Z1">Z</span>
+      <p *ngFor="let city of citysZ" (click)="citys(city.Z)">{{city.Z}}</p>
+    </div>
+  </div>
+  <div class="letter">
+    <ul>
+      <li><a href="javascript:;">A</a></li>
+      <li><a href="javascript:;">B</a></li>
+      <li><a href="javascript:;">C</a></li>
+      <li><a href="javascript:;">D</a></li>
+      <li><a href="javascript:;">E</a></li>
+      <li><a href="javascript:;">F</a></li>
+      <li><a href="javascript:;">G</a></li>
+      <li><a href="javascript:;">H</a></li>
+      <li><a href="javascript:;">J</a></li>
+      <li><a href="javascript:;">K</a></li>
+      <li><a href="javascript:;">L</a></li>
+      <li><a href="javascript:;">M</a></li>
+      <li><a href="javascript:;">N</a></li>
+      <li><a href="javascript:;">P</a></li>
+      <li><a href="javascript:;">Q</a></li>
+      <li><a href="javascript:;">R</a></li>
+      <li><a href="javascript:;">S</a></li>
+      <li><a href="javascript:;">T</a></li>
+      <li><a href="javascript:;">W</a></li>
+      <li><a href="javascript:;">X</a></li>
+      <li><a href="javascript:;">Y</a></li>
+      <li><a href="javascript:;">Z</a></li>
+    </ul>
+  </div>
+</div>
+
+<!--性别编辑-->
+<div class="sexboxs" [style.display]="type == 'sexs'?'block':'none'">
+  <div class="updata">修改性别</div>
+  <ul>
+    <li (click)="changeSex('1')">男</li>
+    <li (click)="changeSex('2')">女</li>
+  </ul>
+  <div class="cancel" (click)="close()">
+    <a>取消</a>
+  </div>
+</div>
+<!--车型编辑-->
+<div class="carboxs" [style.display]="type == 'cars'?'block':'none'">
+  <div class="hot-car">
+    <div class="car-close" (click)="close()"></div>
+    <div class="hot-txt">热门</div>
+    <div class="like-list clear" (click)="updateCar($event)">
+      <a>宝马</a>
+      <a>奥迪</a>
+      <a>奔驰</a>
+      <a>路虎</a>
+      <a>保时捷</a>
+      <a>本田</a>
+      <a>北京现代</a>
+      <a>比亚迪</a>
+      <a>大众</a>
+      <a>法拉利</a>
+      <a>兰博基尼</a>
+      <a>福特</a>
+    </div>
+
+  </div>
+  <div class="types" (click)="updateCar($event)">
+    <ul>
+      <p class="types-list">A</p>
+      <li>阿斯顿马丁</li>
+      <li>阿尔法罗密欧丁</li>
+      <li>奥迪</li>
+      <li>安凯汽车</li>
+    </ul>
+    <ul>
+      <p class="types-list">B</p>
+      <li>宝马</li>
+      <li>宾利</li>
+      <li>比亚迪</li>
+      <li>别克</li>
+      <li>奔驰</li>
+    </ul>
+  </div>
+</div>
+<!--兴趣编辑-->
+<div class="likeboxs" [style.display]="type == 'likes'?'block':'none'">
+  <div class="car-close" (click)="closeTagsChoice()"></div>
+  <div class="like-txt">
+    选择您的喜好（最多4个）
+  </div>
+  <div class="like-list clear">
+    <a *ngFor="let tag of tags" [ngClass]="{'actived': isActiveTag(tag)}" (click)="clickTag(tag)">{{tag}}</a>
+  </div>
+</div>
+<div class="editbgs" (click)="showGTR = false;" [style.display]="showGTR?'block':'none'"></div>
+<div class="monys-select" [style.display]="showGTR?'block':'none'">
+  <div class="monys-up">
+    <div class="monys-upcon">
+      此选项为高富帅，你配吗？
+    </div>
+  </div>
+  <div class="monys-down clear">
+    <a class="gao" (click)="choiceGTR()">任性选择</a>
+    <a class="loser" (click)="showGTR = false;">屌丝飘过</a>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="leaders" [dataService]="leaderService"
+     [pageInfo]="pageInfo" [condition]="condition">
+  <div class="myslides">
+    <ks-swiper-container [options]="swiperOptions">
+      <ks-swiper-slide *ngFor="let leader of topLeaders">
+        <a [routerLink]="['/leader', leader.id]">
+          <img class="activity-img" [src]="leader.image">
+        </a>
+      </ks-swiper-slide>
+    </ks-swiper-container>
+  </div>
+  <div class="daka-navs">
+    <a (click)="changeTag(0)" [class.active]="isActive(0)">全部</a>
+    <a (click)="changeTag(1)" [class.active]="isActive(1)">个人</a>
+    <a (click)="changeTag(2)" [class.active]="isActive(2)">机构</a>
+  </div>
+  <div class="leaders">
+    <div *ngFor="let leader of leaders; let i = index;" [routerLink]="['/leader', leader.id]" class="dakalist" [ngClass]="{'even': i%2 == 0}">
+      <div class="daka-left" >
+        <img [src]="leader.image">
+      </div>
+      <div class="daka-right" >
+        <div class="daka-txt">
+          <div class="leader-tit">{{leader.name}}</div>
+          <div class="leader-slogan">{{leader.slogan}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="apply" (click)="addapply(true)"></div>
+<div class="apply-detail" [ngStyle]="{'display': applys1}" (click)="hidden(true)"></div>
+<div class="apply-con" [ngStyle]="{'display': applys1}">
+  <div class="apply-conup">
+    <img src="../../assets/images/apply-icon.png"/>
+  </div>
+  <div class="apply-condown">
+    <a (click)="personApply()">个人申请</a>
+    <a (click)="apply(true)">大咖申请</a>
+  </div>
+</div>
+<div class="application" [ngStyle]="{'display': applys}" (click)="hidden(true)">
+  <div class="application-up">
+    <img src="../../assets/images/apply-icon.png"/>
+    <h4>机构申请</h4>
+  </div>
+  <div class="application-down">
+    <p class="apply-list">请通过如下方式与我们联系</p>
+    <p class="apply-tel"><span>电话：</span>{{contactPhone}}</p>
+    <p><span>邮箱：</span>{{contactEmail}}</p>
+  </div>
+
+</div>
