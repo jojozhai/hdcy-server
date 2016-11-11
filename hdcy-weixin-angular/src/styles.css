@@ -209,7 +209,6 @@ input,textarea {
 }
 .video-descom .commments .time {
 	color: #DDDDDD;
-
 }
 .commments .commment-con li {
 	padding: 10px 0 13px;
@@ -387,7 +386,7 @@ input,textarea {
 }
 .videos .commmentList-con {
 	color: white;
-	margin-top: 8px;    
+	margin-top: 14px;    
     font-size: 14px;
 }
 .videos .commmentList-ri {
@@ -397,11 +396,16 @@ input,textarea {
 	background: url(assets/images/txt-btn.png) no-repeat;
 	background-size: 100% 100%;
 }
+.videos .time {
+	display: inline-block;
+	margin-top: 7px;
+}
 .videos .replayLists {	
 	margin-left: 45px;
     background: #39627F;
     padding: 0px 5px;
     font-size: 13px;
+    margin-top: 18px;
 }
 .videos .relayList {
 	padding: 6px 0 3px;
@@ -438,6 +442,9 @@ input,textarea {
 .videos .more {
 	border: 1px solid white;
 	color: #DDDDDD;
+}
+.zbjiaoliu .videos .comment-count {
+	display: none;
 }
 .videos .comment-count h4 {
 	color: white;
@@ -505,6 +512,7 @@ input,textarea {
     
 }
 .activitys-mes {
+	padding: 0 7px;
     width: 100%;
     position: absolute;
     top:50%;
@@ -512,7 +520,7 @@ input,textarea {
     -webkit-transform: translateY(-50%);
     text-align: center;
     color: white;
-
+	box-sizing: border-box;
 }
 .activity-tit {
     font-size: 18px;
