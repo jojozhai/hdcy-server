@@ -107,11 +107,11 @@ export class MyInfoComponent implements OnInit {
       console.log($('#' + s + '1').offset().top)
       $(window).scrollTop($('#' + s + '1').offset().top);
     });
-     $('body').on('click', '.carletter a', function () {
-      var s = $(this).html();
-      console.log($('#' + s + '2').offset().top)
-      $(window).scrollTop($('#' + s + '2').offset().top);
-    });
+//   $('body').on('click', '.carletter a', function () {
+//    var s = $(this).html();
+//    console.log($('#' + s + '2').offset().top)
+//    $(window).scrollTop($('#' + s + '2').offset().top);
+//  });
     
     var newyear = (new Date()).getFullYear();
     for (var i = 1970; i < newyear; i++) {

@@ -98,8 +98,7 @@
 .tagLeft {
   float: left;
 
-  }
-
+ }
 .tagRight {
 
   position: relative;
@@ -153,6 +152,7 @@
 .Detail-up {
   padding: 0 12px 10px;
   font-family: "PingFang Bold";
+  background: white;
 }
 
 .article-title {
