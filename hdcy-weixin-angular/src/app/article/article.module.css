@@ -147,12 +147,11 @@
   width: 375px;
   height: 305px;
 }
-
 /*资讯详情*/
-
 .Detail-up {
   padding: 0 12px 10px;
   font-family: "PingFang Bold";
+  background: white;
 }
 
 .article-title {
@@ -161,7 +160,6 @@
   word-wrap: break-word;
   font-weight: normal;
 }
-
 .detail-tag {
   font-size: 12px;
   color: #959595;

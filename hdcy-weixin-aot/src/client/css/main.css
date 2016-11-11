@@ -178,7 +178,9 @@ input,textarea {
   background: transparent;
   margin-left: 45px;
 }
-
+.xxxxx .comment-count {
+	background: white;
+}
 .xxxxx .com-more {
   display: none;
 }
@@ -398,10 +400,17 @@ input,textarea {
 .videos .timew {
   display: none;
 }
+.videos .time {
+	display: inline-block;
+	margin-top: 7px;
+}
+.zbjiaoliu .videos .comment-count {
+	display: none;
+}
 .videos .commmentList-con {
-  color: white;
-  margin-top: 8px;
-  font-size: 14px;
+	color: white;
+	margin-top: 14px;    
+    font-size: 14px;
 }
 .videos .commmentList-ri {
   width: 305px;
@@ -410,11 +419,13 @@ input,textarea {
   background: url(../assets/images/txt-btn.png) no-repeat;
   background-size: 100% 100%;
 }
-.videos .replayLists {
-  margin-left: 45px;
-  background: #39627F;
-  padding: 0px 5px;
-  font-size: 13px;
+
+.videos .replayLists {	
+	margin-left: 45px;
+    background: #39627F;
+    padding: 0px 5px;
+    font-size: 13px;
+    margin-top: 18px;
 }
 .videos .relayList {
   padding: 6px 0 3px;
@@ -517,7 +528,9 @@ input,textarea {
   opacity: 0.25;
 
 }
+
 .activitys-mes {
+	padding: 0 7px;
   width: 100%;
   position: absolute;
   top:50%;
@@ -525,7 +538,7 @@ input,textarea {
   -webkit-transform: translateY(-50%);
   text-align: center;
   color: white;
-
+	box-sizing: border-box;
 }
 .activity-tit {
   font-size: 18px;

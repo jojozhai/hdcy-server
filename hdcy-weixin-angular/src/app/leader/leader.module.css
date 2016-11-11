@@ -96,6 +96,8 @@
 }
 .dakade-right {
 	margin-left: 12px;
+	width: 253px;
+    word-wrap: break-word;
 }
 .dakade-names {
 	margin-bottom: 16px;
