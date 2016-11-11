@@ -51,4 +51,8 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
     this.commentCount = event;
   }
 
+  ngOnInit() {
+    super.ngOnInit();
+  }
+
 }

@@ -13,7 +13,7 @@ export class BaseVideoDetailComponent implements OnInit {
 
   videoFrame: SafeHtml;
 
-  constructor(private videoService: VideoService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private weixinService: WeixinService, private loadingService: LoadingService) {
+  constructor(public videoService: VideoService, public route: ActivatedRoute, public sanitizer: DomSanitizer, public weixinService: WeixinService, public loadingService: LoadingService) {
 
   }
 

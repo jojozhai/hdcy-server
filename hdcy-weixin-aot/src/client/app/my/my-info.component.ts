@@ -225,7 +225,7 @@ export class MyInfoComponent implements OnInit {
             toastr.warning('手机号不能为空');
         } else {
 
-            if (!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}jQuery/i.test(this.newMobile)) {
+            if (!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(this.newMobile)) {
                 toastr.warning('请输入有效的电话号码');
             } else {
                 this.userService.sendSmsCheckCode(this.newMobile);
@@ -363,7 +363,7 @@ export class MyInfoComponent implements OnInit {
         this.close();
     }
 
-    updateCar(event:any) {
+    updateCar(event) {
         let value = event.target.innerHTML;
         this.user['car'] = value;
         this.close();
@@ -416,7 +416,7 @@ export class MyInfoComponent implements OnInit {
         this.showGTR = false;
     }
 
-    isActiveTag(tag:any) {
+    isActiveTag(tag) {
         return this.getUserTags().indexOf(tag) != -1;
     }
 
