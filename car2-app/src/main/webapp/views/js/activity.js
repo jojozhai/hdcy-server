@@ -59,7 +59,7 @@ $(function() {
 	}
 	var Request = new Object();
 	Request = GetRequest();
-	var id = Request.id;
+	var id = Request.id;	
 	$.ajax({
 		type: "get",
 		url: "/app2/activity/" + id,
@@ -70,10 +70,10 @@ $(function() {
 			$(".actDetail-con").html(obj.desc);
 			$(".zhuaban-name").html(obj.sponsorName);
 			var starTime = new Date(obj.startTime);
-			$(".zhuban-time").html(starTime.Format());
-			$(".zhuban-city").html(obj.province ? obj.province : "" + obj.city + obj.address);
+			$(".zhuban-time").html(starTime.Format());			
+			$(".zhuban-city").html((obj.province ? obj.province : "" )+ obj.city + obj.address);
 			$(".zhuban-price").html(obj.price ? obj.price : "免费");
-			//			$(".comzixun").html("活动咨询("+obj.)
+			//$(".comzixun").html("活动咨询("+obj.)
 			for(var i = 0; i < obj.images.length; i++) {
 				var smallImg = $('<div class="actDetail-img">\
 							<img src=' + obj.images[i] + '>\
@@ -82,6 +82,16 @@ $(function() {
 				var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
                 $(".bigactImg .swiper-wrapper").append(newImg1);
 			}
+			console.log(obj.province);
+			if (obj.signFinish) {
+				$(".sign a").html('报名已截止');
+				$(".sign a").css('background','gray');
+			}else {
+				$(".sign a").html('立即报名')
+			}
+			$(".kefu-telimg").attr('src',obj.waiterInfo.image);
+			$(".kefu-mes").html(obj.waiterInfo.name+":"+obj.waiterInfo.phone)
+			$(".caozuo a").attr('href','tel:'+obj.waiterInfo.phone);			
 			$(".actDetail-img").on('click',function () {
 				$(".bigactImg").show();
 				var mySwiper = new Swiper ('.bigactImg .swiper-container', {
@@ -178,6 +188,12 @@ $(function() {
 		$(".actDetail-con").height(108);
 		$(".con-downs").css('display','inline-block');
 		$(".con-ups").hide();
+	})
+	$(".steam").on('click',function () {
+		$(".telss").show();
+	})
+	$(".telbg").on('click',function () {
+		$(".telss").hide();
 	})
 	
 

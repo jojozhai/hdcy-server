@@ -14,7 +14,7 @@
 			<div class="actDetail-imgs ">
 				<div class="actDetail-imgsCon clear" [style.width.px]="imgDivWidth">
 					<div *ngFor="let image of activity?.images;let i = index;" class="actDetail-img" (click)="showchange(i)">
-						<img  [src]="image">
+						<img [src]="image">
 					</div>
 				</div>
 			</div>
@@ -90,6 +90,26 @@
 
 	</div>
 </div>
+<div class="guanzhu clear">
+	<div class="guanzhu-logo fl">
+		<div class="fouce-logo">
+			<img src="../../assets/images/logos.png" />
+		</div>
+		<div class="fouce-imgtxt">
+			<img src="../../assets/images/guanzhudes.png" />
+		</div>
+	</div>
+	<div class="guanzhu-txt" (click)="focus(true)">
+		<span>立即关注</span>
+	</div>
+
+</div>
+<div class="chatcode" [ngStyle]="{'display': chatcode}">
+	<div class="chatbg" (click)="focus(false)"></div>
+	<div class="chat">
+		<img src="../../assets/images/chat.png" />
+	</div>
+</div>
 
 <div class="telss" [ngStyle]="{'display': contactDivState}">
 
@@ -109,7 +129,7 @@
 <div class="detail-swiperbg" [ngStyle]="{'display': swipers}" (click)="hidechange()"></div>
 <div class="detail-swiper">
 	<ks-swiper-container [options]="swiperOptions" *ngIf="swipers == 'block'">
-		<ks-swiper-slide *ngFor="let image of activity?.images;" >
+		<ks-swiper-slide *ngFor="let image of activity?.images;">
 			<img class="bigImg" (click)="hidechange()" [src]="image">
 		</ks-swiper-slide>
 	</ks-swiper-container>

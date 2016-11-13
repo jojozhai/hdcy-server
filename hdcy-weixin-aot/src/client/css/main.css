@@ -537,3 +537,6 @@ input,textarea {
   display: inline-block;
   word-break: break-all;
 }
+.artiDetail-con img {
+	width: 100%;
+}

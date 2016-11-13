@@ -17,7 +17,7 @@ export class ActivityDetailComponent implements OnInit {
   imgDivWidth: number = 0;
 
   activity;
-
+  chatcode='none';
   contactDivState = 'none';
   pushs = 'none';
   pulls = 'inline-block';
@@ -56,6 +56,7 @@ export class ActivityDetailComponent implements OnInit {
       this.imgDivWidth = this.activity.images.length * 108;
       this.loadingService.loadingEvent.emit(false);
     });
+    
   }
 
   private initSignText() {
@@ -86,6 +87,13 @@ export class ActivityDetailComponent implements OnInit {
     } else {
       this.contactDivState = 'none';
     }
+  }
+  focus(guanzhu){
+  	if (guanzhu) {
+  		this.chatcode='block';
+  	}else {
+  		this.chatcode='none';
+  	}
   }
 
   changeback(display) {

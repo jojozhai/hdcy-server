@@ -206,5 +206,7 @@
 .artiDetail-con p {
   line-height: 20px;
 }
-
+.artiDetail-con img {
+	width: 100%;
+}
 

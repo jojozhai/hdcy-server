@@ -39,8 +39,7 @@
          var request = new XMLHttpRequest();         
          request.onreadystatechange = function () {
          if (request.readyState == 4 && request.status == 200) {
-          	var jsonStr = request.responseText;
-         
+          	var jsonStr = request.responseText;         
          	var jsonObj = JSON.parse(jsonStr);
          	var tagInfos=jsonObj.tagInfos
          	var tagInfosName=function(){
@@ -79,7 +78,7 @@
                    			<span class='author'>"+jsonObj.principal+"</span>\
                    		</div>\
                       </div>\
-                      <img class='article-img' src='"+jsonObj.image2+"' alt='' />\
+                      <img class='article-img' src='"+jsonObj.image+"' alt='' />\
                       <div id='conDetail'>\
                            <article class='content'>"+jsonObj.content+"</article>\
                       </div>")
