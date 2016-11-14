@@ -4,7 +4,7 @@ $(function(){
 		$(this).addClass('artnav-on');
 	})
 	
-	$('body').on('touchstart',function (e) {
+	$('body').on('touchstart',function (e) {	
  		var touch = e.originalEvent,
         startX = touch.changedTouches[0].pageX;
         startY = touch.changedTouches[0].pageY;

@@ -22,6 +22,8 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     currentTag: number = 0;
 
+    tagWidths: number = 0;
+    
     tagWidth: number = 0;
 
     contentHeight: number = document.body.clientHeight - 90;
@@ -51,8 +53,15 @@ export class ArticleListComponent extends ListComponent implements OnInit {
         }
 
         this.tagService.getChild().subscribe(res => {
-            this.tags = res
-            this.tagWidth = (this.tags.length + 1) * 93.75;
+            this.tags = res;            
+            if(this.tags.length+1==4){
+            	this.tagWidth=93.75;
+            	this.tagWidths = (this.tags.length + 1) * 93.75;
+            }else {
+            	this.tagWidth=82.5;
+            	this.tagWidths = (this.tags.length + 1) * 82.5;
+            }
+            
             this.articleService.query(this.buildCondition(this.condition)).subscribe(res => {
                 this.articles = res.json().content;
                 this.currentTag = tagId;

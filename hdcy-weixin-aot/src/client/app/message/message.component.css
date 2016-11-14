@@ -4,53 +4,10 @@
 	background-size: 100% 100%;
 	overflow-y: auto;
 }
-.messageLists li {
-	padding: 13px 12px;
-}
-.messageLists li:nth-of-type(1){
-	background:rgb(40,69,94);
-}
-.messageLists li:nth-of-type(2){
-	background:rgb(34,55,75);
-}
-.mesList-left {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	overflow: hidden;	
-}
-.mesList-left img {
-	width: 100%;
-	height: 100%;
-}
-.mesList-right {
-	width: 303px;
-	margin-left: 8px;
-	color: #959595;
-	font-size: 11px;
-	margin-top: 7px;
-}
-.mesName {
+.messageboxs p {
 	color: white;
-	font-size: 14px;
-}
-.mescon {
-	margin-top: 7px;
-}
-.messDetail {
-	margin-top: 48px;
-	padding: 0 12px;
-	color: #DDDDDD;
 	font-size: 15px;
-	line-height: 23px;	
-}
-.mestail-tit {
-	padding: 35px 0 20px;
-	color: white;
-	font-size: 18px;
-	line-height: 19px;
 	text-align: center;
+	margin-top: 15px;
 }
-.messDetail p {
-	margin-bottom: 20px;
-}
+

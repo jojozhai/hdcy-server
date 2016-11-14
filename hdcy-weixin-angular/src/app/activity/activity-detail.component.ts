@@ -22,6 +22,7 @@ export class ActivityDetailComponent implements OnInit {
   pushs = 'none';
   pulls = 'inline-block';
   swipers = 'none';
+  startY;
   detailboxHeight: number = document.body.clientHeight - 48;
 
   signText = "";
@@ -57,8 +58,26 @@ export class ActivityDetailComponent implements OnInit {
       this.loadingService.loadingEvent.emit(false);
     });
     
+//  $('body').on('touchstart',function (e) {    	
+//  	console.log(event.changedTouches[0].pageY)
+//      starty = event.changedTouches[0].pageY;
+//      console.log(startY)
+//     $('body').on('touchmove', function(e) {
+//              event = event.touches[0] ||event.changedTouches[0];  
+//              console.log(event.pageY,startY)
+//              if (event.pageY - startY > 10) {                   
+//                 $(".guanzhu").fadeOut();           
+//              } else if (event.pageY - startY < -10) {
+//                 $(".guanzhu").fadeIn();                  
+//              };
+//          });
+// 	 })
+    
   }
-
+  
+ bodys(e) {
+  	console.log(e)
+ }
   private initSignText() {
     if (environment.userToken) {
       this.activityService.isSigned(this.activity.id).subscribe(res => {
@@ -94,6 +113,7 @@ export class ActivityDetailComponent implements OnInit {
   	}else {
   		this.chatcode='none';
   	}
+  	
   }
 
   changeback(display) {
