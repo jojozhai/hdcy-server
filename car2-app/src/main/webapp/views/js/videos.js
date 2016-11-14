@@ -64,7 +64,7 @@
  				var comcon = $("<div class='comsList'>" +
  					"<div class='comsup clear'>" +
  					"<div class='comsupLeft fl'>" +
- 					"<img  src=" + obj.content[i].createrHeadimgurl + "/>" +
+ 					"<img  src='" + obj.content[i].createrHeadimgurl + "'/>" +
  					"</div>" +
  					"<div class='comsupRight fl'>" +
  					"<div class='clear'>" +
@@ -138,8 +138,7 @@
 				}
  				var timestamp3 = obj.content[i].createdTime;
 				var newDate = new Date(timestamp3);
-       			gap (newDate.toString(), $ ('.comtime'));
-       			
+       			gap (newDate.toString(), $ ('.comtime'));       			
        			
  			}
 

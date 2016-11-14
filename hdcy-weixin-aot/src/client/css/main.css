@@ -528,7 +528,6 @@ input,textarea {
   opacity: 0.25;
 
 }
-
 .activitys-mes {
 	padding: 0 7px;
   width: 100%;
@@ -551,26 +550,6 @@ input,textarea {
   display: inline-block;
   word-break: break-all;
 }
-
-.videos .time {
-  display: inline-block;
-  margin-top: 7px;
-}
-
-.videos .replayLists {
-  margin-left: 45px;
-  background: #39627F;
-  padding: 0px 5px;
-  font-size: 13px;
-  margin-top: 18px;
-}
-
-.videos .commmentList-con {
-  color: white;
-  margin-top: 14px;
-  font-size: 14px;
-}
-
-.zbjiaoliu .videos .comment-count {
-  display: none;
+.artiDetail-con img {
+	width: 100%;
 }

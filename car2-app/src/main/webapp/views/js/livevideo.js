@@ -100,7 +100,7 @@ $(function(){
 				var comcon = $("<div class='comsList'>" +
 					"<div class='comsup clear'>" +
 					"<div class='comsupLeft fl'>" +
-					"<img  src=" + obj.content[i].createrHeadimgurl + "/>" +
+					"<img  src='" + obj.content[i].createrHeadimgurl + "'/>" +
 					"</div>" +
 					"<div class='comsupRight fl'>" +
 					"<div class='clear'>" +
