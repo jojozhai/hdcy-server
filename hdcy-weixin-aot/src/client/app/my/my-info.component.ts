@@ -12,12 +12,12 @@ import {WeixinService} from "../shared/service/weixin.service";
     styleUrls: ['my.module.css']
 })
 export class MyInfoComponent implements OnInit {
-    user:any = {};
-    originUser:any;
-    tag:any;
-    type:any;
-    editbg:any;
-    city:any;
+    user: any = {};
+    originUser: any;
+    tag: any;
+    type: any;
+    editbg: any;
+    city: any;
     detailboxHeight: number = document.body.clientHeight - 48;
     citysA = [{A: "鞍山市"}, {A: "阿拉善盟"}, {A: "安庆市"}, {A: "安阳市"}, {A: "阿里地区"}, {A: "安康市"}, {A: "安顺市"}, {A: "阿坝藏族羌族自治州"}, {A: "阿拉尔市"}, {A: "阿克苏地区"}, {A: "澳门特别行政区"}, {A: "阿勒泰地区"}];
 
@@ -60,8 +60,8 @@ export class MyInfoComponent implements OnInit {
 
     citysZ = [{Z: "张家口市"}, {Z: "诸暨市"}, {Z: "镇江市"}, {Z: "张家港市"}, {Z: "朝阳市"}, {Z: "张家界市"}, {Z: "郑州市"}, {Z: "枣庄市"}, {Z: "舟山市"}, {Z: "增城市"}, {Z: "珠海市"}, {Z: "周口市"}, {Z: "淄博市"}, {Z: "株洲市"}, {Z: "漳州市"}, {Z: "驻马店市"}, {Z: "湛江市"}, {Z: "遵义市"}, {Z: "自贡市"}, {Z: "昭通市"}, {Z: "肇庆市"}, {Z: "中山市"}, {Z: "张掖市"}, {Z: "资阳市"}, {Z: "中卫市"}];
 
-    newMobile:any = '';
-    checkcode:any = '';
+    newMobile: any = '';
+    checkcode: any = '';
 
 
     tags = ['竞速', '极限',
@@ -80,7 +80,7 @@ export class MyInfoComponent implements OnInit {
         '其他'];
 
     constructor(private userService: UserService, private weixinService: WeixinService) {
-        this.weixinService.fileUploadFinishEvent.subscribe((url:string) => {
+        this.weixinService.fileUploadFinishEvent.subscribe((url: string) => {
             console.log("url is:" + url);
             this.userService.setUserProperty({name: 'headimgurl', value: url}).subscribe(
                 res => this.ngOnInit()
@@ -150,7 +150,7 @@ export class MyInfoComponent implements OnInit {
     }
 
 // 城市编辑
-    citys(city:string) {
+    citys(city: string) {
         this.user.city = city;
         this.close();
         this.userService.setUserProperty({name: 'city', value: city}).subscribe(
@@ -162,7 +162,7 @@ export class MyInfoComponent implements OnInit {
     }
 
 //个人资料
-    edit(type:string) {
+    edit(type: string) {
         if (type == 'sexs') {
             if (this.user.sex == '1' || this.user.sex == '2' || this.user.sex == '男' || this.user.sex == '女') {
                 return;
@@ -218,7 +218,7 @@ export class MyInfoComponent implements OnInit {
         jQuery(".step2").hide()
     }
 
-    private confirmTimer:any;
+    private confirmTimer: any;
 
     confirm() {
         if (this.isEmpty(this.newMobile)) {
@@ -248,7 +248,7 @@ export class MyInfoComponent implements OnInit {
         }
     }
 
-    private resendTimer:any;
+    private resendTimer: any;
 
     resend() {
         var seconds = 60;
@@ -320,7 +320,7 @@ export class MyInfoComponent implements OnInit {
         this.updateUserProperty('nickname', '昵称');
     }
 
-    changeSex(value:any) {
+    changeSex(value: any) {
         this.user.sex = value;
         this.updateUserProperty('sex', '性别');
     }
@@ -355,7 +355,7 @@ export class MyInfoComponent implements OnInit {
         this.editbg = "none";
     }
 
-    recover(prop:any) {
+    recover(prop: any) {
         console.log(prop);
         console.log(this.user);
         console.log(this.originUser);
@@ -363,7 +363,7 @@ export class MyInfoComponent implements OnInit {
         this.close();
     }
 
-    updateCar(event) {
+    updateCar(event: any) {
         let value = event.target.innerHTML;
         this.user['car'] = value;
         this.close();
@@ -377,7 +377,7 @@ export class MyInfoComponent implements OnInit {
 
     showGTR: boolean = false;
 
-    clickTag(tag:any) {
+    clickTag(tag: any) {
         let userTags: Array<string> = this.getUserTags();
 
         if (this.isActiveTag(tag)) {
@@ -416,7 +416,7 @@ export class MyInfoComponent implements OnInit {
         this.showGTR = false;
     }
 
-    isActiveTag(tag) {
+    isActiveTag(tag: any) {
         return this.getUserTags().indexOf(tag) != -1;
     }
 

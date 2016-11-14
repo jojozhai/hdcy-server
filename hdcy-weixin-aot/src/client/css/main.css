@@ -325,6 +325,20 @@ input,textarea {
   display: inline-block;
 }
 
+.xxxxx .comment-count {
+  background: white;
+}
+
+.comment-count {
+  padding: 10px 12px;
+}
+
+.dakade-right {
+  margin-left: 12px;
+  width: 253px;
+  word-wrap: break-word;
+}
+
 .sponsor {
   width: 75px;
   height: 25px;
@@ -514,7 +528,6 @@ input,textarea {
   opacity: 0.25;
 
 }
-
 .activitys-mes {
 	padding: 0 7px;
   width: 100%;
