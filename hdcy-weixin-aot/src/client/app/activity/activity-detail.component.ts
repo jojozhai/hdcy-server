@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ActivityService} from "./activity.service";
 import {LoadingService} from "../shared/service/loading.service";
 import {environment} from "../shared/config/env.config";
+import {TouchService, TouchSlideEvent, TouchSlideDirections} from "../shared/service/touch.service";
 
 @Component({
     moduleId: module.id,
@@ -26,15 +27,36 @@ export class ActivityDetailComponent implements OnInit {
     detailboxHeight: number = document.body.clientHeight - 48;
 
     signText = "";
+	
+	chatcode='none';
+    followDivDisplay: boolean = true;
 
     constructor(private activityService: ActivityService,
                 private route: ActivatedRoute,
-                private router: Router, private loadingService: LoadingService) {
+                private router: Router, private loadingService: LoadingService,
+                private touchService: TouchService) {
 
+        touchService.touchEvent.subscribe((event: TouchSlideEvent) => {
+            if (event.direction == TouchSlideDirections.Vertical) {
+                if (event.distance > 0) {
+                    if(!this.followDivDisplay){
+                        console.log("出现");
+                        jQuery(".guanzhu").fadeIn();
+                        this.followDivDisplay = true;
+                    }
+                } else {
+                    if(this.followDivDisplay){
+                        console.log("消失");
+                        jQuery(".guanzhu").fadeOut();
+                        this.followDivDisplay = false;
+                    }
+                }
+            }
+        });
     }
 
     swiperOptions = {
-        loop: false,
+        loop: true,
         pagination: '.swiper-pagination',
         paginationClickable: true,
     };
@@ -80,7 +102,7 @@ export class ActivityDetailComponent implements OnInit {
         }
     }
 
-    displayContactDiv(display:any) {
+    displayContactDiv(display: any) {
         if (display) {
             this.contactDivState = 'block';
         } else {
@@ -88,7 +110,7 @@ export class ActivityDetailComponent implements OnInit {
         }
     }
 
-    changeback(display:any) {
+    changeback(display: any) {
         if (display) {
             this.pulls = 'inline-block';
             this.pushs = 'none';
@@ -96,7 +118,7 @@ export class ActivityDetailComponent implements OnInit {
         jQuery(".actDetail-con").height(108);
     }
 
-    change(display:any) {
+    change(display: any) {
         if (display) {
             this.pushs = 'inline-block';
             this.pulls = 'none';
@@ -114,7 +136,7 @@ export class ActivityDetailComponent implements OnInit {
         }
     }
 
-    showchange(num:number) {
+    showchange(num: number) {
         this.swipers = "block";
         jQuery(".swiper-wrapper").css({
             transform: " translate3d(" + (-375) * (num) + "px, 0px, 0px)",
@@ -131,6 +153,15 @@ export class ActivityDetailComponent implements OnInit {
             this.router.navigateByUrl("/leader/" + this.activity.sponsorLeaderId);
         }
     }
+    
+    focus(guanzhu){
+  		if (guanzhu) {
+  			this.chatcode='block';
+  		}else {
+  			this.chatcode='none';
+  		}
+  	
+  	}
 
 
 }

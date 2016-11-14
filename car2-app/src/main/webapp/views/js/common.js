@@ -12,9 +12,9 @@ $(function(){
                 touch = e.originalEvent.touches[0] ||
                     e.originalEvent.changedTouches[0];                
                 if (touch.pageY - startY > 10) {                   
-                   $(".guanzhu").fadeOut();           
+                   $(".guanzhu").fadeIn();           
                 } else if (touch.pageY - startY < -10) {
-                   $(".guanzhu").fadeIn();                  
+                   $(".guanzhu").fadeOut();                  
                 };
             });
    	    })

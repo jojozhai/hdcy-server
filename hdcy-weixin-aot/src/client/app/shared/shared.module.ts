@@ -10,6 +10,7 @@ import {InfiniteScrollDirective} from "./directive/infinite-scroll.directive";
 import {CountDownDirective} from "./directive/count-down.directive";
 import {SexPipe} from "./pipe/sex.pipe";
 import {KSSwiperContainer, KSSwiperSlide} from "./directive/swiper.directive";
+import {TouchListenerDirective} from "./directive/touch-listener.directive";
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -17,8 +18,8 @@ import {KSSwiperContainer, KSSwiperSlide} from "./directive/swiper.directive";
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [ToolbarComponent, NavbarComponent, InfiniteScrollDirective, CountDownDirective, KSSwiperContainer, KSSwiperSlide, SexPipe],
-  exports: [ToolbarComponent, NavbarComponent, CommonModule, FormsModule, RouterModule, InfiniteScrollDirective, CountDownDirective, KSSwiperContainer, KSSwiperSlide, SexPipe],
+  declarations: [ToolbarComponent, NavbarComponent, InfiniteScrollDirective, TouchListenerDirective, CountDownDirective, KSSwiperContainer, KSSwiperSlide, SexPipe],
+  exports: [ToolbarComponent, NavbarComponent, CommonModule, FormsModule, RouterModule, InfiniteScrollDirective, TouchListenerDirective, CountDownDirective, KSSwiperContainer, KSSwiperSlide, SexPipe],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

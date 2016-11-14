@@ -56,29 +56,12 @@ export class ActivityDetailComponent implements OnInit {
       this.initSignText();
       this.imgDivWidth = this.activity.images.length * 108;
       this.loadingService.loadingEvent.emit(false);
-    });
-    
-//  $('body').on('touchstart',function (e) {    	
-//  	console.log(event.changedTouches[0].pageY)
-//      starty = event.changedTouches[0].pageY;
-//      console.log(startY)
-//     $('body').on('touchmove', function(e) {
-//              event = event.touches[0] ||event.changedTouches[0];  
-//              console.log(event.pageY,startY)
-//              if (event.pageY - startY > 10) {                   
-//                 $(".guanzhu").fadeOut();           
-//              } else if (event.pageY - startY < -10) {
-//                 $(".guanzhu").fadeIn();                  
-//              };
-//          });
-// 	 })
+    });   
+
     
   }
   
- bodys(e) {
-  	console.log(e)
- }
-  private initSignText() {
+   private initSignText() {
     if (environment.userToken) {
       this.activityService.isSigned(this.activity.id).subscribe(res => {
         if (res.json().content) {

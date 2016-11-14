@@ -2,7 +2,7 @@
     <h3>
         <a routerLink="/article" [queryParams]="{tagId: fromTag}" class="back"></a>
         <span>资讯详情</span>
-        <a routerLink="/comment" [queryParams]="{target: 'article', targetId: article.id, withReply: 'true'}"
+        <a routerLink="/comment" [queryParams]="{target: 'article', targetId: article?.id, withReply: 'true'}"
            class="message"></a>
 
     </h3>
@@ -10,21 +10,41 @@
 <div class="boxs" [style.height.px]="detailboxHeight">
     <div class="detai-cnts">
         <div class="Detail-up">
-            <h1 class="article-title">{{article.title}}</h1>
+            <h1 class="article-title">{{article?.title}}</h1>
             <div class="detail-tag">
-                <span class="detail-tag1">{{article.tagName}}</span>
-                <span>{{article.createdTime | articleDate}}</span>
-                <span>{{article.principal}}</span>
+                <span class="detail-tag1">{{article?.tagInfos[0]?.name}}</span>
+                <span>{{article?.createdTime | articleDate}}</span>
+                <span>{{article?.principal}}</span>
             </div>
         </div>
         <div class="detail-Img">
-            <img [src]="article.image" alt=""/>
+            <img [src]="article?.image" alt=""/>
         </div>
         <div class="Detail-down">
-            <div class="artiDetail-con" [innerHTML]="article.content"></div>
+            <div class="artiDetail-con" [innerHTML]="article?.content"></div>
         </div>
     </div>
-    <comment-list [withReply]="true" target="article" [targetId]="article.id"></comment-list>
+    <comment-list [withReply]="true" target="article" [targetId]="article?.id"></comment-list>
+</div>
+<div class="guanzhu clear">
+	<div class="guanzhu-logo fl">
+		<div class="fouce-logo">
+			<img src="../../assets/images/logos.png" />
+		</div>
+		<div class="fouce-imgtxt">
+			<img src="../../assets/images/guanzhudes.png" />
+		</div>
+	</div>
+	<div class="guanzhu-txt" (click)="focus(true)">
+		<span>立即关注</span>
+	</div>
+
+</div>
+<div class="chatcode" [ngStyle]="{'display': chatcode}">
+	<div class="chatbg" (click)="focus(false)"></div>
+	<div class="chat">
+		<img src="../../assets/images/chat.png" />
+	</div>
 </div>
 
 

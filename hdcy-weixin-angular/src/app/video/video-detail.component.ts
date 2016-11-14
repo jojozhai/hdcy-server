@@ -16,9 +16,18 @@ import {LoadingService} from "../shared/service/loading.service";
 })
 export class VideoDetailComponent extends BaseVideoDetailComponent implements OnInit {
     detailboxHeight: number = document.body.clientHeight-210;
-    
+    chatcode='none'
     constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, loadingService: LoadingService) {
         super(videoService, route, sanitizer, weixinService, loadingService);
     }
+    
+    focus(guanzhu){
+  	if (guanzhu) {
+  		this.chatcode='block';
+  	}else {
+  		this.chatcode='none';
+  	}
+  	
+  }
 
 }
