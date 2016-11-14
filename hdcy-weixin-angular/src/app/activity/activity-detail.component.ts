@@ -22,6 +22,7 @@ export class ActivityDetailComponent implements OnInit {
   pushs = 'none';
   pulls = 'inline-block';
   swipers = 'none';
+  startY;
   detailboxHeight: number = document.body.clientHeight - 48;
 
   signText = "";
@@ -55,11 +56,12 @@ export class ActivityDetailComponent implements OnInit {
       this.initSignText();
       this.imgDivWidth = this.activity.images.length * 108;
       this.loadingService.loadingEvent.emit(false);
-    });
+    });   
+
     
   }
-
-  private initSignText() {
+  
+   private initSignText() {
     if (environment.userToken) {
       this.activityService.isSigned(this.activity.id).subscribe(res => {
         if (res.json().content) {
@@ -94,6 +96,7 @@ export class ActivityDetailComponent implements OnInit {
   	}else {
   		this.chatcode='none';
   	}
+  	
   }
 
   changeback(display) {

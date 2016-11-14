@@ -16,7 +16,7 @@ import {LoadingService} from "../shared/service/loading.service";
 export class ArticleDetailComponent implements OnInit {
 
     article: any = {tagInfos: []};
-
+	chatcode='none';
     tagName: any;
 
     fromTag:number;
@@ -35,5 +35,14 @@ export class ArticleDetailComponent implements OnInit {
         this.loadingService.loadingEvent.emit(false);
       });
     }
+    
+    focus(guanzhu){
+  		if (guanzhu) {
+  			this.chatcode='block';
+  		}else {
+  			this.chatcode='none';
+  		}
+  	
+  	}
 
 }

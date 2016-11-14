@@ -81,17 +81,8 @@ $(function() {
 				$(".actDetail-imgsCon").append(smallImg);
 				var newImg1=$("<div class='swiper-slide' dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></div>");
                 $(".bigactImg .swiper-wrapper").append(newImg1);
-			}
-			console.log(obj.province);
-			if (obj.signFinish) {
-				$(".sign a").html('报名已截止');
-				$(".sign a").css('background','gray');
-			}else {
-				$(".sign a").html('立即报名')
-			}
-			$(".kefu-telimg").attr('src',obj.waiterInfo.image);
-			$(".kefu-mes").html(obj.waiterInfo.name+":"+obj.waiterInfo.phone)
-			$(".caozuo a").attr('href','tel:'+obj.waiterInfo.phone);			
+			}		
+						
 			$(".actDetail-img").on('click',function () {
 				$(".bigactImg").show();
 				var mySwiper = new Swiper ('.bigactImg .swiper-container', {

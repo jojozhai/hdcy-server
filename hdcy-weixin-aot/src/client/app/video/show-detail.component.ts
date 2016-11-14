@@ -20,7 +20,7 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
   tag:any;
   detailboxHeight: number = document.body.clientHeight-290;
   commentCount:any;
-
+  chatcode='none';
   constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, private router: Router, loadingService: LoadingService) {
     super(videoService, route, sanitizer, weixinService, loadingService);
     this.tag = route.snapshot.queryParams['tag'];
@@ -54,5 +54,14 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
   ngOnInit() {
     super.ngOnInit();
   }
+  
+  	focus(guanzhu){
+  		if (guanzhu) {
+  			this.chatcode='block';
+  		}else {
+  			this.chatcode='none';
+  		}
+  	
+  	}
 
 }

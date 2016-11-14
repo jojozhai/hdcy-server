@@ -4,7 +4,7 @@ $(function(){
 		$(this).addClass('artnav-on');
 	})
 	
-	$('body').on('touchstart',function (e) {
+	$('body').on('touchstart',function (e) {	
  		var touch = e.originalEvent,
         startX = touch.changedTouches[0].pageX;
         startY = touch.changedTouches[0].pageY;
@@ -12,9 +12,9 @@ $(function(){
                 touch = e.originalEvent.touches[0] ||
                     e.originalEvent.changedTouches[0];                
                 if (touch.pageY - startY > 10) {                   
-                   $(".guanzhu").fadeOut();           
+                   $(".guanzhu").fadeIn();           
                 } else if (touch.pageY - startY < -10) {
-                   $(".guanzhu").fadeIn();                  
+                   $(".guanzhu").fadeOut();                  
                 };
             });
    	    })

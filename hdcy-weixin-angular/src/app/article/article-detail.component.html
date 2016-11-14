@@ -27,5 +27,25 @@
 <comment-list [withReply]="true" target="article" [targetId]="article.id"></comment-list>
 
 </div>
+<div class="guanzhu clear">
+	<div class="guanzhu-logo fl">
+		<div class="fouce-logo">
+			<img src="../../assets/images/logos.png" />
+		</div>
+		<div class="fouce-imgtxt">
+			<img src="../../assets/images/guanzhudes.png" />
+		</div>
+	</div>
+	<div class="guanzhu-txt" (click)="focus(true)">
+		<span>立即关注</span>
+	</div>
+
+</div>
+<div class="chatcode" [ngStyle]="{'display': chatcode}">
+	<div class="chatbg" (click)="focus(false)"></div>
+	<div class="chat">
+		<img src="../../assets/images/chat.png" />
+	</div>
+</div>
 
 

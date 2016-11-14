@@ -27,7 +27,8 @@ export class ActivityDetailComponent implements OnInit {
     detailboxHeight: number = document.body.clientHeight - 48;
 
     signText = "";
-
+	
+	chatcode='none';
     followDivDisplay: boolean = true;
 
     constructor(private activityService: ActivityService,
@@ -152,6 +153,15 @@ export class ActivityDetailComponent implements OnInit {
             this.router.navigateByUrl("/leader/" + this.activity.sponsorLeaderId);
         }
     }
+    
+    focus(guanzhu){
+  		if (guanzhu) {
+  			this.chatcode='block';
+  		}else {
+  			this.chatcode='none';
+  		}
+  	
+  	}
 
 
 }

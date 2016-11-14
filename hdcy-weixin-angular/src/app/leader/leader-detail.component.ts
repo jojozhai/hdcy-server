@@ -15,6 +15,7 @@ import {LoadingService} from "../shared/service/loading.service";
 export class LeaderDetailComponent implements OnInit {
 
   leader = {};
+  chatcode='none';
   detailboxHeight: number = document.body.clientHeight - 48;
   constructor(private leaderService: LeaderService, private route: ActivatedRoute, private weixinService:WeixinService, private loadingService: LoadingService) {
   }
@@ -26,6 +27,14 @@ export class LeaderDetailComponent implements OnInit {
       this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.name, value['image']));
       this.loadingService.loadingEvent.emit(false);
     });
+  }
+  focus(guanzhu){
+  	if (guanzhu) {
+  		this.chatcode='block';
+  	}else {
+  		this.chatcode='none';
+  	}
+  	
   }
 
 }

@@ -21,7 +21,7 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
   detailboxHeights: number = document.body.clientHeight-250;
   detailboxHeigh: number = document.body.clientHeight-290;
   commentCount;
-
+  chatcode='none';
   constructor(videoService: VideoService, route: ActivatedRoute, sanitizer: DomSanitizer, weixinService: WeixinService, private router: Router, loadingService: LoadingService) {
     super(videoService, route, sanitizer, weixinService, loadingService);
     this.tag = route.snapshot.queryParams['tag'];
@@ -51,5 +51,14 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
   setCommentCount(event){
     this.commentCount = event;
   }
+  
+  focus(guanzhu){
+  	if (guanzhu) {
+  		this.chatcode='block';
+  	}else {
+  		this.chatcode='none';
+  	}
+  	
+ }
 
 }

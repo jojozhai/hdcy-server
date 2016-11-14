@@ -553,3 +553,78 @@ input,textarea {
 .artiDetail-con img {
 	width: 100%;
 }
+
+.guanzhu {
+	width: 375px;
+	height: 64px;
+	background:url(assets/images/guanzhu.png) no-repeat;
+	background-size: 100% 100%;
+	position: fixed;
+	bottom: 0;
+}
+.guanzhu-logo {
+	margin-top: 3.5px;
+	margin-left: 17px;
+}
+.fouce-logo {
+	width: 105px;
+	height: 35px;	
+}
+.fouce-logo img {
+	width: 100%;
+	height: 100%;
+}
+.fouce-imgtxt {
+	width: 174px;
+	height: 15.5px;
+	margin-top: 5px;
+}
+.fouce-imgtxt img {
+	width: 100%;
+	height: 100%;
+}
+.guanzhu-txt {
+	position: absolute;
+	top: 14.5px;
+	right: 25px;
+}
+.guanzhu-txt span {
+	width: 82px;
+	height: 35px;
+	color: white;
+	font-size: 16px;
+	border:1px solid #82bee9;
+	border-radius:15px ;
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center;
+	line-height: 35px;	
+	
+}
+.chatcode {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.chatbg {
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.5;
+	z-index: 3333;
+}
+.chat {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 225px;
+	height: 250px;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	z-index: 3334;
+}
+.chatcode {
+	display: none;
+}
