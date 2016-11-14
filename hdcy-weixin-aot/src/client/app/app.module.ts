@@ -22,6 +22,7 @@ import {ParamService} from "./shared/service/param.service";
 import {MyModule} from "./my/my.module";
 import {UserService} from "./shared/service/user.service";
 import {AboutModule} from "./about/about.module";
+import {TouchService} from "./shared/service/touch.service";
 
 @NgModule({
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule, HomeModule, SharedModule.forRoot(),
@@ -30,7 +31,7 @@ import {AboutModule} from "./about/about.module";
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }, {provide: LocationStrategy, useClass: HashLocationStrategy}, WeixinService, LoadingService, PraiseService, ParamService, UserService, TagService],
+  }, {provide: LocationStrategy, useClass: HashLocationStrategy}, WeixinService, LoadingService, PraiseService, ParamService, UserService, TagService, TouchService],
   bootstrap: [AppComponent]
 })
 

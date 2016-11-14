@@ -9,37 +9,38 @@ import {WeixinService} from "./shared/service/weixin.service";
  * applications routes, configuring the paths for the lazy loaded components (HomeComponent, AboutComponent).
  */
 @Component({
-  moduleId: module.id,
-  selector: 'sd-app',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+    moduleId: module.id,
+    selector: 'sd-app',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
 
 export class AppComponent {
 
-  loading: boolean = false;
+    loading: boolean = false;
 
-  constructor(private weixinService: WeixinService, loadingService: LoadingService) {
+    constructor(private weixinService: WeixinService, loadingService: LoadingService) {
 
-    loadingService.loadingEvent.subscribe((loading:boolean) => {
-      this.loading = loading;
-    });
+        loadingService.loadingEvent.subscribe((loading: boolean) => {
+            this.loading = loading;
+        });
 
-    weixinService.weixinShareInfoChangedEvent.subscribe((event:any) => this.weixinService.configShareInfo(event));
+        weixinService.weixinShareInfoChangedEvent.subscribe((event: any) => this.weixinService.configShareInfo(event));
 
-    toastr.options = {
-      "closeButton": false,
-      "debug": false,
-      "newestOnTop": true,
-      "progressBar": false,
-      "positionClass": "toast-bottom-center",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-bottom-center",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        console.log('Environment config', environment);
     }
-    console.log('Environment config', environment);
-  }
 }
