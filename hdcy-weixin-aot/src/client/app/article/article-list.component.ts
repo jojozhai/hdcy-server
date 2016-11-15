@@ -59,8 +59,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
             }else if(this.tags.length+1>4) {
             	this.tagWidth=82.5;
             	this.tagWidths = (this.tags.length + 1) * 82.5;
-            }
-            this.tagWidth = (this.tags.length + 1) * 93.75;
+            }            
             this.articleService.query(this.buildCondition(this.condition)).subscribe(res => {
                 this.articles = res.json().content;
                 this.currentTag = tagId;

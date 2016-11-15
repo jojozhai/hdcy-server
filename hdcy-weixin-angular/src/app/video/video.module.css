@@ -68,10 +68,10 @@
 	background-size: 100% 100%;
 }
 .zhibo {
+	text-align: center;
     position: relative;
+    background: #000000;
 }
-
-
 .zhibo-txt {
     position: absolute;
     padding:0 12px 12px;
@@ -81,9 +81,10 @@
 	width: 100%;
 }
 .zhibo-txts {
+	text-align: left;
 	position: absolute;
     padding:0 12px 12px;
-    top: 155px;
+    bottom: 35px;
     font-size: 14px;
     color: #00FEFC;
 	width: 100%;
