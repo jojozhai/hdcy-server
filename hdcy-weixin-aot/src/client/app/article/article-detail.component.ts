@@ -6,6 +6,7 @@ import {ArticleService} from "./article.service";
 import {ActivatedRoute} from "@angular/router";
 import {WeixinService, WeixinShareInfoChangedEvent} from "../shared/service/weixin.service";
 import {LoadingService} from "../shared/service/loading.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     moduleId: module.id,
@@ -20,9 +21,12 @@ export class ArticleDetailComponent implements OnInit {
     tagName: any;
 
     fromTag:number;
+
+    content: any;
+
     detailboxHeight: number = document.body.clientHeight - 48;
     constructor(private articleService: ArticleService, private route: ActivatedRoute, private weixinService: WeixinService,
-    private loadingService:LoadingService) {
+    private loadingService:LoadingService, private domSanitizer:DomSanitizer) {
       this.fromTag = route.snapshot.queryParams['fromTag'];
     }
 
@@ -32,11 +36,12 @@ export class ArticleDetailComponent implements OnInit {
         this.article = value;
         this.tagName = this.article.tagInfos[0]['name'];
         this.weixinService.weixinShareInfoChangedEvent.emit(new WeixinShareInfoChangedEvent(value.title, value['image']));
+          this.content = this.domSanitizer.bypassSecurityTrustHtml(value.content);
         this.loadingService.loadingEvent.emit(false);
       });
     }
     
-    focus(guanzhu){
+    focus(guanzhu:any){
   		if (guanzhu) {
   			this.chatcode='block';
   		}else {

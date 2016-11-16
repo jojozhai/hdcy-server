@@ -7,6 +7,7 @@ import {ActivityService} from "./activity.service";
 import {LoadingService} from "../shared/service/loading.service";
 import {environment} from "../shared/config/env.config";
 import {TouchService, TouchSlideEvent, TouchSlideDirections} from "../shared/service/touch.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     moduleId: module.id,
@@ -31,28 +32,12 @@ export class ActivityDetailComponent implements OnInit {
 	chatcode='none';
     followDivDisplay: boolean = true;
 
+    content:any = "";
+
     constructor(private activityService: ActivityService,
                 private route: ActivatedRoute,
-                private router: Router, private loadingService: LoadingService,
-                private touchService: TouchService) {
+                private router: Router, private loadingService: LoadingService, private domSanitizer:DomSanitizer) {
 
-        touchService.touchEvent.subscribe((event: TouchSlideEvent) => {
-            if (event.direction == TouchSlideDirections.Vertical) {
-                if (event.distance > 0) {
-                    if(!this.followDivDisplay){
-                        console.log("出现");
-                        jQuery(".guanzhu").fadeIn();
-                        this.followDivDisplay = true;
-                    }
-                } else {
-                    if(this.followDivDisplay){
-                        console.log("消失");
-                        jQuery(".guanzhu").fadeOut();
-                        this.followDivDisplay = false;
-                    }
-                }
-            }
-        });
     }
 
     swiperOptions = {
@@ -76,6 +61,7 @@ export class ActivityDetailComponent implements OnInit {
             this.activity = value;
             this.initSignText();
             this.imgDivWidth = this.activity.images.length * 108;
+            this.content = this.domSanitizer.bypassSecurityTrustHtml(value.desc);
             this.loadingService.loadingEvent.emit(false);
         });
     }
@@ -154,7 +140,7 @@ export class ActivityDetailComponent implements OnInit {
         }
     }
     
-    focus(guanzhu){
+    focus(guanzhu:any){
   		if (guanzhu) {
   			this.chatcode='block';
   		}else {

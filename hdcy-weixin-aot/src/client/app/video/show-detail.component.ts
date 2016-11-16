@@ -55,7 +55,7 @@ export class ShowDetailComponent extends BaseVideoDetailComponent implements OnI
     super.ngOnInit();
   }
   
-  	focus(guanzhu){
+  	focus(guanzhu:any){
   		if (guanzhu) {
   			this.chatcode='block';
   		}else {
