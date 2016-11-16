@@ -6,7 +6,10 @@
 </div>
 <div class="detai-cnts1" >
 	<div class="zhibo">
-		<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
+		<!--<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>-->
+    	<video width="" height="250" src={{video.url2}} controls="controls">
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href={{video.url2}}>下载视频</a>
+		</video>
     <div class="zhibo-txts">
         <div class="video-name">
             <span class="zhibo-icon">

@@ -46,7 +46,9 @@ export class CommentAllComponent extends ListComponent implements OnInit {
       this.comments = res.json().content;
     });
   }
-
+  isActived(styleType) {
+    return this.styleType == styleType;
+  } 
   back(){
     window.history.back();
   }

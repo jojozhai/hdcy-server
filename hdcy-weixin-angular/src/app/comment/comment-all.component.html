@@ -4,7 +4,7 @@
     <span>{{target == 'activity'?'全部咨询':'全部评论'}}</span>
   </h3>
 </div>
-<div class="commments comment-all" >
+<div class="commments comment-all">
   <ul class="commment-con" [infinite-scroll]="comments" [dataService]="commentService" [condition]="condition" [pageInfo]="pageInfo" [style.height.px]="cntsboxHeight">
     <li class="clear" *ngFor="let comment of comments" >
         <comment-item [comment]="comment"></comment-item>

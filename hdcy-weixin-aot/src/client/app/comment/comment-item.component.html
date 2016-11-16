@@ -27,7 +27,7 @@
         <a (click)="toReplyPage(reply.id)">
             <div class="relaytList-ri ">
                 <div class="relayList">
-                    <span class="nickname relayitem">{{reply.createrName}}</span>
+                    <span class="nickname relayitem">{{target == 'activity'?'好多车友':reply.createrName}}</span>
                     <span class="relayitem huifu">回复</span>
                     <span class="nicktoname relayitem">{{reply.replyToName}}:</span>
                     <div class="relayList-les">
