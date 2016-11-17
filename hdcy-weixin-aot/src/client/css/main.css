@@ -19,9 +19,7 @@ pre{
 
 /*清除内边距*/
 
-ul,
-ol,
-menu {
+ul,ol,menu {
   padding: 0;
 }
 ul,ol,li {
@@ -84,8 +82,7 @@ input,textarea {
   opacity: 1;
 }
 
-.header,
-.video-header {
+.header,.video-header {
   width: 375px;
   height: 48px;
   background: black;
@@ -99,13 +96,13 @@ input,textarea {
   background: transparent;
 }
 
-.header h3,
-.video-header h3 {
+.header h3,.video-header h3 {
   color: white;
   text-align: center;
   font-size: 16px;
   position: relative;
   line-height: 48px;
+  height: 48px;
 }
 
 .back {
@@ -177,6 +174,10 @@ input,textarea {
 .xxxxx .replayLists {
   background: transparent;
   margin-left: 45px;
+	margin-top: 13px;
+}
+.xxxxx .commment-con li {
+	margin-bottom: 13px;
 }
 .xxxxx .comment-count {
 	background: white;

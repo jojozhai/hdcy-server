@@ -4,7 +4,31 @@
       <span>写留言</span>
     </h3>
 </div>
+<div class="signboxs" [style.height.px]="detailboxHeight">
 <div class="signmes">
+	<div class="sign-myinfo">
+		<section class="sign-names">
+			<div class="clear">
+				<img class="fl" src="../../assets/images/must.png"/>
+				<span class="mid-txt fl">姓名</span>
+				<span class="must-txt fl">(必填)</span>
+			</div>
+			<div class="">
+				<input class="name-input" type="text" [(ngModel)]="realname" name="" value="" placeholder="请填写姓名" />
+			</div>
+		</section>
+		<section >
+			<div class="clear">
+				<img class="fl" src="../../assets/images/must.png"/>
+				<span class="mid-txt fl">手机号码</span>
+				<span class="must-txt fl">(必填)</span>
+			</div>
+			<div class="">
+				<input class="tel-input" type="tel" [(ngModel)]="mobile" name="" value="" placeholder="请填写手机号" />
+			</div>
+		</section>
+		
+	</div>
 	<textarea class="commentArea" (focus)="clean()" [(ngModel)]="message" maxlength="70"></textarea>
 	<span class="signnum">{{(message == defaultContent)?70:70-message.length}}</span>
 
@@ -12,4 +36,4 @@
 <div class="signbtn">
 	<a class="comment-fs" (click)="sign()">立即报名</a>
 </div>
-
+</div>
