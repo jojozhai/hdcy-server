@@ -1,45 +1,46 @@
-<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
-	<div class="myslides">
-		<ks-swiper-container [options]="swiperOptions">
-			<ks-swiper-slide *ngFor="let activity of topActivities" class="activity-slide">
-				<div [routerLink]="['/activity', activity.id]">
-					<div class="activitys-lists">
-						<img class="activity-img" [src]="activity.image">
-						<img class="sponsor" [src]="activity.sponsorImage"/>
-						<div class="swiper-bg"></div>
-						<div class="activitys-mes">
-							<div class="activity-tit">
-								{{activity.name}}
-							</div>
-							<div class="activity-atime clear">
-								<div class="activity-add fl">
-									{{activity.city}}/
-								</div>
-								<div class="activity-stime fl">
-									{{activity.startTime | date:'yyyy-MM-dd'}}
-								</div>
+<div class="cnts" [style.height.px]="cntsboxHeight" [infinite-scroll]="finishActivities" [dataService]="activityService"
+     [pageInfo]="pageInfo" [condition]="condition">
+    <div class="myslides">
+        <ks-swiper-container [options]="swiperOptions">
+            <ks-swiper-slide *ngFor="let activity of topActivities" class="activity-slide">
+                <div [routerLink]="['/activity', activity.id]">
+                    <div class="activitys-lists">
+                        <img class="activity-img" [src]="activity.image">
+                        <img class="sponsor" [src]="activity.sponsorImage"/>
+                        <div class="swiper-bg"></div>
+                        <div class="activitys-mes">
+                            <div class="activity-tit">
+                                {{activity.name}}
+                            </div>
+                            <div class="activity-atime clear">
+                                <div class="activity-add fl">
+                                    {{activity.city}}/
+                                </div>
+                                <div class="activity-stime fl">
+                                    {{activity.startTime | date:'yyyy-MM-dd'}}
+                                </div>
 
-							</div>
-							<div class="activity-etime" *ngIf="showSignTip(activity)">
-				<span [count-down]="activity.signEndTime" tip="距报名截止还有  "></span>
-			</div>
+                            </div>
+                            <div class="activity-etime" *ngIf="showSignTip(activity)">
+                                <span [count-down]="activity.signEndTime" tip="距报名截止还有  "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+    </div>
 
-						</div>
-					</div>
-				</div>
-			</ks-swiper-slide>
-		</ks-swiper-container>
-	</div>
-
-	<div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo" [condition]="condition">
-		<!--<div>未结束</div>-->
-		<div *ngFor="let activity of workingActivities">
-			<activity-list-item [activity]="activity"></activity-list-item>
-		</div>
-		<!--<div>已结束</div>-->
-		<div *ngFor="let activity of finishActivities">
-			<activity-list-item [activity]="activity"></activity-list-item>
-		</div>
-	</div>
+    <div [infinite-scroll]="finishActivities" [dataService]="activityService" [pageInfo]="pageInfo"
+         [condition]="condition">
+        <!--<div>未结束</div>-->
+        <div *ngFor="let activity of workingActivities">
+            <activity-list-item [activity]="activity"></activity-list-item>
+        </div>
+        <!--<div>已结束</div>-->
+        <div *ngFor="let activity of finishActivities">
+            <activity-list-item [activity]="activity"></activity-list-item>
+        </div>
+    </div>
 
 </div>

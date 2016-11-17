@@ -25,11 +25,13 @@ export class ArticleListComponent extends ListComponent implements OnInit {
 
     tagWidth: number = 0;
 
+    tagWidths: number = 0;
+
     contentHeight: number = document.body.clientHeight - 90;
 
     cntsboxHeight: number = document.body.clientHeight - 50;
 
-    condition:any = {};
+    condition:any = {enable:true};
 
     scrollMax = 100;
 
@@ -59,7 +61,7 @@ export class ArticleListComponent extends ListComponent implements OnInit {
             }else if(this.tags.length+1>4) {
             	this.tagWidth=82.5;
             	this.tagWidths = (this.tags.length + 1) * 82.5;
-            }            
+            }
             this.articleService.query(this.buildCondition(this.condition)).subscribe(res => {
                 this.articles = res.json().content;
                 this.currentTag = tagId;

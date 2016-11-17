@@ -1,4 +1,4 @@
-<div class="active-conmes" touch-listener>
+<div class="active-conmes">
 	<div class="header">
 		<h3>
       <a (click)="goBack()" class="back"></a>
@@ -9,7 +9,7 @@
 		<div class="detai-cntss">
 			<div class="actDetail-mes">
 				<div class="actDetail-tit">{{activity?.name}}</div>
-				<div class="actDetail-con" [innerHtml]="activity?.desc"></div>
+				<div class="actDetail-con" [innerHtml]="content"></div>
 			</div>
 			<div class="actDetail-imgs ">
 				<div class="actDetail-imgsCon clear" [style.width.px]="imgDivWidth">
@@ -119,7 +119,6 @@
 	<div class="guanzhu-txt" (click)="focus(true)">
 		<span>立即关注</span>
 	</div>
-
 </div>
 <div class="chatcode" [ngStyle]="{'display': chatcode}">
 	<div class="chatbg" (click)="focus(false)"></div>

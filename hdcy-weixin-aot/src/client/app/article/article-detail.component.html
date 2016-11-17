@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="detail-Img">
-            <img [src]="article?.image" alt=""/>
+            <img [src]="article?.image2" alt=""/>
         </div>
         <div class="Detail-down">
-            <div class="artiDetail-con" [innerHTML]="article?.content"></div>
+            <div class="artiDetail-con" [innerHTML]="content"></div>
         </div>
     </div>
     <comment-list [withReply]="true" target="article" [targetId]="article?.id"></comment-list>

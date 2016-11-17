@@ -29,7 +29,7 @@ export class LeaderDetailComponent implements OnInit {
       this.loadingService.loadingEvent.emit(false);
     });
   }
-  	focus(guanzhu){
+  	focus(guanzhu:any){
   		if (guanzhu) {
   			this.chatcode='block';
   		}else {

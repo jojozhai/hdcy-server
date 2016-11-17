@@ -225,9 +225,9 @@ angular.module('activityAdminModule',['commentAdminModule']).config(function($st
 	if(activity.id) {
 		paramRestService.getParam({code:"weixinAppId"}).$promise.then(function(resultA){
 			var weixinAppId = resultA.value;
-			paramRestService.getParam({code:"oauthCallbackUrl"}).$promise.then(function(resultB){
+			paramRestService.getParam({code:"oauthCallbackUrlForActivity"}).$promise.then(function(resultB){
 				var oauthCallbackUrl = resultB.value
-				$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+weixinAppId+"&redirect_uri="+oauthCallbackUrl+"&response_type=code&scope=snsapi_userinfo&state=%2Factivity%2Fdetails%3Fid%3D"+activity.id+"#wechat_redirect"
+				$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+weixinAppId+"&redirect_uri="+oauthCallbackUrl+"&response_type=code&scope=snsapi_userinfo&state=%2Factivity%2F"+activity.id+"#wechat_redirect"
 			})
 		});
 	}
