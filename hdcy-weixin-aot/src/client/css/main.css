@@ -33,7 +33,7 @@ address,cite,dfn,em,var {
 /*清下划线*/
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 /*鼠标略过a标签，显示下划线*/
 a:hover {
