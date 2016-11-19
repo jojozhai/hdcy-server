@@ -27,7 +27,7 @@
 .comment-count h5 {
 	display: none;
 }
-.xxxxx href="# h5 {
+.xxxxx .comment-count h5 {
 	display: block;  
   font-size: 14px; 
   color: #494949;
@@ -129,7 +129,7 @@
   bottom: 80px;
   width: 70px;
   height: 70px;
-  background: url("../assets/images/iconfont-button.png") no-repeat;
+  background: url(../assets/images/iconfont-button.png) no-repeat;
   background-size: 100% 100%;
   border-radius: 50%;
 }

@@ -26,8 +26,6 @@ export class AppComponent {
             this.loading = loading;
         });
 
-        weixinService.weixinShareInfoChangedEvent.subscribe((event: any) => this.weixinService.configShareInfo(event));
-
         touchService.touchEvent.subscribe((event: TouchSlideEvent) => {
             if (event.direction == TouchSlideDirections.Vertical) {
                 if (event.distance > 0) {

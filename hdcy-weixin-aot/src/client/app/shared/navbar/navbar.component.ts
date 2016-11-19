@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {Router, NavigationEnd} from "@angular/router";
 import {WeixinService} from "../service/weixin.service";
 import "rxjs/add/operator/filter";
@@ -21,13 +21,13 @@ export class NavbarComponent {
 
   constructor(router: Router, private weixinService: WeixinService) {
 
-    weixinService.initWx();
-
     router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
         this.showOrHideFooter(event);
-        this.weixinService.configShareInfo(this.weixinService.defaultShareInfo);
+        this.weixinService.initWx(() => {
+          this.weixinService.configShareInfo(this.weixinService.defaultShareInfo);
+        });
       });
   }
 

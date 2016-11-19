@@ -36,7 +36,8 @@ angular.module('lotteryAdminModule',[]).config(function($stateProvider) {
 			recommend: false,
 			prizes: [],
 			limit: 3,
-			enable: false
+			enable: false,
+			finish: false
 		});
 	}
 	

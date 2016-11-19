@@ -25,6 +25,7 @@ public class ActivitySpec extends PzSimpleSpecification<Activity, ActivityInfo> 
 		addLikeCondition(queryWraper, "name");
 		addEqualsCondition(queryWraper, "finish");
 		addEqualsCondition(queryWraper, "top");
+		addEqualsCondition(queryWraper, "enable");
 		
 		if(getCondition().getSignFinish() != null) {
 		    if(getCondition().getSignFinish()) {
