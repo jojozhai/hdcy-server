@@ -25,10 +25,13 @@ html,body {
 
 section .cfrist {
 	text-indent: 2em;
+	margin-bottom: 20px;
 }
-
-.csecond {
-	margin-top: 20px;
+.agree-list ol {
+	text-indent: 2em;
+}
+.blod {
+	font-weight: bold;
 }
 .contact {
 	background: url(../images/editbg.png) no-repeat;
@@ -37,6 +40,7 @@ section .cfrist {
 	font-size: 14px;
 	color: #DDDDDD;	
 	height: 100%;
+	overflow-y: auto;
 }
 .contact ul h3 {
 	padding: 35px 0 20px;

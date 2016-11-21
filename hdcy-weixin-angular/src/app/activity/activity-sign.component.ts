@@ -37,9 +37,8 @@ export class ActivitySignComponent implements OnInit {
 			alert("请填写完整信息");
 		} else{
 			if ($(".tel-input").val().length>11||$(".tel-input").val().length<11) {
-				alert("手机号位数不对");				
+				alert("请填写正确的手机号");				
 			} else{
-//				realname:this.realname,mobile:this.mobile,
 				this.activityService.sign({activityId: this.activityId, message: this.message})
 			}
 			

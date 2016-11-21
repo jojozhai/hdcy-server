@@ -3,7 +3,7 @@
 	background: url(../../assets/images/editbg.png) no-repeat;
 	background-size: 100% 100%;	
 }
-.aboutboxs {
+.aboutboxs,.contact,.company {
 	overflow-y: auto;
 }
 .aboutboxs li {
@@ -49,12 +49,16 @@
 .company section{
 	line-height: 22.5px;
 } 
-section 
-.cfrist {
-	text-indent: 2em;	
+section .cfrist {
+	text-indent: 2em;
+	margin-bottom: 20px;	
 }
-.csecond {
-	margin-top: 20px;
+.agree-list ol {
+	text-indent: 2em;
+}
+
+.blod {
+	font-weight: bold;
 }
 /*联系我们*/
 .contact {
