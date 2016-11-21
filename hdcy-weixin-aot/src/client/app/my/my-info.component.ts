@@ -146,7 +146,7 @@ export class MyInfoComponent implements OnInit {
     }
 
     uploadHeadImg() {
-        this.weixinService.fileUpload();
+        // this.weixinService.fileUpload();
     }
 
 // 城市编辑

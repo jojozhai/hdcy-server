@@ -1,50 +1,52 @@
 <div class="video-header">
-	<h3>
+    <h3>
         <a routerLink="/video" class="back"></a>
         <span class="video-title">{{video.name}}</span>
     </h3>
 </div>
-<div class="detai-cnts1" >
-	<div class="zhibo">
-		<!--<div [innerHtml]="videoFrame" class="zhiiboa-video"></div>-->
-    	<video width="" height="250" src={{video.url2}} controls="controls">
-			当前浏览器不支持 video直接播放，点击这里下载视频： <a href={{video.url2}}>下载视频</a>
-		</video>
-    <!--<div class="zhibo-txts">
-        <div class="video-name">
-            <span class="zhibo-icon">
-            	<img [src]="video.sponsorImage">
-            </span>
-            <span class="video-name1">{{video.sponsorName}}</span>
-        </div>
-    </div>-->
-	</div>
+<div class="detai-cnts1">
+    <div class="zhibo">
 
-	<div class="video-descom" [style.height.px]="detailboxHeight">
-		<div class="video-descs">
-			<h3 class="video-destit">简介</h3>
-			<div class="video-desc" [innerHTML]="video.desc"></div>
-		</div>
-		<comment-list [withReply]="true" styleType="video" [targetId]="video.id" target="video" class="video-com"></comment-list>
-	</div>
+        <div [innerHtml]="videoFrame" class="zhiiboa-video"></div>
+        <!--<video width="100%" src={{video.url2}} controls="controls">-->
+            <!--当前浏览器不支持 video直接播放，点击这里下载视频： <a href={{video.url2}}>下载视频</a>-->
+        <!--</video>-->
+        <!--<div class="zhibo-txts">
+            <div class="video-name">
+                <span class="zhibo-icon">
+                    <img [src]="video.sponsorImage">
+                </span>
+                <span class="video-name1">{{video.sponsorName}}</span>
+            </div>
+        </div>-->
+    </div>
+
+    <div class="video-descom" [style.height.px]="detailboxHeight">
+        <div class="video-descs">
+            <h3 class="video-destit">简介</h3>
+            <div class="video-desc" [innerHTML]="video.desc"></div>
+        </div>
+        <comment-list [withReply]="true" styleType="video" [targetId]="video.id" target="video"
+                      class="video-com"></comment-list>
+    </div>
 </div>
 <div class="guanzhu clear">
-	<div class="guanzhu-logo fl">
-		<div class="fouce-logo">
-			<img src="../../assets/images/logos.png" />
-		</div>
-		<div class="fouce-imgtxt">
-			<img src="../../assets/images/guanzhudes.png" />
-		</div>
-	</div>
-	<div class="guanzhu-txt" (click)="focus(true)">
-		<span>立即关注</span>
-	</div>
+    <div class="guanzhu-logo fl">
+        <div class="fouce-logo">
+            <img src="../../assets/images/logos.png"/>
+        </div>
+        <div class="fouce-imgtxt">
+            <img src="../../assets/images/guanzhudes.png"/>
+        </div>
+    </div>
+    <div class="guanzhu-txt" (click)="focus(true)">
+        <span>立即关注</span>
+    </div>
 
 </div>
 <div class="chatcode" [ngStyle]="{'display': chatcode}">
-	<div class="chatbg" (click)="focus(false)"></div>
-	<div class="chat">
-		<img src="../../assets/images/chat.png" />
-	</div>
+    <div class="chatbg" (click)="focus(false)"></div>
+    <div class="chat">
+        <img src="../../assets/images/chat.png"/>
+    </div>
 </div>

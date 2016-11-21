@@ -6,8 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ActivityService} from "./activity.service";
 import {LoadingService} from "../shared/service/loading.service";
 import {environment} from "../shared/config/env.config";
-import {TouchService, TouchSlideEvent, TouchSlideDirections} from "../shared/service/touch.service";
 import {DomSanitizer} from "@angular/platform-browser";
+import {WeixinShareInfoChangedEvent, WeixinService} from "../shared/service/weixin.service";
 
 @Component({
     moduleId: module.id,
@@ -36,7 +36,7 @@ export class ActivityDetailComponent implements OnInit {
 
     constructor(private activityService: ActivityService,
                 private route: ActivatedRoute,
-                private router: Router, private loadingService: LoadingService, private domSanitizer:DomSanitizer) {
+                private router: Router, private loadingService: LoadingService, private weixinService: WeixinService, private domSanitizer:DomSanitizer) {
 
     }
 
@@ -57,11 +57,17 @@ export class ActivityDetailComponent implements OnInit {
 
     ngOnInit() {
         this.loadingService.loadingEvent.emit(true);
+
         this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
             this.activity = value;
             this.initSignText();
             this.imgDivWidth = this.activity.images.length * 108;
             this.content = this.domSanitizer.bypassSecurityTrustHtml(value.desc);
+
+            this.weixinService.initWx(() => {
+                this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.name, value['image']));
+            });
+
             this.loadingService.loadingEvent.emit(false);
         });
     }

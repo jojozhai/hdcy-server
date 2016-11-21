@@ -34,21 +34,24 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	}
 	
 	$scope.editContent = function(video) {
-		$uibModal.open({
-			size: "lg",
-			templateUrl : 'admin/views/umeditor.html',
-			controller: 'umeditorCtrl',
-			resolve: {
-		        domain : function() {return video;},
-		        params : function() {
-		        	return {
-		        		target: 'video',
-		        		targetId: video.id,
-		        		targetProp: 'desc'
-		        	}
-		        }
-			}
-		})
+		
+		window.open('index.html#/umeditor?target=video&targetId='+video.id+"&targetProp=desc");
+		
+//		$uibModal.open({
+//			size: "lg",
+//			templateUrl : 'admin/views/umeditor.html',
+//			controller: 'umeditorCtrl',
+//			resolve: {
+//		        domain : function() {return video;},
+//		        params : function() {
+//		        	return {
+//		        		target: 'video',
+//		        		targetId: video.id,
+//		        		targetProp: 'desc'
+//		        	}
+//		        }
+//			}
+//		})
 	}
 
 	$scope.save = function(video){

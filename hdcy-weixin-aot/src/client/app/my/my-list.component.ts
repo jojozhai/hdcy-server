@@ -3,6 +3,7 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {UserService} from "../shared/service/user.service";
+import {environment} from "../shared/config/env.config";
 
 @Component({
     moduleId: module.id,
@@ -20,7 +21,12 @@ export class MyListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.userService.getCurrentUserInfo().subscribe(res => this.user = res.json(), err => this.userService.handleException(err));
+        if (environment.userToken) {
+            this.userService.getCurrentUserInfo().subscribe(res => this.user = res.json(), err => this.userService.handleException(err));
+        } else {
+            this.userService.login();
+        }
+
     }
 
 }
