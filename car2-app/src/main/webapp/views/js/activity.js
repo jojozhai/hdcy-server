@@ -59,12 +59,19 @@ $(function() {
 	}
 	var Request = new Object();
 	Request = GetRequest();
-	var id = Request.id;	
+	var id = Request.id;
+	$(".more a").attr('href','http://cdn.haoduocheyou.com/#/comment?target=activity&targetId='+id+'&withReply=true')
 	$.ajax({
 		type: "get",
 		url: "/app2/activity/" + id,
 		dataType: "json",
 		success: function(obj) {
+			var viewtime=new Date().getTime();			
+			if (viewtime>obj.signEndTime) {
+				$(".sign a").removeClass('xiansign');
+				$(".sign a").addClass('activity-ends');
+				$(".sign activity-ends").html("报名已截止")
+			} 
 			$(".actDetail-imgsCon").width(108 * obj.images.length);
 			$(".actDetail-tit").html(obj.name);
 			$(".actDetail-con").html(obj.desc);
@@ -73,6 +80,9 @@ $(function() {
 			$(".zhuban-time").html(starTime.Format());			
 			$(".zhuban-city").html((obj.province ? obj.province : "" )+ obj.city + obj.address);
 			$(".zhuban-price").html(obj.price ? obj.price : "免费");
+			$(".kefu-telimg").attr('src',obj.waiterInfo.image);
+			$(".kefu-mes").html(obj.waiterInfo.name+"："+obj.waiterInfo.phone);
+			$(".caozuo a").attr('href',obj.waiterInfo.phone);
 			//$(".comzixun").html("活动咨询("+obj.)
 			for(var i = 0; i < obj.images.length; i++) {
 				var smallImg = $('<div class="actDetail-img">\
@@ -180,11 +190,37 @@ $(function() {
 		$(".con-downs").css('display','inline-block');
 		$(".con-ups").hide();
 	})
+	
 	$(".steam").on('click',function () {
 		$(".telss").show();
 	})
+	$(".guaduan").on('click',function () {
+		$(".telss").hide();
+	})
 	$(".telbg").on('click',function () {
 		$(".telss").hide();
+	})
+//	立即报名
+	$('.xiansign').on('click',function (){
+		 var request = new XMLHttpRequest();         
+         request.onreadystatechange = function () {
+        	if (request.status == 401||request.status == 403) {
+          		var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
+				var url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+				"appid=" + weixinAppId +
+				"&redirect_uri=" + oauthCallbackUrl +
+				"&response_type=code" +
+				"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+				"&state=" + encodeURIComponent($location.url()) + 
+				"#wechat_redirect";
+				window.location.href = url;
+         	}else if(request.readyState == 4 && request.status == 200) {
+         		window.location.href='activitysign.html?id='+id;
+         	}
+        	      
+         };
+         request.open("get", "/app2/user/current");               
+         request.send();   
 	})
 	
 

@@ -77,7 +77,7 @@
 	background-size: 100% 100%;
 }
 .zhibo {
-	text-align: center;
+	/*text-align: center;*/
     position: relative;
     background: #000000;
 }
@@ -105,7 +105,7 @@
 }
 .zhibo-tit {
     color: white;
-    margin-left: 34px;
+    margin-left: 20px;
 }
 .videoTime-txt {
     margin: 12px 0 24px;
@@ -184,6 +184,7 @@
 	padding: 0px 12px 0;	
 	word-break: break-all;
 	margin-top: 19px;
+	color: white;
 }
 
 .zbjiaoliu {

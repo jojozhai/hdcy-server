@@ -73,8 +73,7 @@
 	background-size: 100% 100%;
 }
 .zhibo {
-    position: relative;
-    text-align: center;
+    position: relative;    
     background: #000000;
 }
 
@@ -103,7 +102,7 @@
 }
 .zhibo-tit {
     color: white;
-    margin-left: 34px;
+    margin-left: 20px;
 }
 .videoTime-txt {
     margin: 12px 0 24px;
@@ -181,6 +180,7 @@
 .zbjianjie {
 	padding: 19px 12px;	
 	word-break: break-all;
+	color: white;
 }
 
 .zbjiaoliu {
