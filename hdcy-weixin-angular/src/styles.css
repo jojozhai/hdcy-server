@@ -168,6 +168,7 @@ input,textarea {
 .commments .commmentList-ri,.commments .relayList {
 	width: 295px;
 }
+
 .xxxxx .commmentList-ri,.xxxxx .relayList {
 	width: 305px;
 }
@@ -226,7 +227,7 @@ input,textarea {
 .video-descom .commments .commmentList-cons {
 	color: white;
 }
-.commments .commmentList-con,.commments .commmentList-cons, .xxxxx .commmentList-cons,.xxxxx .commmentList-con,{
+.commments .commmentList-con,.commments .commmentList-cons, .xxxxx .commmentList-cons,.xxxxx .commmentList-con{
   font-size: 13px;
   line-height: 19px;
   color: #494949;   
@@ -453,6 +454,9 @@ input,textarea {
     border-left: 3px solid white;
     padding: 2.5px 0 2.5px 12px;
     font-size: 15px;
+}
+.videos .commmentList-con,.videos .commmentList-cons {
+	color: white;
 }
 .videos .commment-con li {
 	padding: 12px 0;

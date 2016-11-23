@@ -420,7 +420,9 @@ input,textarea {
   background: url(../assets/images/txt-btn.png) no-repeat;
   background-size: 100% 100%;
 }
-
+.videos .commmentList-con,.videos .commmentList-cons {
+	color: white;
+}
 .videos .replayLists {	
 	margin-left: 45px;
     background: #39627F;
