@@ -93,6 +93,7 @@ section .cfrist {
 	color: #DDDDDD;
 	line-height: 16.5px;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .agreement h4 {
 	color: white;
