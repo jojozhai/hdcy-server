@@ -48,7 +48,10 @@
 	overflow: auto;
 	background:rgb(27,50,68) ;
 }
-
+.video-descom section {
+	overflow-y: auto;
+	box-sizing: border-box;
+}
 .video-descs {
 	color: white;
 	padding: 12px 12px 0;
@@ -178,8 +181,9 @@
 	background-size: 100% 100%;
 }
 .zbjianjie {
-	padding: 19px 12px;	
+	padding: 0px 12px 0;	
 	word-break: break-all;
+	margin-top: 19px;
 	color: white;
 }
 
