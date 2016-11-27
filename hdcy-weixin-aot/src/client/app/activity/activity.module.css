@@ -180,6 +180,7 @@
 }
 .signboxs {
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 	margin-top: 50px;
 }
 .mid-txt {

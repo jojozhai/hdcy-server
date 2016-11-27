@@ -5,6 +5,7 @@
 }
 .aboutboxs,.contact,.company,.focus {
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .aboutboxs li {
 	width: 100%;

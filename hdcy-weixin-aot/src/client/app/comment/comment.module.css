@@ -5,6 +5,7 @@
 	margin-top: 48px;
 	width: 100%;	
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .comment-count {  
   padding: 10px 12px;  
@@ -49,6 +50,7 @@
 	padding: 16px 12px 0;
 	box-sizing: border-box;	
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .video-descom .commment-con {
 	border-top: 1px solid transparent;

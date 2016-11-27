@@ -70,6 +70,7 @@
 .daka-detail {
 	margin-top: 48px;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 .dakade-tit {
 	width: 375px;

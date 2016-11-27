@@ -379,6 +379,7 @@ input,textarea {
 }
 .cnts,.boxs {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 /*直播预告*/
 .videos .commmentList-up {

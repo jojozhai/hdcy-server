@@ -7,14 +7,15 @@
     -webkit-transform:translateZ(0);
     transform:translateZ(0);
 }
-.dropload-down{
+/*.dropload-down{
     height: 50px;
-}
+}*/
 .dropload-refresh,.dropload-update,.dropload-load,.dropload-noData{
     height: 50px;
     line-height: 50px;
     text-align: center;
 }
+
 .dropload-load .loading{
     display: inline-block;
     height: 15px;

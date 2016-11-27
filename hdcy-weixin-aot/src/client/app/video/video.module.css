@@ -46,10 +46,12 @@
 }
 .video-descom {
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 	background:rgb(27,50,68) ;
 }
 .video-descom section {
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 	box-sizing: border-box;
 }
 .video-descs {

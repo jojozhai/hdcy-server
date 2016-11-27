@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 	Date.prototype.Format = function(format) {
 		format ? format : format = "yyyy-MM-dd ";
 		var o = {
@@ -20,7 +20,7 @@ $(function(){
 		}
 		return format;
 	};
-	
+
 	function GetRequest() {
 		var url = location.search;
 		var theRequest = new Object();
@@ -37,112 +37,116 @@ $(function(){
 	Request = GetRequest();
 	var id = Request.id;
 	$.ajax({
-		type:"get",
-		url:"/app2/contrary/483851",
-		dataType: "json",
-		success: function(obj) {			
-			$(".topic-img").attr('src',obj.image);
-			$(".topic-tit").html(obj.name);
-			$(".topic-con").html(obj.desc);
-			var counts=obj.redCount/(obj.blueCount+obj.redCount)*100;
-			$(".red-num").css('width',counts+"%");
-			$(".blue-num").css('width',(100-counts)+"%");
-			$(".redtopic-num").html(obj.redCount);
-			$(".bluetopic-num").html(obj.blueCount);
-			$(".redtopic").html("观点："+obj.redButton);
-			$(".bluetopic").html("观点："+obj.blueButton)
-		}
-	});
-	$(".con-downs").on('click',function(){
-		$(".topic-con").css('height','auto');
-		$(".con-ups").css('display','inline-block');
-		$(".con-downs").hide();
-	})
-	$(".con-ups").on('click',function(){
-		$(".topic-con").css('height','60px');
-		$(".con-downs").css('display','inline-block');
-		$(".con-ups").hide();
-	})
-	 var pageStart=0,pageEnd=0,page=-1;
-    $(".topic-cons").dropload({
-        scrollArea:window,
-        loadDownFn:function (me) {
-            page++;
-            
-	$.ajax({
-		type:"get",
-		url:"/app2/contraryParticipator",
-		data: {
-			contraryId:'483851',
-			page:page,
-			size:'10',
-			sort:'createdTime,desc'
-		},
+		type: "get",
+		url: "/app2/contrary/483851",
 		dataType: "json",
 		success: function(obj) {
-			console.log(obj)
-			pageStart = page;
-            pageEnd = pageStart+1;
-			var suportnum=obj.red.content.concat(obj.blue.content).length;
-			var j=-1,x=-1;
-		for(var i = pageStart; i < pageEnd; i++){
-			for (var i=0;i<suportnum;i++) {				
-				if (i%2==0) {	
-					j++;					
-					if (j<obj.red.content.length) {
-						var createdTime = new Date(obj.red.content[j].createdTime);						
-						var liodd=$('<li class="redsupport-list clear">'+
-							'<img class="redsupport fl" src="'+obj.red.content[j].headimgurl+'"/>'+
-							'<div class="redsupport-cons fl">'+
-								'<div class="redsup-nickname"></div>'+
-								'<div class="redsupport-con">'+
-									'<span>'+obj.red.content[j].content+'</span>'+
-									'<div class="redsup-time">'+createdTime.Format()+'</div>'+
-								'</div>'+
-							'</div>'+
-							'</li>');
-							$(".topic-cons").append(liodd);						
-					} 
-					
-				}else{
-					x++;
-					if (x<obj.blue.content.length) {
-						var lieven=$('<li class="bluesupport-list clear">'+
-								'<img class="bluesupport fr" src="img/huati.png"/>'+
-								'<div class="bluesupport-cons fr">'+
-									'<div class="bluesup-nickname"></div>'+
-									'<div class="redsupport-con">'+
-										'<span>'+obj.blue.content[j].content+'</span>'+
-										'<div class="redsup-time">2016-03-12</div>'+
-									'</div>'+
-								'</div>'+
-								'</li>');
-							$(".topic-cons").append(lieven);
-					}
-						
-				}
-			}
-			
-			 if((i + 1) >=suportnum ){
-			 	console.log(suportnum,i)
-                            // 锁定
-                            me.lock();
-                            // 无数据
-                            me.noData();
-                            break;
-            }
-		}
-		
+			$(".topic-img").attr('src', obj.image);
+			$(".topic-tit").html(obj.name);
+			$(".topic-con").html(obj.desc);
+			var counts = obj.redCount / (obj.blueCount + obj.redCount) * 100;
+			$(".red-num").css('width', counts + "%");
+			$(".blue-num").css('width', (100 - counts) + "%");
+			$(".redtopic-num").html(obj.redCount);
+			$(".bluetopic-num").html(obj.blueCount);
+			$(".redtopic").html("观点：" + obj.redButton);
+			$(".bluetopic").html("观点：" + obj.blueButton)
 		}
 	});
-	
-	
-	 }
- })
-	$(".support-red").on('click',function(){
-		
+	$(".con-downs").on('click', function() {
+		$(".topic-con").css('height', 'auto');
+		$(".con-ups").css('display', 'inline-block');
+		$(".con-downs").hide();
 	})
-	$(".support-blue").on('click',function(){
-		
+	$(".con-ups").on('click', function() {
+		$(".topic-con").css('height', '60px');
+		$(".con-downs").css('display', 'inline-block');
+		$(".con-ups").hide();
+	})
+	var pageStart = 0,
+		pageEnd = 0,
+		page = -1;
+	$(".topic-cons").dropload({
+		scrollArea: window,
+		loadDownFn: function(me) {
+			page++;
+
+			$.ajax({
+				type: "get",
+				url: "/app2/contraryParticipator",
+				data: {
+					contraryId: '483851',
+					page: "0",
+					size: '10',
+					sort: 'createdTime,desc'
+				},
+				dataType: "json",
+				success: function(obj) {
+					console.log(obj)
+					pageStart = page;
+					pageEnd = pageStart + 1;
+					var suportnum;
+					var j = -1,
+						x = -1;
+					for(var i = pageStart; i < pageEnd; i++) {
+						suportnum = obj.red.content.concat(obj.blue.content).length;
+						for(var i = 0; i < suportnum; i++) {
+							if(i % 2 == 0) {
+								j++;
+								if(j < obj.red.content.length) {
+									var createdTime = new Date(obj.red.content[j].createdTime);
+									var liodd = $('<li class="redsupport-list clear">' +
+										'<img class="redsupport fl" src="' + obj.red.content[j].headimgurl + '"/>' +
+										'<div class="redsupport-cons fl">' +
+										'<div class="redsup-nickname"></div>' +
+										'<div class="redsupport-con">' +
+										'<span>' + obj.red.content[j].content + '</span>' +
+										'<div class="redsup-time">' + createdTime.Format() + '</div>' +
+										'</div>' +
+										'</div>' +
+										'</li>');
+									$(".topic-cons").append(liodd);
+								}
+
+							} else {
+								x++;
+								if(x < obj.blue.content.length) {
+									var lieven = $('<li class="bluesupport-list clear">' +
+										'<img class="bluesupport fr" src="img/huati.png"/>' +
+										'<div class="bluesupport-cons fr">' +
+										'<div class="bluesup-nickname"></div>' +
+										'<div class="redsupport-con">' +
+										'<span>' + obj.blue.content[j].content + '</span>' +
+										'<div class="redsup-time">2016-03-12</div>' +
+										'</div>' +
+										'</div>' +
+										'</li>');
+									$(".topic-cons").append(lieven);
+								}
+
+							}
+						}
+						if((i + 1) >= suportnum) {
+							// 锁定
+							me.lock();
+							// 无数据
+							me.noData();
+							break;
+						}
+					}
+					setTimeout(function() {
+						me.resetload();
+					}, 400);
+				}
+			});
+
+		}
+	})
+	$(".support-red").on('click', function() {
+		$(".topic-mes").show();
+		$(".votes-tit").html()
+	})
+	$(".support-blue").on('click', function() {
+		$(".topic-mes").show();
 	})
 })
