@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sign.css" />
+		<title></title>
+	</head>
+
+	<body>
+		<div class="header">
+			<h3>
+      			<a href="" class="back"></a>
+      			<span>写留言</span>
+   			</h3>
+		</div>
+		<div class="signboxs" >
+			<div class="signmes">
+				<div class="sign-myinfo">
+					<section class="sign-names">
+						<div class="clear">
+							<img class="fl" src="images/must.png" />
+							<span class="mid-txt fl">姓名</span>
+							<span class="must-txt fl">(必填)</span>
+						</div>
+						<div class="">
+							<input class="name-input" type="text" [(ngModel)]="name" name="" value="" placeholder="请填写姓名" />
+						</div>
+					</section>
+					<section>
+						<div class="clear">
+							<img class="fl" src="images/must.png" />
+							<span class="mid-txt fl">手机号码</span>
+							<span class="must-txt fl">(必填)</span>
+						</div>
+						<div class="">
+							<input class="tel-input" type="tel" [(ngModel)]="telphone" name="" value="" placeholder="请填写手机号" />
+						</div>
+					</section>
+
+				</div>
+				<div class="commentArea-con">
+					<textarea class="commentArea" (focus)="clean()" [(ngModel)]="message" maxlength="70"></textarea>
+					<span class="signnum">70</span>
+				</div>
+
+			</div>
+			<div class="signbtn">
+				<a class="comment-fs">立即报名</a>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/signs.js" type="text/javascript" charset="utf-8"></script>
+</html>
