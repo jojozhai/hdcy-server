@@ -27,7 +27,7 @@ import com.ymt.mirage.hdcy.service.ScheduleService;
 @Service("scheduleService")
 @Transactional
 public class ScheduleServiceImpl implements ScheduleService {
-	
+	 
 	@Autowired
 	private ParticipationRepository participationRepository;
 	
@@ -53,7 +53,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Scheduled(cron = "0 */1 * * * *")
     public void articleEnableSchedule() {
         logger.info("检查资讯状态");
-        List<Article> articles = articleRepository.findByEnableIsFalseAndEnabledIsFalseAndEnableDateBefore(new Date());
+        List<Article> articles = articleRepository.findByEnableIsFalseAndEnableDateBefore(new Date());
         for (Article article : articles) {
             article.setEnable(true);
             article.setEnabled(true);

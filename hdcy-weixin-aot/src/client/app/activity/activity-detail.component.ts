@@ -58,16 +58,12 @@ export class ActivityDetailComponent implements OnInit {
     ngOnInit() {
         this.loadingService.loadingEvent.emit(true);
 
-        this.activityService.get(this.route.snapshot.params['id']).subscribe(value => {
+        this.activityService.get(this.route.snapshot.params['id']).subscribe((value:any) => {
             this.activity = value;
             this.initSignText();
             this.imgDivWidth = this.activity.images.length * 108;
             this.content = this.domSanitizer.bypassSecurityTrustHtml(value.desc);
-
-            this.weixinService.initWx(() => {
-                this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.name, value['image']));
-            });
-
+            this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.name, value.image));
             this.loadingService.loadingEvent.emit(false);
         });
     }

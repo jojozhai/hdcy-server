@@ -33,15 +33,11 @@ export class ArticleDetailComponent implements OnInit {
 
     ngOnInit() {
         this.loadingService.loadingEvent.emit(true);
-        this.articleService.get(this.route.snapshot.params['id']).subscribe(value => {
+        this.articleService.get(this.route.snapshot.params['id']).subscribe((value:any) => {
             this.article = value;
             this.tagName = this.article.tagInfos[0]['name'];
             this.content = this.domSanitizer.bypassSecurityTrustHtml(value.content);
-
-            this.weixinService.initWx(() => {
-                this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.title, value['image']));
-            });
-
+            this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.title, value.image));
             this.loadingService.loadingEvent.emit(false);
         });
     }

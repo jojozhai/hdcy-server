@@ -8,6 +8,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {WeixinService} from "../shared/service/weixin.service";
 import {BaseVideoDetailComponent} from "./base-video-detail.component";
 import {LoadingService} from "../shared/service/loading.service";
+import {Http} from "@angular/http";
 
 @Component({
   moduleId: module.id,
