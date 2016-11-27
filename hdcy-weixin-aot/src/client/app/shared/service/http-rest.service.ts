@@ -82,15 +82,16 @@ export class HttpRestService {
         }
     }
 
-    login() {
-        window.location.href = this.getLoginServicePath();
+    login(urlHash?:string) {
+        toastr.info("正在获取用户信息,请稍候...");
+        window.location.href = this.getLoginServicePath(urlHash);
     }
 
-    private getLoginServicePath(): string {
+    private getLoginServicePath(urlHash?:string): string {
         if (environment.ENV == 'DEV') {
             return environment.serviceLocation + "weixin/oauth/a2?state=test";
         } else {
-            var hash = window.location.hash;
+            var hash = urlHash || window.location.hash;
             var encodedHash = encodeURIComponent(hash.substring(1, hash.length));
             var redirectUrl = encodeURIComponent(environment.appLocation + "app2/weixin/oauth/a2");
             return `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${environment.appId}&redirect_uri=${redirectUrl}&response_type=code&scope=snsapi_userinfo&state=${encodedHash}#wechat_redirect`;

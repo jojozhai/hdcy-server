@@ -4,6 +4,7 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {PraiseService} from "../shared/service/praise.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {environment} from "../shared/config/env.config";
 
 @Component({
   moduleId: module.id,
@@ -54,14 +55,19 @@ export class CommentItemComponent implements OnInit {
   }
 
   praise(comment:any) {
-    this.praiseService.create({target: 'comment', targetId: comment.id}, function (res:any) {
-      comment.praised = !comment.praised;
-      if (comment.praised) {
-        comment.praiseCount = comment.praiseCount + 1;
-      } else {
-        comment.praiseCount = comment.praiseCount - 1;
-      }
-    });
+    if (environment.userToken) {
+      this.praiseService.create({target: 'comment', targetId: comment.id}, function (res:any) {
+        comment.praised = !comment.praised;
+        if (comment.praised) {
+          comment.praiseCount = comment.praiseCount + 1;
+        } else {
+          comment.praiseCount = comment.praiseCount - 1;
+        }
+      });
+    } else {
+      this.praiseService.login();
+    }
+
   }
 
 }

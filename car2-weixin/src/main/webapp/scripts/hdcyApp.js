@@ -1787,23 +1787,24 @@ angular.module('hdcyApp', ['weixin',
 				 		}
 				 	});
 				});
-				turnplate.imgurl = [];
-				var loaded = 0;
-				for (var i = 0; i < turnplate.imgurl.length; i++) {
-					var img = new Image();
-					img.src=turnplate.imgurl[i];
-					img.onload = (function(a) {
-						return function(){
-							loaded++;
-							img=this;
+//				turnplate.imgurl = [];
+//				var loaded = 0;
+//				for (var i = 0; i < turnplate.imgurl.length; i++) {
+//					var img = new Image();
+//					img.src=turnplate.imgurl[i];
+//					img.onload = (function(a) {
+//						return function(){
+//							loaded++;
+//							img=this;
 //							if(loaded==turnplate.imgurl.length){
 //								drawRouletteWheel();
 //							}
+//							alert(1);
 							drawRouletteWheel();
 
-						}
-					})(i)
-				}
+//						}
+//					})(i)
+//				}
 				/*var loaded = 0;
 				for (var i = 0; i < turnplate.imgurl.length; i++) {
 					var img = new Image();
@@ -1817,7 +1818,7 @@ angular.module('hdcyApp', ['weixin',
 				}*/
 
 			function drawRouletteWheel() {
-				console.log(img)
+//				console.log(img)
 				var canvas = document.getElementById("wheelcanvas");
 				if (canvas.getContext) {
 					  //根据奖品个数计算圆周角度

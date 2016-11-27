@@ -5,6 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActivityService} from "./activity.service";
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../shared/config/env.config";
+import {UserService} from "../shared/service/user.service";
 
 @Component({
     moduleId: module.id,
@@ -22,25 +23,39 @@ export class ActivitySignComponent implements OnInit {
 	
 	name:string;
   	telphone:number;
-    constructor(route: ActivatedRoute, private activityService: ActivityService) {
+
+    user:any = {};
+
+    constructor(route: ActivatedRoute, private activityService: ActivityService, private userService: UserService) {
         this.activityId = route.snapshot.queryParams['id'];
         if (!environment.userToken) {
             activityService.login();
+        }else{
+            userService.getCurrentUserInfo().subscribe((res) => this.user = res.json());
         }
     }
 
     ngOnInit() {
+
     }
 
     sign() {
         if (environment.userToken) {
-            if ($(".name-input").val()==""||$(".tel-input").val()=="") {			
-				alert("请填写完整信息");
+            if (jQuery(".name-input").val()==""||jQuery(".tel-input").val()=="") {			
+				toastr.info("请填写完整信息");
 			} else{
-				if ($(".tel-input").val().length>11||$(".tel-input").val().length<11) {
-					alert("手机号位数不对");				
+				if (jQuery(".tel-input").val().length>11||jQuery(".tel-input").val().length<11) {
+                    toastr.info("手机号位数不对");
 				} else{
-					this.activityService.sign({activityId: this.activityId, message: this.message})
+                    this.userService.setUserPropertys([{
+                        name: 'realname',
+                        value: this.user.realname
+                    }, {
+                        name: 'mobile',
+                        value: this.user.mobile
+                    }]).subscribe(() => {
+                        this.activityService.sign({activityId: this.activityId, message: this.message})
+                    })
 				}
 			}
         } else {
