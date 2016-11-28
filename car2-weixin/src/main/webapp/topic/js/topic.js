@@ -38,7 +38,7 @@ $(function() {
 	var id = Request.id;
 	$.ajax({
 		type: "get",
-		url: "/app2/contrary/483851",
+		url: "/weixin2/contrary/483851",
 		dataType: "json",
 		success: function(obj) {
 			$(".topic-img").attr('src', obj.image);
@@ -75,7 +75,7 @@ $(function() {
 
 			$.ajax({
 				type: "get",
-				url: "/app2/contraryParticipator",
+				url: "/weixin2/contraryParticipator",
 				data: {
 					contraryId: '483851',
 					page: "0",
