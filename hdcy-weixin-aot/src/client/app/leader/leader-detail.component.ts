@@ -24,13 +24,9 @@ export class LeaderDetailComponent implements OnInit {
 
     ngOnInit() {
         this.loadingService.loadingEvent.emit(true);
-        this.leaderService.get(this.route.snapshot.params['id']).subscribe(value => {
+        this.leaderService.get(this.route.snapshot.params['id']).subscribe((value:any) => {
             this.leader = value;
-
-            this.weixinService.initWx(() => {
-                this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.name, value['image']));
-            });
-
+            this.weixinService.configShareInfo(new WeixinShareInfoChangedEvent(value.name, value.image));
             this.loadingService.loadingEvent.emit(false);
         });
     }
