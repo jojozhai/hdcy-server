@@ -26,7 +26,20 @@ $(function () {
 		}else if ($(".tel-input").val().length>11||$(".tel-input").val().length<11) {
 			alert("请填写正确的手机号");	
 		}else {
-			
+			var createdtime = new Date().getTime();
+			$.ajax({
+				type:"post",
+				url:"/weixin2/activityParticipator",
+				data:{
+					realname:$(".name-input").val(),
+					mobile:$(".tel-input").val(),
+					createdTime:createdtime
+				},
+				dataType: "json",
+				success: function(obj) {
+					
+				}
+			});
 		}
 	})
 })

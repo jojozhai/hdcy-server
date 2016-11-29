@@ -53,6 +53,8 @@ $(function() {
 			$(".bluetopic").html("观点：" + obj.blueButton);
 			$(".votes-tit").html(obj.redButton);
 			$(".bluevotes-tit").html(obj.blueButton);
+			$(".my-topic").html("我的观点："+obj.redButton);
+			$(".my-topics").html("我的观点："+obj.blueButton);
 		}
 	});
 	$(".con-downs").on('click', function() {
@@ -144,14 +146,45 @@ $(function() {
 
 		}
 	})
+	var flag;
 	$(".support-red").on('click', function() {
 		$(".topic-mes").show();
 		$(".votes-tit").show();
 		$(".bluevotes-tit").hide();
+		flag=1;
 	})
 	$(".support-blue").on('click', function() {
 		$(".topic-mes").show();
 		$(".votes-tit").hide();
 		$(".bluevotes-tit").show();
+		flag=0;
+	})
+	$(".think").on('click',function(){
+		$(".topic-mes").hide();
+	})
+	$(".toupiao").on('click',function(){
+		$(".topic-mes").hide();
+		$(".vote-success").show();
+		if (flag==1) {
+			$(".my-topic").show();
+			$(".my-topics").hide();
+		}else{
+			$(".my-topic").hide();
+			$(".my-topics").show();
+		}
+		$(".saytopic").val("说说你的观点吧！");	
+		$(".saytopic-num").html('70');
+	})
+	$(".finish").on('click',function(){
+		$(".vote-success").hide();
+	})
+	var textnum=70;
+	$(".saytopic").on('focus',function(){
+		$(".saytopic").val("");	
+		textnum=70
+	})
+	$(".saytopic").on('keyup',function(){		
+		txtnum=70-$(this).val().length;		
+		$(".saytopic-num").html(txtnum);
 	})
 })

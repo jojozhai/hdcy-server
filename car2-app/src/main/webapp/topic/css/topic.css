@@ -375,7 +375,8 @@ html,body {
 	margin-top: 95px;
 }
 
-.my-topic {
+.my-topic,.my-topics {
+	display: none;
 	width: 310px;
 	padding: 0 17px 23px;
 	box-sizing: border-box;

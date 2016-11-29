@@ -3,6 +3,429 @@
 	padding: 0px;
 	box-sizing: border-box;
 }
+//TODO
+
+.topicboxs {
+	width: 375px;
+	background: #f3f3f3;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.topic-img {
+	width: 375px;
+	height: 257px;
+}
+
+.topic-arti {
+	padding: 0 12px;
+	background: white;
+}
+
+.topic-tit {
+	padding: 12.5px 0;
+	text-align: center;
+	color: #494949;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #E0E0E0;
+	background: white;
+}
+
+.topic-con {
+	line-height: 21px;
+	height: 60px;
+	overflow-y: hidden;
+	margin: 8px 0 19px;
+}
+
+.downs {
+	text-align: center;
+	padding: 0 0 10px;
+}
+
+/*.con-downs {
+	display: inline-block;
+	width: 22px;
+	height: 12px;
+	background: url(../images/dow.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.con-ups {
+	display: none;
+	width: 22px;
+	height: 12px;
+	background: url(../images/up.png) no-repeat;
+	background-size: 100% 100%;
+}*/
+
+.topic-resist {
+	padding: 17px 12px 0;
+	background: white;
+	margin-top: 8px;
+}
+
+.clear:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.topics {
+	position: relative;
+	height: 167px;
+}
+
+.reds {
+	clear: both;
+}
+
+.red-img,.blue-img {
+	font-size: 14px;
+	line-height: 42px;
+	font-weight: bold;
+	text-align: center;
+	float: left;
+}
+
+.red-img {
+	width: 34px;
+	height: 42px;
+	background: url(../images/reds.png) no-repeat;
+	background-size: 100% 100%;
+	color: #F8533A;
+}
+
+.blue-img {
+	margin-left: -3px;
+	width: 37px;
+	height: 42px;
+	background: url(../images/blues.png) no-repeat;
+	background-size: 100% 100%;
+	color: #86B2FF;
+}
+
+.red-blue {
+	width: 229px;
+	float: left;
+	margin-top: 10px;
+	margin-left: -1px;
+}
+
+.red-num {
+	width: 40%;
+	height: 21px;
+	background: url(../images/red.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.blue-num {
+	width: 60%;
+	height: 19px;
+	background: url(../images/blue.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.topic-txt {
+	width: 100%;
+	clear: both;
+}
+
+.red-txt {
+	width: 50%;
+	height: 125px;
+	background: url(../images/red-bac.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+}
+
+.blue-txt {
+	width: 50%;
+	height: 125px;
+	background: url(../images/blue-bac.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+	margin-left: -3px;
+}
+
+.redtopic-num {
+	float: left;
+	margin: 8px 0 0 34px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #F8533A;
+}
+
+.bluetopic-num {
+	float: right;
+	margin: 8px 34px 0 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: #86B2FF;
+}
+
+.redtopic,.bluetopic {
+	font-size: 12px;
+	color: #494949;
+	margin-top: 50px;
+	padding: 0 8px;
+}
+
+.topic-txt {
+	position: absolute;
+	top: 27px;
+}
+
+.topic-cons {
+	width: 100%;
+	margin: 8px 0 49px;
+	background: white;
+	padding: 0px 12px 12px;
+}
+
+.redsupport,.bluesupport {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.finishs {
+	text-align: center;
+}
+.finish {
+	display: inline-block;
+	width: 90%;
+	height: 40px;
+	margin: 0 auto;
+	text-align: center;
+	background: url(../images/finish.png) no-repeat;
+	background-size: 100% 100%;
+	line-height: 40px;
+	color: white;
+	font-size: 18px;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.redsupport-cons {
+	margin-left: 5px;
+}
+
+.redsup-nickname,.bluesup-nickname {
+	color: #9B9B9B;
+	font-size: 11px;
+}
+
+.bluesup-nickname {
+	text-align: right;
+}
+
+.redsupport-con {
+	width: 200px;
+	box-sizing: border-box;
+	padding: 8px 23px 26px 23px;
+	background: url(../images/red-con.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 13px;
+	color: #494949;
+	margin-top: 8px;
+	position: relative;
+}
+.bluesupport-list .redsupport-con{
+	background: url(../images/blue-con.png) no-repeat;
+	background-size: 100% 100%;
+	
+}
+.bluesupport-list .redsupport,.bluesupport-list .redsupport-cons {
+	float: right;
+}
+.bluesupport-list .redsupport-cons {
+	margin-right: 5px;
+}
+.redsup-time {
+	position: absolute;
+	right: 23px;
+	bottom: 8px;
+	color: #9B9B9B;
+	font-size: 11px;
+}
+
+.topic-cons li {
+	padding-top: 12px;
+}
+
+.supports {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.succ-supports {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	background: red;
+	color: white;
+	text-align: center;
+	width: 100%;
+	height: 49px;
+	line-height: 49px;
+}
+
+.supports a {
+	float: left;
+	text-align: center;
+	width: 50%;
+	height: 49px;
+	line-height: 49px;
+	color: white;
+	font-size: 18px;
+}
+
+.supports a:nth-of-type(1) {
+	background: #F8533A;
+}
+
+.supports a:nth-of-type(2) {
+	background: #86B2FF;
+}
+
+.topic-mes {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.topicbg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000000;
+	opacity: 0.7;
+}
+
+.votebox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 315px;
+	background: #FFFFFF;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding: 20px 0;
+}
+
+.votebox-con {
+	padding: 0 30px;
+}
+
+.votes-tit,.bluevotes-tit {
+	display: none;
+	font-size: 15px;
+	color: #303030;
+	line-height: 22.5px;
+	margin-bottom: 20px;
+}
+
+.saytopics {
+	position: relative;
+	margin-bottom: 26px;
+}
+
+.saytopic {
+	background: #F7F7F7;
+	border: 0;
+	border-radius: 10px;
+	width: 255px;
+	height: 153px;
+	resize: none;
+	outline: none;
+	padding: 15px 17px;
+	box-sizing: border-box;
+	color: #959595;
+	font-size: 14px;
+}
+
+.saytopic-num {
+	position: absolute;
+	right: 19px;
+	bottom: 17px;
+	font-size: 12px;
+	color: #BBBBBB;
+}
+
+.topic-vote {
+	padding: 0 22px;
+}
+
+.topic-vote a {
+	width: 120px;
+	height: 40px;
+	float: left;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	line-height: 40px;
+}
+
+.topic-vote a:nth-of-type(1) {
+	background: url(../images/votebtn.png) no-repeat;
+	background-size: 100% 100%;
+	margin-right: 31px;
+}
+
+.topic-vote a:nth-of-type(2) {
+	background: #B2B2B2;
+	border-radius: 20px;
+}
+
+.vote-success {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: white;
+	text-align: center;
+}
+
+.vote-suctit {
+	margin-top: 95px;
+}
+
+.my-topic,.my-topics  {
+	display: none;
+	width: 310px;
+	padding: 0 17px 23px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #E0E0E0;
+	margin: 86px auto 34px;
+	color: #494949;
+	font-size: 12px;
+}
+
+.my-shared {
+	font-size: 12px;
+	color: #9B9B9B;
+	margin-bottom: 56px;
+}
+
+
 
 html,body {
 	height: 100%;
@@ -1252,24 +1675,29 @@ textarea {
 	font-size: 18px;
 	color: #ffffff;
 	text-align: center;
+	
 }
 
 .hdcanjia-box {
 	padding: 20px 5px 12px;
 	background: #FFFFFF;
-	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+	/*box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);*/
 	text-align: center;
 }
 
 .hdcanjia-box img {
-	width: 100px;
+	width: 122px;
+	margin-top: 70px;
 }
 
-.hdcanjia-box h2 {
-	font-size: 16px;
-	color: #000000;
-	padding: 5px;
-	font-weight: normal;
+.hdcanjia-box h2 {	
+	padding: 0 17px 23px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E0E0E0;
+    margin: 86px auto 34px;
+    color: #494949;
+    font-size: 12px;
+	font-weight: normal;	
 }
 
 .hdcanjia-box h2 span {
@@ -1284,7 +1712,8 @@ textarea {
 
 .hdcanjia-box p {
 	font-size: 12px;
-	color: #9b9797;
+    color: #9B9B9B;
+	margin-bottom: 50px;
 }
 
 .hdcanjia-box2 {
@@ -1539,19 +1968,21 @@ textarea {
 }
 
 .toupiaotan-btn a {
-	width: 84px;
-	height: 35px;
-	line-height: 35px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
 	font-size: 16px;
 	color: #000000;
 	display: inline-block;
 	background: #f0f0f0;
-	border-radius: 5px;
+	border-radius: 20px;
 }
 
 .toupiaotan-btn .active {
-	background: #fd7400;
+	background: url(../images/votebtn.png) no-repeat;
+	background-size: 100% 100%;
+	/*background: #fd7400;*/
 	color: #FFFFFF;
 	margin-right: 10px;
 }
@@ -1595,10 +2026,10 @@ textarea {
 	border: none;
 }
 
-.huodtpCntbox {
+/*.huodtpCntbox {
 	display: flex;
 	display: -webkit-flex;
-}
+}*/
 
 .huodtp-div {
 	flex: 1;
@@ -1701,7 +2132,7 @@ textarea {
 .hdtoupai_h2 {
 	font-size: 14px;
 	font-weight: normal;
-	text-align: center;
+	text-align: left;
 }
 
 .hdtoupai_h2 span {
