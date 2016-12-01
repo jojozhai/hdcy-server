@@ -78,8 +78,7 @@ html,body {
 	clear: both;
 }
 
-.red-img,
-.blue-img {
+.red-img,.blue-img {
 	font-size: 14px;
 	line-height: 42px;
 	font-weight: bold;
@@ -246,6 +245,17 @@ html,body {
 	bottom: 0;
 	width: 100%;
 }
+.succ-supports {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	background: red;
+	color: white;
+	text-align: center;
+	width: 100%;
+	height: 49px;
+	line-height: 49px;
+}
 
 .supports a {
 	float: left;
@@ -375,7 +385,7 @@ html,body {
 	margin-top: 95px;
 }
 
-.my-topic,.my-topics {
+.my-topic,.my-topics  {
 	display: none;
 	width: 310px;
 	padding: 0 17px 23px;

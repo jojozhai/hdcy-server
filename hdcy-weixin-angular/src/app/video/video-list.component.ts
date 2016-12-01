@@ -16,6 +16,8 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   videos: Array<any>;
 
+  totalvideos;
+  
   topVideos: Array<any>;
 
   condition = {enable: 'true', liveForWeixin: 'true', top: 'false'};
@@ -41,6 +43,8 @@ export class VideoListComponent extends ListComponent implements OnInit {
     this.loadingService.loadingEvent.emit(true);
     this.videoService.query(super.buildCondition(this.condition)).subscribe(res => {
       this.videos = res.json().content;
+      this.totalvideos=res.json().totalPages;
+      console.log(this.totalvideos)
       this.loadingService.loadingEvent.emit(false);
     });
     this.videoService.query(super.buildCondition({

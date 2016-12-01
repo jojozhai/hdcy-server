@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
-		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/topic.css" />
 		<link rel="stylesheet" type="text/css" href="css/dropload.css" />
 		<title></title>
@@ -48,6 +48,9 @@
 			<div class="supports">
 				<a class="support-red">我支持红方</a>
 				<a class="support-blue">我支持蓝方</a>
+				<div class="succ-supports">
+					您已经投过票了
+				</div>
 			</div>
 		</div>
 		<div class="topic-mes">
@@ -57,11 +60,11 @@
 					<div class="votes-tit"></div>
 					<div class="bluevotes-tit"></div>
 					<div class="saytopics">
-						<textarea class="saytopic" name="" rows="" cols="">说说你的观点吧！</textarea>
+						<textarea class="saytopic" name="" rows="" cols="" placeholder="说说你的观点吧！"></textarea>
 						<span class="saytopic-num">70</span>
 					</div>
 				</div>
-				<div class="topic-vote">
+				<div class="topic-vote clear">
 					<a class="toupiao">投出一票</a>
 					<a class="think">朕再想想</a>
 				</div>
@@ -70,12 +73,8 @@
 		<!--投票成功-->
 		<div class="vote-success">
 			<img class="vote-suctit" src="img/success.png" />
-			<div class="my-topic">
-				我的观点：放盐啊，吃完之后唇齿留香，回味无穷。
-			</div>
-			<div class="my-topics">
-				我的观点：放tang啊，吃完之后唇齿留香，回味无穷。
-			</div>
+			<div class="my-topic"></div>
+			<div class="my-topics"></div>
 			<div class="my-shared">
 				点击右上角分享到朋友圈，让小伙伴们帮你投票吧！
 			</div>
@@ -84,10 +83,11 @@
 		</div>
 
 	</body>
-	<script src="../js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/topic.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/dropload.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		
+	
 	</script>
 </html>

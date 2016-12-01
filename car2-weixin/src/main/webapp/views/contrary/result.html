@@ -1,15 +1,16 @@
-<div class="headBox">
+<!--<div class="headBox">
 	<div class="head">
 		<h2 style="padding: 0px 20px;">{{participator.contraryName}}</h2>
 	</div>
-</div>
-<div class="hd-add">
+</div>-->
+<div class="">
 	<div class="hdcanjia-box">
-		<img src="images/img-06.png"  />
+		<img src="images/success.png"/>
 		<h2>投票成功，您已加入<label>{{participator.red?'红':'蓝'}}方</label>战队。</h2>
-		<p>请点击右上角按钮分享活动到朋友圈，让你的小伙伴们也参与讨论吧~</p>
+		<p>点击右上角分享到朋友圈，让小伙伴们帮你投票吧！</p>
+		
 	</div>
-	<div class="hdcanjia-box2 zftoupiaoBox">
+	<!--<div class="hdcanjia-box2 zftoupiaoBox">
 		<div class="hdcanjia-list">
 			<img ng-src="{{participator.contraryImage}}" class="hdcanjia-list-img"/>
 			<div class="hdcanjia-ltop">
@@ -22,10 +23,10 @@
 				{{participator.content}}
 			</div>
 		</div>
-	</div>
+	</div>-->
 </div>
 
-<div class="hd-addbtn">
-	<a ui-sref="app.contrary.details({id: participator.contraryId})">完成</a>
+<div class="finishs">
+	<a class="finish" ui-sref="app.contrary.details({id: participator.contraryId})">完成</a>
 </div>
 
