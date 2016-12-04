@@ -16,7 +16,14 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   videos: Array<any>;
 
-  totalvideos;
+  totalvideos=[1];
+  
+  num;
+  
+  totalPages;
+  
+  currentTag = 1;
+  tagWidths: number = 0;
   
   topVideos: Array<any>;
 
@@ -39,19 +46,23 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit() {  	
     this.loadingService.loadingEvent.emit(true);
     this.videoService.query(super.buildCondition(this.condition)).subscribe(res => {
       this.videos = res.json().content;
-      this.totalvideos=res.json().totalPages;
-      console.log(this.totalvideos)
+      this.totalPages=res.json().totalPages;
+      this.tagWidths=this.totalPages*48;
+      for (let i=2;i<=this.totalPages;i++) {    	
+    	this.totalvideos.push(i);    	
+   	 }
       this.loadingService.loadingEvent.emit(false);
     });
     this.videoService.query(super.buildCondition({
       top: 'true',
       liveForWeixin: 'true',
       enable: 'true'
-    })).subscribe(res => this.topVideos = res.json().content);
+    })).subscribe(res => this.topVideos = res.json().content);  
+
   }
 
   navToDetail(video) {
@@ -70,5 +81,48 @@ export class VideoListComponent extends ListComponent implements OnInit {
       }
     }
   }
-
+  
+	pages(num){		
+		if(((num-2)*48+240)<=this.tagWidths&&num>1){
+			$(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
+			
+		}else if (num==1) {
+			$(".pagescon").css('transform','translateX(0px)')
+		}
+		
+		if (this.totalPages-num<4) {
+			$(".pagescon").css('transform','translateX('+(this.totalPages-5)*(-48)+'px)')
+		}
+		$(".prev").attr('data',num);
+		$(".next").attr('data',num);
+		console.log(num)
+		this.currentTag=num;		
+	}
+	prev(num){
+		num=$(".prev").attr('data');
+		if (num>1) {
+			num--;
+			$(".prev").attr('data',num);
+			$(".next").attr('data',num);
+			this.currentTag=num;
+		}
+		if (num>2&&num<this.totalPages-2) {			
+			$(".pagescon").css('transform','translateX('+(num-3)*(-48)+'px)')
+		}		
+	}
+	next(num){
+		num=$(".next").attr('data');
+		if (num<this.totalPages) {
+			num++;
+			$(".prev").attr('data',num);
+			$(".next").attr('data',num);
+			this.currentTag=num;			
+		}
+		if (num<this.totalPages-2) {			
+			$(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
+		}
+	}
+	isActive(num){
+		return this.currentTag == num;
+	}
 }

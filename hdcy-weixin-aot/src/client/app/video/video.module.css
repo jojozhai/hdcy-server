@@ -202,3 +202,49 @@
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 }
+
+.pages {
+	position: fixed;
+	bottom: 0;
+	width: 1375px;
+	background: rgb(23,31,42);
+	color: #536579;
+	padding: 21px 0;
+	font-weight: bold;
+	text-align: center;
+}
+.pages1 {
+	display: inline-block;
+}
+.page,.page1{
+	height: 22px;
+	line-height: 22px;
+	display: inline-block;	
+	border: 1px solid #536579;
+	border-radius: 5px;
+	font-size: 18px;
+	float: left;
+	text-align: center;
+}
+.page1 {
+	width: 60px;
+}
+.page {	
+	width: 40px;
+}
+.pagess {
+	width: 240px;
+	overflow: hidden;
+	
+}
+.page,.prev {
+	margin-right: 8px;
+}
+.page1 {	
+	font-size: 14px;		
+}
+.pagescon span.active {
+	color: white;
+	border: 1px solid white;
+}
+

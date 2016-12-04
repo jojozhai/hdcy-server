@@ -4,6 +4,7 @@
             <a (click)="changeTag(0)" [class.active]="isActive(0)" [style.width.px]="tagWidth">全部</a>
             <a *ngFor="let tag of tags" (click)="changeTag(tag.id)" [class.active]="isActive(tag.id)" [style.width.px]="tagWidth">{{tag.name}}</a>
         </div>
+        
     </div>
     <ul id="contentUl" class="content" style="overflow-y:auto;" [style.height.px]="contentHeight"
         [infinite-scroll]="articles" [dataService]="articleService" [pageInfo]="pageInfo" [condition]="condition">

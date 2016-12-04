@@ -53,7 +53,8 @@ export class ArticleListComponent extends ListComponent implements OnInit {
         }
 
         this.tagService.getChild().subscribe(res => {
-            this.tags = res;            
+            this.tags = res;
+            
             if(this.tags.length+1==4){
             	this.tagWidth=93.75;
             	this.tagWidths = (this.tags.length + 1) * 93.75;
