@@ -17,8 +17,8 @@ export class VideoListComponent extends ListComponent implements OnInit {
 
   totalvideos=[1];
   
-  num;  
-  totalPages;  
+  num:any;
+  totalPages:any;
   currentTag = 1;
   tagWidths: number = 0;
   
@@ -80,48 +80,48 @@ export class VideoListComponent extends ListComponent implements OnInit {
     }
   }
   
-  pages(num){		
-		if(((num-2)*48+240)<=this.tagWidths&&num>1){
-			$(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
-			
-		}else if (num==1) {
-			$(".pagescon").css('transform','translateX(0px)')
-		}
-		
-		if (this.totalPages-num<4) {
-			$(".pagescon").css('transform','translateX('+(this.totalPages-5)*(-48)+'px)')
-		}
-		$(".prev").attr('data',num);
-		$(".next").attr('data',num);
-		console.log(num)
-		this.currentTag=num;		
-	}
-	prev(num){
-		num=$(".prev").attr('data');
-		if (num>1) {
-			num--;
-			$(".prev").attr('data',num);
-			$(".next").attr('data',num);
-			this.currentTag=num;
-		}
-		if (num>2&&num<this.totalPages-2) {			
-			$(".pagescon").css('transform','translateX('+(num-3)*(-48)+'px)')
-		}		
-	}
-	next(num){
-		num=$(".next").attr('data');
-		if (num<this.totalPages) {
-			num++;
-			$(".prev").attr('data',num);
-			$(".next").attr('data',num);
-			this.currentTag=num;			
-		}
-		if (num<this.totalPages-2) {			
-			$(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
-		}
-	}
-	isActive(num){
-		return this.currentTag == num;
-	}
+  // pages(num:any){
+	// 	if(((num-2)*48+240)<=this.tagWidths&&num>1){
+	// 		jQuery(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
+	//
+	// 	}else if (num==1) {
+	// 		jQuery(".pagescon").css('transform','translateX(0px)')
+	// 	}
+	//
+	// 	if (this.totalPages-num<4) {
+	// 		jQuery(".pagescon").css('transform','translateX('+(this.totalPages-5)*(-48)+'px)')
+	// 	}
+	// 	jQuery(".prev").attr('data',num);
+	// 	jQuery(".next").attr('data',num);
+	// 	console.log(num)
+	// 	this.currentTag=num;
+	// }
+	// prev(num:any){
+	// 	num=jQuery(".prev").attr('data');
+	// 	if (num>1) {
+	// 		num--;
+	// 		jQuery(".prev").attr('data',num);
+	// 		jQuery(".next").attr('data',num);
+	// 		this.currentTag=num;
+	// 	}
+	// 	if (num>2&&num<this.totalPages-2) {
+	// 		jQuery(".pagescon").css('transform','translateX('+(num-3)*(-48)+'px)')
+	// 	}
+	// }
+	// next(num:any){
+	// 	num=jQuery(".next").attr('data');
+	// 	if (num<this.totalPages) {
+	// 		num++;
+	// 		jQuery(".prev").attr('data',num);
+	// 		jQuery(".next").attr('data',num);
+	// 		this.currentTag=num;
+	// 	}
+	// 	if (num<this.totalPages-2) {
+	// 		jQuery(".pagescon").css('transform','translateX('+(num-2)*(-48)+'px)')
+	// 	}
+	// }
+	// isActive(num:any){
+	// 	return this.currentTag == num;
+	// }
 
 }
