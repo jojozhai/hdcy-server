@@ -229,6 +229,7 @@
 }
 .page {	
 	width: 40px;
+	box-sizing: border-box;
 }
 .pagess {
 	width: 240px;

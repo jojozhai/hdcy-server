@@ -67,7 +67,7 @@ export class CommentInputComponent implements OnInit {
       if (this.target == 'activity') {
         toastr.success('咨询信息提交成功');
       } else {
-        toastr.success('评论发布成功');
+        toastr.success('评论发布成功');         
       }
     });
   }
