@@ -616,3 +616,29 @@ input,textarea {
 .chatcode {
 	display: none;
 }
+
+.addjifen {
+	width: 200px;
+	height: 146px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	background:#1F1F1F;
+	border-radius: 10px;
+	z-index: 333666;
+	text-align: center;
+	display: none;
+}
+.jifen-img {
+	margin: 24.5px 0px 20px;
+	width: 41px;
+	height: 36px;
+}
+.jifen-txt {
+	color: white;
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: 13px;
+}

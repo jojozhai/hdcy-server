@@ -185,3 +185,8 @@
 .zbjiaoliu .commments {
 	background: transparent;
 }
+.addjifen {
+	display: none;
+	position: absolute;
+	top: 0;
+}
