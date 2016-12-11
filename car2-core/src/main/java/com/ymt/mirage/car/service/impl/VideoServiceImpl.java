@@ -79,6 +79,7 @@ public class VideoServiceImpl implements VideoService {
             info.setSponsorImage(video.getSponsor().getImage());
             info.setSponsorId(video.getSponsor().getId());
         }
+        video.setViewCount(video.getViewCount() + 1);
         return info;
     }
 
