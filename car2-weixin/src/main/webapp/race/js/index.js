@@ -37,7 +37,7 @@ function loadImg(arr,fn){
 function home () {
 	$(".home").show()
 }
-var weixinAppId = wxce8eb11c51670a1d;
+var weixinAppId = "wxce8eb11c51670a1d";
 var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
 var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
 
