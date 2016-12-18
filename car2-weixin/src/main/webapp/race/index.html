@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title>车友飙车</title>
@@ -23,15 +22,29 @@
 			</div>
 			<img class="start" src="image/start.png"/>
 		</div>
-		<!--<canvas id="canva1" width="" height=""></canvas>
-		<canvas id="canva2" width="" height=""></canvas>-->
 		<div class="game">
+			<canvas id="canvas" width="" height=""></canvas>
 			<canvas id="canva1" width="" height=""></canvas>
 			<canvas id="canva2" width="" height=""></canvas>
-		</div>	
-
+		</div>
+		<div class="countdown"></div>
+		<div class="gameover">
+				<img class="over-logo" src="image/game-over.png" alt="">
+				<ul class="ranking">
+					<li class="distance">距离：10</li>
+					<li class="paiming">排名：23</li>
+				</ul>
+				<img class="replay" src="image/replay.png" alt="">
+				<div class="share">
+					<img class="share1" src="image/share.png" alt="">
+					<div class=" share2">
+						<img src="image/share1.png" alt="">
+					</div>
+				</div>
+		</div>
 	</body>
 	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
