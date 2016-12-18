@@ -46,21 +46,22 @@ var scoreNum = 0;//分数
 var distance=0;//距离
 // 食物的数组，创建速度
 var monsters = [];
+var carmonsters = [];
 var createMonsterSpeed = 23;
 var monsterMoveSpeed = 1.6;
 var removeBol = false;
-
-$(".start").on('click',function () {
-	$(".home").hide();
-	$(".game").show();
+function countdown() {
 	$(".countdown").show();
+	$(".countdown").css({
+		"background": "url(image/3.png) no-repeat"
+	})
 	var num=3;
 	var timer=setInterval(function(){
 		num--;
 		if (num<1) {
 			clearInterval(timer);
 			$(".countdown").hide();
-			game();
+
 		}else {
 			$(".countdown").css({
 				"background": "url(image/"+num+".png) no-repeat"
@@ -68,7 +69,12 @@ $(".start").on('click',function () {
 		}
 
 	},1000)
-
+}
+$(".start").on('click',function () {
+	$(".home").hide();
+	$(".game").show();
+	countdown();
+	game();
 })
 
 function game () {
@@ -103,6 +109,9 @@ function game () {
 
 		},
 		move:function (){
+			if (distance==0) {
+				this.y = 0;
+			}
 			this.y++;
 			distance=this.y
 			if (this.y>=bgH){
@@ -162,7 +171,8 @@ function game () {
 		this.img = monster.img;
 	}
 	Monster.prototype.draw = function(){
-		context2.drawImage(this.img,this.drawX,this.drawY,this.w,this.h);
+		context.drawImage(this.img,this.drawX,this.drawY,this.w,this.h);
+
 	}
 	Monster.prototype.move = function(){
 		this.drawY+=this.speed;
@@ -191,12 +201,10 @@ function game () {
 			}
 		}
 	}
-	function createMonster() {
-		// 创建奖励
+	function createMonster() {// 创建奖励
 		if (frameNum%createMonsterSpeed==0) {
-
 			var monsterR=randFn(1,100);
-		if (monsterR>=0&&monsterR<=90) {//礼物
+		if (monsterR>=0&&monsterR<=80) {//礼物
 				var monster={};//存放每一个monster的信息
 				monster.w=42;
 				monster.h=45;
@@ -212,7 +220,96 @@ function game () {
 			monsters.push(monsterObj);
 		}
 	}
+	//另一个赛道
+	function carMonster(monster){
+		this.w = monster.w;
+		this.h = monster.h;
+		var monsterdrawxR = randFn(0,2);
+		var monsterdrawxArr = [0.170,0.570];
+		this.drawX = monsterdrawxArr[monsterdrawxR]*canvas2.width;
+		this.drawY = -monster.h;
+		this.score = monster.score;
+		this.speed = monsterMoveSpeed+0.2*randFn(0,3);
+		this.survival = true;
+		this.img = monster.img;
+	}
+	carMonster.prototype.draw = function(){
+		context2.drawImage(this.img,this.drawX,this.drawY,this.w,this.h);
 
+	}
+	carMonster.prototype.move = function(){
+		this.drawY+=this.speed;
+	}
+	carMonster.prototype.clear = function(){
+		if (this.drawY>=canvas2.height){
+			for (var i=0; i<carmonsters.length; i++){
+				if (this == carmonsters[i]){
+					carmonsters.splice(i,1);
+					return true;
+				}
+			}
+		}
+	}
+	carMonster.prototype.die = function(){
+		if(!this.survival){
+			if (this.score) {
+				var boom = new Boom();
+				boom.drawX = car.drawX+car.w;
+				boom.drawY = car.drawY;
+				boom.score = this.score;
+				boom.draw();
+			}else {
+				context2.drawImage(loadOver[15],this.drawX*0.95,this.drawY*0.95,50,51);
+
+			}
+		}
+	}
+	function createcarMonster() {// 创建奖励
+		if (frameNum%createMonsterSpeed==0) {
+			var monsterR=randFn(1,100);
+		if (monsterR>=10&&monsterR<=90) {//礼物
+				var monster={};//存放每一个monster的信息
+				monster.w=42;
+				monster.h=45;
+				monster.img=loadOver[11];
+				monster.score=10;
+			}else {
+				var monster = {};
+				monster.w = 78*0.8;
+				monster.h = 54*0.8;
+				monster.img = loadOver[14];
+			}
+			var monsterObj=new carMonster(monster);
+			carmonsters.push(monsterObj);
+		}
+	}
+	function drawcarMonster() {
+		//绘制奖励
+		for (var i = 0; i < carmonsters.length; i++) {
+			carmonsters[i].move();
+			carmonsters[i].draw();
+			var bol = carmonsters[i].clear();
+			if(!bol){
+				var monsterBol = collide(carmonsters[i],car);
+				if(monsterBol){
+					scoreNum += carmonsters[i].score;
+					removeBol = true;
+					carmonsters[i].survival = false;
+					var dieBol = carmonsters[i].die();
+					if (carmonsters[i].score) {
+						carmonsters.splice(i,1);
+					}else {
+						gameOver();
+					}
+				}
+			}
+			if(bol||removeBol){
+				i--;
+				removeBol = false;
+			}
+		}
+	}
+//另外一个赛道
 	function drawMonster() {
 		//绘制奖励
 		for (var i = 0; i < monsters.length; i++) {
@@ -335,6 +432,7 @@ function game () {
 	function gameOver() {
 		ranges(distance);
 		monsters=[];
+		carmonsters = [];
 		gameOverBol=false;
 		updateNum();
 
@@ -473,11 +571,20 @@ function game () {
 			}
 		});
 	}
-
+	bgImg.draw();//背景绘制
+	bgImg.draw1();
+	hero.draw();
+	car.draw();
+	score.draw();//分数背景绘制
+	score1.draw();
+	score1.draw1();
+	score1.draw2();
+	drawScore();//分数的绘制
 	//动画
 	function animate() {
 		frameNum++;
 		context.clearRect(0,0,canvas1.width,canvas1.height);//清屏
+		context2.clearRect(0,0,canvas1.width,canvas1.height);//清屏
 		bgImg.move();//背景动
 		bgImg.draw();//背景绘制
 		bgImg.draw1();
@@ -489,6 +596,8 @@ function game () {
 
 		createMonster();//创建食物
 		drawMonster();//绘制食物
+		createcarMonster();//创建食物
+		drawcarMonster();//绘制食物
 		score.draw();//分数背景绘制
 		score1.draw();
 		score1.draw1();
@@ -501,7 +610,9 @@ function game () {
 		}
 		  window.requestAnimationFrame(animate);
 	}
-	animate();
+	setTimeout(function () {
+		animate()
+	},3000)
 	canvasmove(canvas1,hero);
 	canvasmove(canvas2,car);
 	var moveAble=false;
@@ -550,7 +661,6 @@ function canvasmove(obj,obj1) {
 }
 
 function again() {
-
 	gameOverBol=true;
 	frameNum=0;//帧数重置
 	monsterMoveSpeed = 1.6;
@@ -561,14 +671,14 @@ function again() {
 	hero.drawY=canvas1.height-heroH-10;
 	car.drawX=canvas2.width/2-heroW/2;
 	car.drawY=canvas2.height-carH-10;
-	animate();
+	animate()
 
 }
 $(".replay").on("click",function () {
 	again();
 	$(".gameover").hide();
 })
-// TODO
+
 }
 
 function randFn(min,max){
