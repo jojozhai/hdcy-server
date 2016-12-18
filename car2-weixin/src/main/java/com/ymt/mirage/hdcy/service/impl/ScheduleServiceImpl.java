@@ -51,13 +51,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 	/**
      * 活动创建时的消息模板id
      */
-    @Value("hdcy.message.template.activity.remind")
+    @Value("${hdcy.message.template.activity.remind}")
     private String activityRemindMessageCode;
 
     /**
      * 活动创建时的消息模板id
      */
-    @Value("hdcy.domain.name")
+    @Value("${hdcy.domain.name}")
     private String domainName;
     
     @Autowired
