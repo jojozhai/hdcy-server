@@ -39,7 +39,6 @@ public class GamePointServiceImpl implements GamePointService {
      */
     @Override
     public long getRank(GamePointInfo info) {
-        long result = gamePointRepository.count(new GamePointSpec(info));
         
         GamePoint gamePoint = gamePointRepository.findByGameAndUserId(info.getGame(), info.getUserId());
         if(gamePoint == null) {
@@ -50,7 +49,7 @@ public class GamePointServiceImpl implements GamePointService {
         gamePoint.setPoint(info.getPoint());
         gamePointRepository.save(gamePoint);
         
-        return result + 1;
+        return gamePointRepository.count(new GamePointSpec(info));
     }
 
 }

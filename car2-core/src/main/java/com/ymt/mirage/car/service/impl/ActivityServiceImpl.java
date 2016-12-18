@@ -8,12 +8,14 @@ import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Activity;
+import com.ymt.mirage.car.domain.ActivityParticipator;
 import com.ymt.mirage.car.domain.KeyWord;
 import com.ymt.mirage.car.domain.Leader;
 import com.ymt.mirage.car.domain.ParticipationType;
@@ -31,6 +33,9 @@ import com.ymt.mirage.car.repository.spec.ActivitySpec;
 import com.ymt.mirage.car.service.ActivityService;
 import com.ymt.pz365.data.jpa.support.AbstractDomain2InfoConverter;
 import com.ymt.pz365.data.jpa.support.QueryResultConverter;
+import com.ymt.pz365.framework.param.service.ParamService;
+import com.ymt.pz365.framework.weixin.service.WeixinService;
+import com.ymt.pz365.framework.weixin.support.message.TemplateMessage;
 
 /**
  * @author zhailiang
@@ -57,6 +62,25 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	
 	@Autowired
 	private LeaderRepository leaderRepository;
+	
+	@Autowired
+	private ParamService paramService;
+	
+	/**
+	 * 活动创建时的消息模板id
+	 */
+	@Value("hdcy.message.template.activity.enable")
+	private String activityEnableMessageCode;
+	
+	/**
+     * 活动创建时的消息模板id
+     */
+    @Value("hdcy.domain.name")
+    private String domainName;
+    /**
+     * 
+     */
+    private WeixinService weixinService;
 
 	@Override
 	public Page<ActivityInfo> query(ActivityInfo activityInfo, Pageable pageable) {
@@ -105,10 +129,37 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 		BeanUtils.copyProperties(activity.getWaiter(), waiterInfo);
 		activityInfo.setWaiterInfo(waiterInfo);
 		
+		if(activity.isEnable()) {
+		    pushActivityMessage(activity);
+		}
+		
 		return activityInfo;
 	}
 
-	@Override
+	private void pushActivityMessage(Activity activity) {
+	    
+	    List<ActivityParticipator> users = activityParticipatorRepository.findAll();
+	    
+	    for (ActivityParticipator activityParticipator : users) {
+	        String openId = activityParticipator.getUser().getWeixinOpenId(); 
+	        
+	        TemplateMessage templateMessage = new TemplateMessage(openId, activityEnableMessageCode);
+	        templateMessage.addValue("first", activity.getName()+" 上线啦!");
+	        templateMessage.addValue("keyword1", new DateTime(activity.getStartTime()).toString("yyyy-MM-dd"));
+	        templateMessage.addValue("keyword2", activity.getAddress());
+	        String content = paramService.getParam("templateContentForActivityEnable", "点击查看详情,[好多车友-服务平台]将给您带来更多更刺激的活动信息").getValue();
+	        templateMessage.addValue("remark", content);
+	        templateMessage.setUrl(domainName+"/#/activity/"+activity.getId());
+	        try {
+	            weixinService.pushTemplateMessage(templateMessage);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+        }
+        
+    }
+
+    @Override
 	public ActivityInfo getInfo(Long id) {
 		Activity activity = activityRepository.findOne(id);
 		ActivityInfo info = new ActivityInfo();
@@ -143,11 +194,20 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	@Override
 	public ActivityInfo update(ActivityInfo activityInfo) {
 		Activity activity = activityRepository.findOne(activityInfo.getId());
+		boolean push = false;
+		if(!activity.isEnable() && activityInfo.getEnable()==true){
+		    push = true;
+		}
 		BeanUtils.copyProperties(activityInfo, activity);
 		activity.setType(ParticipationType.ACTIVITY);
 		checkFinishOnUpdate(activity);
 		activity.setWaiter(waiterRepository.findOne(activityInfo.getWaiterId()));
 		activity.setSponsor(sponsorRepository.findOne(activityInfo.getSponsorId()));
+		
+		if(push){
+		    pushActivityMessage(activity);
+		}
+		
 		activityRepository.save(activity);
 		return activityInfo;
 	}
