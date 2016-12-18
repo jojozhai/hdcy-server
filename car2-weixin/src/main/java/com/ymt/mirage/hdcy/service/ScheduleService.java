@@ -23,5 +23,11 @@ public interface ScheduleService {
 	 * @since 2016年8月4日
 	 */
 	void articleEnableSchedule();
+	/**
+	 * 活动提醒
+	 * @author zhailiang
+	 * @since 2016年12月18日
+	 */
+	void activityRemind();
 
 }
