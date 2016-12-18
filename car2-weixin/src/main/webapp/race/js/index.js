@@ -37,7 +37,7 @@ function loadImg(arr,fn){
 function home () {
 	$(".home").show()
 }
-weixin.app.id = wxce8eb11c51670a1d;
+var weixinAppId = wxce8eb11c51670a1d;
 var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
 var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
 
@@ -110,7 +110,6 @@ function game () {
 			}
 		}
 	}
-
 	//logo对象------------------------------------
 
 	var heroW = 63*0.8;
@@ -148,10 +147,7 @@ function game () {
 		}else if(obj1.drawY<=0){
 				obj1.drawY = 0;
 			}
-
 	}
-	//che移动限制
-
 	//奖励对象
 	function Monster(monster){
 		this.w = monster.w;
@@ -166,7 +162,7 @@ function game () {
 		this.img = monster.img;
 	}
 	Monster.prototype.draw = function(){
-		context.drawImage(this.img,this.drawX,this.drawY,this.w,this.h);
+		context2.drawImage(this.img,this.drawX,this.drawY,this.w,this.h);
 	}
 	Monster.prototype.move = function(){
 		this.drawY+=this.speed;
