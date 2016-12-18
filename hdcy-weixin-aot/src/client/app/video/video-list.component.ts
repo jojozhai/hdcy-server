@@ -15,16 +15,6 @@ import {LoadingService} from "../shared/service/loading.service";
 })
 export class VideoListComponent extends ListComponent implements OnInit {
 
-<<<<<<< HEAD
-  totalvideos=[1];
-  
-  num:any;
-  totalPages:any;
-  currentTag = 1;
-  tagWidths: number = 0;
-=======
->>>>>>> 123f757f9b8c2e4cfbc5bb2c41b0e610ea50bdc9
-  
   videos: Array<any>;
 
   topVideos: Array<any>;
