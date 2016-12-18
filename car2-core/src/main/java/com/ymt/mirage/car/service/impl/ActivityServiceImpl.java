@@ -69,13 +69,13 @@ public class ActivityServiceImpl extends AbstractParticipationService implements
 	/**
 	 * 活动创建时的消息模板id
 	 */
-	@Value("hdcy.message.template.activity.enable")
+	@Value("${hdcy.message.template.activity.enable}")
 	private String activityEnableMessageCode;
 	
 	/**
      * 活动创建时的消息模板id
      */
-    @Value("hdcy.domain.name")
+    @Value("${hdcy.domain.name}")
     private String domainName;
     /**
      * 

@@ -40,12 +40,9 @@ public class GamePointServiceImpl implements GamePointService {
     @Override
     public long getRank(GamePointInfo info) {
         
-        GamePoint gamePoint = gamePointRepository.findByGameAndUserId(info.getGame(), info.getUserId());
-        if(gamePoint == null) {
-            gamePoint = new GamePoint();
-            gamePoint.setGame(info.getGame());
-            gamePoint.setUserId(info.getUserId());
-        }
+        GamePoint gamePoint = new GamePoint();
+        gamePoint.setGame(info.getGame());
+        gamePoint.setUserId(info.getUserId());
         gamePoint.setPoint(info.getPoint());
         gamePointRepository.save(gamePoint);
         

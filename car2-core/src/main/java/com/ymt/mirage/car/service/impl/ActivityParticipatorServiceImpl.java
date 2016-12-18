@@ -53,13 +53,13 @@ public class ActivityParticipatorServiceImpl extends AbstractParticipationServic
 	/**
      * 活动创建时的消息模板id
      */
-    @Value("hdcy.message.template.activity.sign")
+    @Value("${hdcy.message.template.activity.sign}")
     private String activitySignMessageCode;
 
     /**
      * 活动创建时的消息模板id
      */
-    @Value("hdcy.domain.name")
+    @Value("${hdcy.domain.name}")
     private String domainName;
     
     @Autowired
