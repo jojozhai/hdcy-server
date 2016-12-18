@@ -78,7 +78,6 @@ $(".start").on('click',function () {
 })
 
 function game () {
-	// TODO
 	var canvas1=document.getElementById("canva1")
 	var context = canvas1.getContext("2d");
 	var body = document.getElementsByTagName("body")[0];
@@ -101,12 +100,10 @@ function game () {
 		draw:function (){
 			context.drawImage(loadOver[4],0,this.y,canvas1.width,bgH);
 			context.drawImage(loadOver[4],0,this.y-bgH,canvas1.width,bgH);
-
 		},
 		draw1:function (){
 			context2.drawImage(loadOver[5],0,this.y,canvas2.width,bgH);
 			context2.drawImage(loadOver[5],0,this.y-bgH,canvas2.width,bgH);
-
 		},
 		move:function (){
 			if (distance==0) {
@@ -614,8 +611,51 @@ function game () {
 		animate()
 	},3000)
 	canvasmove(canvas1,hero);
-	canvasmove(canvas2,car);
+	canvasmove1(canvas2,car);
 	var moveAble=false;
+	function canvasmove1(obj,obj1) {
+		obj.addEventListener("touchstart",function() {
+			var first = event.touches[0];
+			 if (obj==canvas1) {
+					 if(first.clientX>=obj1.drawX&&first.clientX<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
+		  			moveAble = true;
+		  		}
+		  	  rangeX = first.clientX - obj1.drawX;
+		  	  rangeY = first.clientY - obj1.drawY;
+			 }else {
+				 var objtouch=first.clientX-obj.width;
+				 if(objtouch>=obj1.drawX&&objtouch<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
+	 			 moveAble = true;
+		 		 }
+		 		 rangeX = objtouch - obj1.drawX;
+		 		 rangeY = first.clientY - obj1.drawY;
+			 }
+		 event.preventDefault();
+		},false)
+		obj.addEventListener("touchmove",function () {
+			var first=event.touches[0];
+
+			if (moveAble) {
+				if (obj==canvas1) {
+					obj1.drawX = first.clientX - rangeX;
+					obj1.drawY = first.clientY - rangeY;
+				}else {
+					obj1.drawX = first.clientX-obj.width - rangeX;
+					obj1.drawY = first.clientY - rangeY;
+				}
+			}
+			heroMoveLimit(obj,obj1);
+			if (obj1.drawY <= 0) {
+					obj1.drawY = 0;
+			}else if (obj1.drawY >= obj.height-obj1.h) {
+					obj1.drawY = obj.height-obj1.h;
+			}
+		event.preventDefault();
+		},false)
+		obj.addEventListener("touchend",function () {
+			moveAble=false;
+		})
+	}
 function canvasmove(obj,obj1) {
 	obj.addEventListener("touchstart",function() {
 		var first = event.touches[0];
