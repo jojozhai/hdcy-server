@@ -26,7 +26,7 @@ public class HdcySecurityRequestConfig extends SecurityRequestConfigAdapter {
 
     @Override
     public String[] getPostRequests() {
-        return new String[]{"/activityParticipator"};
+        return new String[]{"/activityParticipator", "/game/rank"};
     }
     
     @Override
