@@ -13,6 +13,7 @@ package com.ymt.mirage.car.web.controller.weixin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,8 +42,8 @@ public class GamePointWeixinController {
      * @author zhailiang
      * @since 2016年12月18日
      */
-    @RequestMapping(value = "/game/rank", method = RequestMethod.GET)
-    public SuccessResponse rank(GamePointInfo info) {
+    @RequestMapping(value = "/game/rank", method = RequestMethod.POST)
+    public SuccessResponse rank(@RequestBody GamePointInfo info) {
         info.setUserId(CurrentUserHolder.getCurrentUserId());
         return new SuccessResponse(gamePointService.getRank(info));
     }
