@@ -1,4 +1,5 @@
-var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/1.png","image/2.png","image/3.png","image/logo.gif","image/car.png","image/gift.png","image/sores-bg.png","image/sore-bg.png","image/boom.png","image/kill_boom.png"];
+var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/car.png","image/gift.png","image/sores-bg.png","image/sore-bg.png","image/boom.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/logo1.png","image/logos.png"];
+
 var loadOver = [];
 loadOver = loadImg(allImg,function(){
 	$(".loading").hide();
@@ -47,14 +48,11 @@ var distance=0;//距离
 // 食物的数组，创建速度
 var monsters = [];
 var carmonsters = [];
-var createMonsterSpeed = 23;
-var monsterMoveSpeed = 1.6;
+var createMonsterSpeed = 80;
+var monsterMoveSpeed = 2.2;
 var removeBol = false;
 function countdown() {
 	$(".countdown").show();
-	$(".countdown").css({
-		"background": "url(image/3.png) no-repeat"
-	})
 	var num=3;
 	var timer=setInterval(function(){
 		num--;
@@ -63,9 +61,7 @@ function countdown() {
 			$(".countdown").hide();
 
 		}else {
-			$(".countdown").css({
-				"background": "url(image/"+num+".png) no-repeat"
-			})
+			$(".countdown").html(num)
 		}
 
 	},1000)
@@ -106,11 +102,8 @@ function game () {
 			context2.drawImage(loadOver[5],0,this.y-bgH,canvas2.width,bgH);
 		},
 		move:function (){
-			if (distance==0) {
-				this.y = 0;
-			}
-			this.y++;
-			distance=this.y
+			this.y+=2;
+			distance+=2
 			if (this.y>=bgH){
 				this.y = 0;
 			}
@@ -126,7 +119,8 @@ function game () {
 		drawX:canvas1.width/2-heroW/2,
 		drawY:canvas1.height-heroH-10,
 		draw:function(){
-			context.drawImage(loadOver[9],this.drawX,this.drawY,this.w,this.h);
+			context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
+
 		}
 	}
 	// che对象
@@ -138,7 +132,7 @@ function game () {
 		drawX:canvas2.width/2-carW/2,
 		drawY:canvas2.height-carH-10,
 		draw:function(){
-			context2.drawImage(loadOver[10],this.drawX,this.drawY,this.w,this.h);
+			context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
 		}
 	}
 	//logo移动限制---------------------------------
@@ -163,7 +157,7 @@ function game () {
 		this.drawX = monsterdrawxArr[monsterdrawxR]*canvas1.width;
 		this.drawY = -monster.h;
 		this.score = monster.score;
-		this.speed = monsterMoveSpeed+0.2*randFn(0,4);
+		this.speed = monsterMoveSpeed;
 		this.survival = true;
 		this.img = monster.img;
 	}
@@ -193,30 +187,31 @@ function game () {
 				boom.score = this.score;
 				boom.draw();
 			}else {
-				context.drawImage(loadOver[15],this.drawX*0.95,this.drawY*0.95,50,51);
+				context.drawImage(loadOver[12],this.drawX*0.95,this.drawY*0.95,50,51);
 
 			}
 		}
 	}
 	function createMonster() {// 创建奖励
 		if (frameNum%createMonsterSpeed==0) {
-			var monsterR=randFn(1,100);
-		if (monsterR>=0&&monsterR<=80) {//礼物
+			var monsterR=randFn(1,30);
+		if (monsterR>=0&&monsterR<=26) {//礼物
 				var monster={};//存放每一个monster的信息
-				monster.w=42;
-				monster.h=45;
-				monster.img=loadOver[11];
+				monster.w=40;
+				monster.h=43;
+				monster.img=loadOver[8];
 				monster.score=10;
 			}else {
 				var monster = {};
-				monster.w = 78*0.8;
-				monster.h = 54*0.8;
-				monster.img = loadOver[14];
+				monster.w = 57;
+				monster.h = 33;
+				monster.img = loadOver[11];
 			}
 			var monsterObj=new Monster(monster);
 			monsters.push(monsterObj);
 		}
 	}
+
 	//另一个赛道
 	function carMonster(monster){
 		this.w = monster.w;
@@ -226,7 +221,7 @@ function game () {
 		this.drawX = monsterdrawxArr[monsterdrawxR]*canvas2.width;
 		this.drawY = -monster.h;
 		this.score = monster.score;
-		this.speed = monsterMoveSpeed+0.2*randFn(0,3);
+		this.speed = monsterMoveSpeed;
 		this.survival = true;
 		this.img = monster.img;
 	}
@@ -256,25 +251,25 @@ function game () {
 				boom.score = this.score;
 				boom.draw();
 			}else {
-				context2.drawImage(loadOver[15],this.drawX*0.95,this.drawY*0.95,50,51);
+				context2.drawImage(loadOver[12],this.drawX*0.95,this.drawY*0.95,50,51);
 
 			}
 		}
 	}
 	function createcarMonster() {// 创建奖励
 		if (frameNum%createMonsterSpeed==0) {
-			var monsterR=randFn(1,100);
-		if (monsterR>=10&&monsterR<=90) {//礼物
+			var monsterR=randFn(10,40);
+		if (monsterR>=13&&monsterR<=37) {//礼物
 				var monster={};//存放每一个monster的信息
-				monster.w=42;
+				monster.w=40;
 				monster.h=45;
-				monster.img=loadOver[11];
+				monster.img=loadOver[8];
 				monster.score=10;
 			}else {
 				var monster = {};
-				monster.w = 78*0.8;
-				monster.h = 54*0.8;
-				monster.img = loadOver[14];
+				monster.w = 57;
+				monster.h = 33;
+				monster.img = loadOver[11];
 			}
 			var monsterObj=new carMonster(monster);
 			carmonsters.push(monsterObj);
@@ -368,7 +363,7 @@ function game () {
 		w:scoreW,
 		h:scoreH,
 		draw:function(){
-			context3.drawImage(loadOver[12],0,0,this.w,this.h);
+			context3.drawImage(loadOver[9],0,0,this.w,this.h);
 		}
 	}
 
@@ -378,13 +373,13 @@ function game () {
 		w:scoreW,
 		h:scoreH,
 		draw:function(){
-			context3.drawImage(loadOver[13],10,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],10,7.5,this.w,this.h);
 		},
 		draw1:function(){
-			context3.drawImage(loadOver[13],131,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],131,7.5,this.w,this.h);
 		},
 		draw2:function(){
-			context3.drawImage(loadOver[13],252,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],252,7.5,this.w,this.h);
 		}
 	}
 
@@ -411,17 +406,16 @@ function game () {
 		context3.fillText("奖励：",275,27);
 		context3.fillText(scoreNum,310,27);
 	}
-
 	// 达到一定的分数改变速度
 	function changeSpeed() {
 		if(scoreNum>=1000&&scoreNum<=2000){
-			monsterMoveSpeed = 1.8;
-		}else if(scoreNum>2000&&scoreNum<3000){
-			monsterMoveSpeed = 2;
-		}else if(scoreNum>=3000&&scoreNum<4000){
-			monsterMoveSpeed = 2.2;
-		}else if(scoreNum>=4000){
 			monsterMoveSpeed = 2.4;
+		}else if(scoreNum>2000&&scoreNum<3000){
+			monsterMoveSpeed = 2.6;
+		}else if(scoreNum>=3000&&scoreNum<4000){
+			monsterMoveSpeed = 3;
+		}else if(scoreNum>=4000){
+			monsterMoveSpeed = 3.4;
 		}
 	}
 	//游戏结束
@@ -590,7 +584,7 @@ function game () {
 		if (!gameOverBol) {
 			return;
 		}
-
+		//
 		createMonster();//创建食物
 		drawMonster();//绘制食物
 		createcarMonster();//创建食物
@@ -610,101 +604,33 @@ function game () {
 	setTimeout(function () {
 		animate()
 	},3000)
-	canvasmove(canvas1,hero);
-	canvasmove1(canvas2,car);
-	var moveAble=false;
-	function canvasmove1(obj,obj1) {
-		obj.addEventListener("touchstart",function() {
-			var first = event.touches[0];
-			 if (obj==canvas1) {
-					 if(first.clientX>=obj1.drawX&&first.clientX<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
-		  			moveAble = true;
-		  		}
-		  	  rangeX = first.clientX - obj1.drawX;
-		  	  rangeY = first.clientY - obj1.drawY;
-			 }else {
-				 var objtouch=first.clientX-obj.width;
-				 if(objtouch>=obj1.drawX&&objtouch<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
-	 			 moveAble = true;
-		 		 }
-		 		 rangeX = objtouch - obj1.drawX;
-		 		 rangeY = first.clientY - obj1.drawY;
-			 }
-		 event.preventDefault();
-		},false)
-		obj.addEventListener("touchmove",function () {
-			var first=event.touches[0];
 
-			if (moveAble) {
-				if (obj==canvas1) {
-					obj1.drawX = first.clientX - rangeX;
-					obj1.drawY = first.clientY - rangeY;
-				}else {
-					obj1.drawX = first.clientX-obj.width - rangeX;
-					obj1.drawY = first.clientY - rangeY;
-				}
-			}
-			heroMoveLimit(obj,obj1);
-			if (obj1.drawY <= 0) {
-					obj1.drawY = 0;
-			}else if (obj1.drawY >= obj.height-obj1.h) {
-					obj1.drawY = obj.height-obj1.h;
-			}
+	canvas1.addEventListener("touchstart",function () {
+		if (hero.drawX>=canvas1.width/2-heroW/2) {
+			hero.drawX = canvas1.width/4-heroW/2;
+			hero.drawY = canvas1.height-heroH-10;
+		}else {
+			hero.drawX = canvas1.width*3/4-heroW/2;
+			hero.drawY = canvas1.height-heroH-10;
+		}
 		event.preventDefault();
-		},false)
-		obj.addEventListener("touchend",function () {
-			moveAble=false;
-		})
-	}
-function canvasmove(obj,obj1) {
-	obj.addEventListener("touchstart",function() {
-		var first = event.touches[0];
-		 if (obj==canvas1) {
-				 if(first.clientX>=obj1.drawX&&first.clientX<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
-	  			moveAble = true;
-	  		}
-	  	  rangeX = first.clientX - obj1.drawX;
-	  	  rangeY = first.clientY - obj1.drawY;
-		 }else {
-			 var objtouch=first.clientX-obj.width;
-			 if(objtouch>=obj1.drawX&&objtouch<=obj1.drawX+obj1.w&&first.clientY>=obj1.drawY&&first.clientY<=obj1.drawY+obj1.h){
- 			 moveAble = true;
-	 		 }
-	 		 rangeX = objtouch - obj1.drawX;
-	 		 rangeY = first.clientY - obj1.drawY;
-		 }
-	 event.preventDefault();
-	},false)
-	obj.addEventListener("touchmove",function () {
-		var first=event.touches[0];
-
-		if (moveAble) {
-			if (obj==canvas1) {
-				obj1.drawX = first.clientX - rangeX;
-				obj1.drawY = first.clientY - rangeY;
-			}else {
-				obj1.drawX = first.clientX-obj.width - rangeX;
-				obj1.drawY = first.clientY - rangeY;
-			}
-		}
-		heroMoveLimit(obj,obj1);
-		if (obj1.drawY <= 0) {
-				obj1.drawY = 0;
-		}else if (obj1.drawY >= obj.height-obj1.h) {
-				obj1.drawY = obj.height-obj1.h;
-		}
-	event.preventDefault();
-	},false)
-	obj.addEventListener("touchend",function () {
-		moveAble=false;
 	})
-}
+	canvas2.addEventListener("touchstart",function () {
+		if (car.drawX>=canvas2.width/2-carW/2) {
+			car.drawX = canvas2.width/4-carW/2;
+			car.drawY = canvas2.height-carH-10;
+		}else {
+			car.drawX = canvas2.width*3/4-carW/2;
+			car.drawY = canvas2.height-carH-10;
+		}
+		event.preventDefault();
+	})
 
 function again() {
 	gameOverBol=true;
 	frameNum=0;//帧数重置
-	monsterMoveSpeed = 1.6;
-	createMonsterSpeed=23;//创建怪物速度重置
+	monsterMoveSpeed = 2.2;
+	createMonsterSpeed=80;//创建怪物速度重置
 	scoreNum=0;//分数重置
 	distance=0;
 	hero.drawX=canvas1.width/2-heroW/2;

@@ -54,8 +54,16 @@ html,body {
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-webkit-transform:translate(-50%,-50%);
-	background: url(../image/3.png) no-repeat;
+	background: url(../image/countdown.png) no-repeat;
 	background-size: 100% 100%;
+	text-align: center;
+	line-height: 126px;
+	font-size: 50px;
+	color: #101010;
+	text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
+	-webkit-text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
+	-moz-text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
+	*filter: Glow(color=#c56616, strength=1);
 }
 .gameover {
 	display: none;
