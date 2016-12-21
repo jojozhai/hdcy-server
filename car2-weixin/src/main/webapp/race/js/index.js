@@ -43,13 +43,16 @@ var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin
 var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
 
 var frameNum=0;//帧数
+var frameNums=0;
+
 var scoreNum = 0;//分数
 var distance=0;//距离
 // 食物的数组，创建速度
 var monsters = [];
 var carmonsters = [];
 var createMonsterSpeed = 80;
-var monsterMoveSpeed = 2.2;
+var monsterMoveSpeed = 2;
+var coxspeed=monsterMoveSpeed-1;
 var removeBol = false;
 function countdown() {
 	$(".countdown").show();
@@ -59,7 +62,6 @@ function countdown() {
 		if (num<1) {
 			clearInterval(timer);
 			$(".countdown").hide();
-
 		}else {
 			$(".countdown").html(num)
 		}
@@ -103,7 +105,7 @@ function game () {
 		},
 		move:function (){
 			this.y+=2;
-			distance+=2
+			distance+=2;
 			if (this.y>=bgH){
 				this.y = 0;
 			}
@@ -116,7 +118,7 @@ function game () {
 	var hero = {
 		w:heroW,
 		h:heroH,
-		drawX:canvas1.width/2-heroW/2,
+		drawX:canvas1.width/4-heroW/2,
 		drawY:canvas1.height-heroH-10,
 		draw:function(){
 			context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
@@ -129,7 +131,7 @@ function game () {
 	var car = {
 		w:carW,
 		h:carH,
-		drawX:canvas2.width/2-carW/2,
+		drawX:canvas2.width/4-carW/2,
 		drawY:canvas2.height-carH-10,
 		draw:function(){
 			context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
@@ -209,6 +211,32 @@ function game () {
 			}
 			var monsterObj=new Monster(monster);
 			monsters.push(monsterObj);
+		}
+	}
+	function drawMonster() {
+		//绘制奖励
+		for (var i = 0; i < monsters.length; i++) {
+			monsters[i].move();
+			monsters[i].draw();
+			var bol = monsters[i].clear();
+			if(!bol){
+				var monsterBol = collide(monsters[i],hero);
+				if(monsterBol){
+					scoreNum += monsters[i].score;
+					removeBol = true;
+					monsters[i].survival = false;
+					var dieBol = monsters[i].die();
+					if (monsters[i].score) {
+						monsters.splice(i,1);
+					}else {
+						gameOver();
+					}
+				}
+			}
+			if(bol||removeBol){
+				i--;
+				removeBol = false;
+			}
 		}
 	}
 
@@ -301,34 +329,8 @@ function game () {
 			}
 		}
 	}
-//另外一个赛道
-	function drawMonster() {
-		//绘制奖励
-		for (var i = 0; i < monsters.length; i++) {
-			monsters[i].move();
-			monsters[i].draw();
-			var bol = monsters[i].clear();
-			if(!bol){
-				var monsterBol = collide(monsters[i],hero);
-				if(monsterBol){
-					scoreNum += monsters[i].score;
-					removeBol = true;
-					monsters[i].survival = false;
-					var dieBol = monsters[i].die();
-					if (monsters[i].score) {
-						monsters.splice(i,1);
-					}else {
-						gameOver();
-					}
-				}
-			}
-			if(bol||removeBol){
-				i--;
-				removeBol = false;
-			}
-		}
-	}
 
+//另外一个赛道
 	// 碰撞检测
 	function collide(obj1,obj2) {
 		var l1=obj1.drawX;
@@ -402,21 +404,20 @@ function game () {
 		context3.fillText("距离：",30,27);
 		context3.fillText(distance,65,27);
 		context3.fillText("速度：",155,27);
-		context3.fillText(monsterMoveSpeed,190,27);
+		context3.fillText(coxspeed,190,27);
 		context3.fillText("奖励：",275,27);
 		context3.fillText(scoreNum,310,27);
 	}
 	// 达到一定的分数改变速度
 	function changeSpeed() {
-		if(scoreNum>=1000&&scoreNum<=2000){
-			monsterMoveSpeed = 2.4;
-		}else if(scoreNum>2000&&scoreNum<3000){
-			monsterMoveSpeed = 2.6;
-		}else if(scoreNum>=3000&&scoreNum<4000){
-			monsterMoveSpeed = 3;
-		}else if(scoreNum>=4000){
-			monsterMoveSpeed = 3.4;
+		if (frameNums%60==0) {
+			monsterMoveSpeed+=0.05;
 		}
+		if (frameNums%600==0) {
+			coxspeed+=0.5;
+			createMonsterSpeed-=10;
+		}
+
 	}
 	//游戏结束
 	var gameOverBol=true;
@@ -446,119 +447,7 @@ function game () {
 			dataType: "json",
 			success:function(str){
 					$(".paiming").html("排名："+str.content);
-					//取当前的url
-					var absurl = window.location.href;
-					if(absurl.indexOf("#") != -1) {
-						absurl = absurl.substring(0, absurl.indexOf("#"));
-					}
-					//发请求拿jssdk的验证配置
-					$.ajax({
-						type: "get",
-						url: "../weixin/jsapiTicket?url=" + encodeURIComponent(absurl),
-						dataType: "json",
-						success: function(data) {
-							//设置要调用的方法.
-							data.jsApiList = [
-								'onMenuShareTimeline',
-								'onMenuShareAppMessage',
-								'onMenuShareQQ',
-								'onMenuShareWeibo',
-								'onMenuShareQZone',
-								'startRecord',
-								'stopRecord',
-								'onVoiceRecordEnd',
-								'playVoice',
-								'pauseVoice',
-								'stopVoice',
-								'onVoicePlayEnd',
-								'uploadVoice',
-								'downloadVoice',
-								'chooseImage',
-								'previewImage',
-								'uploadImage',
-								'downloadImage',
-								'translateVoice',
-								'getNetworkType',
-								'openLocation',
-								'getLocation',
-								'hideOptionMenu',
-								'showOptionMenu',
-								'hideMenuItems',
-								'showMenuItems',
-								'hideAllNonBaseMenuItem',
-								'showAllNonBaseMenuItem',
-								'closeWindow',
-								'scanQRCode',
-								'chooseWXPay',
-								'openProductSpecificView',
-								'addCard',
-								'chooseCard',
-								'openCard'
-							];
-							//配置微信
-							wx.config(data);
-							wx.ready(function() {
-								//配置成功以后修改分享的信息
-								var title = obj.name;
-								var link = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-								"appid=" + weixinAppId +
-								"&redirect_uri=" + oauthCallbackUrl +
-								"&response_type=code" +
-								"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
-								"&state=" + encodeURIComponent(window.location.href) +
-								"#wechat_redirect"
-								var imgUrl = obj.image
-								wx.onMenuShareTimeline({
-									title: title,
-									link: link,
-									imgUrl: imgUrl,
-									success: function() {},
-									cancel: function() {}
-								});
 
-								wx.onMenuShareAppMessage({
-									title: title,
-									desc: desc,
-									link: link,
-									imgUrl: imgUrl,
-									success: function() {},
-									cancel: function() {}
-								});
-
-								wx.onMenuShareQQ({
-									title: title,
-									desc: desc,
-									link: link,
-									imgUrl: imgUrl,
-									success: function() {},
-									cancel: function() {}
-								});
-
-								wx.onMenuShareWeibo({
-									title: title,
-									desc: desc,
-									link: link,
-									imgUrl: imgUrl,
-									success: function() {},
-									cancel: function() {}
-								});
-
-								wx.onMenuShareQZone({
-									title: title,
-									desc: desc,
-									link: link,
-									imgUrl: imgUrl,
-									success: function() {},
-									cancel: function() {}
-								});
-							});
-							wx.error(function(res) {
-								for(var prop in res) {
-									alert(res[prop]);
-								}
-							});
-						}
-					});
 			}
 		});
 	}
@@ -574,6 +463,7 @@ function game () {
 	//动画
 	function animate() {
 		frameNum++;
+		frameNums++;
 		context.clearRect(0,0,canvas1.width,canvas1.height);//清屏
 		context2.clearRect(0,0,canvas1.width,canvas1.height);//清屏
 		bgImg.move();//背景动
@@ -596,13 +486,14 @@ function game () {
 		drawScore();//分数的绘制
 
 		changeSpeed();  //达到一定分数改变速度
-		if(frameNum == 1000){
+		if(frameNum == 1200){
 			frameNum = 0;
+
 		}
 		  window.requestAnimationFrame(animate);
 	}
 	setTimeout(function () {
-		animate()
+		animate();
 	},3000)
 
 	canvas1.addEventListener("touchstart",function () {
@@ -629,21 +520,25 @@ function game () {
 function again() {
 	gameOverBol=true;
 	frameNum=0;//帧数重置
-	monsterMoveSpeed = 2.2;
+	frameNums=0;
+	monsterMoveSpeed = 2;
+	coxspeed=0;
 	createMonsterSpeed=80;//创建怪物速度重置
 	scoreNum=0;//分数重置
 	distance=0;
+  createMonsterSpeed = 80;
+	coxspeed=monsterMoveSpeed-1;
+  removeBol = false;
 	hero.drawX=canvas1.width/2-heroW/2;
 	hero.drawY=canvas1.height-heroH-10;
 	car.drawX=canvas2.width/2-heroW/2;
 	car.drawY=canvas2.height-carH-10;
 	animate()
-
 }
-$(".replay").on("click",function () {
-	again();
-	$(".gameover").hide();
-})
+	$(".replay").on("click",function () {
+		again();
+		$(".gameover").hide();
+	})
 
 }
 
@@ -654,3 +549,117 @@ function randFn(min,max){
 $(".share").on('click',function () {
 	$(".share").hide();
 })
+//取当前的url
+var absurl = window.location.href;
+if(absurl.indexOf("#") != -1) {
+	absurl = absurl.substring(0, absurl.indexOf("#"));
+	console.log(absurl);
+}
+
+//发请求拿jssdk的验证配置
+$.ajax({
+	type: "get",
+	url: "../weixin/jsapiTicket?url=" + encodeURIComponent(absurl),
+	dataType: "json",
+	success: function(data) {
+		//设置要调用的方法.
+		data.jsApiList = [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareWeibo',
+			'onMenuShareQZone',
+			'startRecord',
+			'stopRecord',
+			'onVoiceRecordEnd',
+			'playVoice',
+			'pauseVoice',
+			'stopVoice',
+			'onVoicePlayEnd',
+			'uploadVoice',
+			'downloadVoice',
+			'chooseImage',
+			'previewImage',
+			'uploadImage',
+			'downloadImage',
+			'translateVoice',
+			'getNetworkType',
+			'openLocation',
+			'getLocation',
+			'hideOptionMenu',
+			'showOptionMenu',
+			'hideMenuItems',
+			'showMenuItems',
+			'hideAllNonBaseMenuItem',
+			'showAllNonBaseMenuItem',
+			'closeWindow',
+			'scanQRCode',
+			'chooseWXPay',
+			'openProductSpecificView',
+			'addCard',
+			'chooseCard',
+			'openCard'
+		];
+		//配置微信
+		wx.config(data);
+		wx.ready(function() {
+			//配置成功以后修改分享的信息
+			var title = "车友飙车";
+			var link = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+			"appid=" + weixinAppId +"&redirect_uri=" + oauthCallbackUrl +"&response_type=code" +
+			"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+			"&state=" + encodeURIComponent(window.location.href) +
+			"#wechat_redirect";
+
+			var imgUrl = "../image/logo.gif"
+			wx.onMenuShareTimeline({
+				title: title,
+				link: link,
+				imgUrl: imgUrl,
+				success: function() {},
+				cancel: function() {}
+			});
+
+			wx.onMenuShareAppMessage({
+				title: title,
+				desc: desc,
+				link: link,
+				imgUrl: imgUrl,
+				success: function() {},
+				cancel: function() {}
+			});
+
+			wx.onMenuShareQQ({
+				title: title,
+				desc: desc,
+				link: link,
+				imgUrl: imgUrl,
+				success: function() {},
+				cancel: function() {}
+			});
+
+			wx.onMenuShareWeibo({
+				title: title,
+				desc: desc,
+				link: link,
+				imgUrl: imgUrl,
+				success: function() {},
+				cancel: function() {}
+			});
+
+			wx.onMenuShareQZone({
+				title: title,
+				desc: desc,
+				link: link,
+				imgUrl: imgUrl,
+				success: function() {},
+				cancel: function() {}
+			});
+		});
+		wx.error(function(res) {
+			for(var prop in res) {
+				alert(res[prop]);
+			}
+		});
+	}
+});
