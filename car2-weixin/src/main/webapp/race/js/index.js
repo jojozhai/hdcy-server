@@ -611,7 +611,8 @@ $.ajax({
 			"&state=" + encodeURIComponent(window.location.href) +
 			"#wechat_redirect";
 
-			var imgUrl = "../image/logo.gif"
+			var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/cheyou.png";
+			var desc = "速度与激情~";
 			wx.onMenuShareTimeline({
 				title: title,
 				link: link,
