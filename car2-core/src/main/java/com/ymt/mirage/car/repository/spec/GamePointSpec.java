@@ -31,7 +31,7 @@ public class GamePointSpec extends PzSimpleSpecification<GamePoint, GamePointInf
     @Override
     protected void addCondition(QueryWraper<GamePoint> queryWraper) {
         addEqualsCondition(queryWraper, "game");
-        addGreaterThanOrEqualCondition(queryWraper, "point");
+        addGreaterThanCondition(queryWraper, "point");
     }
 
 }

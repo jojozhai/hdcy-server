@@ -13,12 +13,15 @@ package com.ymt.mirage.car.web.controller.weixin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ymt.mirage.car.dto.GamePointInfo;
+import com.ymt.mirage.car.dto.UserGameRankInfo;
 import com.ymt.mirage.car.service.GamePointService;
 import com.ymt.mirage.user.web.controller.weixin.CurrentUserHolder;
 import com.ymt.pz365.framework.core.web.support.SuccessResponse;
@@ -42,9 +45,32 @@ public class GamePointWeixinController {
      * @author zhailiang
      * @since 2016年12月18日
      */
-    @RequestMapping(value = "/game/rank", method = RequestMethod.POST)
-    public SuccessResponse rank(@RequestBody GamePointInfo info) {
+    @RequestMapping(value = "/game/break", method = RequestMethod.GET)
+    public SuccessResponse breakPoint(@RequestBody GamePointInfo info) {
         info.setUserId(CurrentUserHolder.getCurrentUserId());
         return new SuccessResponse(gamePointService.getRank(info));
+    }
+    
+    /**
+     * @param info
+     * @return
+     * @author zhailiang
+     * @since 2016年12月18日
+     */
+    @RequestMapping(value = "/game/rank", method = RequestMethod.GET)
+    public UserGameRankInfo rank(GamePointInfo info) {
+        info.setUserId(CurrentUserHolder.getCurrentUserId());
+        return gamePointService.getUserGameRankInfo(info);
+    }
+    
+    /**
+     * @param info
+     * @return
+     * @author zhailiang
+     * @since 2016年12月18日
+     */
+    @RequestMapping(value = "/game/ranks", method = RequestMethod.GET)
+    public Page<UserGameRankInfo> ranks(Pageable pageable) {
+        return gamePointService.query(pageable);
     }
 }
