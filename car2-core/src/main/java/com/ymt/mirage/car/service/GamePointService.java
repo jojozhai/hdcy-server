@@ -11,7 +11,11 @@
  */
 package com.ymt.mirage.car.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.ymt.mirage.car.dto.GamePointInfo;
+import com.ymt.mirage.car.dto.UserGameRankInfo;
 
 /**
  *
@@ -21,6 +25,10 @@ import com.ymt.mirage.car.dto.GamePointInfo;
  */
 public interface GamePointService {
     
-    long getRank(GamePointInfo info);
+    boolean getRank(GamePointInfo info);
+    
+    UserGameRankInfo getUserGameRankInfo(GamePointInfo info);
+
+    Page<UserGameRankInfo> query(Pageable pageable);
 
 }
