@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -72,7 +74,7 @@ public class GamePointWeixinController {
      * @since 2016年12月18日
      */
     @RequestMapping(value = "/game/ranks", method = RequestMethod.GET)
-    public Page<UserGameRankInfo> ranks(Pageable pageable) {
+    public Page<UserGameRankInfo> ranks(@PageableDefault(direction = Direction.DESC, sort = "point", size = 20) Pageable pageable) {
         return gamePointService.query(pageable);
     }
 }
