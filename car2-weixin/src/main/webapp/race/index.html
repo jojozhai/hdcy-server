@@ -10,37 +10,132 @@
 	</head>
 
 	<body>
+		<audio preload="auto" id="startbg">
+		  	<source src="source/start_music.mp3" type="audio/mpeg">
+		</audio>
+		<audio loop="loop" preload="auto" id="gameMusic" src = "source/game_music.mp3"></audio>
+		<audio preload="auto" id="boom">
+		  	<source src="source/colide_music.mp3" type="audio/mpeg">
+		</audio>
+
+		<audio preload="auto" id="game_over">
+		  	<source src="source/over_music.mp3" type="audio/mpeg">
+		</audio>
+		<audio preload="auto" id="look_rank">
+		  	<source src="source/rank_music.mp3" type="audio/mpeg">
+		</audio>
+
 		<div class="loading">
 			<div class="load-txt">
 				正在加载中......
 			</div>
 		</div>
 		<div class="home">
-			<img src="image/cheyou.png"/>
-			<div class="">
-				<img src="image/arrom.png"/>
+			<div class="homebg">
+				<img class="zkc" src="image/zkc.png"/>
+				<img class="start" src="image/start.gif"/>
+				<div class="">
+					<img src="image/friendship.png" alt="">
+				</div>
 			</div>
-			<img class="start" src="image/start.png"/>
 		</div>
 		<div class="game">
+			<canvas id="canva3" width="" height=""></canvas>
 			<canvas id="canvas" width="" height=""></canvas>
 			<canvas id="canva1" width="" height=""></canvas>
 			<canvas id="canva2" width="" height=""></canvas>
+
 		</div>
-		<div class="countdown">3</div>
+		<div class="countdown">
+			<div class="count3 counts"></div>
+			<div class="count2 counts"></div>
+			<div class="count1 counts"></div>
+		</div>
+		<div class="game_introdute">
+			<div class="gamebg"></div>
+				<div class="introdute-con">
+					<ul class="introdute-txt clear">
+						<li class="fl">
+							<img src="image/hand.png" alt="">
+							<div class="introdute">
+								点击屏幕左侧，蓝色小车在左边两条车道之间移动
+							</div>
+						</li>
+						<li class="fl">
+							<img src="image/hand.png" alt="">
+							<div class="introdute">
+								点击屏幕右侧，红色小车在右边两条车道之间移动
+							</div>
+						</li>
+					</ul>
+					<div class="goodss">
+						<div class="">
+							<img src="image/oil.png" alt="">
+							<span class="goods-txt">加油机是分数，得到的越多越好呦！</span>
+						</div>
+						<div class="">
+							<img src="image/obstacle.png" alt="">
+							<span class="goods-txt">如果撞到路障，游戏就结束了哦！</span>
+						</div>
+					</div>
+					<span class="sure">确定，我知道怎么玩了！</span>
+				</div>
+
+		</div>
 		<div class="gameover">
-				<img class="over-logo" src="image/game-over.png" alt="">
-				<ul class="ranking">
-					<li class="distance">距离：</li>
-					<li class="paiming">排名：</li>
-				</ul>
-				<img class="replay" src="image/replay.png" alt="">
-				<div class="share">
-					<img class="share1" src="image/share.png" alt="">
-					<div class=" share2">
-						<img src="image/share1.png" alt="">
+				<div class="gameover1">
+					<img class="kart" src="image/kart.png" alt="">
+					<img class="over-logo" src="image/game-over.png" alt="">
+					<ul class="ranking">
+						<li class="distance">距离：</li>
+					</ul>
+					<div class="mark">
+						<img class="norecord" src="image/noRecord.png" alt="">
+						<img class="recordBreak" src="image/recordBreak.png" alt="">
+					</div>
+					<img class="lookrank"  src="image/lookrank.png" alt="">
+					<img class="replay" src="image/replay.png" alt="">
+					<div class="share">
+						<img class="share1" src="image/share.png" alt="">
+						<div class=" share2">
+							<img src="image/share1.png" alt="">
+						</div>
 					</div>
 				</div>
+		</div>
+		<div class="ranks">
+			<div class="ranklogo">
+				<img  src="image/ranklogo.png" alt="">
+			</div>
+			<div class="rankMark">
+				<div class="user clear">
+						<span class="mingci"></span>
+						<span class="hands">
+							<img  src="image/overbg.png" alt="">
+						</span>
+						<span class="nickname">昵称</span>
+						<span class="juli">100m</span>
+				</div>
+				<div class="rules"></div>
+				<div class="users clear">
+						<span class="mingci"></span>
+						<span class="hands">
+								<img  src="image/overbg.png" alt="">
+						</span>
+						<span class="nickname">昵称</span>
+						<span class="juli">100m</span>
+				</div>
+				<div class="users clear">
+						<span class="mingci"></span>
+						<span class="hands">
+								<img  src="image/overbg.png" alt="">
+						</span>
+						<span class="nickname">昵称</span>
+						<span class="juli">100m</span>
+				</div>
+
+
+			</div>
 		</div>
 	</body>
 	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>

@@ -1,4 +1,8 @@
-var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/car.png","image/gift.png","image/sores-bg.png","image/sore-bg.png","image/boom.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/logo1.png","image/logos.png"];
+// $("#startbg")[0].play();
+// $("#startbg")[0].pause();
+// $("#gameMusic")[0].play();
+// $("#gameMusic")[0].pause();
+var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/car.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/logo1.png","image/logos.png","image/play.png","image/stop.png"];
 
 var loadOver = [];
 loadOver = loadImg(allImg,function(){
@@ -36,7 +40,8 @@ function loadImg(arr,fn){
     return arr2;
 }
 function home () {
-	$(".home").show()
+	$(".home").show();
+	$("#startbg")[0].play();
 }
 var weixinAppId = "wxce8eb11c51670a1d";
 var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
@@ -54,24 +59,38 @@ var createMonsterSpeed = 80;
 var monsterMoveSpeed = 2;
 var coxspeed=monsterMoveSpeed-1;
 var removeBol = false;
+var num=3;
+
 function countdown() {
 	$(".countdown").show();
-	var num=3;
+	$(".count"+num).show();
 	var timer=setInterval(function(){
 		num--;
 		if (num<1) {
 			clearInterval(timer);
 			$(".countdown").hide();
 		}else {
-			$(".countdown").html(num)
+			$(".counts").hide();
+			$(".count"+num).show();
 		}
 
 	},1000)
 }
+
 $(".start").on('click',function () {
 	$(".home").hide();
+	$("#startbg")[0].pause();
 	$(".game").show();
+	$(".game_introdute").show();
+	$(".countdown").show();
+	game();
+})
+$(".sure").on('click',function () {
+	$(".game_introdute").hide();
 	countdown();
+	setTimeout(function () {
+		$("#gameMusic")[0].play();
+	},3000)
 	game();
 })
 
@@ -91,6 +110,11 @@ function game () {
 	var context3 = canvas3.getContext("2d");
 	canvas3.width = body.offsetWidth;
 	canvas3.height = 54;
+
+	var canvas4=document.getElementById("canva3")
+	var context4 = canvas4.getContext("2d");
+	canvas4.width = 30;
+	canvas4.height = 30;
 	// 背景图对象
 	var bgH = canvas1.height/canvas1.width*640;
 	var bgImg = {
@@ -201,8 +225,8 @@ function game () {
 		var monsterR=randFn(1,30);
 		if (monsterR>=0&&monsterR<=26) {//礼物
 				var monster={};//存放每一个monster的信息
-				monster.w=40;
-				monster.h=43;
+				monster.w=37;
+				monster.h=36;
 				monster.img=loadOver[8];
 				monster.score=10;
 				flag=true;
@@ -210,14 +234,14 @@ function game () {
 			}else {
 				if (flag==true){
 					var monster = {};
-					monster.w = 57;
-					monster.h = 33;
+					monster.w = 29;
+					monster.h = 39;
 					monster.img = loadOver[11];
 					flag=false;
 				}else {
 					var monster={};//存放每一个monster的信息
-					monster.w=40;
-					monster.h=43;
+					monster.w=37;
+					monster.h=36;
 					monster.img=loadOver[8];
 					monster.score=10;
 					flag=true;
@@ -304,22 +328,22 @@ function game () {
 			var monsterR=randFn(10,40);
 		if (monsterR>=13&&monsterR<=37) {//礼物
 				var monster={};//存放每一个monster的信息
-				monster.w=40;
-				monster.h=45;
+				monster.w=37;
+				monster.h=36;
 				monster.img=loadOver[8];
 				monster.score=10;
 				flags=true;
 			}else {
 				if (flags==true){
 					var monster = {};
-					monster.w = 57;
-					monster.h = 33;
+					monster.w = 29;
+					monster.h = 39;
 					monster.img = loadOver[11];
 					flags=false;
 				}else {
 					var monster={};//存放每一个monster的信息
-					monster.w=40;
-					monster.h=45;
+					monster.w=37;
+					monster.h=36;
 					monster.img=loadOver[8];
 					monster.score=10;
 					flags=true;
@@ -396,22 +420,32 @@ function game () {
 		}
 	}
 
-	var scoreW = 111;
-	var scoreH = 30;
+	var scoreW = 100;
+	var scoreH = 42;
 	var score1 = {
 		w:scoreW,
 		h:scoreH,
 		draw:function(){
-			context3.drawImage(loadOver[10],10,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],5,4,this.w,this.h);
 		},
 		draw1:function(){
-			context3.drawImage(loadOver[10],131,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],105,4,this.w,this.h);
 		},
 		draw2:function(){
-			context3.drawImage(loadOver[10],252,7.5,this.w,this.h);
+			context3.drawImage(loadOver[10],205,4,this.w,this.h);
+		},
+
+	}
+	var stop= {
+		w:30,
+		h:30,
+		draw3:function () {
+			context4.drawImage(loadOver[26],0,0,30,30);
+		},
+		draw4:function () {
+			context4.drawImage(loadOver[25],0,0,30,30);
 		}
 	}
-
 	//绘制分数
 	function drawScore() {
 		context3.beginPath();
@@ -428,12 +462,12 @@ function game () {
 		}else if(scoreNum<100000){
 			var shift = 15;
 		}
-		context3.fillText("距离：",30,27);
-		context3.fillText(distance,65,27);
-		context3.fillText("速度：",155,27);
-		context3.fillText(coxspeed,190,27);
-		context3.fillText("奖励：",275,27);
-		context3.fillText(scoreNum,310,27);
+		context3.fillText("距离：",20,30);
+		context3.fillText(distance,55,30);
+		context3.fillText("速度：",120,30);
+		context3.fillText(coxspeed,155,30);
+		context3.fillText("奖励：",220,30);
+		context3.fillText(scoreNum,255,30);
 	}
 	// 达到一定的分数改变速度
 	function changeSpeed() {
@@ -449,6 +483,7 @@ function game () {
 	//游戏结束
 	var gameOverBol=true;
 	function gameOver() {
+		console.log(distance);
 		ranges(distance);
 		monsters=[];
 		carmonsters = [];
@@ -458,22 +493,68 @@ function game () {
 	}
 	function updateNum() {
 		$(".gameover").show();
-		$(".distance").html("距离："+distance);
-
+		$("#gameMusic")[0].pause();
+		$(".distance").html("距离："+distance+"m");
+		console.log();
 	}
 	function ranges(dis) {
-		var data1={
-			game:'race',
-			point: dis,
-		};
 		$.ajax({
-			type:"POST",
+			type:"get",
+			url:"/weixin2/game/break",
+			data:{
+				game:'game',
+				point:dis
+			},
+			dataType: "json",
+			success:function(obj){
+				if (obj.contnet==true) {
+					$(".norecord").hide();
+					$(".recordBreak").show();
+				}else {
+					$(".norecord").show();
+					$(".recordBreak").hide();
+				}
+
+			}
+		});
+		$.ajax({
+			type:"get",
 			url:"/weixin2/game/rank",
-			"contentType":"application/json; charset=utf-8",
-			data:JSON.stringify(data1),
+			data:{
+				game:'game',
+			},
+			dataType: "json",
+			success:function(obj){
+				console.log(obj);
+				if (obj.rank>3) {
+					$(".mingci").html(obj.rank)
+				}else  {
+					$(".mingci").css({
+						"width": "35px",
+						"height": "54px",
+						"background": "url(image/0"+obj.rank+".png) no-repeat",
+						"background-size": "100% 100%",
+						"margin-top": "8px",
+					})
+				}
+
+				$(".hands img").attr('src',obj.headimgurl);
+				$(".nickname").html(obj.nickname);
+
+
+			}
+		});
+		var page=1
+		$.ajax({
+			type:"get",
+			url:"/weixin2/game/ranks",
+			data:{
+				page:'0',
+
+			},
 			dataType: "json",
 			success:function(str){
-					$(".paiming").html("排名："+str.content);
+				console.log(str);
 
 			}
 		});
@@ -486,6 +567,7 @@ function game () {
 	score1.draw();
 	score1.draw1();
 	score1.draw2();
+	stop.draw3();
 	drawScore();//分数的绘制
 	//动画
 	function animate() {
@@ -510,6 +592,7 @@ function game () {
 		score1.draw();
 		score1.draw1();
 		score1.draw2();
+		stop.draw4();
 		drawScore();//分数的绘制
 
 		changeSpeed();  //达到一定分数改变速度
@@ -520,7 +603,9 @@ function game () {
 		  window.requestAnimationFrame(animate);
 	}
 	setTimeout(function () {
-		animate();
+		if (num==0) {
+			animate();
+		}
 	},3000)
 
 	canvas1.addEventListener("touchstart",function () {
@@ -560,8 +645,11 @@ function again() {
 	hero.drawY=canvas1.height-heroH-10;
 	car.drawX=canvas2.width/4-heroW/2;
 	car.drawY=canvas2.height-carH-10;
-	animate()
+	animate();
 }
+	$(".lookrank").on("click",function () {
+		$(".ranks").show();
+	})
 	$(".replay").on("click",function () {
 		again();
 		$(".gameover").hide();
