@@ -7,6 +7,7 @@
 		<meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="css/dropload.css" />
 	</head>
 
 	<body>
@@ -40,16 +41,25 @@
 			</div>
 		</div>
 		<div class="game">
-			<canvas id="canva3" width="" height=""></canvas>
+			<img class="stopimg" src="image/stop.png" alt="">
+			<img class="playimg" src="image/play.png" alt="">
 			<canvas id="canvas" width="" height=""></canvas>
 			<canvas id="canva1" width="" height=""></canvas>
 			<canvas id="canva2" width="" height=""></canvas>
-
 		</div>
 		<div class="countdown">
 			<div class="count3 counts"></div>
 			<div class="count2 counts"></div>
 			<div class="count1 counts"></div>
+		</div>
+		<div class="stoppage">
+			<div class="stoppagebg"></div>
+			<div class="stopbtn clear">
+				<img class="backs" src="image/back.png" alt="">
+				<img class="bofang" src="image/bofang.png" alt="">
+				<img class="laba" src="image/laba.png" alt="">
+				<img class="sound" src="image/no.png" alt="">
+			</div>
 		</div>
 		<div class="game_introdute">
 			<div class="gamebg"></div>
@@ -95,12 +105,6 @@
 					</div>
 					<img class="lookrank"  src="image/lookrank.png" alt="">
 					<img class="replay" src="image/replay.png" alt="">
-					<div class="share">
-						<img class="share1" src="image/share.png" alt="">
-						<div class=" share2">
-							<img src="image/share1.png" alt="">
-						</div>
-					</div>
 				</div>
 		</div>
 		<div class="ranks">
@@ -114,32 +118,23 @@
 							<img  src="image/overbg.png" alt="">
 						</span>
 						<span class="nickname">昵称</span>
-						<span class="juli">100m</span>
+						<span class="juli"></span>
 				</div>
 				<div class="rules"></div>
-				<div class="users clear">
-						<span class="mingci"></span>
-						<span class="hands">
-								<img  src="image/overbg.png" alt="">
-						</span>
-						<span class="nickname">昵称</span>
-						<span class="juli">100m</span>
+				<div class="userall"></div>
+			</div>
+			<img class="blur" src="image/blur.png" alt="">
+			<span class="replay1">重玩一次</span>
+			<div class="share">
+				<img class="share1" src="image/share.png" alt="">
+				<div class=" share2">
+					<img src="image/share1.png" alt="">
 				</div>
-				<div class="users clear">
-						<span class="mingci"></span>
-						<span class="hands">
-								<img  src="image/overbg.png" alt="">
-						</span>
-						<span class="nickname">昵称</span>
-						<span class="juli">100m</span>
-				</div>
-
-
 			</div>
 		</div>
 	</body>
 	<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
-
+	<script src="js/dropload.min.js" charset="utf-8"></script>
 </html>

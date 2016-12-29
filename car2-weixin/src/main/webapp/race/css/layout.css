@@ -58,10 +58,14 @@ html,body {
 	top: 0;
 	left: 0;
 }
-#canva3 {
+.stopimg,.playimg {
 	position: absolute;
 	right: 21px;
 	top: 12px;
+	z-index: 999;
+}
+.playimg {
+	display: none;
 }
 .countdown {
 	display: none;
@@ -111,6 +115,7 @@ html,body {
 	left: 0;
 	background: url(../image/overbg.png) no-repeat;
 	background-size: 100% 100%;
+	z-index: 2222;
 }
 .gameover1 {
 	width: 100%;
@@ -147,15 +152,16 @@ html,body {
 	margin-top: 28.5px;
 }
 .share {
-	display: none;
-	background: url("../image/share-bg.png") no-repeat;
-	background-size: 100% 100%;
+	/*display: none;*/
+	background: black;
+	opacity: 0.85;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	text-align: right;
+	z-index: 2224;
 }
 .share1 {
 	margin-right: 30px;
@@ -172,6 +178,7 @@ html,body {
 	height: 100%;
 	color: white;
 	font-size: 12px;
+	z-index: 999;
 }
 .introdute-con {
 	position: absolute;
@@ -231,6 +238,7 @@ html,body {
 	height: 100%;
 	background: url("../image/rankbg.png") no-repeat;
 	background-size: 100% 100%;
+	z-index: 2223;
 }
 .ranklogo {
 	position: absolute;
@@ -282,6 +290,27 @@ html,body {
 	font-weight: bold;
 	line-height: 33px;
 }
+.users .mingci:nth-of-type(1){
+	width: 35px;
+	height: 54px;
+	margin-top: 8px;
+	background: url("../image/01.png") no-repeat;
+	background-size: 100% 100%;
+}
+.users .mingci:nth-of-type(2){
+	width: 35px;
+	height: 54px;
+	margin-top: 8px;
+	background: url("../image/02.png") no-repeat;
+	background-size: 100% 100%;
+}
+.users .mingci:nth-of-type(3){
+	width: 35px;
+	height: 54px;
+	margin-top: 8px;
+	background: url("../image/03.png") no-repeat;
+	background-size: 100% 100%;
+}
 .hands {
 	width: 52px;
 	height: 52px;
@@ -320,4 +349,61 @@ html,body {
 	text-align: left;
 	line-height: 73px;
 	margin-bottom: 12px;
+}
+.blur {
+	width: 362px;
+	margin-top: -66px;
+	margin-left: 6.5px;
+}
+.replay1 {
+	display: inline-block;
+	width: 246px;
+	height: 60px;
+	background: url("../image/replay1.png") no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	color: #FBCB39;
+	font-size: 24px;
+	line-height: 60px;
+	bottom: 0px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+.stoppage {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.stoppagebg {
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.7;
+}
+.stopbtn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	width: 375px;
+	height: 205px;
+	background: url("../image/yellow1.png") no-repeat;
+	background-size: 100% 100%;
+	padding: 110px 35px 0 35px;
+	box-sizing: border-box;
+
+}
+.stopbtn img {
+	float: left;
+}
+.bofang {
+	margin:0 77.5px;
+}
+.sound {
+	display: none;
 }
