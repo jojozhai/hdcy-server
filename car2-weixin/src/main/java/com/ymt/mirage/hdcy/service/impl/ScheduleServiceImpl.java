@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +69,11 @@ public class ScheduleServiceImpl implements ScheduleService {
     private WeixinService weixinService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
+
+//    @Override
+//    public void onApplicationEvent(ContextRefreshedEvent event) {
+//        activityRemind();
+//    }
 	
 	@Override
     @Scheduled(cron = "0 0 */1 * * *")

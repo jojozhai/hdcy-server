@@ -20,4 +20,6 @@ public interface ActivityRepository extends PzRepository<Activity> {
 
     List<Activity> findByStartTimeAfter(Date date);
 
+    List<Activity> findByStartTimeBefore(Date date);
+
 }
