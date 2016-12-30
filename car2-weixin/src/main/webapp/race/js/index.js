@@ -25,7 +25,7 @@ $.ajax({
 	}
 })
 function gamestart() {
-	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png"];
+	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png"];
 	var loadOver = [];
 	loadOver = loadImg(allImg,function(){
 		$(".loading").hide();
@@ -67,14 +67,10 @@ function gamestart() {
 		sharepage(homede);
 		$("#startbg")[0].play();
 	}
-
-
 	var frameNum=0;//帧数
 	var frameNums=0;
-
 	var scoreNum = 0;//分数
 	var distance=0;//距离
-	// 食物的数组，创建速度
 	var monsters = [];
 	var carmonsters = [];
 	var createMonsterSpeed = 80;
@@ -95,7 +91,6 @@ function gamestart() {
 				$(".counts").hide();
 				$(".count"+num).show();
 			}
-
 		},1000)
 	}
 
@@ -105,7 +100,7 @@ function gamestart() {
 		$(".game").show();
 		$(".game_introdute").show();
 		$(".countdown").show();
-		game();
+		gamedraw();
 	})
 	$(".sure").on('click',function () {
 		$(".game_introdute").hide();
@@ -118,23 +113,138 @@ function gamestart() {
 		game();
 	})
 
-	function game () {
-		var canvas1=document.getElementById("canva1")
-		var context = canvas1.getContext("2d");
-		var body = document.getElementsByTagName("body")[0];
-		canvas1.width = body.offsetWidth/2;
-		canvas1.height = body.offsetHeight;
+	var canvas1=document.getElementById("canva1")
+	var context = canvas1.getContext("2d");
+	var body = document.getElementsByTagName("body")[0];
+	canvas1.width = body.offsetWidth/2;
+	canvas1.height = body.offsetHeight;
 
-		var canvas2=document.getElementById("canva2")
-		var context2 = canvas2.getContext("2d");
-		canvas2.width = body.offsetWidth/2;
-		canvas2.height = body.offsetHeight;
+	var canvas2=document.getElementById("canva2")
+	var context2 = canvas2.getContext("2d");
+	canvas2.width = body.offsetWidth/2;
+	canvas2.height = body.offsetHeight;
 
-		var canvas3=document.getElementById("canvas")
-		var context3 = canvas3.getContext("2d");
-		canvas3.width = body.offsetWidth;
-		canvas3.height = 54;
-		// 背景图对象
+	var canvas3=document.getElementById("canvas")
+	var context3 = canvas3.getContext("2d");
+	canvas3.width = body.offsetWidth;
+	canvas3.height = 54;
+
+	function gamedraw() {
+		var bgH = canvas1.height/canvas1.width*640;
+		var bgImg = {
+			y:0,
+			draw:function (){
+				context.drawImage(loadOver[4],0,this.y,canvas1.width,bgH);
+				context.drawImage(loadOver[4],0,this.y-bgH,canvas1.width,bgH);
+			},
+			draw1:function (){
+				context2.drawImage(loadOver[5],0,this.y,canvas2.width,bgH);
+				context2.drawImage(loadOver[5],0,this.y-bgH,canvas2.width,bgH);
+			},
+			move:function (){
+				this.y+=2;
+				distance+=2;
+				if (this.y>=bgH){
+					this.y = 0;
+				}
+			}
+		}
+		var heroW = 58;
+		var heroH = 76;
+		var hero = {
+			w:heroW,
+			h:heroH,
+			drawX:canvas1.width/4-heroW/2,
+			drawY:canvas1.height-heroH-10,
+			draw:function(){
+				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
+
+			}
+		}
+		var heroW = 58;
+		var heroH = 76;
+		var hero = {
+			w:heroW,
+			h:heroH,
+			drawX:canvas1.width/4-heroW/2,
+			drawY:canvas1.height-heroH-10,
+			draw:function(){
+				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
+
+			}
+		}
+
+		var carW = 58;
+		var carH = 76;
+		var car = {
+			w:carW,
+			h:carH,
+			drawX:canvas2.width/4-carW/2,
+			drawY:canvas2.height-carH-10,
+			draw:function(){
+				context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
+			}
+		}
+		var scoreW = canvas.width;
+		var scoreH = canvas.height;
+		var score = {
+			w:scoreW,
+			h:scoreH,
+			draw:function(){
+				context3.drawImage(loadOver[9],0,0,this.w,this.h);
+			}
+		}
+
+		var scoreW = 100;
+		var scoreH = 42;
+		var score1 = {
+			w:scoreW,
+			h:scoreH,
+			draw:function(){
+				context3.drawImage(loadOver[10],5,4,this.w,this.h);
+			},
+			draw1:function(){
+				context3.drawImage(loadOver[10],105,4,this.w,this.h);
+			},
+			draw2:function(){
+				context3.drawImage(loadOver[10],205,4,this.w,this.h);
+			},
+
+		}
+		function drawScore() {
+			context3.beginPath();
+			context3.fillStyle="white";
+			context3.font="12px";
+			if(scoreNum<10){
+				var shift = 3;
+			}else if(scoreNum<100){
+				var shift = 6;
+			}else if(scoreNum<1000){
+				var shift = 9;
+			}else if(scoreNum<10000){
+				var shift = 12;
+			}else if(scoreNum<100000){
+				var shift = 15;
+			}
+			context3.fillText("距离：",20,30);
+			context3.fillText(distance+"m",55,30);
+			context3.fillText("速度：",120,30);
+			context3.fillText(coxspeed+"mph",155,30);
+			context3.fillText("奖励：",220,30);
+			context3.fillText(scoreNum,255,30);
+		}
+		bgImg.draw();//背景绘制
+		bgImg.draw1();
+		hero.draw();
+		car.draw();
+		score.draw();//分数背景绘制
+		score1.draw();
+		score1.draw1();
+		score1.draw2();
+		drawScore();
+	}
+//
+	function game() {
 		var bgH = canvas1.height/canvas1.width*640;
 		var bgImg = {
 			y:0,
@@ -155,7 +265,6 @@ function gamestart() {
 			}
 		}
 		//logo对象------------------------------------
-
 		var heroW = 58;
 		var heroH = 76;
 		var hero = {
@@ -168,6 +277,17 @@ function gamestart() {
 
 			}
 		}
+		// var xeroW = 0;
+		// var xeroH = 0;
+		// var xero = {
+		// 	w:xeroW,
+		// 	h:xeroH,
+		// 	drawX:canvas1.width/2-heroW/2,
+		// 	drawY:canvas1.height-heroH-10,
+		// 	draw:function(){
+		// 		context.drawImage(loadOver[27],this.drawX,this.drawY,this.w,this.h);
+		// 	}
+		// }
 		// che对象
 		var carW = 58;
 		var carH = 76;
@@ -297,7 +417,6 @@ function gamestart() {
 				}
 			}
 		}
-
 		//另一个赛道
 		function carMonster(monster){
 			this.w = monster.w;
@@ -375,7 +494,6 @@ function gamestart() {
 			}
 		}
 		function drawcarMonster() {
-			//绘制奖励
 			for (var i = 0; i < carmonsters.length; i++) {
 				carmonsters[i].move();
 				carmonsters[i].draw();
@@ -402,8 +520,7 @@ function gamestart() {
 				}
 			}
 		}
-
-	//另外一个赛道
+		//另外一个赛道
 		// 碰撞检测
 		function collide(obj1,obj2) {
 			var l1=obj1.drawX;
@@ -421,7 +538,6 @@ function gamestart() {
 				return false;
 			}
 		}
-		// 爆炸对象，显示吃到的分数
 		function Boom() {
 			this.drawX=0;
 			this.drawY=0;
@@ -458,7 +574,6 @@ function gamestart() {
 			},
 
 		}
-
 		//绘制分数
 		function drawScore() {
 			context3.beginPath();
@@ -504,7 +619,6 @@ function gamestart() {
 		}
 		function updateNum() {
 			$(".gameover").show();
-
 			$("#gameMusic")[0].pause();
 			$(".distance").html("距离："+distance+"m");
 		}
@@ -518,16 +632,18 @@ function gamestart() {
 				},
 				dataType: "json",
 				success:function(obj){
-					if (obj.contnet==true) {
+					if (obj.content == true) {
 						$(".norecord").hide();
 						$(".recordBreak").show();
 					}else {
 						$(".norecord").show();
 						$(".recordBreak").hide();
 					}
-
+					rankAll();
 				}
 			});
+		}
+		function rankAll() {
 			$.ajax({
 				type:"get",
 				url:"/weixin2/game/rank",
@@ -571,11 +687,10 @@ function gamestart() {
 							dataType: "json",
 							success:function(obj){
 								pageStart = page*20;
-								console.log(obj.content);
 								for (var i = pageStart; i < obj.content.length; i++) {
 									rankNum++;
 									var userdiv=$('<div class="users clear">'+
-											'<span class="mingci">'+rankNum+'</span>'+
+											'<span class="mingci ran'+rankNum+'"></span>'+
 											'<span class="hands">'+
 													'<img  src='+obj.content[i].headimgurl+' alt="">'+
 											'</span>'+
@@ -583,29 +698,19 @@ function gamestart() {
 											'<span class="juli">'+obj.content[i].point+'m</span>'+
 									'</div>');
 									$(".userall").append(userdiv);
+									if (rankNum>3) {
+										$(".users .mingci").html(rankNum)
+									}
 								}
 
 							},
 							error: function(xhr, type){
                     me.resetload();
-                }
+              }
 						});
-
 					}
 				})
-
 		}
-		bgImg.draw();//背景绘制
-		bgImg.draw1();
-		hero.draw();
-		car.draw();
-		score.draw();//分数背景绘制
-		score1.draw();
-		score1.draw1();
-		score1.draw2();
-		// stop.draw3();
-		drawScore();//分数的绘制
-		//动画
 		function animate() {
 			frameNum++;
 			frameNums++;
@@ -619,7 +724,7 @@ function gamestart() {
 			if (!gameOverBol) {
 				return;
 			}
-			//
+
 			createMonster();//创建食物
 			drawMonster();//绘制食物
 			createcarMonster();//创建食物
@@ -628,7 +733,6 @@ function gamestart() {
 			score1.draw();
 			score1.draw1();
 			score1.draw2();
-			// stop.draw4();
 			drawScore();//分数的绘制
 
 			changeSpeed();  //达到一定分数改变速度
@@ -645,7 +749,6 @@ function gamestart() {
 		},3000)
 
 		$(".playimg").on('click',function () {
-			console.log("ss");
 			window.cancelAnimationFrame(animateRuning);
 			$(".stoppage").show();
 		})
@@ -688,57 +791,53 @@ function gamestart() {
 			}
 			event.preventDefault();
 		})
-
-	function again() {
-		gameOverBol=true;
-		frameNum=0;//帧数重置
-		frameNums=0;
-		monsterMoveSpeed = 2;
-		coxspeed=0;
-		createMonsterSpeed=80;//创建怪物速度重置
-		scoreNum=0;//分数重置
-		distance=0;
-		coxspeed=monsterMoveSpeed-1;
-	  removeBol = false;
-		num=3;
-		hero.drawX=canvas1.width/4-heroW/2;
-		hero.drawY=canvas1.height-heroH-10;
-		car.drawX=canvas2.width/4-heroW/2;
-		car.drawY=canvas2.height-carH-10;
-		animate();
-	}
-		$(".lookrank").on("click",function () {
-			$(".ranks").show();
-			$(".gameover").hide();
-			$("#look_rank")[0].play();
-			var endshare=nicknames+"在游戏中获得了第"+mingcis+"名的好成绩，快来打败他吧！"
-			sharepage(endshare);
-		})
+		function again() {
+			gameOverBol=true;
+			frameNum=0;//帧数重置
+			frameNums=0;
+			monsterMoveSpeed = 2;
+			coxspeed=0;
+			createMonsterSpeed=80;//创建怪物速度重置
+			scoreNum=0;//分数重置
+			distance=0;
+			coxspeed=monsterMoveSpeed-1;
+		  removeBol = false;
+			num=3;
+			hero.drawX=canvas1.width/4-heroW/2;
+			hero.drawY=canvas1.height-heroH-10;
+			car.drawX=canvas2.width/4-heroW/2;
+			car.drawY=canvas2.height-carH-10;
+			animate();
+		}
+		$(".lookrank").on("touchstart",function () {
+				$(".ranks").show();
+				$(".gameover").hide();
+				$("#look_rank")[0].play();
+				var endshare=nicknames+"在游戏中获得了第"+mingcis+"名的好成绩，快来打败他吧！"
+				sharepage(endshare);
+			})
 		$(".replay").on("click",function () {
-			$("#gameMusic")[0].play();
-			again();
-			$(".userall").empty();
-			$(".gameover").hide();
-		})
+				$("#gameMusic")[0].play();
+				again();
+				$(".userall").empty();
+				$(".gameover").hide();
+			})
 		$(".replay1").on("click",function () {
-			$("#gameMusic")[0].play();
-			again();
-			$(".userall").empty();
-			$(".ranks").hide();
-		})
+				$("#gameMusic")[0].play();
+				again();
+				$(".userall").empty();
+				$(".ranks").hide();
+			})
 
 	}
-
+//game()end
 	function randFn(min,max){
 		return parseInt(Math.random()*(max-min)+min);
 	}
-
 	$(".share").on('click',function () {
 		$(".share").hide();
 	})
 	//取当前的url
-
-
 	function sharepage(desc) {
 		var absurl = window.location.href;
 		if(absurl.indexOf("#") != -1) {
@@ -750,7 +849,6 @@ function gamestart() {
 			url: "../weixin/jsapiTicket?url=" + encodeURIComponent(absurl),
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
 				//设置要调用的方法.
 				data.jsApiList = [
 					'onMenuShareTimeline',

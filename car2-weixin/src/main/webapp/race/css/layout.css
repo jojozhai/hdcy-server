@@ -145,7 +145,7 @@ html,body {
 .mark {
 	margin-bottom: 19px;
 }
-.recordBreak {
+.recordBreak,.norecord {
 	display: none;
 }
 .replay {
@@ -290,27 +290,28 @@ html,body {
 	font-weight: bold;
 	line-height: 33px;
 }
-.users .mingci:nth-of-type(1){
+.ran1{
 	width: 35px;
 	height: 54px;
 	margin-top: 8px;
 	background: url("../image/01.png") no-repeat;
 	background-size: 100% 100%;
 }
-.users .mingci:nth-of-type(2){
+.ran2{
 	width: 35px;
 	height: 54px;
 	margin-top: 8px;
 	background: url("../image/02.png") no-repeat;
 	background-size: 100% 100%;
 }
-.users .mingci:nth-of-type(3){
+.ran3{
 	width: 35px;
 	height: 54px;
 	margin-top: 8px;
 	background: url("../image/03.png") no-repeat;
 	background-size: 100% 100%;
 }
+
 .hands {
 	width: 52px;
 	height: 52px;
