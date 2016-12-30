@@ -518,16 +518,18 @@ function gamestart() {
 				},
 				dataType: "json",
 				success:function(obj){
-					if (obj.contnet==true) {
+					if (obj.content == true) {
 						$(".norecord").hide();
 						$(".recordBreak").show();
 					}else {
 						$(".norecord").show();
 						$(".recordBreak").hide();
 					}
-
+					rankAll();
 				}
 			});
+		}
+		function rankAll() {
 			$.ajax({
 				type:"get",
 				url:"/weixin2/game/rank",
@@ -571,11 +573,10 @@ function gamestart() {
 							dataType: "json",
 							success:function(obj){
 								pageStart = page*20;
-								console.log(obj.content);
 								for (var i = pageStart; i < obj.content.length; i++) {
 									rankNum++;
 									var userdiv=$('<div class="users clear">'+
-											'<span class="mingci">'+rankNum+'</span>'+
+											'<span class="mingci ran'+rankNum+'"></span>'+
 											'<span class="hands">'+
 													'<img  src='+obj.content[i].headimgurl+' alt="">'+
 											'</span>'+
@@ -583,17 +584,18 @@ function gamestart() {
 											'<span class="juli">'+obj.content[i].point+'m</span>'+
 									'</div>');
 									$(".userall").append(userdiv);
+									if (rankNum>3) {
+										$(".users .mingci").html(rankNum)
+									}
 								}
 
 							},
 							error: function(xhr, type){
                     me.resetload();
-                }
+              }
 						});
-
 					}
 				})
-
 		}
 		bgImg.draw();//背景绘制
 		bgImg.draw1();
@@ -713,6 +715,7 @@ function gamestart() {
 			$("#look_rank")[0].play();
 			var endshare=nicknames+"在游戏中获得了第"+mingcis+"名的好成绩，快来打败他吧！"
 			sharepage(endshare);
+
 		})
 		$(".replay").on("click",function () {
 			$("#gameMusic")[0].play();
@@ -750,7 +753,6 @@ function gamestart() {
 			url: "../weixin/jsapiTicket?url=" + encodeURIComponent(absurl),
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
 				//设置要调用的方法.
 				data.jsApiList = [
 					'onMenuShareTimeline',
