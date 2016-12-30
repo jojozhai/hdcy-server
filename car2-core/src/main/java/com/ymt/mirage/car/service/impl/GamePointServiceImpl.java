@@ -60,7 +60,11 @@ public class GamePointServiceImpl implements GamePointService {
             gamePointRepository.save(gamePoint);
             return true;
         }else{
-            return gamePoint.getPoint() < info.getPoint();
+            boolean breakLimit = gamePoint.getPoint() < info.getPoint();
+            if(breakLimit) {
+                gamePoint.setPoint(info.getPoint());
+            }
+            return breakLimit;
         }
         
     }
