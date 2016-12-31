@@ -1,5 +1,4 @@
 
-// gamestart();
 var nicknames=null;
 var mingcis=1;
 var animateRuning=null;
@@ -25,7 +24,7 @@ $.ajax({
 	}
 })
 function gamestart() {
-	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png"];
+	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png","image/tixingbg.png"];
 	var loadOver = [];
 	loadOver = loadImg(allImg,function(){
 		$(".loading").hide();
@@ -100,7 +99,8 @@ function gamestart() {
 		$(".game").show();
 		$(".game_introdute").show();
 		$(".countdown").show();
-		gamedraw();
+		// gamedraw();
+		$(".tixingbg").show();
 	})
 	$(".sure").on('click',function () {
 		$(".game_introdute").hide();
@@ -109,8 +109,10 @@ function gamestart() {
 			$("#gameMusic")[0].play();
 			$(".playimg").show();
 			$(".stopimg").hide();
+
 		},3000)
 		game();
+		$(".tixingbg").hide();
 	})
 
 	var canvas1=document.getElementById("canva1")
@@ -147,18 +149,6 @@ function gamestart() {
 				if (this.y>=bgH){
 					this.y = 0;
 				}
-			}
-		}
-		var heroW = 58;
-		var heroH = 76;
-		var hero = {
-			w:heroW,
-			h:heroH,
-			drawX:canvas1.width/4-heroW/2,
-			drawY:canvas1.height-heroH-10,
-			draw:function(){
-				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
-
 			}
 		}
 		var heroW = 58;
@@ -233,15 +223,7 @@ function gamestart() {
 			context3.fillText("奖励：",220,30);
 			context3.fillText(scoreNum,255,30);
 		}
-		bgImg.draw();//背景绘制
-		bgImg.draw1();
-		hero.draw();
-		car.draw();
-		score.draw();//分数背景绘制
-		score1.draw();
-		score1.draw1();
-		score1.draw2();
-		drawScore();
+
 	}
 //
 	function game() {
@@ -277,17 +259,7 @@ function gamestart() {
 
 			}
 		}
-		// var xeroW = 0;
-		// var xeroH = 0;
-		// var xero = {
-		// 	w:xeroW,
-		// 	h:xeroH,
-		// 	drawX:canvas1.width/2-heroW/2,
-		// 	drawY:canvas1.height-heroH-10,
-		// 	draw:function(){
-		// 		context.drawImage(loadOver[27],this.drawX,this.drawY,this.w,this.h);
-		// 	}
-		// }
+
 		// che对象
 		var carW = 58;
 		var carH = 76;
@@ -711,6 +683,15 @@ function gamestart() {
 					}
 				})
 		}
+		bgImg.draw();//背景绘制
+		bgImg.draw1();
+		hero.draw();
+		car.draw();
+		score.draw();//分数背景绘制
+		score1.draw();
+		score1.draw1();
+		score1.draw2();
+		drawScore();
 		function animate() {
 			frameNum++;
 			frameNums++;
@@ -838,7 +819,7 @@ function gamestart() {
 		$(".share").hide();
 	})
 	//取当前的url
-	function sharepage(desc) {
+	function sharepage(des) {
 		var absurl = window.location.href;
 		if(absurl.indexOf("#") != -1) {
 			absurl = absurl.substring(0, absurl.indexOf("#"));
@@ -900,7 +881,7 @@ function gamestart() {
 					"#wechat_redirect";
 
 					var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/cheyou.png";
-					var desc = "速度与激情~";
+					var desc = des;
 					wx.onMenuShareTimeline({
 						title: title,
 						link: link,

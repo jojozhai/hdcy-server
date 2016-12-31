@@ -80,6 +80,7 @@ html,body {
 	line-height: 126px;
 	font-size: 50px;
 	color: #101010;
+	z-index: 333;
 	/*text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
 	-webkit-text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
 	-moz-text-shadow:#c56616 1px 0 0,#c56616 0 1px 0,#c56616 -1px 0 0,#c56616 0 -1px 0;
@@ -407,4 +408,14 @@ html,body {
 }
 .sound {
 	display: none;
+}
+.tixingbg {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../image/tixingbg.png") no-repeat;
+	background-size: 100% 100%;
 }
