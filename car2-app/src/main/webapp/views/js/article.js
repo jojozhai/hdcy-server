@@ -43,6 +43,7 @@ $(function() {
 			var timestamp3 = obj.createdTime;
 			var newDate = new Date(timestamp3);
 			gap(newDate.toString(), $(".arttime"));
+			$("title").html(obj.title);
 			$(".article-title").html(obj.title);
 			$(".detail-tag1").html(obj.tagName);
 			$(".author").html(obj.principal);
@@ -116,15 +117,15 @@ $(function() {
 							$(".replyscons" + i).append(newReply);
 						}
 					}
-					
-					if(obj.content[i].replys.length > 2) {						
-						b=2;						
+
+					if(obj.content[i].replys.length > 2) {
+						b=2;
 						huifu(b);
 						huifuMore(obj.content[i].replys.length);
-						$(".replyscons" + i).css('display','none');						
+						$(".replyscons" + i).css('display','none');
 						var mores = $("<div class='mores'>查看更多评论>></div>");
 						$(".replys" + i).append(mores);
-						$(".mores").on("click", function() {							
+						$(".mores").on("click", function() {
 							if(flag == true) {
 								$(this).prev().show();
 								flag = false;
