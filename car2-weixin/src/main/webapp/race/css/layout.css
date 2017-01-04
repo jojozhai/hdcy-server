@@ -333,6 +333,10 @@ html,body {
 	font-size: 17px;
 	color: #7B3E00;
 	font-weight: bold;
+	width: 100px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .rules {
 	border-top: 1px solid #C68E22;
@@ -341,6 +345,9 @@ html,body {
 	margin: 6px auto;
 	height: 6px;
 	background: #DE9F25;
+}
+.userall {
+	overflow-y: auto;
 }
 .users {
 	display: inline-block;;

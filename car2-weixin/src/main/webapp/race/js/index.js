@@ -1,4 +1,14 @@
-
+$(".userall").height(window.screen.height*0.895-169);
+$("#startbg")[0].play();
+$("#startbg")[0].pause();
+$("#gameMusic")[0].play();
+$("#gameMusic")[0].pause();
+$("#boom")[0].play();
+$("#boom")[0].pause();
+$("#game_over")[0].play();
+$("#game_over")[0].pause();
+$("#look_rank")[0].play();
+$("#look_rank")[0].pause();
 var nicknames=null;
 var mingcis=1;
 var animateRuning=null;
@@ -624,7 +634,7 @@ function gamestart() {
 				},
 				dataType: "json",
 				success:function(obj){
-					if (obj.rank+1>3) {
+					if ((obj.rank+1)>3) {
 						$(".user .mingci").html(obj.rank+1)
 					}else  {
 						$(".user .mingci").css({
@@ -647,7 +657,7 @@ function gamestart() {
 			var pageStart = 0,pageEnd = 0,page = -1;
 			var rankNum=0;
 				$(".userall").dropload({
-					scrollArea:window,
+					scrollArea:$(".userall"),
 					loadDownFn:function (me) {
 						page++;
 						$.ajax({
@@ -662,7 +672,7 @@ function gamestart() {
 								for (var i = pageStart; i < obj.content.length; i++) {
 									rankNum++;
 									var userdiv=$('<div class="users clear">'+
-											'<span class="mingci ran'+rankNum+'"></span>'+
+											'<span class="mingci ran'+rankNum+'">'+rankNum+'</span>'+
 											'<span class="hands">'+
 													'<img  src='+obj.content[i].headimgurl+' alt="">'+
 											'</span>'+
@@ -670,8 +680,10 @@ function gamestart() {
 											'<span class="juli">'+obj.content[i].point+'m</span>'+
 									'</div>');
 									$(".userall").append(userdiv);
-									if (rankNum>3) {
-										$(".users .mingci").html(rankNum)
+									if (rankNum<3) {
+										$(".ran1").html();
+										$(".ran2").html();
+										$(".ran3").html();
 									}
 								}
 
