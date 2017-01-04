@@ -72,7 +72,7 @@ function gamestart() {
 	}
 	function home () {
 		$(".home").show();
-		var homede="这个游戏太难了，我还没开始玩，就已经被打败了";
+		var homede="超过一百万人在玩的极速前进最新版“车友飙车”，请你来当主角。";
 		sharepage(homede);
 		$("#startbg")[0].play();
 	}
@@ -82,9 +82,9 @@ function gamestart() {
 	var distance=0;//距离
 	var monsters = [];
 	var carmonsters = [];
-	var createMonsterSpeed = 80;
-	var monsterMoveSpeed = 2;
-	var coxspeed=monsterMoveSpeed-1;
+	var createMonsterSpeed = 60;
+	var monsterMoveSpeed = 3;
+	var coxspeed=monsterMoveSpeed-2;
 	var removeBol = false;
 	var num=3;
 
@@ -586,7 +586,12 @@ function gamestart() {
 			}
 			if (frameNums%600==0) {
 				coxspeed+=0.5;
-				createMonsterSpeed-=9;
+				if (createMonsterSpeed>9) {
+					createMonsterSpeed-=9;
+				}else {
+					createMonsterSpeed=9
+				}
+
 			}
 
 		}
@@ -650,7 +655,7 @@ function gamestart() {
 					$(".user .juli").html(obj.point+"m");
 					nicknames=obj.nickname;
 					mingcis=obj.rank+1;
-					var overshare=obj.nickname+"在游戏中获得了行驶"+distance+"米的好成绩，快来打败他吧！"
+					var overshare="这款游戏让我感觉智商真被掏空，超级车手"+obj.nickname+"在车友飙车全球游戏排名"+mingcis+"求超越！"
 					sharepage(overshare);
 				}
 			});
@@ -788,9 +793,9 @@ function gamestart() {
 			gameOverBol=true;
 			frameNum=0;//帧数重置
 			frameNums=0;
-			monsterMoveSpeed = 2;
+			monsterMoveSpeed = 3;
 			coxspeed=0;
-			createMonsterSpeed=80;//创建怪物速度重置
+			createMonsterSpeed=60;//创建怪物速度重置
 			scoreNum=0;//分数重置
 			distance=0;
 			coxspeed=monsterMoveSpeed-1;
@@ -806,7 +811,7 @@ function gamestart() {
 				$(".ranks").show();
 				$(".gameover").hide();
 				$("#look_rank")[0].play();
-				var endshare=nicknames+"在游戏中获得了第"+mingcis+"名的好成绩，快来打败他吧！"
+				var endshare="这款游戏让我感觉智商真被掏空，超级车手"+nicknames+"在车友飙车全球游戏排名"+mingcis+"求超越！";
 				sharepage(endshare);
 			})
 		$(".replay").on("click",function () {
@@ -891,8 +896,7 @@ function gamestart() {
 					"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
 					"&state=" + encodeURIComponent(window.location.href) +
 					"#wechat_redirect";
-
-					var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/cheyou.png";
+					var imgUrl = "../image/shareicon.png";
 					var desc = des;
 					wx.onMenuShareTimeline({
 						title: title,

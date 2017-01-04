@@ -938,14 +938,16 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.redParticipators = [];
 	$scope.blueParticipators = [];
-	// $scope.redblueParticipators = [];
+  var blue=[];
+	$scope.redblueParticipators = [];
 	$scope.widths=document.body.clientWidth;
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
 	var scrollable = true;
 	var toBottom = false;
-
+  var j=-1;
 	$scope.query = function(callback) {
+    j++;
 		scrollable = false;
 		if(typeof $scope.condition === 'undefined'){
 			$scope.condition = {};
@@ -953,26 +955,20 @@ angular.module('hdcyApp', ['weixin',
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
 		condition.contraryId = $stateParams.id;
 		contraryParticipatorRestService.query(condition).$promise.then(function(data){
-      console.log(data);
+
 			if(data.red.content.length > 0 || data.blue.content.length > 0){
 				$scope.redParticipators = $scope.redParticipators.concat(data.red.content);
 				$scope.blueParticipators = $scope.blueParticipators.concat(data.blue.content);
-				for (var i=0;i<$scope.blueParticipators.length;i++) {
-					$scope.redParticipators.splice((1+2*i),0,$scope.blueParticipators[i])
-
-				}
-        console.log($scope.redParticipators);
-        console.log($scope.blueParticipators);
-        console.log(data.red.content.length,$scope.pageInfo.size);
+        $scope.redblueParticipators=$scope.redblueParticipators.concat(data.red.content);
+				for (var i=0;i<data.blue.content.length;i++) {
+					$scope.redblueParticipators.splice(((1+20*j)+2*i),0,data.blue.content[i]);
+        }
 				if(data.red.content.length >= $scope.pageInfo.size || data.blue.content.length >= $scope.pageInfo.size){
-          console.log("ss");
 					scrollable = true;
 				}else{
-          console.log("可以");
 					toBottom = true;
 				}
 			}else{
-        console.log("不可以");
 				toBottom = true;
 			}
 			if(typeof callback == "function"){
@@ -983,12 +979,12 @@ angular.module('hdcyApp', ['weixin',
 	}
 	$scope.query();
 	$scope.getNextPage = function() {
-    console.log("下一页");
 		if(scrollable && !toBottom){
       scrollable = false;
 			if($scope.redParticipators.length != 0 || $scope.blueParticipators.length != 0){
 				$scope.pageInfo.page = $scope.pageInfo.page + 1;
-                $scope.query();
+        // $scope.redblueParticipators=[];
+        $scope.query();
 			}
 		}
 	}

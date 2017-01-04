@@ -51,8 +51,8 @@
 					</div>
 				</div>
 			</div>
-			<ul class="topic-cons">
-				<li class="redsupport-list clear" ng-repeat="participator in redParticipators" ng-class="{'bluesupport-list ':participator.red==false}">
+			<ul class="topic-cons" infinite-scroll="getNextPage()">
+				<li class="redsupport-list clear" ng-repeat="participator in redblueParticipators" ng-class="{'bluesupport-list ':participator.red==false}">
 					<img class="redsupport fl" src="{{participator.headimgurl}}">
 					<div class="redsupport-cons fl">
 						<div class="redsup-nickname"></div>
