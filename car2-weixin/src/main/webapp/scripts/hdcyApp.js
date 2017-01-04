@@ -243,9 +243,9 @@ angular.module('hdcyApp', ['weixin',
 }).controller('userDetailsCtrl', function($scope) {
 
 }).controller('userInfoCtrl', function($scope, $stateParams, $location, smsRestService, userRestService, commonService, weixinService, paramRestService, carRestService) {
-	
+
 	$scope.fromLottery = ($stateParams.from.indexOf("lottery") != -1);
-	
+
 	weixinService.initWx();
 	userRestService.current().$promise.then(function(result){
 		$scope.user = result;
@@ -356,7 +356,7 @@ angular.module('hdcyApp', ['weixin',
 				return;
 			}
 		}
-		
+
 		if(!$scope.fromLottery){
 			smsRestService.checkSmsCode({phone:user.mobile, code:user.code}).$promise.then(function(result){
 				userRestService.updateProperty({name: "realname", value: user.realname}).$promise.then(function(){
@@ -374,7 +374,7 @@ angular.module('hdcyApp', ['weixin',
 				});
 			});
 		}
-		
+
 	}
 
 	$scope.settings = {
@@ -939,7 +939,7 @@ angular.module('hdcyApp', ['weixin',
 	$scope.redParticipators = [];
 	$scope.blueParticipators = [];
 	$scope.redblueParticipators = [];
-	$scope.widths=document.body.clientWidth;	
+	$scope.widths=document.body.clientWidth;
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
 	var scrollable = true;
@@ -958,10 +958,7 @@ angular.module('hdcyApp', ['weixin',
 				$scope.blueParticipators = $scope.blueParticipators.concat(data.blue.content);
 				for (var i=0;i<$scope.blueParticipators.length;i++) {
 					$scope.redParticipators.splice((1+2*i),0,$scope.blueParticipators[i])
-			
 				}
-				
-				
 				if(data.red.content.length >= $scope.pageInfo.size || data.blue.content.length >= $scope.pageInfo.size){
 					scrollable = true;
 				}else{
