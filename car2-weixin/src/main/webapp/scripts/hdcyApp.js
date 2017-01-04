@@ -938,7 +938,7 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.redParticipators = [];
 	$scope.blueParticipators = [];
-	$scope.redblueParticipators = [];
+	// $scope.redblueParticipators = [];
 	$scope.widths=document.body.clientWidth;
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
@@ -972,6 +972,7 @@ angular.module('hdcyApp', ['weixin',
 					toBottom = true;
 				}
 			}else{
+        console.log("不可以");
 				toBottom = true;
 			}
 			if(typeof callback == "function"){
@@ -982,8 +983,9 @@ angular.module('hdcyApp', ['weixin',
 	}
 	$scope.query();
 	$scope.getNextPage = function() {
+    console.log("下一页");
 		if(scrollable && !toBottom){
-            scrollable = false;
+      scrollable = false;
 			if($scope.redParticipators.length != 0 || $scope.blueParticipators.length != 0){
 				$scope.pageInfo.page = $scope.pageInfo.page + 1;
                 $scope.query();
