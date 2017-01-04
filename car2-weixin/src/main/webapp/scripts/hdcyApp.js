@@ -953,6 +953,7 @@ angular.module('hdcyApp', ['weixin',
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
 		condition.contraryId = $stateParams.id;
 		contraryParticipatorRestService.query(condition).$promise.then(function(data){
+      console.log(data);
 			if(data.red.content.length > 0 || data.blue.content.length > 0){
 				$scope.redParticipators = $scope.redParticipators.concat(data.red.content);
 				$scope.blueParticipators = $scope.blueParticipators.concat(data.blue.content);
@@ -964,8 +965,10 @@ angular.module('hdcyApp', ['weixin',
         console.log($scope.blueParticipators);
         console.log(data.red.content.length,$scope.pageInfo.size);
 				if(data.red.content.length >= $scope.pageInfo.size || data.blue.content.length >= $scope.pageInfo.size){
+          console.log("ss");
 					scrollable = true;
 				}else{
+          console.log("可以");
 					toBottom = true;
 				}
 			}else{
