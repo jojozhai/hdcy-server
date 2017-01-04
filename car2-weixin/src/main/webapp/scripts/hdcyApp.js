@@ -958,7 +958,11 @@ angular.module('hdcyApp', ['weixin',
 				$scope.blueParticipators = $scope.blueParticipators.concat(data.blue.content);
 				for (var i=0;i<$scope.blueParticipators.length;i++) {
 					$scope.redParticipators.splice((1+2*i),0,$scope.blueParticipators[i])
+
 				}
+        console.log($scope.redParticipators);
+        console.log($scope.blueParticipators);
+        console.log(data.red.content.length,$scope.pageInfo.size);
 				if(data.red.content.length >= $scope.pageInfo.size || data.blue.content.length >= $scope.pageInfo.size){
 					scrollable = true;
 				}else{
