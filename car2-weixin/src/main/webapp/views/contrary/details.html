@@ -24,7 +24,7 @@
 				<div class="xs-txtover" ng-bind-html="desc | toHtml"></div>
 				<div class="hd-more" ng-style="{display: showExtender?'block':'none'}" ng-click="extendDesc()">
 					<i ng-style="{'background': contentExtend?'url(images/up.png) no-repeat':'url(images/dow.png) no-repeat', 'background-size': '100%'}"></i>
-					
+
 				</div>
 			</div>
 		</div>
@@ -59,15 +59,16 @@
 						<div class="redsupport-con">
 							<span>{{participator.content}}</span>
 							<div class="redsup-time">
-								{{participator.createdTime| date:"yyyy-MM-dd "}} 
+								{{participator.createdTime| date:"yyyy-MM-dd "}}
 							</div>
 						</div>
 					</div>
 				</li>
 			</ul>
-			<div class="supports" ng-hide="contrary.finish">
+      <!-- ng-hide="contrary.finish" -->
+			<div class="supports" >
 				<a class="support-red" ng-click="clickSignButton(true)">我支持红方</a>
-				<a class="support-blue" ng-click="clickSignButton(false)">我支持蓝方</a>				
+				<a class="support-blue" ng-click="clickSignButton(false)">我支持蓝方</a>
 			</div>
 		</div>
 	</div>
@@ -89,5 +90,3 @@
 	</div>
 </div>
 <!--弹窗 end-->
-
-
