@@ -656,16 +656,17 @@ function gamestart() {
 						$(".norecord").show();
 						$(".recordBreak").hide();
 					}
-					rankAll();
+					rankAll(dis);
 				}
 			});
 		}
-		function rankAll() {
+		function rankAll(dist) {
 			$.ajax({
 				type:"get",
 				url:"/weixin2/game/rank",
 				data:{
 					game:'game',
+					point:dist
 				},
 				dataType: "json",
 				success:function(obj){
@@ -938,13 +939,13 @@ function gamestart() {
 				wx.config(data);
 				wx.ready(function() {
 					//配置成功以后修改分享的信息
-					var title = "ZKC大飙客";
+					var title = "车友飙车";
 					var link = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
 					"appid=" + weixinAppId +"&redirect_uri=" + oauthCallbackUrl +"&response_type=code" +
 					"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
 					"&state=" + encodeURIComponent(window.location.href) +
 					"#wechat_redirect";
-					var imgUrl = "../image/shareicon.png";
+					var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/shareicon.png";
 					var desc = des;
 					wx.onMenuShareTimeline({
 						title: title,
