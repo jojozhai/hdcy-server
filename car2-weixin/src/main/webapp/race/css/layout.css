@@ -185,7 +185,7 @@ html,body {
 	margin-top: 16.5px;
 }
 .share {
-	/*display: none;*/
+	display: none;
 	background: black;
 	opacity: 0.85;
 	width: 100%;
