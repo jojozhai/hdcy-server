@@ -31,15 +31,36 @@ html,body {
 .homebg {
 	width: 100%;
 	height: 100%;
-	background: url(../image/yellow.png) no-repeat;
-	background-size: 100% 100%;
+	/*background: url(../image/yellow.png) no-repeat;
+	background-size: 100% 100%;*/
 }
 .zkc {
-	margin-top: 78px;
+	margin-top: 38px;
+}
+.homecar {
+	position: absolute;
+	top: 167px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%)
 }
 .start {
-	width: 185px;
-	margin: 87.5px  0 56px;
+	width: 178px;
+	margin: 123.5px  0 56px;
+}
+.homefooter {
+	position: absolute;
+	bottom: 27px;
+	width: 100%;
+}
+.homesound,.mute {
+	margin-left: 30px;
+}
+.mute {
+	display: none;
+}
+.homelogo {
+	margin-right: 8px;
 }
 /*游戏页面*/
 .game {
@@ -62,7 +83,7 @@ html,body {
 	position: absolute;
 	right: 21px;
 	top: 12px;
-	z-index: 999;
+	z-index: 888;
 }
 .playimg {
 	display: none;
@@ -124,24 +145,35 @@ html,body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url(../image/overbgup.png) no-repeat;
-	background-size: 100% 100%;
+	/*background: url(../image/overbgup.png) no-repeat;
+	background-size: 100% 100%;*/
 	text-align: center;
 }
 .over-logo {
-	margin-top: 85px;
+	width: 300px;
+	margin-top: 27px;
 }
 .kart {
 	position: absolute;
 	top: 43px;
 	right: 78px;
 }
+.lookrank ,.replay{
+	width: 193px;
+}
 .ranking {
-	color: #FEE502;
-	font-size: 40px;
+	color: #40210F;
+	font-size: 45px;
 	font-weight: bold;
-	text-shadow: 4px 3px 0px rgba(191,172,0,0.35);
-	margin: 20px 0 40px;
+	/*text-shadow: 4px 3px 0px rgba(191,172,0,0.35);*/
+	margin: 20px 0 20px;
+}
+.distance {
+	width: 375px;
+	height: 100px;
+	background: url("../image/juli.png") no-repeat;
+	background-size: 100% 100%;
+	line-height: 100px;
 }
 .mark {
 	margin-bottom: 19px;
@@ -150,7 +182,7 @@ html,body {
 	display: none;
 }
 .replay {
-	margin-top: 28.5px;
+	margin-top: 16.5px;
 }
 .share {
 	/*display: none;*/
@@ -247,6 +279,7 @@ html,body {
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
+	z-index: 99;
 }
 .rankMark {
 	width: 360px;
@@ -256,6 +289,7 @@ html,body {
 	background-size: 100% 100%;
 	margin-top: 18px;
 	text-align: center;
+	overflow: auto;
 }
 .user {
 	display: inline-block;
@@ -297,6 +331,7 @@ html,body {
 	margin-top: 8px;
 	background: url("../image/01.png") no-repeat;
 	background-size: 100% 100%;
+	color: transparent;
 }
 .ran2{
 	width: 35px;
@@ -304,6 +339,7 @@ html,body {
 	margin-top: 8px;
 	background: url("../image/02.png") no-repeat;
 	background-size: 100% 100%;
+	color: transparent;
 }
 .ran3{
 	width: 35px;
@@ -311,6 +347,7 @@ html,body {
 	margin-top: 8px;
 	background: url("../image/03.png") no-repeat;
 	background-size: 100% 100%;
+	color: transparent;
 }
 
 .hands {
@@ -387,6 +424,7 @@ html,body {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	z-index: 4444;
 }
 .stoppagebg {
 	width: 100%;
@@ -425,4 +463,5 @@ html,body {
 	height: 100%;
 	background: url("../image/tixingbg.png") no-repeat;
 	background-size: 100% 100%;
+	z-index: 998;
 }

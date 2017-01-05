@@ -1,4 +1,4 @@
-$(".userall").height(window.screen.height*0.895-169);
+
 $("#startbg")[0].play();
 $("#startbg")[0].pause();
 $("#gameMusic")[0].play();
@@ -102,24 +102,37 @@ function gamestart() {
 			}
 		},1000)
 	}
-
+	var mutes=true;
+	$(".homesound").on('click',function () {
+		$(".homesound").hide();
+		$(".mute").show();
+		$("#startbg")[0].pause();
+		mutes=false;
+	})
+	$(".mute").on('click',function () {
+		$(".homesound").show();
+		$(".mute").hide();
+		mutes=true;
+	})
 	$(".start").on('click',function () {
 		$(".home").hide();
 		$("#startbg")[0].pause();
 		$(".game").show();
 		$(".game_introdute").show();
 		$(".countdown").show();
-		// gamedraw();
 		$(".tixingbg").show();
 	})
 	$(".sure").on('click',function () {
 		$(".game_introdute").hide();
 		countdown();
 		setTimeout(function () {
-			$("#gameMusic")[0].play();
+			if (mutes==true) {
+				$("#gameMusic")[0].play();
+			}else {
+				$("#gameMusic")[0].pause();
+			}
 			$(".playimg").show();
 			$(".stopimg").hide();
-
 		},3000)
 		game();
 		$(".tixingbg").hide();
@@ -161,8 +174,8 @@ function gamestart() {
 				}
 			}
 		}
-		var heroW = 58;
-		var heroH = 76;
+		var heroW = 36;
+		var heroH = 66.4;
 		var hero = {
 			w:heroW,
 			h:heroH,
@@ -174,8 +187,8 @@ function gamestart() {
 			}
 		}
 
-		var carW = 58;
-		var carH = 76;
+		var carW = 36;
+		var carH = 66.4;
 		var car = {
 			w:carW,
 			h:carH,
@@ -257,8 +270,8 @@ function gamestart() {
 			}
 		}
 		//logo对象------------------------------------
-		var heroW = 58;
-		var heroH = 76;
+		var heroW =36;
+		var heroH = 66.4;
 		var hero = {
 			w:heroW,
 			h:heroH,
@@ -271,8 +284,8 @@ function gamestart() {
 		}
 
 		// che对象
-		var carW = 58;
-		var carH = 76;
+		var carW = 36;
+		var carH = 66.4;
 		var car = {
 			w:carW,
 			h:carH,
@@ -386,10 +399,19 @@ function gamestart() {
 						var dieBol = monsters[i].die();
 						if (monsters[i].score) {
 							monsters.splice(i,1);
-							$("#boom")[0].play();
+							if (mutes==true) {
+								$("#boom")[0].play();
+							}else {
+								$("#boom")[0].pause();
+							}
 						}else {
 							gameOver();
-							$("#game_over")[0].play();
+							if (mutes==true) {
+								$("#game_over")[0].play();
+							}else {
+								$("#game_over")[0].pause();
+							}
+
 						}
 					}
 				}
@@ -489,10 +511,18 @@ function gamestart() {
 						var dieBol = carmonsters[i].die();
 						if (carmonsters[i].score) {
 							carmonsters.splice(i,1);
-							$("#boom")[0].play();
+							if (mutes==true) {
+								$("#boom")[0].play();
+							}else {
+								$("#boom")[0].pause();
+							}
 						}else {
 							gameOver();
-							$("#game_over")[0].play();
+							if (mutes==true) {
+								$("#game_over")[0].play();
+							}else {
+								$("#game_over")[0].pause();
+							}
 						}
 					}
 				}
@@ -661,8 +691,8 @@ function gamestart() {
 			});
 			var pageStart = 0,pageEnd = 0,page = -1;
 			var rankNum=0;
-				$(".userall").dropload({
-					scrollArea:$(".userall"),
+				$(".rankMark").dropload({
+					scrollArea:$(".rankMark"),
 					loadDownFn:function (me) {
 						page++;
 						$.ajax({
@@ -685,11 +715,6 @@ function gamestart() {
 											'<span class="juli">'+obj.content[i].point+'m</span>'+
 									'</div>');
 									$(".userall").append(userdiv);
-									if (rankNum<3) {
-										$(".ran1").html();
-										$(".ran2").html();
-										$(".ran3").html();
-									}
 								}
 
 							},
@@ -749,6 +774,15 @@ function gamestart() {
 		$(".playimg").on('click',function () {
 			window.cancelAnimationFrame(animateRuning);
 			$(".stoppage").show();
+			if (mutes==true) {
+				$(".sound").hide();
+				$(".laba").show();
+				$("#gameMusic")[0].play();
+			}else {
+				$(".sound").show();
+				$(".laba").hide();
+				$("#gameMusic")[0].pause();
+			}
 		})
 		$(".backs").on("click",function () {
 			$(".stoppage").hide();
@@ -759,11 +793,13 @@ function gamestart() {
 			animateRuning=window.requestAnimationFrame(animate);
 		});
 		$(".laba").on('click',function () {
+			mutes=false;
 			$(".sound").show();
 			$(".laba").hide();
 			$("#gameMusic")[0].pause();
 		});
 		$(".sound").on('click',function () {
+			mutes=true;
 			$(".sound").hide();
 			$(".laba").show();
 			$("#gameMusic")[0].play();
@@ -810,18 +846,30 @@ function gamestart() {
 		$(".lookrank").on("touchstart",function () {
 				$(".ranks").show();
 				$(".gameover").hide();
-				$("#look_rank")[0].play();
+				if (mutes==true) {
+					$("#look_rank")[0].play();
+				}else {
+					$("#look_rank")[0].pause();
+				}
 				var endshare="这款游戏让我感觉智商真被掏空，超级车手"+nicknames+"在车友飙车全球游戏排名"+mingcis+"求超越！";
 				sharepage(endshare);
 			})
 		$(".replay").on("click",function () {
-				$("#gameMusic")[0].play();
+				if (mutes==true) {
+					$("#gameMusic")[0].play();
+				}else {
+					$("#gameMusic")[0].pause();
+				}
 				again();
 				$(".userall").empty();
 				$(".gameover").hide();
 			})
 		$(".replay1").on("click",function () {
-				$("#gameMusic")[0].play();
+				if (mutes==true) {
+					$("#gameMusic")[0].play();
+				}else {
+					$("#gameMusic")[0].pause();
+				}
 				again();
 				$(".userall").empty();
 				$(".ranks").hide();

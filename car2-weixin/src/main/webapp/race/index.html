@@ -9,20 +9,19 @@
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
 		<link rel="stylesheet" type="text/css" href="css/dropload.css" />
 	</head>
-
 	<body>
-		<audio preload="auto" id="startbg">
+		<audio preload="auto" class="item" id="startbg">
 		  	<source src="source/start_music.mp3" type="audio/mpeg">
 		</audio>
-		<audio loop="loop" preload="auto" id="gameMusic" src = "source/game_music.mp3"></audio>
-		<audio preload="auto" id="boom">
+		<audio loop="loop" preload="auto" class="item" id="gameMusic" src = "source/game_music.mp3"></audio>
+		<audio preload="auto" class="item"  id="boom">
 		  	<source src="source/colide_music.mp3" type="audio/mpeg">
 		</audio>
 
-		<audio preload="auto" id="game_over">
+		<audio preload="auto" class="item"  id="game_over">
 		  	<source src="source/over_music.mp3" type="audio/mpeg">
 		</audio>
-		<audio preload="auto" id="look_rank">
+		<audio preload="auto"  class="item" id="look_rank">
 		  	<source src="source/rank_music.mp3" type="audio/mpeg">
 		</audio>
 
@@ -33,10 +32,15 @@
 		</div>
 		<div class="home">
 			<div class="homebg">
+				<img class="homecar" src="image/homecar.png" alt="">
 				<img class="zkc" src="image/zkc.png"/>
+
 				<img class="start" src="image/start.gif"/>
-				<div class="">
-					<img src="image/friendship.png" alt="">
+				<div class="homefooter">
+					<!-- <img src="image/friendship.png" alt=""> -->
+					<img class="fl homesound" src="image/homesound.png" alt="">
+					<img class="fl mute" src="image/mute.png" alt="">
+					<img class="fr homelogo" src="image/homelogo.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -95,7 +99,7 @@
 		</div>
 		<div class="gameover">
 				<div class="gameover1">
-					<img class="kart" src="image/kart.png" alt="">
+					<!-- <img class="kart" src="image/kart.png" alt=""> -->
 					<img class="over-logo" src="image/game-over.png" alt="">
 					<ul class="ranking">
 						<li class="distance">距离：</li>
