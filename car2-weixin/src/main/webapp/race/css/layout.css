@@ -398,8 +398,8 @@ html,body {
 }
 .blur {
 	width: 362px;
-	margin-top: -66px;
-	margin-left: 6.5px;
+	position: absolute;
+	bottom: 42px;
 }
 .replay1 {
 	display: inline-block;
