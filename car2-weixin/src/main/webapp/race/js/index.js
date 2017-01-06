@@ -1,14 +1,20 @@
 
-$("#startbg")[0].play();
-$("#startbg")[0].pause();
-$("#gameMusic")[0].play();
-$("#gameMusic")[0].pause();
-$("#boom")[0].play();
-$("#boom")[0].pause();
-$("#game_over")[0].play();
-$("#game_over")[0].pause();
-$("#look_rank")[0].play();
-$("#look_rank")[0].pause();
+function audioAutoPlay(id){
+    var audio = document.getElementById(id),
+        play = function(){
+            audio.play();
+            document.removeEventListener("touchstart",play, false);
+        };
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        play();
+    }, false);
+    document.addEventListener("touchstart",play, false);
+}
+audioAutoPlay('startbg');
 var nicknames=null;
 var mingcis=1;
 var animateRuning=null;
@@ -33,6 +39,7 @@ $.ajax({
 
 	}
 })
+
 function gamestart() {
 	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png","image/tixingbg.png"];
 	var loadOver = [];
@@ -75,6 +82,7 @@ function gamestart() {
 		var homede="超过一百万人在玩的极速前进最新版“车友飙车”，请你来当主角。";
 		sharepage(homede);
 		$("#startbg")[0].play();
+
 	}
 	var frameNum=0;//帧数
 	var frameNums=0;
@@ -82,7 +90,7 @@ function gamestart() {
 	var distance=0;//距离
 	var monsters = [];
 	var carmonsters = [];
-	var createMonsterSpeed = 60;
+	var createMonsterSpeed=110;
 	var monsterMoveSpeed = 3;
 	var coxspeed=monsterMoveSpeed-2;
 	var removeBol = false;
@@ -96,6 +104,7 @@ function gamestart() {
 			if (num<1) {
 				clearInterval(timer);
 				$(".countdown").hide();
+				$(".counts").hide();
 			}else {
 				$(".counts").hide();
 				$(".count"+num).show();
@@ -115,6 +124,10 @@ function gamestart() {
 		mutes=true;
 	})
 	$(".start").on('click',function () {
+		$("#boom")[0].play();
+		$("#boom")[0].pause();
+		$("#game_over")[0].play();
+		$("#game_over")[0].pause();
 		$(".home").hide();
 		$("#startbg")[0].pause();
 		$(".game").show();
@@ -123,6 +136,8 @@ function gamestart() {
 		$(".tixingbg").show();
 	})
 	$(".sure").on('click',function () {
+		$("#gameMusic")[0].play();
+		$("#gameMusic")[0].pause();
 		$(".game_introdute").hide();
 		countdown();
 		setTimeout(function () {
@@ -133,7 +148,7 @@ function gamestart() {
 			}
 			$(".playimg").show();
 			$(".stopimg").hide();
-		},3000)
+		},2000)
 		game();
 		$(".tixingbg").hide();
 	})
@@ -179,7 +194,7 @@ function gamestart() {
 		var hero = {
 			w:heroW,
 			h:heroH,
-			drawX:canvas1.width/4-heroW/2,
+			drawX:canvas1.width/4-12,
 			drawY:canvas1.height-heroH-10,
 			draw:function(){
 				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
@@ -192,7 +207,7 @@ function gamestart() {
 		var car = {
 			w:carW,
 			h:carH,
-			drawX:canvas2.width/4-carW/2,
+			drawX:canvas2.width/4-8,
 			drawY:canvas2.height-carH-10,
 			draw:function(){
 				context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
@@ -227,7 +242,7 @@ function gamestart() {
 		function drawScore() {
 			context3.beginPath();
 			context3.fillStyle="white";
-			context3.font="12px";
+			context3.font="14px";
 			if(scoreNum<10){
 				var shift = 3;
 			}else if(scoreNum<100){
@@ -275,7 +290,7 @@ function gamestart() {
 		var hero = {
 			w:heroW,
 			h:heroH,
-			drawX:canvas1.width/4-heroW/2,
+			drawX:canvas1.width/4-12,
 			drawY:canvas1.height-heroH-10,
 			draw:function(){
 				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
@@ -289,7 +304,7 @@ function gamestart() {
 		var car = {
 			w:carW,
 			h:carH,
-			drawX:canvas2.width/4-carW/2,
+			drawX:canvas2.width/4-8,
 			drawY:canvas2.height-carH-10,
 			draw:function(){
 				context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
@@ -354,7 +369,7 @@ function gamestart() {
 		}
 		var flag=false;
 		function createMonster() {// 创建奖励
-			if (frameNum%createMonsterSpeed==0) {
+			if (distance%createMonsterSpeed==0) {
 			var monsterR=randFn(1,30);
 			if (monsterR>=0&&monsterR<=26) {//礼物
 					var monster={};//存放每一个monster的信息
@@ -406,6 +421,15 @@ function gamestart() {
 							}
 						}else {
 							gameOver();
+							coxspeed=0;
+							monsterMoveSpeed = 3;
+							coxspeed=monsterMoveSpeed-2;
+							scoreNum=0;
+							distance=0;
+							hero.drawX=canvas1.width/4-12;
+							hero.drawY=canvas1.height-heroH-10;
+							car.drawX=canvas2.width/4-8;
+							car.drawY=canvas2.height-carH-10;
 							if (mutes==true) {
 								$("#game_over")[0].play();
 							}else {
@@ -467,7 +491,7 @@ function gamestart() {
 		}
 		var flags=false;
 		function createcarMonster() {// 创建奖励
-			if (frameNum%createMonsterSpeed==0) {
+			if (distance%createMonsterSpeed==0) {
 				var monsterR=randFn(10,40);
 			if (monsterR>=13&&monsterR<=37) {//礼物
 					var monster={};//存放每一个monster的信息
@@ -518,6 +542,15 @@ function gamestart() {
 							}
 						}else {
 							gameOver();
+							coxspeed=0;
+							monsterMoveSpeed = 3;
+							coxspeed=monsterMoveSpeed-2;
+							scoreNum=0;
+							distance=0;
+							hero.drawX=canvas1.width/4-12;
+							hero.drawY=canvas1.height-heroH-10;
+							car.drawX=canvas2.width/4-8;
+							car.drawY=canvas2.height-carH-10;
 							if (mutes==true) {
 								$("#game_over")[0].play();
 							}else {
@@ -609,19 +642,31 @@ function gamestart() {
 			context3.fillText("奖励：",220,30);
 			context3.fillText(scoreNum,255,30);
 		}
+		var speeds=0;
+		var creaspd=0;
 		// 达到一定的分数改变速度
 		function changeSpeed() {
+
 			if (frameNums%60==0) {
 				monsterMoveSpeed+=0.05;
+
 			}
+
 			if (frameNums%600==0) {
 				coxspeed+=0.5;
-				if (createMonsterSpeed>9) {
-					createMonsterSpeed-=9;
-				}else {
-					createMonsterSpeed=9
-				}
 
+				if (createMonsterSpeed>100) {
+					createMonsterSpeed-=4;
+				}else if (createMonsterSpeed>80) {
+					createMonsterSpeed-=8;
+				}else if (createMonsterSpeed>70) {
+					createMonsterSpeed-=12;
+				}else if (createMonsterSpeed>50) {
+					createMonsterSpeed-=14;
+				}else {
+					createMonsterSpeed=40;
+				}
+				console.log(createMonsterSpeed);
 			}
 
 		}
@@ -686,7 +731,7 @@ function gamestart() {
 					$(".user .juli").html(obj.point+"m");
 					nicknames=obj.nickname;
 					mingcis=obj.rank+1;
-					var overshare="这款游戏让我感觉智商真被掏空，超级车手"+obj.nickname+"在车友飙车全球游戏排名"+mingcis+"求超越！"
+					var overshare=obj.nickname+"在车友飙车全球游戏排名"+mingcis+"求超越！"
 					sharepage(overshare);
 				}
 			});
@@ -758,11 +803,9 @@ function gamestart() {
 			score1.draw1();
 			score1.draw2();
 			drawScore();//分数的绘制
-
 			changeSpeed();  //达到一定分数改变速度
 			if(frameNum == 1200){
 				frameNum = 0;
-
 			}
 			  animateRuning=window.requestAnimationFrame(animate);
 		}
@@ -808,41 +851,43 @@ function gamestart() {
 
 		canvas1.addEventListener("touchstart",function () {
 			if (hero.drawX>=canvas1.width/2-heroW/2) {
-				hero.drawX = canvas1.width/4-heroW/2;
+				hero.drawX = canvas1.width/4-12;
 				hero.drawY = canvas1.height-heroH-10;
 			}else {
-				hero.drawX = canvas1.width*3/4-heroW/2;
+				hero.drawX = canvas1.width*3/4-heroW/2-12;
 				hero.drawY = canvas1.height-heroH-10;
 			}
 			event.preventDefault();
 		})
 		canvas2.addEventListener("touchstart",function () {
 			if (car.drawX>=canvas2.width/2-carW/2) {
-				car.drawX = canvas2.width/4-carW/2;
+				car.drawX = canvas2.width/4-8;
 				car.drawY = canvas2.height-carH-10;
 			}else {
-				car.drawX = canvas2.width*3/4-carW/2;
+				car.drawX = canvas2.width*3/4-carW/2-6;
 				car.drawY = canvas2.height-carH-10;
 			}
 			event.preventDefault();
 		})
 		function again() {
 			gameOverBol=true;
-			frameNum=0;//帧数重置
+			frameNum=0;
 			frameNums=0;
 			monsterMoveSpeed = 3;
-			coxspeed=0;
-			createMonsterSpeed=60;//创建怪物速度重置
+			createMonsterSpeed=110;//创建怪物速度重置
 			scoreNum=0;//分数重置
 			distance=0;
+			coxspeed=0;
 			coxspeed=monsterMoveSpeed-1;
 		  removeBol = false;
 			num=3;
-			hero.drawX=canvas1.width/4-heroW/2;
+			hero.drawX=canvas1.width/4-12;
 			hero.drawY=canvas1.height-heroH-10;
-			car.drawX=canvas2.width/4-heroW/2;
+			car.drawX=canvas2.width/4-8;
 			car.drawY=canvas2.height-carH-10;
-			animate();
+			setTimeout(function () {
+				animate();
+			},3000)
 		}
 		$(".lookrank").on("touchstart",function () {
 				$(".ranks").show();
@@ -852,7 +897,7 @@ function gamestart() {
 				}else {
 					$("#look_rank")[0].pause();
 				}
-				var endshare="这款游戏让我感觉智商真被掏空，超级车手"+nicknames+"在车友飙车全球游戏排名"+mingcis+"求超越！";
+				var endshare=nicknames+"在车友飙车全球游戏排名"+mingcis+"求超越！";
 				sharepage(endshare);
 			})
 		$(".replay").on("click",function () {
@@ -861,6 +906,8 @@ function gamestart() {
 				}else {
 					$("#gameMusic")[0].pause();
 				}
+				num=3;
+				countdown();
 				again();
 				$(".userall").empty();
 				$(".gameover").hide();
@@ -871,6 +918,8 @@ function gamestart() {
 				}else {
 					$("#gameMusic")[0].pause();
 				}
+				num=3;
+				countdown();
 				again();
 				$(".userall").empty();
 				$(".ranks").hide();
