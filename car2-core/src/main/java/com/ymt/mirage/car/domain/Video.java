@@ -52,6 +52,14 @@ public class Video extends DomainImpl {
      */
     private boolean enable;
     /**
+     * 发布日期
+     */
+    private Date enableDate;
+    /**
+     * 是否发布过，如果发布过，然后人工下线了，不再自动发布。
+     */
+    private boolean enabled;
+    /**
      * 回放
      */
     private boolean replay;
@@ -378,6 +386,30 @@ public class Video extends DomainImpl {
      */
     public void setReplayId(Long replayId) {
         this.replayId = replayId;
+    }
+    /**
+     * @return the enableDate
+     */
+    public Date getEnableDate() {
+        return enableDate;
+    }
+    /**
+     * @param enableDate the enableDate to set
+     */
+    public void setEnableDate(Date enableDate) {
+        this.enableDate = enableDate;
+    }
+    /**
+     * @return the enabled
+     */
+    public boolean isEnabled() {
+        return enabled;
+    }
+    /**
+     * @param enabled the enabled to set
+     */
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
     
 }

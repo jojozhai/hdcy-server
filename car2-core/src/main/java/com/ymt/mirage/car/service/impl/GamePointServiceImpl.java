@@ -75,13 +75,12 @@ public class GamePointServiceImpl implements GamePointService {
     @Override
     public UserGameRankInfo getUserGameRankInfo(GamePointInfo info) {
         
-        GamePoint gamePoint = gamePointRepository.findByGameAndUserId(info.getGame(), info.getUserId());
+//        GamePoint gamePoint = gamePointRepository.findByGameAndUserId(info.getGame(), info.getUserId());
+//        
+//        if(gamePoint == null) {
+//            return null;
+//        }
         
-        if(gamePoint == null) {
-            return null;
-        }
-        
-        info.setPoint(gamePoint.getPoint());
         long rank = gamePointRepository.count(new GamePointSpec(info));
         
         User user = userRepository.findOne(info.getUserId());
@@ -89,7 +88,7 @@ public class GamePointServiceImpl implements GamePointService {
         UserGameRankInfo rankInfo = new UserGameRankInfo();
         rankInfo.setHeadimgurl(user.getHeadimgurl());
         rankInfo.setNickname(user.getNickname());
-        rankInfo.setPoint(gamePoint.getPoint());
+        rankInfo.setPoint(info.getPoint());
         rankInfo.setRank(rank);
         
         return rankInfo;

@@ -11,6 +11,8 @@
  */
 package com.ymt.mirage.car.service.impl;
 
+import java.util.Date;
+
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
@@ -64,6 +66,9 @@ public class VideoServiceImpl implements VideoService {
         if(video.getEndTime() == null) {
             video.setEndTime(new DateTime().plusYears(100).toDate());
         }
+        if(videoInfo.getEnable()) {
+            video.setEnabled(true);
+        }
         videoInfo.setId(videoRepository.save(video).getId());
         return videoInfo;
     }
@@ -91,6 +96,10 @@ public class VideoServiceImpl implements VideoService {
         video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
         if(video.getEndTime() == null) {
             video.setEndTime(new DateTime().plusYears(100).toDate());
+        }
+        if(videoInfo.getEnable()) {
+            video.setEnabled(true);
+            video.setCreatedTime(new Date());
         }
         videoRepository.save(video);
         return videoInfo;

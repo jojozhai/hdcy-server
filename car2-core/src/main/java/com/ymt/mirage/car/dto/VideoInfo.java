@@ -43,6 +43,10 @@ public class VideoInfo {
      */
     private Boolean enable;
     /**
+     * 发布日期
+     */
+    private Date enableDate;
+    /**
      * 图片
      */
     private String image;
