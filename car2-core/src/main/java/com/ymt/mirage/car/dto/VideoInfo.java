@@ -422,5 +422,17 @@ public class VideoInfo {
     public void setReplayId(Long replayId) {
         this.replayId = replayId;
     }
+    /**
+     * @return the enableDate
+     */
+    public Date getEnableDate() {
+        return enableDate;
+    }
+    /**
+     * @param enableDate the enableDate to set
+     */
+    public void setEnableDate(Date enableDate) {
+        this.enableDate = enableDate;
+    }
     
 }
