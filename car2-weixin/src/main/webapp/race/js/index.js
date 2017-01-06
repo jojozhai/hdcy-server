@@ -21,25 +21,25 @@ var animateRuning=null;
 var weixinAppId = "wxce8eb11c51670a1d";
 var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
 var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
-// $.ajax({
-// 	type: "get",
-// 	url: "../user/current",
-// 	dataType: "json",
-// 	success: function(obj) {
-// 			gamestart();
-// 	},
-// 	error: function(XMLHttpRequest, textStatus, errorThrown) {
-// 		if (XMLHttpRequest.status==403) {
-// 			window.location.href= "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-// 			"appid=" + weixinAppId +"&redirect_uri=" + oauthCallbackUrl +"&response_type=code" +
-// 			"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
-// 			"&state=" + encodeURIComponent(window.location.href) +
-// 			"#wechat_redirect";
-// 		}
-//
-// 	}
-// })
-gamestart();
+$.ajax({
+	type: "get",
+	url: "../user/current",
+	dataType: "json",
+	success: function(obj) {
+			gamestart();
+	},
+	error: function(XMLHttpRequest, textStatus, errorThrown) {
+		if (XMLHttpRequest.status==403) {
+			window.location.href= "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+			"appid=" + weixinAppId +"&redirect_uri=" + oauthCallbackUrl +"&response_type=code" +
+			"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+			"&state=" + encodeURIComponent(window.location.href) +
+			"#wechat_redirect";
+		}
+
+	}
+})
+
 function gamestart() {
 	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png","image/tixingbg.png"];
 	var loadOver = [];
@@ -242,7 +242,7 @@ function gamestart() {
 		function drawScore() {
 			context3.beginPath();
 			context3.fillStyle="white";
-			context3.font="12px";
+			context3.font="14px";
 			if(scoreNum<10){
 				var shift = 3;
 			}else if(scoreNum<100){
