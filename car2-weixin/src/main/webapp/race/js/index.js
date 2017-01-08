@@ -18,8 +18,8 @@ audioAutoPlay('startbg');
 var nicknames=null;
 var mingcis=1;
 var animateRuning=null;
-var weixinAppId = "wxce8eb11c51670a1d";
-var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
+var weixinAppId = "wx2622b448b854003a";
+var oauthCallbackUrl = "http%3A%2F%2Fcdn.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
 var scope = (typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType;
 $.ajax({
 	type: "get",
@@ -994,7 +994,7 @@ function gamestart() {
 					"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
 					"&state=" + encodeURIComponent(window.location.href) +
 					"#wechat_redirect";
-					var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/shareicon.png";
+					var imgUrl = "http://cdn.haoduocheyou.com/weixin2/race/image/shareicon.png";
 					var desc = des;
 					wx.onMenuShareTimeline({
 						title: title,
