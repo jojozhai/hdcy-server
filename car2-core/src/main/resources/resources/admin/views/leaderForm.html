@@ -3,30 +3,48 @@
 	<div class="smart-widget-inner">
 	<div class="smart-widget-body" >
 		<form name="leaderForm" class="form-horizontal no-margin" id="type-constraint" data-validate="parsley" novalidate>
-			<div class="form-group">
-				<label class="control-label col-lg-3">大咖名称:</label>
-				<div class="col-lg-6">
-					<input name="nickname" ng-model="leader.nickname" type="text" class="form-control input-sm" placeholder="大咖名称">
-				</div>
-			</div>
+			<div class="form-group"  ng-class="leaderForm.name.$invalid && leaderForm.name.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3"><span class="text_red">*</span>&nbsp;姓名:</label>
+                <div class="col-lg-6">
+                    <input name="name" ng-model="leader.name" type="text" class="form-control input-sm" placeholder="姓名" required>
+                    <label class="control-label" ng-show="leaderForm.name.$invalid && leaderForm.name.$dirty">姓名不能为空</label>
+                </div>
+            </div>
 			<div class="form-group">
                 <label class="control-label col-lg-3">大咖头像:</label>
                 <div class="col-lg-4">
                     <div class="fileinput-button" style="border: 1px solid #abcdef; width: 100px; height: 100px;" >
-                        <img ng-src="{{leader.headimgurl}}" width="100px;", height="100px;">
+                        <img ng-src="{{leader.image}}" width="100px;", height="100px;">
                         <input type="file" id="file2" name="file2" pz-uploader action="doUpload2(files)">
                     </div>
                 </div>
             </div>
+            <div class="form-group"  ng-class="leaderForm.slogan.$invalid && leaderForm.slogan.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3"><span class="text_red">*</span>&nbsp;标语:</label>
+                <div class="col-lg-6">
+                    <input name="slogan" ng-model="leader.slogan" type="text" class="form-control input-sm" placeholder="标语" required>
+                    <label class="control-label" ng-show="leaderForm.slogan.$invalid && leaderForm.slogan.$dirty">标语不能为空</label>
+                </div>
+            </div>
 			<div class="form-group">
-				<label class="control-label col-lg-3">大咖介绍:</label>
-				<div class="col-lg-9">
-					<textarea name="intro" ng-model="leader.intro" rows="10" cols="70"></textarea>
-				</div>
-			</div>
-			<div class="form-group">
+			    <label class="control-label col-lg-3">发布:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection" ng-model="leader.enable" ng-checked="leader.enable" type="checkbox">
+                        <label for="selection" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+                <label class="control-label col-lg-3">机构大咖:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection2" ng-model="leader.organ" ng-checked="leader.organ" type="checkbox">
+                        <label for="selection2" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
 				<label class="control-label col-lg-3">置顶:</label>
-				<div class="col-lg-3">
+				<div class="col-lg-1">
 					<div class="custom-checkbox todo-checkbox">
 						<input id="topCheck" ng-model="leader.top" ng-checked="leader.top" type="checkbox">
 						<label for="topCheck" style="margin-top: 4px;"></label>
@@ -46,12 +64,26 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group"  ng-class="leaderForm.level.$invalid && leaderForm.level.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3"><span class="text_red">*</span>&nbsp;等级:</label>
+                <div class="col-lg-2">
+                    <input name="level" ng-model="leader.level" type="text" class="form-control input-sm" placeholder="等级" required>
+                    <label class="control-label" ng-show="leaderForm.level.$invalid && leaderForm.level.$dirty">等级不能为空</label>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="leaderForm.tags.$invalid && leaderForm.tags.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3"><span class="text_red">*</span>&nbsp;标签:</label>
+                <div class="col-lg-6">
+                    <input name="tags" ng-model="leader.tags" type="text" class="form-control input-sm" placeholder="标签" required>
+                    <label class="control-label" ng-show="leaderForm.tags.$invalid && leaderForm.tags.$dirty">标签不能为空</label>
+                </div>
+            </div>
 			<div class="form-group">
-				<label class="control-label col-lg-3">审核状态:</label>
-				<div class="col-lg-3">
-					<select class="form-control input-sm" ng-model="leader.status" ng-options="status.value as status.name for status in statuses"></select>
-				</div>
-			</div>
+                <label class="control-label col-lg-3">大咖介绍:</label>
+                <div class="col-lg-9">
+                    <textarea name="intro" ng-model="leader.intro" rows="10" cols="70"></textarea>
+                </div>
+            </div>
 			<div class="text-right m-top-md">
 				<button ng-click="save(leader)" class="btn btn-success btn-sm" ng-disabled="leaderForm.$invalid"><i class="fa fa-save m-right-xs"></i>保存</button>
 			</div>

@@ -29,7 +29,7 @@ public class LeaderAdminController {
 
 	@RequestMapping(value = "/leader", method = RequestMethod.POST)
 	public LeaderInfo create(@RequestBody LeaderInfo leaderInfo) {
-		return leaderService.createByAdmin(leaderInfo);
+		return leaderService.create(leaderInfo);
 	}
 
 	@RequestMapping(value = "/leader", method = RequestMethod.GET)

@@ -14,13 +14,29 @@ public class LeaderInfo {
 	private Long id;
 	
 	private Long userId;
-	
-	private String nickname;
-	
-	private String headimgurl;
-	
+	/**
+     * 
+     */
+    private String name;
+    /**
+     * 
+     */
+    private String slogan;
+    /**
+     * 可见
+     */
+    private Boolean enable;
+    /**
+     * 机构大咖
+     */
+    private Boolean organ;
+	/**
+	 * 等级
+	 */
 	private String level;
-	
+	/**
+	 * 标签
+	 */
 	private String tags;
 	/**
 	 * 自我介绍
@@ -43,9 +59,9 @@ public class LeaderInfo {
 	 */
 	private String topImage;
 	/**
-	 * 参加活动的次数
+	 * 头像
 	 */
-	private int participationCount;
+	private String image;
 	/**
 	 * @return the id
 	 */
@@ -69,30 +85,6 @@ public class LeaderInfo {
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
-	}
-	/**
-	 * @return the nickname
-	 */
-	public String getNickname() {
-		return nickname;
-	}
-	/**
-	 * @param nickname the nickname to set
-	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	/**
-	 * @return the headimgurl
-	 */
-	public String getHeadimgurl() {
-		return headimgurl;
-	}
-	/**
-	 * @param headimgurl the headimgurl to set
-	 */
-	public void setHeadimgurl(String headimgurl) {
-		this.headimgurl = headimgurl;
 	}
 	/**
 	 * @return the level
@@ -144,18 +136,6 @@ public class LeaderInfo {
 		this.top = top;
 	}
 	/**
-	 * @return the participationCount
-	 */
-	public int getParticipationCount() {
-		return participationCount;
-	}
-	/**
-	 * @param participationCount the participationCount to set
-	 */
-	public void setParticipationCount(int participationCount) {
-		this.participationCount = participationCount;
-	}
-	/**
 	 * @return the status
 	 */
 	public LeaderStatus getStatus() {
@@ -190,5 +170,65 @@ public class LeaderInfo {
      */
     public void setTopIndex(int topIndex) {
         this.topIndex = topIndex;
+    }
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * @return the slogan
+     */
+    public String getSlogan() {
+        return slogan;
+    }
+    /**
+     * @param slogan the slogan to set
+     */
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+    /**
+     * @return the enable
+     */
+    public Boolean getEnable() {
+        return enable;
+    }
+    /**
+     * @param enable the enable to set
+     */
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+    /**
+     * @return the organ
+     */
+    public Boolean getOrgan() {
+        return organ;
+    }
+    /**
+     * @param organ the organ to set
+     */
+    public void setOrgan(Boolean organ) {
+        this.organ = organ;
+    }
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

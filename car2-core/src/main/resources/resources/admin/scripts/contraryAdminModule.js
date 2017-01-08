@@ -37,7 +37,8 @@ angular.module('contraryAdminModule',[]).config(function($stateProvider) {
 			topIndex: 0,
 			recommend: false,
 			redCount: 0,
-			blueCount: 0
+			blueCount: 0,
+			finish: false
 		});
 	}
 	

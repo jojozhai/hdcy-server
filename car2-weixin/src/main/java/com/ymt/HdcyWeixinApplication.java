@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.ymt.pz365.data.jpa.repository.PzRepositoryImpl;
 import com.ymt.pz365.framework.core.utils.SpringBoot;
@@ -16,6 +17,7 @@ import com.ymt.pz365.framework.core.utils.SpringBoot;
  * @since 2016年4月8日
  */
 @SpringBootApplication
+@EnableScheduling
 @EnableJpaRepositories(repositoryBaseClass = PzRepositoryImpl.class)
 public class HdcyWeixinApplication extends SpringBootServletInitializer {
 	

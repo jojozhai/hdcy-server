@@ -1,0 +1,354 @@
+
+.activitys-list {
+	position: relative;
+	width: 375px;
+	height: 225px;
+}
+.activity-imgs,.activity-bg{
+	width: 375px;
+	height: 225px;
+}
+.activity-bg,.activity-end {
+	position: absolute;
+	top:0;
+	left:0;
+	background: #000000;
+	opacity: 0.25;
+}
+.activity-end {
+	width: 375px;
+	height: 225px;
+	opacity: 0.7;
+	z-index: 3333;
+}
+.activity-endicon {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	z-index: 5555;
+}
+
+.activitys-mes {
+	width: 100%;
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	text-align: center;
+	color: white;
+
+}
+.activity-tit {
+	font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: bolder;
+}
+.activity-atime {
+	font-size: 14px;
+	display: inline-block;
+	word-break: break-word;
+}
+.activity-etime {
+	margin-top: 13px;
+	font-size: 11px;
+
+}
+.sponsor {
+	width: 75px;
+	height: 25px;
+	position: absolute;
+	bottom: 7px;
+	right: 12px;
+	opacity: 0.6;
+}
+/*活动详情*/
+.active-conmes {
+	background: #F3F3F3;
+}
+.detai-cntss,.activity-zhuban {
+	background: white;
+}
+.activity-zhuban {
+	margin: 8px 0;
+	padding: 0 12px 12px;
+}
+.actDetail-mes {
+	padding: 0 12px;
+}
+.actDetail-tit {
+	padding: 12.5px 0;
+	text-align: center;
+	border-bottom: 1px solid rgb(155,155,155);
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.actDetail-con {
+	height: 108px;
+	overflow: hidden;
+}
+.actDetail-imgs {
+	padding: 18px 0;
+	overflow-x: auto;
+}
+.actDetail-imgsCon {
+	margin-left: 4px;
+}
+.actDetail-img {
+	width: 100px;
+	height: 80px;
+	float: left;
+	margin-left: 8px;
+}
+.actDetail-img img{
+	width: 100%;
+	height: 100%;
+}
+.downs {
+	text-align: center;
+	padding: 0 0 10px;
+}
+.con-downs {
+	display: inline-block;
+	width: 22px;
+	height: 12px;
+	background: url(../../assets/images/dow.png) no-repeat;
+	background-size: 100% 100%;
+}
+.con-ups {
+	display: none;
+	width: 22px;
+	height: 12px;
+	background: url(../../assets/images/up.png) no-repeat;
+	background-size: 100% 100%;
+}
+.zhuban-tit {
+	padding: 13px 0;
+	border-bottom: 1px solid #9B9B9B;
+	position: relative;
+}
+.zhuban-icon {
+	display: inline-block;
+	width: 22px;
+}
+
+.zhuban-icon img {
+	width: 100%;
+	height: 100%;
+}
+.zhuban-mes {
+	width: 321px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	left:30px;
+	line-height: 22px;
+}
+.zhuban-mes1 {
+	font-size: 16px;
+	color: #494949;
+	font-weight: bold;
+}
+.zhuban-num {
+	font-size: 12px;
+	color: #9B9B9B;
+}
+.zhuban {
+	position: relative;
+	font-size: 14px;
+	color: #9B9B9B;
+	height: 22px;
+	margin-top: 12px;
+}
+.zhuban-txt {
+	position: absolute;
+	top: 50%;
+	left: 30px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.zhuaban-name {
+	color: #6593c5;
+}
+.zhuban-item {
+	color: #494949;
+}
+.sign-myinfo {
+	background: white;
+	margin-bottom: 8px;
+	padding: 22.5px 62.5px 0;
+}
+.signboxs {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-top: 50px;
+}
+.mid-txt {
+	margin: 0 12px 0 3px;
+	font-size: 15px;
+	color: #505050;
+}
+.must-txt {
+	font-size: 12px;
+	color: #AAAAAA;
+	display: inline-block;
+	line-height: 17px;
+}
+.sign-myinfo input {
+	border: 0px;
+	border-radius: 5px;
+	background: #E4E4E4;
+	width: 250px;
+	height: 40px;
+	margin: 15px 0 20px;
+	padding-left: 12px;
+    box-sizing: border-box;
+}
+.sign-names {
+	margin-bottom: 7.5px;
+}
+.signs {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.steam {
+	width: 24px;
+	background-color: #dddddd;
+	padding: 0 13px;
+	height: 40px;
+}
+.steam img {
+	width: 22px;
+	margin-top: 4px;
+}
+.steam-txt {
+	font-size: 11px;
+	color: #303030;
+}
+.sign a {
+	display: inline-block;
+	width: 325px;
+	height: 40px;
+	background:url(../../assets/images/jianbian.png) no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	color: white;
+	line-height: 40px;
+}
+.sign a.activity-ends {
+	background:gray;
+}
+.signmes {
+	width: 100%;
+	position: relative;
+	color: #959595;
+	font-size: 15px;	
+}
+.commentArea {	
+    width: 100%;
+    height: 250px;
+    padding: 29px 12px 0;
+    border: none;
+    box-sizing: border-box;
+    color: #959595;
+	font-size: 15px;
+}
+.signnum {
+	position: absolute;
+	display: inline-block;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 12px;
+	padding-right: 12px;
+	background: white;
+
+}
+.signbtn {
+	text-align: center;
+}
+.comment-fs {
+	margin: 30px 0;
+    display: inline-block;
+    padding: 11.5px 140px;
+    background: url(../../assets/images/signs.png) no-repeat;
+    background-size: 100% 100%;
+    color: white;
+    font-size: 18px;
+}
+.telss {
+	display: none;
+}
+.telbg {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.7;
+}
+.tel-mesbg {
+	background: white;
+	width: 315px;
+	border-radius:20px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+
+}
+.tel-mesbg p {
+	font-size: 18px;
+	color: #494949;
+	padding: 17px 0;
+	text-align: center;
+	border-bottom: 1px solid #E0E0E0;
+}
+.kefu-tel {
+	text-align: center;
+	margin-top: 22px;
+}
+.kefu-telimg {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+}
+.kefu-mes {
+	vertical-align: super;
+	font-size: 15px;
+	color: #494949;
+}
+.caozuo {
+	text-align: center;
+	padding: 26px 0;
+}
+.boda {
+	margin-right: 98px;
+}
+.detail-swiperbg {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.7;
+}
+.detail-swiper {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.detail-swiper img {
+	width: 100%;
+}
+.bigImg {
+	width: 375px;
+	height: 300px;
+}

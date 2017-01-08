@@ -14,8 +14,8 @@ angular.module(
 		// 'voteAdminModule',
 		'lotteryAdminModule', 'userAdminModule', 'buttonAdminModule','weixinReplyAdminModule','paramAdminModule',
 				'tagAdminModule', 'activityAdminModule', 'votingAdminModule', 'signtempAdminModule',
-				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule',
-				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule',
+				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule', 'showAdminModule',
+				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule', 'umeditorModule',
 				'commentAdminModule', 'videoAdminModule','sponsorAdminModule','yr' ])
 .filter("enable", function() {
 	return function(text) {

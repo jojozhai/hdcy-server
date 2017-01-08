@@ -11,17 +11,31 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-lg-3">所需积分:</label>
+				<label class="control-label col-lg-3">所需友豆:</label>
 				<div class="col-lg-3" >
-					<input name="point" ng-model="gift.point" type="number" class="form-control input-sm" placeholder="所需积分" required>
-					<label class="control-label has-error" ng-show="giftForm.point.$invalid && giftForm.point.$dirty">所需积分不能为空</label>
+					<input name="beans" ng-model="gift.beans" type="number" class="form-control input-sm" placeholder="所需友豆" required>
+					<label class="control-label has-error" ng-show="giftForm.beans.$invalid && giftForm.beans.$dirty">所需友豆不能为空</label>
 				</div>
-				<label class="control-label col-lg-3">库存数量:</label>
+				<label class="control-label col-lg-2">库存数量:</label>
 				<div class="col-lg-3">
 					<input name="stock" ng-model="gift.stock" type="number" class="form-control input-sm" placeholder="库存数量" required>
 					<label class="control-label has-error" ng-show="giftForm.stock.$invalid && giftForm.stock.$dirty">库存数量不能为空</label>
 				</div>
 			</div>
+			<div class="form-group">
+                <label class="control-label col-lg-3">品牌名称:</label>
+                <div class="col-lg-3" >
+                    <input name="brand" ng-model="gift.brand" type="text" class="form-control input-sm" placeholder="品牌名称" required>
+                    <label class="control-label has-error" ng-show="giftForm.brand.$invalid && giftForm.brand.$dirty">品牌名称不能为空</label>
+                </div>
+                <label class="control-label col-lg-2">品牌图片:</label>
+                <div class="col-lg-4">
+                    <div class="fileinput-button" style="border: 1px solid #abcdef; width: 100px; height: 100px;" >
+                        <img ng-src="{{gift.brandImage}}" width="100px;", height="100px;">
+                        <input type="file" id="file1" name="file1" pz-uploader action="doUpload(files)">
+                    </div>
+                </div>
+            </div>
 			<div class="form-group"  ng-class="giftForm.desc.$invalid && giftForm.desc.$dirty ? 'has-error': ''">
 				<label class="control-label col-lg-3">礼品介绍:</label>
 				<div class="col-lg-9">

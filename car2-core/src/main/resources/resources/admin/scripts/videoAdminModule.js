@@ -12,12 +12,13 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	var config = commonService.getDefaultRestSetting();
 	return $resource("video/:id", {id:"@id"}, config);
 //控制器
-}).controller('videoManageCtrl', function($scope, $uibModal, videoRestService, commonService){
+}).controller('videoManageCtrl', function($scope, $stateParams, $uibModal, videoRestService, commonService){
 
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
 	$scope.query = function() {
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
+		condition.live = false;
 		videoRestService.query(condition).$promise.then(function(data){
 			$scope.pageInfo.totalElements = data.totalElements;
 			$scope.videos = data.content;
@@ -25,11 +26,32 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 	}
 
 	$scope.create = function() {
-		$scope.save({viewCount: 0, live: false, enable: true, top: false});
+		$scope.save({viewCount: 0, viewCountPlus: 0, live: false, enable: true, top: false, liveForApp: false, liveForWeixin:false, replay: false});
 	}
 
 	$scope.update = function(video) {
 		$scope.save(video);
+	}
+	
+	$scope.editContent = function(video) {
+		
+		window.open('index.html#/umeditor?target=video&targetId='+video.id+"&targetProp=desc");
+		
+//		$uibModal.open({
+//			size: "lg",
+//			templateUrl : 'admin/views/umeditor.html',
+//			controller: 'umeditorCtrl',
+//			resolve: {
+//		        domain : function() {return video;},
+//		        params : function() {
+//		        	return {
+//		        		target: 'video',
+//		        		targetId: video.id,
+//		        		targetProp: 'desc'
+//		        	}
+//		        }
+//			}
+//		})
 	}
 
 	$scope.save = function(video){
@@ -66,8 +88,16 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 
 	$scope.query();
 
-}).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService) {
+}).controller('videoFormCtrl',function ($scope, $uibModalInstance, video, videos, videoRestService, commonService, sponsorRestService) {
 
+	videoRestService.query({live:true, size: 1000, sort: 'createdTime,desc'}).$promise.then(function(result){
+		$scope.shows = result.content;
+	})
+	
+	sponsorRestService.findAll().$promise.then(function(data){
+		$scope.sponsors = data;
+	});
+	
 	$scope.popup1 = {
 		opened : false
 	};
@@ -95,7 +125,12 @@ angular.module('videoAdminModule',[]).config(function($stateProvider) {
 		});
 	}
 
-	$scope.video = video;
+	if(video.id){
+		$scope.video = videoRestService.get({id: video.id});
+	}else{
+		$scope.video = video;
+	}
+	
 
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
 

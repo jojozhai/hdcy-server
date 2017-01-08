@@ -243,9 +243,9 @@ angular.module('hdcyApp', ['weixin',
 }).controller('userDetailsCtrl', function($scope) {
 
 }).controller('userInfoCtrl', function($scope, $stateParams, $location, smsRestService, userRestService, commonService, weixinService, paramRestService, carRestService) {
-	
+
 	$scope.fromLottery = ($stateParams.from.indexOf("lottery") != -1);
-	
+
 	weixinService.initWx();
 	userRestService.current().$promise.then(function(result){
 		$scope.user = result;
@@ -356,7 +356,7 @@ angular.module('hdcyApp', ['weixin',
 				return;
 			}
 		}
-		
+
 		if(!$scope.fromLottery){
 			smsRestService.checkSmsCode({phone:user.mobile, code:user.code}).$promise.then(function(result){
 				userRestService.updateProperty({name: "realname", value: user.realname}).$promise.then(function(){
@@ -374,7 +374,7 @@ angular.module('hdcyApp', ['weixin',
 				});
 			});
 		}
-		
+
 	}
 
 	$scope.settings = {
@@ -537,9 +537,9 @@ angular.module('hdcyApp', ['weixin',
     $scope.close=function (closes) {
         $scope.closes=false;
         $(".messagedel-cnt").css({
-		top:"0px"
-	})
-    }
+        	top:"0px"
+        });
+	}
     $scope.hides=function (obs) {
         $scope.obs=false;
     }
@@ -598,7 +598,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
-        $(".cntVideoBox").css({"margin-top":"0px"})
+        $(".cntVideoBox").css({"margin-top":"0px"});
     }
     $scope.hides=function (obs) {
         $scope.obs=false;
@@ -750,7 +750,7 @@ angular.module('hdcyApp', ['weixin',
     $scope.closes=true;
     $scope.close=function (closes) {
         $scope.closes=false;
-        $(".hd-Cnt").css({"margin-top":"0px"})
+        $(".hd-Cnt").css({"margin-top":"0px"});
     }
     $scope.hides=function (obs) {
         $scope.obs=false;
@@ -951,13 +951,16 @@ angular.module('hdcyApp', ['weixin',
 
 	$scope.redParticipators = [];
 	$scope.blueParticipators = [];
-
+  var blue=[];
+	$scope.redblueParticipators = [];
+	$scope.widths=document.body.clientWidth;
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 
 	var scrollable = true;
 	var toBottom = false;
-
+  var j=-1;
 	$scope.query = function(callback) {
+    j++;
 		scrollable = false;
 		if(typeof $scope.condition === 'undefined'){
 			$scope.condition = {};
@@ -965,9 +968,14 @@ angular.module('hdcyApp', ['weixin',
 		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
 		condition.contraryId = $stateParams.id;
 		contraryParticipatorRestService.query(condition).$promise.then(function(data){
+
 			if(data.red.content.length > 0 || data.blue.content.length > 0){
 				$scope.redParticipators = $scope.redParticipators.concat(data.red.content);
 				$scope.blueParticipators = $scope.blueParticipators.concat(data.blue.content);
+        $scope.redblueParticipators=$scope.redblueParticipators.concat(data.red.content);
+				for (var i=0;i<data.blue.content.length;i++) {
+					$scope.redblueParticipators.splice(((1+20*j)+2*i),0,data.blue.content[i]);
+        }
 				if(data.red.content.length >= $scope.pageInfo.size || data.blue.content.length >= $scope.pageInfo.size){
 					scrollable = true;
 				}else{
@@ -985,10 +993,11 @@ angular.module('hdcyApp', ['weixin',
 	$scope.query();
 	$scope.getNextPage = function() {
 		if(scrollable && !toBottom){
-            scrollable = false;
+      scrollable = false;
 			if($scope.redParticipators.length != 0 || $scope.blueParticipators.length != 0){
 				$scope.pageInfo.page = $scope.pageInfo.page + 1;
-                $scope.query();
+        // $scope.redblueParticipators=[];
+        $scope.query();
 			}
 		}
 	}
@@ -1801,7 +1810,7 @@ angular.module('hdcyApp', ['weixin',
 				 	});
 				});
 //				turnplate.imgurl = [];
-				var loaded = 0;
+//				var loaded = 0;
 //				for (var i = 0; i < turnplate.imgurl.length; i++) {
 //					var img = new Image();
 //					img.src=turnplate.imgurl[i];
@@ -1812,6 +1821,7 @@ angular.module('hdcyApp', ['weixin',
 //							if(loaded==turnplate.imgurl.length){
 //								drawRouletteWheel();
 //							}
+//							alert(1);
 							drawRouletteWheel();
 
 //						}
@@ -1830,7 +1840,6 @@ angular.module('hdcyApp', ['weixin',
 				}*/
 
 			function drawRouletteWheel() {
-//				alert(1);
 //				console.log(img)
 				var canvas = document.getElementById("wheelcanvas");
 				if (canvas.getContext) {

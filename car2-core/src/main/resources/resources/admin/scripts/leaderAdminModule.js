@@ -26,8 +26,10 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.create = function() {
 		$scope.save({
+			enable:true,
 			topIndex:0,
-			top:false
+			top:false,
+			organ:false
 		});
 	}
 	
@@ -86,27 +88,6 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	
 }).controller('leaderFormCtrl',function ($scope, $uibModalInstance, leader, commonService) {
 
-	$scope.popup1 = {
-		opened : false
-	};
-
-	$scope.popup2 = {
-		opened : false
-	};
-	
-	$scope.open1 = function() {
-		$scope.popup1.opened = true;
-	};
-
-	$scope.open2 = function() {
-		$scope.popup2.opened = true;
-	};
-	
-	$scope.dateOptions = {
-		minDate : new Date(),
-		startingDay : 1
-	};
-	
 	$scope.leader = leader;
 	
 	$scope.tinymceOptions = commonService.getDefaultTinymceOptions();
@@ -114,10 +95,6 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	$scope.save = function(leader) {
 		$uibModalInstance.close(leader);
 	};
-	
-	$scope.removeImg = function(image) {
-		$scope.leader.giftImages.splice($scope.leader.giftImages.indexOf(image), 1);
-	}
 	
 	$scope.doUpload = function(files){
 		commonService.uploadImage(files, $scope, function(result){
@@ -127,7 +104,7 @@ angular.module('leaderAdminModule',[]).config(function($stateProvider) {
 	
 	$scope.doUpload2 = function(files){
 		commonService.uploadImage(files, $scope, function(result){
-			$scope.leader.headimgurl = result;
+			$scope.leader.image = result;
 		});
 	}
 	

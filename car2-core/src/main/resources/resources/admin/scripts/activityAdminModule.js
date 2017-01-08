@@ -1,11 +1,15 @@
 'use strict';
 //平台管理模块的配置
-angular.module('activityAdminModule',[]).config(function($stateProvider) {
+angular.module('activityAdminModule',['commentAdminModule']).config(function($stateProvider) {
 	//路由配置
 	$stateProvider.state('index.activityManage', {
 		url: "/activityManage",
 		controller: "activityManageCtrl",
 		templateUrl: "admin/views/activityManage.html"
+	}).state('index.activityCommentManage', {
+		url: "/activityCommentManage?id",
+		controller: "activityCommentManageCtrl",
+		templateUrl: "admin/views/activityCommentManage.html"
 	});
 //服务配置
 }).service("activityRestService", function($resource, commonService){
@@ -21,7 +25,7 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 }).service("activityUserRestService", function($resource, commonService){
 	var config = commonService.getDefaultRestSetting();
 	return $resource("activityParticipator/:id", {id:"@id"}, config);
-}).controller('activityManageCtrl', function($scope, $uibModal, activityRestService, commonService){
+}).controller('activityManageCtrl', function($scope, $state, $uibModal, activityRestService, commonService){
 	
 	$scope.pageInfo = commonService.getDefaultPageSetting();
 	
@@ -40,13 +44,16 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 			hot: 0,
 			hotplus: 1000,
 			enable: false,
+			finish: false,
 			top: false,
 			topIndex: 0,
 			recommend: false,
 			price: 0,
 			images: [],
 			peopleLimit: 0,
-			kwlist: []
+			kwlist: [],
+			signCount: 0,
+			signCountPlus: 0
 		});
 	}
 	
@@ -115,6 +122,86 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 		})
 	}
 	
+	$scope.toComment = function(activity) {
+		$state.go("index.activityCommentManage", {id: activity.id});
+	}
+	
+}).controller('activityCommentManageCtrl',function ($scope, $stateParams, $uibModal, commonService, commentRestService) {
+	
+	$scope.pageInfo = commonService.getDefaultPageSetting();
+	
+	$scope.reply = function(comment){
+		$uibModal.open({
+			size: "mid",
+			templateUrl : 'admin/views/activityCommentReplyForm.html',
+			controller: 'activityCommentReplyFormCtrl',
+			resolve: {
+		        comment : function() {return comment;},
+			}
+		}).result.then(function(form){
+			commonService.showMessage(form);
+		});
+	}
+	
+	$scope.query = function() {
+		var condition = commonService.buildPageCondition($scope.condition, $scope.pageInfo);
+		condition.withReply = true;
+		condition.target = 'activity';
+		condition.targetId = $stateParams.id;
+		commentRestService.query(condition).$promise.then(function(data){
+			$scope.pageInfo.totalElements = data.totalElements;
+			$scope.comments = data.content;
+		});
+	}
+	
+	$scope.remove = function(comment) {
+		commonService.showConfirm("您确认要删除此评论?").result.then(function() {
+			commentRestService.remove({id:comment.id}).$promise.then(function(){
+				commonService.showMessage("删除评论成功");
+				$scope.comments.splice($scope.comments.indexOf(comment), 1);
+				if($scope.comments.length == 0){
+					$scope.pageInfo.page = $scope.pageInfo.page - 1;
+					$scope.query();
+				}
+			});
+		});
+	} 
+	
+	$scope.cleanCondition = function() {
+		$scope.condition = {};
+		$scope.query();
+	}
+	
+	$scope.query();
+	
+	
+}).controller('activityCommentReplyFormCtrl',function ($scope, $uibModalInstance, comment, commonService, commentRestService) {
+	
+	$scope.comment = comment;
+	
+	$scope.reply = {};
+	
+	commentRestService.getReply({id: comment.id}).$promise.then(function(result){
+		if(result){
+			$scope.reply = result;
+		}
+	});
+	
+	$scope.save = function(reply) {
+		if(reply.id){
+			commentRestService.save($scope.reply).$promise.then(function(){
+				$uibModalInstance.close("修改成功");
+			})
+		}else{
+			$scope.reply.target = "activity";
+			$scope.reply.targetId = comment.targetId;
+			$scope.reply.replyToId = comment.id;
+			commentRestService.create($scope.reply).$promise.then(function(){
+				$uibModalInstance.close("回复成功");
+			})
+		}
+	}
+	
 }).controller('activityUserManageCtrl',function ($scope, $uibModalInstance, id, commonService, activityUserRestService) {
 	
 	$scope.pageInfo = commonService.getDefaultPageSetting();
@@ -133,14 +220,14 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 
 	$scope.query();
 	
-}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, commonService, waiterRestService, paramRestService) {
+}).controller('activityFormCtrl',function ($scope, $uibModalInstance, sponsorRestService, activity, activityRestService, commonService, waiterRestService, paramRestService) {
 	
 	if(activity.id) {
 		paramRestService.getParam({code:"weixinAppId"}).$promise.then(function(resultA){
 			var weixinAppId = resultA.value;
-			paramRestService.getParam({code:"oauthCallbackUrl"}).$promise.then(function(resultB){
+			paramRestService.getParam({code:"oauthCallbackUrlForActivity"}).$promise.then(function(resultB){
 				var oauthCallbackUrl = resultB.value
-				$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+weixinAppId+"&redirect_uri="+oauthCallbackUrl+"&response_type=code&scope=snsapi_userinfo&state=%2Factivity%2Fdetails%3Fid%3D"+activity.id+"#wechat_redirect"
+				$scope.shareLink = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+weixinAppId+"&redirect_uri="+oauthCallbackUrl+"&response_type=code&scope=snsapi_userinfo&state=%2Factivity%2F"+activity.id+"#wechat_redirect"
 			})
 		});
 	}
@@ -181,7 +268,14 @@ angular.module('activityAdminModule',[]).config(function($stateProvider) {
 		startingDay : 1
 	};
 	
-	$scope.activity = activity;
+	if(activity.id) {
+		activityRestService.get({id: activity.id}).$promise.then(function(result){
+			$scope.activity = result;
+		});
+	}else{
+		$scope.activity = activity;
+	}
+	
 	
 	$scope.changeSponsor = function(){
 		angular.forEach($scope.sponsors, function(data){

@@ -6,6 +6,8 @@ package com.ymt.mirage.car.dto;
 import java.util.Date;
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 import com.ymt.mirage.car.domain.KeyWord;
 import com.ymt.mirage.car.domain.ParticipationType;
 
@@ -28,6 +30,14 @@ public class ParticipationInfo {
 	 * 活动类型
 	 */
 	private ParticipationType type;
+	/**
+	 * 省
+	 */
+	private String province;
+	/**
+	 * 市
+	 */
+	private String city;
 	/**
 	 * 
 	 */
@@ -64,7 +74,7 @@ public class ParticipationInfo {
 	/**
 	 * 
 	 */
-	private boolean finish;
+	private Boolean finish;
 	/**
      * 
      */
@@ -73,6 +83,10 @@ public class ParticipationInfo {
 	 * 主办方
 	 */
 	private Long sponsorId;
+	/**
+	 * 大咖id
+	 */
+	private Long sponsorLeaderId;
 	/**
 	 * 主办方名称
 	 */
@@ -109,6 +123,10 @@ public class ParticipationInfo {
      * 推荐
      */
     private Boolean recommend;
+    /**
+     * 活动状态 
+     */
+    private ParticipationState state;
 
 	/**
      * @return the sponsorName
@@ -322,21 +340,6 @@ public class ParticipationInfo {
 	}
 
 	/**
-	 * @return the finish
-	 */
-	public boolean isFinish() {
-		return finish;
-	}
-
-	/**
-	 * @param finish
-	 *            the finish to set
-	 */
-	public void setFinish(boolean finish) {
-		this.finish = finish;
-	}
-
-	/**
 	 * @return the sortType
 	 */
 	public String getSortType() {
@@ -478,6 +481,82 @@ public class ParticipationInfo {
      */
     public void setHotplus(int hotplus) {
         this.hotplus = hotplus;
+    }
+
+    /**
+     * @return the finish
+     */
+    public Boolean getFinish() {
+        return finish;
+    }
+
+    /**
+     * @param finish the finish to set
+     */
+    public void setFinish(Boolean finish) {
+        this.finish = finish;
+    }
+
+    /**
+     * @return the state
+     */
+    public ParticipationState getState() {
+        if(new DateTime(getStartTime()).isAfterNow()){
+            return ParticipationState.NOT_START;
+        }else if(new DateTime(getEndTime()).isBeforeNow()) {
+            return ParticipationState.FINISH;
+        }else{
+            return ParticipationState.ONGOING;
+        }
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(ParticipationState state) {
+        this.state = state;
+    }
+
+    /**
+     * @return the province
+     */
+    public String getProvince() {
+        return province;
+    }
+
+    /**
+     * @param province the province to set
+     */
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * @return the sponsorLeaderId
+     */
+    public Long getSponsorLeaderId() {
+        return sponsorLeaderId;
+    }
+
+    /**
+     * @param sponsorLeaderId the sponsorLeaderId to set
+     */
+    public void setSponsorLeaderId(Long sponsorLeaderId) {
+        this.sponsorLeaderId = sponsorLeaderId;
     }
 
 

@@ -11,6 +11,10 @@
  */
 package com.ymt.mirage.car.service.impl;
 
+import java.util.Date;
+
+import org.apache.commons.lang.StringUtils;
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ymt.mirage.car.domain.Video;
 import com.ymt.mirage.car.dto.VideoInfo;
+import com.ymt.mirage.car.repository.SponsorRepository;
 import com.ymt.mirage.car.repository.VideoRepository;
 import com.ymt.mirage.car.repository.spec.VideoSpec;
 import com.ymt.mirage.car.service.VideoService;
@@ -42,6 +47,9 @@ public class VideoServiceImpl implements VideoService {
     @Autowired
     private CommentRepository commentRepository;
     
+    @Autowired
+    private SponsorRepository sponsorRepository;
+    
     @Override
     public Page<VideoInfo> query(VideoInfo videoInfo, Pageable pageable) {
         Page<Video> pageData = videoRepository.findAll(new VideoSpec(videoInfo), pageable);
@@ -52,6 +60,15 @@ public class VideoServiceImpl implements VideoService {
     public VideoInfo create(VideoInfo videoInfo) {
         Video video = new Video();
         BeanUtils.copyProperties(videoInfo, video);
+        video.setSponsor(sponsorRepository.findOne(videoInfo.getSponsorId()));
+        video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
+        video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
+        if(video.getEndTime() == null) {
+            video.setEndTime(new DateTime().plusYears(100).toDate());
+        }
+        if(videoInfo.getEnable()) {
+            video.setEnabled(true);
+        }
         videoInfo.setId(videoRepository.save(video).getId());
         return videoInfo;
     }
@@ -63,6 +80,12 @@ public class VideoServiceImpl implements VideoService {
         BeanUtils.copyProperties(video, info);
         video.setViewCount(video.getViewCount() + 1);
         info.setCommentCount(commentRepository.findByTargetAndTargetIdAndDisable("video", id, false).size());
+        if(video.getSponsor() != null) {
+            info.setSponsorName(video.getSponsor().getName());
+            info.setSponsorImage(video.getSponsor().getImage());
+            info.setSponsorId(video.getSponsor().getId());
+        }
+        video.setViewCount(video.getViewCount() + 1);
         return info;
     }
 
@@ -70,6 +93,15 @@ public class VideoServiceImpl implements VideoService {
     public VideoInfo update(VideoInfo videoInfo) {
         Video video = videoRepository.findOne(videoInfo.getId());
         BeanUtils.copyProperties(videoInfo, video);
+        video.setLiveForApp(StringUtils.isNotBlank(video.getStreamId()));
+        video.setLiveForWeixin(StringUtils.isNotBlank(video.getLiveLink()));
+        if(video.getEndTime() == null) {
+            video.setEndTime(new DateTime().plusYears(100).toDate());
+        }
+        if(videoInfo.getEnable()) {
+            video.setEnabled(true);
+            video.setCreatedTime(new Date());
+        }
         videoRepository.save(video);
         return videoInfo;
     }

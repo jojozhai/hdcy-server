@@ -26,6 +26,30 @@ public class Leader extends DomainImpl {
 	@ManyToOne
 	private User user;
 	/**
+	 * 可见
+	 */
+	private boolean enable;
+	/**
+	 * 
+	 */
+	private String name;
+	/**
+	 * 
+	 */
+	private String slogan;
+	/**
+	 * 机构大咖
+	 */
+	private boolean organ;
+	/**
+	 * 等级
+	 */
+	private String level;
+	/**
+     * 标签
+     */
+    private String tags;
+	/**
 	 * 自我介绍
 	 */
 	@Column(length = 500)
@@ -40,6 +64,10 @@ public class Leader extends DomainImpl {
 	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date approveDate;
+	/**
+	 * 头像
+	 */
+	private String image;
 	/**
 	 * 置顶 
 	 */
@@ -135,6 +163,90 @@ public class Leader extends DomainImpl {
      */
     public void setTopIndex(int topIndex) {
         this.topIndex = topIndex;
+    }
+    /**
+     * @return the organ
+     */
+    public boolean isOrgan() {
+        return organ;
+    }
+    /**
+     * @param organ the organ to set
+     */
+    public void setOrgan(boolean organ) {
+        this.organ = organ;
+    }
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * @return the slogan
+     */
+    public String getSlogan() {
+        return slogan;
+    }
+    /**
+     * @param slogan the slogan to set
+     */
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
+    /**
+     * @return the level
+     */
+    public String getLevel() {
+        return level;
+    }
+    /**
+     * @param level the level to set
+     */
+    public void setLevel(String level) {
+        this.level = level;
+    }
+    /**
+     * @return the tags
+     */
+    public String getTags() {
+        return tags;
+    }
+    /**
+     * @param tags the tags to set
+     */
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+    /**
+     * @return the enable
+     */
+    public boolean isEnable() {
+        return enable;
+    }
+    /**
+     * @param enable the enable to set
+     */
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 	
 }

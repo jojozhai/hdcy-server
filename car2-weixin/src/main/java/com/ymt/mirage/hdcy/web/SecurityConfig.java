@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        .antMatchers(HttpMethod.GET, 
 	                "/user/current", 
 	                "/votingParticipator/*/vote", 
-	                "/lottery/*/permission",
+	                "/lottery/*/permission","/game/break","/game/rank",
 	                "/participator/member").authenticated()
 	        .anyRequest().permitAll()
 	        	.and()

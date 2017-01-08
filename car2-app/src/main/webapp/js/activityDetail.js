@@ -46,15 +46,14 @@ $(function(){
                 var newSpan=$("<span>"+obj.hot+"人</span>");
                 $(".participants").append(newSpan);
                 $(".article").append(newDiv);
-
-            	var date = new Date(obj.startTime);
+				var date = new Date(obj.startTime);
                 var timess=date.Format();
                 var date1 = new Date(obj.signEndTime);
                 var sgintime=date1.Format();
 
                 var messageList=$("<li>\
                     <span class='item'>主办方：</span>\
-                    <span>"+obj.sponsor+"</span>\
+                    <span>"+obj.sponsorName+"</span>\
                 </li>\
                 <li>\
                     <span class='item'>活动时间：</span>\
@@ -77,7 +76,7 @@ $(function(){
                     <span>"+obj.address+"</span>\
                 </li>");
                 $(".message-list").append(messageList);
-                $(".activityImgs").width(obj.images.length*140)
+                $(".activityImgs").width(obj.images.length*108)
                 for (var i = 0; i < obj.images.length; i++) {
                     var newImg=$("<li dataIndex="+i+"><img src="+ obj.images[i]+" alt=''/></li>");
                     $(".activityImgs").append(newImg);
@@ -145,17 +144,19 @@ $(function(){
                     "</span></div>"+
                     "<div class='commentCon'>\
                     <div>"+obj.content[i].content+"</div>\
-                    <div class='replys'><div class='sanjiao'></div>\
+                    <div class='replys'>\
                     <div class='replys"+i+"'></div></div>\
                     </div></li>");
-                    $(".commentList").append(newCom);
-                    if (obj.content[i].replys.length>0) {
-                        $(".replys").css({"padding":"10px 0 10px 10px"});
-                        $(".sanjiao").css({
+                    $(".commentList").append(newCom);                    
+                    if (obj.content[i].replys.length>0) {                       
+						var sanjiao=$("<div class='sanjiao'></div>");
+						$(".sanjiao").css({
                             "border-left": "10px solid transparent",
                         	"border-right": "10px solid transparent",
                         	"border-bottom":"10px solid rgba(155,155,155,0.2)"
                         })
+						$(".replys"+i).append(sanjiao);
+						$(".replys"+i).css({"padding":"6px 0 6px 6px"})
                     }
                     for (var j = 0; j < obj.content[i].replys.length; j++) {
                         var newReply=$("<div class='reply'><span>"+obj.content[i].replys[j].createrName+"</span>\

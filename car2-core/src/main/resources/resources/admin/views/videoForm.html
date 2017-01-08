@@ -10,6 +10,26 @@
 					<label class="control-label" ng-show="videoForm.name.$invalid && videoForm.name.$dirty">视频名称不能为空</label>
 				</div>
 			</div>
+			<div class="form-group">
+                <label class="control-label col-lg-3">直播回放:</label>
+                <div class="col-lg-1">
+                    <div class="custom-checkbox todo-checkbox">
+                        <input id="selection3" ng-model="video.replay" ng-checked="video.replay" type="checkbox">
+                        <label for="selection3" style="margin-top: 4px;"></label>
+                    </div>
+                </div>
+                <div ng-show="video.replay">
+                <label class="control-label col-lg-2">回放直播:</label>
+                <div class="col-lg-6">
+                  <ui-select ng-model="video.replayId" theme="bootstrap">
+                    <ui-select-match placeholder="可以输入直播名称来查找">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item.id as item in shows | filter: $select.search">
+                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+                </div>
+            </div>
 			<div class="form-group"  ng-class="videoForm.url.$invalid && videoForm.url.$dirty ? 'has-error': ''">
                 <label class="control-label col-lg-3">视频链接(腾讯):</label>
                 <div class="col-lg-6">
@@ -44,9 +64,29 @@
                 <label class="control-label col-lg-1">置顶:</label>
                 <div class="col-lg-1">
                     <div class="custom-checkbox todo-checkbox">
-                        <input id="selection3" ng-model="video.top" ng-checked="video.top" type="checkbox">
-                        <label for="selection3" style="margin-top: 4px;"></label>
+                        <input id="selection94" ng-model="video.top" ng-checked="video.top" type="checkbox">
+                        <label for="selection94" style="margin-top: 4px;"></label>
                     </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="videoForm.enableDate.$invalid && videoForm.enableDate.$dirty ? 'has-error': ''">
+                <label class="control-label col-lg-3" style="padding-top: 40px;">自动发布时间:</label>
+                <div class="col-md-3">
+                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
+                        <input type="text" uib-datepicker-popup name="enableDate" ng-model="video.enableDate" class="form-control input-sm" is-open="popup1.opened"
+                            datepicker-options="dateOptions" placeholder="自动发布时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false"/>
+                            <span class="input-group-btn">
+                            <button type="button" class="btn btn-default input-sm" ng-click="open1()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+                    </p>
+                    <label class="control-label has-error" ng-show="videoForm.enableDate.$error.date && videoForm.enableDate.$dirty">
+                        时间格式错误
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <uib-timepicker class="input-sm" ng-model="video.enableDate" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
                 </div>
             </div>
             <div class="form-group">
@@ -61,70 +101,17 @@
                     <label class="control-label" ng-show="videoForm.viewCountPlus.$invalid && videoForm.viewCountPlus.$dirty">阅读量加成不能为空</label>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-lg-3">直播:</label>
-                <div class="col-lg-1">
-                    <div class="custom-checkbox todo-checkbox">
-                        <input id="selection2" ng-model="video.live" ng-checked="video.live" type="checkbox">
-                        <label for="selection2" style="margin-top: 4px;"></label>
-                    </div>
-                </div>
-                <label class="control-label col-lg-2">直播流ID:</label>
-                <div class="col-lg-2">
-                    <input name="steamId" ng-model="video.streamId" type="text" class="form-control input-sm" placeholder="直播流ID">
-                </div>
-            </div>
-            <div class="form-group" ng-class="videoForm.startTime.$invalid && videoForm.startTime.$dirty ? 'has-error': ''">
-                <label class="control-label col-lg-3" style="padding-top: 40px;">直播开始时间:</label>
-                <div class="col-md-3">
-                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
-                        <input type="text" uib-datepicker-popup name="startTime" ng-model="video.startTime" class="form-control input-sm" is-open="popup1.opened"
-                            datepicker-options="dateOptions" placeholder="开始时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default input-sm" ng-click="open1()">
-                                <i class="glyphicon glyphicon-calendar"></i>
-                            </button>
-                        </span>
-                    </p>
-                    <label class="control-label has-error" ng-show="videoForm.startTime.$error.date && videoForm.startTime.$dirty">
-                        时间格式错误
-                    </label>
-                    <label class="control-label has-error" ng-show="videoForm.startTime.$error.required && videoForm.startTime.$dirty">
-                        直播开始时间不能为空
-                    </label>
-                </div>
-                <div class="col-md-3">
-                    <uib-timepicker class="input-sm" ng-model="video.startTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
-                </div>
-            </div>
-            <div class="form-group" ng-class="videoForm.endTime.$invalid && videoForm.endTime.$dirty ? 'has-error': ''">
-                <label class="control-label col-lg-3" style="padding-top: 40px;">直播结束时间:</label>
-                <div class="col-md-3">
-                    <p class="input-group" style="margin-bottom: 0px; padding-top: 35px;">
-                        <input type="text" uib-datepicker-popup name="endTime" ng-model="video.endTime" class="form-control input-sm" is-open="popup2.opened"
-                            datepicker-options="dateOptions" placeholder="结束时间" clear-text="清空" close-text="关闭" current-text="今天" on-open-focus="false" required/>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default input-sm" ng-click="open2()">
-                                <i class="glyphicon glyphicon-calendar"></i>
-                            </button>
-                        </span>
-                    </p>
-                    <label class="control-label has-error" ng-show="videoForm.endTime.$error.date && videoForm.endTime.$dirty">
-                        时间格式错误
-                    </label>
-                    <label class="control-label has-error" ng-show="videoForm.endTime.$error.required && videoForm.endTime.$dirty">
-                        直播结束时间不能为空
-                    </label>
-                </div>
-                <div class="col-md-3">
-                    <uib-timepicker class="input-sm" ng-model="video.endTime" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
-                </div>
-            </div>
             <div class="form-group"  ng-class="videoForm.length.$invalid && videoForm.length.$dirty ? 'has-error': ''">
                 <label class="control-label col-lg-3">视频时长:</label>
                 <div class="col-lg-6">
                     <input name="length" ng-model="video.length" type="text" class="form-control input-sm" placeholder="视频时长" required>
                     <label class="control-label" ng-show="videoForm.length.$invalid && videoForm.length.$dirty">视频时长不能为空</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-3">视频提供者:</label>
+                <div class="col-lg-3">
+                    <select required="required" class="form-control input-sm" ng-model="video.sponsorId" ng-options="sponsor.id as sponsor.name for sponsor in sponsors"></select>
                 </div>
             </div>
 			<div class="text-right m-top-md">

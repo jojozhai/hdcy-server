@@ -24,6 +24,6 @@ public interface LeaderService {
 
 	void delete(Long id);
 
-    LeaderInfo createByAdmin(LeaderInfo leaderInfo);
+    LeaderInfo apply(LeaderInfo leaderInfo);
 	
 }

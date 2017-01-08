@@ -36,7 +36,7 @@ public class LeaderWeixinController {
 	@RequestMapping(value = "/leader", method = RequestMethod.POST)
 	public void create(@RequestBody LeaderInfo info) {
 		info.setUserId(CurrentUserHolder.getCurrentUserId());
-		leaderService.create(info);
+		leaderService.apply(info);
 	}
 	
 	@RequestMapping(value = "/leader/{id}", method = RequestMethod.GET)

@@ -20,9 +20,11 @@ public class LeaderSpec extends PzSimpleSpecification<Leader, LeaderInfo> {
 
 	@Override
 	protected void addCondition(QueryWraper<Leader> queryWraper) {
-		addLikeCondition(queryWraper, "nickname", "user.nickname");
+//		addLikeCondition(queryWraper, "nickname", "user.nickname");
 		addEqualsCondition(queryWraper, "status");
+		addEqualsCondition(queryWraper, "organ");
 		addEqualsCondition(queryWraper, "top");
+		addEqualsCondition(queryWraper, "enable");
 	}
 
 }

@@ -1,0 +1,253 @@
+.daka-navs a {
+	display: inline-block;
+	color: #8FAFCA;
+	width: 125px;
+	height: 40px;
+	background: url(../../assets/images/dakanav.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 15px;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+}
+.daka-navs a.active {
+	background: url(../../assets/images/xuanze.png) no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	font-weight: bold;
+}
+.dakalist {
+	background-color: rgb(27,50,68);
+	padding-top: 8px;
+	float: left;
+	width: 375px;
+}
+.dakalist .daka-left,.dakalist .daka-right {
+	float: right;
+}
+.even .daka-left,.even.daka-right {
+	float: left;
+}
+
+.daka-left,.daka-right {
+	width: 50%;	
+	height: 100px;	
+}
+.daka-left {
+	background: url(../../assets/images/leader-left.png) no-repeat;
+	background-size: 100% 100%;
+}
+.daka-right {
+	background: url(../../assets/images/leader-right.png) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.daka-left img {
+	width: 100%;
+	height: 100%;
+}
+.daka-txt {
+	color: white;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	left: 12px;
+}
+.leader-tit {	
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 13px;	
+}
+.leader-slogan {	
+	font-size: 11px;
+}
+.daka-box {
+	width: 100%;
+	height: 100%;
+	background: #F3F3F3;
+}
+.daka-detail {
+	margin-top: 48px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.dakade-tit {
+	width: 375px;
+	height: 190px;
+	background: url(../../assets/images/daka-bg.png) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.dakade-txt {
+	position: absolute;
+	top: 60px;
+	left: 30px;
+	
+}
+.dakade-Img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.dakade-Img img {
+	width: 100%;
+	height: 100%;	
+}
+.dakade-right {
+	margin-left: 12px;
+	width: 253px;
+    word-wrap: break-word;
+}
+.dakade-names {
+	margin-bottom: 16px;
+	color: white;
+}
+.dakade-name {
+	font-weight: bold;
+	font-size: 17px;	
+}
+.dakalv {
+	font-size: 12px;
+	margin-left: 20px;
+}
+.dakade-slogan {
+	color: #C8C8C8;
+	font-size: 12px;
+	margin-bottom: 18px;
+}
+
+.dakde-tag {
+	background: #1F3B52;
+	border-radius: 10px;
+	color: #E0E0E0;
+	font-size: 11px;
+	height: 15px;
+	text-align: center;
+	line-height: 15px;
+	padding: 2px 9px;
+	float: left;
+	margin-right: 20px;
+}
+.daka-detaicon {
+	padding: 20px 12px 0;
+	background: white;
+	box-sizing: border-box;
+}
+.daka-jianjie {
+	padding: 2px 0px 2px 7px;
+	color:#303030 ;
+	font-size: 15px;
+	border-left: 3px solid #303030;
+	
+}
+.apply {
+	width: 70px;
+	height: 70px;
+	position: fixed;
+	bottom: 80px;
+	background: url(../../assets/images/shenqing.png) no-repeat;
+	background-size: 100% 100%;
+}
+.apply-detail {
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 222;	
+}
+.apply-con {
+	width: 315px;
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	z-index: 223;	
+}
+.apply-conup {
+	width: 315px;
+	height: 148px;
+	background: url(../../assets/images/apply-bg.png) no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+.apply-conup img {
+	margin-top: 17px;
+}
+.apply-condown {
+	width: 100%;
+	height: 102px;
+	background: white;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.apply-condown a {
+	color: #303030;
+	font-size: 18px;
+	float: left;
+    width: 50%;
+    text-align: center;    
+    line-height: 80px;
+    margin: 11px 0;
+}
+.apply-condown a:nth-of-type(1) {
+	border-right: 2px solid #BBBBBB;
+	box-sizing: border-box;
+}
+.application {
+	width: 315px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	z-index: 224;
+	display: none;
+	
+}
+.application-up {
+	width: 100%;
+	height: 189px;
+	background: url(../../assets/images/apply-bg.png) no-repeat;
+	background-size: 100% 100%;	  
+}
+.application-up {
+	text-align: center;
+}
+.application-up img {
+	margin-top: 17.5px;
+}
+.application-up h4 {
+	margin-top: 18.5px;
+	font-size: 20px;
+	color: white;
+}
+.application-down {
+	height: 174px;
+	background: white;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding:0 12px 0 74px;
+	word-break: break-all;
+}
+.application-down p {
+	color: #303030;
+	font-size: 16px;
+}
+.application-down p span {
+	color: #959595;
+}
+.application-down .apply-list {
+	font-size: 14px;
+	padding-top: 26.5px;
+}
+.apply-tel {
+	margin: 23px 0 20px;
+	
+}

@@ -1,0 +1,192 @@
+.live-video {
+	margin-top: 50px;
+}
+.zhibo {
+    position: relative;
+}
+.zhibo-txt {
+    position: absolute;
+    padding:0 12px 12px;
+    bottom: 0;
+    font-size: 14px;
+    color: #00FEFC;
+	width: 100%;
+}
+.zhibo-txts {
+	position: absolute;
+    padding:0 12px 12px;
+    top: 155px;
+    font-size: 14px;
+    color: #00FEFC;
+	width: 100%;
+}
+.videotime-img {
+	width: 13px;
+	margin-top: 2.5px;
+	margin-right: 5px;
+}
+.zhibo-tit {
+    color: white;
+    margin-left: 34px;
+}
+.videoTime-txt {
+    margin: 12px 0 24px;
+    height: 22px;
+    line-height: 22px;
+    position: relative;
+}
+.time-img {
+    width: 22px;
+    height: 22px;
+}
+.video-time {
+    display: inline-block;
+    line-height: 22px;
+    position: absolute;
+    width: 100%;
+}
+.zhibo-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+   	overflow: hidden;
+}
+.zhibo-icon img {
+	width: 100%;
+	height: 100%;
+}
+.video-name {
+    position:relative;
+    height:30px;
+
+}
+.video-name1 {
+    position: absolute;
+    line-height: 30px;
+    margin-left: 12px;
+}
+.video-descom {
+	background: rgb(48,84,110)
+}
+.yugao-bg {
+	width: 375px;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000000;
+	opacity: 0.25;
+}
+.yugao {
+	width: 375px;
+	height: 250px;
+}
+.yugao img {
+	width: 100%;
+	height: 100%;
+}
+.yugao-nav a {
+	display: inline-block;
+	width: 187.5px;
+	height: 40px;
+	background: url(../images/artnav.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+	line-height: 40px;
+	font-size: 15px;
+	color: #8FAFCA;
+	text-align: center;
+}
+.yugao-nav a.actived {
+	display: inline-block;
+	color: white;
+	background: url(../images/xuanze.png) no-repeat;
+	background-size: 100% 100%;
+}
+.zbjianjie {
+	padding: 19px 12px;	
+	word-break: break-all;
+}
+
+.zbjiaoliu {
+	display: none;
+	position: relative;
+}
+
+.comment {
+  padding: 0 12px;	
+  word-break: break-all;
+}
+.comsupLeft {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.comsupLeft img {
+	width: 100%;
+	height: 100%;
+}
+.comsupRight {
+	width: 311px;
+	font-size: 11px;
+	color: #DDDDDD;
+	margin-left: 10px;
+}
+.nickname {
+	color: #00FEFC;
+	font-size: 14px;
+}
+.comments {
+	
+}
+.comsList {
+	padding: 12px 0;
+}
+.comtime {
+	display: inline-block;
+	margin-top: 8px;
+}
+.comcontent {
+	margin: 14px 0 0px 40px;
+	color: white;
+	font-size: 14px;
+}
+.zan {
+	width:22px;
+	height: 22px;
+	display: inline-block;
+	background: url(../images/videos-hand.png) no-repeat;
+	background-size: 100% 100%;
+}
+.zancount {
+	margin-top: 6px;
+}
+
+.replyList {
+	padding: 6px 0 3px 6px;
+}
+.replycon {
+	color: white;
+}
+.huifu {
+	color: white;
+}
+.mores {
+	padding: 6px;
+}
+.more {
+	text-align: center;
+	padding: 8px 0;
+}
+.more a {	
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #DDDDDD;
+  	color: white;
+	border-radius: 15px;
+	font-size: 14px;
+}

@@ -8,7 +8,7 @@
 </style>
 <div class="headBox">
 	<div class="head">
-		<a ui-sref="app.participation.list" class="back"></a>
+		<a href="http://cdn.haoduocheyou.com/#/activity" class="back"></a>
 		<h2>{{contrary.name}}</h2>
 	</div>
 </div>
@@ -17,51 +17,58 @@
 		<div class="noback-img">
 			<img ng-src="{{contrary.image}}"  />
 		</div>
-		<h2 class="huod-title"><span>活动说明</span></h2>
+		<div class="topic-tit">{{contrary.name}}</div>
+		<!--<h2 class="huod-title"><span>活动说明</span></h2>-->
 		<div class="xs-box" ng-class="{'xs-auto': contentExtend}">
 			<div class="xs-txtCnt" style="padding: 0px 10px 0px 10px">
 				<div class="xs-txtover" ng-bind-html="desc | toHtml"></div>
 				<div class="hd-more" ng-style="{display: showExtender?'block':'none'}" ng-click="extendDesc()">
-					<i ng-style="{'background': contentExtend?'url(images/more2.png) no-repeat':'url(images/more.png) no-repeat', 'background-size': '100%'}"></i>
+					<i ng-style="{'background': contentExtend?'url(images/up.png) no-repeat':'url(images/dow.png) no-repeat', 'background-size': '100%'}"></i>
+
 				</div>
 			</div>
 		</div>
 		<div class="huodtpCntbox">
-			<div class="huodtp-div huodtphf">
-				<h2>红方观点 ({{contrary.redCount}}票)</h2>
-				<div class="huodtp-txt">
-					<label>观点：</label>
-					<p>{{contrary.red}}</p>
-				</div>
-				<ul class="huodtp-lsit" infinite-scroll="getNextPage()">
-					<li ng-repeat="participator in redParticipators">
-						<img ng-src="{{participator.headimgurl}}"/>
-						<p>{{participator.content}}</p>
-					</li>
-				</ul>
-				<div class="huodtpBtn" ng-hide="contrary.finish">
-					<div class="huodtpBtnsty" style="left: 0px">
-					    <a ng-click="clickSignButton(true)">{{contrary.redButton}}</a>
+			<div class="topic-resist clear">
+				<div class="topics">
+					<div class="reds clear">
+						<span class="red-img">红方</span>
+						<div class="red-blue" ng-style="{'width':widths-92}">
+							<div class="red-num" ng-style="{'width':contrary.redCount/(contrary.redCount+contrary.blueCount)*100+'%'}"></div>
+							<div class="blue-num" ng-style="{'width':contrary.blueCount/(contrary.redCount+contrary.blueCount)*100+'%'}"></div>
+						</div>
+						<span class="blue-img">蓝方</span>
+					</div>
+					<div class="topic-txt clear">
+						<div class="red-txt">
+							<span class="redtopic-num">{{contrary.redCount}}</span>
+							<div class="redtopic">{{contrary.redButton}}</div>
+						</div>
+						<div class="blue-txt">
+							<span class="bluetopic-num">{{contrary.blueCount}}</span>
+							<div class="bluetopic">{{contrary.blueButton}}</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="huodtp-div huodtphf huodtplf" >
-				<h2>蓝方观点 ({{contrary.blueCount}}票)</h2>
-				<div class="huodtp-txt">
-					<label>观点：</label>
-					<p>{{contrary.blue}}</p>
-				</div>
-				<ul class="huodtp-lsit" infinite-scroll="getNextPage()" >
-					<li ng-repeat="participator in blueParticipators">
-						<img ng-src="{{participator.headimgurl}}"/>
-						<p>{{participator.content}}</p>
-					</li>
-				</ul>
-				<div class="huodtpBtn" ng-hide="contrary.finish">
-					<div class="huodtpBtnsty">
-					    <a ng-click="clickSignButton(false)">{{contrary.blueButton}}</a>
+			<ul class="topic-cons" infinite-scroll="getNextPage()">
+				<li class="redsupport-list clear" ng-repeat="participator in redblueParticipators" ng-class="{'bluesupport-list ':participator.red==false}">
+					<img class="redsupport fl" src="{{participator.headimgurl}}">
+					<div class="redsupport-cons fl">
+						<div class="redsup-nickname"></div>
+						<div class="redsupport-con">
+							<span>{{participator.content}}</span>
+							<div class="redsup-time">
+								{{participator.createdTime| date:"yyyy-MM-dd "}}
+							</div>
+						</div>
 					</div>
-				</div>
+				</li>
+			</ul>
+      <!-- ng-hide="contrary.finish" -->
+			<div class="supports" >
+				<a class="support-red" ng-click="clickSignButton(true)">我支持红方</a>
+				<a class="support-blue" ng-click="clickSignButton(false)">我支持蓝方</a>
 			</div>
 		</div>
 	</div>

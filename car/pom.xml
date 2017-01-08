@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<pzx.admin.version>1.0.0-SNAPSHOT</pzx.admin.version>
-		<pzx.framework.version>1.0.0-SNAPSHOT</pzx.framework.version>
+		<pzx.admin.version>1.0.1-SNAPSHOT</pzx.admin.version>
+		<pzx.framework.version>1.0.1-SNAPSHOT</pzx.framework.version>
 		<mirage.version>1.0.0-SNAPSHOT</mirage.version>
 		<mirage.car.version>2.1.0-SNAPSHOT</mirage.car.version>
 	</properties>
@@ -94,6 +94,5 @@
 		<module>../car2-core</module>
 		<module>../car2-weixin</module>
 		<module>../car2-app</module>
-		<module>../car2-weixin-a2</module>
 	</modules>
 </project>

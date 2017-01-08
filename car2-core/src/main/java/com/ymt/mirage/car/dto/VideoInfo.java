@@ -43,6 +43,10 @@ public class VideoInfo {
      */
     private Boolean enable;
     /**
+     * 发布日期
+     */
+    private Date enableDate;
+    /**
      * 图片
      */
     private String image;
@@ -62,6 +66,10 @@ public class VideoInfo {
      * 是否是直播
      */
     private Boolean live;
+    /**
+     * 直播链接
+     */
+    private String liveLink;
     /**
      * 直播状态
      */
@@ -86,6 +94,34 @@ public class VideoInfo {
      * 
      */
     private String desc;
+    /**
+     * 
+     */
+    private String sponsorName;
+    /**
+     * 
+     */
+    private String sponsorImage;
+    /**
+     * 
+     */
+    private Long sponsorId;
+    /**
+     * app直播
+     */
+    private Boolean liveForApp;
+    /**
+     * weixin直播
+     */
+    private Boolean liveForWeixin;
+    /**
+     * 回放
+     */
+    private Boolean replay;
+    /**
+     * 回放直播id
+     */
+    private Long replayId;
     /**
      * @return the id
      */
@@ -289,6 +325,114 @@ public class VideoInfo {
      */
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+    /**
+     * @return the sponsorName
+     */
+    public String getSponsorName() {
+        return sponsorName;
+    }
+    /**
+     * @param sponsorName the sponsorName to set
+     */
+    public void setSponsorName(String sponsorName) {
+        this.sponsorName = sponsorName;
+    }
+    /**
+     * @return the sponsorImage
+     */
+    public String getSponsorImage() {
+        return sponsorImage;
+    }
+    /**
+     * @param sponsorImage the sponsorImage to set
+     */
+    public void setSponsorImage(String sponsorImage) {
+        this.sponsorImage = sponsorImage;
+    }
+    /**
+     * @return the sponsorId
+     */
+    public Long getSponsorId() {
+        return sponsorId;
+    }
+    /**
+     * @param sponsorId the sponsorId to set
+     */
+    public void setSponsorId(Long sponsorId) {
+        this.sponsorId = sponsorId;
+    }
+    /**
+     * @return the liveLink
+     */
+    public String getLiveLink() {
+        return liveLink;
+    }
+    /**
+     * @param liveLink the liveLink to set
+     */
+    public void setLiveLink(String liveLink) {
+        this.liveLink = liveLink;
+    }
+    /**
+     * @return the liveForApp
+     */
+    public Boolean getLiveForApp() {
+        return liveForApp;
+    }
+    /**
+     * @param liveForApp the liveForApp to set
+     */
+    public void setLiveForApp(Boolean liveForApp) {
+        this.liveForApp = liveForApp;
+    }
+    /**
+     * @return the liveForWeixin
+     */
+    public Boolean getLiveForWeixin() {
+        return liveForWeixin;
+    }
+    /**
+     * @param liveForWeixin the liveForWeixin to set
+     */
+    public void setLiveForWeixin(Boolean liveForWeixin) {
+        this.liveForWeixin = liveForWeixin;
+    }
+    /**
+     * @return the replay
+     */
+    public Boolean getReplay() {
+        return replay;
+    }
+    /**
+     * @param replay the replay to set
+     */
+    public void setReplay(Boolean replay) {
+        this.replay = replay;
+    }
+    /**
+     * @return the replayId
+     */
+    public Long getReplayId() {
+        return replayId;
+    }
+    /**
+     * @param replayId the replayId to set
+     */
+    public void setReplayId(Long replayId) {
+        this.replayId = replayId;
+    }
+    /**
+     * @return the enableDate
+     */
+    public Date getEnableDate() {
+        return enableDate;
+    }
+    /**
+     * @param enableDate the enableDate to set
+     */
+    public void setEnableDate(Date enableDate) {
+        this.enableDate = enableDate;
     }
     
 }

@@ -34,23 +34,23 @@
 					<thead>
 						<tr>
 							<th width="100">序号</th>
-							<th width="100">昵称</th>
-							<th width="100">状态</th>
+							<th width="100">名称</th>
+							<th width="100">标语</th>
 							<th width="100">置顶</th>
-							<th >简介</th>
+							<th >标签</th>
 							<th width="200">操作</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat = "leader in leaders">
 							<td>{{$index+1}}</td>
-							<td>{{leader.nickname}}</td>
-							<td>{{leader.status | leaderStatus}}</td>
+							<td>{{leader.name}}</td>
+							<td>{{leader.slogan}}</td>
 							<td>{{leader.top | yesOrNo}}</td>
-							<td style="word-break:break-all">{{leader.intro}}</td>
+							<td>{{leader.tags}}</td>
 							<td>
 								<button class="btn btn-warning btn-xs" ng-click="update(leader)">
-									<i class="ion-edit m-right-xs"></i>修改(审核)
+									<i class="ion-edit m-right-xs"></i>修改
 								</button>
 								<button class="btn btn-danger btn-xs" ng-click="remove(leader)">
                                     <i class="ion-edit m-right-xs"></i>删除

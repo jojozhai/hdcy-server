@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class ActivityInfo extends ParticipationInfo {
 
-	private Long id;
 	/**
 	 * 活动介绍图片
 	 */
@@ -59,6 +58,19 @@ public class ActivityInfo extends ParticipationInfo {
      * 报名结束时间
      */
     private Date signEndTime;
+    /**
+     * 报名结束
+     */
+    private Boolean signFinish;
+    /**
+     * 报名人数
+     */
+    private Long signCount;
+    /**
+     * 报名人数加权
+     */
+    private Long signCountPlus;
+
 
 	public long getCustomerServiceId() {
 		return customerServiceId;
@@ -66,21 +78,6 @@ public class ActivityInfo extends ParticipationInfo {
 
 	public void setCustomerServiceId(long customerServiceId) {
 		this.customerServiceId = customerServiceId;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -228,9 +225,51 @@ public class ActivityInfo extends ParticipationInfo {
         this.waiterImage = waiterImage;
     }
 
+    /**
+     * @return the signCount
+     */
+    public Long getSignCount() {
+        return signCount;
+    }
+
+    /**
+     * @param signCount the signCount to set
+     */
+    public void setSignCount(Long signCount) {
+        this.signCount = signCount;
+    }
+
+    /**
+     * @return the signCountPlus
+     */
+    public Long getSignCountPlus() {
+        return signCountPlus;
+    }
+
+    /**
+     * @param signCountPlus the signCountPlus to set
+     */
+    public void setSignCountPlus(Long signCountPlus) {
+        this.signCountPlus = signCountPlus;
+    }
+
+    /**
+     * @return the signFinish
+     */
+    public Boolean getSignFinish() {
+        return signFinish;
+    }
+
+    /**
+     * @param signFinish the signFinish to set
+     */
+    public void setSignFinish(Boolean signFinish) {
+        this.signFinish = signFinish;
+    }
+
     @Override
 	public String toString() {
-		return "ActivityInfo [id=" + id + ", images=" + images + ", contactPhone=" + contactPhone + ", contactWeixin="
+		return "ActivityInfo [id=" + getId() + ", images=" + images + ", contactPhone=" + contactPhone + ", contactWeixin="
 				+ contactWeixin + ", peopleLimit=" + peopleLimit + ", price=" + price + ", customerService="
 				+ customerServiceId + "]";
 	}

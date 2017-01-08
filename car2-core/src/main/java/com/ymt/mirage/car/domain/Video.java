@@ -15,6 +15,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.joda.time.DateTime;
@@ -51,6 +52,30 @@ public class Video extends DomainImpl {
      */
     private boolean enable;
     /**
+     * 发布日期
+     */
+    private Date enableDate;
+    /**
+     * 是否发布过，如果发布过，然后人工下线了，不再自动发布。
+     */
+    private boolean enabled;
+    /**
+     * 回放
+     */
+    private boolean replay;
+    /**
+     * 回放直播id
+     */
+    private Long replayId;
+    /**
+     * app直播
+     */
+    private boolean liveForApp;
+    /**
+     * weixin直播
+     */
+    private boolean liveForWeixin;
+    /**
      * 图片
      */
     private String image;
@@ -70,6 +95,10 @@ public class Video extends DomainImpl {
      * 是否是直播
      */
     private boolean live;
+    /**
+     * 直播链接
+     */
+    private String liveLink;
     /**
      * 直播状态
      */
@@ -92,6 +121,11 @@ public class Video extends DomainImpl {
      */
     @Lob
     private String desc;
+    /**
+     * 播放人
+     */
+    @ManyToOne
+    private Sponsor sponsor;
     
     /**
      * @return the name
@@ -268,9 +302,9 @@ public class Video extends DomainImpl {
         DateTime _startTime = new DateTime(getStartTime());
         DateTime _endTime = new DateTime(getEndTime());
         if(_startTime.isAfterNow()) {
-            return "未开始";
+            return "预告";
         }else if(_endTime.isBeforeNow()){
-            return "已结束";
+            return "回放";
         }else{
             return "直播中";
         }
@@ -280,6 +314,102 @@ public class Video extends DomainImpl {
      */
     public void setLiveState(String liveState) {
         this.liveState = liveState;
+    }
+    /**
+     * @return the sponsor
+     */
+    public Sponsor getSponsor() {
+        return sponsor;
+    }
+    /**
+     * @param sponsor the sponsor to set
+     */
+    public void setSponsor(Sponsor sponsor) {
+        this.sponsor = sponsor;
+    }
+    /**
+     * @return the liveLink
+     */
+    public String getLiveLink() {
+        return liveLink;
+    }
+    /**
+     * @param liveLink the liveLink to set
+     */
+    public void setLiveLink(String liveLink) {
+        this.liveLink = liveLink;
+    }
+    /**
+     * @return the liveForApp
+     */
+    public boolean isLiveForApp() {
+        return liveForApp;
+    }
+    /**
+     * @param liveForApp the liveForApp to set
+     */
+    public void setLiveForApp(boolean liveForApp) {
+        this.liveForApp = liveForApp;
+    }
+    /**
+     * @return the liveForWeixin
+     */
+    public boolean isLiveForWeixin() {
+        return liveForWeixin;
+    }
+    /**
+     * @param liveForWeixin the liveForWeixin to set
+     */
+    public void setLiveForWeixin(boolean liveForWeixin) {
+        this.liveForWeixin = liveForWeixin;
+    }
+    /**
+     * @return the replay
+     */
+    public boolean isReplay() {
+        return replay;
+    }
+    /**
+     * @param replay the replay to set
+     */
+    public void setReplay(boolean replay) {
+        this.replay = replay;
+    }
+    /**
+     * @return the replayId
+     */
+    public Long getReplayId() {
+        return replayId;
+    }
+    /**
+     * @param replayId the replayId to set
+     */
+    public void setReplayId(Long replayId) {
+        this.replayId = replayId;
+    }
+    /**
+     * @return the enableDate
+     */
+    public Date getEnableDate() {
+        return enableDate;
+    }
+    /**
+     * @param enableDate the enableDate to set
+     */
+    public void setEnableDate(Date enableDate) {
+        this.enableDate = enableDate;
+    }
+    /**
+     * @return the enabled
+     */
+    public boolean isEnabled() {
+        return enabled;
+    }
+    /**
+     * @param enabled the enabled to set
+     */
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
     
 }

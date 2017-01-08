@@ -40,7 +40,8 @@ angular.module('votingAdminModule',[]).config(function($stateProvider) {
 			giftImages: [],
 			peopleLimit: 0,
 			voteLimit1: 3,
-			voteLimit2: 5
+			voteLimit2: 5,
+			finish: false
 		});
 	}
 	
