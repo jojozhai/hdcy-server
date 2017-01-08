@@ -28,8 +28,8 @@ public class VersionUtils {
     
     public static void main(String[] args) throws Exception {
         
-        String oldVersion = "1.0.0-SNAPSHOT";
-        String newVersion = "1.0.1-SNAPSHOT";
+        String oldVersion = "2.1.0-SNAPSHOT";
+        String newVersion = "2.3.0-SNAPSHOT";
         String projectFolder = "/Users/zhailiang/Documents/pinzhi365/workspace/git-hub/hdcy-server";
         
         File file = new File(projectFolder);
