@@ -77,15 +77,15 @@ public class DrawLotsConfigs implements InitializingBean {
         lotNameConfig.setType(paramService.getParam("game.draw.lots.text.lot.name.type", "ZmFuZ3poZW5na2FpdGk").getValue());
         lotNameConfig.setColor(paramService.getParam("game.draw.lots.text.lot.name.color", "IzAwMDAwMA").getValue());
         lotNameConfig.setPosition(paramService.getParam("game.draw.lots.text.lot.name.position", "west").getValue());
-        lotNameConfig.setSize(new Integer(paramService.getParam("game.draw.lots.lot.name.size", "40").getValue()));
-        lotNameConfig.setOffset(new Integer(paramService.getParam("game.draw.lots.lot.name.offset", "100").getValue()));
+        lotNameConfig.setSize(new Integer(paramService.getParam("game.draw.lots.text.lot.name.size", "40").getValue()));
+        lotNameConfig.setOffset(new Integer(paramService.getParam("game.draw.lots.text.lot.name.offset", "100").getValue()));
         
         lotSpellConfig = new DrawLotsTextConfig();
         lotSpellConfig.setType(paramService.getParam("game.draw.lots.text.lot.spell.type", "ZmFuZ3poZW5na2FpdGk").getValue());
         lotSpellConfig.setColor(paramService.getParam("game.draw.lots.text.lot.spell.color", "IzAwMDAwMA").getValue());
         lotSpellConfig.setPosition(paramService.getParam("game.draw.lots.text.lot.spell.position", "west").getValue());
-        lotSpellConfig.setSize(new Integer(paramService.getParam("game.draw.lots.lot.spell.size", "40").getValue()));
-        lotSpellConfig.setOffset(new Integer(paramService.getParam("game.draw.lots.lot.spell.offset", "150").getValue()));
+        lotSpellConfig.setSize(new Integer(paramService.getParam("game.draw.lots.text.lot.spell.size", "40").getValue()));
+        lotSpellConfig.setOffset(new Integer(paramService.getParam("game.draw.lots.text.lot.spell.offset", "150").getValue()));
         
         setSpace(new Integer(paramService.getParam("game.draw.lots.lot.name.space", "50").getValue()));
     }
