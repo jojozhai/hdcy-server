@@ -1,3 +1,8 @@
+.shareimg {
+	display: none;
+	width: 375px;
+	height: 375px;
+}
 .artDetail {
 	margin-top: 50px;
 }
@@ -59,7 +64,7 @@
 }
 
 .comment {
-  padding: 0 12px;	
+  padding: 0 12px;
   word-break: break-all;
 }
 .comsupLeft {
@@ -122,7 +127,7 @@
 	text-align: center;
 	padding: 8px 0;
 }
-.more a {	
+.more a {
 	display: inline-block;
 	width: 90px;
 	height: 30px;
@@ -132,8 +137,8 @@
 	border-radius: 15px;
 	font-size: 14px;
 }
-.comment-count {  
-  padding: 10px 0px; 
+.comment-count {
+  padding: 10px 0px;
   background: white;
 }
 .comment-count h4 {

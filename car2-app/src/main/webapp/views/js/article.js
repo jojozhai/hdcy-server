@@ -48,6 +48,7 @@ $(function() {
 			$(".detail-tag1").html(obj.tagName);
 			$(".author").html(obj.principal);
 			$(".detail-Img img").attr('src', obj.image);
+			$(".shareimg").attr('src', obj.image+'?x-oss-process=image/resize,m_fixed,h_375,w_375')
 			$(".artiDetail-con").html(obj.content);
 			$(".comment-count h4").html("评论(" + obj.commentCount + ")")
 		}
