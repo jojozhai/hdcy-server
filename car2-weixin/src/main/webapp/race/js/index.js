@@ -371,7 +371,7 @@ function gamestart() {
 		function createMonster() {// 创建奖励
 			if (distance%createMonsterSpeed==0) {
 			var monsterR=randFn(1,30);
-			if (monsterR>=0&&monsterR<=26) {//礼物
+			if (monsterR>=10&&monsterR<=25) {//礼物
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
@@ -493,7 +493,7 @@ function gamestart() {
 		function createcarMonster() {// 创建奖励
 			if (distance%createMonsterSpeed==0) {
 				var monsterR=randFn(10,40);
-			if (monsterR>=13&&monsterR<=37) {//礼物
+			if (monsterR>=20&&monsterR<=35) {//礼物
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
