@@ -64,7 +64,7 @@ public class Lots implements InitializingBean {
         
         lots = new HashMap<>();
         lots.put("1", manLots);
-        lots.put("2", manLots);
+        lots.put("2", womanLots);
         
     }
 

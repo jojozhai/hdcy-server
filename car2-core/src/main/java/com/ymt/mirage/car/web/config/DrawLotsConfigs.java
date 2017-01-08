@@ -93,7 +93,7 @@ public class DrawLotsConfigs implements InitializingBean {
     public int getStart(int size) {
         return (getBackgroudConfig().getWidth()
                 - (size * getLotNameConfig().getSize())
-                - (size - 1 * getSpace()))/2;
+                - ((size - 1) * getSpace()))/2;
     }
 
     /**
