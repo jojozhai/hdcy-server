@@ -469,6 +469,7 @@ html,body {
 }
 .stopbtn img {
 	float: left;
+	width: 50px;
 }
 .bofang {
 	margin:0 77.5px;
