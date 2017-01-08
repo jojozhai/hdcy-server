@@ -22,9 +22,11 @@ import com.ymt.mirage.article.repository.ArticleRepository;
 import com.ymt.mirage.car.domain.Activity;
 import com.ymt.mirage.car.domain.ActivityParticipator;
 import com.ymt.mirage.car.domain.Participation;
+import com.ymt.mirage.car.domain.Video;
 import com.ymt.mirage.car.repository.ActivityParticipatorRepository;
 import com.ymt.mirage.car.repository.ActivityRepository;
 import com.ymt.mirage.car.repository.ParticipationRepository;
+import com.ymt.mirage.car.repository.VideoRepository;
 import com.ymt.mirage.hdcy.service.ScheduleService;
 import com.ymt.pz365.framework.param.service.ParamService;
 import com.ymt.pz365.framework.weixin.service.WeixinService;
@@ -36,7 +38,7 @@ import com.ymt.pz365.framework.weixin.support.message.TemplateMessage;
  */
 @Service("scheduleService")
 @Transactional
-public class ScheduleServiceImpl implements ScheduleService {
+public class ScheduleServiceImpl implements ScheduleService, ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
 	private ParticipationRepository participationRepository;
@@ -46,6 +48,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 	
 	@Autowired
     private ActivityRepository activityRepository;
+	
+	@Autowired
+    private VideoRepository videoRepository;
 	
 	@Autowired
     private ActivityParticipatorRepository activityParticipatorRepository;
@@ -137,12 +142,35 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Scheduled(cron = "0 */1 * * * *")
     public void articleEnableSchedule() {
         logger.info("检查资讯状态");
-        List<Article> articles = articleRepository.findByEnableIsFalseAndEnableDateBefore(new Date());
+        List<Article> articles = articleRepository.findByEnableIsFalseAndEnabledIsFalseAndEnableDateBefore(new Date());
         for (Article article : articles) {
-            article.setEnable(true);
-            article.setEnabled(true);
-            articleRepository.save(article);
+            if(!article.isEnabled()) {
+                article.setEnable(true);
+                article.setCreatedTime(new Date());
+                article.setEnabled(true);
+                articleRepository.save(article);
+            }
         }
     }
+    
+    @Override
+    @Scheduled(cron = "0 */1 * * * *")
+    public void videoEnableSchedule() {
+        logger.info("检查视频状态");
+        List<Video> videos = videoRepository.findByEnableIsFalseAndEnabledIsFalseAndEnableDateBefore(new Date());
+        for (Video video : videos) {
+            video.setEnable(true);
+            video.setCreatedTime(new Date());
+            video.setEnabled(true);
+            videoRepository.save(video);
+        }
+    }
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+//        articleEnableSchedule();
+    }
+    
+    
 
 }
