@@ -134,6 +134,7 @@ function gamestart() {
 		$(".game_introdute").show();
 		$(".countdown").show();
 		$(".tixingbg").show();
+    window.cancelAnimationFrame(animateRuning);
 	})
 	$(".sure").on('click',function () {
 		$("#gameMusic")[0].play();
@@ -735,41 +736,63 @@ function gamestart() {
 					sharepage(overshare);
 				}
 			});
-			var pageStart = 0,pageEnd = 0,page = -1;
-			var rankNum=0;
-				$(".rankMark").dropload({
-					scrollArea:$(".rankMark"),
-					loadDownFn:function (me) {
-						page++;
-						$.ajax({
-							type:"get",
-							url:"/weixin2/game/ranks",
-							data:{
-								page:page,
-							},
-							dataType: "json",
-							success:function(obj){
-								pageStart = page*20;
-								for (var i = pageStart; i < obj.content.length; i++) {
-									rankNum++;
-									var userdiv=$('<div class="users clear">'+
-											'<span class="mingci ran'+rankNum+'">'+rankNum+'</span>'+
-											'<span class="hands">'+
-													'<img  src='+obj.content[i].headimgurl+' alt="">'+
-											'</span>'+
-											'<span class="nickname">'+obj.content[i].nickname+'</span>'+
-											'<span class="juli">'+obj.content[i].point+'m</span>'+
-									'</div>');
-									$(".userall").append(userdiv);
-								}
+      $(".rankMark").scroll(function(){
+          var doc_height = $(".rankMarks").height();
+          var scroll_top = $(".rankMark").scrollTop();
+          var window_height = $(window).height();
+          if(scroll_top == 0){
+          }else if(scroll_top + window_height >= doc_height){
+              setTimeout(function () {
+                  loadmore.init();
+              },1000);
+          }
+      });
 
-							},
-							error: function(xhr, type){
-                    me.resetload();
-              }
-						});
-					}
-				})
+      var loadmore;
+      var page=0;
+      var maxpage=0;
+      var rankNum=0;
+      loadmore={
+        clist_status: true,
+        clist_per_page: 20,
+        load_bar: $('.userall'),
+        init: function () {
+            if ( page>maxpage ) {
+                return;
+            }
+            if ( this.clist_status && this.load_bar.length >=0 ) {
+                this.load();
+            }
+        },
+        load:function () {
+          		$.ajax({
+          			type:"get",
+          			url:"/weixin2/game/ranks",
+          			data:{
+          				page:page,
+          			},
+          			dataType: "json",
+          			success:function(obj){
+                  page++;
+                  maxpage=obj.totalPages;
+          				for (var i = 0; i < obj.content.length; i++) {
+          					rankNum++;
+          					var userdiv=$('<div class="users clear">'+
+          							'<span class="mingci ran'+rankNum+'">'+rankNum+'</span>'+
+          							'<span class="hands">'+
+          									'<img  src='+obj.content[i].headimgurl+' alt="">'+
+          							'</span>'+
+          							'<span class="nickname">'+obj.content[i].nickname+'</span>'+
+          							'<span class="juli">'+obj.content[i].point+'m</span>'+
+          					'</div>');
+          					$(".userall").append(userdiv);
+          				}
+          			},
+          		});
+        }
+
+      }
+      loadmore.init();
 		}
 		bgImg.draw();//背景绘制
 		bgImg.draw1();
@@ -997,7 +1020,7 @@ function gamestart() {
 					var imgUrl = "http://cdn.haoduocheyou.com/weixin2/race/image/shareicon.png";
 					var desc = des;
 					wx.onMenuShareTimeline({
-						title: title,
+						title: desc,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
