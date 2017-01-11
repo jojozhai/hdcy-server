@@ -95,7 +95,7 @@ function gamestart() {
 	var coxspeed=monsterMoveSpeed-2;
 	var removeBol = false;
 	var num=3;
-
+  var price=0
 	function countdown() {
 		$(".countdown").show();
 		$(".count"+num).show();
@@ -276,7 +276,7 @@ function gamestart() {
 		function createMonster() {// 创建奖励
 			if (distance%createMonsterSpeed==0) {
 			var monsterR=randFn(1,30);
-			if (monsterR>=10&&monsterR<=25) {//礼物
+			if (monsterR>=13&&monsterR<=25) {//礼物
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
@@ -398,7 +398,7 @@ function gamestart() {
 		function createcarMonster() {// 创建奖励
 			if (distance%createMonsterSpeed==0) {
 				var monsterR=randFn(10,40);
-			if (monsterR>=20&&monsterR<=35) {//礼物
+			if (monsterR>=23&&monsterR<=35) {//礼物
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
@@ -546,6 +546,7 @@ function gamestart() {
 			context3.fillText(coxspeed*10+"mph",155,30);
 			context3.fillText("奖励：",220,30);
 			context3.fillText(scoreNum,255,30);
+      price=scoreNum;
 		}
 		var speeds=0;
 		var creaspd=0;
@@ -557,7 +558,6 @@ function gamestart() {
 
 			if (frameNums%600==0) {
 				coxspeed+=0.5;
-
 				if (createMonsterSpeed>100) {
 					createMonsterSpeed-=4;
 				}else if (createMonsterSpeed>80) {
@@ -567,15 +567,15 @@ function gamestart() {
 				}else if (createMonsterSpeed>50) {
 					createMonsterSpeed-=14;
 				}else {
-					createMonsterSpeed=40;
+					createMonsterSpeed=30;
 				}
-				console.log(createMonsterSpeed);
 			}
 		}
 		//游戏结束
 		var gameOverBol=true;
 		function gameOver() {
-			ranges(distance);
+      var prices=distance+30*price;
+			ranges(prices);
 			monsters=[];
 			carmonsters = [];
 			gameOverBol=false;
@@ -584,7 +584,7 @@ function gamestart() {
 		function updateNum() {
 			$(".gameover").show();
 			$("#gameMusic")[0].pause();
-			$(".distance").html("距离："+distance+"m");
+			$(".distance").html("得分："+(distance+30*price));
 		}
 		function ranges(dis) {
 			$.ajax({
@@ -630,7 +630,7 @@ function gamestart() {
 					}
 					$(".user .hands img").attr('src',obj.headimgurl);
 					$(".user .nickname").html(obj.nickname);
-					$(".user .juli").html(obj.point+"m");
+					$(".user .juli").html(obj.point);
 					nicknames=obj.nickname;
 					mingcis=obj.rank+1;
 					var overshare=obj.nickname+"在车友飙车全球游戏排名"+mingcis+"求超越！"
@@ -659,7 +659,6 @@ function gamestart() {
             if ( page>maxpage ) {
                 return;
             }
-            console.log(this.clist_status);
             if (this.clist_status) {
               this.load();
             }
@@ -685,7 +684,7 @@ function gamestart() {
           									'<img  src='+obj.content[i].headimgurl+' alt="">'+
           							'</span>'+
           							'<span class="nickname">'+obj.content[i].nickname+'</span>'+
-          							'<span class="juli">'+obj.content[i].point+'m</span>'+
+          							'<span class="juli">'+obj.content[i].point+'</span>'+
           					'</div>');
           					$(".userall").append(userdiv);
 
@@ -828,6 +827,7 @@ function gamestart() {
 				sharepage(endshare);
 			})
 		$(".replay").on("click",function () {
+        $(".rankMark").scrollTop(0)
 				if (mutes==true) {
 					$("#gameMusic")[0].play();
 				}else {
@@ -840,6 +840,7 @@ function gamestart() {
 				$(".gameover").hide();
 			})
 		$(".replay1").on("click",function () {
+      $(".rankMark").scrollTop(0)
 				if (mutes==true) {
 					$("#gameMusic")[0].play();
 				}else {
