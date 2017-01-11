@@ -405,9 +405,9 @@ html,body {
 	height: 6px;
 	background: #DE9F25;
 }
-.userall {
+/*.userall {
 	overflow-y: auto;
-}
+}*/
 .users {
 	display: inline-block;;
 	width: 300px;
@@ -421,7 +421,10 @@ html,body {
 .blur {
 	width: 362px;
 	position: absolute;
-	bottom: 42px;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
 }
 .replay1 {
 	display: inline-block;
@@ -429,15 +432,15 @@ html,body {
 	height: 60px;
 	background: url("../image/replay1.png") no-repeat;
 	background-size: 100% 100%;
-	text-align: center;
 	color: #FBCB39;
 	font-size: 24px;
 	line-height: 60px;
 	bottom: 0px;
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
+	text-align: center;
 }
 .stoppage {
 	display: none;

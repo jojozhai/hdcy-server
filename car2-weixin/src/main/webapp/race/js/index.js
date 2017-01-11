@@ -169,102 +169,6 @@ function gamestart() {
 	var context3 = canvas3.getContext("2d");
 	canvas3.width = body.offsetWidth;
 	canvas3.height = 54;
-
-	function gamedraw() {
-		var bgH = canvas1.height/canvas1.width*640;
-		var bgImg = {
-			y:0,
-			draw:function (){
-				context.drawImage(loadOver[4],0,this.y,canvas1.width,bgH);
-				context.drawImage(loadOver[4],0,this.y-bgH,canvas1.width,bgH);
-			},
-			draw1:function (){
-				context2.drawImage(loadOver[5],0,this.y,canvas2.width,bgH);
-				context2.drawImage(loadOver[5],0,this.y-bgH,canvas2.width,bgH);
-			},
-			move:function (){
-				this.y+=2;
-				distance+=2;
-				if (this.y>=bgH){
-					this.y = 0;
-				}
-			}
-		}
-		var heroW = 36;
-		var heroH = 66.4;
-		var hero = {
-			w:heroW,
-			h:heroH,
-			drawX:canvas1.width/4-12,
-			drawY:canvas1.height-heroH-10,
-			draw:function(){
-				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
-
-			}
-		}
-
-		var carW = 36;
-		var carH = 66.4;
-		var car = {
-			w:carW,
-			h:carH,
-			drawX:canvas2.width/4-8,
-			drawY:canvas2.height-carH-10,
-			draw:function(){
-				context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
-			}
-		}
-		var scoreW = canvas.width;
-		var scoreH = canvas.height;
-		var score = {
-			w:scoreW,
-			h:scoreH,
-			draw:function(){
-				context3.drawImage(loadOver[9],0,0,this.w,this.h);
-			}
-		}
-
-		var scoreW = 100;
-		var scoreH = 42;
-		var score1 = {
-			w:scoreW,
-			h:scoreH,
-			draw:function(){
-				context3.drawImage(loadOver[10],5,4,this.w,this.h);
-			},
-			draw1:function(){
-				context3.drawImage(loadOver[10],105,4,this.w,this.h);
-			},
-			draw2:function(){
-				context3.drawImage(loadOver[10],205,4,this.w,this.h);
-			},
-
-		}
-		function drawScore() {
-			context3.beginPath();
-			context3.fillStyle="white";
-			context3.font="14px";
-			if(scoreNum<10){
-				var shift = 3;
-			}else if(scoreNum<100){
-				var shift = 6;
-			}else if(scoreNum<1000){
-				var shift = 9;
-			}else if(scoreNum<10000){
-				var shift = 12;
-			}else if(scoreNum<100000){
-				var shift = 15;
-			}
-			context3.fillText("距离：",20,30);
-			context3.fillText(distance+"m",55,30);
-			context3.fillText("速度：",120,30);
-			context3.fillText(coxspeed+"mph",155,30);
-			context3.fillText("奖励：",220,30);
-			context3.fillText(scoreNum,255,30);
-		}
-
-	}
-//
 	function game() {
 		var bgH = canvas1.height/canvas1.width*640;
 		var bgImg = {
@@ -639,7 +543,7 @@ function gamestart() {
 			context3.fillText("距离：",20,30);
 			context3.fillText(distance+"m",55,30);
 			context3.fillText("速度：",120,30);
-			context3.fillText(coxspeed+"mph",155,30);
+			context3.fillText(coxspeed*10+"mph",155,30);
 			context3.fillText("奖励：",220,30);
 			context3.fillText(scoreNum,255,30);
 		}
@@ -647,10 +551,8 @@ function gamestart() {
 		var creaspd=0;
 		// 达到一定的分数改变速度
 		function changeSpeed() {
-
 			if (frameNums%60==0) {
 				monsterMoveSpeed+=0.05;
-
 			}
 
 			if (frameNums%600==0) {
@@ -669,7 +571,6 @@ function gamestart() {
 				}
 				console.log(createMonsterSpeed);
 			}
-
 		}
 		//游戏结束
 		var gameOverBol=true;
@@ -742,9 +643,7 @@ function gamestart() {
           var window_height = $(window).height();
           if(scroll_top == 0){
           }else if(scroll_top + window_height >= doc_height){
-              setTimeout(function () {
-                  loadmore.init();
-              },1000);
+              loadmore.init();
           }
       });
 
@@ -760,11 +659,14 @@ function gamestart() {
             if ( page>maxpage ) {
                 return;
             }
-            if ( this.clist_status && this.load_bar.length >=0 ) {
-                this.load();
+            console.log(this.clist_status);
+            if (this.clist_status) {
+              this.load();
             }
         },
         load:function () {
+              var _this=this;
+              _this.clist_status = false;
           		$.ajax({
           			type:"get",
           			url:"/weixin2/game/ranks",
@@ -786,7 +688,9 @@ function gamestart() {
           							'<span class="juli">'+obj.content[i].point+'m</span>'+
           					'</div>');
           					$(".userall").append(userdiv);
+
           				}
+                  _this.clist_status = true;
           			},
           		});
         }
