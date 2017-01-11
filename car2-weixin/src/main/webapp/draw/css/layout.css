@@ -39,6 +39,9 @@ html,body {
 	border: 1px solid black;
 	margin-top: 15px;
 	padding-left: 22px;
+	color: #473B2B;
+	font-size: 20px;
+	outline: none;
 }
 .sex{
 	width: 74px;
@@ -47,7 +50,7 @@ html,body {
 .item {
 	width: 50px;
 }
-.man {
+.man,.man1{
 	margin-right: 75px;
 }
 .man1,.woman1 {

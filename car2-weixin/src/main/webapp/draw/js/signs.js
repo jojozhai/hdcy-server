@@ -31,13 +31,15 @@ $(function () {
     	type: "get",
     	url: "../game/draw/lots",
       data:{
-        name:'小名';
-        sex:'女';
-      }
+        name:'小名',
+        sex:'女',
+      },
     	dataType: "json",
     	success: function(data) {
           console.log(data);
     	}
+
+  })
 
   })
 })
