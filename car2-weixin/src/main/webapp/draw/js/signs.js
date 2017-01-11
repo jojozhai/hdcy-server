@@ -21,22 +21,24 @@ $(function () {
     man=0;
     woman=1;
   })
+  var sex;
   $(".qiusign").on('click',function () {
     if (man==1) {
-      console.log('男');
+      sex=1;
     }else {
-      console.log('女');
+      sex=2;
     }
+    var name=$(".names").val();
     $.ajax({
     	type: "get",
     	url: "../game/draw/lots",
       data:{
-        name:'小名',
-        sex:'女',
+        name:name,
+        sex:sex,
       },
     	dataType: "json",
     	success: function(data) {
-          console.log(data);
+          console.log(data.content);
     	}
 
   })
