@@ -23,12 +23,15 @@ $(function () {
   })
   var sex;
   $(".qiusign").on('click',function () {
+    $(".page1").hide();
+    $(".page2").show();
+    var name=$(".names").val();
+    // $(".drawname").html(name+"2017年的新年签");
     if (man==1) {
       sex=1;
     }else {
       sex=2;
     }
-    var name=$(".names").val();
     $.ajax({
     	type: "get",
     	url: "../game/draw/lots",
@@ -38,7 +41,12 @@ $(function () {
       },
     	dataType: "json",
     	success: function(data) {
-          console.log(data.content);
+        console.log(data.content);
+        // $(".newyear").attr('src',data.content);
+        $(".page2").css({
+          'background':"url("+data.content+")",
+          "background-size":"100% 100%"
+        })
     	}
 
   })
