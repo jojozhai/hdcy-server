@@ -22,6 +22,7 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +36,7 @@ import net.sourceforge.pinyin4j.PinyinHelper;
  * @author zhailiang@pz365.com
  */
 @Component
+@Profile("weixin")
 public class Lots implements InitializingBean {
     
     private Map<String, List<Lot>> lots;

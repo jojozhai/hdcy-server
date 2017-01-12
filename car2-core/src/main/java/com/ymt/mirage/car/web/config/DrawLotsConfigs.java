@@ -58,7 +58,7 @@ public class DrawLotsConfigs implements InitializingBean {
         nameConfig = new DrawLotsTextConfig();
         nameConfig.setType(paramService.getParam("game.draw.lots.text.name.type", "ZmFuZ3poZW5na2FpdGk").getValue());
         nameConfig.setColor(paramService.getParam("game.draw.lots.text.name.color", "IzAwMDAwMA").getValue());
-        nameConfig.setPosition(paramService.getParam("game.draw.lots.text.name.position", "nw").getValue());
+        nameConfig.setPosition(paramService.getParam("game.draw.lots.text.name.position", "north").getValue());
         nameConfig.setSize(new Integer(paramService.getParam("game.draw.lots.text.name.size", "40").getValue()));
         nameConfig.setX(new Integer(paramService.getParam("game.draw.lots.text.name.x", "10").getValue()));
         nameConfig.setY(new Integer(paramService.getParam("game.draw.lots.text.name.y", "10").getValue()));

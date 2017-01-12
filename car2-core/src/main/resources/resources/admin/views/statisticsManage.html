@@ -1,0 +1,48 @@
+<div class="smart-widget widget-dark-blue">
+	<div class="smart-widget-header">抽签统计</div>
+	<div class="smart-widget-inner">
+		<div>
+            <div class="smart-widget-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>页面1</th>
+                            <th>页面2</th>
+                            <th>页面3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{counts[0]}}</td>
+                            <td>{{counts[1]}}</td>
+                            <td>{{counts[2]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		<div>
+			<div class="smart-widget-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th width="100">序号</th>
+							<th width="200">日期</th>
+							<th width="200">页面</th>
+							<th width="200">访问数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "statistics in statisticss">
+							<td>{{$index+1}}</td>
+							<td>{{statistics.date | date:'yyyy-MM-dd'}}</td>
+							<td>页面{{statistics.number}}</td>
+							<td>{{statistics.count}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
