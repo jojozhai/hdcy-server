@@ -1,0 +1,877 @@
+html,body {
+    width: 640px;
+    height: 100%;
+    margin: 0 auto;
+    background: black;
+}
+.box {
+    width: 640px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    background: url("../img/bg.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+}
+.boxt {
+    position: absolute;
+    top:50%;
+    margin-top: -15px;
+    left:50%;
+    margin-left: -175px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+}
+.box1 {
+    width: 640px;
+    height: 100%;
+    /*background: url("../img/bg.jpg");
+    background-size: 100% 100%;
+    background-position: center;*/
+    display: none;
+}
+.box1 .frist {
+    text-align: center;
+    padding: 35px 0;
+}
+.box1 .kuangf {
+    width: 617px;
+    height: 682px;
+    background: url("../img/kuang_bg.png");
+    background-size: 100% 100%;
+    background-position: center;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 9px;
+}
+.box1 .kuangf p {
+    font-size: 30px;
+}
+.box1 .kuangf1 {
+    margin-top: 25px;
+}
+
+.box1 .kuangf .item {
+    display: inline-block;
+    background: url("../img/person_kuang.png");
+    background-size: 100% 100%;
+    background-position: center;
+
+}
+.box1 .kuangf .item img {
+    width: 60%;
+
+}
+.box #music {
+    position: absolute;
+    top:35px;
+    left:45px;
+    animation:rotates 2s linear infinite;
+    animation-play-state: paused;
+
+}
+@keyframes rotates {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.box1 .time {
+    text-align: center;
+    color: red;
+
+}
+.chipbox {
+    position: absolute;
+    width: 640px;
+    height: 100%;
+    top:0px;
+    background: black;
+    opacity: 0.8;
+    display: none;
+
+}
+.chips {
+    width: 417px;
+    height: 467px;
+    background: url(../img/one_guan_pic.png);
+    background-size:100% 100%;
+    background-position: center;
+    margin: 0 auto;
+    margin-top: 160px;
+    color: white;
+
+}
+.chips h3 {
+    padding: 5px;
+    height:85px;
+    line-height: 85px;
+    text-indent: 1em;
+    color: #38b3d9;
+}
+
+.chips .downtxt {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 25px;
+}
+.chipfen {
+    background: url('../img/tou.png') no-repeat;
+	width: 214px;
+	height: 214px;
+    margin: 0 auto;
+    margin-top: 10px;
+
+}
+/*时间用完*/
+.timefibox {
+    width: 640px;
+    height:100%;
+    position: absolute;
+    top:0;
+    background: black;
+    opacity: 0.8;
+    display: none;
+
+}
+.timefibox .timfinis {
+    width: 509.3px;
+    height: 579.7px;
+    background: url("../img/xuzheng_kuang.png");
+    background-size: 100% 100%;
+    margin-left: 45px;
+    margin-top: 100px;
+
+}
+.timefibox .timfinitxt {
+    text-align: center;
+    padding-top: 210px;
+    margin-left: 45px;
+}
+.timefibox .timfinitxt h4 {
+    font-size: 35px;
+    margin-bottom:30px;
+}
+.timefibox .timfinitxt p {
+    font-size: 25px;
+}
+.timfinitxt .try {
+    margin-top: 35px;
+}
+.timfinitxt span {
+    display: inline-block;
+    line-height: 47px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #58bedd;
+    width: 232px;
+    height:47px;
+    border-radius: 11px;
+    color: #58bedd;
+    margin-bottom: 6px;
+}
+/*游戏说明*/
+.gamesbox {
+    width: 640px;
+    height:100%;
+    position: absolute;
+    top:0;
+    background: black;
+    opacity: 0.8;
+    color: #58bedd;
+    display: none;
+}
+
+.gamesbox .gamestxts {
+    width: 509.3px;
+    height: 579.7px;
+    background: url("../img/one_guan_pic.png");
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: 130px;
+}
+.gamesbox .gamestxt {
+    margin-left: 15px;
+    padding-top: 20px;
+    position: relative;
+}
+.gamesbox .gamestxt h3 {
+    font-size: 35px;
+}
+.gamesbox .gamestxt #close {
+    position: absolute;
+    right:20px;
+    top:23px;
+}
+.gamestxtk {
+    width: 472px;
+    height:405px;
+    overflow: hidden;
+    margin-top: 60px;
+    position: relative;
+}
+
+.gamesbox .gamecontent h5{
+    font-size: 30px;
+    margin: 15px 0;
+}
+.gamesbox .gamecontent p {
+    color: white;
+    font-size: 22px;
+}
+.box2 {
+    width: 640px;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    display: none;
+}
+.wintxt {
+    font-size: 30px;
+    line-height: 37px;
+    padding-top: 40%;
+}
+.box3 {
+    width: 640px;
+    height: 100%;
+    position: relative;
+
+    display: none;
+}
+.box3 #star{
+    position: absolute;
+    left: 70px;
+    top:210px;
+
+}
+.box3 #star1 {
+    position: absolute;
+    left:540px;
+    top:320px;
+
+}
+.box3 #star2 {
+    position: absolute;
+    right:90px;
+    bottom: 150px;
+}
+.suipianbox {
+    position: absolute;
+    left:50%;
+    margin-left: -160px;
+    top:100px;
+    font-size: 13px;
+    color: #38b3d9;
+}
+.suipianbox span {
+    position: absolute;
+}
+.suipianbox .suipian1{
+    width: 213px;
+    height: 261px;
+    background: url("../img/chip2.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    animation: sui1 5s ease alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation: sui1 5s ease alternate;     
+    -webkit-animation-fill-mode: forwards;
+
+}
+@keyframes sui1{
+	0%{
+		transform:translate3d(-190px,-50px,0px);
+        opacity: 1;
+
+	}
+	40%{
+		transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+	}
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+
+    100%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes sui1{
+	0%{
+		-webkit-transform:translate3d(-190px,-50px,0px);
+        opacity: 1;
+
+	}
+	40%{
+		-webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+	}
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+
+    100%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+.suipianbox .suipian1 span {
+    top:90px;
+    left:40px;
+}
+.suipianbox .suipian2{
+    width: 201px;
+    height: 256.5px;
+    background: url("../img/chip1.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left:122px;
+    animation: sui2 5s ease alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation: sui2 5s ease alternate;     
+    -webkit-animation-fill-mode: forwards;
+
+}
+@-webkit-keyframes sui2{
+	0%{
+		-webkit-transform:translate3d(70px,-50px,0px);
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		-webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+@keyframes sui2{
+	0%{
+		transform:translate3d(70px,-50px,0px);
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+.suipianbox .suipian2 span {
+    top:50px;
+    left:70px;
+}
+.suipianbox .suipian3{
+    width: 232.5px;
+    height: 277.5px;
+    background: url("../img/chip3.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left:90px;
+    top:79px;
+    animation: sui3 5s ease alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation: sui3 5s ease alternate;     
+    -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes sui3{
+	0%{
+		-webkit-transform:translate3d(70px,50px,0px);
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		-webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+@keyframes sui3{
+	0%{
+		transform:translate3d(70px,50px,0px);
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+.suipianbox .suipian3 span {
+    top:85px;
+    left:55px;
+}
+.suipianbox .suipian4{
+    width: 187.5px;
+    height: 325.5px;
+    background: url("../img/chip4.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top:155px;
+    animation: sui4 5s ease alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation: sui4 5s ease alternate;     
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes sui4{
+	0%{
+		transform:translate3d(-190px,0px,0px);
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+
+    100%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes sui4{
+	0%{
+		-webkit-transform:translate3d(-190px,0px,0px);
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+
+    100%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+.suipianbox .suipian4 span {
+    top:220px;
+    left:35px;
+}
+.suipianbox .suipian5{
+    width: 178.5px;
+    height: 327px;
+    background: url("../img/chip5.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left:90px;
+    top:153px;
+    animation: sui5 5s ease alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation: sui5 5s ease alternate;     
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes sui5{
+	0%{
+		transform:translate3d(-250px,-400px,0px) scale(2) rotateZ(360deg);
+        opacity: 1;
+	}
+    60%{
+        transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+    80%{
+        transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+	100%{
+		transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 0;
+	}
+}
+@-webkit-keyframes sui5{
+	0%{
+		-webkit-transform:translate3d(-250px,-400px,0px) scale(2) rotateZ(360deg);
+        opacity: 1;
+	}
+    60%{
+        -webkit-transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 1;
+    }
+	100%{
+		-webkit-transform:translate3d(0px,0px,0px) scale(1) rotateZ(0deg);
+        opacity: 0;
+	}
+}
+.suipianbox .suipian5 span {
+    top:140px;
+    left:55px;
+}
+.suipianbox .suipian6{
+    width: 171px;
+    height: 250.5px;
+    background: url("../img/chip6.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left:152px;
+    top:280px;
+    animation: sui6 5s ease alternate;
+    -webkit-animation: sui6 5s ease alternate;
+     animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes sui6{
+	0%{
+		-webkit-transform:translate3d(70px,60px,0px);
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		-webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+@keyframes sui6{
+	0%{
+		transform:translate3d(70px,60px,0px);
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+.suipianbox .suipian6 span {
+    top:160px;
+    left:55px;
+}
+.suipianbox .suipian7{
+    width: 187.5px;
+    height: 234px;
+    background: url("../img/chip7.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    top:390px;
+    animation: sui7 5s ease alternate;
+     -webkit-animation: sui7 5s ease alternate;
+    animation-fill-mode: forwards;
+   
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes sui7{
+	0%{
+		transform:translate3d(-190px,60px,0px);
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+
+    100%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes sui7{
+	0%{
+		-webkit-transform:translate3d(-190px,60px,0px);
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+
+    100%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0;
+    }
+}
+.suipianbox .suipian7 span {
+    top:80px;
+    left:35px;
+}
+.suipianbox .suipian8{
+    width: 238.5px;
+    height: 177px;
+    background: url("../img/chip8.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left:85px;
+    top:447px;
+    animation: sui8 5s ease alternate;
+    -webkit-animation: sui8 5s ease alternate;
+     animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes sui8{
+	0%{
+		transform:translate3d(70px,89px,0px);
+        opacity: 1;
+	}
+    40%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+@-webkit-keyframes sui8{
+	0%{
+		-webkit-transform:translate3d(70px,89px,0px);
+        opacity: 1;
+	}
+    40%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+    80%{
+        -webkit-transform:translate3d(0px,0px,0px);
+        opacity: 1;
+    }
+	100%{
+		-webkit-transform:translate3d(0px,0px,0px);
+        opacity: 0
+	}
+}
+.suipianbox .suipian8 span {
+    top:100px;
+    left:65px;
+}
+
+.box3 .vivo{
+    position: absolute;
+    width: 294.4px;
+    height: 595.2px;
+    background: url("../img/vivo_mobile.png");
+    background-size: 100% 100%;
+    background-position: center;
+    left: 50%;
+    margin-left: -147.2px;
+    top: 118px;
+    opacity: 0;
+}
+@-webkit-keyframes vivochuxian {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes vivochuxian {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.box3 .vivotxtbox {
+    position: absolute;
+    top:250px;
+    left:50%;
+    margin-left: -116px;
+
+}
+
+.box3 .vivotxt{
+
+    color: white;
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom:20px;
+
+}
+.gamemes span,.choujiang span {
+    display: inline-block;
+    line-height: 47px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #58bedd;
+    width: 232px;
+    height:47px;
+    border-radius: 11px;
+    color: #58bedd;
+    margin-bottom: 6px;
+    text-align: center;
+
+}
+.choujieguo {
+    width: 640px;
+    height: 100%;
+    background: black;
+    opacity: 0.8;
+    position: absolute;
+    /*top:200px;*/
+    display: none;
+
+}
+.choujieguo .cjk {
+    position: absolute;
+    top:160px;
+    width: 463px;
+    height: 527px;
+    background: url("../img/xuzheng_kuang.png");
+    background-size: 100% 100%;
+    background-position: center;
+    left:50%;
+    margin-left: -253.5px;
+    display: none;
+}
+.choujieguo .cjk .cjktxt {
+    position: absolute;
+    top: 180px;
+    left: 79px;
+    text-align: center;
+}
+.choujieguo .cjk .cjktxt h4{
+    font-size: 40px;
+    padding: 30px 0;
+}
+.choujieguo .cjk .cjktxt p {
+    font-size: 25px;
+    margin-bottom: 60px;
+}
+.returns span {
+    display: inline-block;
+    line-height: 47px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #58bedd;
+    width: 232px;
+    height:47px;
+    border-radius: 11px;
+    color: #58bedd;
+    margin-bottom: 6px;
+    text-align: center;
+}
+.price {
+    position: absolute;
+    top:160px;
+    left:50%;
+    margin-left: -253.5px;
+    width: 463px;
+    height:527px;
+    background: url("../img/xuzheng_succ_kuang.png");
+    background-size: 100% 100%;
+    background-position: center;
+    display: none;
+}
+.pricetxt {
+    width: 405px;
+    margin-left: 52px;
+    margin-top: 220px;
+    text-align: center;
+
+}
+.pricetxt p {
+    font-size: 30px;
+}
+.from span {
+    display: inline-block;
+    font-size: 25px;
+    text-align: left;
+}
+.from {
+    width: 360px;
+    text-align: left;
+
+}
+
+.from div {
+    border-bottom: 2px dashed #ccc;
+    width: 285px;
+    display: inline-block;
+    margin-left: 30px;
+    padding: 10px 0;
+}
+.from input {
+    background-color: transparent;
+    border: 0;
+
+}
+.submit span {
+    display: inline-block;
+    line-height: 52px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    border: 1px solid #58bedd;
+    width: 232px;
+    height:52px;
+    border-radius: 11px;
+    color: #58bedd;
+
+    text-align: center;
+    margin-top: 30px;
+}

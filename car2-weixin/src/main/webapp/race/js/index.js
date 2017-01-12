@@ -41,7 +41,7 @@ $.ajax({
 })
 
 function gamestart() {
-	var allImg = ["image/arrom.png","image/cheyou.png","image/home-bg.png","image/start.png","image/left.png","image/right.png","image/logo.gif","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/share.png","image/share1.png","image/game-bg.png","image/game-over.png","image/replay.png","image/share-bg.png","image/sore-bg.png","image/sores-bg.png","image/countdown.png","image/logo.png","image/redKart.png","image/logos.png","image/play.png","image/stop.png","image/xieleft.png","image/tixingbg.png"];
+	var allImg = ["image/home-bg.png","image/left.png","image/right.png","image/blueKart.png","image/oil.png","image/sores-bg.png","image/sore-bg.png","image/obstacle.png","image/kill_boom.png","image/game-bg.png","image/game-over.png","image/replay.png","image/sore-bg.png","image/sores-bg.png","image/redKart.png","image/play.png","image/stop.png","image/tixingbg.png"];
 	var loadOver = [];
 	loadOver = loadImg(allImg,function(){
 		$(".loading").hide();
@@ -82,7 +82,6 @@ function gamestart() {
 		var homede="超过一百万人在玩的极速前进最新版“车友飙车”，请你来当主角。";
 		sharepage(homede);
 		$("#startbg")[0].play();
-
 	}
 	var frameNum=0;//帧数
 	var frameNums=0;
@@ -96,21 +95,6 @@ function gamestart() {
 	var removeBol = false;
 	var num=3;
   var price=0
-	function countdown() {
-		$(".countdown").show();
-		$(".count"+num).show();
-		var timer=setInterval(function(){
-			num--;
-			if (num<1) {
-				clearInterval(timer);
-				$(".countdown").hide();
-				$(".counts").hide();
-			}else {
-				$(".counts").hide();
-				$(".count"+num).show();
-			}
-		},1000)
-	}
 	var mutes=true;
 	$(".homesound").on('click',function () {
 		$(".homesound").hide();
@@ -140,16 +124,14 @@ function gamestart() {
 		$("#gameMusic")[0].play();
 		$("#gameMusic")[0].pause();
 		$(".game_introdute").hide();
-		countdown();
-		setTimeout(function () {
-			if (mutes==true) {
-				$("#gameMusic")[0].play();
-			}else {
-				$("#gameMusic")[0].pause();
-			}
-			$(".playimg").show();
-			$(".stopimg").hide();
-		},2000)
+		// countdown();
+    if (mutes==true) {
+      $("#gameMusic")[0].play();
+    }else {
+      $("#gameMusic")[0].pause();
+    }
+    $(".playimg").show();
+    $(".stopimg").hide();
 		game();
 		$(".tixingbg").hide();
 	})
@@ -159,12 +141,10 @@ function gamestart() {
 	var body = document.getElementsByTagName("body")[0];
 	canvas1.width = body.offsetWidth/2;
 	canvas1.height = body.offsetHeight;
-
 	var canvas2=document.getElementById("canva2")
 	var context2 = canvas2.getContext("2d");
 	canvas2.width = body.offsetWidth/2;
 	canvas2.height = body.offsetHeight;
-
 	var canvas3=document.getElementById("canvas")
 	var context3 = canvas3.getContext("2d");
 	canvas3.width = body.offsetWidth;
@@ -174,12 +154,12 @@ function gamestart() {
 		var bgImg = {
 			y:0,
 			draw:function (){
-				context.drawImage(loadOver[4],0,this.y,canvas1.width,bgH);
-				context.drawImage(loadOver[4],0,this.y-bgH,canvas1.width,bgH);
+				context.drawImage(loadOver[1],0,this.y,canvas1.width,bgH);
+				context.drawImage(loadOver[1],0,this.y-bgH,canvas1.width,bgH);
 			},
 			draw1:function (){
-				context2.drawImage(loadOver[5],0,this.y,canvas2.width,bgH);
-				context2.drawImage(loadOver[5],0,this.y-bgH,canvas2.width,bgH);
+				context2.drawImage(loadOver[2],0,this.y,canvas2.width,bgH);
+				context2.drawImage(loadOver[2],0,this.y-bgH,canvas2.width,bgH);
 			},
 			move:function (){
 				this.y+=2;
@@ -189,7 +169,6 @@ function gamestart() {
 				}
 			}
 		}
-		//logo对象------------------------------------
 		var heroW =36;
 		var heroH = 66.4;
 		var hero = {
@@ -198,12 +177,10 @@ function gamestart() {
 			drawX:canvas1.width/4-12,
 			drawY:canvas1.height-heroH-10,
 			draw:function(){
-				context.drawImage(loadOver[23],this.drawX,this.drawY,this.w,this.h);
+				context.drawImage(loadOver[14],this.drawX,this.drawY,this.w,this.h);
 
 			}
 		}
-
-		// che对象
 		var carW = 36;
 		var carH = 66.4;
 		var car = {
@@ -212,7 +189,7 @@ function gamestart() {
 			drawX:canvas2.width/4-8,
 			drawY:canvas2.height-carH-10,
 			draw:function(){
-				context2.drawImage(loadOver[7],this.drawX,this.drawY,this.w,this.h);
+				context2.drawImage(loadOver[3],this.drawX,this.drawY,this.w,this.h);
 			}
 		}
 		//logo移动限制---------------------------------
@@ -267,7 +244,7 @@ function gamestart() {
 					boom.score = this.score;
 					boom.draw();
 				}else {
-					context.drawImage(loadOver[12],this.drawX*0.95,this.drawY*0.95,50,51);
+					context.drawImage(loadOver[8],this.drawX*0.95,this.drawY*0.95,50,51);
 
 				}
 			}
@@ -280,7 +257,7 @@ function gamestart() {
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
-					monster.img=loadOver[8];
+					monster.img=loadOver[4];
 					monster.score=10;
 					flag=true;
 
@@ -289,13 +266,13 @@ function gamestart() {
 						var monster = {};
 						monster.w = 29;
 						monster.h = 39;
-						monster.img = loadOver[11];
+						monster.img = loadOver[7];
 						flag=false;
 					}else {
 						var monster={};//存放每一个monster的信息
 						monster.w=37;
 						monster.h=36;
-						monster.img=loadOver[8];
+						monster.img=loadOver[4];
 						monster.score=10;
 						flag=true;
 					}
@@ -389,7 +366,7 @@ function gamestart() {
 					boom.score = this.score;
 					boom.draw();
 				}else {
-					context2.drawImage(loadOver[12],this.drawX*0.95,this.drawY*0.95,50,51);
+					context2.drawImage(loadOver[8],this.drawX*0.95,this.drawY*0.95,50,51);
 
 				}
 			}
@@ -402,7 +379,7 @@ function gamestart() {
 					var monster={};//存放每一个monster的信息
 					monster.w=37;
 					monster.h=36;
-					monster.img=loadOver[8];
+					monster.img=loadOver[4];
 					monster.score=10;
 					flags=true;
 				}else {
@@ -410,13 +387,13 @@ function gamestart() {
 						var monster = {};
 						monster.w = 29;
 						monster.h = 39;
-						monster.img = loadOver[11];
+						monster.img = loadOver[7];
 						flags=false;
 					}else {
 						var monster={};//存放每一个monster的信息
 						monster.w=37;
 						monster.h=36;
-						monster.img=loadOver[8];
+						monster.img=loadOver[4];
 						monster.score=10;
 						flags=true;
 					}
@@ -504,7 +481,7 @@ function gamestart() {
 			w:scoreW,
 			h:scoreH,
 			draw:function(){
-				context3.drawImage(loadOver[9],0,0,this.w,this.h);
+				context3.drawImage(loadOver[5],0,0,this.w,this.h);
 			}
 		}
 
@@ -514,13 +491,13 @@ function gamestart() {
 			w:scoreW,
 			h:scoreH,
 			draw:function(){
-				context3.drawImage(loadOver[10],5,4,this.w,this.h);
+				context3.drawImage(loadOver[6],5,4,this.w,this.h);
 			},
 			draw1:function(){
-				context3.drawImage(loadOver[10],105,4,this.w,this.h);
+				context3.drawImage(loadOver[6],105,4,this.w,this.h);
 			},
 			draw2:function(){
-				context3.drawImage(loadOver[10],205,4,this.w,this.h);
+				context3.drawImage(loadOver[6],205,4,this.w,this.h);
 			},
 
 		}
@@ -735,12 +712,7 @@ function gamestart() {
 			}
 			  animateRuning=window.requestAnimationFrame(animate);
 		}
-		setTimeout(function () {
-			if (num==0) {
-				animate();
-			}
-		},3000)
-
+		animate();
 		$(".playimg").on('click',function () {
 			window.cancelAnimationFrame(animateRuning);
 			$(".stoppage").show();
@@ -811,9 +783,7 @@ function gamestart() {
 			hero.drawY=canvas1.height-heroH-10;
 			car.drawX=canvas2.width/4-8;
 			car.drawY=canvas2.height-carH-10;
-			setTimeout(function () {
-				animate();
-			},3000)
+			animate();
 		}
 		$(".lookrank").on("touchstart",function () {
 				$(".ranks").show();
@@ -833,8 +803,6 @@ function gamestart() {
 				}else {
 					$("#gameMusic")[0].pause();
 				}
-				num=3;
-				countdown();
 				again();
 				$(".userall").empty();
 				$(".gameover").hide();
@@ -846,8 +814,6 @@ function gamestart() {
 				}else {
 					$("#gameMusic")[0].pause();
 				}
-				num=3;
-				countdown();
 				again();
 				$(".userall").empty();
 				$(".ranks").hide();

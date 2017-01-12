@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta content="width=device-width,width=640" name="viewport"> -->
+        <meta content="width=device-width,width=640,user-scalable=no" name="viewport" >
+        <link rel="stylesheet" href="css/reset.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/gamelayout.css" media="screen" title="no title" charset="utf-8">
+
+        <title></title>
+        <style media="screen"></style>
+    </head>
+    <body>
+        <div class="box">
+
+            <div id="audiocontainer" style="display:none">
+                <audio id="background_sound" loop="true" preload >
+                   <source src="sound/bg.mp3">
+               </audio>
+               <audio id="bgsound" loop="true" preload>
+                   <source src="sound/daojishi.mp3">
+               </audio>
+               <audio id="out" preload>
+                   <source src="sound/loser.wav">
+               </audio>
+               <audio id="losewin" preload>
+                   <source src="sound/lose.mp3">
+               </audio>
+               <audio id="winprice" preload>
+                   <source src="sound/tongguan.mp3">
+               </audio>
+              
+            </div>
+            <p class="boxt">
+            </p>
+            <div class="box1">
+                <img src="" alt="" />
+                <div class="frist">
+                    <img src="img/frist.png" alt="" />
+                </div>
+                <div class="kuangf">
+                    <p class="time">30:00</p>
+                    <div class="kuangf1"></div>
+                </div>
+                <div class="chipbox">
+                    <div class="chips">
+                        <h3></h3>
+                        <div class="chipfen"></div>
+                        <div class="downtxt">
+                            <p></p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timefibox">
+                    <div class="timfinis">
+                        <div class="timfinitxt">
+                            <h4>很遗憾</h4>
+                            <p>你没有找齐徐峥的8个分身 </p>
+                            <p>看来他要一直囧在宇宙太阳系了 </p>
+                            <div class="try">
+                                <span>再试一次</span>
+                            </div>
+                            <div class="gamemes">
+                                <span>游戏说明</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="box2">
+
+                <div class="wintxt"></div>
+            </div>
+            <div class="box3">
+                <img id="star" src="img/star.png" alt="" />
+                <img id="star1" src="img/one_pic3.png" alt="" />
+                <img id="star2" src="img/weistar.png" alt="" />
+                <div class="suipianbox">
+                    <div class="item suipian1 ">
+                        <span>双2.5D弧面玻璃</span>
+                    </div>
+                    <div class="item suipian2">
+                        <span>Funtouch OS系统</span>
+                    </div>
+                     <div class="item suipian3">
+                        <span>知性美颜系统</span>
+                    </div>
+                    <div class="item suipian4">
+                        <span>眼球识别加密系统</span>
+                    </div>
+                    <div class="item suipian5">
+                        <span>1300万像素镜头</span>
+                    </div>
+                    <div class="item suipian6">
+                        <span>Hi-Fi音质耳放</span>
+                    </div>
+                    <div class="item suipian7">
+                        <span>八核1.7GHz处理器</span>
+                    </div>
+                    <div class="item suipian8">
+                        <span>PDAF快速相位对焦系统</span>
+                    </div>
+
+                </div>
+                <!-- 抽奖页面 -->
+                <div class="vivo " >
+                    <div class="vivotxtbox">
+                        <p class="vivotxt">成功合体<br>距离启动神秘力量 <br>还差最后一步 <br>请点击...... </p>
+                        <div class="choujiang">
+                            <span>开始抽奖</span>
+                        </div>
+                        <div class="gamemes">
+                            <span>游戏说明</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="choujieguo">
+                    <!-- 没中奖 -->
+                    <div class="cjk">
+                        <div class="cjktxt">
+                            <h4>很遗憾</h4>
+                            <p>你没有抽中奖品，再玩一次吧！ </p>
+                            <div class="returns">
+                                <span>返回游戏</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 中奖 -->
+                    <div class="price">
+                        <div class="pricetxt">
+                            <p>恭喜你获得</p>
+                            <p>vivo X5pro一台</p>
+                            <form class="from" action="javascript:void(0)">
+                                <div class="xingming">
+                                    <span >姓名:</span>
+                                    <input id="names" type="text" name="name" value="">
+                                </div>
+                                <div class="phone">
+                                    <span >手机号码:</span>
+                                    <input id="tel" type="text" name="name" value="">
+                                </div>
+                            </form>
+                            <div class="submit">
+                                <span>提交信息</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 抽奖结果 -->
+            <div id="music">
+                <img src="img/music_off.png" id="musicbga">
+            </div>
+            <div class="gamesbox">
+                <div class="gamestxts">
+                    <div class="gamestxt">
+                        <h3>找徐峥 送vivo</h3>
+                        <img id="close" src="img/game_info_bt.png" alt="" />
+                        <div class="gamestxtk"id="gamestxtk">
+                            <div class="gamecontent">
+                                <h5>游戏规则:</h5>
+                                <p>
+                                    1.玩家要在规定时间内，依次从2*2至7*7的方格中找徐铮。点对徐铮，即可过关。<br>
+                                    2.每找到一个徐铮，得到一个vivo手机“碎片”。集齐8块“碎片”，即获得一次抽奖机会。<br>
+                                    3.中奖玩家请正确填写信息。信息填写错误或未填写的玩家将被取消中奖资格。<br>
+                                    4.每个ID只有一次中奖机会。<br>
+                                    5.恶意刷奖的玩家一经发现将取消抽奖资格。<br>
+                                 </p>
+                                 <h5>活动时间:</h5>
+                                 <p>
+                                     2015年9月28至10月2日
+                                 </p>
+                                 <h5>游戏奖励:</h5>
+                                 <p>
+                                    一等奖：vivo X5Pro智能手机 2台<br>
+                                    二等奖：vivo充电宝 10个<br>
+                                    三等奖：vivo耳机 20个<br>
+                                    四等奖：《港囧》电影票20套（每套2张）<br>
+                                    五等奖：《港囧》主创签名剧照 50张<br>
+                                   注：电影票为格瓦拉兑换券，中奖玩家请自行兑换<br><br>
+                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- <script src="js/MetaHandler.js" charset="utf-8"></script> -->
+    <script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
+    <script src="js/box.js" charset="utf-8"></script>
+    <script src="js/iscroll.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+    </script>
+</html>

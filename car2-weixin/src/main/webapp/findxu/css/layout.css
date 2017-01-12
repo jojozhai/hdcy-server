@@ -1,0 +1,446 @@
+html,body {
+    width: 640px;
+    height: 100%;
+    margin: 0 auto;
+    background: black;
+}
+.container {
+    width: 640px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.page1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.page1 .circle{
+    width:640px;
+    height:561px;
+    background: url("../img/loading_bg.png") no-repeat;
+    background-position: center center;;
+    background-size: 100% 100%;
+    position: absolute;
+    top:50%;
+    margin-top: -280.5px;
+}
+.page1 .xutou {
+    width: 289px;
+    height:289px;
+    background: url("../img/loading_xuzheng.png") no-repeat;
+    background-position: center center;;
+    background-size: 100% 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -144.5px;
+    margin-top: -144.5px;
+}
+.page1 .txt {
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -195px;
+    margin-top: -195px;
+    width: 390px;
+    height:390px;
+    background: url("../img/loading_txt.png") no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+
+/*第二个页面*/
+.page2 {
+    width: 640px;
+    height: 100%;
+    background: url("../img/word_bg.jpg");
+    background-size: 100% 100%;
+    display: none;
+    position: relative;
+}
+#word{
+	position: absolute;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	line-height: 30px;
+	top: 302px;
+	width:60%;
+	left: 50%;
+	margin-left: -30%;
+	z-index: 5;
+}
+.word{
+	-webkit-animation: word 1s linear;
+	animation: word 1s linear;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+#star2 {
+    position: absolute;
+    width: 111px;
+    height: 81px;
+    top:190px;
+    left:122px;
+    -webkit-transition: 1s;
+	transition: 1s;
+	animation: star2 14s linear infinite;
+	-webkit-animation: star2 14s linear infinite;
+	animation-direction:alternate;
+	-webkit-animation-direction:alternate;
+
+
+}
+#star4 {
+    position: absolute;
+    width: 78px;
+    height: 63px;
+    top:217px;
+    left:423px;
+    -webkit-transition: 1s;
+	transition: 1s;
+	animation: star4 12s linear infinite;
+	-webkit-animation: star4 12s linear infinite;
+	animation-direction:alternate;
+	-webkit-animation-direction:alternate;
+
+
+}
+#star3 {
+    position: absolute;
+    width: 52px;
+    height: 41px;
+    bottom: 162px;
+    left:320px;
+    -webkit-transition: 1s;
+	transition: 1s;
+	animation: star3 17s linear infinite;
+	-webkit-animation: star3 17s linear infinite;
+	animation-direction:alternate;
+	-webkit-animation-direction:alternate;
+
+}
+#star5{
+	position: absolute;
+	left: -101px;
+	bottom: 230px;
+	-webkit-transition: 1s;
+	transition: 1s;
+	animation: star4 12s linear infinite;
+	-webkit-animation: star4 12s linear infinite;
+	animation-direction:alternate;
+	-webkit-animation-direction:alternate;
+
+}
+#super {
+    position: relative;;
+    right:-640px;
+    top:240px;
+}
+.super{
+    -webkit-animation: fly 4s linear;
+	animation: fly 4s linear;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+#super #suhead {
+    width: 160px;
+    position: absolute;
+    top:30px;
+    left:220px;
+}
+#super #subody {
+    position: absolute;
+    top:46px;
+    left:100px;
+}
+
+.bg-music {
+    position: absolute;
+    top:20px;
+    left:20px;
+    display: inline-block;
+    font-size: 0;
+}
+
+#musicOff{
+    display: none;
+}
+.phonebox {
+    position: relative;;
+    top:296px;
+    left:50%;
+    margin-left: -99.5px;
+    display: inline-block;
+    width:215px;
+    height:415px;
+    text-align: center;
+}
+
+#phone {
+    opacity: 0;
+    -webkit-transform: scale(0);
+	transform: scale(0);
+    margin-top: 8px;
+}
+.phone {
+    -webkit-animation: phone 5s linear;
+	animation: phone 5s linear;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+
+}
+.phonebox div {
+    position: absolute;
+
+}
+#chip1 {
+    top:0;
+    right:0;
+    opacity: 0;
+}
+.chip1 {
+    -webkit-animation:chip1 6s ease ;
+    animation: chip1 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip2 {
+    top:0;
+    left:0;
+    opacity: 0;
+}
+.chip2 {
+    -webkit-animation:chip2 6s ease ;
+    animation: chip2 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip3 {
+    top:53px;
+    left:60px;
+    opacity: 0;
+}
+.chip3 {
+    -webkit-animation:chip3 6s ease ;
+    animation: chip3 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip4 {
+    top:104px;
+    left:0;
+    opacity: 0;
+}
+.chip4 {
+    -webkit-animation:chip4 6s ease 1s;
+    animation: chip4 6s ease 1s;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip5 {
+    top:102px;
+    left:60px;
+    opacity: 0;
+}
+.chip5 {
+    -webkit-animation:chip5 6s ease ;
+    animation: chip5 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip6 {
+    top:186px;
+    right:0px;
+    opacity: 0;
+}
+.chip6 {
+    -webkit-animation:chip6 6s ease ;
+    animation: chip6 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+#chip7 {
+    bottom:0px;
+    left:0;
+    opacity: 0;
+}
+.chip7 {
+    -webkit-animation:chip7 6s ease ;
+    animation: chip7 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+
+}
+#chip8  {
+    bottom:0px;
+    right:0;
+    opacity: 0;
+}
+.chip8 {
+    -webkit-animation:chip8 6s ease;
+    animation: chip8 6s ease ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+div[id^="chip"]>img:nth-child(2){
+    position: absolute;
+    opacity: 0;
+}
+#chip1 img:nth-child(2) {
+    position: absolute;
+    width: 60px;
+    top:20px;
+    right:15px;
+}
+#chip2 img:nth-child(2) {
+    position: absolute;
+    width: 70px;
+    top:20px;
+    left:15px;
+}
+#chip3 img:nth-child(2) {
+    width: 60px;
+    top:40px;
+    left:55px;
+    transform: rotate(-50deg);
+}
+#chip4 img:nth-child(2) {
+    width: 75px;
+    top:60px;
+    left:12px;
+}
+#chip5 img:nth-child(2) {
+    width: 55px;
+    top:75px;
+    left:35px;
+}
+#chip6 img:nth-child(2) {
+    width: 60px;
+    top:50px;
+    right:15px;
+}
+#chip7 img:nth-child(2) {
+    width: 70px;
+    bottom:20px;
+    left:15px;
+}
+#chip8 img:nth-child(2) {
+    width: 70px;
+    bottom:0px;
+    right:30px;
+    transform: rotate(-80deg);
+}
+.head{
+    -webkit-animation: heads 2s linear ;
+    animation: heads 2s  linear ;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 4s;
+	animation-delay: 4s;
+
+}
+.page2 ul li{
+    opacity: 0;
+    position: absolute;
+
+}
+.page2 ul li:nth-child(1){
+    left: 292px;
+    top: 260px;
+    -webkit-animation: starmove 20s linear infinite;
+	animation: starmove 20s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(2){
+    left: 75px;
+    top: 340px;
+    -webkit-animation: starmove 32s linear infinite;
+	animation: starmove 32s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(3){
+    left: 330px;
+    top: 386px;
+    -webkit-animation: starmove 22s linear infinite;
+	animation: starmove 22s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(4){
+    left: 500px;
+    top: 286px;
+    -webkit-animation: starmove 24s linear infinite;
+	animation: starmove 24s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+
+}
+.page2 ul li:nth-child(5){
+    left: 499px;
+    top: 394px;
+    -webkit-animation: starmove 29s linear infinite;
+	animation: starmove 29s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(6){
+    left: 96px;
+    top: 621px;
+    -webkit-animation: starmove 26s linear infinite;
+	animation: starmove 26s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(7){
+    left: 263px;
+    top: 685px;
+    -webkit-animation: starmove 24s linear infinite;
+	animation: starmove 24s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.page2 ul li:nth-child(8){
+    left: 461px;
+    top: 624px;
+    -webkit-animation: starmove 19s linear infinite;
+	animation: starmove 19s linear infinite;
+	-webkit-animation-direction:alternate;
+	animation-direction:alternate;
+}
+.upa {
+
+    position: fixed;;
+    bottom:20px;
+    color: white;
+    text-align: center;
+    font-size: 0;
+    width: 640px;
+    animation: ups 2s linear infinite alternate;
+	display: none;
+
+}
+.upa p {
+    font-size: 25px;
+}
