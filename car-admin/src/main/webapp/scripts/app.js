@@ -16,7 +16,7 @@ angular.module(
 				'tagAdminModule', 'activityAdminModule', 'votingAdminModule', 'signtempAdminModule',
 				'contraryAdminModule', 'leaderAdminModule', 'giftAdminModule', 'showAdminModule',
 				'carAdminModule', 'posterAdminModule', 'articleAdminModule', 'waiterAdminModule', 'umeditorModule',
-				'commentAdminModule', 'videoAdminModule','sponsorAdminModule','yr' ])
+				'commentAdminModule', 'videoAdminModule','sponsorAdminModule','yr', 'statisticsAdminModule' ])
 .filter("enable", function() {
 	return function(text) {
 		if (text) {

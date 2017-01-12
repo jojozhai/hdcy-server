@@ -1,0 +1,42 @@
+<div class="smart-widget widget-dark-blue">
+	<div class="smart-widget-header">抽签统计</div>
+	<div class="smart-widget-inner">
+		<div>
+			<div class="smart-widget-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th width="90">日期</th>
+							<th align="center">排名1</th>
+							<th align="center">排名2</th>
+							<th align="center">排名3</th>
+							<th align="center">排名4</th>
+							<th align="center">排名5</th>
+							<th align="center">排名6</th>
+							<th align="center">排名7</th>
+							<th align="center">排名8</th>
+							<th align="center">排名9</th>
+							<th align="center">排名10</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "statistics in statisticss">
+							<td>{{statistics.date}}</td>
+							<td ng-repeat = "item in statistics.items">
+							     <table>
+							         <tr>
+							             <td colspan="2" align="center" >{{item.region}}</td>
+							         </tr>
+							         <tr>
+							             <td width="50%" align="center" style="background-color: yellow">{{item.count}}</td>
+							             <td width="50%" align="center">{{item.rate * 100 | number:2}}%</td>
+							         </tr>
+							     </table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

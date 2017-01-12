@@ -13,6 +13,7 @@ package com.ymt.mirage.car.service.impl;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -35,6 +36,7 @@ import com.ymt.pz365.framework.core.exception.PzException;
  */
 @Service("drawLotsService")
 @Transactional
+@Profile("weixin")
 public class DrawLotsServiceImpl implements DrawLotsService {
     
     @Autowired
@@ -79,7 +81,7 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         //右下角二维码
         url.append(getQrcodeWaterMarker());
         //左上角用户名
-        url.append(getTextWaterMarker(name, config.getNameConfig()));
+        url.append(getTextWaterMarker(name+"的2017新年签", config.getNameConfig()));
         //内容
         String encode = Base64.encodeBase64URLSafeString(lot.getContent().getBytes());
         if(encode.length() > 64) {
@@ -96,7 +98,8 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         for (int i = 0; i < lot.getNames().size(); i++) {
             int offset = i * (config.getLotNameConfig().getSize() + config.getSpace());
             url.append(getTextWaterMarker(lot.getNames().get(i), config.getLotNameConfig(), start + offset));
-            url.append(getTextWaterMarker(lot.getSpells().get(i), config.getLotSpellConfig(), start + offset));
+            int spellVOffset = config.getLotNameConfig().getOffset() + config.getLotNameConfig().getSize() + config.getLotSpellConfig().getOffset();
+            url.append(getTextWaterMarker(lot.getSpells().get(i), config.getLotSpellConfig(), start + offset, spellVOffset));
         }
         
         return url.toString();
@@ -146,7 +149,7 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         DrawLotsQrcodeConfig qrcodeConfig = config.getQrcodeConfig();
         return "/watermark,"
                 + "image_"+Base64.encodeBase64URLSafeString(qrcodeConfig.getName().getBytes())+","
-                + "g_se,"
+                + "g_south,"
                 + "x_"+config.getQrcodeConfig().getX()+","
                 + "y_"+config.getQrcodeConfig().getY();
     }
