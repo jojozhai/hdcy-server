@@ -47,35 +47,7 @@ function gamestart() {
 		home();
 	})
 
-	function loadImg(arr, fn) {
-		var arr1 = [];
-		var index = 0;
-		var arr2 = [];
-		for(var i = 0; i < arr.length; i++) {
-			var imgObj = new Image();
-			imgObj.src = arr[i];
-			imgObj.index = i;
-			imgObj.onload = function() {
-				index++;
-				$("#loading .text p").eq(1).html(Math.ceil(index / allImg.length * 100) + '%');
-				$("#loading .load_wrap .loadPer").width(Math.ceil(index / allImg.length * 100) + '%');
-				arr1.push(this);
-				if(index > arr.length - 1) {
-					for(var i = 0; i < arr1.length; i++) {
-						for(var j = 0; j < arr1.length; j++) {
-							if(arr1[j].index == i) {
-								arr2.push(arr1[j]);
-							}
-						}
-					}
-					if(fn) {
-						fn();
-					}
-				}
-			}
-		}
-		return arr2;
-	}
+
 
 	function home() {
 		$(".home").show();
@@ -134,7 +106,7 @@ function gamestart() {
 		$(".playimg").show();
 		$(".stopimg").hide();
 		game();
-		
+
 	})
 
 	var canvas1 = document.getElementById("canva1")
@@ -156,6 +128,7 @@ function gamestart() {
 		var bgImg = {
 			y: 0,
 			draw: function() {
+
 				context.drawImage(loadOver[1], 0, this.y, canvas1.width, bgH);
 				context.drawImage(loadOver[1], 0, this.y - bgH, canvas1.width, bgH);
 			},
@@ -292,6 +265,7 @@ function gamestart() {
 				monsters[i].move();
 				monsters[i].draw();
 				var bol = monsters[i].clear();
+
 				if(!bol) {
 					var monsterBol = collide(monsters[i], hero);
 					if(monsterBol) {
@@ -955,4 +929,33 @@ function gamestart() {
 			}
 		});
 	}
+}
+function loadImg(arr, fn) {
+	var arr1 = [];
+	var index = 0;
+	var arr2 = [];
+	for(var i = 0; i < arr.length; i++) {
+		var imgObj = new Image();
+		imgObj.src = arr[i];
+		imgObj.index = i;
+		imgObj.onload = function() {
+			index++;
+			$("#loading .text p").eq(1).html(Math.ceil(index / allImg.length * 100) + '%');
+			$("#loading .load_wrap .loadPer").width(Math.ceil(index / allImg.length * 100) + '%');
+			arr1.push(this);
+			if(index > arr.length - 1) {
+				for(var i = 0; i < arr1.length; i++) {
+					for(var j = 0; j < arr1.length; j++) {
+						if(arr1[j].index == i) {
+							arr2.push(arr1[j]);
+						}
+					}
+				}
+				if(fn) {
+					fn();
+				}
+			}
+		}
+	}
+	return arr2;
 }
