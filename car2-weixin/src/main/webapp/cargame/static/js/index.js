@@ -487,27 +487,47 @@ $(function() {
 
 			var moveAble = false;
 			var limitX = 0.148 * canvas.width;
+			var leftroad=1;
 			$(".left")[0].addEventListener("touchstart", function() {
-				var first = event.touches[0].clientX;
-				if(first > $(".left").width() / 2) {
+				if (leftroad==1) {
 					hero.drawX = canvas.width * 3 / 8 - 12;
 					hero.drawY = canvas.height - heroH - 10;
-				} else {
+					leftroad=0;
+				}else{
 					hero.drawX = canvas.width / 8 - 12;
 					hero.drawY = canvas.height - heroH - 10;
+					leftroad=1;
 				}
+//				var first = event.touches[0].clientX;
+//				if(first > $(".left").width() / 2) {
+//					hero.drawX = canvas.width * 3 / 8 - 12;
+//					hero.drawY = canvas.height - heroH - 10;
+//				} else {
+//					hero.drawX = canvas.width / 8 - 12;
+//					hero.drawY = canvas.height - heroH - 10;
+//				}
 				event.preventDefault();
 			}, false);
 
+			var rightroad=1;
 			$(".right")[0].addEventListener("touchstart", function() {
-				var second = event.touches[0].clientX - $(".left").width();
-				if(second >= $(".right").width() / 2) {
+				if (rightroad==1) {
 					hero1.drawX = canvas.width * 7 / 8 - 20;
 					hero1.drawY = canvas.height - heroH - 10;
-				} else {
+					rightroad=0;
+				}else{
 					hero1.drawX = canvas.width * 5 / 8 - 10;
 					hero1.drawY = canvas.height - heroH - 10;
+					rightroad=1;
 				}
+//				var second = event.touches[0].clientX - $(".left").width();
+//				if(second >= $(".right").width() / 2) {
+//					hero1.drawX = canvas.width * 7 / 8 - 20;
+//					hero1.drawY = canvas.height - heroH - 10;
+//				} else {
+//					hero1.drawX = canvas.width * 5 / 8 - 10;
+//					hero1.drawY = canvas.height - heroH - 10;
+//				}
 				event.preventDefault();
 			}, false);
 
