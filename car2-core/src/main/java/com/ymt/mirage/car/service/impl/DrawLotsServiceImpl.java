@@ -20,7 +20,6 @@ import org.springframework.util.Assert;
 
 import com.ymt.mirage.car.dto.DrawLotsInfo;
 import com.ymt.mirage.car.service.DrawLotsService;
-import com.ymt.mirage.car.utils.Lot;
 import com.ymt.mirage.car.utils.Lots;
 import com.ymt.mirage.car.web.config.DrawLotsConfigs;
 import com.ymt.mirage.car.web.config.DrawLotsQrcodeConfig;
@@ -61,7 +60,7 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         user.setRealname(info.getName());
         user.setSex(info.getSex());
         
-        Lot lot = lots.draw(info.getSex());
+        String lot = lots.draw(info.getSex());
         
         return getImageUrl(lot, info.getName());
         
@@ -74,33 +73,33 @@ public class DrawLotsServiceImpl implements DrawLotsService {
      * @author zhailiang
      * @since 2017年1月8日
      */
-    private String getImageUrl(Lot lot, String name) {
+    private String getImageUrl(String lot, String name) {
         
         //背景
-        StringBuilder url = new StringBuilder(config.getBackgroudConfig().getUrl());
+        StringBuilder url = new StringBuilder("http://haoduocheyou1.oss-cn-beijing.aliyuncs.com/"+lot+"?x-oss-process=image");
         //右下角二维码
         url.append(getQrcodeWaterMarker());
         //左上角用户名
         url.append(getTextWaterMarker(name+"的2017新年签", config.getNameConfig()));
-        //内容
-        String encode = Base64.encodeBase64URLSafeString(lot.getContent().getBytes());
-        if(encode.length() > 64) {
-            url.append(getTextWaterMarker(lot.getContent().substring(0, lot.getContent().length()/2), config.getContentConfig()));
-            url.append(getTextWaterMarker(lot.getContent().substring(lot.getContent().length()/2, lot.getContent().length()), 
-                    config.getContentConfig(), 
-                    config.getContentConfig().getX(), 
-                    config.getContentConfig().getOffset() - config.getContentConfig().getSize() - 20));
-        }else{
-            url.append(getTextWaterMarker(lot.getContent(), config.getContentConfig()));
-        }
-        //签名和拼音
-        int start = config.getStart(lot.getNames().size());
-        for (int i = 0; i < lot.getNames().size(); i++) {
-            int offset = i * (config.getLotNameConfig().getSize() + config.getSpace());
-            url.append(getTextWaterMarker(lot.getNames().get(i), config.getLotNameConfig(), start + offset));
-            int spellVOffset = config.getLotNameConfig().getOffset() + config.getLotNameConfig().getSize() + config.getLotSpellConfig().getOffset();
-            url.append(getTextWaterMarker(lot.getSpells().get(i), config.getLotSpellConfig(), start + offset, spellVOffset));
-        }
+//        //内容
+//        String encode = Base64.encodeBase64URLSafeString(lot.getContent().getBytes());
+//        if(encode.length() > 64) {
+//            url.append(getTextWaterMarker(lot.getContent().substring(0, lot.getContent().length()/2), config.getContentConfig()));
+//            url.append(getTextWaterMarker(lot.getContent().substring(lot.getContent().length()/2, lot.getContent().length()), 
+//                    config.getContentConfig(), 
+//                    config.getContentConfig().getX(), 
+//                    config.getContentConfig().getOffset() - config.getContentConfig().getSize() - 20));
+//        }else{
+//            url.append(getTextWaterMarker(lot.getContent(), config.getContentConfig()));
+//        }
+//        //签名和拼音
+//        int start = config.getStart(lot.getNames().size());
+//        for (int i = 0; i < lot.getNames().size(); i++) {
+//            int offset = i * (config.getLotNameConfig().getSize() + config.getSpace());
+//            url.append(getTextWaterMarker(lot.getNames().get(i), config.getLotNameConfig(), start + offset));
+//            int spellVOffset = config.getLotNameConfig().getOffset() + config.getLotNameConfig().getSize() + config.getLotSpellConfig().getOffset();
+//            url.append(getTextWaterMarker(lot.getSpells().get(i), config.getLotSpellConfig(), start + offset, spellVOffset));
+//        }
         
         return url.toString();
     }
