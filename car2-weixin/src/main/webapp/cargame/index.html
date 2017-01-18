@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html style="overflow:auto; overflowX:hidden">
+	<head>
+		<meta charset="UTF-8">
+		<title>车友飙车</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
+		<link rel="stylesheet" href="static/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="static/css/layout.css" />
+		<script src="static/js/adapt.js" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<audio preload="auto" id="start-music">
+			<source src="static/audio/start_music.mp3" type="audio/mpeg">
+		</audio>
+		<audio loop="loop" preload="auto" id="bg-music" src="static/audio/game_music.mp3"></audio>
+		<audio preload="auto" id="boom-music">
+			<source src="static/audio/colide_music.mp3" type="audio/mpeg">
+		</audio>
+
+		<audio preload="auto" id="over-music">
+			<source src="static/audio/over_music.mp3" type="audio/mpeg">
+		</audio>
+		<audio preload="auto" id="look-music">
+			<source src="static/audio/rank_music.mp3" type="audio/mpeg">
+		</audio>
+		<div class="loading">
+			<div class="load-txt">
+				正在加载中......
+			</div>
+		</div>
+		<!-- 游戏开始 -->
+		<div class="home">
+			<div class="homebg">
+				<img class="homecar" src="static/img/homecar.png" alt="">
+				<img class="zkc" src="static/img/zkc.png" />
+
+				<img class="start" src="static/img/start.gif" />
+				<div class="homefooter">
+					<span class="fl homesound"></span>
+					<img class="fr homelogo" src="static/img/homelogo.png" alt="">
+				</div>
+			</div>
+		</div>
+		<!-- 游戏 -->
+		<div class="game">
+			<img class="stopimg" src="static/img/stop.png" alt="">
+			<img class="playimg" src="static/img/play.png" alt="">
+			<canvas id="canvas"></canvas>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div class="tixingbg"></div>
+		<div class="game_introdute">
+			<div class="gamebg"></div>
+				<div class="introdute-con">
+					<ul class="introdute-txt clear">
+						<li class="fl">
+							<img src="static/img/hand.png" alt="">
+							<div class="introdute">
+								点击屏幕左侧，蓝色小车在左边两条车道之间移动
+							</div>
+						</li>
+						<li class="fl">
+							<img src="static/img/hand.png" alt="">
+							<div class="introdute">
+								点击屏幕右侧，红色小车在右边两条车道之间移动
+							</div>
+						</li>
+					</ul>
+					<div class="goodss">
+						<div class="">
+							<img class="oils" src="static/img/oil.png" alt="">
+							<span class="goods-txt">加油机是分数，得到的越多越好呦！</span>
+						</div>
+						<div class="">
+							<img class="obstacle" src="static/img/obstacle.png" alt="">
+							<span class="goods-txt">如果撞到路障，游戏就结束了哦！</span>
+						</div>
+					</div>
+					<span class="sure">确定，我知道怎么玩了！</span>
+				</div>
+
+		</div>
+		
+		<div class="stoppage">
+			<div class="stoppagebg"></div>
+			<div class="stopbtn clear">
+				<img class="backs" src="static/img/back.png" alt="">
+				<img class="bofang" src="static/img/bofang.png" alt="">
+				<img class="laba" src="static/img/laba.png" alt="">
+				<img class="sound" src="static/img/no.png" alt="">
+			</div>
+		</div>	
+		<!-- 游戏结束 -->
+		<div class="gameover">
+			<div class="gameover1">
+				<img class="over-logo" src="static/img/game-over.png" alt="">
+				<ul class="ranking">
+					<li class="distance">得分：</li>
+				</ul>
+				<div class="mark">
+					<img class="norecord" src="static/img/noRecord.png" alt="">
+					<img class="recordBreak" src="static/img/recordBreak.png" alt="">
+				</div>
+				<img class="lookrank" src="static/img/lookrank.png" alt="">
+				<img class="replay" src="static/img/replay.png" alt="">
+			</div>
+		</div>
+		<!--游戏结束-->
+		
+		<!--排行榜-->
+		<div class="ranks">
+			<div class="ranklogo">
+				<img  src="static/img/ranklogo.png" alt="">
+			</div>
+			<div class="rankMark">
+				<div class="rankMarks">
+					<div class="user clear">
+							<span class="mingci"></span>
+							<span class="hands">
+								<img  src="static/img/overbg.png" alt="">
+							</span>
+							<span class="nickname">昵称</span>
+							<span class="juli"></span>
+					</div>
+					<div class="rules"></div>
+					<div class="userall"></div>
+				</div>
+			</div>
+			<img class="blur" src="static/img/blur.png" alt="">
+			<span class="replay1">重玩一次</span>
+		</div>
+		<!--排行榜-->
+	</body>
+	<script src="static/js/jquery-1.12.1.min.js" charset="utf-8"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="static/js/index.js" charset="utf-8"></script>	
+</html>
