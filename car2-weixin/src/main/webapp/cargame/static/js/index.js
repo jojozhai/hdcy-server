@@ -565,11 +565,13 @@ $(function() {
 				})
 				// 再来一次
 			$(".replay").on('click', function() {
+				$(".userall").empty();
 				$(".gameover").hide();
 				again();
 			})
 
 			$('.replay1').on('click', function() {
+				$(".userall").empty();
 				$('.ranks').hide();
 				again();
 			})
