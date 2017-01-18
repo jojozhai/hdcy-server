@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi,width=375, user-scalable=0" id="viewport">
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <title>2017属于你的新年签</title>
-  </head>
-  <body>
-    <div class="page">
-    	  <div>
-    	  	<img class="newdraw" src="images/newdraw.png"/>
-    	  </div>
-      <img class="enter" src="images/enter.png" alt="">
-      <span class="owner"></span>
-    </div>
-    <div class="page1">
-      <div class="drawmes">
-      	<div class="">
-        <img class="name" src="images/name.png" alt="">
-      </div>
-      <input class="names" type="text" name="" value="">
-      <div class="">
-        <img class="sex" src="images/sex.png" alt="">
-      </div>
-      <div class="">
-        <img class="man item" src="images/man.png" alt="">
-        <img class="man1 item" src="images/man1.png" alt="">
-        <img class="woman item" src="images/woman.png" alt="">
-        <img class="woman1 item" src="images/woman1.png" alt="">
-      </div>
-      </div>
-      <div class="">
-      	<img class="qiusign" src="images/qiusign.png" alt="">
-      </div>
-      <span class="owner"></span>
-      
-      
-    </div>
-    <div class="page2">
-      <img id="drawimg" src="images/signimg.png"/>
-      <div class="drawbtn clear">
-      	<a  class="save fl" href="" download="抽签"></a>
-      	<span class="again fr"></span>
-      </div>
-      <span class="owners"></span>
-      
-    </div>
+		<title>2017属于你的新年签</title>
+	</head>
 
-  </body>
-  <script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
-  <script src="js/signs.js" charset="utf-8"></script>
+	<body>
+		<div class="page">
+			<div>
+				<img class="newdraw" src="images/newdraw.png" />
+			</div>
+			<img class="enter" src="images/enter.png" alt="">
+			<span class="owner"></span>
+		</div>
+		<div class="page1">
+			<div class="drawmes">
+				<div class="">
+					<img class="name" src="images/name.png" alt="">
+				</div>
+				<input class="names" type="text" name="" value="">
+				<div class="">
+					<img class="sex" src="images/sex.png" alt="">
+				</div>
+				<div class="">
+					<img class="man item" src="images/man.png" alt="">
+					<img class="man1 item" src="images/man1.png" alt="">
+					<img class="woman item" src="images/woman.png" alt="">
+					<img class="woman1 item" src="images/woman1.png" alt="">
+				</div>
+			</div>
+			<div class="">
+				<img class="qius qiusign" src="images/qiusign.png" alt="">
+			</div>
+			<span class="ownerimg owner"></span>
+		</div>
+		<div class="loads">
+			<div class="loading"></div>
+		<div class="loadmes">
+			<img class="loadimg" src="images/Loding.gif"/>
+			<p class="newsing">正在生成新年签</p>
+		</div>
+		</div>
+		<div class="page2">
+			<p class="loneAn">长按新年签可保存图片</p>
+			<img id="drawimg" src="" />
+			<div class="drawbtn">
+				<img class="agains" src="images/again.png" />
+			</div>
+			<span class="owners"></span>
+		</div>
+	</body>
+	<script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/signs.js" charset="utf-8"></script>
+
 </html>
