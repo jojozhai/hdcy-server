@@ -19,15 +19,12 @@ $(function() {
 			}
 		}
 	})
-//	main();
-
 	function main() {
 		var page = 1;
 		drawpage(page);
 		var desc1 = "2017，求一枚新年签。";
-		var shareimg1="http://cdn4dev.haoduocheyou.com/weixin2/draw/image/shareimg.jpg";
+		var shareimg1="http://cdn4dev.haoduocheyou.com/weixin2/draw/images/shareimg.jpg";
 		sharepage(desc1,shareimg1)
-
 		function drawpage(pages) {
 			$.ajax({
 				type: "get",
@@ -80,7 +77,10 @@ $(function() {
 		$(".qius").on('click', function() {
 			var name = $(".names").val();
 			if(name == "" || man == 0 && woman == 0) {
-				alert("请填写完整信息")
+				$(".alerts").fadeIn();
+				setTimeout(function  () {
+					$(".alerts").fadeOut();
+				},1500)
 			} else {
 				$(".loads").show();
 				page = 3;
@@ -185,6 +185,7 @@ $(function() {
 						"#wechat_redirect";
 					var imgUrl = shareimg;
 					var desc = des;
+					var desc1="";
 					wx.onMenuShareTimeline({
 						title: desc,
 						link: link,
@@ -195,7 +196,7 @@ $(function() {
 
 					wx.onMenuShareAppMessage({
 						title: desc,
-						//desc: desc,
+						desc: desc1,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
@@ -204,7 +205,7 @@ $(function() {
 
 					wx.onMenuShareQQ({
 						title: desc,
-						//desc: desc,
+						desc: desc1,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
@@ -213,7 +214,7 @@ $(function() {
 
 					wx.onMenuShareWeibo({
 						title: desc,
-						//desc: desc,
+						desc: desc1,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
@@ -222,7 +223,7 @@ $(function() {
 
 					wx.onMenuShareQZone({
 						title: desc,
-						//							desc: desc,
+						desc: desc1,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
