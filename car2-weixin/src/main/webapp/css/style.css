@@ -178,7 +178,7 @@
 	width: 100%;
 	margin: 8px 0 49px;
 	background: white;
-	padding: 0px 12px 12px;
+	padding: 0px 12px 33px;
 }
 
 .redsupport,.bluesupport {
@@ -238,7 +238,7 @@
 .bluesupport-list .redsupport-con{
 	background: url(../images/blue-con.png) no-repeat;
 	background-size: 100% 100%;
-	
+
 }
 .bluesupport-list .redsupport,.bluesupport-list .redsupport-cons {
 	float: right;
@@ -655,7 +655,7 @@ textarea {
 /*TODO*/
 .messagedel-cnt {
 	width: 100%;
-	background: white;	
+	background: white;
 	padding: 0 12px 10px;
 	padding-bottom: 10px;
 	font-size: 14px;
@@ -1121,7 +1121,7 @@ textarea {
 	position: absolute;
 	width: 100%;
 	left: 0px;
-	top: 0px;	
+	top: 0px;
 	background: #f7f7f7;
 	padding-bottom: 46px;
 	overflow: auto;
@@ -1698,7 +1698,7 @@ textarea {
 	font-size: 18px;
 	color: #ffffff;
 	text-align: center;
-	
+
 }
 
 .hdcanjia-box {
@@ -1713,14 +1713,14 @@ textarea {
 	margin-top: 70px;
 }
 
-.hdcanjia-box h2 {	
+.hdcanjia-box h2 {
 	padding: 0 17px 23px;
     box-sizing: border-box;
     border-bottom: 1px solid #E0E0E0;
     margin: 86px auto 34px;
     color: #494949;
     font-size: 12px;
-	font-weight: normal;	
+	font-weight: normal;
 }
 
 .hdcanjia-box h2 span {
@@ -2488,7 +2488,7 @@ textarea {
 	padding-top: 20px;
 	overflow: hidden;
 	margin-top: 131px;
-	
+
 }
 
 .daka-list li {
@@ -3590,7 +3590,7 @@ a.ng-scope {
 }
 .guanzhus .close1 {
 	width: 22px;
-	height:22px;	
+	height:22px;
 }
 .nocomment {
 	position: absolute;
