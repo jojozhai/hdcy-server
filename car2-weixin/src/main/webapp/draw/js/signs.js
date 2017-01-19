@@ -7,7 +7,6 @@ $(function() {
 		url: "../user/current",
 		dataType: "json",
 		success: function(obj) {
-			console.log("ss")
 			main();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -102,7 +101,6 @@ $(function() {
 					dataType: "json",
 					success: function(data) {
 						$("#drawimg").attr('src', data.content);
-						console.log(data.content)
 						$(".loads").hide();
 						$(".page1").hide();
 						$(".page2").show();
@@ -121,7 +119,7 @@ $(function() {
 			$(".man1").hide();
 			$(".page2").hide();
 			$(".page1").show();
-			console.log(desc1,shareimg1)
+			sharepage(desc1,shareimg1);
 		})
 	}
 
