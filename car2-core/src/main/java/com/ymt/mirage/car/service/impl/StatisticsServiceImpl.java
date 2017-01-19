@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -57,6 +58,8 @@ public class StatisticsServiceImpl implements StatisticsService {
     private StatisticsRepository statisticsRepository;
     
     private ObjectMapper objectMapper = new ObjectMapper();
+    
+    private Set<String> keys = new HashSet<>();
 
     /* (non-Javadoc)
      * @see com.ymt.mirage.car.service.StatisticsService#count(java.lang.String)
@@ -79,12 +82,23 @@ public class StatisticsServiceImpl implements StatisticsService {
         int result = statisticsRepository.updateCount(new Date(), region, number);
         
         if(result == 0) {
-            Statistics statistics = new Statistics();
-            statistics.setCount(1);
-            statistics.setDate(new Date());
-            statistics.setRegion(region);
-            statistics.setNumber(number);
-            statisticsRepository.save(statistics);
+            
+            String key = new DateTime().toString("yyyy-MM-dd")+number+region;
+            
+            if(!keys.contains(key)) {
+                
+                keys.add(key);
+             
+                Statistics statistics = new Statistics();
+                statistics.setCount(1);
+                statistics.setDate(new Date());
+                statistics.setRegion(region);
+                statistics.setNumber(number);
+                statisticsRepository.save(statistics);
+                
+                keys.remove(key);
+                
+            }
         }
         
     }

@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ymt.mirage.car</groupId>
 	<artifactId>car</artifactId>
-	<version>2.3.0-SNAPSHOT</version>
+	<version>2.3.0-RELEASE</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<pzx.admin.version>1.0.1-SNAPSHOT</pzx.admin.version>
 		<pzx.framework.version>1.0.1-SNAPSHOT</pzx.framework.version>
 		<mirage.version>1.0.0-SNAPSHOT</mirage.version>
-		<mirage.car.version>2.3.0-SNAPSHOT</mirage.car.version>
+		<mirage.car.version>2.3.0-RELEASE</mirage.car.version>
 	</properties>
 
 	<repositories>

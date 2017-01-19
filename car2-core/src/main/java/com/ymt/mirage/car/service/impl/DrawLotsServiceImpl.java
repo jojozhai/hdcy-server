@@ -11,7 +11,11 @@
  */
 package com.ymt.mirage.car.service.impl;
 
+import java.nio.charset.Charset;
+
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -46,6 +50,8 @@ public class DrawLotsServiceImpl implements DrawLotsService {
     
     @Autowired
     private UserRepository userRepository;
+    
+    private static final Logger logger = LoggerFactory.getLogger(DrawLotsServiceImpl.class); 
 
     /* (non-Javadoc)
      * @see com.ymt.mirage.car.service.DrawLotsService#draw(com.ymt.mirage.car.dto.DrawLotsInfo)
@@ -100,7 +106,7 @@ public class DrawLotsServiceImpl implements DrawLotsService {
 //            int spellVOffset = config.getLotNameConfig().getOffset() + config.getLotNameConfig().getSize() + config.getLotSpellConfig().getOffset();
 //            url.append(getTextWaterMarker(lot.getSpells().get(i), config.getLotSpellConfig(), start + offset, spellVOffset));
 //        }
-        
+        logger.info("url is : "+url);
         return url.toString();
     }
 
@@ -159,8 +165,10 @@ public class DrawLotsServiceImpl implements DrawLotsService {
      * @author zhailiang
      * @since 2017年1月8日
      */
-    private String base64Encode(String qrcode) {
-        String encode = Base64.encodeBase64URLSafeString(qrcode.getBytes());
+    private String base64Encode(String name) {
+        logger.info("name is : "+name);
+        String encode = Base64.encodeBase64URLSafeString(name.getBytes(Charset.forName("UTF-8")));
+        logger.info("name encode is : "+encode);
         if(encode.length() > 64) {
             throw new PzException("内容过长");
         }

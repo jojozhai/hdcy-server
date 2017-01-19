@@ -11,13 +11,11 @@
  */
 package com.ymt.mirage.car.web.controller.weixin;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ymt.mirage.car.dto.DrawLotsInfo;
 import com.ymt.mirage.car.service.DrawLotsService;
 import com.ymt.mirage.car.service.StatisticsService;
-import com.ymt.mirage.car.utils.HttpUtils;
 import com.ymt.mirage.car.web.config.DrawLotsConfigs;
 import com.ymt.mirage.user.web.controller.weixin.CurrentUserHolder;
 import com.ymt.pz365.framework.core.web.support.SuccessResponse;
@@ -50,6 +47,8 @@ public class DrawLotsController {
     
     @Autowired
     private DrawLotsConfigs drawLotsConfigs;
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(DrawLotsController.class);
 
     /**
      * 抽签服务
@@ -60,6 +59,7 @@ public class DrawLotsController {
      */
     @RequestMapping(value = "/game/draw/lots", method = RequestMethod.GET)
     public SuccessResponse drawLots(DrawLotsInfo info) {
+        LOGGER.info(ReflectionToStringBuilder.toString(info));
         info.setUserId(CurrentUserHolder.getCurrentUserId());
         return new SuccessResponse(drawLotsService.draw(info));
     }
