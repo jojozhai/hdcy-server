@@ -623,6 +623,7 @@ $(function() {
 					game: 'game',
 					point: dis
 				},
+				cache:false,
 				dataType: "json",
 				success: function(obj) {
 					if(obj.content == true) {
@@ -645,6 +646,7 @@ $(function() {
 					game: 'game',
 					point: dist
 				},
+				cache:false,
 				dataType: "json",
 				success: function(obj) {
 					if((obj.rank + 1) > 3) {
@@ -653,7 +655,7 @@ $(function() {
 						$(".user .mingci").css({
 							"width": "35px",
 							"height": "54px",
-							"background": "url(image/0" + (obj.rank + 1) + ".png) no-repeat",
+							"background": "url(static/img/0" + (obj.rank + 1) + ".png) no-repeat",
 							"background-size": "100% 100%",
 							"margin-top": "8px",
 						})
@@ -700,6 +702,7 @@ $(function() {
 						data: {
 							page: page,
 						},
+						cache:false,
 						dataType: "json",
 						success: function(obj) {
 							page++;
