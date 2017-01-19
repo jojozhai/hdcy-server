@@ -2,15 +2,13 @@ $(function() {
 	var weixinAppId = "wxce8eb11c51670a1d";
 	var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
 	var scope = (typeof weixinOauthType === 'undefined') ? "snsapi_base" : weixinOauthType;
-	var nickname = "";
 	$.ajax({
 		type: "get",
 		url: "../user/current",
 		dataType: "json",
 		success: function(obj) {
-			nickname = obj.nickname;
+			console.log("ss")
 			main();
-
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			if(XMLHttpRequest.status == 403) {
@@ -22,12 +20,14 @@ $(function() {
 			}
 		}
 	})
+//	main();
 
 	function main() {
 		var page = 1;
 		drawpage(page);
 		var desc1 = "2017，求一枚新年签。";
-		sharepage(desc1)
+		var shareimg1="http://cdn4dev.haoduocheyou.com/weixin2/draw/image/shareimg.jpg";
+		sharepage(desc1,shareimg1)
 
 		function drawpage(pages) {
 			$.ajax({
@@ -45,7 +45,7 @@ $(function() {
 			$(".page1").show();
 			page = 2;
 			drawpage(page);
-			sharepage(desc1)
+			sharepage(desc1,shareimg1)
 		})
 		$(".names").focus(function() {
 		$(".ownerimg").removeClass("owner");
@@ -86,9 +86,7 @@ $(function() {
 				$(".loads").show();
 				page = 3;
 				drawpage(page);
-				var desc2 = nickname + "的新年签：【新年签】，你呢？"
-				sharepage(desc2);
-
+				var desc2 = name + "的新年签，你呢？";	
 				if(man == 1) {
 					sex = 1;
 				} else if (woman==1) {
@@ -104,11 +102,12 @@ $(function() {
 					dataType: "json",
 					success: function(data) {
 						$("#drawimg").attr('src', data.content);
-						setTimeout(function  () {
-							$(".loads").hide();
-							$(".page1").hide();
-							$(".page2").show();
-						},500)
+						console.log(data.content)
+						$(".loads").hide();
+						$(".page1").hide();
+						$(".page2").show();
+						var shareimg2=data.content;
+						sharepage(desc2,shareimg2);
 					}
 				})
 			}
@@ -122,10 +121,11 @@ $(function() {
 			$(".man1").hide();
 			$(".page2").hide();
 			$(".page1").show();
+			console.log(desc1,shareimg1)
 		})
 	}
 
-	function sharepage(des) {
+	function sharepage(des,shareimg) {
 		var absurl = window.location.href;
 		if(absurl.indexOf("#") != -1) {
 			absurl = absurl.substring(0, absurl.indexOf("#"));
@@ -185,7 +185,7 @@ $(function() {
 						"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
 						"&state=" + encodeURIComponent(window.location.href) +
 						"#wechat_redirect";
-					var imgUrl = "http://cdn4dev.haoduocheyou.com/weixin2/race/image/shareicon.png";
+					var imgUrl = shareimg;
 					var desc = des;
 					wx.onMenuShareTimeline({
 						title: desc,
@@ -197,7 +197,7 @@ $(function() {
 
 					wx.onMenuShareAppMessage({
 						title: desc,
-						//							desc: desc,
+						//desc: desc,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
@@ -206,7 +206,7 @@ $(function() {
 
 					wx.onMenuShareQQ({
 						title: desc,
-						//							desc: desc,
+						//desc: desc,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
@@ -215,7 +215,7 @@ $(function() {
 
 					wx.onMenuShareWeibo({
 						title: desc,
-						//							desc: desc,
+						//desc: desc,
 						link: link,
 						imgUrl: imgUrl,
 						success: function() {},
