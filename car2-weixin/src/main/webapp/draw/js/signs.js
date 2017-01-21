@@ -1,46 +1,57 @@
 $(function() {
+	is_weixin();
 	var weixinAppId = "";
 	var oauthCallbackUrl = "";
 	var scope = (typeof weixinOauthType === 'undefined') ? "snsapi_base" : weixinOauthType;
 	$.ajax({
-		type:"get",
-		url:"../param/weixinAppId",
+		type: "get",
+		url: "../param/weixinAppId",
 		dataType: "json",
 		success: function(obj) {
-			weixinAppId=obj.value;
-		},
-	});
-	$.ajax({
-		type:"get",
-		url:"../param/oauthCallbackUrl",
-		dataType: "json",
-		success: function(obj) {
-			oauthCallbackUrl=obj.value;
+			weixinAppId = obj.value;
 		},
 	});
 	$.ajax({
 		type: "get",
-		url: "../user/current",
+		url: "../param/oauthCallbackUrl",
 		dataType: "json",
 		success: function(obj) {
-			main();
+			oauthCallbackUrl = obj.value;
 		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			if(XMLHttpRequest.status == 403) {
-				window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-					"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
-					"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
-					"&state=" + encodeURIComponent(window.location.href) +
-					"#wechat_redirect";
-			}
+	});
+	function is_weixin() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i) == "micromessenger") {
+			$.ajax({
+				type: "get",
+				url: "../user/current",
+				dataType: "json",
+				success: function(obj) {
+					main();
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					if(XMLHttpRequest.status == 403) {
+						window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+							"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
+							"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+							"&state=" + encodeURIComponent(window.location.href) +
+							"#wechat_redirect";
+					}
+				}
+			})
+			
+		} else {
+			main();
 		}
-	})
+	}
+
 	function main() {
 		var page = 1;
 		drawpage(page);
 		var desc1 = "2017，求一枚新年签。";
-		var shareimg1="http://cdn4dev.haoduocheyou.com/weixin2/draw/images/shareimg.jpg";
-		sharepage(desc1,shareimg1)
+		var shareimg1 = "http://cdn4dev.haoduocheyou.com/weixin2/draw/images/shareimg.jpg";
+		sharepage(desc1, shareimg1)
+
 		function drawpage(pages) {
 			$.ajax({
 				type: "get",
@@ -57,20 +68,20 @@ $(function() {
 			$(".page1").show();
 			page = 2;
 			drawpage(page);
-			sharepage(desc1,shareimg1)
+			sharepage(desc1, shareimg1)
 		})
 		$(".names").focus(function() {
-		$(".ownerimg").removeClass("owner");
-		$(".ownerimg").addClass("owner1");
-		$(".qius").removeClass("qiusign");
-		$(".qius").addClass("qiusign1");
-	});
-	$(".names").blur(function() {
-		$(".ownerimg").removeClass("owner1");
-		$(".ownerimg").addClass("owner");
-		$(".qius").removeClass("qiusign1");
-		$(".qius").addClass("qiusign");
-	});
+			$(".ownerimg").removeClass("owner");
+			$(".ownerimg").addClass("owner1");
+			$(".qius").removeClass("qiusign");
+			$(".qius").addClass("qiusign1");
+		});
+		$(".names").blur(function() {
+			$(".ownerimg").removeClass("owner1");
+			$(".ownerimg").addClass("owner");
+			$(".qius").removeClass("qiusign1");
+			$(".qius").addClass("qiusign");
+		});
 		var man = 0;
 		var woman = 0;
 		$(".man").on('click', function() {
@@ -94,19 +105,19 @@ $(function() {
 			var name = $(".names").val();
 			if(name == "" || man == 0 && woman == 0) {
 				$(".alerts").fadeIn();
-				setTimeout(function  () {
+				setTimeout(function() {
 					$(".alerts").fadeOut();
-				},1500)
+				}, 1500)
 			} else {
 				$(".loads").show();
 				page = 3;
 				drawpage(page);
-				var desc2 = name + "的新年签，你呢？";	
+				var desc2 = name + "的新年签，你呢？";
 				if(man == 1) {
 					sex = 1;
-				} else if (woman==1) {
+				} else if(woman == 1) {
 					sex = 2;
-				} 
+				}
 				$.ajax({
 					type: "get",
 					url: "../game/draw/lots",
@@ -120,26 +131,26 @@ $(function() {
 						$(".loads").hide();
 						$(".page1").hide();
 						$(".page2").show();
-						var shareimg2=data.content;
-						sharepage(desc2,shareimg2);
+						var shareimg2 = data.content;
+						sharepage(desc2, shareimg2);
 					}
 				})
 			}
 		})
 
 		$(".agains").on('click', function() {
-			$("#drawimg").attr('src',"");
+			$("#drawimg").attr('src', "");
 			$(".names").val("");
 			$(".item").show();
 			$(".woman1").hide();
 			$(".man1").hide();
 			$(".page2").hide();
 			$(".page1").show();
-			sharepage(desc1,shareimg1);
+			sharepage(desc1, shareimg1);
 		})
 	}
 
-	function sharepage(des,shareimg) {
+	function sharepage(des, shareimg) {
 		var absurl = window.location.href;
 		if(absurl.indexOf("#") != -1) {
 			absurl = absurl.substring(0, absurl.indexOf("#"));
@@ -201,7 +212,7 @@ $(function() {
 						"#wechat_redirect";
 					var imgUrl = shareimg;
 					var desc = des;
-					var desc1="";
+					var desc1 = "";
 					wx.onMenuShareTimeline({
 						title: desc,
 						link: link,
