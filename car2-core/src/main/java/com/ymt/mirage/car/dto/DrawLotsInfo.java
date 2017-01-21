@@ -30,7 +30,6 @@ public class DrawLotsInfo {
     public void check() {
         Assert.hasText(name, "姓名不能为空");
         Assert.hasText(sex, "性别不能为空");
-        Assert.notNull(userId, "用户id不能为空");
     }
 
     /**

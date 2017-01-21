@@ -22,7 +22,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import com.ymt.mirage.car.domain.DrawUser;
 import com.ymt.mirage.car.dto.DrawLotsInfo;
+import com.ymt.mirage.car.repository.DrawUserRepository;
 import com.ymt.mirage.car.service.DrawLotsService;
 import com.ymt.mirage.car.utils.Lots;
 import com.ymt.mirage.car.web.config.DrawLotsConfigs;
@@ -51,6 +53,9 @@ public class DrawLotsServiceImpl implements DrawLotsService {
     @Autowired
     private UserRepository userRepository;
     
+    @Autowired
+    private DrawUserRepository drawUserRepository;
+    
     private static final Logger logger = LoggerFactory.getLogger(DrawLotsServiceImpl.class); 
 
     /* (non-Javadoc)
@@ -62,9 +67,16 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         Assert.notNull(info, "抽签信息不能为空");
         info.check();
         
-        User user = userRepository.findOne(info.getUserId());
-        user.setRealname(info.getName());
-        user.setSex(info.getSex());
+        if(info.getUserId() != null) {
+            User user = userRepository.findOne(info.getUserId());
+            user.setRealname(info.getName());
+            user.setSex(info.getSex());
+        }else{
+            DrawUser user = new DrawUser();
+            user.setRealname(info.getName());
+            user.setSex(info.getSex());
+            drawUserRepository.save(user);
+        }
         
         String lot = lots.draw(info.getSex());
         
