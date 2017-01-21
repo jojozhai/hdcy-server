@@ -1,7 +1,23 @@
 $(function() {
-	var weixinAppId = "wxce8eb11c51670a1d";
-	var oauthCallbackUrl = "http%3A%2F%2Fcdn4dev.haoduocheyou.com%2Fweixin2%2Fweixin%2Foauth";
+	var weixinAppId = "";
+	var oauthCallbackUrl = "";
 	var scope = (typeof weixinOauthType === 'undefined') ? "snsapi_base" : weixinOauthType;
+	$.ajax({
+		type:"get",
+		url:"../param/weixinAppId",
+		dataType: "json",
+		success: function(obj) {
+			weixinAppId=obj.value;
+		},
+	});
+	$.ajax({
+		type:"get",
+		url:"../param/oauthCallbackUrl",
+		dataType: "json",
+		success: function(obj) {
+			oauthCallbackUrl=obj.value;
+		},
+	});
 	$.ajax({
 		type: "get",
 		url: "../user/current",
