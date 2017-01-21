@@ -3,43 +3,48 @@ $(function() {
 	var weixinAppId = "";
 	var oauthCallbackUrl = "";
 	var scope = (typeof weixinOauthType === 'undefined') ? "snsapi_base" : weixinOauthType;
-	$.ajax({
-		type: "get",
-		url: "../param/weixinAppId",
-		dataType: "json",
-		success: function(obj) {
-			weixinAppId = obj.value;
-		},
-	});
-	$.ajax({
-		type: "get",
-		url: "../param/oauthCallbackUrl",
-		dataType: "json",
-		success: function(obj) {
-			oauthCallbackUrl = obj.value;
-		},
-	});
+	function urls() {
+		$.ajax({
+			type: "get",
+			url: "../param/oauthCallbackUrl",
+			dataType: "json",
+			success: function(obj) {
+				oauthCallbackUrl = obj.value;
+				$.ajax({
+					type: "get",
+					url: "../user/current",
+					dataType: "json",
+					success: function(obj) {
+						main();
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if(XMLHttpRequest.status == 403) {
+							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+								"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
+								"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+								"&state=" + encodeURIComponent(window.location.href) +
+								"#wechat_redirect";
+						}
+					}
+				})
+
+			},
+		});
+	}
+
 	function is_weixin() {
 		var ua = navigator.userAgent.toLowerCase();
 		if(ua.match(/MicroMessenger/i) == "micromessenger") {
 			$.ajax({
 				type: "get",
-				url: "../user/current",
+				url: "../param/weixinAppId",
 				dataType: "json",
 				success: function(obj) {
-					main();
+					weixinAppId = obj.value;
+					urls();
 				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					if(XMLHttpRequest.status == 403) {
-						window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-							"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
-							"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
-							"&state=" + encodeURIComponent(window.location.href) +
-							"#wechat_redirect";
-					}
-				}
-			})
-			
+			});
+
 		} else {
 			main();
 		}

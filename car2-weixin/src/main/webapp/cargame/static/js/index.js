@@ -13,43 +13,47 @@ $(function() {
 	var oauthCallbackUrl = "";
 	var scope = (typeof weixinOauthType === 'undefined') ? "snsapi_base" : weixinOauthType;
 	$.ajax({
-		type:"get",
-		url:"../param/weixinAppId",
-		dataType: "json",
-		success: function(obj) {
-			weixinAppId=obj.value;
-		},
-	});
-	$.ajax({
-		type:"get",
-		url:"../param/oauthCallbackUrl",
-		dataType: "json",
-		success: function(obj) {
-			oauthCallbackUrl=obj.value;
-		},
-	});
-	$.ajax({
 		type: "get",
-		url: "../user/current",
+		url: "../param/weixinAppId",
 		dataType: "json",
 		success: function(obj) {
-			cargame();
+			weixinAppId = obj.value;
+			urls();
 		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			if(XMLHttpRequest.status == 403) {
-				window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-					"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
-					"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
-					"&state=" + encodeURIComponent(window.location.href) +
-					"#wechat_redirect";
-			}
+	});
 
-		}
-	})
+	function urls() {
+		$.ajax({
+			type: "get",
+			url: "../param/oauthCallbackUrl",
+			dataType: "json",
+			success: function(obj) {
+				oauthCallbackUrl = obj.value;
+				$.ajax({
+					type: "get",
+					url: "../user/current",
+					dataType: "json",
+					success: function(obj) {
+						cargame();
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if(XMLHttpRequest.status == 403) {
+							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+								"appid=" + weixinAppId + "&redirect_uri=" + oauthCallbackUrl + "&response_type=code" +
+								"&scope=snsapi_userinfo" + //+ ((typeof weixinOauthType === 'undefined')?"snsapi_base":weixinOauthType) +
+								"&state=" + encodeURIComponent(window.location.href) +
+								"#wechat_redirect";
+						}
+
+					}
+				})
+			},
+		});
+	}
 
 	function cargame() {
 		var allImg = ['static/img/bg.png', 'static/img/car.png',
-			'static/img/f_oil.png', 'static/img/f_g3.png', 'static/img/sores-bg.png', 'static/img/kill_boom.png', 'static/img/blueKart.png','static/img/back.png','static/img/blur.png','static/img/bofang.png','static/img/game-bg.png','static/img/game-over.png','static/img/hand.png','static/img/handbg.png','static/img/home-bg.png','static/img/homecar.png','static/img/homelogo.png','static/img/homesound.png','static/img/juli.png','static/img/laba.png','static/img/lookrank.png','static/img/mute.png','static/img/no.png','static/img/overbg.png','static/img/overbgup.png','static/img/play.png','static/img/rankbg.png','static/img/rankingbg.png','static/img/ranklogo.png'
+			'static/img/f_oil.png', 'static/img/f_g3.png', 'static/img/sores-bg.png', 'static/img/kill_boom.png', 'static/img/blueKart.png', 'static/img/back.png', 'static/img/blur.png', 'static/img/bofang.png', 'static/img/game-bg.png', 'static/img/game-over.png', 'static/img/hand.png', 'static/img/handbg.png', 'static/img/home-bg.png', 'static/img/homecar.png', 'static/img/homelogo.png', 'static/img/homesound.png', 'static/img/juli.png', 'static/img/laba.png', 'static/img/lookrank.png', 'static/img/mute.png', 'static/img/no.png', 'static/img/overbg.png', 'static/img/overbgup.png', 'static/img/play.png', 'static/img/rankbg.png', 'static/img/rankingbg.png', 'static/img/ranklogo.png'
 		];
 
 		var loadOver = [];
@@ -66,6 +70,7 @@ $(function() {
 		var coxspeed = 4;
 		var removeBol = false;
 		var removeBol1 = false;
+
 		function homeAnimate() {
 			$(".home").show();
 			if(audioFlag == 1) {
@@ -503,47 +508,47 @@ $(function() {
 
 			var moveAble = false;
 			var limitX = 0.148 * canvas.width;
-			var leftroad=1;
+			var leftroad = 1;
 			$(".left")[0].addEventListener("touchstart", function() {
-				if (leftroad==1) {
+				if(leftroad == 1) {
 					hero.drawX = canvas.width * 3 / 8 - 12;
 					hero.drawY = canvas.height - heroH - 10;
-					leftroad=0;
-				}else{
+					leftroad = 0;
+				} else {
 					hero.drawX = canvas.width / 8 - 12;
 					hero.drawY = canvas.height - heroH - 10;
-					leftroad=1;
+					leftroad = 1;
 				}
-//				var first = event.touches[0].clientX;
-//				if(first > $(".left").width() / 2) {
-//					hero.drawX = canvas.width * 3 / 8 - 12;
-//					hero.drawY = canvas.height - heroH - 10;
-//				} else {
-//					hero.drawX = canvas.width / 8 - 12;
-//					hero.drawY = canvas.height - heroH - 10;
-//				}
+				//				var first = event.touches[0].clientX;
+				//				if(first > $(".left").width() / 2) {
+				//					hero.drawX = canvas.width * 3 / 8 - 12;
+				//					hero.drawY = canvas.height - heroH - 10;
+				//				} else {
+				//					hero.drawX = canvas.width / 8 - 12;
+				//					hero.drawY = canvas.height - heroH - 10;
+				//				}
 				event.preventDefault();
 			}, false);
 
-			var rightroad=1;
+			var rightroad = 1;
 			$(".right")[0].addEventListener("touchstart", function() {
-				if (rightroad==1) {
+				if(rightroad == 1) {
 					hero1.drawX = canvas.width * 7 / 8 - 20;
 					hero1.drawY = canvas.height - heroH - 10;
-					rightroad=0;
-				}else{
+					rightroad = 0;
+				} else {
 					hero1.drawX = canvas.width * 5 / 8 - 10;
 					hero1.drawY = canvas.height - heroH - 10;
-					rightroad=1;
+					rightroad = 1;
 				}
-//				var second = event.touches[0].clientX - $(".left").width();
-//				if(second >= $(".right").width() / 2) {
-//					hero1.drawX = canvas.width * 7 / 8 - 20;
-//					hero1.drawY = canvas.height - heroH - 10;
-//				} else {
-//					hero1.drawX = canvas.width * 5 / 8 - 10;
-//					hero1.drawY = canvas.height - heroH - 10;
-//				}
+				//				var second = event.touches[0].clientX - $(".left").width();
+				//				if(second >= $(".right").width() / 2) {
+				//					hero1.drawX = canvas.width * 7 / 8 - 20;
+				//					hero1.drawY = canvas.height - heroH - 10;
+				//				} else {
+				//					hero1.drawX = canvas.width * 5 / 8 - 10;
+				//					hero1.drawY = canvas.height - heroH - 10;
+				//				}
 				event.preventDefault();
 			}, false);
 
@@ -639,7 +644,7 @@ $(function() {
 					game: 'game',
 					point: dis
 				},
-				cache:false,
+				cache: false,
 				dataType: "json",
 				success: function(obj) {
 					if(obj.content == true) {
@@ -662,7 +667,7 @@ $(function() {
 					game: 'game',
 					point: dist
 				},
-				cache:false,
+				cache: false,
 				dataType: "json",
 				success: function(obj) {
 					if((obj.rank + 1) > 3) {
@@ -718,7 +723,7 @@ $(function() {
 						data: {
 							page: page,
 						},
-						cache:false,
+						cache: false,
 						dataType: "json",
 						success: function(obj) {
 							page++;
