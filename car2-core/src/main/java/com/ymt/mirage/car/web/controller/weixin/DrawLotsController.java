@@ -87,6 +87,7 @@ public class DrawLotsController {
     @RequestMapping(value = "/game/draw/lots/statistics", method = RequestMethod.GET)
     public void statistics(@RequestParam String number, HttpServletRequest request) {
         String ip = request.getRemoteAddr();
+        System.out.println(ip);
         statisticsService.count(ip, number);
     }
 

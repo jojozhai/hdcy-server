@@ -14,6 +14,7 @@ package com.ymt.mirage.car.service.impl;
 import java.nio.charset.Charset;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,8 +70,17 @@ public class DrawLotsServiceImpl implements DrawLotsService {
         
         if(info.getUserId() != null) {
             User user = userRepository.findOne(info.getUserId());
-            user.setRealname(info.getName());
-            user.setSex(info.getSex());
+            if(StringUtils.isNotBlank(user.getDraw())) {
+                DrawUser drawUser = new DrawUser();
+                drawUser.setRealname(info.getName());
+                drawUser.setSex(info.getSex());
+                drawUserRepository.save(drawUser);
+            }else{
+                user.setRealname(info.getName());
+                user.setSex(info.getSex());
+                user.setDraw("yes");
+            }
+            
         }else{
             DrawUser user = new DrawUser();
             user.setRealname(info.getName());

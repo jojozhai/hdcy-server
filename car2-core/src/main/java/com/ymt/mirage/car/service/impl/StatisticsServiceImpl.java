@@ -71,7 +71,7 @@ public class StatisticsServiceImpl implements StatisticsService {
         
         AliResponse aliResponse = getIpInfo(ip);
         
-        if(aliResponse != null) {
+        if(aliResponse != null && aliResponse.getData() != null) {
             region = aliResponse.getData().getRegion();
         }
         
@@ -123,6 +123,27 @@ public class StatisticsServiceImpl implements StatisticsService {
         
         return result;
     }
+    
+//    public static void main(String[] args) {
+//        AliResponse result = null;
+//        String host = "https://dm-81.data.aliyun.com";
+//        String path = "/rest/160601/ip/getIpInfo.json";
+//        String method = "GET";
+//        Map<String, String> headers = new HashMap<String, String>();
+//        headers.put("Authorization", "APPCODE 4d966f1953a0475a92c71e70c7a55075");
+//        Map<String, String> querys = new HashMap<String, String>();
+//        querys.put("ip", "61.49.176.214");
+//
+//        try {
+//            HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
+//            String content = EntityUtils.toString(response.getEntity());
+//            result = new ObjectMapper().readValue(content, AliResponse.class);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(ReflectionToStringBuilder.toString(result));
+//        System.out.println(ReflectionToStringBuilder.toString(result.getData()));
+//    }
 
     @Override
     public List<DrawPageStatisticsInfo> statisticsByPage(Pageable pageable) {
