@@ -151,6 +151,8 @@ $(function() {
 			$(".man1").hide();
 			$(".page2").hide();
 			$(".page1").show();
+			page = 2;
+			drawpage(page);
 			sharepage(desc1, shareimg1);
 		})
 	}
