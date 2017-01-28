@@ -13,6 +13,7 @@ package com.ymt.mirage.car.web.controller.weixin;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,9 +87,15 @@ public class DrawLotsController {
      */
     @RequestMapping(value = "/game/draw/lots/statistics", method = RequestMethod.GET)
     public void statistics(@RequestParam String number, HttpServletRequest request) {
-        String ip = request.getRemoteAddr();
-        System.out.println(ip);
-        statisticsService.count(ip, number);
+        String ipFromNginx = getHeader(request, "X-Real-IP");  
+        System.out.println("ipFromNginx:" + ipFromNginx);  
+        System.out.println("getRemoteAddr:" + request.getRemoteAddr());
+        statisticsService.count(ipFromNginx, number);
     }
+    
+    private String getHeader(HttpServletRequest request, String headName) {  
+        String value = request.getHeader(headName);  
+        return !StringUtils.isBlank(value) && !"unknown".equalsIgnoreCase(value) ? value : "";  
+    } 
 
 }
